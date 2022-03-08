@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Examples</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background: url('./assets/img/clouds-bg-copy.jpg');
+            background-attachment: fixed;
+            background-position: bottom;
+            background-size: cover;
+        }
+        section {
+            padding: 100px;
+            color: #111;
+        }
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <header></header>
+        <section>
+            <h2>Resize Background on Scroll</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. A ut fuga expedita. Autem quibusdam alias ipsum deserunt assumenda similique enim perferendis aliquam at laudantium cupiditate itaque tempore odit temporibus tenetur eligendi beatae ullam dolore iusto, nostrum, velit doloribus possimus? Iste voluptatibus quam nostrum ab tempore libero quis placeat perferendis dolor.</p>
+        </section>
+    </main>
+
+    <script>
+        const headers = document.getElementsByTagName('header');
+        const bg = headers[0];
+        window.addEventListener('scroll', function(){
+            bg.style.backgroundSize = 160 - +window.pageYOffset/12 + '%';
+            bg.style.opacity = 1 - +window.pageYOffset/700;
+        })
+    </script>
+</body>
+
+</html>
