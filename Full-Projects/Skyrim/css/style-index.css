@@ -8,6 +8,207 @@
     padding: 0;
 }
 
+body {
+    overflow-x: hidden;
+}
+
+.starry-night-scene {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background:  url('../assets/img/pngegg74-copy.png'), 
+    url('../assets/img/skyrim_mountains__transparent_background__by_sosinizter_d71jn48-copy.png');
+    background-position: top, top;
+    background-size: cover, cover;
+    overflow: hidden;
+    /* background-attachment: fixed; */
+}
+
+.moon {
+    position: absolute;
+    top: 5%;
+    left: 20%;
+    width: 150px;
+    height: 150px;
+}
+.moon img {
+    width: 100%;
+    height: 100%;
+}
+
+.clouds {
+    width: 100%;
+}
+.cloud1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 600px;
+    z-index: 1000;
+    animation: clouds 50s linear infinite;
+}
+.cloud2 {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    max-width: 500px;
+    z-index: 1000;
+    animation: clouds 35s linear infinite;
+}
+.cloud3 {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    max-width: 300px;
+    z-index: 1000;
+    animation: clouds 80s linear infinite;
+}
+.cloud4 {
+    position: absolute;
+    top: 200px;
+    left: 0;
+    max-width: 300px;
+    z-index: 1000;
+    animation: clouds 70s linear infinite;
+    animation-delay: -20s;
+}
+.cloud5 {
+    position: absolute;
+    top: 150px;
+    left: 0;
+    max-width: 500px;
+    z-index: 1000;
+    animation: clouds 40s linear infinite;
+    animation-delay: -5s;
+}
+.cloud6 {
+    position: absolute;
+    top: 75px;
+    left: 0;
+    max-width: 400px;
+    z-index: 1000;
+    animation: clouds 30s linear infinite;
+    animation-delay: -10s;
+}
+@keyframes clouds {
+    0% {
+        /* transform: translateX(-100%) scale(1); */
+        left: -650px;
+    }
+    100% {
+        /* transform: translateX(400%) scale(1.5); */
+        left: 100%;
+    }
+}
+
+.starry-night-scene i {
+    position: absolute;
+    border-radius: 50%;
+    background: #fff;
+    animation: stars linear infinite;
+}
+@keyframes stars {
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+    10%, 90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+}
+
+.main-title-container {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    z-index: 4000;
+    background-position: bottom right, center;
+    background-size: contain, cover;
+    background-repeat: no-repeat;
+    animation: removebg 5s linear 5s backwards;
+}
+@keyframes removebg {
+    0% {
+        background-image: url('../assets/img/3823088-copy.jpg'), linear-gradient(0deg, #000, #000);
+    }
+    /* 40% {
+        background-image: url('./norwegian-copy.png'), linear-gradient(0deg, #000, #000);
+    } */
+    100% {
+        background-image: linear-gradient(0deg, transparent, transparent);
+    }
+}
+
+.main-title {
+    width: 50%;
+    z-index: 5000;
+    animation: zooming 5s linear 2s backwards;
+}
+@keyframes hidetitle {
+    0%   {opacity: 1;}
+    50%  {opacity: 1;}
+    100% {opacity: 0;}
+}
+@keyframes zooming {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.enter {
+    /* visibility: hidden; */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 6000;
+}
+.enter img {
+    min-width: 300px;
+    max-width: 350px;
+}
+.enter a {
+    position: absolute;
+    color: #000;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bolder;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 2px solid #fff;
+    border-radius: 20px;
+}
+
+#page-2 {
+    background: url('../assets/img/games-the-elder-scrolls-v-skyrim-55851b-copy.jpg');
+    background-color: #000;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    animation: scale 5s linear;
+}
+@keyframes scale {
+    0%   { transform: scale(1.9)}
+    100% { transform: scale(1); }
+}
+.inner {
+    width: 100%;
+    height: 100vh;
+}
+
 
 
 
