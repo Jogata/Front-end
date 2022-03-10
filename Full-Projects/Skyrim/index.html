@@ -16,7 +16,7 @@
                     <img src="./assets/img/skyrim-logo-dragon-waterdrop-copy.png" alt="logo dragon">
                 </a>
             </section>
-            <ul>
+            <ul id="navigation-links">
                 <li>
                     <a href="">home</a>
                 </li>
@@ -27,22 +27,23 @@
                     <a href="">contact us</a>
                 </li>
             </ul>
-            <ul>
-                <li id="login">
-                    <a href="">login</a>
-                </li>
-                <li>
-                    <!-- <a href="" class="logout">logout</a> -->
-                    <a href="" class="logout">
-                        <img src="./assets/img/power-button-icon-8346-Windows.ico" alt="">
-                        <span>logout</span>
-                        <span>logout</span>
-                        <span>logout</span>
-                        <span>logout</span>
-                    </a>
-                    <!-- <span>sound<i class="fa fa-volume-up" aria-hidden="true"></i></span> -->
-                </li>
-            </ul>
+            <section class="options">
+                <button id="options-button">
+                    <img src="./assets/img/power-button-icon-8346-Windows.ico" alt="settings">
+                </button>
+                <ul>
+                    <li>
+                        <a href="" id="login">login</a>
+                    </li>
+                    <li>
+                        <a href="" id="logout">logout</a>
+                    </li>
+                    <li id="sound">
+                        <!-- <span>sound</span> -->
+                        <button>sound<i class="fa fa-volume-up" aria-hidden="true"></i></button>
+                    </li>
+                </ul>
+            </section>
         </nav>
     </header>
     <section class="start-page">
