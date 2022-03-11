@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "monk";
+    src:url("/Users/jonko/Desktop/Front-end/Full-Projects/Skyrim/assets/fonts/Monk-Gothic.ttf");
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -9,6 +14,7 @@
 }
 
 body {
+    font-family: "monk";
     overflow-x: hidden;
 }
 
@@ -40,6 +46,7 @@ a {
     font-size: 1.2rem;
     text-transform: capitalize;
     text-decoration: none;
+    letter-spacing: 3px;
     border: 2px solid #fff;
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.7);
@@ -86,8 +93,10 @@ a {
     flex-direction: column;
 }
 .options ul li {
-    /* position: absolute; */
+    position: absolute;
     width: 100%;
+
+    display: none;
 }
 #login {
     /* display: none; */
@@ -95,11 +104,8 @@ a {
 #logout {
     /* display: none; */
 }
-.logout:hover {
-    padding-left: auto;
-    padding-right: auto;
-    padding-bottom: auto;
-    background: rgba(255, 255, 255, 0.7);
+#logout:hover {
+    background: rgba(255, 255, 255, 1);
 }
 #sound {
     /* color: #fff; */
@@ -114,7 +120,7 @@ a {
 #sound button {
     width: 100%;
     border: none;
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     background: transparent;
 }
@@ -303,6 +309,7 @@ a {
 }
 
 #page-2 {
+    position: relative;
     background: url('../assets/img/games-the-elder-scrolls-v-skyrim-55851b-copy.jpg');
     background-color: #000;
     background-repeat: no-repeat;
@@ -317,9 +324,57 @@ a {
 .inner {
     width: 100%;
     height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
 }
 
+.magic-schools {
+    position: absolute;
+    top: 6%;
+    left: 9%;
+    width: 20%;
+}
+.magic-schools img {
+    width: 100%;
+    animation: rotate 30s linear infinite;
 
+    margin-top: 200px;
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.magic-schools h2,
+.bestiary h2 {
+    font-size: 50px;
+    text-align: center;
+    text-transform: capitalize;
+    color: transparent;
+    background: linear-gradient(0deg, rgb(166, 59, 32), rgb(234, 142, 28), rgb(166, 59, 32));
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+}
 
-
-
+.bestiary {
+    width: 400px;
+    position: absolute;
+    top: 20%;
+    right: 0;
+}
+.bestiary img {
+    width: 100%;
+}
+.bestiary h2 {
+    font-size: 50px;
+    text-align: center;
+    text-transform: capitalize;
+    color: transparent;
+    background: linear-gradient(0deg, rgb(130 174 185), rgb(228 231 232), rgb(130, 174, 185));
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+}
