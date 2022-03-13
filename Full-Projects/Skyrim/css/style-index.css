@@ -91,6 +91,10 @@ a {
     border-radius: 20px;
     background-color: transparent;
 }
+#options-button:hover {
+    width: 128px;
+    background: rgba(255,255,255,0.5);
+}
 .options ul {
     /* position: absolute; */
     display: flex;
@@ -317,6 +321,7 @@ a {
 #page-2 {
     position: relative;
     background: url('../assets/img/games-the-elder-scrolls-v-skyrim-55851b-copy.jpg');
+    /* background: url('../assets/img/00test/Victoria6-Linia-copy.png'); */
     background-color: #000;
     background-repeat: no-repeat;
     background-position: center;
@@ -327,6 +332,12 @@ a {
     0%   { transform: scale(1.9)}
     100% { transform: scale(1); }
 }
+
+.inner section {
+    width: 100%;
+    height: 100vh;
+}
+
 .inner {
     width: 100%;
     height: 100vh;
@@ -362,9 +373,13 @@ a {
     text-transform: capitalize;
     color: transparent;
     background: linear-gradient(0deg, rgb(166, 59, 32), rgb(234, 142, 28), rgb(166, 59, 32));
+    /* background: linear-gradient(0deg, rgb(130 174 185), rgb(228 231 232), rgb(130, 174, 185)); */
     background-clip: text;
     -webkit-background-clip: text;
     text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+}
+.magic-schools h2:hover {
+    transform: scale(1.1);
 }
 
 .bestiary {
@@ -393,20 +408,39 @@ a {
         drop-shadow(15px 15px 15px rgba(0, 0, 0, 0.2))
     drop-shadow(-3px -3px 2px rgba(255, 255, 255, 0.3));
 } */
-.bestiary h2 {
+.inner .bestiary-i {
+    width: 100%;
+    height: auto;
+    justify-content: space-around;
+}
+.bestiary-i h2 {
+    /* width: 100%; */
+    position: relative;
     font-size: 50px;
     text-align: center;
     text-transform: capitalize;
     color: transparent;
-    background: linear-gradient(0deg, rgb(130 174 185), rgb(228 231 232), rgb(130, 174, 185));
+    background: linear-gradient(0deg, rgb(130, 174, 185), rgb(228, 231, 232), rgb(130, 174, 185));
+    background: linear-gradient(0deg, rgb(174 144 46), rgb(255, 232, 155), rgb(174, 144, 46));
     background-clip: text;
     -webkit-background-clip: text;
     text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+    z-index: 5;
+    transition: 1s;
 }
-
-#page-2 section {
-    width: 100%;
-    height: 100vh;
+.bestiary-i:hover h2 {
+    transform: scale(1.1);
+}
+.bestiary-i:hover img {
+    opacity: 1;
+}
+.bestiary-i img {
+    width: 55px;
+    opacity: 0;
+    transition: 1s;
+}
+.h2l {
+    transform: rotateY(180deg);
 }
 
 
@@ -419,5 +453,5 @@ a {
     filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.2)) 
         drop-shadow(15px 15px 15px rgba(0, 0, 0, 0.2))
     drop-shadow(-3px -3px 2px rgba(255, 255, 255, 0.3));
-    mix-blend-mode: soft-light;
+    mix-blend-mode: color-burn;
 }
