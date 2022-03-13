@@ -321,7 +321,7 @@ a {
 #page-2 {
     position: relative;
     background: url('../assets/img/games-the-elder-scrolls-v-skyrim-55851b-copy.jpg');
-    /* background: url('../assets/img/00test/Victoria6-Linia-copy.png'); */
+    /* background: url('../assets/img/00test/00tits/Victoria6-Linia-copy.png'); */
     background-color: #000;
     background-repeat: no-repeat;
     background-position: center;
@@ -408,12 +408,12 @@ a {
         drop-shadow(15px 15px 15px rgba(0, 0, 0, 0.2))
     drop-shadow(-3px -3px 2px rgba(255, 255, 255, 0.3));
 } */
-.inner .bestiary-i {
+.inner .bestiary-title {
     width: 100%;
     height: auto;
     justify-content: space-around;
 }
-.bestiary-i h2 {
+.bestiary-title h2 {
     /* width: 100%; */
     position: relative;
     font-size: 50px;
@@ -428,18 +428,18 @@ a {
     z-index: 5;
     transition: 1s;
 }
-.bestiary-i:hover h2 {
+.bestiary-title:hover h2 {
     transform: scale(1.1);
 }
-.bestiary-i:hover img {
-    opacity: 1;
-}
-.bestiary-i img {
+.bestiary-title img {
     width: 55px;
     opacity: 0;
     transition: 1s;
 }
-.h2l {
+.bestiary-title:hover img {
+    opacity: 1;
+}
+.ornament-left {
     transform: rotateY(180deg);
 }
 
@@ -454,4 +454,55 @@ a {
         drop-shadow(15px 15px 15px rgba(0, 0, 0, 0.2))
     drop-shadow(-3px -3px 2px rgba(255, 255, 255, 0.3));
     mix-blend-mode: color-burn;
+}
+
+#page-3 {
+    position: relative;
+    /* background: url('../assets/img/00bg/16007668057_cb66fe80c1_k\ -\ Copy.jpg'); */
+    /* background: url('../assets/img/00bg/4188200\ -\ Copy.jpg'); */
+    /* background: url('../assets/img/00bg/734475_video-games-the-elder-scrolls-v-skyrim-wallpapers-hd-desktop_1920x1080_h\ -\ Copy.png'); */
+    /* background: url('../assets/img/00bg/_21_skyrim-special-edition-wallpaper__Immersified-Skyrim-Game-Startup-using-Main-Menu-Wallpaper-Replacer-HD-and-Personalized-Music_\ -\ Copy.jpg'); */
+    /* background: url('../assets/img/00bg/_21_skyrim-special-edition-wallpaper_Skyrim-4K-Wallpaper-57+-images-\ -\ Copy.jpg'); */
+    /* background: url('../assets/img/00bg/_21_skyrim-special-edition-wallpaper_Skyrim-Special-Edition-First-PS4-Mods-Already-Available-\ -\ Copy.jpg'); */
+    /* background: url('../assets/img/00bg/_21_skyrim-special-edition-wallpaper_Skyrim-Special-edition-Wallpaper-1-by-Miraak29-on-DeviantArt\ -\ Copy.png'); */
+    /* background: url('../assets/img/00bg/_21_skyrim-special-edition-wallpaper_Skyrim-Special-edition-Wallpaper-3-by-Miraak29-on-DeviantArt\ -\ Copy.png'); */
+    /* background: url('../assets/img/00bg/games-the-elder-scrolls-v-skyrim-20623\ -\ Copy.jpg'); */
+    /* background: url('../assets/img/00bg/games-the-elder-scrolls-v-skyrim-23030\ -\ Copy.jpg'); */
+    /* background: url('../assets/img/00bg/games-the-elder-scrolls-v-skyrim-26220\ -\ Copy.jpg'); */
+    /* background: url('../assets/img/00bg/games-the-elder-scrolls-v-skyrim-27816\ -\ Copy.jpg'); */
+    /* background: url('../assets/img/00bg/games-the-elder-scrolls-v-skyrim-32361\ -\ Copy.jpg'); */
+    /* background: url('../assets/img/00bg/games-the-elder-scrolls-v-skyrim-38466\ -\ Copy.jpg'); */
+    background: url('../assets/img/00bg/games-the-elder-scrolls-v-skyrim-39367-copy.jpg');
+    /* background: url('../assets/img/00bg/games-the-elder-scrolls-v-skyrim-41451\ -\ Copy.jpg'); */
+    /* background: url('../assets/img/00bg/games-the-elder-scrolls-v-skyrim-44164\ -\ Copy.jpg'); */
+    /* background: url('../assets/img/00bg/games-the-elder-scrolls-v-skyrim-67806\ -\ Copy.jpg'); */
+    /* background: url('../assets/img/00bg/games-the-elder-scrolls-v-skyrim-8597\ -\ Copy.jpg'); */
+    /* background: url('../assets/img/00bg/games-the-elder-scrolls-v-skyrim-9032\ -\ Copy.jpg'); */
+    background-color: #000;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    animation: scale 5s linear;
+}
+
+.locations {
+    max-width: 300px;
+    flex-direction: column;
+}
+.locations img {
+    width: 100%;
+}
+.locations h2 {
+    font-size: 50px;
+    text-align: center;
+    text-transform: capitalize;
+    color: transparent;
+    background: linear-gradient(0deg, rgb(166, 59, 32), rgb(234, 142, 28), rgb(166, 59, 32));
+    /* background: linear-gradient(0deg, rgb(130 174 185), rgb(228 231 232), rgb(130, 174, 185)); */
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+}
+.locations h2:hover {
+    transform: scale(1.1);
 }
