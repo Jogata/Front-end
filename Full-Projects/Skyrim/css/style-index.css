@@ -320,7 +320,7 @@ a {
 
 #page-2 {
     position: relative;
-    background: url('../assets/img/games-the-elder-scrolls-v-skyrim-55851b-copy.jpg');
+    background: url('../assets/img/bg/games-the-elder-scrolls-v-skyrim-55851b-copy.jpg');
     /* background: url('../assets/img/00test/00tits/Victoria6-Linia-copy.png'); */
     background-color: #000;
     background-repeat: no-repeat;
@@ -458,7 +458,7 @@ a {
 
 #page-3 {
     position: relative;
-    background: url('../assets/img/00bg/games-the-elder-scrolls-v-skyrim-39367-copy.jpg');
+    background: url('../assets/img/bg/games-the-elder-scrolls-v-skyrim-39367-copy.jpg');
     background-color: #000;
     background-repeat: no-repeat;
     background-position: center;
@@ -505,11 +505,42 @@ a {
 #page-4 {
     position: relative;
     background-color: #000;
-    /* background: url('../assets/img/00bg/16007668057_cb66fe80c1_k\ -\ Copy.jpg');
+    background: url('../assets/img/bg/locations-page-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    animation: scale 5s linear;
+}
+
+#skyrim-history-section {
+    position: absolute;
+    left: 40px;
+    bottom: 10%;
+    width: 50%;
+    min-width: 290px;
+    height: 70vh;
+    font-family: initial;
+    text-indent: 5px;
+    font-size: 18px;
+    color: #fff;
+    background: url('../assets/img/border_patterns_03_preview-copyhw.png'), url('../assets/img/border_patterns_03_preview-copyvw.png'), url('../assets/img/border_patterns_03_preview-copyvw.png'), url('../assets/img/border_patterns_03_preview-copyhw.png');
+    background-size: 290px, 20px, 20px, 290px;
+    background-repeat: repeat-x, repeat-y, repeat-y, repeat-x;
+    background-position: top, left, right, bottom;
+    padding: 30px 25px;
+    border-radius: 20px;
+}
+
+#skyrim-history-section p {
+    margin-bottom: 20px;
+}
+
+
+/*  Backgrounds
+    background: url('../assets/img/00bg/16007668057_cb66fe80c1_k\ -\ Copy.jpg');
     background: url('../assets/img/00bg/4188200\ -\ Copy.jpg');
-    background: url('../assets/img/00bg/734475_video-games-the-elder-scrolls-v-skyrim-wallpapers-hd-desktop_1920x1080_h\ -\ Copy.png'); */
-    background: url('../assets/img/00bg/_21_skyrim-special-edition-wallpaper__Immersified-Skyrim-Game-Startup-using-Main-Menu-Wallpaper-Replacer-HD-and-Personalized-Music_\ -\ Copy.jpg');
-    /* background: url('../assets/img/00bg/_21_skyrim-special-edition-wallpaper_Skyrim-4K-Wallpaper-57+-images-\ -\ Copy.jpg');
+    background: url('../assets/img/00bg/734475_video-games-the-elder-scrolls-v-skyrim-wallpapers-hd-desktop_1920x1080_h\ -\ Copy.png');
+    background: url('../assets/img/00bg/_21_skyrim-special-edition-wallpaper_Skyrim-4K-Wallpaper-57+-images-\ -\ Copy.jpg');
     background: url('../assets/img/00bg/_21_skyrim-special-edition-wallpaper_Skyrim-Special-Edition-First-PS4-Mods-Already-Available-\ -\ Copy.jpg');
     background: url('../assets/img/00bg/_21_skyrim-special-edition-wallpaper_Skyrim-Special-edition-Wallpaper-1-by-Miraak29-on-DeviantArt\ -\ Copy.png');
     background: url('../assets/img/00bg/_21_skyrim-special-edition-wallpaper_Skyrim-Special-edition-Wallpaper-3-by-Miraak29-on-DeviantArt\ -\ Copy.png');
@@ -523,9 +554,5 @@ a {
     background: url('../assets/img/00bg/games-the-elder-scrolls-v-skyrim-44164\ -\ Copy.jpg');
     background: url('../assets/img/00bg/games-the-elder-scrolls-v-skyrim-67806\ -\ Copy.jpg');
     background: url('../assets/img/00bg/games-the-elder-scrolls-v-skyrim-8597\ -\ Copy.jpg');
-    background: url('../assets/img/00bg/games-the-elder-scrolls-v-skyrim-9032\ -\ Copy.jpg'); */
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    animation: scale 5s linear;
-}
+    background: url('../assets/img/00bg/games-the-elder-scrolls-v-skyrim-9032\ -\ Copy.jpg');
+*/
