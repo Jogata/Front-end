@@ -723,6 +723,69 @@ a {
 }
 
 
+#page-8 {
+    position: relative;
+    background-color: #000;
+    background: url('../assets/img/bg/Windhelm-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    animation: scale 5s linear;
+}
+.windhelm-page h1 {
+    position: absolute;
+    font-size: 20vw;
+    /* text-transform: capitalize; */
+    letter-spacing: 0.5rem;
+    color: transparent;
+}
+
+.title-animated::before {
+    content: attr(data-text);
+    position: absolute;
+    width: 105%;
+    height: 100%;
+    color: transparent;
+    border-right: 2px solid rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.7);
+    background-clip: content-box;
+    -webkit-background-clip: text;
+    text-shadow: 1px 2px 1px rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    z-index: 1;
+    animation: titleanimation 60s linear infinite backwards;
+    animation-delay: 5s;
+}
+.windhelm-page .title-animated::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    min-width: 110%;
+    min-height: 70%;
+    background: url('../assets/img/WindhelmGuardsShield.png') no-repeat;
+    background-position: right;
+    background-size: contain;
+}
+
+#windhelm-history-section {
+    min-width: 290px;
+    height: 70vh;
+    font-family: initial;
+    text-indent: 5px;
+    font-size: 18px;
+    color: #fff;
+    background: url('../assets/img/border_patterns_03_preview-copyhw.png'), url('../assets/img/border_patterns_03_preview-copyvw.png'), url('../assets/img/border_patterns_03_preview-copyvw.png'), url('../assets/img/border_patterns_03_preview-copyhw.png');
+    background-size: 290px, 20px, 20px, 290px;
+    background-repeat: repeat-x, repeat-y, repeat-y, repeat-x;
+    background-position: top, left, right, bottom;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 0px 20px;
+    padding: 40px 25px;
+    border-radius: 20px;
+    display: none;
+}
+
+
 /*  Backgrounds
     background: url('../assets/img/00bg/16007668057_cb66fe80c1_k\ -\ Copy.jpg');
     background: url('../assets/img/00bg/4188200\ -\ Copy.jpg');
