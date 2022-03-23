@@ -49,6 +49,10 @@ body {
     overflow-x: hidden;
 }
 
+h1 {
+    user-select: none;
+}
+
 header {
     position: fixed;
     width: 100%;
@@ -815,6 +819,69 @@ a {
     background-size: 290px, 20px, 20px, 290px;
     background-repeat: repeat-x, repeat-y, repeat-y, repeat-x;
     background-position: top, left, right, bottom;
+    margin: 0px 20px;
+    padding: 40px 25px;
+    border-radius: 20px;
+    display: none;
+}
+
+
+#page-10 {
+    position: relative;
+    background-color: #000;
+    background: url('../assets/img/bg/Riften-bg-copy.jpg');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+    animation: scale 5s linear;
+}
+.riften-page h1 {
+    position: absolute;
+    font-size: 20vw;
+    /* text-transform: capitalize; */
+    letter-spacing: 0.5rem;
+    color: transparent;
+}
+
+.title-animated::before {
+    content: attr(data-text);
+    position: absolute;
+    width: 105%;
+    height: 100%;
+    color: transparent;
+    border-right: 2px solid rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.7);
+    background-clip: content-box;
+    -webkit-background-clip: text;
+    text-shadow: 1px 2px 1px rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    z-index: 1;
+    animation: titleanimation 60s linear infinite backwards;
+    animation-delay: 5s;
+}
+.riften-page .title-animated::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    min-width: 125%;
+    min-height: 70%;
+    background: url('../assets/img/RiftenGuardsShield.png') no-repeat;
+    background-position: right;
+    background-size: contain;
+}
+
+#riften-history-section {
+    min-width: 290px;
+    height: 70vh;
+    font-family: initial;
+    text-indent: 5px;
+    font-size: 18px;
+    color: #fff;
+    background: url('../assets/img/border_patterns_03_preview-copyhw.png'), url('../assets/img/border_patterns_03_preview-copyvw.png'), url('../assets/img/border_patterns_03_preview-copyvw.png'), url('../assets/img/border_patterns_03_preview-copyhw.png');
+    background-size: 290px, 20px, 20px, 290px;
+    background-repeat: repeat-x, repeat-y, repeat-y, repeat-x;
+    background-position: top, left, right, bottom;
+    background-color: rgba(0, 0, 0, 0.5);
     margin: 0px 20px;
     padding: 40px 25px;
     border-radius: 20px;
