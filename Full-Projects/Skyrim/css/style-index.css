@@ -671,7 +671,7 @@ a {
         border-right: 2px solid rgba(0, 0, 0, 0.7);
     }
     7%, 19% {
-        width: 100%;
+        width: 103%;
         border-right: 2px solid rgba(0, 0, 0, 0.7);
     }
     
@@ -925,6 +925,67 @@ a {
 }
 
 
+#page-12 {
+    position: relative;
+    background-color: #000;
+    background: url('../assets/img/bg/Falkreath-copy-entrance.jpg');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+    animation: scale 5s linear;
+}
+.falkreath-page h1 {
+    position: absolute;
+    font-size: 20vw;
+    /* text-transform: capitalize; */
+    letter-spacing: 0.5rem;
+    color: transparent;
+}
+
+.title-animated::before {
+    content: attr(data-text);
+    position: absolute;
+    width: 103%;
+    height: 100%;
+    color: transparent;
+    border-right: 2px solid rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.7);
+    background-clip: content-box;
+    -webkit-background-clip: text;
+    text-shadow: 1px 2px 1px rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    z-index: 1;
+    animation: titleanimation 60s linear infinite backwards;
+    animation-delay: 5s;
+}
+.falkreath-page .title-animated::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    min-width: 125%;
+    min-height: 70%;
+    background: url('../assets/img/FalkreathGuardsShield.png') no-repeat;
+    background-position: right;
+    background-size: contain;
+}
+
+#falkreath-history-section {
+    min-width: 290px;
+    height: 70vh;
+    font-family: initial;
+    text-indent: 5px;
+    font-size: 18px;
+    color: #fff;
+    background: url('../assets/img/border_patterns_03_preview-copyhw.png'), url('../assets/img/border_patterns_03_preview-copyvw.png'), url('../assets/img/border_patterns_03_preview-copyvw.png'), url('../assets/img/border_patterns_03_preview-copyhw.png');
+    background-size: 290px, 20px, 20px, 290px;
+    background-repeat: repeat-x, repeat-y, repeat-y, repeat-x;
+    background-position: top, left, right, bottom;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 0px 20px;
+    padding: 40px 25px;
+    border-radius: 20px;
+    display: none;
+}
 
 /*  Backgrounds
     background: url('../assets/img/00bg/16007668057_cb66fe80c1_k\ -\ Copy.jpg');
