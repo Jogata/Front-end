@@ -1095,6 +1095,41 @@ a {
     display: none;
 }
 
+
+#page-15 {
+    position: relative;
+    background-color: #000;
+    background: url('../assets/img/bg/Haafingar-bg-1-copy.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    animation: scale 5s linear;
+}
+.haafingar-hold-page h1 {
+    position: absolute;
+    font-size: 20vw;
+    /* text-transform: capitalize; */         /* TODO */
+    letter-spacing: 0.5rem;
+    color: transparent;
+}
+
+#haafingar-hold-history-section {
+    min-width: 290px;
+    height: 70vh;
+    font-family: initial;
+    text-indent: 5px;
+    font-size: 18px;
+    color: #fff;
+    background: url('../assets/img/border_patterns_03_preview-copyhw.png'), url('../assets/img/border_patterns_03_preview-copyvw.png'), url('../assets/img/border_patterns_03_preview-copyvw.png'), url('../assets/img/border_patterns_03_preview-copyhw.png');
+    background-size: 290px, 20px, 20px, 290px;
+    background-repeat: repeat-x, repeat-y, repeat-y, repeat-x;
+    background-position: top, left, right, bottom;
+    margin: 0px 20px;
+    padding: 40px 25px;
+    border-radius: 20px;
+    display: none;
+}
+
 /*  Backgrounds
     background: url('../assets/img/00bg/16007668057_cb66fe80c1_k\ -\ Copy.jpg');
     background: url('../assets/img/00bg/4188200\ -\ Copy.jpg');
