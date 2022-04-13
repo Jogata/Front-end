@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock</title>
+
+    <style>
+        *, ::before, ::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            filter: 
+            drop-shadow(3px 3px 1px rgba(0, 0, 0, 0.2)) 
+            drop-shadow(5px 5px 1px rgba(0, 0, 0, 0.2))
+            drop-shadow(-3px -3px 2px rgba(255, 255, 255, 0.3));
+        }
+
+        .clock {
+            position: absolute;
+            width: 230px;
+            height: 230px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            background-color: #000;
+            box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.27);
+        }
+
+        .circle2 {
+            position: absolute;
+            width: 76%;
+            height: 76%;
+            border-radius: 50%;
+            background-color: #fff;
+            box-shadow: inset 3px 3px 4px 3px rgb(119, 119, 119),
+            inset -3px -3px 3px 3px rgba(255, 255, 255, 0.85);
+        }
+        .circle3 {
+            position: absolute;
+            width: 40%;
+            height: 40%;
+            border-radius: 50%;
+            background-color: #000;
+            box-shadow: 3px 3px 4px 3px rgb(119, 119, 119),
+            -3px -3px 3px 3px rgba(255, 255, 255, 0.85);
+        }
+        .clock-face {
+            position: absolute;
+            width: 112%;
+            height: 112%;
+            background-image: url('./assets/img/clock.png');
+            background-size: cover;
+        }
+
+        .clock-hands {
+            position: absolute;
+        }
+        .clock-hands::before {
+            position: absolute;
+            content: '';
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: red;
+            z-index: 4;
+        }
+
+        .hh, .mm, .ss {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+        }
+        .hh {
+            height: 200px;
+            z-index: 2;
+        }
+        .mm {
+            height: 320px;
+        }
+        .ss {
+            height: 370px;
+            z-index: 3;
+        }
+        .hh::after, 
+        .mm::after, 
+        .ss::after {
+            position: absolute;
+            content: '';
+            height: 50%;
+            border-radius: 20px;
+            background-color: rgb(213, 213, 213);
+        }
+        .hh::after {
+            width: 6px;
+        }
+        .mm::after {
+            width: 5px;
+        }
+        .ss::after {
+            width: 3px;
+            height: 59%;
+            background-color: red;
+        }
+
+        p {
+            position: absolute;
+            font-size: 29px;
+            font-style: italic;
+            font-weight: bold;
+            bottom: -30px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="container flex">
+        <div class="map">
+            <img src="./assets/img/earth-global-map-flat.png" alt="">
+        </div>
+        <div class="clock flex">
+            <span class="circle2"></span>
+            <span class="circle3"></span>
+            <div class="clock-face flex">
+                <div class="clock-hands flex">
+                    <div class="hh"></div>
+                    <div class="mm"></div>
+                    <div class="ss"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        setInterval(function(){
+            const hours = document.querySelector('.hh');
+            const minutes = document.querySelector('.mm');
+            const seconds = document.querySelector('.ss');
+    
+            let time = new Date();
+            const hh = time.getHours();
+            const mm = time.getMinutes();
+            const ss = time.getSeconds();
+    
+            let hourCount = (hh * 30) + (mm/12);
+            let minCount = mm * 6;
+            let secCount = ss * 6;
+    
+            hours.style.transform = 'rotate(' + hourCount + 'deg)';
+            minutes.style.transform = 'rotate(' + minCount + 'deg)';
+            seconds.style.transform = 'rotate(' + secCount + 'deg)';
+        })
+    </script>
+</body>
+
+</html>
