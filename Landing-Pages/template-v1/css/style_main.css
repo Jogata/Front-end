@@ -22,7 +22,166 @@ font-family: 'Montserrat', sans-serif;
     width: 100%;
     height: 100vh;
 }
+.bg {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('../img/landscape-bg.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
+}
 
+.form-container {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+}
 
+.banner-text {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-40%, -50%);
+}
+.banner-text h1 {
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 80px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+.banner-text p {
+    color: #eee;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 40px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-align: right;
+}
 
+.pink {
+    color: palevioletred;
+}
 
+.btns {
+    position: absolute;
+    top: 40px;
+    right: 60px;
+}
+.btn {
+    width: 170px;
+    color: #fff;
+    padding: 10px 15px;
+    margin: 10px;
+    outline: none;
+    border: 2px solid tomato;
+    border-radius: 50px;
+    text-transform: capitalize;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.btn:hover {
+    transform: translateY(-2px);
+    background-color: rgba(255, 99, 71, 1);
+}
+.btn:active {
+    transform: translateY(0);
+    background-color: transparent;
+}
+
+.modal {
+    position: absolute;
+    width: 400px;
+    border-radius: 20px;
+    background: linear-gradient(rgba(148, 42, 42, 0.8), rgba(185, 129, 129, 0.6)), url('../img/landscape-bg.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.x-btn {
+    position: absolute;
+    right: 20px;
+    color: #222;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.form-header {
+    color: #fff;
+    text-align: center;
+    margin: 80px 0 80px;
+}
+.form-header h2 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 40px;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+.form-header h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 10px;
+}
+.input-group input {
+    width: 250px;
+    padding: 15px 15px 15px 50px;
+    color: #ddd;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    background: rgba(0, 0, 0, 0.6);
+}
+.input-group i {
+    position: absolute;
+    top: 13px;
+    left: 17px;
+    font-size: 18px;
+    color: #aaa;
+}
+
+.form button {
+    width: 250px;
+    margin: 10px 0 50px;
+    padding: 12px;
+    color: #fff;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    background: linear-gradient(rgba(148, 42, 42, 0.8), rgba(185, 129, 129, 0.6));
+    box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 7px 7px 12px rgba(0, 0, 0, 0.3);
+}
+.form button:active {
+    transform: translateY(0px);
+    box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.4);
+}
