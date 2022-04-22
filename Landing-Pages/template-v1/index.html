@@ -9,7 +9,69 @@
     <link rel="stylesheet" href="./css/style_main.css">
 </head>
 <body>
+    <div class="bg container">
+        <!-- Title -->
+        <div class="banner-text">
+            <h1>Code And <span class="pink">Create</span></h1>
+            <p><span class="pink">Learn</span> how to code</p>
+        </div>
 
+        <!-- Login/SignUp Buttons -->
+        <div class="btns">
+            <button class="btn login-btn">login</button>
+            <button class="btn signup-btn">sign up</button>
+        </div>
+        
+        <!-- Login/SignUp Forms -->
+        <div class="form-container flex hidden">
+            <!-- Login Form -->
+            <div class="login-form-wrapper modal hidden">
+                <div class="x-btn login-x">
+                    &times;
+                </div>
+                <div class="form-header">
+                    <h2>CodeAndCreate</h2>
+                    <h3>login</h3>
+                </div>
+                <form action="" class="form">
+                    <div class="input-group">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                        <input type="text" name="username" id="username" placeholder="Username">
+                    </div>
+                    <div class="input-group">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        <input type="password" name="password" id="password" placeholder="Password">
+                    </div>
+                    <button type="button">login</button>
+                </form>
+            </div>
+            <!-- SignUp Form -->
+            <div class="signup-form-wrapper modal hidden">
+                <div class="x-btn signup-x">
+                    &times;
+                </div>
+                <div class="form-header">
+                    <h2>CodeAndCreate</h2>
+                    <h3>join us</h3>
+                </div>
+                <form action="" class="form">
+                    <div class="input-group">
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                        <input type="text" name="username" id="username" placeholder="Username">
+                    </div>
+                    <div class="input-group">
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        <input type="email" name="email" id="email" placeholder="Email">
+                    </div>
+                    <div class="input-group">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        <input type="password" name="password" id="password" placeholder="Password">
+                    </div>
+                    <button type="button">sign up</button>
+                </form>
+            </div>
+        </div>
+    </div>
     <script src="./js/script.js"></script>
 </body>
 </html>
