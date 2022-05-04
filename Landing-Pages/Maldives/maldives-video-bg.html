@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maldives Landing Page with Video Background</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 100%;
+            height: 100vh;
+        }
+        .flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #bvt {
+            position: relative;
+            background: url('./img/maldives-bg.png');
+            background-position: center;
+            background-size: cover;
+        }
+        .logo-bvt {
+            position: absolute;
+            top: 0;
+            width: 250px;
+            height: 100px;
+            color: transparent;
+            font-size: 50px;
+            font-weight: bold;
+            text-transform: capitalize;
+            -webkit-text-stroke: 1px #000;
+            z-index: 2;
+        }
+        .sidebar-bvt {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.6);
+        }
+        .text-box-bvt {
+            position: absolute;
+            top: 45%;
+            text-align: center;
+            text-transform: uppercase;
+            transform: rotate(-90deg);
+        }
+        .text-box-bvt h1 {
+            font-size: 28px;
+            font-weight: 100;
+        }
+        .text-box-bvt h4 {
+            margin: 7px 0px 10px;
+        }
+        .line {
+            width: 80px;
+            height: 1px;
+            margin: auto;
+            background: #000;
+        }
+        
+        .content-bvt {
+            position: absolute;
+            right: 200px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+        }
+        .content-bvt h1 {
+            font-size: 100px;
+            text-transform: capitalize;
+            color: transparent;
+            -webkit-text-stroke: 1px #fff;
+        }
+        .content-bvt p {
+            font-size: 22px;
+            margin: 10px 0px 40px;
+            text-transform: capitalize;
+        }
+        
+        #backvideo {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            visibility: hidden;
+        }
+        /* position video with media queries */
+        /* #backvideo {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+        @media (min-aspect-ratio: 16/9) {
+            #backvideo{
+                width: 100%;
+                height: auto;
+            }
+        }
+        @media (max-aspect-ratio: 16/9) {
+            #backvideo{
+                width: auto;
+                height: 100%;
+            }
+        } */
+    </style>
+</head>
+
+<body>
+    <section class="container" id="bvt">
+        <!-- <video id="backvideo" src="./img/production ID_4010941.mp4" muted loop autoplay></video> -->
+        <div class="logo-bvt flex">logo</div>
+        <div class="sidebar-bvt">
+            <div class="text-box-bvt">
+                <h1>golden resort</h1>
+                <h4>luxury living</h4>
+                <div class="line"></div>
+            </div>
+        </div>
+        <div class="content-bvt">
+            <h1>maldives</h1>
+            <p>very nice appartaments in the heart of maldives</p>
+        </div>
+    </section>
+</body>
+
+</html>
