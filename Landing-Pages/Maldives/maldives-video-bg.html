@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Maldives Landing Page with Video Background</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
         * {
@@ -85,18 +86,18 @@
         }
         .content-bvt p {
             font-size: 22px;
-            margin: 10px 0px 40px;
+            margin: 10px 0px;
             text-transform: capitalize;
         }
         
         #backvideo {
             width: 100%;
             height: 100vh;
-            object-fit: cover;
+            /* object-fit: cover; */
             visibility: hidden;
         }
         /* position video with media queries */
-        /* #backvideo {
+        #backvideo {
             position: absolute;
             right: 0;
             bottom: 0;
@@ -112,13 +113,67 @@
                 width: auto;
                 height: 100%;
             }
-        } */
+        }
+
+
+.pulse-button-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transform: scale(0.7);
+}
+
+.playpause {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    color: transparent;
+    background: #dde1e7;
+    border: none;
+    border-radius: 50%;
+    font-size: 30px;
+    text-transform: capitalize;
+    background: linear-gradient(0deg, #ddd, #fff);
+    box-shadow: 2px 2px 5px rgb(0 0 0 / 20%), inset -1px -1px 2px rgb(0 0 0 / 20%);
+    cursor: pointer;
+    transition: 0.5s;
+}
+.playpause:hover {}
+
+.play, .pause {
+    position: absolute;
+    padding: 16px 2px;
+    inset: 8px;
+    border-radius: 50%;
+    color: #96d2d2;
+    background: linear-gradient(0deg, #fff, #ddd);
+}
+.play {
+  padding-left: 10px;
+  background: linear-gradient(0deg, #ddd, #fff);
+}
+.pause {
+  opacity: 0;
+}
+.visibility {
+  opacity: 1;
+}
+
+.action {
+    color: #fff;
+    font-size: 50px;
+    white-space: nowrap;
+    text-transform: capitalize;
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+    font-weight: bold;
+}
     </style>
 </head>
 
 <body>
     <section class="container" id="bvt">
-        <!-- <video id="backvideo" src="./img/production ID_4010941.mp4" muted loop autoplay></video> -->
+        <video id="backvideo" src="./img/aerial-shot-of-a-beach-resort.mp4" muted loop></video>
         <div class="logo-bvt flex">logo</div>
         <div class="sidebar-bvt">
             <div class="text-box-bvt">
@@ -130,8 +185,37 @@
         <div class="content-bvt">
             <h1>maldives</h1>
             <p>very nice appartaments in the heart of maldives</p>
+            <div class="pulse-button-box">
+                <button type="button" class="playpause">
+                        <i class="fa fa-play play visibility" aria-hidden="true"></i>
+                        <i class="fa fa-pause pause" aria-hidden="true"></i>
+                    play/pause video
+                </button>
+                <div class="action">
+                    play video
+                </div>
+            </div>
         </div>
     </section>
+
+    <script>
+        const playIcon = document.querySelector('.play');
+        const pauseIcon = document.querySelector('.pause');
+        const playBtn = document.querySelector('.playpause');
+        const video = document.getElementById('backvideo');
+
+        playBtn.addEventListener('click', () => {
+            pauseIcon.classList.toggle('visibility');
+            playIcon.classList.toggle('visibility');
+            if (video.paused) {
+                video.play();
+                video.style.visibility = 'visible';
+            } else {
+                video.pause();
+                video.style.visibility = 'hidden';
+            }
+        })
+    </script>
 </body>
 
 </html>
