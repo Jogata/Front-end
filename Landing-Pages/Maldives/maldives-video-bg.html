@@ -121,6 +121,13 @@
     align-items: center;
     gap: 20px;
     transform: scale(0.7);
+    animation: pulse 3s linear infinite;
+}
+.pulse-button-box:hover {
+    animation-play-state: paused;
+}
+@keyframes pulse {
+    50% { transform: scale(.8); }
 }
 
 .playpause {
@@ -138,7 +145,6 @@
     cursor: pointer;
     transition: 0.5s;
 }
-.playpause:hover {}
 
 .play, .pause {
     position: absolute;
