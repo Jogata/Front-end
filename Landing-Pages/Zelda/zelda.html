@@ -4,27 +4,134 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/style_main.css">
+    <title>Zelda</title>
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #zelda {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        #zelda::before {
+            content: '';
+            width: 120%;
+            height: 120%;
+            position: absolute;
+            inset: 0 auto auto 0;
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)), url('./img/Vikings-War_of_Clans.jpg');
+            background-position: center, center;
+            background-size: cover, cover;
+            background-repeat: no-repeat, no-repeat;
+            animation: animatebg 85s linear infinite;
+        }
+        @keyframes animatebg {
+            50% {
+                transform: scale(1.2) translateX(-20%);
+                background-position: top;
+            }
+        }
+        .card-zelda {
+            position: relative;
+            width: 610px;
+            margin: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            transition: all 0.5s;
+        }
+        .content-zelda {
+            position: relative;
+            max-width: 300px;
+            margin: auto;
+            padding: 20px 20px 40px;
+            z-index: 3;
+            display: none;
+        }
+        .card-zelda:hover .content-zelda {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+        }
+        .content-zelda h2 {
+            color: #fff;
+            font-size: 2.2rem;
+            text-transform: uppercase;
+        }
+        .content-zelda p {
+            color: #fff;
+        }
+        .content-zelda a {
+            position: relative;
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            color: #111;
+            background: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.5s;
+        }
+        @media screen and (max-width: 660px) { 
+            .content-zelda {
+                max-width: 90%;
+            }
+        }
+        @media screen and (max-width: 510px) { 
+            .content-zelda {
+                width: 100%;
+                padding: 0px 0px 40px;
+            }
+        }
+        .content-zelda a:hover {
+            background: #1a2f3f;
+            background: #fff;
+        }
+        .img-zelda, .logo-zelda {
+            position: relative;
+            width: 100%;
+            max-width: 300px;
+            margin: auto;
+            transform: scale(1.1);
+            transition: all 1s;
+        }
+        .img-zelda {
+            border-top-left-radius: 50%;
+        }
+        .logo-zelda {
+            z-index: 3;
+        }
+        .card-zelda:hover .img-zelda {
+            transform: scale(1.5);
+        }
+        .card-zelda:hover .logo-zelda {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="nav">
-            <div class="logo">
-                <img src="" alt="logo">
+    <section class="flex" id="zelda">
+        <div class="card-zelda">
+            <div class="content-zelda">
+                <h2>zelda</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet adipisci repellat aliquam hic, voluptatibus alias nesciunt aspernatur laboriosam dolorum accusamus aliquid perferendis, fugit maxime quos temporibus vero dolorem. Quidem, exercitationem!</p>
+                <a href="#">read more</a>
             </div>
-            <ul>
-                <li>home</li>
-                <li>2</li>
-                <li>about us</li>
-                <li>contact</li>
-            </ul>
-        </nav>
-        <h1>hello</h1>
-    </header>
-    <main>
-        
-    </main>
-    <script src="./js/script_JS.js"></script>
+            <img class="logo-zelda" src="./img/legend-of-zelda-logo.png" alt="">
+            <img class="img-zelda" src="./img/legend-of-zelda-clip_1796468-copy.png" alt="">
+        </div>
+    </section>
 </body>
 </html>
