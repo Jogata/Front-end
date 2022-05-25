@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*::before, *::after {
+    margin: 0;
+    padding: 0;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h2, h3, p {
+    width: 100%;
+    text-align: center;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+}
+hr {
+    width: 50%;
+    margin: 0px auto 40px;
+}
+
+.main-section {
+    position: relative;
+    width: 100%;
+    min-width: fit-content;
+    padding: min(10%, 100px);
+}
+
+header {
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    padding: 40px min(10%, 50px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo img {
+    max-width: 100px;
+    transition: all 0.5s;
+}
+.logo img:hover {
+    transform: scale(1.2);
+
+}
+.hamburger-menu {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+.menu-bar {
+    width: 100%;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.main {
+    position: relative;
+    width: 100%;
+    margin-top: max(80px, 10%);
+}
+.img-box {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+}
+.img-box::before {
+    content: 'zoomx';
+    position: absolute;
+    top: -25%;
+    font-size: 20vw;
+    font-weight: bolder;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.193);
+    z-index: 1;
+}
+.img-box img {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    filter: drop-shadow(5px 15px 7px rgba(0, 0, 0, 0.5)) hue-rotate(204deg);
+    animation: bounce 5s linear infinite;
+}
+@keyframes bounce {
+    25% {
+        transform: translateY(calc(-5px - 1vw));
+    }
+    75% {
+        transform: translateY(calc(5px + 1vw));
+    }
+}
+
+.text {
+    position: relative;
+    max-width: 700px;
+    margin-top: max(20px, 2vw);
+    color: #fff;
+    z-index: 2;
+}
+.text h2 {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    border-bottom: 4px solid #5f7088; 
+    text-shadow: 1px 2px 1px rgba(255, 255, 255, 0.193);
+}
+.text a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 30px;
+    color: inherit;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    background-color: transparent;
+    box-shadow: 2px 2px 3px rgb(4, 17, 27);
+    user-select: none;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.text a:active {
+    transform: translate(-0.7px);
+    border-top: 1px solid rgb(4, 17, 27);
+    border-left: 1px solid rgb(4, 17, 27);
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.3);
+}
+.text a:hover {
+    font-size: 20px;
+}
+
+.sci {
+    position: absolute;
+    inset: auto 40px 40px auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 10px;
+    z-index: 3;
+}
+.sci li {
+    list-style: none;
+    transition: all 0.5s;
+}
+.sci li:hover {
+    transform: scale(1.3);
+}
+.sci li a {
+    display: block;
+    width: 25px;
+    height: 25px;
+    color: #fff;
+    font-size: 25px;
+    text-align: center;
+    border-radius: 5px;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.193);
+}
+.sci li a:focus {
+    outline: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 700px) {
+    .sci {
+        position: static;
+        padding: 20px;
+        flex-direction: row;
+        gap: 10vw;
+    }
+}
+
+body {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 800px), 1fr));
+    background: linear-gradient(to bottom, #00354d, #388dab);
+    background-image: url('../img/nike-allyson-felix-weight-loss-running.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.details {
+    position: relative;
+    padding: min(10%, 100px);
+    color: #fff;
+    z-index: 2;
+}
+.details p {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
