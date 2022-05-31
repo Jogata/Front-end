@@ -28,7 +28,8 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-.home {
+.home, 
+.video-section {
     padding-bottom: 10vh;
     background: radial-gradient(#525252, #131313);
 }
@@ -43,14 +44,9 @@ h1 {
 }
 h2 {
     font-size: 4.7rem;
-    font-size: clamp(5vw, 2.6rem, 4.7rem);
+    font-size: calc(2rem + 4vw);
     filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.9))
     drop-shadow(-2px -2px 2px rgba(255, 255, 255, 0.4));
-}
-h3 {
-    font-size: 2rem;
-    font-size: clamp(1.5rem, 2.5rem, 2vw);
-    padding-bottom: 1.7rem;
 }
 h4 {
     font-size: 1.6rem;
@@ -78,11 +74,11 @@ a:active {
     transform: scale(1.1);
 }
 
-.nav-container {
+.nav-container, .footer-container {
+    /* min-width: 280px; */
     background-color: rgb(7, 7, 7);
-    z-index: 5;
 }
-nav {
+nav, footer {
     width: 80%;
     margin: auto;
     padding: 1.6rem 0;
@@ -132,7 +128,7 @@ ul {
 }
 .order:hover {
     color: #fff;
-    background-color: rgba(245, 69, 56);
+    background-color: #f54538;
 }
 
 .showcase {
@@ -149,6 +145,7 @@ ul {
 }
 img {
     grid-column: 2 / 3;
+    grid-row: 1 / 2;
     width: 100%;
 }
 .info {
@@ -156,8 +153,14 @@ img {
     text-align: right;
     justify-self: right;
 }
+.info h3 {
+    font-size: 2rem;
+    font-size: clamp(1.5rem, 2.5rem, 2vw);
+    padding-bottom: 1.7rem;
+}
 
 .features-container {
+    /* min-width: 280px; */
     position: relative;
     background-color: #323232;
 }
@@ -207,6 +210,54 @@ img {
 }
 .card p {
     font-size: 1rem;
+}
+
+
+footer > * {
+    margin: auto;
+}
+footer h3 {
+    font-size: 2rem;
+    text-transform: capitalize;
+}
+footer sup {
+    font-size: 1rem;
+    font-weight: normal;
+}
+footer ul {
+    gap: 1.1rem;
+}
+footer a {
+    padding: 0;
+}
+
+#to-top {
+    position: relative;
+    font-weight: bold;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+    transform: scale(0.9);
+    transition: all 0.5s;
+}
+#to-top::before {
+    content: '';
+    position: absolute;
+    width: 130%;
+    height: 130%;
+    border: 2px solid rgb(7, 7, 7);
+    border-radius: 50%;
+    background-color: #f54538;
+    mix-blend-mode: screen;
+    box-shadow: inset 3px 3px 2px rgba(0, 0, 0, 0.5),
+    inset -3px -3px 2px rgba(255, 255, 255, 0.3),
+    -2px -2px 3px rgba(255, 255, 255, 0.3);
+}
+#to-top:hover {
+    color: #fff;
+    transform: scale(1.1);
 }
 
 
