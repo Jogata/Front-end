@@ -145,7 +145,6 @@ ul {
 }
 img {
     grid-column: 2 / 3;
-    grid-row: 1 / 2;
     width: 100%;
 }
 .info {
@@ -166,6 +165,7 @@ img {
 }
 .features {
     width: max(260px, 80%);
+    /* width: 80%; */
     max-width: 2000px;
     min-height: 100vh;
     margin: auto;
@@ -182,7 +182,6 @@ img {
     flex-wrap: wrap;
     gap: 2.5rem;
     margin-top: calc(5vh + 20px);
-    text-align: center;
 }
 .card {
     width: 100%;
@@ -213,6 +212,102 @@ img {
 }
 
 
+.video-section {
+    position: relative;
+}
+.video-section .showcase {
+    position: relative;
+    grid-template-rows: 1fr auto auto;
+    z-index: 2;
+}
+.video-section .showcase img {
+    grid-row: 1 / 2;
+}
+#backvideo {
+    width: 100%;
+    width: 100%;
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    align-self: center;
+    z-index: 3;
+    display: none;
+}
+
+.pulse-button-box {
+    width: fit-content;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transform: scale(0.7);
+    animation: pulse 3s linear infinite;
+    z-index: 4;
+}
+.pulse-button-box:hover {
+    animation-play-state: paused;
+}
+@keyframes pulse {
+    50% { transform: scale(.8); }
+}
+
+.playpause {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: calc(3rem + 4vw);
+    height: calc(3rem + 4vw);
+    color: transparent;
+    background: #dde1e7;
+    border: none;
+    border-radius: 50%;
+    font-size: 0px;
+    text-transform: capitalize;
+    background: linear-gradient(0deg, #ddd, #fff);
+    box-shadow: 2px 2px 5px rgb(0 0 0 / 20%), inset -1px -1px 2px rgb(0 0 0 / 20%);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.play, .pause {
+    position: absolute;
+    font-size: clamp(3vw, 3vw + 1rem, 33px);
+    border-radius: 50%;
+    color: #252525;
+    background: linear-gradient(0deg, #fff, #ddd);
+    opacity: 0;
+}
+.play {
+  padding-left: 10%;
+  background: linear-gradient(0deg, #ddd, #fff);
+}
+.visibility {
+  opacity: 1;
+}
+
+.action {
+    color: #fff;
+    font-size: calc(1rem + 3vw);
+    font-family: 'Times New Roman', Times, serif;
+    white-space: nowrap;
+    text-transform: capitalize;
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+    font-weight: bold;
+}
+
+.moto {
+    font-size: calc(2rem + 4vw);
+}
+.moto span {
+    display: block;
+    text-align: right;
+    justify-self: center;
+}
+
+
 footer > * {
     margin: auto;
 }
@@ -233,8 +328,9 @@ footer a {
 
 #to-top {
     position: relative;
-    font-weight: bold;
     aspect-ratio: 1 / 1;
+    margin-top: 10px;
+    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -259,6 +355,3 @@ footer a {
     color: #fff;
     transform: scale(1.1);
 }
-
-
-
