@@ -51,6 +51,21 @@
                 </div>
             </div>
         </section>
+        <section class="video-section">
+            <div class="showcase">
+                <img src="./img/camera-2.png" alt="A Rangefinder Camera Leica M6">
+                <video id="backvideo" src="./img/leica-Q2.mp4" autoplay controls loop></video>
+                <div class="pulse-button-box">
+                    <button type="button" class="playpause">
+                            <i class="fa fa-play play visibility" aria-hidden="true"></i>
+                            <i class="fa fa-pause pause" aria-hidden="true"></i>
+                        play/pause video
+                    </button>
+                    <div class="action">watch trailer</div>
+                </div>
+                <h2 class="moto">Accept nothing <span>but perfection!</span></h2>
+            </div>
+        </section>
     </main>
     <div class="footer-container">
         <footer>
@@ -72,6 +87,24 @@
         </footer>
     </div>
 
+    <script>
+        const playIcon = document.querySelector('.play');
+        const pauseIcon = document.querySelector('.pause');
+        const playBtn = document.querySelector('.playpause');
+        const video = document.getElementById('backvideo');
 
+        playBtn.addEventListener('click', () => {
+            pauseIcon.classList.toggle('visibility');
+            playIcon.classList.toggle('visibility');
+            if (video.paused) {
+                video.play();
+                video.style.display = 'block';                
+
+            } else {
+                video.pause();
+                video.style.display = 'none';  
+            }
+        })
+    </script>
 </body>
 </html>
