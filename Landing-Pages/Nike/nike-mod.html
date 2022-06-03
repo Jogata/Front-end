@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike - Responsive Landing Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/styles_mod.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">
+            <img src="./img/nike-logo.png" alt="">
+        </a>
+        <div class="hamburger-menu">
+            <div class="menu-bar"></div>
+            <div class="menu-bar"></div>
+            <div class="menu-bar"></div>
+        </div>
+    </header>
+    <section class="main-section flex">
+        <div class="main flex">
+            <div class="img-box">
+                <img src="./img/nike-air-zoom-maxfly-more-uptempo.png" alt="Nike Air Zoom Maxfly More Uptempo Athletics Sprinting Spikes">
+            </div>
+            <div class="text">
+                <h2>nike air zoom maxfly</h2>
+                <p>The finish is only a quick sprint away. Let the lightweight feel of the Nike Air Zoom Maxfly More Uptempo take you there. Bounce at every step gives you the responsiveness to match your speed as you race to shatter personal goals. We added plenty of traction to give you extra grip for races from 100 to 400 metres with hurdles.</p>
+                <button>details</button>
+            </div>
+        </div>
+    </section>
+    <section class="details">
+        <h2>RESPONSIVENESS WITH A SECURE FIT FOR ELITE SPEED.</h2>
+        <p>The finish is only a quick sprint away. Let the lightweight feel of the Nike Air Zoom Maxfly More Uptempo take you there. Bounce at every step gives you the responsiveness to match your speed as you race to shatter personal goals. We added plenty of traction to give you extra grip for races from 100 to 400 metres with hurdles.</p>
+        <hr>
+        <h3>Stable Bounce</h3>
+        <p>A Zoom Air unit at the forefoot gives you a light, responsive bounce when your foot connects to the track. Two cushioned chambers within the Air unit add even more stability and spring. It is combined with a full-length carbon plate for a propulsive and stable feel as your foot takes off. The carbon is tuned in the midfoot and heel for a stiff feel where needed, for better transition from heel to toe.</p>
+        <hr>
+        <h3>Secure Steps, Light Touch</h3>
+        <p>A woven and synthetic upper gives you secure, lightweight containment. Notched laces means less chance of them untying mid-run.</p>
+        <hr>
+        <h3>Grip the Road</h3>
+        <p>Removable spikes at the forefoot help give you the traction needed to go your fastest. A shockwave pattern on the outsole, designed from athlete data, adds extra traction along the foot where you need it most.</p>
+    </section>
+    <ul class="sci">
+        <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+    </ul>
+
+    <script>
+        const button = document.querySelector('.text button');
+        const details = document.querySelector('.details');
+
+        button.addEventListener('click', () => {
+            details.classList.toggle('flex');
+        })
+    </script>
+</body>
+</html>
