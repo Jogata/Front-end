@@ -18,6 +18,9 @@ font-family: 'Raleway', sans-serif;
     padding: 0;
     box-sizing: border-box;
 }
+ul {
+    list-style: none;
+}
 a {
     text-transform: capitalize;
     text-decoration: none;
@@ -75,7 +78,6 @@ nav {
     margin-left: auto;
     gap: 2em;
     font-size: 1.5rem;
-    list-style: none;
 }
 .links li {
     position: relative;
@@ -121,16 +123,15 @@ main {
     min-width: 240px;
     flex: 1;
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-direction: column;
     margin: 10px 0;
 }
 
 .search-box {
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
 }
 .search-box label {
     font-size: 0px;
@@ -149,6 +150,9 @@ main {
     border-bottom: 1px solid #f14a60;
 }
 
+.title-box {
+    margin: 2em 0px;
+}
 .title-box h2 {
     font-size: 5rem;
     font-size: clamp(2.7rem , 7vw, 8rem);
@@ -161,6 +165,61 @@ main {
 .pink {
     color: #f14a60;
     text-transform: lowercase;
+}
+.title-box p {
+    margin-top: 1em;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-right: auto;
+    margin-bottom: 2em;
+}
+.buttons button {
+    margin-right: 1em;
+    padding: 0.5em 2em;
+    text-transform: capitalize;
+    outline: none;
+    border: 1px solid #f14a60;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+.buttons button:hover, 
+.buttons button:focus {
+    transform: scale(1.2);
+}
+.pink-btn {
+    color: #fff;
+    background: linear-gradient(#fb7381, #f14a60);
+}
+.white-btn {
+    color: #f14a60;
+    background-color: transparent;
+}
+
+.social-links {
+    position: relative;
+    display: flex;
+    gap: 1em;
+    text-align: center;
+}
+.link {
+    outline: none;
+}
+.link i {
+    font-size: 1.5rem;
+    color: #acacac;
+    transition: all 0.5s
+}
+.link i:hover {
+    transform: scale(1.2);
+    color: #f14a60;
+}
+.link:focus i {
+    color: #f14a60;
 }
 
 .right img {
