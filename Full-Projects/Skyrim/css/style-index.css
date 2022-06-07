@@ -813,6 +813,7 @@ a {
     position: absolute;
     font-size: 20vw;
     /* text-transform: capitalize; */         /* TODO */
+    white-space: nowrap;
     letter-spacing: 0.5rem;
     color: transparent;
 }
@@ -1124,6 +1125,52 @@ a {
     background-size: 290px, 20px, 20px, 290px;
     background-repeat: repeat-x, repeat-y, repeat-y, repeat-x;
     background-position: top, left, right, bottom;
+    margin: 0px 20px;
+    padding: 40px 25px;
+    border-radius: 20px;
+    display: none;
+}
+
+#page-16 {
+    position: relative;
+    background-color: #000;
+    background: url('../assets/img/bg/Solitude-1-copy.jpg');
+    background: url('../assets/img/bg/Solitude-2-copy.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    animation: scale 5s linear;
+}
+
+.solitude-page h1 {
+    position: absolute;
+    font-size: 20vw;
+    /* text-transform: capitalize; */
+    letter-spacing: 0.5rem;
+    color: transparent;
+}
+.solitude-page .title-animated::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    min-width: 120%;
+    min-height: 70%;
+    background: url('../assets/img/SolitudeGuardsShield.png') no-repeat;
+    background-position: right;
+    background-size: contain;
+}
+#solitude-history-section {
+    min-width: 290px;
+    height: 70vh;
+    font-family: initial;
+    text-indent: 5px;
+    font-size: 18px;
+    color: #fff;
+    background: url('../assets/img/border_patterns_03_preview-copyhw.png'), url('../assets/img/border_patterns_03_preview-copyvw.png'), url('../assets/img/border_patterns_03_preview-copyvw.png'), url('../assets/img/border_patterns_03_preview-copyhw.png');
+    background-size: 290px, 20px, 20px, 290px;
+    background-repeat: repeat-x, repeat-y, repeat-y, repeat-x;
+    background-position: top, left, right, bottom;
+    background-color: rgba(0, 0, 0, 0.5);
     margin: 0px 20px;
     padding: 40px 25px;
     border-radius: 20px;
