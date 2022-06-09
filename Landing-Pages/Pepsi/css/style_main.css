@@ -6,3 +6,151 @@
     box-sizing: border-box;
 }
 
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+
+#pepsi {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 3em 5em;
+    flex-direction: column;
+    font-family: 'Abril Fatface', cursive;
+    background-color: #0062be;
+}
+
+header {
+    width: 100%;
+}
+
+.logo {
+    position: relative;
+    max-width: 80px;
+    transition: all 0.5s;
+}
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.links {
+    display: flex;
+    gap: 2em;
+}
+
+.link {
+    position: relative;
+    padding: 2px 4px;
+    color: #fff;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: all 0.5s;
+}
+.link::before {
+    position: absolute;
+    inset: auto auto 0 0;
+    content: '';
+    width: 100%;
+    border: 1px solid #afd0f3;
+    transform: scale(0);
+    transition: all 0.5s;
+}
+.link:hover {
+    color: #afd0f3;
+}
+.link:hover::before {
+    transform: scale(1);
+}
+
+main {
+    width: 100%;
+    padding-block: 3em;
+}
+.info-box {
+    width: 100%;
+    max-width: 600px;
+    margin-right: auto;
+    color: #fff;
+}
+.info-box h1 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    line-height: 1.3em;
+    letter-spacing: 3px;
+}
+.info-box h1 span {
+    display: block;
+    font-size: 3.5rem;
+}
+.info-box p {
+    margin-block: 1em;
+}
+.info-box a {
+    display: inline-block;
+    padding: 0.5em 2em;
+    color: #004999;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+    background-color: #fff;
+    background-size: 100%;
+    background-position: center center;
+    border-radius: 40px;
+    transition: all 0.5s;
+}
+.info-box a:hover {
+    font-size: 1.1rem;
+}
+
+.product-box {
+    width: 600px;
+}
+.pepsi-can {
+    max-width: 260px;
+    display: block;
+    margin: auto;
+}
+
+.thumbs {
+    display: flex;
+    margin: 0px auto;
+}
+.thumbs li {
+    display: inline-block;
+    margin: 0px 20px;
+    cursor: pointer;
+}
+.thumbs li:hover .thumb {
+    transform: translateY(-15px) scale(1.2);
+}
+.thumb {
+    max-width: 40px;
+    transition: all 0.5s;
+}
+
+.social-links-pepsi {
+    position: absolute;
+    inset: 50% 30px auto auto;
+}
+.sci-link {
+    display: inline-block;
+    margin: 5px 0px;
+    color: #fff;
+    font-size: 1.5rem;
+    transition: all 0.5s;
+}
+.sci-link:hover {
+    transform: scale(1.3);
+}
+
+
