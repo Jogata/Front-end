@@ -23,7 +23,7 @@ a {
     position: relative;
     width: 100%;
     min-height: 100vh;
-    padding: 3em 5em;
+    padding: 3em min(80px, 5em) 1.5em min(5vw, 5em);
     flex-direction: column;
     font-family: 'Abril Fatface', cursive;
     background-color: #0062be;
@@ -31,6 +31,7 @@ a {
 
 header {
     width: 100%;
+    gap: 2em;
 }
 
 .logo {
@@ -44,7 +45,10 @@ header {
 
 .links {
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 2em;
+    flex-wrap: wrap;
 }
 
 .link {
@@ -72,11 +76,15 @@ header {
 }
 
 main {
+    flex-wrap: wrap;
+    gap: 2em;
     width: 100%;
     padding-block: 3em;
 }
 .info-box {
-    width: 100%;
+    /* width: 100%; */
+    flex: 1;
+    min-width: 265px;
     max-width: 600px;
     margin-right: auto;
     color: #fff;
@@ -113,6 +121,7 @@ main {
 }
 
 .product-box {
+    flex: 1;
     width: 600px;
 }
 .pepsi-can {
@@ -154,3 +163,38 @@ main {
 }
 
 
+.red #pepsi {
+    background-color: #e60c2c;
+}
+.red .link::before {
+    border: 1px solid #e0a2ac;
+}
+.red .link:hover {
+    color: #e0a2ac;
+}
+.black #pepsi {
+    background-color: #1e1e1e;
+}
+
+@media screen and (max-width: 520px) {
+    .links {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        position: fixed;
+        inset: 0 0 auto 0;
+        min-height: 100vh;
+        padding: 3em 0;
+        font-size: 2rem;
+        background-color: #fff;
+    }
+    .link {
+        color: #0062be;
+        color: #000;
+    }
+    .link::before {
+        border: 1px solid #ed0223;
+    }
+    .link:hover {
+        color: #ed0223;
+    }
+}
