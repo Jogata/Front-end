@@ -28,6 +28,7 @@
                 <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis vero ipsum, molestias consequatur magnam eligendi? Nostrum veniam libero ex aut laboriosam tenetur, tempora quasi praesentium aspernatur inventore minus expedita exercitationem.</p>
                 <a href="#pepsi">view all products</a>
             </div>
+            <div class="product-box">
                 <img src="./img/can-real-sugar-reg.png" alt="can of pepsi" class="pepsi-can">
             </div>
         </main>
@@ -51,6 +52,25 @@
         </ul>
     </section>
 
-    <script></script>
+    <script>
+        const blueCan = document.querySelector('#blue');
+        const whiteCan = document.querySelector('#white');
+        const blackCan = document.querySelector('#black');
+        const image = document.querySelector('.pepsi-can');
+        
+        blueCan.addEventListener('click', () => {
+            document.body.className = '';
+            image.setAttribute('src', './img/can-real-sugar-reg.png');
+        })
+        whiteCan.addEventListener('click', () => {
+            document.body.className = 'red';
+            image.setAttribute('src', './img/can-diet-pepsi-v2.png');
+        })
+        blackCan.addEventListener('click', () => {
+            document.body.className = 'black';
+            image.setAttribute('src', './img/can-pepsi-zero-sugar.png');
+        })
+
+    </script>
 </body>
 </html>
