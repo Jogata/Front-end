@@ -19,10 +19,16 @@ a {
     text-decoration: none;
 }
 
+body {
+    background-color: #0062be;
+}
+
 #pepsi {
     position: relative;
     width: 100%;
+    max-width: 1200px;
     min-height: 100vh;
+    margin: auto;
     padding: 3em min(80px, 5em) 1.5em min(5vw, 5em);
     flex-direction: column;
     font-family: 'Abril Fatface', cursive;
@@ -32,6 +38,7 @@ a {
 header {
     width: 100%;
     gap: 2em;
+    z-index: 3;
 }
 
 .logo {
@@ -47,7 +54,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2em;
+    gap: min(5vw, 2em);
     flex-wrap: wrap;
 }
 
@@ -94,13 +101,21 @@ main {
     text-transform: uppercase;
     line-height: 1.3em;
     letter-spacing: 3px;
+    animation: movedown 3s ease-in-out backwards;
 }
 .info-box h1 span {
     display: block;
     font-size: 3.5rem;
 }
+@keyframes movedown {
+    0% {
+        opacity: 0;
+        transform: translateY(-50%);
+    }
+}
 .info-box p {
     margin-block: 1em;
+    animation: moveup 3s ease-in-out 3s backwards;
 }
 .info-box a {
     display: inline-block;
@@ -115,19 +130,34 @@ main {
     background-position: center center;
     border-radius: 40px;
     transition: all 0.5s;
+    animation: moveup 3s ease-in-out 3s backwards;
 }
 .info-box a:hover {
     font-size: 1.1rem;
+}
+@keyframes moveup {
+    0% {
+        opacity: 0;
+        transform: translateY(10%);
+    }
 }
 
 .product-box {
     flex: 1;
     width: 600px;
+    overflow: hidden;
 }
 .pepsi-can {
     max-width: 260px;
     display: block;
     margin: auto;
+    animation: moveleft 3s ease-in 2s backwards;
+}
+@keyframes moveleft {
+    0% {
+        opacity: 0;
+        transform: translateX(10%);
+    }
 }
 
 .thumbs {
@@ -167,11 +197,12 @@ main {
     background-color: #e60c2c;
 }
 .red .link::before {
-    border: 1px solid #e0a2ac;
+    border: 1px solid #f5a7b3;
 }
 .red .link:hover {
-    color: #e0a2ac;
+    color: #f5a7b3;
 }
+
 .black #pepsi {
     background-color: #1e1e1e;
 }
@@ -184,7 +215,8 @@ main {
         inset: 0 0 auto 0;
         min-height: 100vh;
         padding: 3em 0;
-        font-size: 2rem;
+        font-size: 10vw;
+        white-space: nowrap;
         background-color: #fff;
     }
     .link {
