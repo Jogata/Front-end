@@ -51,7 +51,7 @@ header {
 
 .logo {
     position: relative;
-    max-width: 80px;
+    max-width: min(10vw, 80px);
     transition: all 0.5s;
     z-index: 4;
 }
@@ -220,7 +220,6 @@ main {
 
 .links.active-menu {
     display: flex;
-    overflow: hidden;
 }
 .active-hamburger {
     fill: #000;
@@ -233,7 +232,7 @@ main {
     .links {
         flex-direction: column;
         flex-wrap: nowrap;
-        position: fixed;
+        position: absolute;
         inset: 0 0 auto 0;
         min-height: 100vh;
         padding: 3em 0;
@@ -244,7 +243,7 @@ main {
     }
     .link {
         color: #0062be;
-        color: #000;
+        /* color: #000; */
     }
     .link::before {
         border: 1px solid #ed0223;
