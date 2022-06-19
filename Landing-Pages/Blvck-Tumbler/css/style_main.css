@@ -15,3 +15,65 @@ ul {
 a {
     text-decoration: none;
 }
+i {
+    font-size: 25px;
+}
+
+body{
+    background: red;
+    min-height: 100vh;
+}
+
+.left, .right {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+}
+.left {
+    background-color: #232323;
+}
+.right {
+    left: 50%;
+    background-color: #454444;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    width: 95%;
+    height: 80px;
+    margin: 0 2.5%;
+    padding: 0 30px;
+    z-index: 1;
+    border: 1px solid rebeccapurple;
+}
+.navbar > * {
+    padding: 0 30px;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    color: #fff;
+    font-size: 23px;
+    font-family: 'Abril Fatface', cursive;
+    text-transform: uppercase;
+    border: 1px solid red;
+}
+
+.product-img {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -45%);
+    animation: float 5s ease-in-out infinite;
+}
+@keyframes float {
+    50% {
+        transform: translate(-50%, -55%);
+    }
+}
