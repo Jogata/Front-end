@@ -22,28 +22,23 @@ i {
 }
 
 body{
-    background: red;
-    min-height: 100vh;
-}
-
-.wrapper {
-    width: 100%;
-    min-width: fit-content;
     min-height: 100vh;
     background-color: #232323;
     background-image: linear-gradient(to right, #232323 50%, #454444 50% 100%);
-    background-color: #454444;
-    /* display: grid; */
-    /* grid-template-columns: 90% 10%; */
-    /* grid-template-rows: 10% auto; */
 }
 
-/* .left {
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100%;
+    min-width: fit-content;
+    max-width: 1210px;
+    min-height: 100vh;
+    margin: auto;
     background-color: #232323;
+    background-image: linear-gradient(to right, #232323 50%, #454444 50% 100%);
 }
-.right {
-    background-color: #454444;
-} */
 
 .navbar {
     display: flex;
@@ -54,6 +49,7 @@ body{
     margin: 0 2.5%;
 }
 .navbar > * {
+    width: 100%;
     padding: 0 30px;
     margin: auto;
     display: flex;
@@ -63,7 +59,6 @@ body{
     justify-content: end;
 }
 .logo {
-    display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto;
@@ -73,14 +68,27 @@ body{
     text-align: center;
     text-transform: uppercase;
     order: -1;
-    /* border: 1px solid red; */
 }
 .navbar ul:last-of-type {
     justify-content: end;
-    padding: 1em;
     gap: 2em;
-    /* border: 1px solid red; */
+}
 
+.search {
+    width: 1em;
+    transition: all 0.4s;
+}
+.search:hover {
+    width: 100%;
+    border-bottom: 1px solid #fff;
+}
+
+main {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, 400px) 320px 80px;
+    grid-template-rows: 1fr auto;
+    margin-block: auto;
 }
 
 .product-img {
@@ -103,12 +111,18 @@ body{
 
 .left-text, 
 .right-text {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     color: #fff;
     text-align: center;
     text-transform: capitalize;
 }
 .left-text {
     margin: 1.8em 0;
+}
+.right-text {
+    transform: translateX(-80px);
 }
 
 .left-title {
@@ -117,10 +131,6 @@ body{
     font-family: 'Abril Fatface', cursive;
     line-height: 0.9;
     text-shadow: 0px 2px 2px #000;
-}
-.left-title::after {
-    content: '.';
-    color: #454444;
 }
 .left-subtitle {
     padding: 15px;
@@ -133,7 +143,8 @@ body{
     font-size: 65px;
     text-transform: uppercase;
 }
-.button {
+
+.discover {
     position: relative;
     margin: 1.5em auto;
     padding: 10px 40px;
@@ -150,13 +161,17 @@ body{
 }
 
 .slider {
+    grid-column: span 3;
+    grid-row: 2 / 3;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: 2em;
     color: #fff;
 }
 .pages {
+    margin-left: auto;
     padding: 0px 20px;
     font-size: 30px;
     font-weight: bold;
@@ -166,8 +181,8 @@ body{
     display: inline-block;
     width: 100px;
     margin: 0 10px;
-    transform: translateY(-0.3em);
     border: 1px solid #fff;
+    transform: translateY(-0.3em);
 }
 .arrows {
     padding: 0px 20px;
@@ -177,9 +192,14 @@ body{
     font-size: 30px;
 }
 
+.media {
+    grid-column: 4 / 5;
+    align-self: center;
+}
 .media ul {
     display: flex;
     justify-content: space-around;
+    flex-direction: column;
     max-width: fit-content;
     margin: auto;
     gap: 2rem;
@@ -198,4 +218,28 @@ body{
     font-size: 2rem;
     width: 1em;
     height: 1em;
+}
+
+@media screen and (min-width: 370px) {
+    .logo {
+        order: 0;
+    }
+    .menu {
+        justify-content: start;
+    }    
+}
+
+@media screen and (max-width: 1200px) {
+    main {
+        display: block;
+    }
+    .right-text {
+        transform: none;
+    }
+    .pages {
+        margin-left: unset;
+    }
+    .media ul {
+        flex-direction: row;
+    }  
 }
