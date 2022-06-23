@@ -17,7 +17,7 @@ ul {
 a {
     text-decoration: none;
 }
-i {
+i, button, li {
     cursor: pointer;
 }
 
@@ -139,7 +139,7 @@ nav > * {
 
 .product-description {
     max-width: 80%;
-    margin-block: 3em 4em;
+    margin-block: calc(1em + 4vh) calc(1.5em + 5vh);
     text-align: center;
     letter-spacing: 0.5em;
 }
@@ -150,6 +150,46 @@ nav > * {
 }
 p span {
     white-space: nowrap;
+}
+
+.order-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 2em;
+    padding: 5vw 0;
+    border: 1px solid red;
+}
+
+.sizes {
+    display: flex;
+    justify-content: center;
+    padding-inline: 5vw;
+}
+.sizes .label {
+    line-height: 2em;
+    white-space: nowrap;
+}
+.sizes ul {
+    flex-wrap: wrap;
+    row-gap: 10px;
+}
+.size {
+    width: 2em;
+    height: 2em;
+    margin-left: 10px;
+    padding: 0.4em;
+    text-align: center;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
+}
+.size:hover {
+    font-weight: bold;
+    color: #8c6c79;
+    background-color: #fff;
+    transform: scale(1.2);
 }
 
 .order {
@@ -166,9 +206,22 @@ p span {
     background-color: #f2d16b;
 }
 
-.sizes {
-    display: flex;
-    justify-content: center;
+.prev, .next {
+    margin: 20px 20px 0;
+    padding: 10px 15px;
+    background: #624652;
+    border: 1px solid red;
+}
+
+.sci {
+    font-size: 1.5rem;
+    margin: 1em 0;
+}
+.sci ul {
+    gap: 1em;
+}
+.sci-link {
+    color: #fff;
 }
 
 @media screen and (max-width: 700px) {
