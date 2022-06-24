@@ -20,6 +20,9 @@ a {
 i, button, li {
     cursor: pointer;
 }
+i {
+    transition: all 0.3s ease-in-out;
+}
 
 body {
     min-height: 100vh;
@@ -36,9 +39,6 @@ body {
     flex-direction: column;
     margin: auto;
 }
-.container > * {
-    /* border: 1px solid blueviolet; */
-}
 
 nav {
     display: flex;
@@ -48,9 +48,6 @@ nav {
     column-gap: 2em;
     width: 100%;
     padding-inline: min(5vw, 2em);
-}
-nav > * {
-    /* border: 1px solid wheat; */
 }
 
 .logo {
@@ -152,19 +149,20 @@ p span {
     white-space: nowrap;
 }
 
-.bottom {
+.bottom-section {
     display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2em;
 }
 
 .order-section {
-    flex: 1;
+    flex: 1 320px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     row-gap: 2em;
     padding: 5vw 0;
-    /* border: 1px solid red; */
 }
 
 .sizes {
@@ -212,8 +210,7 @@ p span {
 }
 
 .slider {
-    flex: 1;
-    /* border: 1px solid red; */
+    flex: 1 320px;
 }
 .bottom-img {
     position: relative;
@@ -224,7 +221,7 @@ p span {
     height: 240px;
     margin-inline: auto;
     object-fit: cover;
-    transform: translateY(-20%);
+    transform: translateY(min(-50px, -20%));
 }
 .prev, .next {
     margin: 0px 20px;
@@ -233,6 +230,8 @@ p span {
 }
 
 .sci {
+    top: max(10em, 50%);
+    left: 2em;
     font-size: 1.5rem;
     margin: 1em 0;
 }
@@ -242,7 +241,20 @@ p span {
 .sci-link {
     color: #fff;
 }
+.sci li:hover i {
+    transform: scale(1.4);
+}
 
+
+@media screen and (min-width: 1180px) {
+    .sci {
+        position: fixed;
+        transform: translateY(-50%);
+    }
+    .sci ul {
+        flex-direction: column;
+    }
+}
 @media screen and (max-width: 700px) {
     .cart {
         width: 100%;
