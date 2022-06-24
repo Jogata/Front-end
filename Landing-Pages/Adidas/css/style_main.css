@@ -152,14 +152,19 @@ p span {
     white-space: nowrap;
 }
 
+.bottom {
+    display: flex;
+}
+
 .order-section {
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     row-gap: 2em;
     padding: 5vw 0;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .sizes {
@@ -206,11 +211,25 @@ p span {
     background-color: #f2d16b;
 }
 
+.slider {
+    flex: 1;
+    /* border: 1px solid red; */
+}
+.bottom-img {
+    position: relative;
+}
+.bottom-img img {
+    display: block;
+    width: 433px;
+    height: 240px;
+    margin-inline: auto;
+    object-fit: cover;
+    transform: translateY(-20%);
+}
 .prev, .next {
-    margin: 20px 20px 0;
+    margin: 0px 20px;
     padding: 10px 15px;
     background: #624652;
-    border: 1px solid red;
 }
 
 .sci {
