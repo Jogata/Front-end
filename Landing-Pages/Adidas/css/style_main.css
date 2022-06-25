@@ -120,10 +120,6 @@ nav {
     font-size: min(30vw, 18rem);
     margin-top: 0.1em;
 }
-.product-img {
-    width: max(260px, 100%);
-    max-width: 900px;
-}
 .product-title {
     position: absolute;
     color: #f2d16b;
@@ -133,6 +129,34 @@ nav {
     inset: 50% auto auto 50%;
     transform: translate(-50%, -90%);
     z-index: -1;
+    animation: showup 2s ease-in backwards;
+}
+.product-img {
+    width: max(260px, 100%);
+    max-width: 900px;
+    animation: showdownimg 2s ease-in 2s backwards;
+}
+@keyframes showup {
+    0% {
+        inset: 50% auto auto 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+    }
+}
+@keyframes showdown {
+    0% {
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+}
+@keyframes showdownimg {
+    0% {
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
 }
 
 .product-description {
@@ -140,6 +164,7 @@ nav {
     margin-block: calc(1em + 4vh) calc(1.5em + 5vh);
     text-align: center;
     letter-spacing: 0.5em;
+    animation: showdown 2s ease-in 4s backwards;
 }
 .product-description p {
     font-size: 1.1rem;
@@ -243,10 +268,21 @@ p span {
     margin: 1em 0;
 }
 .sci ul {
+    flex-direction: row-reverse;
     gap: 1em;
 }
 .sci-link {
     color: #fff;
+}
+.sci li {
+    animation: showright 1s ease-in backwards;
+    animation-delay: calc(var(--i) * 0.2s);
+}
+@keyframes showright {
+    0% {
+        transform: translateX(-200%);
+        opacity: 0;
+    }
 }
 .sci li:hover i, 
 .sci li a:focus i {
