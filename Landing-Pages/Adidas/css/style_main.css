@@ -56,6 +56,7 @@ nav {
     font-family: 'Abril Fatface', cursive;
     letter-spacing: 2px;
     white-space: nowrap;
+    animation: showrightslow 2s ease-in backwards;
 }
 
 .menu {
@@ -65,6 +66,7 @@ nav {
 
 .cart {
     text-align: end;
+    animation: showleftslow 2s ease-in backwards;
 }
 .cart > * {
     margin: 10px 1em;
@@ -234,6 +236,7 @@ p span {
     border: none;
     border-radius: 30px;
     background-color: #f2d16b;
+    animation: showdown 2s ease-in 6s backwards;
     transition: all 0.5s;
 }
 .order:hover, 
@@ -269,26 +272,39 @@ p span {
 }
 .sci ul {
     flex-direction: row-reverse;
-    gap: 1em;
+    gap: 2em;
 }
 .sci-link {
     color: #fff;
 }
 .sci li {
-    animation: showright 1s ease-in backwards;
+    animation: showrightfast 1s ease-in backwards;
     animation-delay: calc(var(--i) * 0.2s);
-}
-@keyframes showright {
-    0% {
-        transform: translateX(-200%);
-        opacity: 0;
-    }
 }
 .sci li:hover i, 
 .sci li a:focus i {
     transform: scale(1.4);
 }
 
+
+@keyframes showrightfast {
+    0% {
+        transform: translateX(-200%);
+        opacity: 0;
+    }
+}
+@keyframes showrightslow {
+    0% {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+}
+@keyframes showleftslow {
+    0% {
+        transform: translateX(50%);
+        opacity: 0;
+    }
+}
 
 @media screen and (min-width: 1180px) {
     .sci {
@@ -297,6 +313,7 @@ p span {
     }
     .sci ul {
         flex-direction: column;
+        gap: 1em;
     }
 }
 @media screen and (max-width: 700px) {
