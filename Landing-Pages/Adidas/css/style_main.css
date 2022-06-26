@@ -190,7 +190,7 @@ p span {
     justify-content: center;
     flex-direction: column;
     row-gap: 2em;
-    padding: 5vw 0;
+    padding: 5vh 0;
 }
 
 .sizes {
@@ -201,6 +201,8 @@ p span {
 .sizes .label {
     line-height: 2em;
     white-space: nowrap;
+    animation: showrightfast 2s ease-in backwards;
+    animation-delay: 0s;
 }
 .sizes ul {
     flex-wrap: wrap;
@@ -214,6 +216,8 @@ p span {
     text-align: center;
     border: 1px solid #fff;
     border-radius: 50%;
+    animation: showupfast 0.5s ease-in backwards;
+    animation-delay: calc(var(--i) * 0.2s);
     transition: all 0.3s ease-in-out;
 }
 .size:hover {
@@ -287,6 +291,13 @@ p span {
 }
 
 
+@keyframes showupfast {
+    0% {
+        inset: 50% auto auto 50%;
+        transform: translate(50%, 50%);
+        opacity: 0;
+    }
+}
 @keyframes showrightfast {
     0% {
         transform: translateX(-200%);
