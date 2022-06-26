@@ -131,14 +131,14 @@ nav {
     inset: 50% auto auto 50%;
     transform: translate(-50%, -90%);
     z-index: -1;
-    animation: showup 2s ease-in backwards;
+    animation: showuptitle 2s ease-in backwards;
 }
 .product-img {
     width: max(260px, 100%);
     max-width: 900px;
     animation: showdownimg 2s ease-in 2s backwards;
 }
-@keyframes showup {
+@keyframes showuptitle {
     0% {
         inset: 50% auto auto 50%;
         transform: translate(-50%, -50%);
@@ -190,7 +190,6 @@ p span {
     justify-content: center;
     flex-direction: column;
     row-gap: 2em;
-    padding: 5vh 0;
 }
 
 .sizes {
@@ -217,7 +216,7 @@ p span {
     border: 1px solid #fff;
     border-radius: 50%;
     animation: showupfast 0.5s ease-in backwards;
-    animation-delay: calc(var(--i) * 0.2s);
+    animation-delay: calc(var(--i) * 0.2s + 2s);
     transition: all 0.3s ease-in-out;
 }
 .size:hover {
@@ -240,7 +239,7 @@ p span {
     border: none;
     border-radius: 30px;
     background-color: #f2d16b;
-    animation: showdown 2s ease-in 6s backwards;
+    animation: showdown 2s ease-in 5s backwards;
     transition: all 0.5s;
 }
 .order:hover, 
@@ -261,6 +260,10 @@ p span {
     margin-inline: auto;
     object-fit: cover;
     transform: translateY(-20%);
+    animation: showdownimg 1s ease-in 4s backwards;
+}
+.slider-image {
+    animation: showup 0.5s ease-in 5s backwards;
 }
 .prev, .next {
     margin: 0px 20px;
@@ -291,6 +294,12 @@ p span {
 }
 
 
+@keyframes showup {
+    0% {
+        transform: translateY(50%);
+        opacity: 0;
+    }
+}
 @keyframes showupfast {
     0% {
         inset: 50% auto auto 50%;
@@ -331,6 +340,14 @@ p span {
     .cart {
         width: 100%;
         text-align: center;
+    }
+}
+@media screen and (max-width: 640px) {
+    .bottom-section {
+        gap: max(5vh, 5em);
+    }
+    .order-section {
+        padding: 5vh 0;
     }
 }
 @media screen and (max-width: 290px) {
