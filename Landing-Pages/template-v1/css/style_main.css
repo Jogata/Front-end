@@ -11,51 +11,64 @@ font-family: 'Montserrat', sans-serif;
     padding: 0;
     box-sizing: border-box;
 }
+/* body {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/landscape-bg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+} */
 
-.flex {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.container {
-    width: 100%;
-    height: 100vh;
-}
 .bg {
+    display: grid;
+    grid-template-rows: auto 1fr;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('../img/landscape-bg.jpg') no-repeat;
     background-position: center;
     background-size: cover;
+    min-height: 100vh;
 }
 
 .form-container {
     position: fixed;
+    position: absolute;
     width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.7);
+    height: min-content;
+    min-height: 100vh;
+    border: 5px solid purple;
+    /* background-color: rgba(0, 0, 0, 0.7); */
 }
 
 .banner-text {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-40%, -50%);
+    display: grid;
+    grid-template-columns: 3fr auto 5% 1fr;
+    grid-template-rows: 1fr auto auto 3fr;
+    position: relative;
+    /* border: 3px solid green; */
 }
 .banner-text h1 {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    padding: 10px;
     color: #fff;
     font-family: 'Montserrat', sans-serif;
-    font-size: 80px;
+    font-size: clamp(5vw, 70px, 80px);
     font-weight: 300;
     letter-spacing: 2px;
-    margin-bottom: 30px;
+    text-align: center;
+    margin-bottom: 0.5em;
+    /* border: 1px solid white; */
 }
 .banner-text p {
+    grid-column: 2 / 4;
+    grid-row: 3 / 4;
+    padding: 0 1em;
     color: #eee;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 40px;
     font-weight: 300;
     letter-spacing: 1px;
     text-align: right;
+    /* border: 1px solid red; */
 }
 
 .pink {
@@ -63,12 +76,14 @@ font-family: 'Montserrat', sans-serif;
 }
 
 .btns {
-    position: absolute;
-    top: 40px;
-    right: 60px;
+    grid-row: 1 / 2;
+    display: flex;
+    justify-content: end;
+    flex-wrap: wrap;
+    padding: 10px;
 }
 .btn {
-    width: 170px;
+    min-width: 170px;
     color: #fff;
     padding: 10px 15px;
     margin: 10px;
@@ -99,6 +114,8 @@ font-family: 'Montserrat', sans-serif;
     background: linear-gradient(rgba(148, 42, 42, 0.8), rgba(185, 129, 129, 0.6)), url('../img/landscape-bg.jpg') no-repeat;
     background-position: center;
     background-size: cover;
+    outline: 3px solid #944142;
+    outline-offset: 10px;
 }
 
 .hidden {
