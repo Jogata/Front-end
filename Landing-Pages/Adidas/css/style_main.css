@@ -67,6 +67,7 @@ nav {
 .cart {
     display: flex;
     justify-content: end;
+    flex-wrap: wrap;
     animation: showleftslow 2s ease-in backwards;
 }
 .cart > * {
@@ -78,17 +79,29 @@ nav {
     font-size: 22px;
     background-color: #fff;
     border-radius: 50px;
+    transition: all 0.3s;
 }
 
+.search-bar {
+    display: flex;
+}
 .search-bar button {
     border: none;
     border-radius: 50px;
-    outline: 1px solid #603e4b;
+    outline: none;
+    transition: all 0.3s;
 }
-.search-bar button:hover i, 
-.search-bar button:focus i {
+/* .search-bar button:hover i,  */
+.search-bar:focus-within button i {
     color: #fff;
     background-color: #8c6c79;
+}
+.cart i:hover {
+    color: #fff;
+    background-color: #8c6c79;
+    text-shadow: -1px 1px 1px #000;
+    /* box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.5),
+    inset 0px 0px 2px rgba(255, 255, 255, 0.7); */
 }
 .search-bar input {
     width: 0px;
@@ -104,9 +117,8 @@ nav {
 ::placeholder {
     color: #bebebe;
 }
-.search-bar:hover input, 
-.search-bar input:focus {
-    width: 240px;
+.search-bar:focus-within input {
+    width: min(240px, 100%);
     box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.5),
     inset 0px 0px 2px rgba(255, 255, 255, 0.7);
 }
