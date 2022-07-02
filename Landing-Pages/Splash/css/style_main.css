@@ -10,5 +10,92 @@
     padding: 0;
 }
 
+/* .loader-v3_2-container {
+    background: rgb(0, 0, 0);
+}
+.loader-v3_2 {
+    width: auto;
+    height: auto;
+} */
+
+img {
+    max-width: 100%;
+}
+
+body {
+    min-height: 100vh;
+    /* background-image: url('../img/castle.jpg'), url('../img/splash.jpg');
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, center;
+    background-size: cover, cover;
+    background-blend-mode: screen; */
+}
+
+header {
+    display: flex;
+    width: 100%;
+    border: 1px solid red;
+}
+#logo {
+    margin: 10px 20px;
+}
+#logo a {
+    border: 1px solid green;
+}
+
+.logo-ring {
+    position: absolute;
+    border-radius: 50%;
+}
+.logo-ring:nth-child(n) {
+    width: 35px;
+    height: 35px;
+}
+.logo-ring:nth-child(1) {
+    border-top: 3px solid rgb(0, 217, 255);
+    animation: loaderv321 2s linear infinite;
+}
+@keyframes loaderv321 {
+    0% { transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);}
+    100% { transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);}
+}
+.logo-ring:nth-child(2) {
+    border-right: 3px solid rgb(217, 0, 255);
+    animation: loaderv322 2s linear infinite;
+}
+@keyframes loaderv322 {
+    0% { transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);}
+    100% { transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);}
+}
+.logo-ring:nth-child(3) {
+    border-bottom: 3px solid rgb(157, 255, 0);
+    animation: loaderv323 2s linear infinite;
+}
+@keyframes loaderv323 {
+    0% { transform: rotateX(35deg) rotateY(65deg) rotateZ(0deg);}
+    100% { transform: rotateX(35deg) rotateY(65deg) rotateZ(360deg);}
+}
+.logo-ring:nth-child(4) {
+    border-left: 3px solid rgb(240, 52, 133);
+    animation: loaderv324 2s linear infinite;
+}
+@keyframes loaderv324 {
+    0% { transform: rotateX(50deg) rotateY(150deg) rotateZ(0deg);}
+    100% { transform: rotateX(50deg) rotateY(150deg) rotateZ(360deg);}
+}
 
 
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.castle {
+    position: absolute;
+    /* width: 100%; */
+}
+.splash {
+    /* width: 100%; */
+    mix-blend-mode: screen;
+}
