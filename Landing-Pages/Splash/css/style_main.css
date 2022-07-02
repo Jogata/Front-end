@@ -10,46 +10,42 @@
     padding: 0;
 }
 
-/* .loader-v3_2-container {
-    background: rgb(0, 0, 0);
-}
-.loader-v3_2 {
-    width: auto;
-    height: auto;
-} */
-
 img {
     max-width: 100%;
 }
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
 
-body {
+#top {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
     min-height: 100vh;
-    /* background-image: url('../img/castle.jpg'), url('../img/splash.jpg');
-    background-repeat: no-repeat, no-repeat;
-    background-position: center, center;
-    background-size: cover, cover;
-    background-blend-mode: screen; */
 }
 
 header {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
-    border: 1px solid red;
-}
-#logo {
-    margin: 10px 20px;
-}
-#logo a {
-    border: 1px solid green;
+    padding: 20px 50px;
+    z-index: 1;
 }
 
+.logo {
+    margin: 10px 20px;
+}
 .logo-ring {
     position: absolute;
-    border-radius: 50%;
-}
-.logo-ring:nth-child(n) {
     width: 35px;
     height: 35px;
+    border-radius: 50%;
 }
 .logo-ring:nth-child(1) {
     border-top: 3px solid rgb(0, 217, 255);
@@ -76,6 +72,7 @@ header {
     100% { transform: rotateX(35deg) rotateY(65deg) rotateZ(360deg);}
 }
 .logo-ring:nth-child(4) {
+    position: relative;
     border-left: 3px solid rgb(240, 52, 133);
     animation: loaderv324 2s linear infinite;
 }
@@ -84,12 +81,47 @@ header {
     100% { transform: rotateX(50deg) rotateY(150deg) rotateZ(360deg);}
 }
 
+.navigation {
+    display: flex;
+    gap: 0.5em;
+    font-size: 1.1rem;
+}
+.navigation a {
+    padding: 8px 18px;
+    color: #0169b2;
+    text-transform: capitalize;
+    border-radius: 30px;
+    transition: all 0.4s;
+}
+.navigation a.active, 
+.navigation a:hover {
+    color: #fff;
+    background-color: #0169b2;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.content {
+    position: relative;
+    display: flex;
+}
+.text-box {
+    position: relative;
+    max-width: 450px;
+    flex-grow: 1;
+}
 
 .hero {
     position: relative;
     width: 100%;
-    height: 100%;
-    z-index: -1;
+    max-width: 1200px;
+    /* height: 100%; */
+    border: 1px solid green;
 }
 .castle {
     position: absolute;
