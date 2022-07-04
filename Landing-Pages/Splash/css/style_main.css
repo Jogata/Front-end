@@ -105,6 +105,17 @@ header {
     background-color: #0169b2;
 }
 
+.menu {
+    display: none;
+    margin-right: 20px;
+    padding-inline: 0.2em;
+    color: #0169b2;
+    font-size: 1.9rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
 main {
     display: grid;
     grid-template-columns: 0.5fr repeat(7, 1fr);
@@ -165,6 +176,7 @@ main {
 
 footer {
     width: 100%;
+    transform: translateY(90%);
     z-index: 3;
 }
 .sci {
@@ -197,5 +209,8 @@ footer {
 @media screen and (max-width: 670px) {
     .navigation {
         display: none;
+    }
+    .menu {
+        display: inline-block;
     }
 }
