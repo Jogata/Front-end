@@ -10,6 +10,10 @@
     padding: 0;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 img {
     max-width: 100%;
 }
@@ -105,7 +109,7 @@ main {
     display: grid;
     grid-template-columns: 0.5fr repeat(7, 1fr);
     grid-template-columns: 0.2fr 0.5fr 1fr;
-    /* grid-template-rows: 100vh; */
+    grid-template-rows: 5fr;
 }
 
 .content {
@@ -145,19 +149,23 @@ main {
 
 .hero {
     grid-column: 2 / 4;
-    grid-row: 2 / 3;
+    grid-row: 2 / 6;
     position: relative;
     width: 100%;
+    transform: scale(1.5);
 }
 .castle {
     position: absolute;
 }
 .splash {
     mix-blend-mode: screen;
+    height: 100%;
+    transform: translateY(-1px);
 }
 
 footer {
     width: 100%;
+    z-index: 3;
 }
 .sci {
     display: flex;
@@ -184,4 +192,10 @@ footer {
 }
 .sci i {
     font-size: 22px;
+}
+
+@media screen and (max-width: 670px) {
+    .navigation {
+        display: none;
+    }
 }
