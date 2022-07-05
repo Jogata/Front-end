@@ -46,11 +46,12 @@ header {
 
 .logo {
     margin: 10px 20px;
+    animation: showleft 0.5s linear 0.2s backwards;
 }
 .logo-ring {
     position: absolute;
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
 }
 .logo-ring:nth-child(1) {
@@ -92,6 +93,10 @@ header {
     gap: 0.5em;
     font-size: 1.1rem;
     z-index: -1;
+}
+.navigation li {
+    animation: showdown 0.5s linear backwards;
+    animation-delay: calc(var(--i) * 0.2s);
 }
 .navigation a {
     display: inline-block;
@@ -156,11 +161,13 @@ main {
     color: #0169b2;
     font-size: 3.5rem;
     text-transform: capitalize;
+    animation: showright 0.5s linear 1.25s backwards;
 }
 .text-box p {
     margin: 1em 0;
     color: #333;
     font-size: 1.2rem;
+    animation: showleft 0.5s linear 1.25s backwards;
 }
 .text-box a {
     display: inline-block;
@@ -175,6 +182,7 @@ main {
     border-radius: 30px;
     background-color: #ff5e8e;
     transition: all 0.2s ease-in-out;
+    animation: showdown 0.5s linear 1.5s backwards;
 }
 .text-box a:hover {
     background-color: #0169b2;
@@ -193,8 +201,9 @@ main {
 }
 .splash {
     mix-blend-mode: screen;
+    max-width: 101%;
     height: 100%;
-    transform: translateY(-1px);
+    transform: translate(-1px, -1px);
 }
 
 footer {
@@ -220,6 +229,8 @@ footer {
     align-items: center;
     justify-content: center;
     transition: all 0.2s ease-in-out;
+    animation: showright 0.5s linear backwards;
+    animation-delay: calc(var(--i) * 0.2s + 1.5s);
 }
 .sci a:hover {
     background-color: #ff5e8e;
@@ -227,6 +238,25 @@ footer {
 }
 .sci i {
     font-size: 22px;
+}
+
+@keyframes showleft {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+}
+@keyframes showright {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+}
+@keyframes showdown {
+    0% {
+        transform: translateY(200%);
+        opacity: 0;
+    }
 }
 
 @media screen and (max-width: 670px) {
