@@ -45,8 +45,15 @@ header {
 }
 
 .logo {
-    margin: 10px 20px;
+    margin-block: 10px;
+    padding: 5px;
+    outline: none;
+    border-radius: 50%;
     animation: showleft 0.5s linear 0.2s backwards;
+}
+.logo:hover, 
+.logo:focus {
+    border: 2px solid #ddd;
 }
 .logo-ring {
     position: absolute;
@@ -102,12 +109,14 @@ header {
     display: inline-block;
     padding: 8px 18px;
     color: #0169b2;
-    text-transform: capitalize;
+    text-transform: uppercase;
     border-radius: 30px;
     transition: all 0.4s;
 }
-.navigation a.active, 
 .navigation a:hover {
+    border: 2px solid #0169b2;
+}
+.navigation a.active {
     color: #fff;
     background-color: #0169b2;
 }
@@ -146,20 +155,21 @@ header {
 
 main {
     display: grid;
-    grid-template-columns: 0.5fr repeat(7, 1fr);
-    grid-template-columns: 0.2fr 0.5fr 1fr;
+    grid-template-columns: 0.1fr 0.1fr 0.6fr 1fr;
     grid-template-rows: 5fr;
 }
 
 .content {
-    grid-column: 2 / 4;
+    grid-column: 1 / 5;
     grid-row: 1 / 3;
-    max-width: 550px;
+    max-width: 600px;
+    padding: 0 min(5vw, 40px);
     z-index: 1;
 }
 .text-box h2 {
     color: #0169b2;
     font-size: 3.5rem;
+    font-size: clamp(40px, 3.5rem, 10vw);
     text-transform: capitalize;
     animation: showright 0.5s linear 1.25s backwards;
 }
@@ -179,18 +189,20 @@ main {
     text-align: center;
     text-transform: capitalize;
     white-space: nowrap;
+    outline: none;
     border-radius: 30px;
     background-color: #ff5e8e;
     transition: all 0.2s ease-in-out;
     animation: showdown 0.5s linear 1.5s backwards;
 }
-.text-box a:hover {
+.text-box a:hover, 
+.text-box a:focus {
     background-color: #0169b2;
     transform: scale(1.05);
 }
 
 .hero {
-    grid-column: 2 / 4;
+    grid-column: 3 / 5;
     grid-row: 2 / 6;
     position: relative;
     width: 100%;
@@ -222,6 +234,7 @@ footer {
 .sci a {
     width: 50px;
     height: 50px;
+    outline: none;
     border-radius: 50%;
     color: #fff;
     background-color: #0169b2;
@@ -232,7 +245,8 @@ footer {
     animation: showright 0.5s linear backwards;
     animation-delay: calc(var(--i) * 0.2s + 1.5s);
 }
-.sci a:hover {
+.sci a:hover, 
+.sci a:focus {
     background-color: #ff5e8e;
     transform: translateY(-5px);
 }
