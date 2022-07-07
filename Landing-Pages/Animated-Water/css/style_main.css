@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Montserrat:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 
 /* 
 font-family: 'Josefin Sans', sans-serif;
@@ -12,3 +12,94 @@ font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
 }
 
+img {
+    max-width: 100%;
+}
+a {
+    text-decoration: none;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../img/background.png');
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    border: 10px solid green;
+}
+
+nav {
+    padding: 2% 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 50px;
+    cursor: pointer;
+}
+.logo a {
+    padding-left: 25px;
+    color: #fff;
+    font-size: 2rem;
+    font-family: 'Abril Fatface', cursive;
+}
+.logo img {
+    position: absolute;
+    opacity: 0.5;
+}
+
+nav button {
+    padding: 10px 25px;
+    color: #fbfcfd;
+    text-transform: capitalize;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border: 1px solid red;
+}
+h1, h2 {
+    color: #fff;
+}
+h1 {
+    margin-bottom: 0.3em;
+    font-size: 3rem;
+    font-family: 'Abril Fatface', cursive;
+    text-transform: capitalize;
+    letter-spacing: 0.05em;
+    line-height: 3rem;
+}
+h2 {
+    font-size: 2rem;
+    font-weight: 100;
+}
+h2::first-letter {
+    text-transform: uppercase;
+}
+main button {
+    padding: 0.3em 1.5em;
+    color: #fbfcfd;
+    font-size: 1.2rem;
+    font-weight: 100;
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: capitalize;
+    outline: none;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    background-color: transparent;
+    cursor: pointer;
+}
