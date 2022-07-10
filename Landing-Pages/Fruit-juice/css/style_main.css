@@ -226,7 +226,7 @@ img {
     right: 0;
     left: 1rem;
     margin: 0 auto;
-    transform: rotate(15deg);
+    transform: translateY(0) rotate(15deg);
     animation: float 4s ease-in-out infinite;
 }
 .home__apple1 {
@@ -300,3 +300,115 @@ img {
 }
 
 /* ========== Animations ========== */
+@keyframes float {
+    50% {
+        transform: translateY(-1.5rem) rotate(15deg);
+    }
+}
+
+/* ========== Responsive ========== */
+@media screen and (max-width: 330px) {
+    .container {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .home__images {
+        width: 245px;
+        height: 320px;
+    }
+    .home__liquid {
+        width: 250px;
+        left: 0;
+    }
+    .home__juice {
+        width: 100px;
+    }
+    .home__apple1, 
+    .home__apple2 {
+        width: 70px;
+    }
+}
+
+@media screen and (min-width: 767px) {
+    .nav {
+        height: calc(var(--header-height) + 1.5rem);
+    }
+    .nav__toggle, 
+    .nav__close, 
+    .nav__img {
+        display: none;
+    }
+    .nav__list {
+        flex-direction: row;
+        column-gap: 3rem;
+    }
+
+    .home__container {
+        grid-template-columns: repeat(2, max-content);
+        align-items: center;
+        justify-content: center;
+        column-gap: 4rem;
+        padding-top: 4rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .home__images {
+        width: 530px;
+        height: 590px;
+    }
+
+    .home__liquid {
+        width: 530px;
+    }
+    .home__juice {
+        width: 220px;
+        top: 1.5rem;
+        left: 0;
+    }
+    .home__apple1 {
+        width: 180px;
+        top: 10rem;
+        left: -1rem;
+    }
+    .home__apple2 {
+        width: 185px;
+        right: 0.5rem;
+        bottom: 5.5rem;
+    }
+
+    .home__leaf:nth-child(1) {
+        width: 70px;
+        top: -1rem;
+        right: 2rem;
+    }
+    .home__leaf:nth-child(2) {
+        width: 60px;
+        top: 2.5rem;
+        left: 3.25rem;
+        transform: rotate(-60deg);
+    }
+    .home__leaf:nth-child(3) {
+        width: 20px;
+        top: 8rem;
+        right: 5rem;
+        transform: rotate(-15deg);
+    }
+    .home__leaf:nth-child(4) {
+        width: 60px;
+        left: 3rem;
+        bottom: 4rem;
+    }
+    .home__leaf:nth-child(5) {
+        width: 60px;
+        right: 5rem;
+        bottom: 0;
+        transform: rotate(-30deg);
+    }
+    .home__leaf:nth-child(6) {
+        width: 70px;
+        left: 3rem;
+        bottom: -5rem;
+    }
+}
