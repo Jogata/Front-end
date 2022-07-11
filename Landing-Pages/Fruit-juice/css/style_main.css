@@ -162,6 +162,7 @@ img {
 /* ========== Home page ========== */
 .home {
     position: relative;
+    overflow-x: hidden;
 }
 .home__container {
     position: relative;
@@ -222,23 +223,23 @@ img {
 .home__juice-animate {}
 .home__juice {
     width: 140px;
-    top: 1rem;
-    right: 0;
-    left: 1rem;
+    inset: 1rem 0 auto 1rem;
     margin: 0 auto;
     transform: translateY(0) rotate(15deg);
     animation: float 4s ease-in-out infinite;
 }
 .home__apple1 {
     width: 100px;
-    top: 7rem;
-    left: 0.65rem;
+    inset: 7rem auto auto 0.65rem;
+    /* top: 7rem;
+    left: 0.65rem; */
     transform: rotate(-25deg);
 }
 .home__apple2 {
     width: 90px;
-    right: 1.5rem;
-    bottom: 3.5rem;
+    inset: auto 1.5rem 3.5rem auto;
+    /* right: 1.5rem;
+    bottom: 3.5rem; */
 }
 
 .home__leaf:nth-child(1), 
@@ -248,8 +249,9 @@ img {
 }
 
 .home__leaf:nth-child(1) {
-    top: -7rem;
-    right: 3rem;
+    inset: -7rem 3rem auto auto;
+    /* top: -7rem;
+    right: 3rem; */
 }
 .home__leaf:nth-child(2) {
     width: 40px;
@@ -279,24 +281,24 @@ img {
     bottom: -5rem;
 }
 
-.home__shape-small, 
-.home__shape-big {
+.home::before, 
+.home::after {
     position: absolute;
-    border-radius: 50%;
+    content: '';
     background-color: hsl(2, 100%, 88%);
     filter: blur(100px);
 }
-.home__shape-small {
+.home::before {
     width: 200px;
     height: 200px;
-    top: -5rem;
-    left: -5rem;
+    inset: -100px auto auto -100px;
+    border-radius: 50%;
 }
-.home__shape-big {
-    width: 250px;
+.home::after {
+    width: 100px;
     height: 250px;
-    top: 17rem;
-    right: -8rem;
+    inset: 40% 0 auto auto;
+    border-radius: 50% 0 0 50%;
 }
 
 /* ========== Animations ========== */
