@@ -63,9 +63,7 @@ img {
 
 /* ========== Reusable classes ========== */
 .container {
-    max-width: 1024px;
-        margin-left: 1.5rem;
-        margin-right: 1.5rem;
+    margin: 0 2.5rem;
 }
 
 .main {
@@ -231,15 +229,11 @@ img {
 .home__apple1 {
     width: 100px;
     inset: 7rem auto auto 0.65rem;
-    /* top: 7rem;
-    left: 0.65rem; */
     transform: rotate(-25deg);
 }
 .home__apple2 {
     width: 90px;
     inset: auto 1.5rem 3.5rem auto;
-    /* right: 1.5rem;
-    bottom: 3.5rem; */
 }
 
 .home__leaf:nth-child(1), 
@@ -250,35 +244,28 @@ img {
 
 .home__leaf:nth-child(1) {
     inset: -7rem 3rem auto auto;
-    /* top: -7rem;
-    right: 3rem; */
 }
 .home__leaf:nth-child(2) {
     width: 40px;
-    top: 1.5rem;
-    left: 1.25rem;
+    inset: 1.5rem auto auto 1.25rem;
     transform: rotate(-60deg);
 }
 .home__leaf:nth-child(3) {
     width: 20px;
-    top: 8rem;
-    right: 5rem;
+    inset: 8rem 5rem auto auto;
     transform: rotate(-15deg);
 }
 .home__leaf:nth-child(4) {
     width: 40px;
-    left: 3rem;
-    bottom: 4rem;
+    inset: auto auto 4rem 3rem;
 }
 .home__leaf:nth-child(5) {
     width: 40px;
-    right: 5rem;
-    bottom: 0;
+    inset: auto 5rem 0 auto;
     transform: rotate(-30deg);
 }
 .home__leaf:nth-child(6) {
-    left: 3rem;
-    bottom: -5rem;
+    inset: auto auto -5rem 3rem;
 }
 
 .home::before, 
@@ -388,29 +375,29 @@ img {
     .home__leaf:nth-child(2) {
         width: 60px;
         top: 2.5rem;
-        left: 3.25rem;
+        left: 2.25rem;
         transform: rotate(-60deg);
     }
     .home__leaf:nth-child(3) {
-        width: 20px;
-        top: 8rem;
-        right: 5rem;
+        width: 40px;
+        top: 12rem;
+        right: 10rem;
         transform: rotate(-15deg);
     }
     .home__leaf:nth-child(4) {
         width: 60px;
-        left: 3rem;
-        bottom: 4rem;
+        left: 8rem;
+        bottom: 4.5rem;
     }
     .home__leaf:nth-child(5) {
         width: 60px;
-        right: 5rem;
-        bottom: 0;
+        right: 10rem;
+        bottom: -3rem;
         transform: rotate(-30deg);
     }
     .home__leaf:nth-child(6) {
         width: 70px;
-        left: 3rem;
-        bottom: -5rem;
+        left: -8rem;
+        bottom: 1rem;
     }
 }
