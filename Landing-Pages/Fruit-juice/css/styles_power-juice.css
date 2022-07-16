@@ -45,7 +45,8 @@ i, .account {
     margin: auto;
     padding: 1em;
     font-size: 12px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Abril Fatface', cursive;
+    font-family: 'Lemon', cursive;
     overflow: hidden;
 }
 
@@ -69,6 +70,7 @@ nav > * {
 .logo {
     font-size: min(7vw, 2rem);
     text-align: center;
+    outline: none;
 }
 
 .links {
@@ -81,7 +83,13 @@ nav > * {
 }
 
 .link {
-    padding: 0.8em;
+    display: inline-block;
+    padding: 0.8em 0.8em 0.2em 0.8em;
+    border-bottom: 2px solid transparent;
+}
+.link.active {
+    color: #aecd31;
+    border-bottom: 2px solid #aecd31;
 }
 
 .fa-search, .cart {
@@ -90,6 +98,10 @@ nav > * {
 
 :is(.fa-search, .cart, .link, .account):hover {
     color: #aecd31;
+}
+:is(.logo, .fa-search, .cart, .link, .account):focus {
+    outline: none;
+    transform: scale(1.1);
 }
 
 main {
@@ -118,22 +130,47 @@ main {
     margin: auto;
 }
 
+.pages {
+    color: #999;
+    font-family: 'Abril Fatface', cursive;
+    letter-spacing: 0.5em;
+}
+.pages span {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #000;
+}
+
 h2 {
     width: 100%;
+    color: #95052c;
+    color: transparent;
+    -webkit-text-stroke: 2px #95052c;
     font-size: min(12vw, 12rem);
     font-weight: 700;
     text-align: center;
     text-transform: uppercase;
 }
 
-.pages {
-    letter-spacing: 0.5em;
-    color: #999;
+.arrows {
+    width: 100%;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
 }
-.pages span {
-    font-size: 2rem;
-    font-weight: 600;
+.arrows button {
+    padding-inline: 1.25em;
+    aspect-ratio: 1 / 1;
     color: #000;
+    outline: none;
+    border: 1px solid #999;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+}
+.arrows button:hover {
+    color: #fff;
+    background-color: #000;
 }
 
 .more {
@@ -159,6 +196,9 @@ h2 {
     color: #fff;
     background-color: #000;
 }
+.more a:focus {
+    transform: scale(1.1);
+}
 
 .description {
     grid-column: 5 / 6;
@@ -174,6 +214,7 @@ h2 {
 }
 .description p:last-child {
     max-width: 30em;
+    margin: auto;
     font-size: 1rem;
     line-height: 2;
 }
@@ -205,7 +246,7 @@ h2 {
     inset: 0;
     z-index: -1;
 }
-.leaves img:nth-child(n) {
+.leaves img {
     position: absolute;
     max-width: 20%;
 }
@@ -213,7 +254,7 @@ h2 {
     inset: 26% 12%;
 }
 .leaves img:nth-child(2) {
-    inset: 10% 24% auto auto;
+    inset: 5% 24% auto auto;
 }
 .leaves img:nth-child(3) {
     inset: 60%;
