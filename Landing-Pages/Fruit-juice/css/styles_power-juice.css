@@ -71,6 +71,7 @@ nav > * {
     font-size: min(7vw, 2rem);
     text-align: center;
     outline: none;
+    animation: floatleft 1.5s ease-in-out backwards;
 }
 
 .links {
@@ -104,6 +105,11 @@ nav > * {
     transform: scale(1.1);
 }
 
+.link, .account, .search-bar, .cart {
+    animation: floatleft 1s ease-in-out backwards;
+    animation-delay: calc(var(--i) * 0.3s);
+}
+
 main {
     position: relative;
     display: flex;
@@ -124,12 +130,6 @@ main {
     color: #999;
 }
 
-.last-row {
-    display: grid;
-    grid-template-columns: 1fr 0.2fr 1fr 0.2fr 1fr;
-    margin: auto;
-}
-
 .pages {
     color: #999;
     font-family: 'Abril Fatface', cursive;
@@ -139,17 +139,6 @@ main {
     font-size: 2rem;
     font-weight: 600;
     color: #000;
-}
-
-h2 {
-    width: 100%;
-    color: #95052c;
-    color: transparent;
-    -webkit-text-stroke: 2px #95052c;
-    font-size: min(12vw, 12rem);
-    font-weight: 700;
-    text-align: center;
-    text-transform: uppercase;
 }
 
 .arrows {
@@ -171,6 +160,52 @@ h2 {
 .arrows button:hover {
     color: #fff;
     background-color: #000;
+}
+
+.first-row, .arrows {
+    animation: floatup 1.5s ease-in-out backwards;
+    animation-delay: 2.2s;
+}
+
+h2 {
+    width: 100%;
+    color: #95052c;
+    color: transparent;
+    -webkit-text-stroke: 2px #95052c;
+    font-size: min(12vw, 12rem);
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    animation: floatup 1.5s ease-in-out backwards;
+    animation-delay: 1.5s;
+}
+
+.last-row {
+    display: grid;
+    grid-template-columns: 1fr 0.2fr 1fr 0.2fr 1fr;
+    margin: auto;
+}
+
+.description {
+    grid-column: 5 / 6;
+    grid-row: 1 / 2;
+    align-self: center;
+    z-index: 2;
+}
+.description p:first-child {
+    max-width: 12em;
+    margin-bottom: 1em;
+    font-size: min(7vw, 2rem);
+    color: #999;
+}
+.description p:last-child {
+    max-width: 30em;
+    margin: auto;
+    font-size: 1rem;
+    line-height: 2;
+}
+.olive {
+    color: #aecd31;
 }
 
 .more {
@@ -200,26 +235,9 @@ h2 {
     transform: scale(1.1);
 }
 
-.description {
-    grid-column: 5 / 6;
-    grid-row: 1 / 2;
-    align-self: center;
-    z-index: 2;
-}
-.description p:first-child {
-    max-width: 12em;
-    margin-bottom: 1em;
-    font-size: min(7vw, 2rem);
-    color: #999;
-}
-.description p:last-child {
-    max-width: 30em;
-    margin: auto;
-    font-size: 1rem;
-    line-height: 2;
-}
-.olive {
-    color: #aecd31;
+.description, .more {
+    animation: floatup 1.5s ease-in-out backwards;
+    animation-delay: 2.5s;
 }
 
 .juice {
@@ -227,6 +245,8 @@ h2 {
     grid-row: 1 / 2;
     display: flex;
     justify-content: center;
+    animation: floatdown 2s ease-in-out backwards;
+    animation-delay: 2.5s;
 }
 .juice img {
     max-width: 120%;
@@ -234,7 +254,6 @@ h2 {
     transform: translateY(-25%) scale(1.5);
     animation: float 4s ease-in-out infinite;
 }
-
 @keyframes float {
     50% {
         transform: translateY(-20%) scale(1.5);
@@ -249,6 +268,8 @@ h2 {
 .leaves img {
     position: absolute;
     max-width: 20%;
+    animation: floatdown 1s ease-in-out backwards;
+    animation-delay: calc(var(--i) * 0.2s + 3.5s);
 }
 .leaves img:nth-child(1) {
     inset: 26% 12%;
@@ -301,12 +322,12 @@ h2 {
 
 @media screen and (max-width: 980px) {
     .juice img {
-        transform: translateY(-5%) scale(1.4);
+        transform: translateY(0%) scale(1.4);
     }
     
     @keyframes float {
         50% {
-            transform: translateY(0%) scale(1.4);
+            transform: translateY(5%) scale(1.4);
         }
     }
 }
@@ -314,5 +335,26 @@ h2 {
 @media screen and (max-width: 740px) {
     .menu-links {
         display: none;
+    }
+}
+
+
+/* ==============   Animations   ============== */
+@keyframes floatleft {
+    0% {
+        transform: translateX(-70%);
+        opacity: 0;
+    }
+}
+@keyframes floatup {
+    0% {
+        transform: translateY(90%);
+        opacity: 0;
+    }
+}
+@keyframes floatdown {
+    0% {
+        transform: translateY(-200%);
+        opacity: 0;
     }
 }
