@@ -15,6 +15,103 @@ font-family: 'Montserrat', sans-serif;
 img {
     max-width: 100%;
 }
+ul {
+    display: flex;
+    list-style: none;
+}
 a {
+    color: #000;
     text-decoration: none;
+}
+i {
+    cursor: pointer;
+}
+i:hover, a:hover {
+    color: #ffa500;
+    transition: all 0.4s;
+}
+
+.landing-page {
+    width: 100%;
+    min-height: 100vh;
+    padding: 2em;
+    overflow: hidden;
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 1em;
+}
+header > * {
+    flex: 1;
+    flex-basis: 30%;
+    display: flex;
+    justify-content: center;
+}
+header ul {
+    display: flex;
+    column-gap: 1em;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.logo {
+    background-image: url('../img/logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 50%;
+}
+.logo-ring {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.logo-ring:nth-child(1) {
+    border-top: 3px solid #ffa500;
+    animation: loaderv321 2s linear infinite;
+}
+@keyframes loaderv321 {
+    0% { transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);}
+    100% { transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);}
+}
+.logo-ring:nth-child(2) {
+    border-right: 3px solid #ffa500;
+    animation: loaderv322 2s linear infinite;
+}
+@keyframes loaderv322 {
+    0% { transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);}
+    100% { transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);}
+}
+.logo-ring:nth-child(3) {
+    border-bottom: 3px solid #ffa500;
+    animation: loaderv323 2s linear infinite;
+}
+@keyframes loaderv323 {
+    0% { transform: rotateX(35deg) rotateY(65deg) rotateZ(0deg);}
+    100% { transform: rotateX(35deg) rotateY(65deg) rotateZ(360deg);}
+}
+.logo-ring:nth-child(4) {
+    position: relative;
+    border-left: 3px solid #ffa500;
+    animation: loaderv324 2s linear infinite;
+}
+@keyframes loaderv324 {
+    0% { transform: rotateX(50deg) rotateY(150deg) rotateZ(0deg);}
+    100% { transform: rotateX(50deg) rotateY(150deg) rotateZ(360deg);}
+}
+
+.tab-menu {
+    color: #666;
+    text-transform: capitalize;
+}
+.tab-menu ul {
+    gap: 1em;
+}
+li.active {
+    color: #000;
+    font-weight: bold;
+    border-bottom: 2px solid #ffa500;
 }
