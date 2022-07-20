@@ -114,17 +114,28 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.hero {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
     transform-style: preserve-3d;
+}
+.hero img {
+    width: 100%;
+    max-width: 400px;
+    transform: translateZ(1px);
 }
 
 h1 {
     position: absolute;
     top: 0;
-    font-size: 8rem;
-    /* font-weight: bold; */
+    font-size: min(22vw, 8rem);
     font-family: 'Abril Fatface', cursive;
     text-transform: uppercase;
-    transform: translateX(4rem);
+    /* transform: translateX(4rem); */
     transform-style: preserve-3d;
 }
 h1 span {
@@ -135,19 +146,10 @@ h1 span {
     line-height: 0.8;
 }
 
-.hero {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    transform: translateZ(1px);
-}
-.hero img {
-    max-width: 400px;
-    margin: auto;
-}
-
 .tabs-container {
-    width: min-content;
+    width: 50%;
+    min-width: min-content;
+    max-width: 600px;
     padding: 2em;
     border-radius: 2em;
     box-shadow: 0.2rem 0.2rem 0.4rem #555, 
@@ -183,3 +185,11 @@ li.active {
     display: block;
 }
 
+@media screen and (max-width: 790px) {
+    main {
+        flex-direction: column;
+    }
+    .tabs-container {
+        width: 80%;
+    }
+}
