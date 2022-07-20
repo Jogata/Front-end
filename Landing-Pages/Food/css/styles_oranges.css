@@ -22,13 +22,14 @@ ul {
 a {
     color: #000;
     text-decoration: none;
+    transition: all 0.4s;
 }
 i, label {
     cursor: pointer;
+    transition: all 0.4s;
 }
 i:hover, a:hover {
     color: #ffa500;
-    transition: all 0.4s;
 }
 
 .landing-page {
@@ -127,6 +128,7 @@ main {
     width: 100%;
     max-width: 400px;
     transform: translateZ(1px);
+    filter: drop-shadow(0.2rem 0.2rem 0.3rem #222);
 }
 
 h1 {
@@ -141,7 +143,6 @@ h1 {
 h1 span {
     display: block;
     position: relative;
-    z-index: -100;
     transform: translateZ(2px);
     line-height: 0.8;
 }
@@ -183,6 +184,34 @@ li.active {
 }
 .tab.active {
     display: block;
+}
+
+.sci ul {
+    gap: 1em;
+}
+.sci li {
+    width: 4rem;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ffa500;
+    border: 2px solid #000;
+    border-radius: 50%;
+    transition: all 0.4s;
+}
+.sci li:hover {
+    border: 2px solid #ffa500;
+}
+
+.sci-link {
+    /* width: 100%; */
+    font-size: 2rem;
+    text-align: center;
+}
+.sci li:hover .sci-link {
+    color: #ffa500;
+    transform: scale(1.2);
 }
 
 @media screen and (max-width: 790px) {
