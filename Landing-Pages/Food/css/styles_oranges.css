@@ -114,44 +114,41 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    transform-style: preserve-3d;
 }
 
 h1 {
     position: absolute;
     top: 0;
     font-size: 8rem;
+    /* font-weight: bold; */
+    font-family: 'Abril Fatface', cursive;
     text-transform: uppercase;
-    transform: translateX(2rem);
-    /* z-index: 1; */
+    transform: translateX(4rem);
+    transform-style: preserve-3d;
 }
-h1 > span {
-    display: none;
-}
-main > span {
-    position: absolute;
-    font-size: 8rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    transform: translateX(2rem);
-    z-index: 3;
+h1 span {
+    display: block;
+    position: relative;
+    z-index: -100;
+    transform: translateZ(2px);
+    line-height: 0.8;
 }
 
 .hero {
     flex: 1;
     display: flex;
     justify-content: center;
-    z-index: 2;
+    transform: translateZ(1px);
 }
 .hero img {
-    max-width: 300px;
+    max-width: 400px;
     margin: auto;
 }
 
 .tabs-container {
-    /* align-self: center; */
     width: min-content;
     padding: 2em;
-    /* border: 1px solid #ffa500; */
     border-radius: 2em;
     box-shadow: 0.2rem 0.2rem 0.4rem #555, 
     inset -0.2rem -0.2rem 0.5rem #fff;
