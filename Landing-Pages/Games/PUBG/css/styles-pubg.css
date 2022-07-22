@@ -11,8 +11,64 @@ font-family: 'Abril Fatface', cursive;
 }
 
 ul {
+    display: flex;
     list-style: none;
 }
 a {
     text-decoration: none;
 }
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+    user-select: none;
+}
+
+nav {
+    position: absolute;
+    width: 100%;
+    padding: 1.5em 0;
+    background-color: #000;
+    z-index: 2;
+}
+
+.container {
+    width: 100%;
+    max-width: 1370px;
+    margin: 0 auto;
+    padding: 0 1em;
+}
+
+.nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-list li {
+    margin-right: 2.5em;
+}
+.nav-link {
+    position: relative;
+    display: block;
+    color: #fff;
+    font-size: 1.7rem;
+    font-weight: 300;
+    text-transform: capitalize;
+}
+.nav-link.active {
+    color: #f3ba19;
+}
+
+.menu {
+    display: none;
+    max-width: 2.4rem;
+    font-size: 0px;
+    border-radius: 0.5rem;
+    background-color: red;
+}
+
+
