@@ -31,7 +31,6 @@ nav {
     position: absolute;
     width: 100%;
     padding: 1.5em 0;
-    background-color: #000;
     z-index: 2;
 }
 
@@ -71,4 +70,66 @@ nav {
     background-color: red;
 }
 
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-image: url('../img/pubg-background.jpg');
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    transform-style: preserve-3d;
+}
+.hero::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgba(16, 16, 16, 0.5);
+    backdrop-filter: blur(1px);
+    z-index: 1;
+}
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content {
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    margin-bottom: 0.75em;
+}
+.description {
+    margin-bottom: 2em;
+    padding: 0 1.2em;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+.download {
+    display: flex;
+    justify-content: space-evenly;
+    column-gap: 20px;
+}
+.play-btn, 
+.apple-btn {
+    width: 200px;
+    height: 58px;
+    margin: 0 12px;
+    font-size: 0px;
+}
+.play-btn {
+    background: url('../img/icons/googleplay.png') top center no-repeat;
+    background-size: contain;
+}
+.apple-btn {
+    background: url('../img/icons/appstore.png') top center no-repeat;
+    background-size: contain;
+}
 
