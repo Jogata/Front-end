@@ -36,6 +36,7 @@ nav {
     width: 100%;
     padding: 1.5em 0;
     z-index: 2;
+    transition: all 0.5s ease-in-out;
 }
 
 .container {
@@ -71,11 +72,17 @@ nav {
 }
 
 .menu {
+    position: absolute;
+    inset: 1rem 1rem auto auto;
     display: none;
     max-width: 2.4rem;
     font-size: 0px;
     border-radius: 0.5rem;
-    background-color: red;
+    transition: all 0.5s;
+    z-index: 3;
+}
+.menu:hover {
+    background-color: #e7b11f;
 }
 
 .hero {
@@ -83,13 +90,13 @@ nav {
     width: 100%;
     min-height: 100vh;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap-reverse;
-    /* align-items: center; */
     background-image: url('../img/pubg-background.jpg');
     background-position: center;
     background-size: cover;
-    overflow: hidden;
     transform-style: preserve-3d;
+    overflow: hidden;
 }
 .hero::after {
     position: absolute;
@@ -106,18 +113,15 @@ nav {
     align-items: center;
     justify-content: center;
     z-index: 3;
-    /* border: 2px solid wheat; */
 }
 
 .hero-content {
     max-width: 450px;
     min-height: 600px;
     display: flex;
-    /* align-items: center; */
     justify-content: center;
     flex-direction: column;
     margin: auto;
-    /* border: 2px solid violet; */
 }
 
 .logo {
@@ -139,9 +143,10 @@ nav {
 .apple-btn {
     max-width: 200px;
     width: 50%;
-    height: 58px;
+    aspect-ratio: 8 / 3;
     margin: 0 12px;
     font-size: 0px;
+    transition: all 0.5s;
 }
 .play-btn {
     background: url('../img/icons/googleplay.png') top center no-repeat;
@@ -151,27 +156,21 @@ nav {
     background: url('../img/icons/appstore.png') top center no-repeat;
     background-size: contain;
 }
+.play-btn:hover, 
+.apple-btn:hover {
+    transform: scale(1.1);
+}
 
 .slider {
-    /* position: absolute; */
-    /* right: 0; */
-    /* width: 100%; */
-    /* height: 100vh; */
-    display: flex;
-    justify-content: center;
+    margin-bottom: -270px;
     z-index: 2;
 }
-.slide {
-    /* display: flex; */
-    /* justify-content: flex-end; */
-}
-.slide-inner {
-    height: 100vh;
-}
+
 .slide-img {
-    height: 100%;
+    height: 100vh;
     min-height: 600px;
-    /* aspect-ratio: 850 / 1080; */
+    object-fit: contain;
+    object-position: center;
 }
 .slide:nth-child(2) {
     display: none;
@@ -188,12 +187,32 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
     background-color: #fff;
+    border-radius: 10px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.arrow:hover {
+    background-color: #f3ba19;
 }
 
 .hero > * {
-    flex: 1;
+    width: 50%;
     min-width: fit-content;
-    /* border: 10px solid red; */
+}
+
+@media screen and (max-width: 600px) {
+    nav {
+        top: -100%;
+        background-color: #27211f;
+    }
+    .nav-list {
+        flex-direction: column;
+    }
+    .menu {
+        display: block;
+    }
+    nav.active {
+        top: 0;
+    }
 }
