@@ -21,19 +21,52 @@
                         <li><a href="#top" class="nav-link">events</a></li>
                         <li><a href="#top" class="nav-link">workshop</a></li>
                     </ul>
-                    <button class="menu" type="button">menu
-                        <img src="./img/icons/hamburger.png" alt="">
-                    </button>
                 </div>
             </div>
         </nav>
+        <button class="menu" type="button">menu
+            <img src="./img/icons/hamburger.png" alt="">
+        </button>
     </header>
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <img src="./img/pubg-logo.png" class="title" alt="PUBG Mobile logo">
+                <img src="./img/pubg-logo.png" class="logo" alt="PUBG Mobile logo">
+                <p class="description">PUBG Mobile is a free-to-play battle royale video game developed by LightSpeed & Quantum Studio, a division of Tencent Games. It is a mobile game adaptation of PUBG: Battlegrounds (previously known as PlayerUnknown's Battlegrounds).</p>
+                <div class="download">
+                    <a href="#" class="play-btn">google play</a>
+                    <a href="#" class="apple-btn">apple store</a>
+                </div>
+            </div>
+        </div>
+        <div class="slider">
+            <div class="slide">
+                <div class="slide-inner">
+                    <img src="./img/pubg-boy.png" class="slide-img" alt="Male shooter">
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-inner">
+                    <img src="./img/pubg-girl.png" class="slide-img" alt="female shooter">
+                </div>
+            </div>
+        </div>
+        <div class="arrows">
+            <div class="arrow prev">
+                <img src="./img/icons/arrow-left.png" alt="">
+            </div>
+            <div class="arrow next">
+                <img src="./img/icons/arrow-right.png" alt="">
             </div>
         </div>
     </section>
+
+    <script>
+        const menuBtn = document.querySelector('.menu');
+        const navigation = document.querySelector('nav');
+        menuBtn.addEventListener('click', () => {
+            navigation.classList.toggle('active');
+        })
+    </script>
 </body>
 </html>
