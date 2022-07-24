@@ -60,12 +60,47 @@
             </div>
         </div>
     </section>
+    <ul class="social-icons">
+        <li>
+            <a href="#" class="social-icon" style="--i:3">
+                <img src="./img/icons/facebook.png" alt="Facebook">
+            </a>
+        </li>
+        <li>
+            <a href="#" class="social-icon" style="--i:2">
+                <img src="./img/icons/twitter.png" alt="Twitter">
+            </a>
+        </li>
+        <li>
+            <a href="#" class="social-icon" style="--i:1">
+                <img src="./img/icons/youtube.png" alt="Youtube">
+            </a>
+        </li>
+        <li>
+            <a href="#" class="social-icon" style="--i:0">
+                <img src="./img/icons/instagram.png" alt="Instagram">
+            </a>
+        </li>
+        <li>
+            <button type="button" class="share-btn">share
+                <img src="./img/icons/share.png" alt="Share icon">
+            </button>
+        </li>
+    </ul>
 
     <script>
         const menuBtn = document.querySelector('.menu');
         const navigation = document.querySelector('nav');
         menuBtn.addEventListener('click', () => {
             navigation.classList.toggle('active');
+        })
+
+        const shareBtn = document.querySelector('.share-btn')
+        shareBtn.addEventListener('click', () => {
+            const socialIcons = document.querySelectorAll('.social-icon');
+            socialIcons.forEach(icon => {
+                icon.classList.toggle('visible');
+            })
         })
     </script>
 </body>
