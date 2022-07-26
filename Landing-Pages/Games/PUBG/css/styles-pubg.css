@@ -66,6 +66,8 @@ nav {
     font-size: 1.7rem;
     font-weight: 300;
     text-transform: capitalize;
+    border-bottom: 0.1em solid transparent;
+    transition: all 0.5s;
 }
 .nav-link.active, 
 .nav-link:hover {
@@ -152,6 +154,7 @@ nav {
     aspect-ratio: 8 / 3;
     margin: 0 12px;
     font-size: 0px;
+    outline: none;
     transition: all 0.5s;
 }
 .play-btn {
@@ -163,7 +166,9 @@ nav {
     background-size: contain;
 }
 .play-btn:hover, 
-.apple-btn:hover {
+.play-btn:focus, 
+.apple-btn:hover, 
+.apple-btn:focus {
     transform: scale(1.1);
 }
 
@@ -224,7 +229,7 @@ nav {
     position: absolute;
     inset: auto 1rem 1rem auto;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: column-reverse;
 }
 .social-icon {
     display: block;
@@ -234,6 +239,10 @@ nav {
     transform: scale(0);
     transition: all 0.3s;
     transition-delay: calc((3 - var(--i)) * 0.1s);
+}
+.social-icon:focus-visible {
+    transform: scale(1);
+    opacity: 1;
 }
 .social-icon.visible {
     opacity: 1;
