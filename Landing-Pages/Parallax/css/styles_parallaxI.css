@@ -12,14 +12,107 @@ font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
 }
 
-img {
-    max-width: 100%;
+header {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
 }
-ul {
+header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.05);
+    z-index: 25;
+}
+
+.container {
+    max-width: 70rem;
+    margin: 0 auto;
+    padding: 0 2rem;
     display: flex;
-    list-style: none;
+    align-items: center;
+    justify-content: space-between;
 }
-a {
-    text-decoration: none;
-    transition: all 0.5s;
+
+nav {
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    padding: 1em 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05), transparent);
+    z-index: 30;
 }
+
+.logo {
+    color: #fff;
+    font-size: 1.1rem;
+    font-family: 'Abril Fatface', cursive;
+    text-transform: uppercase;
+}
+
+.hamburger-menu {
+    width: 1.55rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background: blue;
+    cursor: pointer;
+}
+.bar {
+    position: relative;
+    width: 1.2rem;
+    border: 1px solid #fff;
+    border-radius: 2px;
+}
+
+h1 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    color: #fff;
+    font-size: 5rem;
+    font-family: 'Abril Fatface', cursive;
+    text-align: center;
+    text-transform: capitalize;
+    letter-spacing: 0.06em;
+    z-index: 30;
+}
+
+.person {
+    position: absolute;
+    bottom: -100px;
+    left: -70px;
+    width: 650px;
+    z-index: 40;
+}
+.mountainI {
+    position: absolute;
+    right: 0;
+    bottom: -100px;
+    width: 1500px;
+    z-index: 19;
+}
+.mountainII {
+    position: absolute;
+    bottom: -100px;
+    left: 0;
+    width: 1100px;
+    z-index: 18;
+}
+.mountainIII {
+    position: absolute;
+    right: 0;
+    bottom: 150px;
+    width: 900px;
+    z-index: 17;
+}
+.sky {
+    position: absolute;
+    right: 0;
+    bottom: 250px;
+    width: 2100px;
+}
+
