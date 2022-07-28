@@ -12,18 +12,46 @@
     <header>
         <nav>
             <div class="container">
-                <h3 class="logo">logo</h3>
+                <span class="logo">logo</span>
                 <div class="hamburger-menu">
                     <div class="bar"></div>
                 </div>
             </div>
         </nav>
-        <h1>discover.</h1>
-        <img src="./img/parallaxI/person.png" class="person" alt="">
-        <img src="./img/parallaxI/mountain1.png" class="mountainI" alt="">
-        <img src="./img/parallaxI/mountain2.png" class="mountainII" alt="">
-        <img src="./img/parallaxI/mountain3.png" class="mountainIII" alt="">
-        <img src="./img/parallaxI/sky.png" class="sky" alt="">
+        <div class="box">
+            <h1 class="translate" data-speed="0.3">discover.</h1>
+            <img src="./img/parallaxI/person.png" class="person" alt="">
+            <img src="./img/parallaxI/mountain1.png" class="mountainI" alt="">
+            <img src="./img/parallaxI/mountain2.png" class="mountainII translate" data-speed="0.4" alt="">
+            <img src="./img/parallaxI/mountain3.png" class="mountainIII translate" data-speed="0.3" alt="">
+            <img src="./img/parallaxI/sky.png" class="sky translate" data-speed="0.5" alt="">
+        </div>
     </header>
+    <section>
+        <div class="shadow"></div>
+        <div class="grid-container">
+            <div class="content">
+                <h3>about
+                    <div class="border"></div>
+                </h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic debitis, consectetur labore reprehenderit nulla ipsum corrupti nisi! Sed molestiae dolorem ullam quis rem repudiandae sit possimus commodi tempora optio ipsa impedit quo necessitatibus, distinctio saepe dolore excepturi aliquam esse consequatur doloremque. Autem, asperiores! Nihil suscipit ut dignissimos temporibus, neque adipisci!</p>
+            </div>
+            <div class="img-box">
+                <img src="../template-v1/img/landscape-bg.jpg" alt="">
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const translate = document.querySelectorAll('.translate');
+
+        window.addEventListener('scroll', () => {
+            let scroll = window.pageYOffset;
+            translate.forEach(element => {
+                let speed = element.dataset.speed;
+                element.style.transform = `translateY(${scroll * speed}px)`;
+            })
+        })
+    </script>
 </body>
 </html>
