@@ -12,22 +12,31 @@ font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
 }
 
+body {
+    background-color: #151515;
+}
+
 header {
     position: relative;
     width: 100%;
-    height: 100vh;
+    max-width: 1400px;
+    margin: auto;
     overflow: hidden;
 }
 header::after {
     content: '';
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(0, 0, 0, 0.35);
     z-index: 25;
 }
 
+.box {
+    position: relative;
+    width: 100%;
+}
+
 .container {
-    max-width: 70rem;
     margin: 0 auto;
     padding: 0 2rem;
     display: flex;
@@ -48,29 +57,27 @@ nav {
     color: #fff;
     font-size: 1.1rem;
     font-family: 'Abril Fatface', cursive;
+    font-weight: bold;
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 .hamburger-menu {
-    width: 1.55rem;
-    height: 1.5rem;
     display: flex;
-    align-items: center;
     justify-content: flex-end;
-    background: blue;
     cursor: pointer;
 }
 .bar {
     position: relative;
     width: 1.2rem;
     border: 1px solid #fff;
+    background-color: #fff;
     border-radius: 2px;
 }
 
 h1 {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 35%;
     width: 100%;
     color: #fff;
     font-size: 5rem;
@@ -83,7 +90,7 @@ h1 {
 
 .person {
     position: absolute;
-    bottom: -100px;
+    bottom: 0px;
     left: -70px;
     width: 650px;
     z-index: 40;
@@ -110,9 +117,58 @@ h1 {
     z-index: 17;
 }
 .sky {
-    position: absolute;
-    right: 0;
-    bottom: 250px;
+    inset: auto 0 250px auto;
     width: 2100px;
 }
 
+section {
+    position: relative;   
+}
+
+.grid-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    gap: 3em;
+    padding: 3rem;
+}
+
+.content, 
+.img-box {
+    max-width: 500px;
+}
+.img-box img {
+    width: 100%;
+}
+
+.content {
+    color: #fff;
+}
+h3 {
+    position: relative;
+    font-size: 1.5rem;
+    margin-bottom: 0.75em;
+    padding-bottom: 0.5em;
+    font-family: 'Abril Fatface', cursive;
+    text-transform: capitalize;
+}
+.border {
+    position: absolute;
+    width: 30%;
+    height: 3px;
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+}
+
+.shadow {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(to top, #151515, transparent);
+    z-index: 20;
+}
