@@ -70,9 +70,27 @@ nav {
 .bar {
     position: relative;
     width: 1.2rem;
+    height: 3px;
+    border: none;
+    background-color: #fff;
+    border-radius: 2px;
+}
+.bar::before, 
+.bar::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 1.6rem;
+    height: 3px;
     border: 1px solid #fff;
     background-color: #fff;
     border-radius: 2px;
+}
+.bar::before {
+    transform: translateY(8px);
+}
+.bar::after {
+    transform: translateY(-8px);
 }
 
 h1 {
@@ -125,7 +143,7 @@ section {
     position: relative;   
 }
 
-.grid-container {
+.flex-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -133,6 +151,16 @@ section {
     min-height: 100vh;
     gap: 3em;
     padding: 3rem;
+}
+.flex-container::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(to top, #151515, transparent);
+    z-index: 40;
 }
 
 .content, 
@@ -145,6 +173,7 @@ section {
 
 .content {
     color: #fff;
+    transform: translateY(-50px);
 }
 h3 {
     position: relative;
@@ -156,7 +185,7 @@ h3 {
 }
 .border {
     position: absolute;
-    width: 30%;
+    width: 0%;
     height: 3px;
     background-color: #fff;
     bottom: 0;
