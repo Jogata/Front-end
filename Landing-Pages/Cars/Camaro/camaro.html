@@ -25,9 +25,9 @@
             </div>
             <div class="sci">
                 <ul>
-                    <li style="--i:0"><a class="sci-link" href="#f"><i class="fa fa-facebook-f"></i></a></li>
-                    <li style="--i:1"><a class="sci-link" href="#i"><i class="fa fa-twitter"></i></a></li>
-                    <li style="--i:2"><a class="sci-link" href="#t"><i class="fa fa-instagram"></i></a></li>
+                    <li><a class="sci-link" href="#f"><i class="fa fa-facebook-f"></i></a></li>
+                    <li><a class="sci-link" href="#i"><i class="fa fa-twitter"></i></a></li>
+                    <li><a class="sci-link" href="#t"><i class="fa fa-instagram"></i></a></li>
                 </ul>
             </div>
         </nav>
@@ -61,8 +61,62 @@
                     <div class="car"><img src="./img/4.png" alt=""></div>
                     <div class="car"><img src="./img/5.png" alt=""></div>
                 </div>
+                <div class="slide-control">
+                    <div class="dots">
+                        <div class="dot active"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <div class="arrows">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    </div>
+                </div>
             </section>
         </div>
     </main>
+    <script>
+        const cars = document.querySelectorAll('.car');
+        const dots = document.querySelectorAll('.dot');
+        let currentIndex = 0;
+        let changeSlide = setInterval(nextSlide, 5000);
+        
+        const leftArrow = document.querySelector('.fa-chevron-left');
+        leftArrow.addEventListener('click', () => {
+            clearInterval(changeSlide);
+            previousSlide();
+            changeSlide = setInterval(nextSlide, 5000);
+        });
+        
+        const rightArrow = document.querySelector('.fa-chevron-right');
+        rightArrow.addEventListener('click', () => {
+            clearInterval(changeSlide);
+            nextSlide();
+            changeSlide = setInterval(nextSlide, 5000);
+        });
+
+        function nextSlide() {
+            let activeSlide = document.querySelector('.car.active').classList.remove('active');
+            let activeDot = document.querySelector('.dot.active').classList.remove('active');
+            currentIndex++;
+            if (currentIndex >= cars.length) {
+                currentIndex = 0;
+            }
+            cars[currentIndex].classList.add('active');
+            dots[currentIndex].classList.add('active');
+        }
+        function previousSlide() {
+            let activeSlide = document.querySelector('.car.active').classList.remove('active');
+            let activeDot = document.querySelector('.dot.active').classList.remove('active');
+            currentIndex--;
+            if (currentIndex < 0) {
+                currentIndex = cars.length - 1;
+            }
+            cars[currentIndex].classList.add('active');
+            dots[currentIndex].classList.add('active');
+        }
+    </script>
 </body>
 </html>
