@@ -10,6 +10,118 @@ font-family: 'Abril Fatface', cursive;
     box-sizing: border-box;
 }
 
+ul {
+    list-style: none;
+}
 
+a, li {
+    color: #a1a1a1;
+    font-size: 1rem;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+a:hover, li:hover {
+    color: #000;
+}
 
+button, i {
+    cursor: pointer;
+    transition: all 0.5s;
+}
 
+h1 {
+    font-size: 2.5rem;
+    font-family: 'Abril Fatface', cursive;
+    letter-spacing: 0.05em;
+}
+b {
+    font-style: italic;
+}
+
+h1, p {
+    max-width: 600px;
+    width: 100%;
+}
+
+p {
+    margin: 0.35em 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 1% 3%;
+    background: linear-gradient(#fff, #f9ffd6);
+}
+
+nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+}
+.specifications ul {
+    position: absolute;
+}
+.specifications ul::before {
+    position: absolute;
+    inset: 0 auto auto -0.5em;
+    content: '';
+    width: 0.1em;
+    height: 100%;
+    background-color: #a1a1a1;
+}
+.specifications li {
+    margin-bottom: 0.5em;
+}
+.specifications li:first-child {
+    margin-top: 0.5em;
+}
+.specifications img {
+    width: 50%;
+}
+.menu, .logo {
+    width: 2rem;
+    cursor: pointer;
+}
+.logo {
+    width: min(20%, 4rem);
+    cursor: pointer;
+}
+
+main {
+    width: fit-content;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* border: 1px solid red; */
+}
+
+.explore {
+    margin-top: 0.5em;
+    padding: 0.2em 1.2em;
+    font-size: 1.2rem;
+    font-family: 'Abril Fatface', cursive;
+    text-transform: capitalize;
+    border: 2px solid #c08102;
+    border-radius: 0.5em;
+    background: linear-gradient(#c08102, rgba(253, 235, 0, 0.5), #c08102);
+}
+
+.hero {
+    width: 100%;
+    max-width: 600px;
+}
+.reverse {
+    transform: rotateY(180deg);
+}
