@@ -52,7 +52,9 @@ img {
 .container {
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    max-width: 1520px;
+    min-height: 50vh;
+    margin: 0 auto;
 }
 
 nav {
@@ -118,7 +120,7 @@ nav {
     isolation: isolate;
 }
 
-#car {
+.cars {
     grid-column: span 4 / -1;
     grid-row: span 4 / -1;
     align-self: flex-end;
@@ -135,9 +137,16 @@ nav {
     .grid {
         grid-template-rows: 50px repeat(4, 1fr);
     }
-    #car {
+    .cars {
         grid-row: span 3 / -1;
     }
+}
+
+.car {
+    display: none;
+}
+.visible {
+    display: block;
 }
 
 #content {
@@ -252,20 +261,6 @@ footer {
     padding-left: 1em;
     justify-self: flex-end;
 }
-.page {
-    padding: 0.1em 0.3em;
-    font-size: 1.5rem;
-    font-weight: bold;
-    border-radius: 0.4em;
-    cursor: pointer;
-    transition: all 0.5s;
-}
-.page:hover {
-    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
-.page.current {
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
 .pagination::before {
     position: absolute;
     right: 100%;
@@ -275,3 +270,20 @@ footer {
     height: 3px;
     background-color: #000;
 }
+
+.page {
+    padding: 0.1em 0.3em;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 0.4em;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.5s;
+}
+.page:hover {
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+.page.current {
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
