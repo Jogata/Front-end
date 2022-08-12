@@ -34,9 +34,7 @@ a {
     text-decoration: none;
     white-space: nowrap;
     transition: all 0.5s;
-}
-a:hover {
-    color: #000;
+    filter: drop-shadow(-1px -1px 0px rgb(0 0 0 / 65%));
 }
 
 button, i {
@@ -64,21 +62,36 @@ nav {
     clip-path: polygon(100% 0, 95% 50%, 50% 100%, 5% 50%, 0 0);
     background-color: #d40219;
 }
+nav a {
+    font-family: 'Abril Fatface', cursive;
+    filter: drop-shadow(-1px -1px 0px rgb(0 0 0 / 65%))
+    drop-shadow(1px 1px 0px rgb(255 255 255 /65%));
+}
+nav a:hover {
+    color: #d40219;
+}
 
 .logo {
     height: 60px;
     aspect-ratio: 1 / 1;
     margin: 1rem;
+    transform: scale(1);
+    filter: drop-shadow(-1px -1px 0px rgb(0 0 0 / 65%))
+    drop-shadow(1px 1px 0px rgb(255 255 255 /65%));
+    transition: all 0.5s;
     align-self: center;
     cursor: pointer;
 }
+.logo:hover {
+    transform: scale(1.1);
+}
 .logo svg {
     height: 100%;
-    fill: #fff;
+    fill: #d40219;
     transition: all 0.5s;
 }
 .logo:hover svg {
-    fill: #000;
+    fill: #fff;
 }
 
 .menu {
@@ -196,6 +209,7 @@ nav {
     inset: 0 auto auto 0;
     filter: drop-shadow(1px 1px 0px #d40219) 
             drop-shadow(-1px -1px 0px #d40219);
+    /* filter: drop-shadow(2px 2px 2px rgb(0 0 0 / 80%)); */
     opacity: 0.58;
     z-index: -1;
 }
@@ -241,12 +255,13 @@ footer {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    background-color: transparent;
 }
 .sci a:focus-visible {
     outline: 1px solid #d40219;
 }
 .sci a:hover {
-    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.6);
 }
 .sci a i {
     font-size: 1.6rem;
@@ -284,6 +299,7 @@ footer {
     box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 .page.current {
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5), 
+    -1px -1px 1px rgb(255 255 255 / 0.5);
 }
 
