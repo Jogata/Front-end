@@ -12,13 +12,22 @@ font-family: 'Abril Fatface', cursive;
 
 ul {
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
+    column-gap: 2em;
 }
 
 a {
+    color: #111;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
     text-decoration: none;
     white-space: nowrap;
     transition: all 0.5s;
+}
+a:hover {
+    opacity: 0.6;
 }
 
 button, i {
@@ -28,4 +37,85 @@ button, i {
 
 img {
     width: 100%;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #dad2d0;
+    background-color: #E5E4B6;
+}
+.body {
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.body::after {
+    content: '';
+    width: 100%;
+    height: 150%;
+    position: absolute;
+    inset: -25% -50% 0 auto;
+    border-radius: 50%;
+    background-color: #bf8c00;
+    background: linear-gradient(#c08102, rgba(253, 235, 0, 0.5), #c08102);
+
+    z-index: 1;
+}
+
+.container {
+    max-width: min(100%, 1500px);
+    padding: 0 min(5vw, 2%);
+    margin: auto;
+    box-shadow: 15px 30px 40px 20px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+header {
+    margin-bottom: 2rem;
+    padding: 1em 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+nav a {
+    padding: 0.4em;
+}
+
+.logo {
+    width: min(25%, 3.5rem);
+    width: min(35%, 7.5rem);
+}
+.logo a {
+    font-size: 0px;
+}
+
+.menu {
+    font-size: 3rem;
+    cursor: pointer;
+}
+.menu:hover {
+    opacity: 0.4;
+}
+
+main {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-name {
+    opacity: 0.08;
+}
+
+.car {
+    display: block;
+    width: 80%;
+    margin: auto;
 }
