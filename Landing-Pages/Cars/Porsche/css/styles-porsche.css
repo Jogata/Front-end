@@ -41,8 +41,8 @@ img {
 
 body {
     min-height: 100vh;
-    background-color: #dad2d0;
     background-color: #E5E4B6;
+
 }
 .body {
     position: absolute;
@@ -62,13 +62,12 @@ body {
     border-radius: 50%;
     background-color: #bf8c00;
     background: linear-gradient(#c08102, rgba(253, 235, 0, 0.5), #c08102);
-
     z-index: 1;
 }
 
 .container {
     max-width: min(100%, 1500px);
-    padding: 0 min(5vw, 2%);
+    padding: 2em min(5vw, 2%);
     margin: auto;
     box-shadow: 15px 30px 40px 20px rgba(0, 0, 0, 0.5);
     z-index: 2;
@@ -105,9 +104,31 @@ nav a {
 
 main {
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+}
+
+h1 {
+    position: absolute;
+    width: 100%;
+    transform: translateY(-45%);
+    /* color: #ab333f; */
+    /* color: #bf8c00; */
+    color: #E5E4B6;
+    font-size: min(9vw, 7rem);
+    font-family: 'Abril Fatface', cursive;
+    text-align: center;
+    white-space: nowrap;
+    filter: drop-shadow(1px 1px 1px #fff) 
+    drop-shadow(-1px 2px 2px #000);
+    animation: reveal 4s linear backwards;
+    user-select: none;
+    overflow: hidden;
+    z-index: 3;
+}
+
+@keyframes reveal {
+    0% {
+        width: 0%;
+    }
 }
 
 .brand-name {
@@ -118,4 +139,63 @@ main {
     display: block;
     width: 80%;
     margin: auto;
+}
+
+.info, .spec {
+    display: flex;
+    align-items: center;
+    column-gap: 1em;
+    row-gap: 2em;
+    flex-wrap: wrap;
+}
+.spec {
+    row-gap: 1.5em;
+}
+
+h2 {
+    color: #ab333f;
+    color: #bf8c00;
+    font-size: 2.2rem;
+    font-family: 'Abril Fatface', cursive;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+h3 {
+    color: #E5E4B6;
+    font-size: 3rem;
+    text-transform: capitalize;
+    filter: drop-shadow(1px 1px 1px #fff) 
+    drop-shadow(-1px 2px 2px #000);
+    font-family: 'Abril Fatface', cursive;
+    user-select: none;
+
+}
+
+.cell {
+    padding: 0 1em;
+    align-self: stretch;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.cell:first-child {
+    border-right: 1px solid #aaa;
+}
+.cell:not(:first-child, :nth-child(2)) {
+    border-left: 1px solid #aaa;
+}
+
+h4 {
+    color: #666;
+    font-size: 1.5rem;
+}
+.cell p {
+    color: #ab333f;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Abril Fatface', cursive;
+}
+
+.cell:nth-child(n) {
+    white-space: nowrap;   
 }
