@@ -13,7 +13,7 @@
         <section class="container" id="top">
             <header>
                 <div class="logo">
-                    <a href="#top">logo
+                    <a href="./porsche.html">logo
                         <img src="./img/logo/logo-large.png" alt="Porsche logo">
                     </a>
                 </div>
@@ -34,7 +34,17 @@
                 <h1>911 Turbo S</h1>
                 <div class="car-container">
                     <img src="./img/logo/brand-name.png" alt="Porsche logo" class="brand-name">
-                    <img src="./img/porsche-main.png" alt="Porsche" class="car">
+                    <div class="cars-slider">
+                        <div class="dots">
+                            <div class="dot" data-color="black"></div>
+                            <div class="dot" data-color="blue"></div>
+                            <div class="dot" data-color="darkred"></div>
+                        </div>
+                        <img src="./img/porsche-main.png" alt="Porsche" class="car main active">
+                        <img src="./img/black.png" alt="Porsche" class="car black">
+                        <img src="./img/blue.png" alt="Porsche" class="car blue">
+                        <img src="./img/darkred.png" alt="Porsche" class="car darkred">
+                    </div>
                 </div>
                 <div class="info">
                     <div class="cell">
@@ -62,6 +72,18 @@
                 </div>
             </main>
         </section>
+
+        <script>
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach(dot => {
+                dot.addEventListener('click', ()=> {
+                    const image = document.querySelector(`.${dot.dataset.color}`);
+                    const currentActiveImage = document.querySelector('.active');
+                    currentActiveImage.classList.remove('active');
+                    image.classList.add('active');
+                })
+            })
+        </script>
     </div>
 </body>
 </html>
