@@ -33,7 +33,7 @@
             <main>
                 <h1>911 Turbo S</h1>
                 <div class="car-container">
-                    <img src="./img/logo/brand-name.png" alt="Porsche logo" class="brand-name">
+                    <img src="./img/logo/brand-name.png" alt="Porsche logo" class="brand-name-img">
                     <div class="cars-slider">
                         <div class="dots">
                             <div class="dot" data-color="black"></div>
@@ -48,7 +48,7 @@
                 </div>
                 <div class="info">
                     <div class="cell">
-                        <h2>porsche</h2>
+                        <h2 class="brand-name">porsche</h2>
                         <h3>911 turbo s</h3>
                     </div>
                     <div class="spec">
@@ -77,13 +77,21 @@
             const dots = document.querySelectorAll('.dot');
             dots.forEach(dot => {
                 dot.addEventListener('click', ()=> {
+                    // Change Main Image
                     const image = document.querySelector(`.${dot.dataset.color}`);
                     const currentActiveImage = document.querySelector('.active');
                     currentActiveImage.classList.remove('active');
                     image.classList.add('active');
+                    // Change Text Color in Information Section
+                    const dotColor = window.getComputedStyle(dot).color;
+                    const information = document.querySelector('.info');
+                    information.style.color = dotColor;
+                    const brandName = document.querySelector('.brand-name');
+                    brandName.style.color = 'currentColor';
                 })
             })
-        </script>
+            
+            </script>
     </div>
 </body>
 </html>
