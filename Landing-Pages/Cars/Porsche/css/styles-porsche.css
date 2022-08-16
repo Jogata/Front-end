@@ -18,16 +18,20 @@ ul {
 }
 
 a {
+    display: inline-block;
     color: #111;
     font-size: 1rem;
     font-weight: bold;
     text-transform: uppercase;
     text-decoration: none;
     white-space: nowrap;
-    transition: all 0.5s;
+    border-radius: 1em;
 }
 a:hover {
-    opacity: 0.6;
+    color: #666;
+}
+a:focus-visible {
+    outline: 1px solid #666;
 }
 
 button, i {
@@ -44,6 +48,25 @@ body {
     background-color: #E5E4B6;
 
 }
+body::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* background v.1 */
+    background-image: url('../img/bg-elk.png');
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: contain;
+    opacity: 0.2;
+    /* background v.2 */
+    background-image: url('../img/bg-city.png');
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: cover;
+    opacity: 0.4;
+}
+
 .body {
     position: absolute;
     width: 100%;
@@ -67,7 +90,7 @@ body {
 
 .container {
     max-width: min(100%, 1500px);
-    padding: 2em min(5vw, 2%);
+    padding: min(4vw, 2em) min(5vw, 2%);
     margin: auto;
     box-shadow: 15px 30px 40px 20px rgba(0, 0, 0, 0.5);
     z-index: 2;
@@ -75,13 +98,16 @@ body {
 
 header {
     margin-bottom: 2rem;
-    padding: 1em 2em;
+    padding: min(4vw, 1em) min(4vw, 2em);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
 }
-
+nav ul {
+    padding: 0 2em;
+    justify-content: center;
+    row-gap: 1em;
+}
 nav a {
     padding: 0.4em;
 }
@@ -91,6 +117,11 @@ nav a {
 }
 .logo a {
     font-size: 0px;
+    border-radius: 10px;
+}
+.logo a:focus-visible {
+    outline: 1px solid #666;
+    outline-offset: 10px;
 }
 
 .menu {
@@ -130,8 +161,9 @@ h1 {
     }
 }
 
-.brand-name {
+.brand-name-img {
     opacity: 0.08;
+    opacity: 0.2;
 }
 
 .cars-slider {
@@ -140,9 +172,10 @@ h1 {
 }
 
 .dot {
-    width: 1em;
+    width: min(1.3vw, 2em);
+    min-width: 1.5em;
     aspect-ratio: 1 / 1;
-    margin: 1em 0.5em;
+    margin: 2em 0.5em;
     border-radius: 50%;
     background-color: currentColor;
     cursor: pointer;
@@ -157,17 +190,19 @@ h1 {
     color: #b41734;
 }
 .dot:hover {
-    outline: 1px solid currentColor;
-    outline-offset: 3px;
+    outline: 3px solid currentColor;
+    outline-offset: 4px;
 }
 
 @media screen and (min-width: 2000px) {
     .dot {
-        width: 2em;
-        margin-block: 2em;
+        margin-block: 2.5em;
     }
 }
 @media screen and (max-width: 710px) {
+    nav {
+        display: none;
+    }
     .cars-slider {
         flex-direction: column-reverse;
     }
@@ -175,7 +210,7 @@ h1 {
         display: flex;
     }
     .dot {
-        width: 0.7em;
+        margin-inline: 1.6em;
     }
 }
 
@@ -199,13 +234,13 @@ h1 {
     flex-wrap: wrap;
 }
 .info {
-    color: #bf8c00;
+    color: #ab333f;
 }
 .spec {
     row-gap: 1.5em;
 }
 
-h2 {
+.brand-name {
     color: #bf8c00;
     font-size: min(10vw, 2.2rem);
     font-family: 'Abril Fatface', cursive;
@@ -242,7 +277,8 @@ h4 {
     font-size: min(6vw, 1.5rem);
 }
 .cell p {
-    color: #ab333f;
+    /* color: #ab333f; */
+    color: currentColor;
     font-size: min(8vw, 2rem);
     font-weight: bold;
     font-family: 'Abril Fatface', cursive;
