@@ -156,24 +156,29 @@ main::after {
     z-index: -1;
 }
 
-
+.description {
+    display: grid;
+    grid-template-rows: repeat(3, auto) 1fr;
+}
 .description h1 {
     animation: fadeinleft 1.5s ease-in-out 0.5s backwards;
 }
 .description p {
     animation: fadeinleft 1.5s ease-in-out 1s backwards;
 }
+
+.buttons {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 1em;
+}
 .explore, .preview {
-    margin-top: 0.5em;
-    padding: 0.2em 1.2em;
     color: #be7e02;
-    font-size: 1.2rem;
     font-weight: bold;
     font-family: 'Abril Fatface', cursive;
     text-transform: capitalize;
     letter-spacing: 0.05em;
-    border: 2px solid #c08102;
-    border-radius: 0.5em;
     background: transparent;
     /* ====== v.1 ====== */
     /* color: #000;
@@ -190,11 +195,59 @@ main::after {
     animation: fadeinup 1s ease-in-out backwards;
 }
 .explore {
+    align-self: flex-start;
+    margin-top: 0.5em;
     margin-right: 1.2em;
+    padding: 0.2em 1.2em;
+    font-size: 1.2rem;
+    border: 2px solid #c08102;
+    border-radius: 0.5em;
     animation-delay: 1.5s;
 }
 .preview {
+    display: block;
+    align-self: center;
+    position: relative;
+    margin: auto;
+    padding: 0.7em;
+    font-size: 1.5rem;
+    aspect-ratio: 1;
+    border: 3px solid rgb(232, 204, 83);
+    border-radius: 50%;
+    box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.3),
+    2px 2px 1px rgba(0, 0, 0, 0.3),
+    inset 2px 2px 2px rgba(0, 0, 0, 0.3),
+    inset -2px -2px 6px rgba(255, 255, 255, 0.3);
     animation-delay: 1.8s;
+}
+.preview::after, 
+.preview::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid transparent;
+    border-radius: inherit;
+    box-shadow: 
+    2px 2px 1px rgba(0, 0, 0, 0.3),
+    -2px -2px 6px rgb(232, 204, 83),
+    inset 2px 2px 2px rgba(0, 0, 0, 0.3),
+    inset -2px -2px 6px rgb(232, 204, 83);
+    opacity: 0;
+    transition: 0.3s;
+}
+.waves::after, 
+.waves::before {
+    animation: wave 2s linear infinite;
+}
+.wb::after {
+    animation-delay: 1s;
+}
+.preview.waves {
+    border: none;
+    box-shadow: none;
 }
 .explore:hover, 
 .preview:hover {
@@ -203,6 +256,19 @@ main::after {
 .explore:focus-visible, 
 .preview:focus-visible {
     outline: 1px solid #111;
+}
+
+@keyframes wave {
+    50% {
+        width: 140%;
+        height: 140%;
+        opacity: 1;
+    }
+    100% {
+        width: 180%;
+        height: 180%;
+        opacity: 0;
+    }
 }
 
 .hero {
