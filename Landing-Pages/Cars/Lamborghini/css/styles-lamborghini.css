@@ -242,7 +242,7 @@ main::after {
 .waves::before {
     animation: wave 2s linear infinite;
 }
-.wb::after {
+.waves::after {
     animation-delay: 1s;
 }
 .preview.waves {
