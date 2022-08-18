@@ -12,6 +12,10 @@ font-family: 'Abril Fatface', cursive;
 
 ul {
     display: flex;
+    justify-content: center;
+    column-gap: 1.5em;
+    row-gap: 1em;
+    flex-wrap: wrap;
     list-style: none;
 }
 
@@ -28,4 +32,105 @@ button, i {
 
 img {
     width: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('../img/tattoo-jaguar-bg.png');
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: contain;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.container {
+    width: 100%;
+    max-width: 1500px;
+    padding: 1.5em;
+    z-index: 2;
+    /* border: 1px solid green; */
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5),
+    -10px 0px 10px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 15px 30px 40px 20px rgba(0, 0, 0, 0.5);
+}
+
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 2em;
+}
+
+.logo {
+    width: 100px;
+    flex-shrink: 0;
+}
+
+nav li, .menu {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+.menu {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5em;
+}
+.bar {
+    position: relative;
+    width: 30px;
+    height: 2px;
+    margin-left: 0.33em;
+    background-color: #000;
+}
+.bar::before {
+    position: absolute;
+    inset: -300% 0 auto auto;
+    content: '';
+    width: calc(100% + 0.33em);
+    height: 100%;
+    background-color: inherit;
+}
+
+main {
+    width: 70%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: 0.4fr 1fr 0.4fr;
+    /* border: 1px solid red; */
+}
+
+.front {
+    grid-column: 1 / 4;
+    grid-row: 2 / 4;
+    grid-row: 2 / 3;
+    /* align-self: flex-start; */
+    align-self: center;
+    z-index: 2;
+    /* border: 1px solid black; */
+}
+.back {
+    grid-column: 3 / 5;
+    grid-row: 2 / 3;
+    /* align-self: flex-end; */
+    opacity: 0.6;
+    z-index: 1;
+    /* border: 1px solid blue; */
+}
+.reverse {
+    transform: rotateY(190deg);
+}
+.shrink {
+    margin-block: -7.2%;
 }
