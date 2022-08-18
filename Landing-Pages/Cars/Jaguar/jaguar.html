@@ -6,8 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jaguar</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/styles-ferrari.css">
+    <link rel="stylesheet" href="./css/styles-jaguar.css">
 </head>
 <body>
+    <div class="container">
+        <header>
+            <a href="./jaguar.html" class="logo">
+                <img src="./img/logo.png" alt="Jaguar logo">
+            </a>
+            <nav>
+                <ul>
+                    <li>start</li>
+                    <li>exterior</li>
+                    <li>interior</li>
+                    <li>powertrain</li>
+                    <li>cars</li>
+                </ul>
+            </nav>
+            <div class="menu">
+                <span>menu</span>
+                <div class="bar"></div>
+            </div>
+        </header>
+        <main>
+            <img src="./img/PNGPIX-COM-Jaguar-F-TYPE-White-Car-PNG-Image.png" class="front" alt="">
+            <img src="./img/jaguar-f-type-r-coupe-back.png" class="back reverse" alt="">
+        </main>
+        <button>click</button>
+    </div>
+
+    <script>
+        const button = document.querySelector('button');
+        button.addEventListener('click', () => {
+            const front = document.querySelector('.front');
+            const back = document.querySelector('.back');
+            front.classList.toggle('front');
+            front.classList.toggle('back');
+            back.classList.toggle('back');
+            back.classList.toggle('front');
+        })
+    </script>
 </body>
 </html>
