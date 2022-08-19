@@ -29,22 +29,57 @@
             </div>
         </header>
         <main>
-            <img src="./img/PNGPIX-COM-Jaguar-F-TYPE-White-Car-PNG-Image.png" class="front" alt="">
-            <img src="./img/jaguar-f-type-r-coupe-back.png" class="back reverse" alt="">
+            <div class="model">
+                <h1>jaguar</h1>
+                <h2>F-TYPE Coupé</h2>
+            </div>
+            <div class="hero2">
+                <!-- <img src="./img/Jaguar-F-TYPE-side.png" class="front" alt=""> -->
+                <img src="./img/PNGPIX-COM-Jaguar-F-TYPE-White-Car-PNG-Image.png" class="front2 reverse" alt="">
+                <img src="./img/jaguar-f-type-r-coupe-back.png" class="back2 reverse shrink" alt="">
+            </div>
+            <div class="info">
+                <div class="specification">
+                    <h3>nm</h3>
+                    <p class="value">540</p>
+                </div>
+                <div class="specification">
+                    <h3>0-100km/<span class="lowercase">h</span></h3>
+                    <p class="value">540</p>
+                </div>
+                <div class="specification">
+                    <h3>hp</h3>
+                    <p class="value">562</p>
+                </div>
+            </div>
         </main>
-        <button>click</button>
+        <button id="v1">click</button>
+        <button id="v2">v.2</button>
+
     </div>
 
     <script>
-        const button = document.querySelector('button');
-        button.addEventListener('click', () => {
+        const button1 = document.querySelector('#v1');
+        button1.addEventListener('click', () => {
             const front = document.querySelector('.front');
             const back = document.querySelector('.back');
             front.classList.toggle('front');
             front.classList.toggle('back');
             back.classList.toggle('back');
             back.classList.toggle('front');
+            const hero = document.querySelector('.hero');
+            hero.classList.toggle('turn');
         })
+        const button2 = document.querySelector('#v2');
+        button2.addEventListener('click', () => {
+            const front = document.querySelector('.front2');
+            const back = document.querySelector('.back2');
+            front.classList.toggle('front2');
+            front.classList.toggle('back2');
+            back.classList.toggle('back2');
+            back.classList.toggle('front2');
+        })
+
     </script>
 </body>
 </html>
