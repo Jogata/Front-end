@@ -104,11 +104,22 @@ nav li, .menu {
 main {
     width: 70%;
     margin: 0 auto;
-    display: grid;
+    /* display: grid; */
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-template-rows: 0.4fr 1fr 0.4fr;
     /* border: 1px solid red; */
+
+    transform-style: preserve-3d;
+    /* perspective: 100000px; */
+    transform: rotateX(-90deg) rotateZ(0deg);
+    transition: all 2s;
+}
+
+.turn {
+    transform: rotate(180deg);
+    transform: rotateY(90deg);
+    transform: rotateX(-90deg) rotateZ(180deg);
 }
 
 .front {
@@ -119,6 +130,8 @@ main {
     align-self: center;
     z-index: 2;
     /* border: 1px solid black; */
+    transform: rotateY(180deg) rotateX(-90deg) translateZ(-100px);
+    transition: all 2s;
 }
 .back {
     grid-column: 3 / 5;
@@ -127,10 +140,37 @@ main {
     opacity: 0.6;
     z-index: 1;
     /* border: 1px solid blue; */
+    width: 80%;
+    transform: rotateY(180deg) rotateX(-90deg) translateX(-25%) translateZ(100px);
+    transform: rotateY(180deg) rotateX(-90deg) translateX(-40%) translateY(-20%) translateZ(100px);
+    transition: all 2s;
 }
 .reverse {
-    transform: rotateY(190deg);
+    /* transform: rotateY(180deg); */
+    /* transform: rotateY(180deg) rotateX(90deg); */
 }
 .shrink {
     margin-block: -7.2%;
 }
+
+.turn .front {
+    transform: rotateY(180deg) rotateX(-90deg) translateZ(100px);
+    /* animation: rotateright 2s linear; */
+}
+.turn .back {
+    transform: rotateY(180deg) rotateX(-90deg) translateX(25%) translateZ(-100px);
+    transform: rotateY(180deg) rotateX(-90deg) translateX(25%) translateY(-30%) translateZ(-100px);
+    /* animation: rotateleft 2s linear; */
+}
+
+/* @keyframes rotateleft {
+    50% {
+        transform: rotateY(180deg) rotateX(-90deg) translateZ(-100px) translateX(-50%);
+    }
+}
+@keyframes rotateright {
+    50% {
+        transform: rotateY(180deg) rotateX(-90deg) translateZ(100px) translateX(50%);
+    }
+} */
+
