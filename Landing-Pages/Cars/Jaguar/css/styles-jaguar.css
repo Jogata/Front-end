@@ -108,14 +108,10 @@ main {
     align-items: center;
 }
 
-main > * {
-    /* border: 1px solid red; */
-}
-
-
 .model {
+    margin-right: -4rem;
     text-align: center;
-    transform: rotate(-90deg) translateY(-3rem);
+    transform: rotate(-90deg) translateY(-4rem);
 }
 h1, h2, .value {
     width: max-content;
@@ -139,6 +135,10 @@ h2 {
     transform: rotateX(-90deg) rotateZ(0deg);
     transition: all 2s;
 }
+.hero-img {
+    height: 100%;
+    transform-style: preserve-3d;
+}
 
 .specification {
     margin: 2em 1em;
@@ -153,13 +153,12 @@ h3 {
     text-transform: lowercase;
 }
 .value {
+    /* color: #0d3bb2; */
     font-size: 2rem;
     text-transform: uppercase;
 }
 
 .turn {
-    transform: rotate(180deg);
-    transform: rotateY(90deg);
     transform: rotateX(-90deg) rotateZ(180deg);
 }
 
@@ -176,10 +175,6 @@ h3 {
     z-index: 1;
 }
 
-.shrink {
-    margin-block: -7.2%;
-}
-
 .turn .front {
     transform: rotateY(180deg) rotateX(-90deg) translateZ(100px);
 }
@@ -190,11 +185,16 @@ h3 {
 .arrow {
     width: 3rem;
     height: 3rem;
+    margin: auto;
     padding: 0.8em;
     font-size: 1.2rem;
     text-align: center;
     border: 1px solid;
     border-radius: 50%;
+}
+.arrow:hover {
+    color: #fff;
+    background-color: #000;
 }
 
 /* @keyframes rotateleft {
@@ -220,19 +220,70 @@ h3 {
 .front2 {
     grid-column: 1 / 4;
     grid-row: 2 / 4;
-    /* align-self: flex-start; */
     align-self: center;
+    object-fit: contain;
     z-index: 2;
-    /* border: 1px solid black; */
-    /* transition: all 2s; */
 }
 .back2 {
+    width: 80%;
     grid-column: 3 / 5;
     grid-row: 2 / 3;
-    /* align-self: flex-end; */
+    object-fit: contain;
     opacity: 0.6;
     z-index: 1;
-    width: 80%;
-    /* transition: all 2s; */
 }
 
+.slider {
+    position: relative;
+    top: 10%;
+    grid-column: 1 / 5;
+    grid-row: 4 / 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 5%;
+}
+.slide {
+    width: 10%;
+    border: none;
+    background-color: transparent;
+    opacity: 0.6;
+    transition: all 0.5s;
+}
+.slide:not(.current):hover {
+    transform: scale(1.2);
+}
+.current {
+    opacity: 1;
+}
+
+
+
+/* ====== styles to edit the images ====== */
+.reverse {
+    transform: rotateY(180deg);
+}
+.shrink {
+    margin-block: -7.2%;
+    object-fit: cover;
+}
+.shrink-blue {
+    padding-top: 3.3%;
+}
+.back2.shrink-blue {
+    padding-top: 0;
+}
+/* ====================================== */
+
+
+
+/* borders */
+/* .slider {
+    border: 1px solid darkcyan;
+}
+main {
+    border: 1px solid;
+}
+main > * {
+    border: 1px solid red;
+} */
