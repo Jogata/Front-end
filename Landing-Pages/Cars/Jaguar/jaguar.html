@@ -34,9 +34,26 @@
                 <h2>F-TYPE Coupé</h2>
             </div>
             <div class="hero2">
-                <!-- <img src="./img/Jaguar-F-TYPE-side.png" class="front" alt=""> -->
-                <img src="./img/PNGPIX-COM-Jaguar-F-TYPE-White-Car-PNG-Image.png" class="front2 reverse" alt="">
-                <img src="./img/jaguar-f-type-r-coupe-back.png" class="back2 reverse shrink" alt="">
+                <!-- <img src="./img/Jaguar-F-TYPE-side.png" class="hero-img front2" alt=""> -->
+                <!-- <img src="./img/wpngaaa1227837.png" class="hero-img front2 reverse" alt=""> -->
+                <!-- <img src="./img/white-jaguar-f-type-coupe-main.png" class="hero-img front2 reverse" alt=""> -->
+                <!-- <img src="./img/white-jaguar-f-type-coupe-back.png" class="hero-img back2 reverse shrink" alt=""> -->
+                <img src="./img/blue-jaguar-f-type-coupe-main.png" class="hero-img front2 reverse" alt="">
+                <img src="./img/blue-jaguar-f-type-coupe-back.png" class="hero-img back2 shrink-blue" alt="">
+                <div class="slider">
+                    <i class="fa fa-chevron-left arrow" aria-hidden="true"></i>
+                    <button type="button" class="slide current" data-index="0">
+                        <!-- <img src="./img/Jaguar-F-TYPE-side.png" alt=""> -->
+                        <!-- <img src="./img/wpngaaa1227837.png" class="reverse" alt=""> -->
+                        <!-- <img src="./img/white-jaguar-f-type-coupe-main.png" class="reverse" alt=""> -->
+                        <img src="./img/blue-jaguar-f-type-coupe-main.png" class="reverse" alt="">
+                    </button>
+                    <button type="button" class="slide next" data-index="1">
+                        <!-- <img src="./img/white-jaguar-f-type-coupe-back.png" class="reverse" alt=""> -->
+                        <img src="./img/blue-jaguar-f-type-coupe-back.png" alt="">
+                    </button>
+                    <i class="fa fa-chevron-right arrow" aria-hidden="true"></i>
+                </div>
             </div>
             <div class="info">
                 <div class="specification">
@@ -45,7 +62,7 @@
                 </div>
                 <div class="specification">
                     <h3>0-100km/<span class="lowercase">h</span></h3>
-                    <p class="value">540</p>
+                    <p class="value">3.0<span class="lowercase">s</span></p>
                 </div>
                 <div class="specification">
                     <h3>hp</h3>
@@ -54,8 +71,8 @@
             </div>
         </main>
         <button id="v1">click</button>
-        <button id="v2">v.2</button>
-
+        <!-- <button id="v2">v.2</button> -->
+        
     </div>
 
     <script>
@@ -70,16 +87,43 @@
             const hero = document.querySelector('.hero');
             hero.classList.toggle('turn');
         })
-        const button2 = document.querySelector('#v2');
-        button2.addEventListener('click', () => {
-            const front = document.querySelector('.front2');
-            const back = document.querySelector('.back2');
-            front.classList.toggle('front2');
-            front.classList.toggle('back2');
-            back.classList.toggle('back2');
-            back.classList.toggle('front2');
-        })
+        // const button2 = document.querySelector('#v2');
+        // button2.addEventListener('click', () => {
+        //     const front = document.querySelector('.front2');
+        //     const back = document.querySelector('.back2');
+        //     front.classList.toggle('front2');
+        //     front.classList.toggle('back2');
+        //     back.classList.toggle('back2');
+        //     back.classList.toggle('front2');
+        // })
 
+        const images = document.querySelectorAll('.hero-img');
+        const slides = document.querySelectorAll('.slide');
+        slides.forEach(slide => {
+            slide.addEventListener('click', () => {
+                const currentActiveSlide = document.querySelector('.current');
+                currentActiveSlide.classList.remove('current');
+                slide.classList.add('current');
+                const oldImage = document.querySelector('.front2');
+                oldImage.classList.replace('front2', 'back2');
+                const index = slide.dataset.index;
+                const newImage = images[index];
+                newImage.classList.replace('back2', 'front2');
+            })
+        })
+        const arrows = document.querySelectorAll('.arrow');
+        arrows.forEach(arrow => {
+            arrow.addEventListener('click', () => {
+                const front = document.querySelector('.front2');
+                const back = document.querySelector('.back2');
+                front.classList.replace('front2', 'back2');
+                back.classList.replace('back2', 'front2');
+                const currentActiveSlide = document.querySelector('.current');
+                const newActiveSlide = document.querySelector('.next');
+                currentActiveSlide.classList.replace('current', 'next');
+                newActiveSlide.classList.replace('next', 'current');
+            })
+        })
     </script>
 </body>
 </html>
