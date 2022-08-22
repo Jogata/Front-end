@@ -72,12 +72,12 @@ header {
 }
 
 .logo {
-    width: 100px;
+    width: min(20vw, 100px);
     flex-shrink: 0;
 }
 
 nav li, .menu {
-    font-size: 1.2rem;
+    font-size: min(5vw, 1.2rem);
     text-transform: uppercase;
 }
 .menu {
@@ -106,6 +106,7 @@ main {
     margin: 0 auto;
     display: flex;
     align-items: center;
+    row-gap: 40px;
 }
 
 .model {
@@ -120,12 +121,12 @@ h1, h2, .value {
     white-space: nowrap;
 }
 h1 {
-    font-size: 6rem;
+    font-size: min(20vw, 6rem);
 }
 h2 {
     width: auto;
     color: #888;
-    font-size: 2.5rem;
+    font-size: min(10vw, 2.5rem);
 }
 
 .hero {
@@ -146,7 +147,7 @@ h2 {
 h3 {
     width: max-content;
     color: #888;
-    font-size: 1.2rem;
+    font-size: min(4vw, 1.2rem);
     text-transform: uppercase;
 }
 .lowercase {
@@ -154,7 +155,7 @@ h3 {
 }
 .value {
     /* color: #0d3bb2; */
-    font-size: 2rem;
+    font-size: min(8vw, 2rem);
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -184,12 +185,14 @@ h3 {
 }
 
 .arrow {
-    width: 3rem;
-    height: 3rem;
+    width: min(6vw, 3rem);
+    aspect-ratio: 1;
     margin: auto;
-    padding: 0.8em;
-    font-size: 1.2rem;
-    text-align: center;
+    /* padding: 0.8em; */
+    font-size: min(3vw, 1.2rem);
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
     border: 1px solid;
     border-radius: 50%;
 }
@@ -219,17 +222,19 @@ h3 {
 }
 
 .colors {
+    font-size: 25px;
     grid-column: 2 / 4;
     grid-row: 1 / 2;
     align-self: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    column-gap: 25px;
+    column-gap: 1em;
 }
 .color {
-    width: 25px;
-    height: 25px;
+    width: min(7vw, 1em);
+    min-width: 15px;
+    aspect-ratio: 1;
     border-radius: 50%;
     background-color: currentColor;
     cursor: pointer;
@@ -242,10 +247,10 @@ h3 {
     color: #0d3bb2;
 }
 .current-color {
-    width: 15px;
-    height: 15px;
+    width: min(7vw, 0.6em);
+    min-width: 10px;
     outline: 1px solid currentColor;
-    outline-offset: 5px;
+    outline-offset: min(1.5vw, 0.2em);
 }
 
 .front2 {
@@ -276,6 +281,7 @@ h3 {
 }
 .slide {
     width: 10%;
+    min-width: 50px;
     font-size: 0px;
     border: none;
     background-color: transparent;
@@ -289,6 +295,34 @@ h3 {
     opacity: 1;
 }
 
+
+@media screen and (max-width: 1066px) {
+    main {
+        flex-direction: column;
+    }
+    .model {
+        margin: 0 auto;
+        transform: rotate(0deg);
+    }
+    .info {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        column-gap: 2rem;
+    }
+}
+@media screen and (max-width: 770px) {
+    nav {
+        display: none;
+    }
+    .hero2 {
+        row-gap: 20px;
+    }
+    .specification {
+        margin: 0;
+    }
+}
 
 
 /* ====== styles to edit the images ====== */
