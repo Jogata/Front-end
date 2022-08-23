@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+/* 
+font-family: 'Abril Fatface', cursive;
+*/
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+    column-gap: 1.5em;
+    row-gap: 1em;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.5s;
+}
+
+button, i {
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+img {
+    width: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('../img/tattoo-jaguar-bg.png');
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: contain;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.container {
+    width: 100%;
+    max-width: 1500px;
+    padding: 1.5em;
+    box-shadow: 15px 30px 40px 20px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 2em;
+}
+
+.logo {
+    width: min(20vw, 100px);
+    flex-shrink: 0;
+}
+
+nav li, .menu {
+    font-size: min(5vw, 1.2rem);
+    text-transform: uppercase;
+}
+.menu {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5em;
+}
+.bar {
+    position: relative;
+    width: 30px;
+    height: 2px;
+    margin-left: 0.33em;
+    background-color: #000;
+}
+.bar::before {
+    position: absolute;
+    inset: -300% 0 auto auto;
+    content: '';
+    width: calc(100% + 0.33em);
+    height: 100%;
+    background-color: inherit;
+}
+
+main {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    row-gap: 40px;
+}
+
+.model {
+    margin-right: -4rem;
+    text-align: center;
+    transform: rotate(-90deg) translateY(-4rem);
+}
+h1, h2, .value {
+    width: max-content;
+    font-family: 'Abril Fatface', cursive;
+    text-transform: capitalize;
+    white-space: nowrap;
+}
+h1 {
+    font-size: min(20vw, 6rem);
+}
+h2 {
+    width: auto;
+    color: #888;
+    font-size: min(10vw, 2.5rem);
+}
+
+
+.hero {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 0.5fr repeat(2, 1fr) 0.5fr;
+    transition: all 2s;
+}
+
+.colors {
+    font-size: 25px;
+    grid-column: 2 / 4;
+    grid-row: 1 / 2;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 1em;
+}
+.color {
+    width: min(7vw, 1em);
+    min-width: 15px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: currentColor;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.color:nth-child(1) {
+    color: #b4b7bd;
+}
+.color:nth-child(2) {
+    color: #0d3bb2;
+}
+.current-color {
+    width: min(7vw, 0.6em);
+    min-width: 10px;
+    outline: 1px solid currentColor;
+    outline-offset: min(1.5vw, 0.2em);
+}
+
+.front {
+    grid-column: 1 / 4;
+    grid-row: 2 / 4;
+    align-self: center;
+    object-fit: contain;
+    z-index: 2;
+}
+.back {
+    width: 80%;
+    grid-column: 3 / 5;
+    grid-row: 2 / 3;
+    object-fit: contain;
+    opacity: 0.6;
+    z-index: 1;
+}
+
+.specification {
+    margin: 2em 1em;
+}
+h3 {
+    width: max-content;
+    color: #888;
+    font-size: min(4vw, 1.2rem);
+    text-transform: uppercase;
+}
+.lowercase {
+    text-transform: lowercase;
+}
+.value {
+    font-size: min(8vw, 2rem);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.slider {
+    position: relative;
+    top: 10%;
+    grid-column: 1 / 5;
+    grid-row: 4 / 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 5%;
+}
+.slide {
+    width: 10%;
+    min-width: 50px;
+    font-size: 0px;
+    border: none;
+    background-color: transparent;
+    opacity: 0.6;
+    transition: all 0.5s;
+}
+.slide:not(.current-slide):hover {
+    transform: scale(1.2);
+}
+.current-slide {
+    opacity: 1;
+}
+
+.arrow {
+    width: min(6vw, 3rem);
+    aspect-ratio: 1;
+    margin: auto;
+    font-size: min(3vw, 1.2rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid;
+    border-radius: 50%;
+}
+.arrow:hover {
+    color: #fff;
+    background-color: #000;
+}
+
+
+
+@media screen and (max-width: 1066px) {
+    main {
+        flex-direction: column;
+    }
+    .model {
+        margin: 0 auto;
+        transform: rotate(0deg);
+    }
+    .info {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        column-gap: 2rem;
+    }
+}
+@media screen and (max-width: 770px) {
+    nav {
+        display: none;
+    }
+    .hero2 {
+        row-gap: 20px;
+    }
+    .specification {
+        margin: 0;
+    }
+}
+
+
+/* ====== styles to edit the images ====== */
+.reverse {
+    transform: rotateY(180deg);
+}
+
+.side.white {
+    margin: -2% 0 -10% 0;
+    object-fit: cover;
+}
+.side.back.white {
+    transform: rotateY(180deg) translateY(-13%);
+}
+
+.side.blue {
+    margin-bottom: 7.5%;
+}
+.main.back.blue {
+    margin-bottom: 9.1%;
+}
+.main.front.blue {
+    margin-top: 5%;
+}
+.side.front.blue {
+    margin-top: 7.5%;
+    margin-bottom: 0;
+}
+/* ====================================== */
