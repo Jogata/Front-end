@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Splash</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/style_main.css">
 </head>
 <body>
@@ -18,13 +19,17 @@
             </a>
             <nav>
                 <ul class="navigation">
-                    <li><a href="#top" class="active">home</a></li>
-                    <li><a href="#top">about</a></li>
-                    <li><a href="#top">calendar</a></li>
-                    <li><a href="#top">blog</a></li>
-                    <li><a href="#top">contact</a></li>
+                    <li style="--i:1"><a href="#top" class="active">home</a></li>
+                    <li style="--i:2"><a href="#top">about</a></li>
+                    <li style="--i:3"><a href="#top">calendar</a></li>
+                    <li style="--i:4"><a href="#top">blog</a></li>
+                    <li style="--i:5"><a href="#top">contact</a></li>
                 </ul>
             </nav>
+            <button class="menu">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </button>
         </header>
         
         <main>
@@ -32,7 +37,7 @@
                 <div class="text-box">
                     <h2>some title</h2>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, temporibus dicta repudiandae excepturi numquam eanihil inventore fuga sequi odio sed atque unde officiis debitis itaque magni omnis aspernatur laborum minus! Impedit inventore earum laudantium vel ea quam, molestiae ab sunt doloremque aut necessitatibus magni qui asperiores, et ut explicabo.</p>
-                    <a href="top">read more</a>
+                    <a href="#top">read more</a>
                 </div>
             </div>
             <div class="hero">
@@ -40,7 +45,31 @@
                 <img class="splash" src="./img/splash.jpg" alt="">
             </div>
         </main>
+        
+        <footer>
+            <ul class="sci">
+                <li style="--i:0"><a class="sci-link" href="#top"><i class="fa fa-facebook-f"></i></a></li>
+                <li style="--i:1"><a class="sci-link" href="#top"><i class="fa fa-instagram"></i></a></li>
+                <li style="--i:2"><a class="sci-link" href="#top"><i class="fa fa-twitter"></i></a></li>
+            </ul>
+        </footer>
     </section>
-    <!-- <section class="container flex"></section> -->
+
+    <script>
+        const menu = document.querySelector('.menu');
+        const navigation = document.querySelector('.navigation');
+        menu.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            navigation.classList.toggle('active');
+        })
+
+        const navLinks = navigation.querySelectorAll('li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navigation.querySelector('.active').classList.remove('active');
+                link.classList.toggle('active');
+            })
+        })
+    </script>
 </body>
 </html>
