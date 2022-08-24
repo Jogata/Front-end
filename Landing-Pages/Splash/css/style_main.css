@@ -47,13 +47,11 @@ header {
 .logo {
     margin-block: 10px;
     padding: 5px;
-    outline: none;
     border-radius: 50%;
     animation: showleft 0.5s linear 0.2s backwards;
 }
-.logo:hover, 
 .logo:focus {
-    border: 2px solid #ddd;
+    outline: 2px solid #ddd;
 }
 .logo-ring {
     position: absolute;
@@ -94,6 +92,10 @@ header {
     0% { transform: rotateX(50deg) rotateY(150deg) rotateZ(0deg);}
     100% { transform: rotateX(50deg) rotateY(150deg) rotateZ(360deg);}
 }
+.logo:focus .logo-ring, 
+.logo:hover .logo-ring {
+    animation-duration: 1s;
+}
 
 .navigation {
     display: flex;
@@ -110,8 +112,9 @@ header {
     padding: 8px 18px;
     color: #0169b2;
     text-transform: uppercase;
+    border: 2px solid transparent;
     border-radius: 30px;
-    transition: all 0.4s;
+    transition: border 0.4s;
 }
 .navigation a:hover {
     border: 2px solid #0169b2;
@@ -119,6 +122,13 @@ header {
 .navigation a.active {
     color: #fff;
     background-color: #0169b2;
+    transition: font-size 0.4s;
+}
+.navigation a.active:hover {
+    font-size: 1.1em;
+}
+.navigation a.active:focus {
+    outline: 2px solid #0169b2;
 }
 
 .navigation.active {
@@ -207,6 +217,7 @@ main {
     position: relative;
     width: 100%;
     transform: scale(1.5);
+    animation: fadein 1s linear 1.7s backwards;
 }
 .castle {
     position: absolute;
@@ -269,6 +280,11 @@ footer {
 @keyframes showdown {
     0% {
         transform: translateY(200%);
+        opacity: 0;
+    }
+}
+@keyframes fadein {
+    0% {
         opacity: 0;
     }
 }
