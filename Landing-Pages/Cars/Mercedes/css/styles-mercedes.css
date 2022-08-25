@@ -10,5 +10,100 @@ font-family: 'Abril Fatface', cursive;
     box-sizing: border-box;
 }
 
+body {
+    width: 100%;
+    min-height: 100vh;
+    padding: 2% 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    row-gap: 2rem;
+    background-image: url('../img/bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+}
 
+header {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 4rem;
+}
+
+.logo-benz {
+    width: 20%;
+    filter: invert(1);
+}
+
+nav {
+    margin-left: auto;
+}
+ul {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 0.5em;
+    column-gap: 2em;
+    list-style: none;
+}
+
+a, li {
+    display: inline-block;
+    padding: 0.5em;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.5s;
+    filter: drop-shadow(-1px -1px 0px rgb(0 0 0 / 65%));
+}
+:is(a, li, i):hover {
+    color: #e49e00;
+}
+
+.menu {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+:is(button, i, .logo-benz) {
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+img {
+    width: 100%;
+    max-width: 600px;
+    object-fit: contain;
+    z-index: 2;
+}
+
+section {
+    position: relative;
+    max-width: 1200px;
+    padding: 2% 5% 0 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 2fr;
+    flex-wrap: wrap;
+    box-shadow: 0px 0px 13px rgba(255, 255, 255, 0.5),
+    -2px -2px 13px rgba(255, 255, 255, 0.5);
+}
+section::before {
+    position: absolute;
+    content: '';
+    height: 35%;
+    inset: auto 0 0 0;
+    background-image: linear-gradient(to left, transparent, #e49e00);
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+}
 
