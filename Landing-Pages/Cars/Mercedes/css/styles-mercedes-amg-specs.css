@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+/* 
+font-family: 'Abril Fatface', cursive;
+*/
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* body {
+    width: 100%;
+    min-height: 100vh;
+    padding: calc(10px + 2%) 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    row-gap: 2rem;
+    background-image: url('../img/amg-gt-r/bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+} */
+body {
+    width: 100%;
+    min-height: 100vh;
+    padding: 2% 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    row-gap: 2rem;
+    background-color: #e6e6e6;
+    overflow-x: hidden;
+}
+
+header {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 4rem;
+}
+
+.logo-benz {
+    width: 20%;
+    min-width: 100px;
+}
+
+nav {
+    margin-left: auto;
+}
+ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 0.5em;
+    column-gap: 2em;
+    list-style: none;
+}
+nav ul {
+    justify-content: center;
+}
+
+a, li {
+    display: inline-block;
+    padding: 0.5em;
+    color: #666;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.5s;
+    /* filter: drop-shadow(-1px -1px 0px rgb(0 0 0 / 65%)); */
+}
+:is(a, li, i):hover {
+    color: #333;
+}
+
+hr {
+    opacity: 0.4;
+}
+
+.menu {
+    color: #666;
+    font-size: 1.5rem;
+}
+
+:is(button, i, .logo-benz, .specification) {
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+img {
+    width: 100%;
+    object-fit: contain;
+}
+
+main {
+    position: relative;
+    max-width: 1200px;
+    padding: min(2%, 2rem) min(5%, 5rem);
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+    grid-template-rows: auto 1fr;
+    column-gap: min(10vw, 10%);
+    box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.4),
+    -2px -2px 13px rgba(0, 0, 0, 0.4);
+}
+
+.top {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #333;
+    text-transform: uppercase;
+    font-family: 'Abril Fatface', cursive;
+}
+h2 {
+    font-family: 'Abril Fatface', cursive;
+    text-transform: uppercase;
+    white-space: no-wrap;
+}
+h1 span {
+    padding-left: 1%;
+    font-weight: lighter;
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: capitalize;
+    font-style: italic;
+}
+
+.hero img {
+    width: min(80vw, 120%);
+}
+
+.middle {
+    /* width: 90%; */
+    padding: 25% 0;
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+.bottom {
+    /* grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    display: flex;
+    align-items: center; */
+    /* background-image: linear-gradient(to left, transparent, #e49e00, transparent); */
+}
+
+.specifications {
+    /* max-width: max-content; */
+    /* display: grid; */
+    /* grid-template-columns: auto auto; */
+    /* column-gap: 2rem; */
+    /* row-gap: 1rem; */
+    display: flex;
+    row-gap: 25%;
+    flex-direction: column;
+    text-align: center;
+}
+h3 {
+    margin-bottom: 1em;
+    font-size: 1.2rem;
+    color: #777;
+    text-transform: capitalize;
+}
+
+.specification:not(:first-child) {
+    margin-top: 35%;
+}
+.specification:hover {
+    transform: scale(1.2);
+}
+
+#engine {
+    width: min(50vw, 100%);
+}
+#chasis {
+    width: min(60vw,100%);
+}
+/* .specification p {
+    font-size: 1.2rem;
+    font-family: 'Abril Fatface', cursive;
+} */
+/* .capital {
+    text-transform: capitalize;
+}
+.uppercase {
+    text-transform: uppercase;
+} */
+
+.hero {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    align-self: center;
+}
+
+footer {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.sci {
+    width: fit-content;
+    margin-right: 3em;
+    font-size: min(calc(6px + 2vw), 1rem);
+}
+
+.sci li {
+    padding: 0;
+}
+.sci-link i {
+    padding-right: 1em;
+}
+footer img {
+    width: 20%;
+    min-width: 80px;
+}
+
+
