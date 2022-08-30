@@ -229,3 +229,76 @@ footer img {
 }
 
 
+@media screen and (max-width: 700px) {
+    nav {
+        display: none;
+    }
+}
+@media screen and (max-width: 814px) {
+    main {
+        display: block;
+    }
+    .top {
+        padding-bottom: 25%;
+    }
+}
+
+
+/* .top {
+    border: 1px solid green;
+}
+.hero {
+    border: 1px solid blue;
+}
+.middle {
+    border: 1px solid red;
+} */
+
+.hero {
+    position: relative;
+    /* border: 1px solid red; */
+}
+.arrow {
+    position: absolute;
+    width: 2px;
+    height: 20%;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+}
+.engine-arrow {
+    inset: 30% auto auto 30%;
+    transform: rotate(-45deg);
+}
+.engine-arrow::before {
+    content: 'Engine';
+    position: absolute;
+    top: -1.5em;
+    width: fit-content;
+    padding: 0 0.2em;
+    font-size: 2rem;
+    border-bottom: 1px solid #333;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+.chasis-arrow {
+    inset: auto auto 3% 60%;
+    transform: rotate(45deg);
+}
+.chasis-arrow::after {
+    content: 'Chasis';
+    position: absolute;
+    bottom: -1.1em;
+    width: fit-content;
+    padding: 0 0.2em;
+    font-size: 2rem;
+    border-bottom: 1px solid #333;
+    transform: rotate(-45deg);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 814px) {
+    .chasis-arrow {
+        inset: auto auto 3% 50%;
+    }
+}
