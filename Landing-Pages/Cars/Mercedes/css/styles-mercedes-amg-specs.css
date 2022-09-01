@@ -97,6 +97,7 @@ main {
 }
 
 .top {
+    padding-bottom: min(25%, calc(300px - 25vw));
     grid-column: 1 / 3;
     grid-row: 1 / 2;
     z-index: 2;
@@ -119,8 +120,11 @@ h1 span {
 .hero {
     position: relative;
     grid-column: 2 / 3;
-    grid-row: 1 / 3;
+    grid-row: 2 / 3;
     align-self: center;
+    align-self: flex-end;
+    padding-bottom: 10%;
+    text-align: center;
 }
 .hero img {
     width: min(80vw, 120%);
@@ -140,29 +144,36 @@ h1 span {
     width: fit-content;
     padding: 0 0.2em;
     font-size: min(8vw, 2rem);
+    text-transform: capitalize;
     border-bottom: 1px solid #333;
     animation: show 1s linear 1s backwards;
     cursor: pointer;
 }
 .engine-arrow {
-    inset: auto auto 53% 35%;
+    /* inset: auto auto 53% 35%; */
+    inset: auto auto 56% 37%;
     transform: rotate(-45deg);
     transform-origin: bottom;
 }
 .engine-arrow::before {
-    content: 'Engine';
+    content: attr(data-id);
     top: -1.5em;
     transform: rotate(45deg);
 }
 .chasis-arrow {
-    inset: 80% auto auto 65%;
+    /* inset: 80% auto auto 65%; */
+    inset: 71% auto auto 62%;
     transform: rotate(45deg);
     transform-origin: top;
 }
 .chasis-arrow::after {
-    content: 'Chasis';
+    content: attr(data-id);
     bottom: -1.1em;
     transform: rotate(-45deg);
+}
+
+#chasis {
+    width: 100%;
 }
 
 @keyframes stretch {
@@ -202,10 +213,10 @@ h2 {
     transform: scale(1.2);
 }
 
-#engine {
+#engine-feature {
     width: min(50vw, 100%);
 }
-#chasis {
+#chasis-feature {
     width: min(60vw,100%);
 }
 /* .specification p {
@@ -252,9 +263,6 @@ footer img {
 @media screen and (max-width: 814px) {
     main {
         display: block;
-    }
-    .top {
-        padding-bottom: 25%;
     }
     .chasis-arrow {
         inset: 80% auto auto 55%;
