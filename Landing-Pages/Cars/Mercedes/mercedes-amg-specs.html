@@ -31,48 +31,22 @@
             <hr>
             <!-- <p>It is Mercedies's first best-selling model with 14,220 build throughout its production run.</p> -->
         </div>
-        <!-- <div class="bottom"> -->
-                <!-- <div class="specification">
-                    <h3>class</h3>
-                    <p class="capital">sportcar</p>
-                </div>
-                <div class="specification">
-                    <h3>year</h3>
-                    <p>2015</p>
-                </div> -->
-                <!-- <div class="specification">
-                    <h3>engine</h3>
-                    <p class="uppercase">v10 5.0l</p>
-                </div>
-                <div class="specification">
-                    <h3>transmission</h3>
-                    <p>6-speed manual</p>
-                </div>
-                <div class="specification">
-                    <h3>0-100km/h</h3>
-                    <p>3.7s</p>
-                </div>
-                <div class="specification">
-                    <h3>max-speed</h3>
-                    <p>325km/h</p>
-                </div> -->
-        <!-- </div> -->
         <div class="hero">
-            <img id="main" src="./img/specs/hero.png" alt="Mercedes AMG">
-            <!-- <img src="./img/specs/w-chasis.png" alt="Mercedes AMG 4Matic System"> -->
-            <!-- <img src="./img/specs/engine.png" alt="Mercedes AMG Engine"> -->
-            <div class="arrow engine-arrow"></div>
-            <div class="arrow chasis-arrow"></div>
+            <div id="hero-content">
+                <img id="main" src="./img/specs/hero.png" alt="Mercedes AMG">
+                <div class="arrow engine-arrow" data-role="specification-template" data-id="engine"></div>
+                <div class="arrow chasis-arrow" data-role="specification-template" data-id="chasis"></div>
+            </div>
         </div>
         <div class="features">
             <div class="specifications">
-                <div class="specification">
+                <div class="specification" data-role="specification-template" data-id="engine">
                     <h2>Engine</h2>
-                    <img id="engine" src="./img/specs/engine.png" alt="">
+                    <img id="engine-feature" src="./img/specs/engine.png" alt="">
                 </div>
-                <div class="specification">
+                <div class="specification" data-role="specification-template" data-id="chasis">
                     <h2>4Matic System</h2>
-                    <img id="chasis" src="./img/specs/chasis.png" alt="">
+                    <img id="chasis-feature" src="./img/specs/chasis.png" alt="">
                 </div>
             </div>
         </div>
@@ -85,11 +59,63 @@
         <img src="./img/mercedes-amg_logo.png" alt="Mercedes logo">
     </footer>
 
+    <template id="main-template">
+        <div id="hero-content">
+            <img id="main" src="./img/specs/hero.png" alt="Mercedes AMG">
+            <div class="arrow engine-arrow"></div>
+            <div class="arrow chasis-arrow"></div>
+        </div>
+    </template>
+    <template id="specification-template">
+        <div id="hero-content">
+            <img id="undefinedSRC" src="" alt="">
+        </div>
+    </template>
+    <template id="description-template">
+        <h1></h1>
+        <h2></h2>
+        <p></p>
+    </template>
+
     <script>
+        const specificationTemplates = {
+            engine: {
+                id: "engine",
+                src: "./img/specs/engine.png",
+                alt: "Mercedes AMG Engine",
+                description: "The Mercedes-Benz MB 517 was a supercharged, four-stroke, V-12 diesel marine engine version of the MB 507; derived from the MB 503 gasoline engine. The MB 507 was also based on the Daimler-Benz DB 603 inverted V-12 aircraft engine, and shared an identical bore, stroke, and displacement. Unlike the gasoline-powered MB 503, the diesel-powered MB 507 did not use a supercharger."
+            },
+            chasis: {
+                id: "chasis",
+                src: "./img/specs/chasis.png",
+                alt: "Mercedes AMG Chasis",
+            },
+        }
+
+        function changeContent(event) {
+            const templateRole = event.currentTarget.dataset.role;
+            const ID = event.currentTarget.dataset.id;
+            const template = document.getElementById(templateRole);
+            const clone = template.content.cloneNode(true);
+            const hero = document.querySelector('.hero');
+            hero.textContent = '';
+            hero.appendChild(clone);
+            const image = document.getElementById('undefinedSRC');
+            image.src = specificationTemplates[ID].src;
+            image.id = specificationTemplates[ID].id;
+            image.alt = specificationTemplates[ID].alt;
+        }
+        const specifications = document.querySelectorAll('.specification');
+        specifications.forEach(specification => {
+            specification.addEventListener('click', (event) => {
+                console.log(event)
+                changeContent(event);
+            })
+        })
         const arrows = document.querySelectorAll('.arrow');
         arrows.forEach(arrow => {
-            arrow.addEventListener('click', () => {
-                arrow.style.color = 'red';
+            arrow.addEventListener('click', (event) => {
+                changeContent(event);
             })
         })
     </script>
