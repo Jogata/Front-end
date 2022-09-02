@@ -23,23 +23,6 @@ body {
     overflow-x: hidden;
 }
 
-header {
-    width: 100%;
-    max-width: 1200px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    column-gap: 4rem;
-}
-
-.logo-benz {
-    width: 20%;
-    min-width: 100px;
-}
-
-nav {
-    margin-left: auto;
-}
 ul {
     width: 100%;
     display: flex;
@@ -47,9 +30,6 @@ ul {
     row-gap: 0.5em;
     column-gap: 2em;
     list-style: none;
-}
-nav ul {
-    justify-content: center;
 }
 
 a, li {
@@ -69,11 +49,6 @@ hr {
     opacity: 0.4;
 }
 
-.menu {
-    color: #666;
-    font-size: 1.5rem;
-}
-
 :is(button, i, .logo-benz, .specification) {
     cursor: pointer;
     transition: all 0.5s;
@@ -84,10 +59,41 @@ img {
     object-fit: contain;
 }
 
+.hidden {
+    display: none;
+}
+
+
+header {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 4rem;
+}
+
+.logo-benz {
+    width: 20%;
+    min-width: 100px;
+}
+
+nav {
+    margin-left: auto;
+}
+nav ul {
+    justify-content: center;
+}
+
+.menu {
+    color: #666;
+    font-size: 1.5rem;
+}
+
 main {
     position: relative;
     max-width: 1200px;
-    padding: min(2%, 2rem) min(5%, 5rem);
+    padding: min(5%, 5rem);
     display: grid;
     grid-template-columns: 0.3fr 1fr;
     grid-template-rows: auto 1fr;
@@ -97,7 +103,6 @@ main {
 }
 
 .top {
-    padding-bottom: min(25%, calc(300px - 25vw));
     grid-column: 1 / 3;
     grid-row: 1 / 2;
     z-index: 2;
@@ -121,9 +126,7 @@ h1 span {
     position: relative;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
-    align-self: center;
     align-self: flex-end;
-    padding-bottom: 10%;
     text-align: center;
 }
 .hero img {
@@ -151,7 +154,7 @@ h1 span {
 }
 .engine-arrow {
     /* inset: auto auto 53% 35%; */
-    inset: auto auto 56% 37%;
+    inset: auto auto 53% 37%;
     transform: rotate(-45deg);
     transform-origin: bottom;
 }
@@ -162,7 +165,7 @@ h1 span {
 }
 .chasis-arrow {
     /* inset: 80% auto auto 65%; */
-    inset: 71% auto auto 62%;
+    inset: 78% auto auto 62%;
     transform: rotate(45deg);
     transform-origin: top;
 }
@@ -191,6 +194,7 @@ h1 span {
     padding: 25% 0;
     grid-column: 1 / 2;
     grid-row: 2 / 3;
+    align-self: center;
 }
 
 .specifications {
@@ -219,16 +223,6 @@ h2 {
 #chasis-feature {
     width: min(60vw,100%);
 }
-/* .specification p {
-    font-size: 1.2rem;
-    font-family: 'Abril Fatface', cursive;
-} */
-/* .capital {
-    text-transform: capitalize;
-}
-.uppercase {
-    text-transform: uppercase;
-} */
 
 footer {
     width: 100%;
@@ -265,7 +259,10 @@ footer img {
         display: block;
     }
     .chasis-arrow {
-        inset: 80% auto auto 55%;
+        inset: 69% auto auto 55%;
+    }
+    .hero img {
+        padding-block: max(50px, 10%);
     }
 }
 
@@ -279,3 +276,50 @@ footer img {
 .features {
     border: 1px solid red;
 } */
+
+main.alt {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr auto auto auto;
+}
+main.alt .hero {
+    grid-column: 1 / 3;
+    grid-row: 2 / 5;
+}
+main.alt .hero img {
+    float: right;
+    width: min(80vw, 80%);
+    padding-block: max(50px, 10%);
+}
+main.alt .title {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    margin-bottom: 0;
+    color: #333;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+main.alt .subtitle {
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+    padding-block: 0.3em;
+    color: #555;
+    font-size: 2rem;
+    font-weight: lighter;
+    text-transform: uppercase;
+}
+.description {
+    padding-right: 20%;
+    padding-right: min(20%, calc(100vw - 500px));
+    color: #555;
+    grid-column: 1 / 3;
+    grid-row: 5 / 6;
+}
+
+
+
+@media screen and (max-width: 814px) {
+    main.alt .hero img {
+        float: none;
+    }
+}
