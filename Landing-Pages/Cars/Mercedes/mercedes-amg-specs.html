@@ -32,24 +32,11 @@
         </div>
         <div class="hero">
             <div id="hero-content">
-                <img id="main" src="./img/specs/hero.png" alt="Mercedes AMG">
+                <img id="main-img" src="./img/specs/hero.png" alt="Mercedes AMG">
                 <div class="arrow engine-arrow show" data-template="specification-template" data-id="engine"></div>
                 <div class="arrow chasis-arrow show" data-template="specification-template" data-id="chasis"></div>
             </div>
         </div>
-
-        <!-- <h2>AMG® PERFORMANCE 4MATIC® ALL-WHEEL DRIVE</h2>
-        <h3>FORCE OF FOUR</h3>
-        <p class="description">
-            Based on legendary Mercedes-Benz 4MATIC® technology, the AMG® Performance 4MATIC® all-wheel drive system is not only engineered to preserve the signature AMG® feel while making the best use of available torque - it's also up to 35% lighter than comparable systems. Which means it's a force to be reckoned with.
-        </p> -->
-
-        <!-- <h2>4.0L dry sump V8 biturbo</h2>
-        <h3>subtitle</h3>
-        <p class="description">
-            The handcrafted AMG® 4.0L V8 biturbo engine is the world's first sports car engine with the turbos inside the V of the engine and dry sump lubrication.
-        </p> -->
-
         <div class="features">
             <div class="specifications">
                 <div class="specification show" data-template="specification-template" data-id="engine">
@@ -72,11 +59,29 @@
     </footer>
 
     <template id="main-template">
-        <!-- <div id="hero-content"> -->
-            <img id="main" src="./img/specs/hero.png" alt="Mercedes AMG">
-            <div class="arrow engine-arrow"></div>
-            <div class="arrow chasis-arrow"></div>
-        <!-- </div> -->
+        <div class="top">
+            <h1>mercedes amg <span>features</span></h1>
+            <hr>
+        </div>
+        <div class="hero">
+            <div id="hero-content">
+                <img id="main-img" src="./img/specs/hero.png" alt="Mercedes AMG">
+                <div class="arrow engine-arrow show" data-template="specification-template" data-id="engine"></div>
+                <div class="arrow chasis-arrow show" data-template="specification-template" data-id="chasis"></div>
+            </div>
+        </div>
+        <div class="features">
+            <div class="specifications">
+                <div class="specification show" data-template="specification-template" data-id="engine">
+                    <h2>Engine</h2>
+                    <img id="engine-feature" src="./img/specs/engine.png" alt="">
+                </div>
+                <div class="specification show" data-template="specification-template" data-id="chasis">
+                    <h2>4Matic System</h2>
+                    <img id="chasis-feature" src="./img/specs/chasis.png" alt="">
+                </div>
+            </div>
+        </div>
     </template>
     <template id="specification-template">
         <img id="undefinedSRC" src="" alt="">
@@ -85,6 +90,7 @@
         <h2 class="title"></h2>
         <h3 class="subtitle"></h3>
         <p class="description"></p>
+        <button class="return">back<i class="fa fa-reply" aria-hidden="true"></i></button>
     </template>
 
     <script>
@@ -94,7 +100,7 @@
                 src: "./img/specs/engine.png",
                 alt: "Mercedes AMG Engine",
                 title: "4.0L dry sump V8 biturbo",
-                subtitle: 'think somthing',
+                subtitle: 'think something',
                 description: "The handcrafted AMG® 4.0L V8 biturbo engine is the world's first sports car engine with the turbos inside the V of the engine and dry sump lubrication.",
             },
             chasis: {
@@ -107,12 +113,16 @@
             },
         }
 
-        const showButtons = document.querySelectorAll('.show');
-        showButtons.forEach(button => {
-            button.addEventListener('click', (event) => {
-                changeContent(event);
+        addEvents();
+
+        function addEvents() {
+            const showButtons = document.querySelectorAll('.show');
+            showButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    changeContent(event);
+                })
             })
-        })
+        }
 
         function changeContent(event) {
             const templateRole = event.currentTarget.dataset.template;
@@ -127,13 +137,15 @@
             const image = document.getElementById('undefinedSRC');
 
             image.src = specificationTemplates[ID].src;
-            // image.id = specificationTemplates[ID].id;
             image.alt = specificationTemplates[ID].alt;
 
             createDescription(ID);
+
+            const buttonReturn = document.querySelector('.return');
+            buttonReturn.addEventListener('click', returnToMain);
         }
+
         function createDescription(ID) {
-            document.createElement('div');
             const template = document.getElementById('description-template');
             const clone = template.content.cloneNode(true);
             const parent = document.querySelector('main');
@@ -145,6 +157,16 @@
             subtitle.textContent = specificationTemplates[ID].subtitle;
             const description = parent.querySelector('.description');
             description.textContent = specificationTemplates[ID].description;
+        }
+
+        function returnToMain() {
+            const template = document.getElementById('main-template');
+            const clone = template.content.cloneNode(true);
+            const parent = document.querySelector('main');
+            parent.className = 'undefined';
+            parent.textContent = '';
+            parent.appendChild(clone);
+            addEvents();
         }
     </script>
 </body>
