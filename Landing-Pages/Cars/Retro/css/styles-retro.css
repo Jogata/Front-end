@@ -19,7 +19,7 @@ ul {
 
 a {
     display: inline-block;
-    color: #111;
+    color: #fff;
     font-size: 1rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -41,9 +41,87 @@ button, i {
 
 img {
     width: 100%;
+    margin: 0 auto;
 }
 
 body {
     min-height: 100vh;
+    color: #7f7f7f;
+    font-family: sans-serif;
+}
 
+.main-bg {
+    background-image: url('../img/bg-main.jpg');
+    background-size: cover;
+    height: 100%;
+}
+
+.banner-slider, 
+.slide-item {
+    height: 100%;
+}
+
+.slider-overlay {
+    position: absolute;
+    width: 100%;
+    bottom: 43px;
+    left: 55px;
+}
+.slider-overlay h2 {
+    position: relative;
+    margin-bottom: 14px;
+    font-size: 22px;
+    font-family: 'Abril Fatface', cursive;
+}
+.slider-overlay h2::before {
+    content: '';
+    width: 72px;
+    height: 2px;
+    position: absolute;
+    bottom: 0px;
+    background-color: #8c7239;
+}
+.slider-overlay h3 {
+    text-transform: capitalize;
+}
+
+.top-car-title h1 {
+    position: absolute;
+    top: 32px;
+    width: 100%;
+    color: #1a272e;
+    font-size: 104px;
+    font-family: 'Abril Fatface', cursive;
+    text-align: center;
+    letter-spacing: 14px;
+}
+.top-car-title h2 {
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    font-size: 28px;
+    font-family: 'Abril Fatface', cursive;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+}
+
+.logo {
+    margin: 38px 0 0 38px;
+    font-size: 2rem;
+    font-family: 'Abril Fatface', cursive;
+}
+
+.hamburger-menu-button {
+    display: block;
+    position: relative;
+    width: fit-content;
+    aspect-ratio: 1;
+    margin-top: 35px;
+    padding: 5px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 50%;
+    background-color: #8c7239;
+    z-index: 100;
 }
