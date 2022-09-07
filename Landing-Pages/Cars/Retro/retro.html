@@ -48,7 +48,7 @@
                             <h2>vintage car</h2>
                         </div>
                         <div class="slide-item-image">
-                            <img id="slide-1" src="./img/1.png" alt="Retro car">
+                            <img class="car-image" src="./img/1.png" alt="Retro car">
                         </div>
                         <!-- <div class="bottom"> -->
                             <div class="slider-overlay">
@@ -57,9 +57,9 @@
                                 <h3>project name : <span>vintage car 1938</span></h3>
                             </div>
                             <div class="slide-buttons">
-                                <button class="slide-button current">01</button>
-                                <button class="slide-button">02</button>
-                                <button class="slide-button">03</button>
+                                <button data-index="0" class="slide-button current">01</button>
+                                <button data-index="1" class="slide-button">02</button>
+                                <button data-index="2" class="slide-button">03</button>
                             </div>
                         <!-- </div> -->
                     </div>
@@ -96,11 +96,26 @@
         </div>
     </div>
 
-    <template>
-        <img id="slide-2" class="hidden" src="./img/2.png" alt="Retro car">
+    <template id="image-template">
+        <img class="car-image hidden" src="" alt="Retro car">
+    </template>
+    <template id="overlay-template">
+        <!-- <div class="slider-overlay"> -->
+            <h2>01</h2>
+            <h3>design : <span>cagatay han</span></h3>
+            <h3>project name : <span>vintage car 1938</span></h3>
+        <!-- </div> -->
     </template>
 
     <script>
+        const slides = [{
+            src: "./img/1.png",
+        }, {
+            src: "./img/2.png",
+        }, {
+            src: "./img/3.png",
+        }];
+
         const navLinks = document.querySelectorAll('.nav-item');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -115,23 +130,28 @@
             button.addEventListener('click', () => {
                 const currentButton = document.querySelector('.current');
                 currentButton.classList.remove('current');
+                currentButton.disabled = false;
                 button.classList.add('current');
-                const image = document.querySelector('#slide-1');
-                image.classList.add('slide-left');
-                createContent();
+                button.disabled = true;
+                const index = button.dataset.index;
+                const image = document.querySelector('.car-image');
+                image.className = 'slide-left';
+                createContent(index);
                 showContent();
                 setTimeout(() => {deleteContent(image)}, 500);
             })
         })
         
-        function createContent() {
-            var temp = document.querySelector("template");
+        function createContent(i) {
+            var temp = document.getElementById("image-template");
             var clon = temp.content.cloneNode(true);
             const slider = document.querySelector('.slide-item-image');
             slider.appendChild(clon);
+            const newImage = document.querySelector('.car-image');
+            newImage.src = slides[i].src;
         }
         function showContent() {
-            const newImage = document.querySelector('#slide-2');
+            const newImage = document.querySelector('.car-image');
             newImage.classList.replace('hidden', 'slide-from-left');
         }
         function deleteContent(element) {
