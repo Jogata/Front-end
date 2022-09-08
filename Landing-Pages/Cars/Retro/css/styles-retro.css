@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display&display=swap');
 
 /* 
 font-family: 'Abril Fatface', cursive;
+font-family: 'Playfair Display', serif;
 */
 
 *, *::before, *::after {
@@ -30,12 +31,12 @@ a {
     border-radius: 1em;
     transition: all 0.5s;
 }
-a:hover {
+/* a:hover {
     color: #888;
 }
 a:focus-visible {
     outline: 1px solid #888;
-}
+} */
 
 button, i {
     cursor: pointer;
@@ -84,8 +85,8 @@ header {
 }
 
 .hamburger-menu-button {
-    display: block;
     position: relative;
+    display: block;
     width: fit-content;
     width: 40px;
     height: 40px;
@@ -185,7 +186,7 @@ header {
     font-family: 'Abril Fatface', cursive;
     text-align: center;
 }
-.top-car-title h1 {
+.year {
     position: absolute;
     width: 100%;
     color: #1a272e;
@@ -207,9 +208,6 @@ header {
     position: relative;
     grid-row: 2 / 3;
     margin-block: -10%;
-}
-.slide-item-image img {
-    transition: all 2s, opacity 0.5s;
 }
 
 .slider-overlay {
@@ -326,5 +324,65 @@ header {
 
 .slide-from-left {
     position: relative;
-    animation: slideleft 1.4s ease-in-out;
+    animation: slideleft 1s ease-in-out;
+}
+
+/* .slide-item-image {
+    display: flex;
+    border: 1px solid red;
+}
+.slide-item {
+    border: 1px solid blue;
+} */
+
+.nav-3d {
+    position: absolute;
+    inset: 0 0 auto 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 4;
+}
+
+.menu-3d {
+    display: block;
+    margin: auto;
+    padding-block: 2em;
+    font-family: 'Playfair Display', serif;
+}
+.menu-item {
+    position: relative;
+    display: block;
+    width: fit-content;
+    margin: auto;
+    font-size: 2.4rem;
+}
+
+.menu-item-text, 
+div span {
+    position: relative;
+    display: inline-block;
+    will-change: transform;
+    transform-style: preserve-3d;
+    transition: all 0.5s;
+    transition-delay: calc(var(--i) * 0.05s);
+}
+
+.menu-item div:nth-child(1) span {
+    color: rgba(255, 255, 255, 0.8);
+    transform-origin: bottom;
+}
+.menu-item div:nth-child(2) span {
+    color: darkred;
+    transform-origin: top;
+    transform: translate3d(0, 0, 0) rotateX(-90deg);
+}
+
+.menu-item:hover div:nth-child(1) span {
+    transform: translate3d(0, -100%, 0) rotateX(-90deg);
+}
+.menu-item:hover div:nth-child(2) span {
+    transform: translate3d(0, -100%, 0) rotateX(0deg);
 }
