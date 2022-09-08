@@ -11,40 +11,59 @@
 <body>
     <div class="main-bg" id="top">
         <header>
-            <!-- <div class="header"> -->
-                <!-- <div class="container-fluid"> -->
-                    <!-- <div class="row"> -->
-                        <div class="col-md-7 text-left">
-                            <a href="#top" class="logo">logo</a>
-                        </div>
-
-                        <!-- <div class="col-md-5 text-right"> -->
-                            <!-- <div class="tabs-wrapper"> -->
-                                <nav id="ham-navigation" class="navigation">
-                                    <ul class="menu">
-                                        <li class="nav-item active"><a href="#top">home</a></li>
-                                        <li class="nav-item"><a href="#top">about</a></li>
-                                        <li class="nav-item"><a href="#top">services</a></li>
-                                        <li class="nav-item"><a href="#top">features</a></li>
-                                        <li class="nav-item"><a href="#top">team</a></li>
-                                    </ul>
-                                </nav>
-                                <button id="hamburger-menu" class="hamburger-menu-button" data-toggle="ham-navigation">
-                                    <span class="open">menu</span>
-                                </button>
-                            <!-- </div> -->
-                        <!-- </div> -->
-                    <!-- </div> -->
-                <!-- </div> -->
-            <!-- </div> -->
+            <div>
+                <a href="#top" class="logo">logo</a>
+            </div>
+            <nav id="ham-navigation" class="navigation">
+                <ul class="menu">
+                    <li class="nav-item active"><a href="#top">home</a></li>
+                    <li class="nav-item"><a href="#top">about</a></li>
+                    <li class="nav-item"><a href="#top">services</a></li>
+                    <li class="nav-item"><a href="#top">features</a></li>
+                    <li class="nav-item"><a href="#top">team</a></li>
+                </ul>
+            </nav>
+            <button id="hamburger-menu" class="hamburger-menu-button" data-toggle="ham-navigation">
+                <span class="open">menu</span>
+            </button>
         </header>
+
+        <nav class="nav-3d">
+            <ul class="menu-3d">
+                <a href="#top" class="menu-item">
+                    <div>
+                        <span class="menu-item-text">home</span>
+                    </div>
+                </a>
+                <a href="#top" class="menu-item">
+                    <div>
+                        <span class="menu-item-text">about</span>
+                    </div>
+                </a>
+                <a href="#top" class="menu-item">
+                    <div>
+                        <span class="menu-item-text">services</span>
+                    </div>
+                </a>
+                <a href="#top" class="menu-item">
+                    <div>
+                        <span class="menu-item-text">features</span>
+                    </div>
+                </a>
+                <a href="#top" class="menu-item">
+                    <div>
+                        <span class="menu-item-text">team</span>
+                    </div>
+                </a>
+            </ul>
+        </nav>
 
         <div class="slider">
             <!-- <div class="slider-wrapper singlepage"> -->
                 <!-- <div id="owl-banner" class=""> -->
                     <div class="slide-item">
                         <div class="top-car-title">
-                            <h1>1932</h1>
+                            <h1 class="year">1932</h1>
                             <h2>vintage car</h2>
                         </div>
                         <div class="slide-item-image">
@@ -52,12 +71,15 @@
                         </div>
                         <!-- <div class="bottom"> -->
                             <div class="slider-overlay">
-                                <h2>01</h2>
+                                <div class="cont" style="overflow:hidden;">
+                                    <h2>01</h2>
+                                    <h2 style="position: absolute;">02</h2>
+                                </div>
                                 <h3>design : <span>cagatay han</span></h3>
                                 <h3>project name : <span>vintage car 1938</span></h3>
                             </div>
                             <div class="slide-buttons">
-                                <button data-index="0" class="slide-button current">01</button>
+                                <button data-index="0" class="slide-button current" disabled>01</button>
                                 <button data-index="1" class="slide-button">02</button>
                                 <button data-index="2" class="slide-button">03</button>
                             </div>
@@ -110,10 +132,13 @@
     <script>
         const slides = [{
             src: "./img/1.png",
+            year: '1932',
         }, {
             src: "./img/2.png",
+            year: '1933',
         }, {
             src: "./img/3.png",
+            year: '1934',
         }];
 
         const navLinks = document.querySelectorAll('.nav-item');
@@ -136,6 +161,8 @@
                 const index = button.dataset.index;
                 const image = document.querySelector('.car-image');
                 image.className = 'slide-left';
+                const year = document.querySelector('.year');
+                year.textContent = slides[index].year;
                 createContent(index);
                 showContent();
                 setTimeout(() => {deleteContent(image)}, 500);
@@ -158,6 +185,20 @@
             const parent = document.querySelector('.slide-item-image');
             parent.removeChild(element);
         }
+
+        const menu3d = document.querySelector('.menu-3d');
+        const links = document.querySelectorAll('.menu-item');
+
+        links.forEach(link => {
+            let text = link.children[0].children[0].innerText.split('');
+            link.children[0].innerHTML = '';
+            text.forEach((letter, index) => {
+                link.children[0].innerHTML += `<span style="--i: ${index}">${letter}</span>`;
+            })
+            let clone = link.children[0].cloneNode(true);
+            clone.style.position = "absolute";
+            link.appendChild(clone);
+        })
     </script>
 </body>
 </html>
