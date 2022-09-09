@@ -11,10 +11,10 @@
 <body>
     <div class="main-bg" id="top">
         <header>
-            <div>
+            <div class="logo-container">
                 <a href="#top" class="logo">logo</a>
             </div>
-            <nav id="ham-navigation" class="navigation">
+            <!-- <nav id="ham-navigation" class="navigation">
                 <ul class="menu">
                     <li class="nav-item active"><a href="#top">home</a></li>
                     <li class="nav-item"><a href="#top">about</a></li>
@@ -22,41 +22,91 @@
                     <li class="nav-item"><a href="#top">features</a></li>
                     <li class="nav-item"><a href="#top">team</a></li>
                 </ul>
+            </nav> -->
+            <nav class="nav-3d behind">
+                <ul class="menu-3d">
+                    <!------------------ v.1 - with pre-created links ------------------>
+                    <a href="#top" class="menu-item">
+                        <div>
+                            <span style="--i: 0">H</span>
+                            <span style="--i: 1">O</span>
+                            <span style="--i: 2">M</span>
+                            <span style="--i: 3">E</span>
+                        </div>
+                    </a>
+                    <a href="#top" class="menu-item">
+                        <div>
+                            <span style="--i: 0">a</span>
+                            <span style="--i: 1">b</span>
+                            <span style="--i: 2">o</span>
+                            <span style="--i: 3">u</span>
+                            <span style="--i: 4">t</span>
+                        </div>
+                    </a>
+                    <a href="#top" class="menu-item">
+                        <div>
+                            <span style="--i: 0">s</span>
+                            <span style="--i: 1">e</span>
+                            <span style="--i: 2">r</span>
+                            <span style="--i: 3">v</span>
+                            <span style="--i: 4">i</span>
+                            <span style="--i: 5">c</span>
+                            <span style="--i: 6">E</span>
+                            <span style="--i: 7">S</span>
+                        </div>
+                    </a>
+                    <a href="#top" class="menu-item">
+                        <div>
+                            <span style="--i: 0">F</span>
+                            <span style="--i: 1">E</span>
+                            <span style="--i: 2">A</span>
+                            <span style="--i: 3">T</span>
+                            <span style="--i: 4">U</span>
+                            <span style="--i: 5">R</span>
+                            <span style="--i: 6">E</span>
+                            <span style="--i: 7">S</span>
+                        </div>
+                    </a>
+                    <a href="#top" class="menu-item">
+                        <div>
+                            <span style="--i: 0">t</span>
+                            <span style="--i: 1">e</span>
+                            <span style="--i: 2">a</span>
+                            <span style="--i: 3">m</span>
+                        </div>
+                    </a>
+                    <!------------------ v.2 - generate links with JS ------------------>
+                    <!-- <a href="#top" class="menu-item">
+                        <div>
+                            <span class="menu-item-text">home</span>
+                        </div>
+                    </a>
+                    <a href="#top" class="menu-item">
+                        <div>
+                            <span class="menu-item-text">about</span>
+                        </div>
+                    </a>
+                    <a href="#top" class="menu-item">
+                        <div>
+                            <span class="menu-item-text">services</span>
+                        </div>
+                    </a>
+                    <a href="#top" class="menu-item">
+                        <div>
+                            <span class="menu-item-text">features</span>
+                        </div>
+                    </a>
+                    <a href="#top" class="menu-item">
+                        <div>
+                            <span class="menu-item-text">team</span>
+                        </div>
+                    </a> -->
+                </ul>
             </nav>
-            <button id="hamburger-menu" class="hamburger-menu-button" data-toggle="ham-navigation">
+            <button id="hamburger-menu" class="hamburger-menu-button">
                 <span class="open">menu</span>
             </button>
         </header>
-
-        <nav class="nav-3d">
-            <ul class="menu-3d">
-                <a href="#top" class="menu-item">
-                    <div>
-                        <span class="menu-item-text">home</span>
-                    </div>
-                </a>
-                <a href="#top" class="menu-item">
-                    <div>
-                        <span class="menu-item-text">about</span>
-                    </div>
-                </a>
-                <a href="#top" class="menu-item">
-                    <div>
-                        <span class="menu-item-text">services</span>
-                    </div>
-                </a>
-                <a href="#top" class="menu-item">
-                    <div>
-                        <span class="menu-item-text">features</span>
-                    </div>
-                </a>
-                <a href="#top" class="menu-item">
-                    <div>
-                        <span class="menu-item-text">team</span>
-                    </div>
-                </a>
-            </ul>
-        </nav>
 
         <div class="slider">
             <!-- <div class="slider-wrapper singlepage"> -->
@@ -71,9 +121,9 @@
                         </div>
                         <!-- <div class="bottom"> -->
                             <div class="slider-overlay">
-                                <div class="cont" style="overflow:hidden;">
+                                <div class="cont">
                                     <h2>01</h2>
-                                    <h2 style="position: absolute;">02</h2>
+                                    <!-- <h2>02</h2> -->
                                 </div>
                                 <h3>design : <span>cagatay han</span></h3>
                                 <h3>project name : <span>vintage car 1938</span></h3>
@@ -164,6 +214,7 @@
                 const year = document.querySelector('.year');
                 year.textContent = slides[index].year;
                 createContent(index);
+                createElement(index);
                 showContent();
                 setTimeout(() => {deleteContent(image)}, 500);
             })
@@ -185,19 +236,39 @@
             const parent = document.querySelector('.slide-item-image');
             parent.removeChild(element);
         }
+        function createElement(i) {
+            const newElement = document.createElement('h2');
+            newElement.textContent = `0${+i+1}`;
+            newElement.style.transform = 'translateY(0%)';
+            const parent = document.querySelector('.cont');
+            parent.appendChild(newElement);
+            deleteElement(parent);
+        }
+        function deleteElement(parent) {
+            const element = document.querySelectorAll('.cont h2')[0];
+            element.classList.add('up');
+            setTimeout(() => {parent.removeChild(element)}, 1500);
+        }
 
         const menu3d = document.querySelector('.menu-3d');
         const links = document.querySelectorAll('.menu-item');
 
         links.forEach(link => {
-            let text = link.children[0].children[0].innerText.split('');
-            link.children[0].innerHTML = '';
-            text.forEach((letter, index) => {
-                link.children[0].innerHTML += `<span style="--i: ${index}">${letter}</span>`;
-            })
+            // <!------------------ for v.2 - generate links with JS ------------------>
+            // let text = link.children[0].children[0].innerText.split('');
+            // link.children[0].innerHTML = '';
+            // text.forEach((letter, index) => {
+            //     link.children[0].innerHTML += `<span style="--i: ${index}">${letter}</span>`;
+            // })
             let clone = link.children[0].cloneNode(true);
             clone.style.position = "absolute";
             link.appendChild(clone);
+        })
+
+        const menuButton = document.getElementById('hamburger-menu');
+        menuButton.addEventListener('click', () => {
+            const nav3d = document.querySelector('.nav-3d');
+            nav3d.classList.toggle('behind');
         })
     </script>
 </body>
