@@ -14,15 +14,6 @@
             <div class="logo-container">
                 <a href="#top" class="logo">logo</a>
             </div>
-            <!-- <nav id="ham-navigation" class="navigation">
-                <ul class="menu">
-                    <li class="nav-item active"><a href="#top">home</a></li>
-                    <li class="nav-item"><a href="#top">about</a></li>
-                    <li class="nav-item"><a href="#top">services</a></li>
-                    <li class="nav-item"><a href="#top">features</a></li>
-                    <li class="nav-item"><a href="#top">team</a></li>
-                </ul>
-            </nav> -->
             <nav class="nav-3d behind">
                 <ul class="menu-3d">
                     <!------------------ v.1 - with pre-created links ------------------>
@@ -104,101 +95,56 @@
                 </ul>
             </nav>
             <button id="hamburger-menu" class="hamburger-menu-button">
-                <span class="open">menu</span>
+                <span class="menu-icon">menu</span>
             </button>
         </header>
 
         <div class="slider">
-            <!-- <div class="slider-wrapper singlepage"> -->
-                <!-- <div id="owl-banner" class=""> -->
-                    <div class="slide-item">
-                        <div class="top-car-title">
-                            <h1 class="year">1932</h1>
-                            <h2>vintage car</h2>
-                        </div>
-                        <div class="slide-item-image">
-                            <img class="car-image" src="./img/1.png" alt="Retro car">
-                        </div>
-                        <!-- <div class="bottom"> -->
-                            <div class="slider-overlay">
-                                <div class="cont">
-                                    <h2>01</h2>
-                                    <!-- <h2>02</h2> -->
-                                </div>
-                                <h3>design : <span>cagatay han</span></h3>
-                                <h3>project name : <span>vintage car 1938</span></h3>
-                            </div>
-                            <div class="slide-buttons">
-                                <button data-index="0" class="slide-button current" disabled>01</button>
-                                <button data-index="1" class="slide-button">02</button>
-                                <button data-index="2" class="slide-button">03</button>
-                            </div>
-                        <!-- </div> -->
+            <div class="slide-item">
+                <div class="top-car-title">
+                    <h1 class="year">1932</h1>
+                    <h2>vintage car</h2>
+                </div>
+                <div class="slide-item-image">
+                    <img class="car-image" src="./img/1.png" alt="Retro car">
+                </div>
+                <div class="slider-overlay">
+                    <div class="cont">
+                        <h2>01</h2>
                     </div>
-                    <!-- <div class="slide-item">
-                        <div class="top-car-title">
-                            <h1>1933</h1>
-                            <h2>vintage car</h2>
-                        </div>
-                        <div class="slide-item-image">
-                            <img src="./img/2.png" alt="Retro car">
-                        </div>
-                        <div class="slider-overlay">
-                            <h2>02</h2>
-                            <h3>design : <span>cagatay han</span></h3>
-                            <h3>project name : <span>vintage car 1938</span></h3>
-                        </div>
-                    </div> -->
-                    <!-- <div class="slide-item">
-                        <div class="top-car-title">
-                            <h1>1934</h1>
-                            <h2>vintage car</h2>
-                        </div>
-                        <div class="slide-item-image">
-                            <img src="./img/3.png" alt="Retro car">
-                        </div>
-                        <div class="slider-overlay">
-                            <h2>03</h2>
-                            <h3>design : <span>cagatay han</span></h3>
-                            <h3>project name : <span>vintage car 1938</span></h3>
-                        </div>
-                    </div> -->
-                <!-- </div> -->
-            <!-- </div> -->
+                    <h3>design : <span>cagatay han</span></h3>
+                    <h3>project name : <span class="model">Duesenberg Dual Cowl Phaeton 1934</span></h3>
+                </div>
+                <div class="slide-buttons">
+                    <button data-index="0" class="slide-button current" disabled>01</button>
+                    <button data-index="1" class="slide-button">02</button>
+                    <button data-index="2" class="slide-button">03</button>
+                </div>
+            </div>
         </div>
     </div>
 
     <template id="image-template">
         <img class="car-image hidden" src="" alt="Retro car">
     </template>
-    <template id="overlay-template">
-        <!-- <div class="slider-overlay"> -->
-            <h2>01</h2>
-            <h3>design : <span>cagatay han</span></h3>
-            <h3>project name : <span>vintage car 1938</span></h3>
-        <!-- </div> -->
-    </template>
 
     <script>
         const slides = [{
             src: "./img/1.png",
-            year: '1932',
+            designer: '',
+            model: 'Duesenberg Dual Cowl Phaeton 1934',
+            year: '1934',
         }, {
             src: "./img/2.png",
-            year: '1933',
+            designer: '',
+            model: 'Chevrolet Coupe 1939',
+            year: '1939',
         }, {
             src: "./img/3.png",
-            year: '1934',
+            designer: '',
+            model: 'Horch 855 Roadster 1939',
+            year: '1939',
         }];
-
-        const navLinks = document.querySelectorAll('.nav-item');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                const currentLink = document.querySelector('.active');
-                currentLink.classList.remove('active');
-                link.classList.add('active');
-            })
-        })
 
         const slideButtons = document.querySelectorAll('.slide-button');
         slideButtons.forEach(button => {
@@ -213,10 +159,14 @@
                 image.className = 'slide-left';
                 const year = document.querySelector('.year');
                 year.textContent = slides[index].year;
+                const model = document.querySelector('.model');
+                model.textContent = slides[index].model;
                 createContent(index);
                 createElement(index);
                 showContent();
-                setTimeout(() => {deleteContent(image)}, 500);
+                image.addEventListener('transitionend', () => {
+                    deleteContent(image);
+                })
             })
         })
         
@@ -239,17 +189,17 @@
         function createElement(i) {
             const newElement = document.createElement('h2');
             newElement.textContent = `0${+i+1}`;
-            newElement.style.transform = 'translateY(0%)';
             const parent = document.querySelector('.cont');
             parent.appendChild(newElement);
-            deleteElement(parent);
-        }
-        function deleteElement(parent) {
             const element = document.querySelectorAll('.cont h2')[0];
-            element.classList.add('up');
-            setTimeout(() => {parent.removeChild(element)}, 1500);
+            element.classList.add('translate-up');
+            newElement.classList.add('translate-removed');
+            newElement.addEventListener('animationend', ()=> {
+                parent.removeChild(element);
+            })
         }
 
+        // =========================  MENU  =========================
         const menu3d = document.querySelector('.menu-3d');
         const links = document.querySelectorAll('.menu-item');
 
@@ -267,6 +217,8 @@
 
         const menuButton = document.getElementById('hamburger-menu');
         menuButton.addEventListener('click', () => {
+            const menuButtonIcon = document.querySelector('.menu-icon');
+            menuButtonIcon.classList.toggle('opened');
             const nav3d = document.querySelector('.nav-3d');
             nav3d.classList.toggle('behind');
         })
