@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Playfair+Display&display=swap');
+
+/* 
+font-family: 'Abril Fatface', cursive;
+font-family: 'Playfair Display', serif;
+*/
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 2em;
+    padding-inline: 1em;
+    list-style: none;
+}
+
+a {
+    display: inline-block;
+    padding: 0.5em 1em;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    border-radius: 1em;
+    transition: all 0.5s;
+}
+
+button, i {
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+img {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+}
