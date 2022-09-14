@@ -27,6 +27,7 @@ a {
 }
 a:hover {
     color: rgba(255,255,255,0.6);
+    text-shadow: 1px 1px 1px #2fa2a2;
 }
 
 header span, 
@@ -36,6 +37,8 @@ header small {
 }
 
 button {
+    border: none;
+    outline: none;
     background-color: transparent;
     cursor: pointer;
     transition: all 0.5s;
@@ -58,7 +61,7 @@ p {
     color: #2fa2a2;
 }
 .two-colors {
-    color: aqua;
+    color: #00ffff;
 }
 .two-colors::first-letter {
     color: #fff;
@@ -122,6 +125,33 @@ nav {
     text-transform: capitalize;
 }
 
+.sound {
+    position: relative;
+    color: #fff;
+    font-size: 0px;
+}
+.fa-music {
+    font-size: 1.5rem;
+}
+.sound::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 5px;
+    height: 5px;
+    background-color: transparent;
+    border-radius: 50%;
+}
+.sound.on::before {
+    background-color: #1eff45;
+    box-shadow:
+    0 0 5px #1eff45,
+    0 0 10px #1eff45,
+    0 0 15px #1eff45,
+    0 0 30px #1eff45;
+}
+
 .intro {
     position: relative;
     grid-column: 1 / 2;
@@ -162,3 +192,200 @@ small {
     margin-top: 1em;
 }
 
+
+.logo {
+    position: relative;
+}
+/* .flower {
+    position: absolute;
+    width: auto;
+    height: 145%;
+    top: -5%;
+    right: -35%;
+    z-index: -1;
+    transform: rotate(103deg);
+} */
+.mint {
+    position: absolute;
+    width: auto;
+    height: 215%;
+    top: -49%;
+    right: -40%;
+    z-index: -1;
+}
+
+nav {
+    position: relative;
+}
+/* .mint {
+    position: absolute;
+    width: auto;
+    height: 225%;
+    top: -29%;
+    left: -9%;
+    z-index: 1;
+    transform: rotatey(180deg);
+} */
+nav .flower-left {
+    position: absolute;
+    width: auto;
+    height: 200%;
+    top: -1%;
+    left: -10%;
+    z-index: 1;
+    transform: rotatey(180deg) rotateZ(101deg);
+}
+.hummingbird-left {
+    position: absolute;
+    width: auto;
+    height: 170%;
+    top: 70%;
+    left: -16%;
+    animation: flying-type-one 60s linear infinite;
+    animation-delay: 30s;
+    opacity: 0;
+    transition: all 1s;
+    z-index: 2;
+}
+
+nav .vines {
+    position: absolute;
+    width: 80%;
+    height: 382%;
+    top: -94%;
+    left: 7%;
+    z-index: -1;
+    transform: rotatex(0deg) rotateZ(-14deg);
+}
+
+nav .flower-right {
+    position: absolute;
+    width: auto;
+    height: 200%;
+    top: 0;
+    right: -6%;
+    z-index: -1;
+    transform: rotateZ(30deg) rotateY(180deg);
+}
+.hummingbird-right {
+    position: absolute;
+    width: auto;
+    height: 200%;
+    top: 95%;
+    right: -20%;
+    animation: flying-type-two 60s linear infinite;
+    opacity: 0;
+    transition: all 1s;
+    z-index: -2;
+}
+
+p {
+    position: relative;
+    padding-top: 10%;
+    text-shadow: 1px 1px 1px #000, -1px -1px 1px #000;
+}
+
+.herbs {
+    position: absolute;
+    top: -5%;
+    right: -30%;
+    transform: rotateY(180deg);
+    z-index: -2;
+}
+
+.nat-geo-logo {
+    position: relative;
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    align-self: flex-end;
+    width: 60%;
+    margin-left: auto;
+    margin-bottom: 10%;
+}
+
+.leaves2 {
+    position: absolute;
+    top: 40%;
+    left: -9%;
+    width: auto;
+    height: 90%;
+    transform: rotateY(180deg);
+    z-index: 1;
+}
+
+.earth {
+    position: absolute;
+    top: 0%;
+    right: -20%;
+    width: auto;
+    height: 100%;
+    z-index: -1;
+}
+
+.colibri {
+    position: absolute;
+    top: -70%;
+    left: 10%;
+    width: auto;
+    height: 100%;
+    z-index: -1;
+}
+
+.leaves {
+    position: absolute;
+    top: 11%;
+    left: -15%;
+    width: auto;
+    height: 73%;
+    z-index: 3;
+}
+
+@keyframes flying-type-one {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(30%) rotateY(180deg) rotateZ(90deg);
+    }
+    5% {
+        opacity: 1;
+    }
+    10% {
+        transform: translateX(0%) translateY(0%) rotateY(180deg) rotateZ(90deg);
+    }
+    15% {
+        opacity: 1;
+    }
+    17% {
+        opacity: 0;
+    }
+    30% {
+        animation-play-state: paused;
+        transform: translateX(0%) translateY(0%) rotateY(180deg) rotateZ(90deg);
+    }
+    100% {
+        animation-play-state: running;
+    }
+}
+@keyframes flying-type-two {
+    0% {
+        opacity: 0;
+        transform: translateX(50%) translateY(10%) rotateY(180deg) rotateZ(15deg);
+    }
+    5% {
+        opacity: 1;
+    }
+    10% {
+        transform: translateX(0%) translateY(0%) rotateY(180deg) rotateZ(15deg);
+    }
+    15% {
+        opacity: 1;
+    }
+    17% {
+        opacity: 0;
+    }
+    30% {
+        animation-play-state: paused;
+    }
+    100% {
+        animation-play-state: running;
+    }
+}
