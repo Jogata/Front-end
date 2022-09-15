@@ -30,12 +30,6 @@ a:hover {
     text-shadow: 1px 1px 1px #2fa2a2;
 }
 
-header span, 
-header small {
-    display: inline-block;
-    text-transform: uppercase;
-}
-
 button {
     border: none;
     outline: none;
@@ -102,7 +96,26 @@ header::before {
     column-gap: 1em;
 }
 
+.logo {
+    position: relative;
+    color: #fff;
+    font-size: 2rem;
+    font-family: 'Abril Fatface', cursive;
+    text-transform: capitalize;
+    white-space: nowrap;
+    letter-spacing: 1px;
+}
+.mint {
+    position: absolute;
+    width: auto;
+    height: 215%;
+    top: -49%;
+    right: -40%;
+    z-index: -1;
+}
+
 nav {
+    position: relative;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -113,16 +126,58 @@ nav {
     inset -2px -2px 2px rgba(255, 255, 255, 0.2);
 }
 
-.logo {
-    color: #fff;
-    font-size: 2rem;
-    font-family: 'Abril Fatface', cursive;
-    text-transform: capitalize;
-    white-space: nowrap;
-    letter-spacing: 1px;
+nav .flower-left {
+    position: absolute;
+    width: auto;
+    height: 200%;
+    top: -1%;
+    left: -10%;
+    z-index: 1;
+    transform: rotatey(180deg) rotateZ(101deg);
 }
-.logo span {
-    text-transform: capitalize;
+.hummingbird-left {
+    position: absolute;
+    width: auto;
+    height: 170%;
+    top: 70%;
+    left: -16%;
+    animation: flying-type-one 60s linear infinite;
+    animation-delay: 45s;
+    opacity: 0;
+    transition: all 1s;
+    z-index: 2;
+}
+
+nav .vines {
+    position: absolute;
+    width: 80%;
+    height: 382%;
+    top: -94%;
+    left: 7%;
+    z-index: -1;
+    transform: rotatex(0deg) rotateZ(-14deg);
+}
+
+nav .flower-right {
+    position: absolute;
+    width: auto;
+    height: 200%;
+    top: 0;
+    right: -6%;
+    z-index: -1;
+    transform: rotateZ(30deg) rotateY(180deg);
+}
+.hummingbird-right {
+    position: absolute;
+    width: auto;
+    height: 200%;
+    top: 95%;
+    right: -20%;
+    animation: flying-type-two 60s linear infinite;
+    animation-delay: 15s;
+    opacity: 0;
+    transition: all 1s;
+    z-index: -2;
 }
 
 .sound {
@@ -162,12 +217,15 @@ nav {
 }
 
 h1 {
+    position: relative;
     color: #fff;
     font-size: 6rem;
     font-family: 'Abril Fatface', cursive;
+    text-transform: uppercase;
     line-height: 5.5rem;
     letter-spacing: 1px;
     opacity: 0.6;
+    z-index: 2;
 }
 h1 span {
     display: block;
@@ -176,7 +234,14 @@ small {
     font-size: 3.5rem;
     line-height: 3rem;
 }
-
+.leaves {
+    position: absolute;
+    top: 11%;
+    left: -15%;
+    width: auto;
+    height: 73%;
+    z-index: 3;
+}
 .butterfly {
     position: absolute;
     top: 20%;
@@ -184,107 +249,13 @@ small {
     width: 3rem;
     z-index: 3;
 }
-.intro h1 {
-    position: relative;
-    z-index: 2;
-}
+
 .intro p {
+    position: relative;
     margin-top: 1em;
-}
-
-
-.logo {
-    position: relative;
-}
-/* .flower {
-    position: absolute;
-    width: auto;
-    height: 145%;
-    top: -5%;
-    right: -35%;
-    z-index: -1;
-    transform: rotate(103deg);
-} */
-.mint {
-    position: absolute;
-    width: auto;
-    height: 215%;
-    top: -49%;
-    right: -40%;
-    z-index: -1;
-}
-
-nav {
-    position: relative;
-}
-/* .mint {
-    position: absolute;
-    width: auto;
-    height: 225%;
-    top: -29%;
-    left: -9%;
-    z-index: 1;
-    transform: rotatey(180deg);
-} */
-nav .flower-left {
-    position: absolute;
-    width: auto;
-    height: 200%;
-    top: -1%;
-    left: -10%;
-    z-index: 1;
-    transform: rotatey(180deg) rotateZ(101deg);
-}
-.hummingbird-left {
-    position: absolute;
-    width: auto;
-    height: 170%;
-    top: 70%;
-    left: -16%;
-    animation: flying-type-one 60s linear infinite;
-    animation-delay: 30s;
-    opacity: 0;
-    transition: all 1s;
-    z-index: 2;
-}
-
-nav .vines {
-    position: absolute;
-    width: 80%;
-    height: 382%;
-    top: -94%;
-    left: 7%;
-    z-index: -1;
-    transform: rotatex(0deg) rotateZ(-14deg);
-}
-
-nav .flower-right {
-    position: absolute;
-    width: auto;
-    height: 200%;
-    top: 0;
-    right: -6%;
-    z-index: -1;
-    transform: rotateZ(30deg) rotateY(180deg);
-}
-.hummingbird-right {
-    position: absolute;
-    width: auto;
-    height: 200%;
-    top: 95%;
-    right: -20%;
-    animation: flying-type-two 60s linear infinite;
-    opacity: 0;
-    transition: all 1s;
-    z-index: -2;
-}
-
-p {
-    position: relative;
     padding-top: 10%;
     text-shadow: 1px 1px 1px #000, -1px -1px 1px #000;
 }
-
 .herbs {
     position: absolute;
     top: -5%;
@@ -302,7 +273,6 @@ p {
     margin-left: auto;
     margin-bottom: 10%;
 }
-
 .leaves2 {
     position: absolute;
     top: 40%;
@@ -312,7 +282,6 @@ p {
     transform: rotateY(180deg);
     z-index: 1;
 }
-
 .earth {
     position: absolute;
     top: 0%;
@@ -321,7 +290,6 @@ p {
     height: 100%;
     z-index: -1;
 }
-
 .colibri {
     position: absolute;
     top: -70%;
@@ -329,15 +297,6 @@ p {
     width: auto;
     height: 100%;
     z-index: -1;
-}
-
-.leaves {
-    position: absolute;
-    top: 11%;
-    left: -15%;
-    width: auto;
-    height: 73%;
-    z-index: 3;
 }
 
 @keyframes flying-type-one {
@@ -365,6 +324,7 @@ p {
         animation-play-state: running;
     }
 }
+
 @keyframes flying-type-two {
     0% {
         opacity: 0;
