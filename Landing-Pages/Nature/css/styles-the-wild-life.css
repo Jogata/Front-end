@@ -61,14 +61,30 @@ p {
     color: #fff;
 }
 
+body {
+    background-image: url('../img/TheWildLife/elephant-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+body::before {
+    position: absolute;
+    inset: 0;
+    content: '';
+    background-color: #000;
+    opacity: 0.6;
+}
+
 header {
     position: relative;
     max-width: 1600px;
     min-height: 100vh;
+    margin: 0 auto;
     background-image: url('../img/TheWildLife/elephant-bg.jpg');
     background-repeat: no-repeat;
-    background-position: left;
+    background-position: center;
     background-size: cover;
+    overflow: hidden;
 }
 header::before {
     position: absolute;
@@ -99,7 +115,7 @@ header::before {
 .logo {
     position: relative;
     color: #fff;
-    font-size: 2rem;
+    font-size: min(10vw, 2rem);
     font-family: 'Abril Fatface', cursive;
     text-transform: capitalize;
     white-space: nowrap;
@@ -119,7 +135,7 @@ nav {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: 0 auto;
+    margin: 0 10%;
     padding-inline: 0.8em;
     border-radius: 1em;
     box-shadow: inset 2px 2px 2px rgba(0,0,0,0.4),
@@ -201,10 +217,10 @@ nav .flower-right {
 .sound.on::before {
     background-color: #1eff45;
     box-shadow:
+    0 0 2px #1eff45,
     0 0 5px #1eff45,
     0 0 10px #1eff45,
-    0 0 15px #1eff45,
-    0 0 30px #1eff45;
+    0 0 20px #1eff45;
 }
 
 .intro {
@@ -219,7 +235,7 @@ nav .flower-right {
 h1 {
     position: relative;
     color: #fff;
-    font-size: 6rem;
+    font-size: min(30vw, 6rem);
     font-family: 'Abril Fatface', cursive;
     text-transform: uppercase;
     line-height: 5.5rem;
@@ -347,5 +363,36 @@ small {
     }
     100% {
         animation-play-state: running;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    nav img {
+        display: none;
+    }
+    header {
+        background-position: center;
+    }
+}
+@media screen and (max-width: 700px) {
+    .header-bar {
+        margin-bottom: 30%;
+    }
+    nav {
+        display: none;
+    }
+    .landing-page {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .intro {
+        margin-top: 30%;
+        margin: auto 0 0 0;
+    }
+    .nat-geo-logo {
+        align-self: flex-start;
+        margin-left: 0;
+        margin-top: 40%;
     }
 }
