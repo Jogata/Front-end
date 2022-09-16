@@ -16,19 +16,32 @@
                     <span class="accent">be</span>Wild
                     <img src="./img/TheWildLife/decoration/mint.png" alt="Mint leaves" class="mint">
                 </div>
-                <nav>
+                <div class="nav-container">
                     <img src="./img/TheWildLife/decoration/hibiscus.png" alt="Flower" class="flower-left">
                     <img src="./img/TheWildLife/decoration/hummingbird.png" alt="Hummingbird" class="hummingbird-left">
-                    <a href="#top">home</a>
-                    <a href="#top">gallery</a>
-                    <a href="#top">contact</a>
-                    <a href="#top">about us</a>
+                    <nav>
+                        <div class="nav-link-container">
+                            <a class="nav-link" href="#top">home</a>
+                        </div>
+                        <div class="nav-link-container">
+                            <a class="nav-link" href="#top">gallery</a>
+                        </div>
+                        <div class="nav-link-container">
+                            <a class="nav-link" href="#top">contact</a>
+                        </div>
+                        <div class="nav-link-container">
+                            <a class="nav-link" href="#top">about us</a>
+                        </div>
+                    </nav>
                     <img src="./img/TheWildLife/decoration/single-flower.png" alt="Flower" class="flower-right">
                     <img src="./img/TheWildLife/decoration/hummingbird-green.png" alt="Hummingbird" class="hummingbird-right">
                     <img src="./img/TheWildLife/decoration/green-vine-leaves.png" alt="Vines" class="vines">
-                </nav>
+                </div>
                 <button class="sound">sound
                     <i class="fa fa-music" aria-hidden="true"></i>
+                </button>
+                <button id="hamburger-menu" class="hamburger-menu-button">
+                    <span class="menu-icon">menu</span>
                 </button>
             </div>
             <div class="intro">
@@ -58,6 +71,27 @@
         const audioTrack = document.getElementById('track');
         audioTrack.muted = !audioTrack.muted;
         soundButton.classList.toggle('on');
+    })
+
+    const hamburgerButton = document.querySelector('#hamburger-menu');
+    hamburgerButton.addEventListener('click', () => {
+        const menuIcon = document.querySelector('.menu-icon');
+        menuIcon.classList.toggle('opened');
+        const navigation = document.querySelector('.nav-container');
+        navigation.classList.toggle('full-screen');
+    })
+
+    // const navigation = document.querySelector('nav');
+    const links = document.querySelectorAll('.nav-link-container');
+    links.forEach(link => {
+        let text = link.children[0].innerText.split('');
+        link.children[0].innerHTML = '';
+        text.forEach((letter, index) => {
+            link.children[0].innerHTML += `<span style="--i: ${index}">${letter}</span>`;
+        })
+        let clone = link.cloneNode(true);
+        clone.style.position = "absolute";
+        link.appendChild(clone);
     })
 </script>
 </html>
