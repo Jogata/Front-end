@@ -9,9 +9,55 @@
     <link rel="stylesheet" href="./css/styles-the-wild-life.css">
 </head>
 <body>
-    <img class="hero" src="./img/TheWildLife/elephant-bg.jpg" alt="">
-    <div>
-        <img class="bg" src="./img/TheWildLife/humid_tropical_path-wallpaper-2880x1620.jpg" alt="">
-    </div>
+    <header id="top">
+        <div class="landing-page">
+            <div class="header-bar">
+                <div class="logo">
+                    <span class="accent">be</span>Wild
+                    <img src="./img/TheWildLife/decoration/mint.png" alt="Mint leaves" class="mint">
+                </div>
+                <nav>
+                    <img src="./img/TheWildLife/decoration/hibiscus.png" alt="Flower" class="flower-left">
+                    <img src="./img/TheWildLife/decoration/hummingbird.png" alt="Hummingbird" class="hummingbird-left">
+                    <a href="#top">home</a>
+                    <a href="#top">gallery</a>
+                    <a href="#top">contact</a>
+                    <a href="#top">about us</a>
+                    <img src="./img/TheWildLife/decoration/single-flower.png" alt="Flower" class="flower-right">
+                    <img src="./img/TheWildLife/decoration/hummingbird-green.png" alt="Hummingbird" class="hummingbird-right">
+                    <img src="./img/TheWildLife/decoration/green-vine-leaves.png" alt="Vines" class="vines">
+                </nav>
+                <button class="sound">sound
+                    <i class="fa fa-music" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="intro">
+                <img src="./img/TheWildLife/decoration/leaves.png" alt="Leaves" class="leaves">
+                <img src="./img/TheWildLife/decoration/butterfly.png" alt="Butterfly" class="butterfly" >
+                <h1><small>the</small><span>wild</span><span class="two-colors">life</span></h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto quaerat alias molestias cumque, consequatur repellat ad sunt possimus officiis. Laborum.
+                    <img src="./img/TheWildLife/decoration/plant.png" alt="Grass" class="herbs">
+                </p>
+            </div>
+            <div class="nat-geo-logo">
+                <img src="./img/TheWildLife/decoration/leaves2.png" alt="Leaves" class="leaves2">
+                <img src="./img/TheWildLife/decoration/colibri.png" alt="Colibri" class="colibri">
+                <img src="./img/TheWildLife/decoration/national-geographic-logo.png" alt="National Geographic Logo">
+                <img src="./img/TheWildLife/decoration/earth.png" alt="Planet Earth" class="earth">
+            </div>
+        </div>
+    </header>
+    <audio id="track" loop autoplay muted>
+        <source src="./media/forest-sounds.mp3" type="audio/mp3">
+    </audio>
 </body>
+
+<script>    
+    const soundButton = document.querySelector('.sound');
+    soundButton.addEventListener('click', () => {
+        const audioTrack = document.getElementById('track');
+        audioTrack.muted = !audioTrack.muted;
+        soundButton.classList.toggle('on');
+    })
+</script>
 </html>
