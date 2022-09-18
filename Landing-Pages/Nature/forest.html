@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/styles-forest.css">
+</head>
+<body>
+    <header id="top">
+        <div class="landing-page">
+            <div class="header-bar">
+                <div class="logo">
+                    <span class="accent">be</span>Wild
+                    <img src="./img/Forest/decoration/mint.png" alt="Mint leaves" class="mint">
+                </div>
+                <div class="nav-container">
+                    <div class="inner-container">
+                        <nav>
+                            <div class="nav-link-container">
+                                <a class="nav-link" href="#top">home</a>
+                                <img src="./img/Forest/decoration/hibiscus.png" alt="Flower" class="flower-left">
+                                <img src="./img/Forest/decoration/hummingbird.png" alt="Hummingbird" class="hummingbird-left">
+                            </div>
+                            <div class="nav-link-container">
+                                <a class="nav-link" href="#top">gallery</a>
+                            </div>
+                            <div class="nav-link-container">
+                                <a class="nav-link" href="#top">contact</a>
+                                <img src="./img/Forest/decoration/single-flower.png" alt="Flower" class="flower-right">
+                                <img src="./img/Forest/decoration/hummingbird-green.png" alt="Hummingbird" class="hummingbird-right">
+                            </div>
+                            <div class="nav-link-container">
+                                <a class="nav-link" href="#top">about&nbsp;us</a>
+                            </div>
+                        </nav>
+                        <img src="./img/TheWildLife/decoration/green-vine-leaves.png" alt="Vines" class="vines">
+                    </div>
+                </div>
+                <button class="sound">sound
+                    <i class="fa fa-music" aria-hidden="true"></i>
+                </button>
+            </div>
+            <img src="./img/Forest/the-wild-spring.png" alt="Elk" style="grid-column: 1 / 4; grid-row: 2 / 3; width: 60%; margin: auto;">
+            <div class="intro">
+                <h1> <span class="left">save</span> <span class="right">the</span> <span class="block">nature</span></h1>
+                <h2>the forest is their home</h2>
+                <!-- <img src="./img/Forest/elk.png" alt="Elk"> -->
+            </div>
+            <div class="nat-geo-logo">
+                <img src="./img/Forest/decoration/hazelnut.png" alt="Hazelnut" class="hazelnut">
+                <img src="./img/Forest/decoration/squirrel.png" alt="Squirrel" class="squirrel">
+                <img src="./img/Forest/decoration/national-geographic-logo.png" alt="National Geographic Logo">
+                <img src="./img/Forest/decoration/earth.png" alt="Planet Earth" class="earth">
+            </div>
+        </div>
+    </header>
+    <audio id="track" loop autoplay muted>
+        <source src="./media/forest-sounds.mp3" type="audio/mp3">
+    </audio>
+</body>
+
+<script>    
+    const soundButton = document.querySelector('.sound');
+    soundButton.addEventListener('click', () => {
+        const audioTrack = document.getElementById('track');
+        audioTrack.muted = !audioTrack.muted;
+        soundButton.classList.toggle('on');
+    })
+</script>
+</html>
