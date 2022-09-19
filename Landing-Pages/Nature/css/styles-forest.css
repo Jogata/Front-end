@@ -45,6 +45,7 @@ img {
     display: block;
     width: 100%;
     margin: 0 auto;
+    pointer-events: none;
 }
 
 p {
@@ -135,8 +136,8 @@ nav {
     position: relative;
 }
 .nav-link-container:hover a:nth-child(1) {
-    color: rgba(255,255,255,0.6);
-    text-shadow: 1px 1px 1px #2fa2a2;
+    color: rgba(255,255,25,0.6);
+    text-shadow: 1px 1px 1px rgb(0, 128, 0);
 }
 
 /* ====== Navigation for Mobile ====== */
@@ -259,3 +260,203 @@ nav {
     display: block;
 }
 
+.inner-container {
+    position: relative;
+}
+.nav-container.full-screen .flower-left {
+    width: 20%;
+    height: auto;
+    top: 0%;
+    left: -3%;
+    z-index: 1;
+    transform: rotatey(180deg) rotateZ(0deg);
+}
+.nav-container.full-screen .hummingbird-left {
+    width: 30%;
+    height: auto;
+    top: -45%;
+    left: -14%;
+    animation: flying-type-one-mobile 60s linear infinite;
+    animation-delay: 45s;
+    opacity: 0;
+    transition: all 1s;
+    z-index: 2;
+}
+
+.nav-container.full-screen .vines {
+    width: 100%;
+    height: auto;
+    top: auto;
+    left: 0%;
+    bottom: -12%;
+    z-index: 1;
+    transform: rotatex(0deg) rotateZ(-14deg);
+}
+
+.nav-container.full-screen .flower-right {
+    width: 25%;
+    height: auto;
+    top: auto;
+    right: -6%;
+    bottom: 0;
+    z-index: 2;
+    transform: rotateZ(30deg) rotateY(180deg);
+}
+.nav-container.full-screen .hummingbird-right {
+    width: 30%;
+    height: auto;
+    top: 50%;
+    right: -33%;
+    animation: flying-type-two-mobile 60s linear infinite;
+    animation-delay: 15s;
+    opacity: 0;
+    transition: all 1s;
+    z-index: 2;
+}
+
+.hamburger-menu-button.active {
+    display: inline-block;
+}
+.menu-icon {
+    top: 50%;
+    margin-top: -1px;
+    left: 50%;
+    margin-left: -12px;
+}
+.menu-icon, .menu-icon::before, .menu-icon::after {
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+.menu-icon::before, .menu-icon::after {
+    content: '';
+    left: 0;
+}
+.menu-icon::before {
+    top: 7px;
+}
+.menu-icon::after {
+    bottom: 7px;
+}
+
+.opened {
+    transform: rotate(180deg);
+    background: transparent;
+}
+.opened::before {
+    transform: translateY(-7px) rotate(45deg);
+}
+.opened::after {
+    transform: translateY(7px) rotate(-45deg);
+}
+
+.sound {
+    position: relative;
+    color: #fff;
+    font-size: 0px;
+}
+.fa-music {
+    font-size: 1.5rem;
+}
+.sound::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 5px;
+    height: 5px;
+    background-color: transparent;
+    border-radius: 50%;
+}
+.sound.on::before {
+    background-color: #1eff45;
+    box-shadow:
+    0 0 2px #1eff45,
+    0 0 5px #1eff45,
+    0 0 10px #1eff45,
+    0 0 20px #1eff45;
+}
+
+.squirrel {
+    position: absolute;
+    top: -76%;
+    left: -5%;
+    width: auto;
+    height: 100%;
+    z-index: 1;
+}
+.hazelnut {
+    position: absolute;
+    top: 40%;
+    left: -6%;
+    width: auto;
+    height: 76%;
+    z-index: 1;
+}
+
+.intro {
+    /* position: absolute; */
+    /* inset: 0; */
+    /* width: 100%; */
+    /* position: relative; */
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+    display: grid;
+    /* width: min-content; */
+    /* margin: auto 0; */
+    grid-template-rows: repeat(3, 1fr);
+    align-self: center;
+    text-align: center;
+}
+
+.hero {
+    grid-column: 1 / 2;
+    grid-row: 1 / 4;
+    width: 60%;
+    margin: auto;
+}
+
+h1, h2 {
+    position: relative;
+    /* margin: auto; */
+    color: transparent;
+    -webkit-text-stroke: 3px white;
+    /* font-size: min(30vw, 6rem); */
+    font-size: min(14vw, 16rem);
+    font-family: 'Abril Fatface', cursive;
+    text-transform: capitalize;
+    line-height: 0.5em;
+    letter-spacing: 1px;
+    filter: drop-shadow(4px 2px 1px rgb(0, 0, 0));
+    opacity: 0.6;
+    z-index: 2;
+}
+h2 {
+    opacity: 0;
+    display: none;
+}
+h1, h2 {
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+}
+.left {
+    /* position: absolute; */
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+.right {
+    /* position: absolute; */
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+}
+.block {
+    /* display: block; */
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+}
