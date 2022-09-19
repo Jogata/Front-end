@@ -42,10 +42,17 @@
                 <button class="sound">sound
                     <i class="fa fa-music" aria-hidden="true"></i>
                 </button>
+                <button id="hamburger-menu" class="hamburger-menu-button">
+                    <span class="menu-icon">menu</span>
+                </button>
             </div>
-            <img src="./img/Forest/the-wild-spring.png" alt="Elk" style="grid-column: 1 / 4; grid-row: 2 / 3; width: 60%; margin: auto;">
             <div class="intro">
-                <h1> <span class="left">save</span> <span class="right">the</span> <span class="block">nature</span></h1>
+                <img src="./img/Forest/the-wild-spring.png" alt="Elk" class="hero">
+                <h1>
+                    <span class="left">save</span>
+                    <span class="right">the</span>
+                    <span class="block">nature</span>
+                </h1>
                 <h2>the forest is their home</h2>
                 <!-- <img src="./img/Forest/elk.png" alt="Elk"> -->
             </div>
@@ -68,6 +75,15 @@
         const audioTrack = document.getElementById('track');
         audioTrack.muted = !audioTrack.muted;
         soundButton.classList.toggle('on');
+    })
+
+    const hamburgerButton = document.querySelector('#hamburger-menu');
+    hamburgerButton.addEventListener('click', () => {
+        hamburgerButton.classList.toggle('active');
+        const menuIcon = document.querySelector('.menu-icon');
+        menuIcon.classList.toggle('opened');
+        const navigation = document.querySelector('.nav-container');
+        navigation.classList.toggle('full-screen');
     })
 </script>
 </html>
