@@ -63,7 +63,7 @@ p {
 } */
 
 body {
-    background-image: url('../img/Forest/0f02f996a101040f47df4c5d6260dfe8.jpg');
+    background-image: url('../img/Forest/green-forest-body-bg.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -110,6 +110,7 @@ header::before {
     align-items: center;
     justify-content: space-between;
     column-gap: 1em;
+    margin-bottom: 10%;
 }
 
 .logo {
@@ -478,6 +479,47 @@ h1, h2 {
     grid-row: 2 / 3;
 }
 
+.top-left {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+.top-right {
+    grid-column: 2 / 4;
+    grid-row: 1 / 2;
+}
+.second-row {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    text-align: end;
+}
+.third-row {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+}
+.forth-row {
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
+}
+
+.bear-text {
+    grid-row: 1 / 4;
+}
+.bear {
+    width: 50%;
+    /* grid-row: 2 / 4; */
+}
+
+.forth-row-left {
+    grid-column: 1 / 3;
+    grid-row: 4 / 5;
+}
+
+.fifth-row {
+    grid-column: 2 / 3;
+    grid-row: 5 / 6;
+    white-space: nowrap;
+}
+
 /* h1 span {
     display: block;
 } */
@@ -521,8 +563,9 @@ h1, h2 {
     grid-row: 3 / 4;
     align-self: flex-end;
     width: 60%;
-    margin-left: auto;
+    margin-top: 25%;
     margin-bottom: 10%;
+    margin-left: auto;
 }
 /* .leaves2 {
     position: absolute;
@@ -667,7 +710,6 @@ h1, h2 {
     .header-bar {
         flex-wrap: wrap;
         column-gap: 3em;
-        margin-bottom: 30%;
     }
     .nav-container {
         display: none;
@@ -680,14 +722,14 @@ h1, h2 {
         flex-direction: column;
         justify-content: space-between;
     }
-    .intro {
+    /* .intro {
         margin-top: 30%;
         margin: auto 0 0 0;
-    }
+    } */
     .nat-geo-logo {
         align-self: flex-start;
         max-width: 10rem;
         margin-left: 0;
-        margin-top: 40%;
+        /* margin-top: 25%; */
     }
 }
