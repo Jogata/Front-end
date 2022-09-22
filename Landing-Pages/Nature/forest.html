@@ -146,5 +146,17 @@
         var clon = temp.content.cloneNode(true);
         slider.appendChild(clon);
     })
+
+    const links = document.querySelectorAll('.nav-link-container');
+    links.forEach(link => {
+        let text = link.children[0].innerText.split('');
+        link.children[0].innerHTML = '';
+        text.forEach((letter, index) => {
+            link.children[0].innerHTML += `<span style="--i: ${index}">${letter}</span>`;
+            console.log(link.children[0].innerHTML);
+        })
+        let clone = link.children[0].cloneNode(true);
+        link.appendChild(clone);
+    })
 </script>
 </html>
