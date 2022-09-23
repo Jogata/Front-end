@@ -25,10 +25,10 @@ a {
     border-radius: 1em;
     transition: all 0.5s;
 }
-a:hover {
+/* a:hover {
     color: rgba(255,255,255,0.6);
     text-shadow: 1px 1px 1px #2fa2a2;
-}
+} */
 
 button {
     border: none;
@@ -537,6 +537,20 @@ h1 span, h2 span {
     grid-column: 2 / 3;
     grid-row: 5 / 6;
     white-space: nowrap;
+}
+
+.explore {
+    position: absolute;
+    grid-column: 1 / 2;
+    grid-row: 5 / 6;
+    margin: 0 auto;
+    font-size: min(4vw, 2rem);
+    -webkit-text-stroke: transparent;
+    border: 0.15em solid currentColor;
+    animation: fade-up 2s ease-out calc(var(--i) * 0.4s + 1s) backwards;
+}
+.explore:hover {
+    color: rgb(155, 202, 15);
 }
 
 /* h1 span {
