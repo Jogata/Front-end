@@ -48,7 +48,7 @@
             </div>
             <div class="intro">
                 <div class="fade-out">
-                    <div class="anime-stop grid">
+                    <div id="prevent-event-bubbling" class="intro-inside-grid">
                         <img src="./img/Forest/the-wild-spring.png" alt="Elk" class="hero">
                         <h1>
                             <span class="left" style="--i:1">save</span>
@@ -88,9 +88,9 @@
         <source src="./media/forest-sounds.mp3" type="audio/mp3">
     </audio>
 
-    <template class="page1">
+    <template class="slide1">
         <div class="fade-out">
-            <div class="anime-stop grid">
+            <div id="prevent-event-bubbling" class="intro-inside-grid">
                 <img src="./img/Forest/the-wild-spring.png" alt="Elk" class="hero">
                 <h1>
                     <span class="left" style="--i:1">save</span>
@@ -100,9 +100,9 @@
             </div>
         </div>
     </template>
-    <template class="page2">
+    <template class="slide2">
         <div class="fade-out">
-            <div class="anime-stop grid">
+            <div id="prevent-event-bubbling" class="intro-inside-grid">
                 <img src="./img/Forest/elk.png" alt="Elk" class="hero">
                 <!-- the forest is their home -->
                 <h2>
@@ -115,9 +115,9 @@
             </div>
         </div>
     </template>
-    <template class="page3">
+    <template class="slide3">
         <div>
-            <div class="anime-stop grid">
+            <div id="prevent-event-bubbling" class="intro-inside-grid">
                 <img src="./img/Forest/brown-bear.png" alt="Brown bear" class="hero bear">
                 <!-- explore the animal world with us! -->
                 <h2 class="bear-text">
@@ -130,28 +130,93 @@
             </div>
         </div>
     </template>
-    <template>
+    <template class="explore-button">
         <a href="#top" class="explore" style="--i:6">continue</a>
     </template>
 </body>
 
 <script>
-    const soundButton = document.querySelector('.sound');
-    soundButton.addEventListener('click', () => {
-        const audioTrack = document.getElementById('track');
-        audioTrack.muted = !audioTrack.muted;
-        soundButton.classList.toggle('on');
-    })
+    addEvents();
+    setupNavigation();
+    setupSlider();
 
-    const hamburgerButton = document.querySelector('#hamburger-menu');
-    hamburgerButton.addEventListener('click', () => {
-        hamburgerButton.classList.toggle('active');
-        const menuIcon = document.querySelector('.menu-icon');
-        menuIcon.classList.toggle('opened');
-        const navigation = document.querySelector('.nav-container');
-        navigation.classList.toggle('full-screen');
-    })
+    function addEvents() {
+        addSoundButtonEvent();
+        addHamburgerMenuEvent()
+    }
+    
+    function addSoundButtonEvent() {
+        const soundButton = document.querySelector('.sound');
+        soundButton.addEventListener('click', () => {
+            const audioTrack = document.getElementById('track');
+            audioTrack.muted = !audioTrack.muted;
+            soundButton.classList.toggle('on');
+        })
+    }
 
+    function addHamburgerMenuEvent() {
+        const hamburgerButton = document.querySelector('#hamburger-menu');
+        hamburgerButton.addEventListener('click', () => {
+            hamburgerButton.classList.toggle('active');
+            const menuIcon = document.querySelector('.menu-icon');
+            menuIcon.classList.toggle('opened');
+            const navigation = document.querySelector('.nav-container');
+            navigation.classList.toggle('full-screen');
+        })
+    }
+
+    function setupSlider() {
+        const slider = document.querySelector('.intro');
+        let index = 0;
+        preventEventBubbling();
+        // slider.addEventListener('animationend', nextSlide);
+        slider.addEventListener('animationend', () => {
+            // console.log(event.elapsedTime)
+            slider.innerHTML = '';
+            const templates = document.getElementsByTagName("template");
+            index++;
+            if (index > templates.length - 2) {
+                slider.removeEventListener('animationend');
+            }
+            const slide = templates[index];
+            const clon = slide.content.cloneNode(true);
+            slider.appendChild(clon);
+            preventEventBubbling();
+            if (index === (templates.length - 2)) {
+                const button = templates[templates.length - 1];
+                const clon = button.content.cloneNode(true);
+                const parent = document.querySelector('.landing-page');
+                parent.appendChild(clon);
+            }
+    })
+    }
+
+    // var nextSlide = (slider) => {
+    //         slider.innerHTML = '';
+    //         const templates = document.getElementsByTagName("template");
+    //         index++;
+    //         if (index > templates.length - 2) {
+    //             slider.removeEventListener('animationend', nextSlide);
+    //         }
+    //         const slide = templates[index];
+    //         const clon = slide.content.cloneNode(true);
+    //         slider.appendChild(clon);
+    //         preventEventBubbling();
+    //         if (index === (templates.length - 2)) {
+    //             const button = templates[templates.length - 1];
+    //             const clon = button.content.cloneNode(true);
+    //             const parent = document.querySelector('.landing-page');
+    //             parent.appendChild(clon);
+    //         }
+    // }
+
+    function preventEventBubbling() {
+        const containerPreventingBubbling = document.querySelector('#prevent-event-bubbling');
+        containerPreventingBubbling.addEventListener('animationend', e => {
+            e.stopPropagation();
+        })
+    }
+// ===================================================================================      change slides onclick
     const slider = document.querySelector('.intro');
     let index = 0;
     slider.addEventListener('click', () => {
@@ -173,45 +238,19 @@
             parent.appendChild(clon);
         }
     })
+// ===================================================================================
 
-    const stop = document.querySelector('.anime-stop');
-    stop.addEventListener('animationend', e => {
-        // console.log('stop')
-        e.stopPropagation();
-    })
-    slider.addEventListener('animationend', (event) => {
-        // console.log(event.elapsedTime)
-        slider.innerHTML = '';
-        const templates = document.getElementsByTagName("template");
-        index++;
-        if (index > templates.length - 2) {
-            slider.removeEventListener('animationend');
-        }
-        const temp = templates[index];
-        const clon = temp.content.cloneNode(true);
-        slider.appendChild(clon);
-        const stop = document.querySelector('.anime-stop');
-    stop.addEventListener('animationend', e => {
-        // console.log('stop')
-        e.stopPropagation();
-    })
-        if (index === (templates.length - 2)) {
-            const button = templates[templates.length - 1];
-            const clon = button.content.cloneNode(true);
-            const parent = document.querySelector('.landing-page');
-            parent.appendChild(clon);
-        }
-    })
-
-    const links = document.querySelectorAll('.nav-link-container');
-    links.forEach(link => {
-        let text = link.children[0].innerText.split('');
-        link.children[0].innerHTML = '';
-        text.forEach((letter, index) => {
-            link.children[0].innerHTML += `<span style="--i: ${index}">${letter}</span>`;
+    function setupNavigation() {
+        const links = document.querySelectorAll('.nav-link-container');
+        links.forEach(link => {
+            let text = link.children[0].innerText.split('');
+            link.children[0].innerHTML = '';
+            text.forEach((letter, index) => {
+                link.children[0].innerHTML += `<span style="--i: ${index}">${letter}</span>`;
+            })
+            let clone = link.children[0].cloneNode(true);
+            link.appendChild(clone);
         })
-        let clone = link.children[0].cloneNode(true);
-        link.appendChild(clone);
-    })
+    }
 </script>
 </html>
