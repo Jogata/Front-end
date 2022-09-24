@@ -47,12 +47,16 @@
                 </button>
             </div>
             <div class="intro">
-                <img src="./img/Forest/the-wild-spring.png" alt="Elk" class="hero">
-                <h1>
-                    <span class="left" style="--i:1">save</span>
-                    <span class="right" style="--i:2">the</span>
-                    <span class="block" style="--i:3">nature</span>
-                </h1>
+                <div class="fade-out">
+                    <div class="anime-stop grid">
+                        <img src="./img/Forest/the-wild-spring.png" alt="Elk" class="hero">
+                        <h1>
+                            <span class="left" style="--i:1">save</span>
+                            <span class="right" style="--i:2">the</span>
+                            <span class="block" style="--i:3">nature</span>
+                        </h1>
+                    </div>
+                </div>
                 <!-- <img src="./img/Forest/elk.png" alt="Elk" class="hero"> -->
                 <!-- the forest is their home -->
                 <!-- <h2>
@@ -85,41 +89,53 @@
     </audio>
 
     <template class="page1">
-        <img src="./img/Forest/the-wild-spring.png" alt="Elk" class="hero">
-        <h1>
-            <span class="left" style="--i:1">save</span>
-            <span class="right" style="--i:2">the</span>
-            <span class="block" style="--i:3">nature</span>
-        </h1>
+        <div class="fade-out">
+            <div class="anime-stop grid">
+                <img src="./img/Forest/the-wild-spring.png" alt="Elk" class="hero">
+                <h1>
+                    <span class="left" style="--i:1">save</span>
+                    <span class="right" style="--i:2">the</span>
+                    <span class="block" style="--i:3">nature</span>
+                </h1>
+            </div>
+        </div>
     </template>
     <template class="page2">
-        <img src="./img/Forest/elk.png" alt="Elk" class="hero">
-        <!-- the forest is their home -->
-        <h2>
-            <span class="top-left" style="--i:1">the</span>
-            <span class="top-right" style="--i:2">forest</span>
-            <span class="second-row-left" style="--i:3">is</span>
-            <span class="third-row-center" style="--i:4">their</span>
-            <span class="forth-row" style="--i:5">home</span>
-        </h2>
+        <div class="fade-out">
+            <div class="anime-stop grid">
+                <img src="./img/Forest/elk.png" alt="Elk" class="hero">
+                <!-- the forest is their home -->
+                <h2>
+                    <span class="top-left" style="--i:1">the</span>
+                    <span class="top-right" style="--i:2">forest</span>
+                    <span class="second-row-left" style="--i:3">is</span>
+                    <span class="third-row-center" style="--i:4">their</span>
+                    <span class="forth-row" style="--i:5">home</span>
+                </h2>
+            </div>
+        </div>
     </template>
     <template class="page3">
-        <img src="./img/Forest/brown-bear.png" alt="Brown bear" class="hero bear">
-        <!-- explore the animal world with us! -->
-        <h2 class="bear-text">
-            <span class="top-left" style="--i:1">explore</span>
-            <span class="second-row" style="--i:2">the</span>
-            <span class="third-row" style="--i:3">animal</span>
-            <span class="forth-row-left" style="--i:4">world</span>
-            <span class="fifth-row" style="--i:5">with us!</span>
-        </h2>
+        <div>
+            <div class="anime-stop grid">
+                <img src="./img/Forest/brown-bear.png" alt="Brown bear" class="hero bear">
+                <!-- explore the animal world with us! -->
+                <h2 class="bear-text">
+                    <span class="top-left" style="--i:1">explore</span>
+                    <span class="second-row" style="--i:2">the</span>
+                    <span class="third-row" style="--i:3">animal</span>
+                    <span class="forth-row-left" style="--i:4">world</span>
+                    <span class="fifth-row" style="--i:5">with us!</span>
+                </h2>
+            </div>
+        </div>
     </template>
     <template>
-        <a href="#top" class="explore" style="--i:6">explore</a>
+        <a href="#top" class="explore" style="--i:6">continue</a>
     </template>
 </body>
 
-<script>    
+<script>
     const soundButton = document.querySelector('.sound');
     soundButton.addEventListener('click', () => {
         const audioTrack = document.getElementById('track');
@@ -143,8 +159,9 @@
         const templates = document.getElementsByTagName("template");
         index++;
         if (index > templates.length - 2) {
-            console.log(templates.length - 2);
             index = 0;
+            const button = document.querySelector('.explore');
+            button.remove();
         }
         const temp = templates[index];
         const clon = temp.content.cloneNode(true);
@@ -152,7 +169,36 @@
         if (index === (templates.length - 2)) {
             const button = templates[templates.length - 1];
             const clon = button.content.cloneNode(true);
-            const parent = document.querySelector('.bear-text');
+            const parent = document.querySelector('.landing-page');
+            parent.appendChild(clon);
+        }
+    })
+
+    const stop = document.querySelector('.anime-stop');
+    stop.addEventListener('animationend', e => {
+        // console.log('stop')
+        e.stopPropagation();
+    })
+    slider.addEventListener('animationend', (event) => {
+        // console.log(event.elapsedTime)
+        slider.innerHTML = '';
+        const templates = document.getElementsByTagName("template");
+        index++;
+        if (index > templates.length - 2) {
+            slider.removeEventListener('animationend');
+        }
+        const temp = templates[index];
+        const clon = temp.content.cloneNode(true);
+        slider.appendChild(clon);
+        const stop = document.querySelector('.anime-stop');
+    stop.addEventListener('animationend', e => {
+        // console.log('stop')
+        e.stopPropagation();
+    })
+        if (index === (templates.length - 2)) {
+            const button = templates[templates.length - 1];
+            const clon = button.content.cloneNode(true);
+            const parent = document.querySelector('.landing-page');
             parent.appendChild(clon);
         }
     })
