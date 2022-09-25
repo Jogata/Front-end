@@ -57,24 +57,6 @@
                         </h1>
                     </div>
                 </div>
-                <!-- <img src="./img/Forest/elk.png" alt="Elk" class="hero"> -->
-                <!-- the forest is their home -->
-                <!-- <h2>
-                    <span class="top-left">the</span>
-                    <span class="top-right">forest</span>
-                    <span class="second-row">is</span>
-                    <span class="third-row">their</span>
-                    <span class="forth-row">home</span>
-                </h2> -->
-                <!-- <img src="./img/Forest/brown-bear.png" alt="Brown bear" class="hero bear"> -->
-                <!-- explore the animal world with us! -->
-                <!-- <h2 class="bear-text">
-                    <span class="top-left">explore</span>
-                    <span class="second-row" style="grid-column: 1 / 2; grid-row: 2 / 3;">the</span>
-                    <span class="middle" style="grid-column: 1 / 2; grid-row: 3 / 4; text-align: end;">animal</span>
-                    <span class="forth-row-left">world</span>
-                    <span class="fifth-row">with us!</span>
-                </h2> -->
             </div>
             <div class="nat-geo-logo">
                 <img src="./img/Forest/decoration/hazelnut.png" alt="Hazelnut" class="hazelnut">
@@ -169,15 +151,10 @@
         const slider = document.querySelector('.intro');
         let index = 0;
         preventEventBubbling();
-        // slider.addEventListener('animationend', nextSlide);
         slider.addEventListener('animationend', () => {
-            // console.log(event.elapsedTime)
             slider.innerHTML = '';
             const templates = document.getElementsByTagName("template");
             index++;
-            if (index > templates.length - 2) {
-                slider.removeEventListener('animationend');
-            }
             const slide = templates[index];
             const clon = slide.content.cloneNode(true);
             slider.appendChild(clon);
@@ -188,27 +165,8 @@
                 const parent = document.querySelector('.landing-page');
                 parent.appendChild(clon);
             }
-    })
+        })
     }
-
-    // var nextSlide = (slider) => {
-    //         slider.innerHTML = '';
-    //         const templates = document.getElementsByTagName("template");
-    //         index++;
-    //         if (index > templates.length - 2) {
-    //             slider.removeEventListener('animationend', nextSlide);
-    //         }
-    //         const slide = templates[index];
-    //         const clon = slide.content.cloneNode(true);
-    //         slider.appendChild(clon);
-    //         preventEventBubbling();
-    //         if (index === (templates.length - 2)) {
-    //             const button = templates[templates.length - 1];
-    //             const clon = button.content.cloneNode(true);
-    //             const parent = document.querySelector('.landing-page');
-    //             parent.appendChild(clon);
-    //         }
-    // }
 
     function preventEventBubbling() {
         const containerPreventingBubbling = document.querySelector('#prevent-event-bubbling');
@@ -216,29 +174,6 @@
             e.stopPropagation();
         })
     }
-// ===================================================================================      change slides onclick
-    const slider = document.querySelector('.intro');
-    let index = 0;
-    slider.addEventListener('click', () => {
-        slider.innerHTML = '';
-        const templates = document.getElementsByTagName("template");
-        index++;
-        if (index > templates.length - 2) {
-            index = 0;
-            const button = document.querySelector('.explore');
-            button.remove();
-        }
-        const temp = templates[index];
-        const clon = temp.content.cloneNode(true);
-        slider.appendChild(clon);
-        if (index === (templates.length - 2)) {
-            const button = templates[templates.length - 1];
-            const clon = button.content.cloneNode(true);
-            const parent = document.querySelector('.landing-page');
-            parent.appendChild(clon);
-        }
-    })
-// ===================================================================================
 
     function setupNavigation() {
         const links = document.querySelectorAll('.nav-link-container');
