@@ -25,10 +25,6 @@ a {
     border-radius: 1em;
     transition: all 0.5s;
 }
-/* a:hover {
-    color: rgba(255,255,255,0.6);
-    text-shadow: 1px 1px 1px #2fa2a2;
-} */
 
 button {
     border: none;
@@ -55,12 +51,6 @@ p {
 .accent {
     color: rgb(153, 204, 15);
 }
-/* .two-colors {
-    color: #00ffff;
-}
-.two-colors::first-letter {
-    color: #fff;
-} */
 
 body {
     background-image: url('../img/Forest/green-forest-body-bg.jpg');
@@ -100,12 +90,13 @@ header::before {
     padding: 0.5em 8%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto auto auto;
     z-index: 2;
 }
 
 .header-bar {
     grid-column: 1 / 4;
+    align-self: start;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -191,7 +182,6 @@ nav {
     transform-origin: bottom;
 }
 .nav-link:nth-of-type(2) span {
-    /* color: #2fa2a2; */
     color: rgba(255,255,25,0.6);
     text-shadow: 1px 1px 1px rgb(0, 128, 0);
     transform-origin: top;
@@ -273,9 +263,7 @@ nav {
     background-color: rgb(153, 204, 15);
     z-index: 100;
 }
-/* .nav-container.full-screen .hamburger-menu-button {
-    display: inline-block;
-} */
+
 .hamburger-menu-button.active {
     display: inline-block;
     position: fixed;
@@ -399,36 +387,20 @@ nav {
     0 0 20px #1eff45;
 }
 
-.squirrel {
-    position: absolute;
-    top: -76%;
-    left: -5%;
-    width: auto;
-    height: 100%;
-    z-index: 1;
-}
-.hazelnut {
-    position: absolute;
-    top: 40%;
-    left: -6%;
-    width: auto;
-    height: 76%;
-    z-index: 1;
-}
-
 .intro {
-    /* position: absolute; */
-    /* inset: 0; */
-    /* width: 100%; */
-    /* position: relative; */
     grid-column: 1 / 4;
     grid-row: 2 / 3;
-    display: grid;
-    /* width: min-content; */
-    /* margin: auto 0; */
-    grid-template-rows: repeat(3, 1fr);
     align-self: center;
     text-align: center;
+}
+
+.fade-out {
+    animation: fade-out 12s linear;
+}
+
+.intro-inside-grid {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
 }
 
 .hero {
@@ -436,20 +408,26 @@ nav {
     grid-row: 1 / 4;
     width: 60%;
     margin: auto;
-    animation: fade 2s linear 0.5s backwards;
+    animation: fade-in 2s linear 0.5s backwards;
 }
-@keyframes fade {
+@keyframes fade-in {
     0% {
+        opacity: 0;
+    }
+}
+@keyframes fade-out {
+    90% {
+        opacity: 1;
+    }
+    100% {
         opacity: 0;
     }
 }
 
 h1, h2 {
     position: relative;
-    /* margin: auto; */
     color: transparent;
     -webkit-text-stroke: 3px white;
-    /* font-size: min(30vw, 6rem); */
     font-size: min(14vw, 16rem);
     font-family: 'Abril Fatface', cursive;
     text-transform: capitalize;
@@ -540,55 +518,21 @@ h1 span, h2 span {
 }
 
 .explore {
-    position: absolute;
-    grid-column: 1 / 2;
-    grid-row: 5 / 6;
-    margin: 0 auto;
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+    align-self: start;
+    margin-inline: auto;
+    padding: 0.3em 1em;
     font-size: min(4vw, 2rem);
     -webkit-text-stroke: transparent;
     border: 0.15em solid currentColor;
-    animation: fade-up 2s ease-out calc(var(--i) * 0.4s + 1s) backwards;
+    filter: drop-shadow(4px 2px 1px rgb(0, 0, 0));
+    animation: fade-up 2s ease-out calc(var(--i) * 0.4s + 2s) backwards;
 }
 .explore:hover {
-    color: rgb(155, 202, 15);
+    text-shadow: 3px 2px 1px rgb(0, 0, 0);
+    background-color: rgba(155, 202, 15, 0.4);
 }
-
-/* h1 span {
-    display: block;
-} */
-/* small {
-    font-size: 3.5rem;
-    line-height: 3rem;
-} */
-/* .leaves {
-    position: absolute;
-    top: 11%;
-    left: -15%;
-    width: auto;
-    height: 73%;
-    z-index: 3;
-}
-.butterfly {
-    position: absolute;
-    top: 20%;
-    left: 68%;
-    width: 3rem;
-    z-index: 3;
-} */
-
-/* .intro p {
-    position: relative;
-    margin-top: 1em;
-    padding-top: 10%;
-    text-shadow: 1px 1px 1px #000, -1px -1px 1px #000;
-}
-.herbs {
-    position: absolute;
-    top: -5%;
-    right: -30%;
-    transform: rotateY(180deg);
-    z-index: -2;
-} */
 
 .nat-geo-logo {
     position: relative;
@@ -600,15 +544,7 @@ h1 span, h2 span {
     margin-bottom: 10%;
     margin-left: auto;
 }
-/* .leaves2 {
-    position: absolute;
-    top: 40%;
-    left: -9%;
-    width: auto;
-    height: 90%;
-    transform: rotateY(180deg);
-    z-index: 1;
-} */
+
 .earth {
     position: absolute;
     top: 0%;
@@ -617,13 +553,21 @@ h1 span, h2 span {
     height: 100%;
     z-index: -1;
 }
-.colibri {
+.squirrel {
     position: absolute;
-    top: -70%;
-    left: 10%;
+    top: -76%;
+    left: -5%;
     width: auto;
     height: 100%;
-    z-index: -1;
+    z-index: 1;
+}
+.hazelnut {
+    position: absolute;
+    top: 40%;
+    left: -6%;
+    width: auto;
+    height: 76%;
+    z-index: 1;
 }
 
 @keyframes flying-type-one {
@@ -741,6 +685,7 @@ h1 span, h2 span {
 }
 @media screen and (max-width: 700px) {
     .header-bar {
+        width: 100%;
         flex-wrap: wrap;
         column-gap: 3em;
     }
@@ -755,9 +700,21 @@ h1 span, h2 span {
         flex-direction: column;
         justify-content: space-between;
     }
+    .hero {
+        width: 90%;
+    }
+    h1, h2 {
+        line-height: unset;
+    }
+    .explore {
+        order: 3;
+        margin: 3em auto;
+    }
     .nat-geo-logo {
         align-self: flex-start;
         max-width: 10rem;
+        margin-top: 0;
         margin-left: 0;
+        order: 4;
     }
 }
