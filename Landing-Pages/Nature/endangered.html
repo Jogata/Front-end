@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endangered Animals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/styles-endangered.css">
+</head>
+<body>
+	<header>
+		<div class="inner">
+			<div class="logo"><span>logo</span></div>
+			<div class="burger"></div>
+			<nav>
+				<a class="active" href="#">species</a>
+				<a href="#">about us</a>
+				<a href="#">our work</a>
+				<a href="#">get involved</a>
+			</nav>
+			<a href="#" class="donate-link">donate</a>
+		</div>
+	</header>
+
+	<main>
+		<div id="slider">
+
+			<div class="slider-inner">
+				<div id="slider-content">
+					<div class="meta">species</div>
+					<h2 id="slide-title">amur <br>leopard</h2>
+					<span data-slide-title="0">amur <br>leopard</span>
+					<span data-slide-title="1">asiatic <br>lion</span>
+					<span data-slide-title="2">siberian <br>tiger</span>
+					<span data-slide-title="3">brown <br>bear</span>
+					<div class="meta">status</div>
+					<div id="slide-status">critically endangered</div>
+					<span data-slide-status="0">critically endangered</span>
+					<span data-slide-status="1">endangered</span>
+					<span data-slide-status="2">endangered</span>
+					<span data-slide-status="3">least concern</span>
+				</div>
+			</div>
+
+			<img src="./img/Endangered/leopard.jpg"/>
+			<!-- <img src="./img/Endangered/lion.jpg"/> -->
+			<!-- <img src="./img/Endangered/tiger.jpg"/> -->
+			<!-- <img src="./img/Endangered/bear.jpg"/> -->
+            
+			<div id="pagination">
+				<button class="active" data-slide="0"></button>
+				<button data-slide="1"></button>
+				<button data-slide="2"></button>
+				<button data-slide="3"></button>
+			</div>
+
+		</div>
+	</main>
+
+    <button class="sound">play</button>
+    <audio id="track" loop autoplay muted>
+        <source src="./media/endangered.mp3" type="audio/mp3">
+    </audio>
+</body>
+
+<script>    
+    const soundButton = document.querySelector('.sound');
+    soundButton.addEventListener('click', () => {
+        const audioTrack = document.getElementById('track');
+        audioTrack.muted = !audioTrack.muted;
+        soundButton.classList.toggle('on');
+    })
+</script>
+</html>
