@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="./css/styles-endangered.css">
 </head>
 <body>
-	<header>
+	<header id="top">
 		<div class="inner">
-			<div class="logo"><span>logo</span></div>
+			<a href="#top" class="logo">logo</a>
 			<div class="burger"></div>
 			<nav>
 				<a class="active" href="#">species</a>
@@ -30,29 +30,29 @@
 				<div id="slider-content">
 					<div class="meta">species</div>
 					<h2 id="slide-title">amur <br>leopard</h2>
-					<span data-slide-title="0">amur <br>leopard</span>
-					<span data-slide-title="1">asiatic <br>lion</span>
-					<span data-slide-title="2">siberian <br>tiger</span>
-					<span data-slide-title="3">brown <br>bear</span>
+					<!-- <span data-slide-title="0">amur <br>leopard</span> -->
+					<!-- <span data-slide-title="1">asiatic <br>lion</span> -->
+					<!-- <span data-slide-title="2">siberian <br>tiger</span> -->
+					<!-- <span data-slide-title="3">brown <br>bear</span> -->
 					<div class="meta">status</div>
 					<div id="slide-status">critically endangered</div>
-					<span data-slide-status="0">critically endangered</span>
-					<span data-slide-status="1">endangered</span>
-					<span data-slide-status="2">endangered</span>
-					<span data-slide-status="3">least concern</span>
+					<!-- <span data-slide-status="0">critically endangered</span> -->
+					<!-- <span data-slide-status="1">endangered</span> -->
+					<!-- <span data-slide-status="2">endangered</span> -->
+					<!-- <span data-slide-status="3">least concern</span> -->
 				</div>
 			</div>
 
-			<img src="./img/Endangered/leopard.jpg"/>
+			<img class="hero-image" src="./img/Endangered/leopard.jpg"/>
 			<!-- <img src="./img/Endangered/lion.jpg"/> -->
 			<!-- <img src="./img/Endangered/tiger.jpg"/> -->
 			<!-- <img src="./img/Endangered/bear.jpg"/> -->
             
 			<div id="pagination">
-				<button class="active" data-slide="0"></button>
-				<button data-slide="1"></button>
-				<button data-slide="2"></button>
-				<button data-slide="3"></button>
+				<button class="page active" data-slide="0"></button>
+				<button class="page" data-slide="1"></button>
+				<button class="page" data-slide="2"></button>
+				<button class="page" data-slide="3"></button>
 			</div>
 
 		</div>
@@ -64,7 +64,54 @@
     </audio>
 </body>
 
-<script>    
+<script>
+	const slides = [
+		{
+			src: "./img/Endangered/leopard.jpg",
+			title: "amur <br>leopard",
+			status: "critically endangered",
+		},
+		{
+			src: "./img/Endangered/lion.jpg",
+			title: "asiatic <br>lion",
+			status: "endangered",
+		},
+		{
+			src: "./img/Endangered/tiger.jpg",
+			title: "siberian <br>tiger",
+			status: "endangered",
+		},
+		{
+			src: "./img/Endangered/bear.jpg",
+			title: "brown <br>bear",
+			status: "least concern",
+		},
+	]
+
+	const pages = document.querySelectorAll('.page');
+	pages.forEach(page => {
+		page.addEventListener('click', () => {
+			const activePage = document.querySelector('.page.active');
+			activePage.classList.toggle('active');
+			page.classList.toggle('active');
+			const index = page.dataset.slide;
+			const heroImage = document.querySelector('.hero-image');
+			heroImage.src = slides[index].src;
+			const title = document.querySelector('#slide-title');
+			title.innerHTML = slides[index].title;
+			const status = document.querySelector('#slide-status');
+			status.textContent = slides[index].status;
+		})
+	})
+
+	const navLinks = document.querySelectorAll('nav a');
+	navLinks.forEach(link => {
+		link.addEventListener('click', () => {
+			const activeLink = document.querySelector('a.active');
+			activeLink.classList.toggle('active');
+			link.classList.toggle('active');
+		})
+	})
     const soundButton = document.querySelector('.sound');
     soundButton.addEventListener('click', () => {
         const audioTrack = document.getElementById('track');
