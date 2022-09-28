@@ -72,17 +72,17 @@ header {
     max-width: 1060px;
     margin: 0 auto;
     display: flex;
-    height: 70px;
+    /* height: 70px; */
     align-items: center;
     justify-content: space-between;
 }
 
 .logo {
-    padding: 0.2em 1em;
+    margin: 0;
+    padding: 0.2em;
     color: #fff;
     font-size: 1.6rem;
     font-family: 'Abril Fatface', cursive;
-    text-transform: uppercase;
 }
 
 .burger {
@@ -90,6 +90,8 @@ header {
 }
 
 .donate-link {
+    position: relative;
+    margin: 0;
     color: #fff;
 }
 
@@ -143,18 +145,22 @@ header {
     background-color: #88888a;
 }
 
+.hero-image {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
 #slide-title {
     margin: 0.6em auto;
     font-size: min(12vw, 7rem);
     text-transform: capitalize;
     line-height: 0.8em;
-    animation: fade-up-text 1s ease-out;
 }
 #slide-status {
     margin-top: 0.4em;
+    color: tomato;
     font-size: min(4vw, 2rem);
     text-transform: capitalize;
-    animation: fade-up-text-slow 1s ease-out;
 }
 
 #pagination {
@@ -176,8 +182,34 @@ header {
     outline-offset: min(15px, 3vw);
 }
 
+.fade-up {
+    animation: fade-up 1s ease-out;
+}
+.fade-down {
+    animation: fade-down 1s ease-out;
+}
+
+.fade-up-text {
+    animation: fade-up-text 1s ease-out;
+}
+.fade-down-text {
+    animation: fade-down-text 1s ease-out;
+}
+
+.fade-up-text-slow {
+    animation: fade-up-text-slow 1s ease-out;
+}
+.fade-down-text-slow {
+    animation: fade-down-text-slow 1s ease-out;
+}
 
 
+@keyframes fade-down {
+    100% {
+        transform: translateY(5%);
+        opacity: 0;
+    }
+}
 @keyframes fade-up {
     0% {
         transform: translateY(5%);
@@ -190,8 +222,20 @@ header {
         opacity: 0;
     }
 }
+@keyframes fade-down-text {
+    100% {
+        transform: translateY(12%);
+        opacity: 0;
+    }
+}
 @keyframes fade-up-text-slow {
     0% {
+        transform: translateY(80%);
+        opacity: 0;
+    }
+}
+@keyframes fade-down-text-slow {
+    100% {
         transform: translateY(80%);
         opacity: 0;
     }
@@ -199,15 +243,14 @@ header {
 
 
 
-.hero-image {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-    animation: fade-up 1s ease-out;
-}
-
 .sound {
     position: absolute;
-    inset: 0 auto auto 0;
+    inset: 10px 10px auto auto;
     color: #fff;
+    font-size: 0px;
+    background-color: transparent;
     z-index: 200;
+}
+.fa-music {
+    font-size: 1.4rem;
 }
