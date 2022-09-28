@@ -29,13 +29,13 @@
 			<div class="slider-inner">
 				<div id="slider-content">
 					<div class="meta">species</div>
-					<h2 id="slide-title">amur <br>leopard</h2>
+					<h2 id="slide-title" class="fade-up-text">amur <br>leopard</h2>
 					<!-- <span data-slide-title="0">amur <br>leopard</span> -->
 					<!-- <span data-slide-title="1">asiatic <br>lion</span> -->
 					<!-- <span data-slide-title="2">siberian <br>tiger</span> -->
 					<!-- <span data-slide-title="3">brown <br>bear</span> -->
 					<div class="meta">status</div>
-					<div id="slide-status">critically endangered</div>
+					<div id="slide-status" class="fade-up-text-slow">critically endangered</div>
 					<!-- <span data-slide-status="0">critically endangered</span> -->
 					<!-- <span data-slide-status="1">endangered</span> -->
 					<!-- <span data-slide-status="2">endangered</span> -->
@@ -43,7 +43,7 @@
 				</div>
 			</div>
 
-			<img class="hero-image" src="./img/Endangered/leopard.jpg"/>
+			<img class="hero-image fade-up" src="./img/Endangered/leopard.jpg"/>
 			<!-- <img src="./img/Endangered/lion.jpg"/> -->
 			<!-- <img src="./img/Endangered/tiger.jpg"/> -->
 			<!-- <img src="./img/Endangered/bear.jpg"/> -->
@@ -58,7 +58,13 @@
 		</div>
 	</main>
 
-    <button class="sound">play</button>
+	<template>
+		<img class="hero-image fade-up" src=""/>
+	</template>
+
+    <button class="sound">play
+		<i class="fa fa-music" aria-hidden="true"></i>
+	</button>
     <audio id="track" loop autoplay muted>
         <source src="./media/endangered.mp3" type="audio/mp3">
     </audio>
@@ -70,21 +76,25 @@
 			src: "./img/Endangered/leopard.jpg",
 			title: "amur <br>leopard",
 			status: "critically endangered",
+			color: 'tomato',
 		},
 		{
 			src: "./img/Endangered/lion.jpg",
 			title: "asiatic <br>lion",
 			status: "endangered",
+			color: 'orange',
 		},
 		{
 			src: "./img/Endangered/tiger.jpg",
 			title: "siberian <br>tiger",
 			status: "endangered",
+			color: 'orange',
 		},
 		{
 			src: "./img/Endangered/bear.jpg",
 			title: "brown <br>bear",
 			status: "least concern",
+			color: 'yellow',
 		},
 	]
 
@@ -96,11 +106,29 @@
 			page.classList.toggle('active');
 			const index = page.dataset.slide;
 			const heroImage = document.querySelector('.hero-image');
-			heroImage.src = slides[index].src;
+			heroImage.classList.replace('fade-up', 'fade-down');
+			heroImage.addEventListener('animationend', () => {
+				const template = document.querySelector('template');
+				const clon = template.content.cloneNode(true);
+				const parent = document.querySelector('#slider');
+				parent.removeChild(heroImage);
+				parent.appendChild(clon);
+				const newImage = document.querySelector('.fade-up');
+				newImage.src = slides[index].src;
+			})
 			const title = document.querySelector('#slide-title');
-			title.innerHTML = slides[index].title;
+			title.className = 'fade-down-text';
+			title.addEventListener('animationend', () => {
+				title.innerHTML = slides[index].title;
+				title.className = 'fade-up-text';
+			})
 			const status = document.querySelector('#slide-status');
-			status.textContent = slides[index].status;
+			status.className = 'fade-down-text-slow';
+			status.addEventListener('animationend', () => {
+				status.textContent = slides[index].status;
+				status.style.color = slides[index].color;
+				status.className = 'fade-up-text-slow';
+			})
 		})
 	})
 
