@@ -12,11 +12,19 @@ font-family: 'Montserrat', sans-serif;
     box-sizing: border-box;
 }
 
+ul {
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    margin: 0 1em;
+}
+
 a {
     display: inline-block;
     margin: 0 0.2em;
     padding: 0.5em 1em;
     color: #8c8c8e;
+    color: #fff;
     font-size: 1rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -28,14 +36,15 @@ a {
     transition: all 0.5s;
 }
 a.active {
-    color: #fff;
-    border: 1px solid #fff;
+    color: #deb286;
+    border: 1px solid #deb286;
 }
 a:hover {
-    color: #fff;
+    color: #deb286;
 }
 a:focus {
-    outline: 1px solid #8c8c8e;
+    color: #deb286;
+    outline: 1px solid #deb286;
 }
 
 button {
@@ -53,3 +62,101 @@ img {
     width: 100%;
 }
 
+nav {
+    position: relative;
+    width: 100%;
+    max-width: 1320px;
+    padding: 1em 0;
+    z-index: 2;
+}
+
+.landing-page {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: #222;
+    overflow: hidden;
+}
+.landing-page::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 0 50%;
+    border-radius: 0% 0% 0% 100%;
+    background-color: #385d64;
+    z-index: 1;
+}
+
+.nav {
+    position: relative;
+}
+.nav::before {
+    content: '';
+    position: absolute;
+    inset: 20% auto auto 0;
+    height: 60%;
+    border-left: 4px solid #deb286;
+}
+.nav::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    max-width: 160%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    background: linear-gradient(to left, transparent, rgba(0,0,0,0.4), transparent);
+    z-index: -1;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    color: #fff;
+    z-index: 2;
+}
+
+.text {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    margin: auto;
+    width: 50%;
+    max-width: 500px;
+    margin-right: 5%;
+    padding-bottom: 20px;
+}
+
+.title {
+    color: #385d64;
+    font-size: 3.2rem;
+    font-family: 'Abril Fatface', cursive;
+    text-transform: capitalize;
+    text-shadow: 1px 1px 5px #222;
+}
+
+.image-box {
+    width: 35%;
+    min-width: 310px;
+    margin: auto;
+}
+
+.sci a {
+    font-size: 0.8rem;
+}
+
+@media screen and (max-width: 780px) {
+    .text {
+        width: 80%;
+        margin-bottom: 2em;
+        transform: translateY(-10%);
+        order: 2;
+    }
+    .image-box {
+        transform: translateY(10%);
+    }
+}
