@@ -11,7 +11,43 @@
 </head>
 
 <body>
+    <section class="landing-page">
+        <nav>
+            <ul class="nav">
+                <li><a href="#">home</a></li>
+                <li><a href="#">about</a></li>
+                <li><a href="#">performance</a></li>
+                <li><a href="#">team</a></li>
+                <li><a href="#">ranking</a></li>
+            </ul>
+            <button class="version">v.2</button>
+        </nav>
+        <div class="content">
+            <div class="text">
+                <h1 class="title">
+                    cristiano ronaldo
+                </h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat vero tenetur quod nobis neque accusamus soluta quam molestiae pariatur reprehenderit voluptatem natus hic totam laboriosam impedit perspiciatis aliquid, quibusdam ex! Deleniti vitae quidem harum ipsam unde, omnis voluptate voluptatum nisi aut amet ad hic officiis voluptas quos suscipit placeat ullam.</p>
+            </div>
+            <div class="image-box">
+                <img src="./img//soccer/cristiano-ronaldo.png" alt="Football player Cristiano Ronaldo">
+            </div>
+        </div>
+        <nav>
+            <ul class="sci">
+                <li><a href="#">facebook</a></li>
+                <li><a href="#">twitter</a></li>
+                <li><a href="#">instagram</a></li>
+            </ul>
+        </nav>
+    </section>
     <script>
+        const buttonChangeVersion = document.querySelector('.version');
+        buttonChangeVersion.addEventListener('click', () => {
+            const page = document.querySelector('.landing-page');
+            page.classList.toggle('v2');
+            buttonChangeVersion.textContent = 'v.1';
+        })
     </script>
 </body>
 
