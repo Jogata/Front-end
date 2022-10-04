@@ -49,10 +49,9 @@ button:hover {
 }
 
 img {
+    position: absolute;
     display: block;
     width: 100%;
-    /* margin: 0 auto; */
-    position: absolute;
 }
 
 body {
@@ -72,7 +71,6 @@ header {
     max-width: 1060px;
     margin: 0 auto;
     display: flex;
-    /* height: 70px; */
     align-items: center;
     justify-content: space-between;
 }
@@ -86,8 +84,23 @@ header {
 }
 
 .burger {
+    position: relative;
     display: none;
+    width: 30px;
+    height: 2px;
+    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0 -6px 0 0 white, 0 6px 0 0 white;
+    cursor: pointer;
 }
+.burger:before {
+    position: absolute;
+    content: '';
+    top: -11px;
+    left: -10%;
+    width: 120%;
+    height: 24px;
+  }
 
 .donate-link {
     position: relative;
@@ -102,15 +115,8 @@ header {
 	max-width: 1200px;
     min-height: 100vh;
 	margin: 0 auto;
-    /* margin-top: -15%; */
     color: #fff;
-    /* background-color: #23272a; */
-    /* background-image: url('../img/Endangered/leopard.jpg');
-    background-position: center;
-    background-size: cover; */
-    /* border: 1px solid red; */
     align-items: center;
-    /* justify-content: center; */
 }
 
 .slider-inner {
@@ -120,7 +126,6 @@ header {
     display: grid;
     z-index: 1;
     align-items: center;
-    /* justify-content: center; */
 }
 
 #slider-content {
@@ -148,6 +153,8 @@ header {
 .hero-image {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
+    min-width: 700px;
+    justify-self: center;
 }
 
 #slide-title {
@@ -164,9 +171,17 @@ header {
 }
 
 #pagination {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    justify-self: end;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: min(40px, 3vw);
     z-index: 3;
 }
 .page {
+    display: block;
     min-width: 10px;
     width: 3vw;
     max-width: 20px;
@@ -202,7 +217,6 @@ header {
 .fade-down-text-slow {
     animation: fade-down-text-slow 1s ease-out;
 }
-
 
 @keyframes fade-down {
     100% {
@@ -241,8 +255,6 @@ header {
     }
 }
 
-
-
 .sound {
     position: absolute;
     inset: 10px 10px auto auto;
@@ -254,3 +266,19 @@ header {
 .fa-music {
     font-size: 1.4rem;
 }
+
+@media screen and (max-width: 764px) {
+    nav {
+        display: none;
+    }
+    .burger {
+        display: inline-block;
+    }
+    #pagination {
+        grid-row: 2 / 3;
+        align-self: start;
+        justify-self: center;
+        flex-direction: row;
+    }
+}
+
