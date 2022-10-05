@@ -27,38 +27,22 @@
     </header>
     <main>
         <div class="top">
-            <h1>amg gt c</h1>
+            <h1 class="model">amg gt coupe</h1>
         </div>
         <div class="middle">
-            <p>When no compromise will be tolerated, there is the CT Coupe.</p>
+            <p class="description">When no compromise will be tolerated, there is the CT Coupe.</p>
         </div>
         <div class="hero">
-            <!-- <img src="./img/amg/kindpng_20113.png" alt="Mercedes AMG GT S"> -->
-
-            <!-- <img class="absolute" src="./img/amg/green.png" alt="Mercedes AMG GT S" id="green"> -->
-
-            <img id="hidden" src="./img/amg/grey.png" alt="Mercedes AMG GT S">
-            <img class="absolute" src="./img/amg/grey.png" alt="Mercedes AMG GT S">
-            <!-- <img class="absolute" src="./img/amg/light-grey.png" alt="Mercedes AMG GT S"> -->
-            <!-- <img class="absolute" src="./img/amg/white.png" alt="Mercedes AMG GT S"> -->
-
-            <!-- <img class="absolute" src="./img/amg/grey-roadster.png" alt="Mercedes AMG GT Roadster"> -->
-            <!-- <img class="absolute" src="./img/amg/red-roadster.png" alt="Mercedes AMG GT Roadster"> -->
+            <img id="hidden" src="./img/amg/grey.png" alt="Mercedes AMG GT">
+            <img class="absolute" src="./img/amg/grey.png" alt="Mercedes AMG GT">
         </div>
-        <!-- <div class="top">
-            <h1>amg gt roadster</h1>
-        </div>
-        <div class="middle">
-            <p>The GT S is fine-tuned for aggressive handling, designed for maximum control and primed for sheer thrills.</p>
-        </div> -->
-        <!-- <div class="hero hidden">
-            <img class="gt-s" src="./img/amg/white.png" alt="Mercedes AMG GT S">
-        </div> -->
         <aside>
             <label class="model active" for="coupe">coupe</label>
             <input type="checkbox" name="coupe" id="coupe" class="car-type">
             <label class="model" for="roadster">roadster</label>
             <input type="checkbox" name="roadster" id="roadster" class="car-type">
+            <label class="model" for="sport">roadster</label>
+            <input type="checkbox" name="sport" id="sport" class="car-type">
         </aside>
     </main>
     <div data-type="coupe" class="colors">
@@ -79,6 +63,128 @@
     </template>
 
     <script>
+        const typeOfCars = {
+            coupe: {
+                image: './img/amg/grey.png',
+                title: 'amg gt coupe',
+                description: 'When no compromise will be tolerated, there is the CT Coupe.',
+            },
+            roadster: {
+                image: './img/amg/grey-roadster.png',
+                title: 'amg gt roadster',
+                description: 'The GT S is fine-tuned for aggressive handling, designed for maximum control and primed for sheer thrills.',
+            },
+            sport: {
+                image: './img/amg/green.png',
+                title: 'amg gt sport',
+                description: 'When no compromise will be tolerated, there is the CT Coupe.',
+            },
+        }
+
+        const carColors = {
+            white: '#fff',
+            greydark: '#303a44',
+            greylight: '#c4c4c4',
+            green: '#00f686',
+            red: '#fd0811',
+        }
+
+        const modelAttributes = {
+            roadster: [
+                {
+                    color: 'greydark',
+                    image: './img/amg/grey-roadster.png',
+                },
+                {
+                    color: 'red',
+                    image: './img/amg/red-roadster.png',
+                }
+            ],
+            coupe: [
+                {
+                    color: 'greydark',
+                    image: './img/amg/grey.png',
+                },
+                {
+                    id: 'lightgray',
+                    color: 'greylight',
+                    image: './img/amg/light-grey.png',
+                },
+                {
+                    id: 'white',
+                    color: 'white',
+                    image: './img/amg/white.png',
+                },
+            ],
+            sport: [],
+        }
+
+        const colorButtons = Array.from(document.querySelectorAll('.color'));
+        const colorsForCurrentTypeOfCar= modelAttributes.coupe;
+        for (let i = 0; i < colorsForCurrentTypeOfCar.length; i++) {
+            const color = colorsForCurrentTypeOfCar[i].color;
+            colorButtons[i].style.backgroundColor = carColors[color];
+            colorButtons[i].dataset.color = colorsForCurrentTypeOfCar[i].color;
+        }
+
+        colorButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const model = colorsForCurrentTypeOfCar.find(x => {
+                    return x.color === button.dataset.color;
+                })
+                const heroImage = document.querySelector('.absolute');
+                heroImage.id = model.id;
+                heroImage.src = model.image;
+            })
+        })
+
+
+        const checkboxesForTypeOfCar = document.querySelectorAll('.car-type');
+        checkboxesForTypeOfCar.forEach(checkbox => {
+            checkbox.addEventListener('click', () => {
+                const checkboxActive = document.querySelector('.active');
+                checkboxActive.classList.remove('active');
+                checkbox.previousElementSibling.classList.add('active');
+
+                const carType = checkbox.id;
+                const heroImage = document.querySelector('.absolute');
+                const title = document.querySelector('.model');
+                const description= document.querySelector('.description');
+                heroImage.src = typeOfCars[carType].image;
+                title.textContent = typeOfCars[carType].title;
+                description.textContent = typeOfCars[carType].description;
+                heroImage.id = 'undefined';
+
+                const colorButtonsContainer = document.querySelector('.colors');
+                colorButtonsContainer.textContent = '';
+                colorButtonsContainer.dataset.type = carType;
+
+                modelAttributes[carType].forEach(model => {
+                    const colorButtonTemplate = document.querySelector('#color-button');
+                    const colorButtonTemplateCopy = document.importNode(colorButtonTemplate.content, true);
+                    colorButtonsContainer.appendChild(colorButtonTemplateCopy);
+                })
+
+                const colorButtons = Array.from(document.querySelectorAll('.color'));
+                const colorsForCurrentTypeOfCar = modelAttributes[carType];
+                for (let i = 0; i < colorsForCurrentTypeOfCar.length; i++) {
+                    const color = colorsForCurrentTypeOfCar[i].color;
+                    colorButtons[i].style.backgroundColor = carColors[color];
+                    colorButtons[i].dataset.color = colorsForCurrentTypeOfCar[i].color;
+                }
+
+                colorButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const model = colorsForCurrentTypeOfCar.find(x => {
+                            return x.color === button.dataset.color;
+                        })
+                        const heroImage = document.querySelector('.absolute');
+                        heroImage.id = model.id;
+                        heroImage.src = model.image;
+                    })
+                })
+            })
+        });
     </script>
 </body>
 </html>
