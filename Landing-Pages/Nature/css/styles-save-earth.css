@@ -29,6 +29,9 @@ a {
     border-radius: 1em;
     transition: all 0.5s;
 }
+a:hover {
+    transform: scale(1.1);
+}
 
 button {
     border: none;
@@ -50,11 +53,11 @@ body {
     background-color: #000;
 }
 
-section {
+.landing-page {
     position: relative;
     width: 100%;
     min-height: 100vh;
-                                        padding: 100px 150px;
+                                        padding: 100px 7vw;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -77,16 +80,16 @@ header {
 }
 
 .toggle {
-                position: relative;
-    padding: 0 0.2em 0.1em 0.2em;
+    position: relative;
     color: #fff;
     font-size: 0px;
-    border-radius: 0.2em;
+    border-radius: 0.2rem;
 }
 .toggle:focus-visible {
     outline: 1px solid #fff;
 }
 .fa-bars {
+    padding: 0.1em 0.2em;
     font-size: 1.5rem;
 }
 
@@ -112,12 +115,12 @@ header {
 }
 
 h1 {
-    font-size: 3.5rem;
+    font-size: min(7vw, 3.5rem);
     font-weight: lighter;
 }
 .block-element {
     display: block;
-    font-size: 10rem;
+    font-size: min(20vw, 10rem);
     font-weight: bold;
     line-height: 0.7;
     color: transparent;
@@ -149,6 +152,7 @@ h1 {
 .sci a {
     display: block;
     font-size: 0px;
+    border-radius: 50%;
 }
 .sci a i {
     width: 100%;
@@ -158,4 +162,18 @@ h1 {
     border-radius: 50%;
     color: #154a17;
     background-color: #fff;
+}
+
+.textBlocks {
+    /* position: absolute; */
+    bottom: 0;
+    display: flex;
+}
+.block {
+    position: relative;
+    max-width: 500px;
+    margin-right: 40px;
+    padding: 20px;
+    color: #fff;
+    /* background-color: rgba(0,255,0,0.2); */
 }
