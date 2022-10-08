@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exlore</title>
+    <title>Travel</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/styles-travel-v1.css">
 </head>
 <body>
-    <section class="landing-page" style="display: none;">
+    <section class="landing-page">
         <header class="header">
             <a href="#top" class="logo">logo</a>
             <nav>
@@ -45,8 +45,18 @@
                 <i class="fa fa-pause pause" aria-hidden="true"></i>
                 Watch all the beach
             </button>
+            <div class="slide-arrows">
+                <button><i class="fa fa-chevron-left arrow" aria-hidden="true"></i></button>
+                <button><i class="fa fa-chevron-right arrow" aria-hidden="true"></i></button>
+            </div>
         </main>
         <footer>
+            <div class="slider-dots">
+                <button data-index="0" class="dot current">slide 1</button>
+                <button data-index="1" class="dot">slide 2</button>
+                <button data-index="2" class="dot">slide 3</button>
+                <button data-index="3" class="dot">slide 4</button>
+            </div>
             <ul class="sci">
                 <li>
                     <a href="#f"><i class="fa fa-facebook-f" aria-hidden="true"></i>facebook</a>
@@ -60,9 +70,24 @@
             </ul>
         </footer>
     </section>
+
     <audio autoplay loop muted src="./audio/ocean-waves.mp3"></audio>
 
     <script>
+        const bgs = [
+            {
+                url: "url('../img/beach_coast_aerial_view_151206.jpg')",
+            },
+            {
+                url: "url('../img/beach_coast_aerial_view_634154cf1f4ef.jpg')",
+            },
+            {
+                url: "url('../img/beach_coast_aerial_view_63415516c8139.jpg')",
+            },
+            {
+                url: "url('../img/beach_coast_aerial_view_63415595b7c40.jpg')",
+            }
+        ];
         const button = document.querySelector('.playpause');
         button.addEventListener('click', () => {
             const page = document.querySelector('.landing-page');
@@ -73,6 +98,50 @@
             playButton.classList.toggle('visible');
             const pauseButton = document.querySelector('.pause');
             pauseButton.classList.toggle('visible');
+        })
+
+        const slideArrows = document.querySelectorAll('.arrow');
+        const buttonPrev = slideArrows[0];
+        const buttonNext = slideArrows[1];
+        buttonPrev.addEventListener('click', () => {
+            const page = document.querySelector('.landing-page');
+            page.classList.remove('animated');
+            const audio = document.querySelector('audio');
+            audio.pause();
+            const playButton = document.querySelector('.play');
+            playButton.classList.add('visible');
+            const pauseButton = document.querySelector('.pause');
+            pauseButton.classList.remove('visible');
+            const currentSlide = document.querySelector('.dot.current');
+            let index = currentSlide.dataset.index;
+            index--;
+            if (index < 0) {
+                index = 3;
+            }
+            const slideDots = document.querySelectorAll('.dot');
+            currentSlide.classList.remove('current');
+            slideDots[index].classList.add('current');
+            page.style.setProperty('--bg', bgs[index].url);
+        })
+        buttonNext.addEventListener('click', () => {
+            const page = document.querySelector('.landing-page');
+            page.classList.remove('animated');
+            const audio = document.querySelector('audio');
+            audio.pause();
+            const playButton = document.querySelector('.play');
+            playButton.classList.add('visible');
+            const pauseButton = document.querySelector('.pause');
+            pauseButton.classList.remove('visible');
+            const currentSlide = document.querySelector('.dot.current');
+            let index = currentSlide.dataset.index;
+            index++;
+            if (index > 3) {
+                index = 0;
+            }
+            const slideDots = document.querySelectorAll('.dot');
+            currentSlide.classList.remove('current');
+            slideDots[index].classList.add('current');
+            page.style.setProperty('--bg', bgs[index].url);
         })
     </script>
 </body>
