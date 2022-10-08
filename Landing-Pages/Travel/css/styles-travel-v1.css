@@ -35,9 +35,12 @@ a {
 
 i {
     padding: 0.4em;
+    transition: all 0.5s;
 }
 
 button {
+    color: #fff;
+    border: none;
     background-color: transparent;
     cursor: pointer;
     transition: all 0.5s;
@@ -47,6 +50,7 @@ button:hover {
 }
 .fa {
     font-size: 1.2rem;
+    cursor: pointer;
 }
 
 img {
@@ -56,6 +60,10 @@ img {
 }
 
 .landing-page {
+    --bg: url('../img/beach_coast_aerial_view_151206.jpg');
+    /* --bg: url('../img/beach_coast_aerial_view_634154cf1f4ef.jpg'); */
+    /* --bg: url('../img/beach_coast_aerial_view_63415516c8139.jpg'); */
+    /* --bg: url('../img/beach_coast_aerial_view_63415595b7c40.jpg'); */
     display: grid;
     grid-template-rows: auto 1fr auto;
     position: relative;
@@ -69,9 +77,9 @@ img {
     width: 200%;
     height: 200%;
     inset: 0 auto auto 0;
-    background-image: url('../img/beach_coast_aerial_view_151206.jpg');
+    background-image: var(--bg);
     background-repeat: no-repeat;
-    background-position: top right;
+    background-position: top left;
     background-size: cover;
     z-index: -2;
     animation: tour 150s linear infinite;
@@ -91,25 +99,67 @@ img {
 @keyframes tour {
     20% {
         inset: 0 auto auto -100%;
+        background-position: top right;
     }
     50% {
         inset: -100% auto auto -100%;
+        background-position: top right;
     }
     80% {
         inset: -100% auto auto 0;
+        background-position: top left;
     }
 }
 
 .header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    column-gap: 5em;
+    padding-right: 1em;
+    flex-wrap: wrap;
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
 }
 
 .logo {
     font-size: 2rem;
     font-family: 'Abril Fatface', cursive;
     text-transform: uppercase;
+}
+.subscribe {
+    padding: 0.4em;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 2em;
+    white-space: nowrap;
+}
+.subscribe::first-letter {
+    text-transform: uppercase;
+}
+
+#search-field {
+    /* width: 100%; */
+    /* width: fit-content; */
+    padding: 0.2em 0.6em;
+    color: #fff;
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+    border-radius: 2em;
+    background-color: transparent;
+    box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.6), 
+    inset 1px 1px 1px rgba(255, 255, 255, 0.6), 
+    inset -1px -1px 1px rgba(0, 0, 0, 0.6), 
+    1px 1px 1px rgba(255, 255, 255, 0.6);
+}
+#search-field:focus-visible {
+    width: calc(20vw);
+    box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.6), 
+    inset -1px -1px 1px rgba(255, 255, 255, 0.6);
+}
+::placeholder {
+    color: #fff;
 }
 
 main {
@@ -118,7 +168,7 @@ main {
     column-gap: 3em;
     width: min-content;
     margin-top: auto;
-    padding: 4em;
+    padding: min(13vw, 4em);
     /* grid-template-columns: auto;
     grid-template-rows: repeat(4, auto); */
 }
@@ -126,7 +176,7 @@ main {
 h1 {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
-    font-size: 5rem;
+    font-size: min(14vw, 5rem);
     font-family: 'Playfair Display', serif;
     line-height: 0.8em;
 }
@@ -135,6 +185,7 @@ h1::first-letter {
 }
 .block-element {
     display: block;
+    text-align: right;
 }
 h2 {
     grid-column: 1 / 2;
@@ -156,9 +207,7 @@ p {
     column-gap: 1em;
     width: max-content;
     padding: 0.4em 0.6em;
-    color: #fff;
     font-size: 1.2rem;
-    border: none;
     border-radius: 2em;
 }
 .play, .pause {
@@ -177,9 +226,51 @@ p {
     display: flex;
 }
 
+.slide-arrows {
+    position: absolute;
+    left: 0;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-self: center;
+}
+.arrow {
+    padding: 0.4em 0.6em;
+    color: #444;
+    font-size: 1rem;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+.arrow:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
 footer {
+    position: relative;
     display: flex;
     border-top: 2px solid rgba(255, 255, 255, 0.2);
+    background-image: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+}
+.slider-dots {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    column-gap: 1em;
+    width: 100%;
+    margin-left: 10%;
+    transform: translateY(-55%);
+}
+.dot {
+    width: max(10px, 0.5%);
+    aspect-ratio: 1;
+    font-size: 0px;
+    border-radius: 50%;
+    background-color: #ccc;
+}
+.dot.current {
+    width: max(15px, 1%);
+    background-color: rgba(255, 255, 255, 1);
 }
 .sci {
     margin-left: auto;
