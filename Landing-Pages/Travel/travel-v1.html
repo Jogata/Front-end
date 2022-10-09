@@ -110,10 +110,8 @@
             page.classList.remove('animated');
             // ========== Stop Audio between slides ============
             resetAudio();
-            const playButton = document.querySelector('.play');
-            playButton.classList.add('visible');
-            const pauseButton = document.querySelector('.pause');
-            pauseButton.classList.remove('visible');
+            // ========== Switch Play and Pause Button ==========
+            displayPlayButton();
             // ========== Change Slidebar Dots ============
             const slideDots = document.querySelectorAll('.dot');
             const currentSlide = document.querySelector('.dot.current');
@@ -129,10 +127,8 @@
             page.classList.remove('animated');
             // ========== Stop Audio between slides ============
             resetAudio();
-            const playButton = document.querySelector('.play');
-            playButton.classList.add('visible');
-            const pauseButton = document.querySelector('.pause');
-            pauseButton.classList.remove('visible');
+            // ========== Switch Play and Pause Button ==========
+            displayPlayButton();
             // ========== Change Slidebar Dots ============
             const slideDots = document.querySelectorAll('.dot');
             const currentSlide = document.querySelector('.dot.current');
@@ -144,6 +140,19 @@
             page.style.setProperty('--bg', backgrounds[index].url);
         })
 
+        const slideDots = document.querySelectorAll('.dot');
+        slideDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const page = document.querySelector('.landing-page');
+                page.classList.remove('animated');
+                const currentSlide = document.querySelector('.dot.current');
+                currentSlide.classList.remove('current');
+                dot.classList.add('current');
+                let index = dot.dataset.index;
+                page.style.setProperty('--bg', backgrounds[index].url);
+            })
+        })
+
         function resetAudio(audioElement) {
             const audio = document.querySelector('audio');
             audio.pause();
@@ -151,6 +160,12 @@
             audio.muted = true;
         }
 
+        function displayPlayButton() {
+            const playButton = document.querySelector('.play');
+            playButton.classList.add('visible');
+            const pauseButton = document.querySelector('.pause');
+            pauseButton.classList.remove('visible');
+        }
     </script>
 </body>
 </html>
