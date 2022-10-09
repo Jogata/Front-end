@@ -40,7 +40,7 @@
             <h1>wonderful<span class="block-element">nature</span></h1>
             <h2>photos taken with a drone</h2>
             <p>This is an inspirational design for sites about photography and nature. We hope you like it and will inspire you to carry out projects of this kind.</p>
-            <button type="button" class="playpause">
+            <button type="button" class="playback">
                 <i class="fa fa-play play visible" aria-hidden="true"></i>
                 <i class="fa fa-pause pause" aria-hidden="true"></i>
                 Watch all the beach
@@ -74,7 +74,7 @@
     <audio autoplay loop muted src="./audio/ocean-waves.mp3"></audio>
 
     <script>
-        const bgs = [
+        const backgrounds = [
             {
                 url: "url('../img/beach_coast_aerial_view_151206.jpg')",
             },
@@ -86,13 +86,15 @@
             },
             {
                 url: "url('../img/beach_coast_aerial_view_63415595b7c40.jpg')",
-            }
+            },
         ];
-        const button = document.querySelector('.playpause');
+
+        const button = document.querySelector('.playback');
         button.addEventListener('click', () => {
             const page = document.querySelector('.landing-page');
             page.classList.toggle('animated');
             const audio = document.querySelector('audio');
+            audio.play();
             audio.muted = !audio.muted;
             const playButton = document.querySelector('.play');
             playButton.classList.toggle('visible');
@@ -106,43 +108,49 @@
         buttonPrev.addEventListener('click', () => {
             const page = document.querySelector('.landing-page');
             page.classList.remove('animated');
-            const audio = document.querySelector('audio');
-            audio.pause();
+            // ========== Stop Audio between slides ============
+            resetAudio();
             const playButton = document.querySelector('.play');
             playButton.classList.add('visible');
             const pauseButton = document.querySelector('.pause');
             pauseButton.classList.remove('visible');
+            // ========== Change Slidebar Dots ============
+            const slideDots = document.querySelectorAll('.dot');
             const currentSlide = document.querySelector('.dot.current');
             let index = currentSlide.dataset.index;
             index--;
-            if (index < 0) {
-                index = 3;
-            }
-            const slideDots = document.querySelectorAll('.dot');
+            if (index < 0) {index = slideDots.length-1;}
             currentSlide.classList.remove('current');
             slideDots[index].classList.add('current');
-            page.style.setProperty('--bg', bgs[index].url);
+            page.style.setProperty('--bg', backgrounds[index].url);
         })
         buttonNext.addEventListener('click', () => {
             const page = document.querySelector('.landing-page');
             page.classList.remove('animated');
-            const audio = document.querySelector('audio');
-            audio.pause();
+            // ========== Stop Audio between slides ============
+            resetAudio();
             const playButton = document.querySelector('.play');
             playButton.classList.add('visible');
             const pauseButton = document.querySelector('.pause');
             pauseButton.classList.remove('visible');
+            // ========== Change Slidebar Dots ============
+            const slideDots = document.querySelectorAll('.dot');
             const currentSlide = document.querySelector('.dot.current');
             let index = currentSlide.dataset.index;
             index++;
-            if (index > 3) {
-                index = 0;
-            }
-            const slideDots = document.querySelectorAll('.dot');
+            if (index >= slideDots.length) {index = 0;}
             currentSlide.classList.remove('current');
             slideDots[index].classList.add('current');
-            page.style.setProperty('--bg', bgs[index].url);
+            page.style.setProperty('--bg', backgrounds[index].url);
         })
+
+        function resetAudio(audioElement) {
+            const audio = document.querySelector('audio');
+            audio.pause();
+            audio.currentTime = 0;
+            audio.muted = true;
+        }
+
     </script>
 </body>
 </html>
