@@ -57,24 +57,31 @@ body {
     position: relative;
     width: 100%;
     min-height: 100vh;
-                                        padding: 100px 7vw;
+    padding: 100px 7vw;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     overflow: hidden;
 }
+.landing-page::after {
+    position: absolute;
+    inset: auto 0 0 0;
+    content: '';
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgb(0, 0, 0));
+}
 
 header {
     position: absolute;
     inset: 0 0 auto 0;
-    padding: 40px 100px;
+    padding: min(5vw, 2em);
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .logo {
-                position: relative;
+    position: relative;
     font-size: 1.5rem;
     letter-spacing: 1px;
 }
@@ -108,6 +115,7 @@ header {
 }
 
 .content {
+    position: relative;
     width: min-content;
     max-width: 600px;
     color: #fff;
@@ -125,8 +133,6 @@ h1 {
     line-height: 0.7;
     color: transparent;
     -webkit-text-stroke: 1px #fff;
-    /* color: rgba(255,255,255,0.2); */
-    /* text-shadow: -2px -2px 0px #154a17; */
 }
 
 .content p {
@@ -165,15 +171,14 @@ h1 {
 }
 
 .textBlocks {
-    /* position: absolute; */
-    bottom: 0;
     display: flex;
+    flex-wrap: wrap;
 }
 .block {
     position: relative;
-    max-width: 500px;
-    margin-right: 40px;
-    padding: 20px;
+    min-width: min(100%, 300px);
+    max-width: min(100%, 500px);
+    margin: auto;
+    padding: 1.2em;
     color: #fff;
-    /* background-color: rgba(0,255,0,0.2); */
 }
