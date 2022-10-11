@@ -34,17 +34,16 @@
         </ul>
     </section>
     <section class="textBlocks">
-        <!-- <div class="textBlocks"> -->
-            <div class="block">
-                <h2>Defenders of the Earth</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque, esse. Dicta quia omnis asperiores tempora! Natus veritatis quia deleniti eum saepe impedit ab hic eos repellendus ipsum vel ut ex, aliquam alias molestias non dicta quasi eveniet. Architecto aspernatur labore natus consectetur saepe, quasi aliquid dolorem alias impedit perspiciatis incidunt?</p>
-            </div>
-            <div class="block">
-                <h2>How to save the Water</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque, esse. Dicta quia omnis asperiores tempora! Natus veritatis quia deleniti eum saepe impedit ab hic eos repellendus ipsum vel ut ex, aliquam alias molestias non dicta quasi eveniet. Architecto aspernatur labore natus consectetur saepe, quasi aliquid dolorem alias impedit perspiciatis incidunt?</p>
-            </div>
-        <!-- </div> -->
+        <div class="block">
+            <h2>Defenders of the Earth</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque, esse. Dicta quia omnis asperiores tempora! Natus veritatis quia deleniti eum saepe impedit ab hic eos repellendus ipsum vel ut ex, aliquam alias molestias non dicta quasi eveniet. Architecto aspernatur labore natus consectetur saepe, quasi aliquid dolorem alias impedit perspiciatis incidunt?</p>
+        </div>
+        <div class="block">
+            <h2>How to save the Water</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque, esse. Dicta quia omnis asperiores tempora! Natus veritatis quia deleniti eum saepe impedit ab hic eos repellendus ipsum vel ut ex, aliquam alias molestias non dicta quasi eveniet. Architecto aspernatur labore natus consectetur saepe, quasi aliquid dolorem alias impedit perspiciatis incidunt?</p>
+        </div>
     </section>
+    
     <script>
         document.addEventListener('mousemove', (e) => {
             const bg = document.querySelector('.bg');
@@ -54,7 +53,7 @@
             bg.style.width = 100 + e.pageX/100 + '%';
             bg.style.height = 100 + e.pageX/100 + '%';
             bird.style.right = e.pageX/2 + 'px';
-            content.style.left = 100 + e.pageX/2 + 'px';
+            content.style.left = e.pageX/2 + 'px';
         })
     </script>
 </body>
