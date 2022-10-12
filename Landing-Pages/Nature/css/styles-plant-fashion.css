@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat&family=Playfair+Display&display=swap');
+
+/* 
+font-family: 'Abril Fatface', cursive;
+font-family: 'Playfair Display', serif;
+font-family: 'Montserrat', sans-serif;
+*/
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+a {
+    display: inline-block;
+    padding: 0.5em 1em;
+    color: #bbb;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    text-decoration: none;
+    white-space: nowrap;
+    border: none;
+    border-radius: 1em;
+    transition: all 0.5s;
+}
+a:hover {
+    color: #fff;
+}
+
+button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+button:hover {
+    transform: scale(1.1);
+}
+
+p {
+    color: #fff;
+}
+
+.block-element {
+    display: block;
+}
+.nowrap {
+    display: inline-block;
+    width: min-content;
+    white-space: nowrap;
+}
+.nowrap::first-letter {
+    text-transform: uppercase;
+}
+
+body {
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+    background-image: url('../img/leaves-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.landing-page {
+    max-width: 1400px;
+    margin: auto;
+    padding: 2em 3em;
+    border-radius: 2em;
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo a {
+    color: #fff;
+    font-size: 1.4rem;
+}
+
+main {
+    position: relative;
+    padding: 5em 2em;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: repeat(3, auto);
+}
+
+main > * {
+    grid-column: 1 / 2;
+}
+
+h1 {
+    color: #fff;
+    font-size: 2.6rem;
+}
+
+p {
+    margin: 2em 0 4em 0;
+    max-width: 50%;
+}
+
+button {
+    justify-self: start;
+    color: #888;
+    padding: 1em 2em;
+    font-weight: bold;
+    text-transform: capitalize;
+    border-radius: 2em;
+    background-color: #fff;
+}
+
+.leaves {
+    position: absolute;
+    inset: auto 0 -10% auto;
+    width: auto;
+    min-height: 100vh;
+    z-index: 1;
+}
