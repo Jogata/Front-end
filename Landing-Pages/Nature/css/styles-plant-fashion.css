@@ -68,18 +68,21 @@ body {
     position: relative;
     display: flex;
     min-height: 100vh;
+    background-color: #000;
     background-image: url('../img/leaves-bg.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
 
-.landing-page {
-    max-width: 1400px;
+.container {
     margin: auto;
-    padding: 2em 3em;
+}
+
+.landing-page {
+    padding: 2em min(8vw, 3em);
     border-radius: 2em;
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(10px);
 }
@@ -91,14 +94,15 @@ header {
 }
 .logo a {
     color: #fff;
-    font-size: 1.4rem;
+    font-size: min(4vw, 1.4rem);
 }
 
 main {
     position: relative;
-    padding: 5em 2em;
+    max-width: 800px;
+    padding: min(3vw, 5em) min(1vw, 2em);
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, auto);
 }
 
@@ -108,12 +112,11 @@ main > * {
 
 h1 {
     color: #fff;
-    font-size: 2.6rem;
+    font-size: min(10vw, 2.6rem);
 }
 
 p {
     margin: 2em 0 4em 0;
-    max-width: 50%;
 }
 
 button {
@@ -128,8 +131,8 @@ button {
 
 .leaves {
     position: absolute;
-    inset: auto 0 -10% auto;
+    inset: auto 0 -20% auto;
     width: auto;
     min-height: 100vh;
-    z-index: 1;
+    /* z-index: 1; */
 }
