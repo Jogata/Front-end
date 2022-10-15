@@ -12,7 +12,9 @@
     <section class="landing-page">
         <header>
             <div class="logo">
-                <span href="#">logo</span>
+                <a href="#">logo
+                    <img src="./img/travel-2/windsurfing-logo.png" alt="Logo">
+                </a>
             </div>
             <nav>
                 <ul>
@@ -31,9 +33,9 @@
                         <button>famara beach</button>
                         <img src="./img/travel-2/famara.png" alt="Island's map">
                     </li>
-                    <li class="slide">
+                    <li class="slide active">
                         <button>bingin beach</button>
-                        <img src="./img/travel-2/pipa.png" alt="Island's map">
+                        <img src="./img/travel-2/bali.png" alt="Island's map">
                     </li>
                     <li class="slide">
                         <button>pipa beach</button>
@@ -43,5 +45,22 @@
             </div>
         </main>
     </section>
+
+    <script>
+        const slideDotButtons = document.querySelectorAll('.slide');
+        slideDotButtons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                const activeButton = document.querySelector('.slide.active');
+                activeButton.classList.remove('active');
+                console.log(index)
+                button.classList.add('active');
+                const slider = document.querySelector('.circle-slider');
+                const styles = getComputedStyle(slider);
+                let degrees = parseInt(styles.getPropertyValue('--angle'));
+                degrees = degrees + 45;
+                slider.style.setProperty('--angle' , `${degrees}deg`);
+            })
+        })
+    </script>
 </body>
 </html>
