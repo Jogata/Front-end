@@ -14,6 +14,8 @@ font-family: 'Montserrat', sans-serif;
 
 ul {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     column-gap: 1em;
     list-style: none;
@@ -60,15 +62,12 @@ button:hover {
 }
 
 body {
-    min-height: 100vh;
-    /* background-image: url('../img/travel-2/bg.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover; */
+    /* min-height: 100vh; */
 }
 
 .landing-page {
     min-height: 100vh;
+    padding-bottom: 10%;
     display: flex;
     flex-direction: column;
     background-image: url('../img/travel-2/bg.jpg');
@@ -102,7 +101,6 @@ header {
     position: absolute;
     inset: -50% auto auto 10%;
     width: 43%;
-    /* filter: saturate(0); */
     z-index: -1;
 }
 
@@ -111,11 +109,12 @@ main {
 }
 
 .circle-slider {
-    --width: min(50vw, 40em);
+    --width: min(80vw, 40em);
     --right: calc(var(--width)/3.3333);
     --top: calc(var(--width)/-2.5);
     --middle: calc(var(--width)/2);
     --bottom: calc(var(--width)/2.5);
+    --angle: 0deg;
     position: relative;
     display: flex;
     align-items: center;
@@ -125,7 +124,8 @@ main {
     aspect-ratio: 1;
     border-radius: 50%;
     border: 2px solid rgb(255, 255, 255, 0.4);
-    transform: translateX(-70%) rotate(0deg);
+    transform: translateX(-70%) rotate(var(--angle));
+    transition: all 0.5s;
 }
 .circle-slider ul {
     width: 100%;
@@ -137,6 +137,7 @@ main {
     height: 2%;
     display: flex;
     align-items: center;
+    transition: all 0.5s;
 }
 .slide button {
     width: 100%;
@@ -147,36 +148,54 @@ main {
     outline-offset: 10px;
 }
 .slide:nth-child(1) {
-    transform: translate3d(var(--right), var(--top), 0);
+    transform: translate3d(var(--right), var(--top), 0) rotate(calc(var(--angle)/-1));
 }
 .slide:nth-child(2) {
-    transform: translate3d(var(--middle), 0, 0);
+    transform: translate3d(var(--middle), 0, 0) rotate(calc(var(--angle)/-1));
 }
 .slide:nth-child(3) {
-    transform: translate3d(var(--right), var(--bottom), 0);
+    transform: translate3d(var(--right), var(--bottom), 0) rotate(calc(var(--angle)/-1));
 }
 
-.slide img {
-    display: block;
-    width: 20%;
-    filter: invert(1);
-    opacity: 0.4;
-
+figure {
     position: absolute;
-    width: 1500%;
-    margin: 600%;
+    display: flex;
+    align-items: center;
+    margin-left: 300%;
+    color: #fff;
+    font-size: min(4vw, 2rem);
+    font-weight: bold;
+    opacity: 0.4;
 }
-.slide.active img {
-    width: 2300%;
+figcaption, figcaption span {
+    text-transform: capitalize;
+    white-space: nowrap;
+}
+figcaption {
+    position: relative;
+    font-size: 1em;
+    transform: translateX(120%);
+}
+figcaption span {
+    position: relative;
+    display: flex;
+    padding-left: 2rem;
+    font-size: 0.5em;
+    font-weight: lighter;
+}
+figure > img {
+    position: absolute;
+    width: 100%;
+    filter: invert(1);
+}
+figcaption span img {
+    height: 100%;
+    position: absolute;
+    left: 0;
+}
+
+.slide.active figure {
+    font-size: min(5vw, 3rem);
     opacity: 0.8;
     transition: all 0.5s;
-}
-
-ul {
-    align-items: center;
-    justify-content: center;
-    /* border: 1px solid green; */
-}
-li {
-    /* border: 1px solid whitesmoke; */
 }
