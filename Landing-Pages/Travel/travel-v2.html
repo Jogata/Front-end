@@ -29,17 +29,41 @@
         <main>
             <div class="circle-slider">
                 <ul>
-                    <li class="slide">
+                    <li class="slide" data-index="1">
                         <button>famara beach</button>
-                        <img src="./img/travel-2/famara.png" alt="Island's map">
+                        <figure>
+                            <img src="./img/travel-2/famara.png" alt="Island's map">
+                            <figcaption>famara beach
+                                <span>
+                                    <img src="./img/travel-2/map-marker.png" alt="">
+                                    spain
+                                </span>
+                            </figcaption>
+                        </figure>
                     </li>
-                    <li class="slide active">
+                    <li class="slide active" data-index="2">
                         <button>bingin beach</button>
-                        <img src="./img/travel-2/bali.png" alt="Island's map">
+                        <figure>
+                            <img src="./img/travel-2/bali.png" alt="Island's map">
+                            <figcaption>bingin beach
+                                <span>
+                                    <img src="./img/travel-2/map-marker.png" alt="">
+                                    bali, indonesia
+                                </span>
+                            </figcaption>
+                        </figure>
                     </li>
-                    <li class="slide">
+                    <li class="slide" data-index="3">
                         <button>pipa beach</button>
-                        <img src="./img/travel-2/pipa.png" alt="Island's map">
+                        <figure>
+                            <img src="./img/travel-2/pipa.png" alt="Island's map">
+                            <figcaption>pipa beach
+                                <span>
+                                    <img src="./img/travel-2/map-marker.png" alt="">
+                                    brazil
+                                </span>
+                            </figcaption>
+                        </figure>
                     </li>
                 </ul>
             </div>
@@ -47,17 +71,17 @@
     </section>
 
     <script>
-        const slideDotButtons = document.querySelectorAll('.slide');
-        slideDotButtons.forEach((button, index) => {
-            button.addEventListener('click', () => {
-                const activeButton = document.querySelector('.slide.active');
-                activeButton.classList.remove('active');
-                console.log(index)
-                button.classList.add('active');
+        const slides = document.querySelectorAll('.slide');
+        slides.forEach((slide, index) => {
+            slide.addEventListener('click', () => {
+                const activeSlide = document.querySelector('.slide.active');
+                activeSlide.classList.remove('active');
+                slide.classList.add('active');
+                const rotationIndex = slide.dataset.index - activeSlide.dataset.index;
                 const slider = document.querySelector('.circle-slider');
                 const styles = getComputedStyle(slider);
                 let degrees = parseInt(styles.getPropertyValue('--angle'));
-                degrees = degrees + 45;
+                degrees = degrees - 45 * rotationIndex;
                 slider.style.setProperty('--angle' , `${degrees}deg`);
             })
         })
