@@ -26,7 +26,6 @@ a {
     padding: 0.5em 1em;
     color: #fff;
     font-size: 1.2rem;
-    /* font-weight: bold; */
     text-transform: uppercase;
     text-decoration: none;
     white-space: nowrap;
@@ -39,6 +38,7 @@ a:hover {
 
 i {
     padding: 0.4em;
+    color: #fff;
     transition: all 0.5s;
 }
 
@@ -108,8 +108,41 @@ main {
     margin-block: auto;
 }
 
-.circle-slider {
+.slider {
     --width: min(80vw, 40em);
+    position: relative;
+}
+
+.arrows-container {
+    position: absolute;
+    width: var(--width);
+    aspect-ratio: 1;
+    /* position: absolute; */
+    /* width: 80%; */
+    /* height: 80%; */
+    /* border-radius: 50%; */
+    /* transform: rotate(calc(var(--angle)/-1)); */
+    transform: translateX(-70%);
+    transition: all 0.5s;
+    z-index: 2;
+}
+.arrows {
+    position: absolute;
+    inset: 30% 17% auto auto;
+    height: 40%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.left {
+    transform: rotate(-45deg);
+}
+.right {
+    transform: rotate(132deg);
+}
+
+.circle-slider {
+    /* --width: min(80vw, 40em); */
     --right: calc(var(--width)/3.3333);
     --top: calc(var(--width)/-2.5);
     --middle: calc(var(--width)/2);
@@ -125,6 +158,7 @@ main {
     border-radius: 50%;
     border: 2px solid rgb(255, 255, 255, 0.4);
     transform: translateX(-70%) rotate(var(--angle));
+    /* transform: translateX(0%) rotate(var(--angle)); */
     transition: all 0.5s;
 }
 .circle-slider ul {
@@ -198,4 +232,61 @@ figcaption span img {
     font-size: min(5vw, 3rem);
     opacity: 0.8;
     transition: all 0.5s;
+}
+
+
+
+main {
+    display: grid;
+}
+.image-slider {
+    --width: min(80vw, 40em);
+    counter-reset: images;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: var(--width);
+    height: calc(var(--width) * 2);
+    margin: auto 5% auto auto;
+    gap: 1rem;
+    border-bottom: 1px solid red;
+}
+/* .image-slider::after {
+    position: absolute;
+    content: '';
+    inset: 0;
+    background-image: linear-gradient(to top, #000, transparent, #000);
+} */
+.slider, .image-slider {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+.image-container {
+    position: relative;
+    transform: scale(0.9);
+}
+.image-container:nth-child(2) {
+    transform: scale(1);
+}
+.image-container:nth-child(2) img {
+    opacity: 1;
+}
+.image-container::before {
+    position: absolute;
+    inset: auto 0 0 auto;
+    counter-increment: images;
+    content: counter(images, decimal-leading-zero);
+    padding: 0.6em;
+    color: #fff;
+    font-size: 2vw;
+    font-family: 'Abril Fatface', cursive;
+    z-index: 2;
+}
+
+.image-container img {
+    position: relative;
+    width: 100%;
+    opacity: 0.6;
+    border-radius: 3rem;
+    z-index: 0;
 }
