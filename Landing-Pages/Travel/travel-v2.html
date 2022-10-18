@@ -79,7 +79,7 @@
                 <div class="image-container">
                     <img src="./img/travel-2/famara-bg.jpg" alt="Beach">
                 </div>
-                <div class="image-container">
+                <div class="image-container active">
                     <img src="./img/travel-2/bali-bg.jpeg" alt="Beach">
                 </div>
                 <div class="image-container">
@@ -103,6 +103,39 @@
                 degrees = degrees - 45 * rotationIndex;
                 slider.style.setProperty('--angle' , `${degrees}deg`);
             })
+        })
+
+        const arrowButtonLeft = document.querySelector('.left');
+        arrowButtonLeft.addEventListener('click', () => {
+            const activeSlide = document.querySelector('.slide.active');
+            if (activeSlide.previousElementSibling) {
+                activeSlide.classList.remove('active');
+                activeSlide.previousElementSibling.classList.add('active');
+                const slider = document.querySelector('.circle-slider');
+                const styles = getComputedStyle(slider);
+                let degrees = parseInt(styles.getPropertyValue('--angle'));
+                degrees = degrees + 45;
+                slider.style.setProperty('--angle' , `${degrees}deg`);
+            }
+            else {
+                console.log('nqma left');
+            }
+        })
+        const arrowButtonRight = document.querySelector('.right');
+        arrowButtonRight.addEventListener('click', () => {
+            const activeSlide = document.querySelector('.slide.active');
+            if (activeSlide.nextElementSibling) {
+                activeSlide.classList.remove('active');
+                activeSlide.nextElementSibling.classList.add('active');
+                const slider = document.querySelector('.circle-slider');
+                const styles = getComputedStyle(slider);
+                let degrees = parseInt(styles.getPropertyValue('--angle'));
+                degrees = degrees - 45;
+                slider.style.setProperty('--angle' , `${degrees}deg`);
+            }
+            else {
+                console.log('nqma right');
+            }
         })
     </script>
 </body>
