@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaguar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/styles-jaguar-perspective.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="./jaguar.html" class="logo">
+                <img src="./img/logo.png" alt="Jaguar logo">
+            </a>
+            <nav>
+                <ul>
+                    <li>start</li>
+                    <li>exterior</li>
+                    <li>interior</li>
+                    <li>powertrain</li>
+                    <li>cars</li>
+                </ul>
+            </nav>
+            <div class="menu">
+                <span>menu</span>
+                <div class="bar"></div>
+            </div>
+        </header>
+        <main>
+            <div class="model">
+                <h1>jaguar</h1>
+                <h2>F-TYPE Coupé</h2>
+            </div>
+            <div class="colors">
+                <div data-color="white" class="color"></div>
+                <div data-color="blue" class="color current-color"></div>
+            </div>
+            <div class="hero">
+                <img src="./img/blue-jaguar-f-type-coupe-main.png" class="hero-img main front blue" alt="">
+                <img src="./img/blue-jaguar-f-type-coupe-back.png" class="hero-img side back blue" alt="">
+            </div>
+            <div class="slider">
+                <i class="fa fa-chevron-left arrow" aria-hidden="true"></i>
+                <button type="button" class="slide current-slide" data-index="0">
+                    first slide
+                    <img src="./img/blue-jaguar-f-type-coupe-main.png" class="main reverse" alt="">
+                </button>
+                <button type="button" class="slide next" data-index="1">
+                    second slide
+                    <img src="./img/blue-jaguar-f-type-coupe-back.png" class="side" alt="">
+                </button>
+                <i class="fa fa-chevron-right arrow" aria-hidden="true"></i>
+            </div>
+            <div class="info">
+                <div class="specification">
+                    <h3>nm</h3>
+                    <p class="value">540</p>
+                </div>
+                <div class="specification">
+                    <h3>0-100km/<span class="lowercase">h</span></h3>
+                    <p class="value">3.0<span class="lowercase">s</span></p>
+                </div>
+                <div class="specification">
+                    <h3>hp</h3>
+                    <p class="value">562</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const images = document.querySelectorAll('.hero-img');
+        const slides = document.querySelectorAll('.slide');
+        slides.forEach(slide => {
+            slide.addEventListener('click', () => {
+                const currentActiveSlide = document.querySelector('.current-slide');
+                currentActiveSlide.classList.replace('current-slide', 'next');
+                slide.classList.replace('next', 'current-slide');
+                const oldImage = document.querySelector('.front');
+                oldImage.classList.replace('front', 'back');
+                const index = slide.dataset.index;
+                const newImage = images[index];
+                newImage.classList.replace('back', 'front');
+            })
+        })
+        const arrows = document.querySelectorAll('.arrow');
+        arrows.forEach(arrow => {
+            arrow.addEventListener('click', () => {
+                const front = document.querySelector('.front');
+                const back = document.querySelector('.back');
+                front.classList.replace('front', 'back');
+                back.classList.replace('back', 'front');
+                const currentActiveSlide = document.querySelector('.current-slide');
+                const newActiveSlide = document.querySelector('.next');
+                currentActiveSlide.classList.replace('current-slide', 'next');
+                newActiveSlide.classList.replace('next', 'current-slide');
+            })
+        })
+
+        const imagesByColors = {
+            white: {
+                main: './img/white-jaguar-f-type-coupe-main.png',
+                side: './img/white-jaguar-f-type-coupe-back.png',
+            },
+            blue: {
+                main: './img/blue-jaguar-f-type-coupe-main.png',
+                side: './img/blue-jaguar-f-type-coupe-back.png',
+            },
+        }
+
+        const colorButtons = document.querySelectorAll('.color');
+        colorButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Change the styles of the color button
+                const currentButton = document.querySelector('.current-color');
+                currentButton.classList.remove('current-color');
+                button.classList.add('current-color');
+                // Change the images to match the current color
+                const color = button.dataset.color;
+                const frontImages = document.querySelectorAll('.main');
+                frontImages.forEach(image => {
+                    image.src = imagesByColors[color].main;
+                })
+                const backImages = document.querySelectorAll('.side');
+                backImages.forEach(image => {
+                    image.src = imagesByColors[color].side;
+
+                
+                /* ====== styles to edit the images ====== */
+                    if (color === 'white') {
+                        // image.classList.add('reverse');
+                        document.querySelector('.front').classList.replace('blue', 'white');
+                        document.querySelector('.back').classList.replace('blue', 'white');
+                    } else if (color === 'blue') {
+                        // image.classList.remove('reverse');
+                        document.querySelector('.front').classList.replace('white', 'blue');
+                        document.querySelector('.back').classList.replace('white', 'blue');
+                    }
+                /* ====================================== */
+                })
+            });
+        })
+    </script>
+</body>
+</html>
