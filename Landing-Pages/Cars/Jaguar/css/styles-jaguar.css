@@ -32,6 +32,7 @@ button, i {
 
 img {
     width: 100%;
+    object-fit: contain;
 }
 
 body {
@@ -56,11 +57,8 @@ body::before {
     width: 100%;
     max-width: 1500px;
     padding: 1.5em;
-    z-index: 2;
-    /* border: 1px solid green; */
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5),
-    -10px 0px 10px 5px rgba(0, 0, 0, 0.5);
     box-shadow: 15px 30px 40px 20px rgba(0, 0, 0, 0.5);
+    z-index: 2;
 }
 
 header {
@@ -102,6 +100,7 @@ nav li, .menu {
 }
 
 main {
+    position: relative;
     width: 100%;
     margin: 0 auto;
     display: flex;
@@ -130,15 +129,19 @@ h2 {
 }
 
 .hero {
+    --angle: 220deg;
     width: 100%;
-    margin-right: 15%;
+    margin-inline: 10%;
     transform-style: preserve-3d;
-    transform: rotateX(-90deg) rotateZ(0deg);
+    /* transform: rotateX(-90deg) rotateZ(0deg); */
+    transform: rotateX(80deg) rotateZ(var(--angle));
     transition: all 2s;
 }
 .hero-img {
     height: 100%;
-    transform-style: preserve-3d;
+    /* transform-style: preserve-3d; */
+    transform: rotateX(-90deg) rotateY(calc(var(--angle) * 1));
+    transition: all 2s;
 }
 
 .specification {
@@ -154,43 +157,39 @@ h3 {
     text-transform: lowercase;
 }
 .value {
-    /* color: #0d3bb2; */
     font-size: min(8vw, 2rem);
     font-weight: bold;
     text-transform: uppercase;
 }
 
-.turn {
+/* .turn {
     transform: rotateX(-90deg) rotateZ(180deg);
-}
+} */
 
 .front {
-    transform: rotateY(180deg) rotateX(-90deg) translateZ(-100px);
-    transition: all 2s;
-    z-index: 2;
+    /* transform: rotateY(180deg) rotateX(-90deg) translateZ(0px); */
+    /* transition: all 2s; */
 }
 .back {
     width: 80%;
-    opacity: 0.6;
-    transform: rotateY(180deg) rotateX(-90deg) translateX(-40%) translateY(-20%) translateZ(100px);
-    transition: all 2s;
-    z-index: 1;
+    /* opacity: 0.6; */
+    /* transform: rotateY(180deg) rotateX(-90deg) translateX(-40%) translateY(-20%) translateZ(0px); */
+    /* transition: all 2s; */
 }
 
-.turn .front {
-    transform: rotateY(180deg) rotateX(-90deg) translateZ(100px);
+/* .turn .front {
+    transform: rotateY(180deg) rotateX(-90deg) translateZ(0px);
 }
 .turn .back {
-    transform: rotateY(180deg) rotateX(-90deg) translateX(25%) translateY(-30%) translateZ(-100px);
-}
+    transform: rotateY(180deg) rotateX(-90deg) translateX(25%) translateY(-30%) translateZ(0px);
+} */
 
 .arrow {
     width: min(6vw, 3rem);
     aspect-ratio: 1;
     margin: auto;
-    /* padding: 0.8em; */
     font-size: min(3vw, 1.2rem);
-    /* display: flex; */
+    display: flex;
     align-items: center;
     justify-content: center;
     border: 1px solid;
@@ -201,35 +200,16 @@ h3 {
     background-color: #000;
 }
 
-/* @keyframes rotateleft {
-    50% {
-        transform: rotateY(180deg) rotateX(-90deg) translateZ(-100px) translateX(-50%);
-    }
-}
-@keyframes rotateright {
-    50% {
-        transform: rotateY(180deg) rotateX(-90deg) translateZ(100px) translateX(50%);
-    }
-} */
-
-/* V.2 */
-.hero2 {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 0.5fr repeat(2, 1fr) 0.5fr;
-    transition: all 2s;
-}
-
 .colors {
+    position: absolute;
+    top: 10%;
+    width: 100%;
     font-size: 25px;
-    grid-column: 2 / 4;
-    grid-row: 1 / 2;
-    align-self: center;
     display: flex;
     align-items: center;
     justify-content: center;
     column-gap: 1em;
+    z-index: 2;
 }
 .color {
     width: min(7vw, 1em);
@@ -253,27 +233,9 @@ h3 {
     outline-offset: min(1.5vw, 0.2em);
 }
 
-.front2 {
-    grid-column: 1 / 4;
-    grid-row: 2 / 4;
-    align-self: center;
-    object-fit: contain;
-    z-index: 2;
-}
-.back2 {
-    width: 80%;
-    grid-column: 3 / 5;
-    grid-row: 2 / 3;
-    object-fit: contain;
-    opacity: 0.6;
-    z-index: 1;
-}
-
 .slider {
-    position: relative;
-    top: 10%;
-    grid-column: 1 / 5;
-    grid-row: 4 / 5;
+    position: absolute;
+    bottom: 5%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -331,15 +293,17 @@ h3 {
 }
 
 .side.white {
-    margin: -6% 0;
     margin: -2% 0 -10% 0;
-    object-fit: cover;
 }
+/* .side.back.white {
+    transform: rotateY(180deg) translateY(-13%);
+    transform: rotateY(180deg) rotateX(-90deg) translateX(-40%) translateY(-20%) translateZ(0px);
+} */
 
 .side.blue {
     margin-bottom: 7.5%;
 }
-.main.back2.blue {
+/* .main.back2.blue {
     margin-bottom: 9.1%;
 }
 .main.front2.blue {
@@ -348,18 +312,76 @@ h3 {
 .side.front2.blue {
     margin-top: 7.5%;
     margin-bottom: 0;
-}
+} */
 /* ====================================== */
 
 
 
-/* borders */
-/* .slider {
-    border: 1px solid darkcyan;
+/* ======================= Slider with Perspective ======================= */
+/* .hero {
+    width: 100%;
+    margin-right: 15%;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
 }
-main {
-    border: 1px solid;
+.front {
+    transform: rotateY(180deg) rotateX(0deg) translateX(0%) translateY(60%) translateZ(-27px);
+    transition: all 2s;
 }
-main > * {
-    border: 1px solid red;
+.back {
+    width: 80%;
+    opacity: 0.6;
+    transform: rotateY(180deg) rotateX(0deg) translateX(-60%) translateY(-73%) translateZ(60px);
+    transition: all 2s;
+}
+.main.back {
+    transform: rotateY(180deg) rotateX(0deg) translateX(-60%) translateY(34%) translateZ(60px);
+}
+.side.front {
+    transform: rotateY(180deg) rotateX(0deg) translateX(0%) translateY(-18%) translateZ(-27px);
+}
+
+.main.front.white {
+    transform: rotateY(180deg) rotateX(0deg) translateX(0%) translateY(40%) translateZ(-27px);
+}
+.main.back.white {
+    transform: rotateY(180deg) rotateX(0deg) translateX(-60%) translateY(26%) translateZ(60px);
+}
+.side.white {
+    margin: -12% 0;
+}
+.side.front.white {
+    margin: -13.55% 0;
+    transform: rotateY(180deg) rotateX(0deg) translateX(0%) translateY(-27%) translateZ(-27px);
+}
+.side.back.white {
+    width: 80%;
+    opacity: 0.6;
+    transform: rotateY(180deg) rotateX(0deg) translateX(-60%) translateY(-73%) translateZ(60px);
+} */
+
+
+/* .text3d {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --angle: 0deg;
+}
+.box {
+    transform-style: preserve-3d;
+    transform: rotateX(80deg) rotateY(0deg) rotateZ(var(--angle));
+}
+.box span {
+    display: block;
+    font-size: 3.5rem;
+    white-space: nowrap;
+    padding: 0 10px;
+    transform-style: preserve-3d;
+    transform: translate(0%, 0%) rotateX(-90deg) rotateY(calc(var(--angle) * 1)) translateZ(0px);
+}
+span.back3 {
+    transform: translate(0%, 0%) rotateX(-90deg) rotateY(calc(var(--angle) * 1)) translateZ(0px);
+}
+em {
+    text-transform: uppercase;
 } */
