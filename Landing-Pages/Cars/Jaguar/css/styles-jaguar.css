@@ -133,15 +133,19 @@ h2 {
     width: 100%;
     margin-inline: 10%;
     transform-style: preserve-3d;
-    /* transform: rotateX(-90deg) rotateZ(0deg); */
-    transform: rotateX(80deg) rotateZ(var(--angle));
+    transform: rotateX(90deg) rotateZ(var(--angle));
     transition: all 2s;
 }
 .hero-img {
     height: 100%;
-    /* transform-style: preserve-3d; */
-    transform: rotateX(-90deg) rotateY(calc(var(--angle) * 1));
     transition: all 2s;
+}
+.front {
+    transform: rotateX(-90deg) rotateY(calc(var(--angle) * 1)) translateY(0%);
+}
+.back {
+    width: 80%;
+    transform: rotateX(-90deg) rotateY(calc(var(--angle) * 1)) translateY(-10%);
 }
 
 .specification {
@@ -161,28 +165,6 @@ h3 {
     font-weight: bold;
     text-transform: uppercase;
 }
-
-/* .turn {
-    transform: rotateX(-90deg) rotateZ(180deg);
-} */
-
-.front {
-    /* transform: rotateY(180deg) rotateX(-90deg) translateZ(0px); */
-    /* transition: all 2s; */
-}
-.back {
-    width: 80%;
-    /* opacity: 0.6; */
-    /* transform: rotateY(180deg) rotateX(-90deg) translateX(-40%) translateY(-20%) translateZ(0px); */
-    /* transition: all 2s; */
-}
-
-/* .turn .front {
-    transform: rotateY(180deg) rotateX(-90deg) translateZ(0px);
-}
-.turn .back {
-    transform: rotateY(180deg) rotateX(-90deg) translateX(25%) translateY(-30%) translateZ(0px);
-} */
 
 .arrow {
     width: min(6vw, 3rem);
@@ -288,100 +270,11 @@ h3 {
 
 
 /* ====== styles to edit the images ====== */
-.reverse {
-    transform: rotateY(180deg);
-}
-
 .side.white {
-    margin: -2% 0 -10% 0;
+    margin: -9.4% 0;
 }
-/* .side.back.white {
-    transform: rotateY(180deg) translateY(-13%);
-    transform: rotateY(180deg) rotateX(-90deg) translateX(-40%) translateY(-20%) translateZ(0px);
-} */
 
 .side.blue {
-    margin-bottom: 7.5%;
+    margin-bottom: 12.5%;
 }
-/* .main.back2.blue {
-    margin-bottom: 9.1%;
-}
-.main.front2.blue {
-    margin-top: 5%;
-}
-.side.front2.blue {
-    margin-top: 7.5%;
-    margin-bottom: 0;
-} */
 /* ====================================== */
-
-
-
-/* ======================= Slider with Perspective ======================= */
-/* .hero {
-    width: 100%;
-    margin-right: 15%;
-    transform-style: preserve-3d;
-    transform: perspective(1000px);
-}
-.front {
-    transform: rotateY(180deg) rotateX(0deg) translateX(0%) translateY(60%) translateZ(-27px);
-    transition: all 2s;
-}
-.back {
-    width: 80%;
-    opacity: 0.6;
-    transform: rotateY(180deg) rotateX(0deg) translateX(-60%) translateY(-73%) translateZ(60px);
-    transition: all 2s;
-}
-.main.back {
-    transform: rotateY(180deg) rotateX(0deg) translateX(-60%) translateY(34%) translateZ(60px);
-}
-.side.front {
-    transform: rotateY(180deg) rotateX(0deg) translateX(0%) translateY(-18%) translateZ(-27px);
-}
-
-.main.front.white {
-    transform: rotateY(180deg) rotateX(0deg) translateX(0%) translateY(40%) translateZ(-27px);
-}
-.main.back.white {
-    transform: rotateY(180deg) rotateX(0deg) translateX(-60%) translateY(26%) translateZ(60px);
-}
-.side.white {
-    margin: -12% 0;
-}
-.side.front.white {
-    margin: -13.55% 0;
-    transform: rotateY(180deg) rotateX(0deg) translateX(0%) translateY(-27%) translateZ(-27px);
-}
-.side.back.white {
-    width: 80%;
-    opacity: 0.6;
-    transform: rotateY(180deg) rotateX(0deg) translateX(-60%) translateY(-73%) translateZ(60px);
-} */
-
-
-/* .text3d {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    --angle: 0deg;
-}
-.box {
-    transform-style: preserve-3d;
-    transform: rotateX(80deg) rotateY(0deg) rotateZ(var(--angle));
-}
-.box span {
-    display: block;
-    font-size: 3.5rem;
-    white-space: nowrap;
-    padding: 0 10px;
-    transform-style: preserve-3d;
-    transform: translate(0%, 0%) rotateX(-90deg) rotateY(calc(var(--angle) * 1)) translateZ(0px);
-}
-span.back3 {
-    transform: translate(0%, 0%) rotateX(-90deg) rotateY(calc(var(--angle) * 1)) translateZ(0px);
-}
-em {
-    text-transform: uppercase;
-} */
