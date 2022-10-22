@@ -114,7 +114,6 @@ main {
     transform: rotate(-90deg) translateY(-4rem);
 }
 h1, h2, .value {
-    width: max-content;
     font-family: 'Abril Fatface', cursive;
     text-transform: capitalize;
     white-space: nowrap;
@@ -161,6 +160,7 @@ h3 {
     text-transform: lowercase;
 }
 .value {
+    width: max-content;
     font-size: min(8vw, 2rem);
     font-weight: bold;
     text-transform: uppercase;
@@ -240,35 +240,6 @@ h3 {
 }
 
 
-@media screen and (max-width: 1066px) {
-    main {
-        flex-direction: column;
-    }
-    .model {
-        margin: 0 auto;
-        transform: rotate(0deg);
-    }
-    .info {
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        column-gap: 2rem;
-    }
-}
-@media screen and (max-width: 770px) {
-    nav {
-        display: none;
-    }
-    .hero2 {
-        row-gap: 20px;
-    }
-    .specification {
-        margin: 0;
-    }
-}
-
-
 /* ====== styles to edit the images ====== */
 .side.white {
     margin: -9.4% 0;
@@ -278,3 +249,52 @@ h3 {
     margin-bottom: 12.5%;
 }
 /* ====================================== */
+
+
+@media screen and (max-width: 1066px) {
+    main {
+        flex-direction: column;
+    }
+    .model {
+        margin: 0 auto;
+        transform: rotate(0deg);
+    }
+    .hero {
+        width: 60%;
+    }
+    .hero-img {
+        height: auto;
+    }
+    .side.white {
+        margin: -17% 0;
+    }
+    .side.blue {
+        margin-bottom: 0;
+    }
+    .info {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        column-gap: 2rem;
+    }
+    .colors, .slider {
+        position: static;
+    }
+}
+@media screen and (max-width: 770px) {
+    .container {
+        min-height: 100vh;
+    }
+    nav {
+        display: none;
+    }
+    .specification {
+        margin: 0;
+    }
+}
+@media screen and (max-width: 360px) {
+    .menu span {
+        font-size: 0px;
+    }
+}
