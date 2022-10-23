@@ -1,54 +1,105 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat&family=Playfair+Display&display=swap');
 
-* {
+/* 
+font-family: 'Abril Fatface', cursive;
+font-family: 'Playfair Display', serif;
+font-family: 'Montserrat', sans-serif;
+*/
+
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-*::before, *::after {
-    margin: 0;
-    padding: 0;
+
+a {
+    text-transform: capitalize;
+    text-decoration: none;
 }
 
-:root {
-    --light: #fff;
-    --dark: #181b24;
-    --grey: #899495;
-    --orange: #fc5130;
+img {
+    width: 100%;
 }
 
-body {
-    font-family: 'Dancing Script', cursive;
+.container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px 10%;
+    background-image: url('../img/BMW/BMW1.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: background-image 0.3s;
 }
 
-/* nav */
-.nav {
-    background: var(--light);
+nav {
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
+
 .logo {
-    width: 100px;
+    width: 10rem;
 }
-.nav ul {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    list-style: none;
+
+.btn {
+    font-size: 1rem;
+    padding: 0.8em 3em;
+    color: #fff;
+    background-color: #333;
+    border-radius: 2em;
 }
-/* header */
-.header {
-    height: 100vh;
-    background: url("") center/cover fixed no-repeat;
+
+.content {
+    margin-top: 10%;
 }
 h1 {
-    text-align: center;
-    font-size: 3rem;
-    text-transform: capitalize;
-    font-weight: 700;
-    color: var(--orange);
+    color: #222;
+    font-size: 2rem;
+    font-family: 'Abril Fatface', cursive;
+    text-transform: uppercase;
+}
+h2 {
+    margin-top: -1.6rem;
+    color: #f00;
+    font-size: 6rem;
+    font-family: 'Abril Fatface', cursive;
+    text-transform: uppercase;
 }
 
+h3::first-letter, 
+p::first-letter {
+    text-transform: uppercase;
+}
 
+p {
+    max-width: 380px;
+    color: #555;
+}
+
+h3 {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
+
+.color-select {
+    display: flex;
+    margin-top: 2rem;
+}
+.color-select div {
+    width: 50px;
+    height: 50px;
+    margin-right: 1.2rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+#red {
+    background-color: #f00;
+}
+#blue {
+    background-color: #00f;
+}
+#black {
+    background-color: #000;
+}
