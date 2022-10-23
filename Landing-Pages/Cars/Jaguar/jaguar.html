@@ -9,26 +9,6 @@
     <link rel="stylesheet" href="./css/styles-jaguar.css">
 </head>
 <body>
-    <div class="text3d" style="display: none;">
-        <div class="box">
-            <span style="--i:1"><em>css</em> is <em>a</em>wesome</span>
-            <span style="--i:2" class="back3"><em>css</em> is <em>a</em>wesome</span>
-            <!-- <span style="--i:3"><em>css</em> is <em>a</em>wesome</span>
-            <span style="--i:4"><em>css</em> is <em>a</em>wesome</span>
-            <span style="--i:5"><em>css</em> is <em>a</em>wesome</span>
-            <span style="--i:6"><em>css</em> is <em>a</em>wesome</span>
-            <span style="--i:7"><em>css</em> is <em>a</em>wesome</span>
-            <span style="--i:8"><em>css</em> is <em>a</em>wesome</span>
-            <span style="--i:9"><em>css</em> is <em>a</em>wesome</span>
-            <span style="--i:10"><em>css</em> is <em>a</em>wesome</span>
-            <span style="--i:11"><em>css</em> is <em>a</em>wesome</span>
-            <span style="--i:12"><em>css</em> is <em>a</em>wesome</span>
-            <span style="--i:13"><em>css</em> is <em>a</em>wesome</span>
-            <span style="--i:14"><em>css</em> is <em>a</em>wesome</span>
-            <span style="--i:15"><em>css</em> is <em>a</em>wesome</span>
-            <span style="--i:16"><em>css</em> is <em>a</em>wesome</span> -->
-        </div>
-    </div>
     <div class="container" style="display: block;">
         <header>
             <a href="./jaguar.html" class="logo">
@@ -65,7 +45,7 @@
                 <i class="fa fa-chevron-left arrow" aria-hidden="true"></i>
                 <button type="button" class="slide current-slide" data-index="0">
                     first slide
-                    <img src="./img/blue-jaguar-f-type-coupe-main.png" class="main reverse" alt="">
+                    <img src="./img/blue-jaguar-f-type-coupe-main.png" class="main" alt="">
                 </button>
                 <button type="button" class="slide next" data-index="1">
                     second slide
@@ -88,51 +68,57 @@
                 </div>
             </div>
         </main>
-        <button id="v1">click</button>
-        <!-- <button id="v2">v.2</button> -->
-        
     </div>
 
     <script>
-        const button1 = document.querySelector('#v1');
-        button1.addEventListener('click', () => {
-            const front = document.querySelector('.front');
-            const back = document.querySelector('.back');
-            front.classList.toggle('front');
-            front.classList.toggle('back');
-            back.classList.toggle('back');
-            back.classList.toggle('front');
-            const hero = document.querySelector('.hero');
-            hero.classList.toggle('turn');
-        })
-
         const images = document.querySelectorAll('.hero-img');
         const slides = document.querySelectorAll('.slide');
         slides.forEach(slide => {
             slide.addEventListener('click', () => {
                 const currentActiveSlide = document.querySelector('.current-slide');
-                currentActiveSlide.classList.replace('current-slide', 'next');
-                slide.classList.replace('next', 'current-slide');
-                const oldImage = document.querySelector('.front');
-                oldImage.classList.replace('front', 'back');
-                const index = slide.dataset.index;
-                const newImage = images[index];
-                newImage.classList.replace('back', 'front');
+                const indexCurrentActiveSlide = currentActiveSlide.dataset.index;
+                const indexNewActiveSlide = slide.dataset.index;
+                if (indexNewActiveSlide !== indexCurrentActiveSlide) {
+                    currentActiveSlide.classList.replace('current-slide', 'next');
+                    slide.classList.replace('next', 'current-slide');
+                    rotateImages();
+                    rotateSlider(1);
+                }
             })
         })
-        const arrows = document.querySelectorAll('.arrow');
-        arrows.forEach(arrow => {
-            arrow.addEventListener('click', () => {
-                const front = document.querySelector('.front');
-                const back = document.querySelector('.back');
-                front.classList.replace('front', 'back');
-                back.classList.replace('back', 'front');
-                const currentActiveSlide = document.querySelector('.current-slide');
-                const newActiveSlide = document.querySelector('.next');
-                currentActiveSlide.classList.replace('current-slide', 'next');
-                newActiveSlide.classList.replace('next', 'current-slide');
-            })
+
+        const arrowLeft = document.querySelector('.fa-chevron-left');
+        arrowLeft.addEventListener('click', () => {
+            rotateImages();
+            rotateSlideButtons();
+            rotateSlider(1);
         })
+        const arrowRight = document.querySelector('.fa-chevron-right');
+        arrowRight.addEventListener('click', () => {
+            rotateImages();
+            rotateSlideButtons();
+            rotateSlider(-1);
+        })
+
+        function rotateImages() {
+            const frontImage = document.querySelector('.front');
+            const backImage = document.querySelector('.back');
+            frontImage.classList.replace('front', 'back');
+            backImage.classList.replace('back', 'front');
+        }
+        function rotateSlideButtons() {
+            const currentActiveSlide = document.querySelector('.current-slide');
+            const newActiveSlide = document.querySelector('.next');
+            currentActiveSlide.classList.replace('current-slide', 'next');
+            newActiveSlide.classList.replace('next', 'current-slide');
+        }
+        function rotateSlider(index) {
+            const slider = document.querySelector('.hero');
+            const sliderStyles = getComputedStyle(slider);
+            let degrees = parseInt(sliderStyles.getPropertyValue('--angle'));
+            degrees = degrees + (180 * index);
+            slider.style.setProperty('--angle' , `${degrees}deg`);
+        }
 
         const imagesByColors = {
             white: {
@@ -165,11 +151,9 @@
                 
                 /* ====== styles to edit the images ====== */
                     if (color === 'white') {
-                        // image.classList.add('reverse');
                         document.querySelector('.front').classList.replace('blue', 'white');
                         document.querySelector('.back').classList.replace('blue', 'white');
                     } else if (color === 'blue') {
-                        // image.classList.remove('reverse');
                         document.querySelector('.front').classList.replace('white', 'blue');
                         document.querySelector('.back').classList.replace('white', 'blue');
                     }
