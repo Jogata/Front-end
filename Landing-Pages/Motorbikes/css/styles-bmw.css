@@ -15,6 +15,7 @@ font-family: 'Montserrat', sans-serif;
 a {
     text-transform: capitalize;
     text-decoration: none;
+    white-space: nowrap;
 }
 
 img {
@@ -28,7 +29,7 @@ button {
 .container {
     display: grid;
     grid-template-rows: auto 1fr;
-    gap: calc(100px - 10%);
+    gap: 10%;
     width: 100%;
     min-height: 100vh;
     max-width: 1400px;
@@ -42,6 +43,8 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1em;
 }
 
 .logo {
@@ -50,10 +53,15 @@ nav {
 
 .btn {
     font-size: 1rem;
-    padding: 0.8em 3em;
-    color: #fff;
-    background-color: #333;
+    padding: 0.8em 2em;
+    color: #333;
     border-radius: 2em;
+    font-family: 'Abril Fatface', cursive;
+    box-shadow: inset -1px -1px 1px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s;
+}
+.btn:active {
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.4);
 }
 
 .content {
@@ -70,15 +78,16 @@ nav {
 }
 
 h1 {
+    /* margin-top: min(-3vw, -1.6rem); */
     color: #222;
-    font-size: 2rem;
+    font-size: min(6.6vw, 2rem);
     font-family: 'Abril Fatface', cursive;
     text-transform: uppercase;
 }
 h2 {
-    margin-top: -1.6rem;
+    line-height: 1;
     color: #e0342f;
-    font-size: 6rem;
+    font-size: min(20vw, 6rem);
     font-family: 'Abril Fatface', cursive;
     text-transform: uppercase;
     white-space: nowrap;
@@ -91,6 +100,7 @@ p::first-letter {
 
 p {
     max-width: 70%;
+    margin-top: 1em;
     color: #555;
 }
 
@@ -107,39 +117,50 @@ h3 {
     margin-top: 2rem;
 }
 .color {
-    width: 3rem;
-    height: 3rem;
-    /* margin-right: 1.2rem; */
+    width: min(10vw, 3rem);
+    min-width: 25px;
+    height: min(10vw, 3rem);
+    min-height: 25px;
     border-radius: 50%;
     cursor: pointer;
+    transition: all 0.4s;
+}
+.color:active {
+    border: none;
+}
+.color.active {
+    transform: scale(0.8);
+    outline: 0.2vw solid rgba(0, 0, 0, 0.4);
+    outline-offset: 5px;
 }
 
 .hero {
     grid-column: 2 / -1;
     grid-row: 1 / 2;
 }
-#red {
+
+#redbw {
     background-color: #f00;
     background-image: linear-gradient(-45deg, red, #fff, black);
 }
-#red2 {
-    background-color: #f00;
-    background-image: linear-gradient(-45deg, red, #333);
-}
-#blue {
+#bluewr {
     background-color: #062577;
     background-image: linear-gradient(-45deg, #062577, #fff, #b02521);
 }
-#blue2 {
+#blue {
     background-color: #062577;
     background-image: linear-gradient(-45deg, #062577, #fff);
 }
-#black {
+#blackw {
     background-color: #252a28;
     background-image: linear-gradient(-45deg, #fff, black 80%);
 }
-#black2 {
+#black {
     background-color: #252a28;
+}
+#red {
+    background-color: #f00;
+    background-image: linear-gradient(-45deg, red, #333);
 }
 
 @media screen and (max-width: 1300px) {
