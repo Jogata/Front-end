@@ -4,8 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMW</title>
+    <title>BMW Bikes</title>
     <link rel="stylesheet" href="./css/styles-bmw.css">
+    <style>
+        #hero-image {
+            transition: opacity 1s;
+        }
+        .hidden {
+            opacity: 0;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -22,47 +30,66 @@
                 <p>the strength of the G 310 R is in its lightness and agility. The Bike not only delivers fun in the big city tumilt, but also when you are redefining the city limits when changing corners quickly.</p>
                 <h3>choose your color</h3>
                 <div class="color-select">
-                    <button class="color" id="red"></button>
+                    <button class="color active" id="redbw"></button>
+                    <button class="color" id="bluewr"></button>
                     <button class="color" id="blue"></button>
-                    <button class="color" id="blue2"></button>
+                    <button class="color" id="blackw"></button>
                     <button class="color" id="black"></button>
-                    <button class="color" id="black2"></button>
-                    <button class="color" id="red2"></button>
+                    <button class="color" id="red"></button>
                 </div>
             </div>
             <div class="hero">
                 <img id="hero-image" src="./img/BMW/P90407654_highRes_the-new-bmw-g-310-r.jpg" alt="BMW G 310 R">
-                <!-- <img id="hero-image" src="./img/BMW/P90312740_highRes_bmw-g-310-r-racing-r.jpg" alt="BMW G 310 R"> -->
             </div>
         </div>
     </div>
     <script>
-        const redBtn = document.getElementById('red');
-        const redBtn2 = document.getElementById('red2');
-        const blueBtn = document.getElementById('blue');
-        const blueBtn2 = document.getElementById('blue2');
-        const blackBtn = document.getElementById('black');
-        const blackBtn2 = document.getElementById('black2');
-        const hero = document.querySelector('#hero-image');
+        const images = {
+            redbw: {
+                src: "./img/BMW/P90407654_highRes_the-new-bmw-g-310-r.jpg",
+            },
+            bluewr: {
+                src: "./img/BMW/P90427039_highRes_bmw-g-310-r.jpg",
+            },
+            blue: {
+                src: "./img/BMW/P90407658_highRes_the-new-bmw-g-310-r.jpg",
+            },
+            blackw: {
+                src: "./img/BMW/P90407650_highRes_the-new-bmw-g-310-r.jpg",
+            },
+            black: {
+                src: "./img/BMW/P90427035_highRes_bmw-g-310-r-cosmic-b.jpg",
+            },
+            red: {
+                src: "./img/BMW/P90312740_highRes_bmw-g-310-r-racing-r.jpg",
+            },
 
-        redBtn.addEventListener('click', () => {
-            hero.src = "./img/BMW/P90407654_highRes_the-new-bmw-g-310-r.jpg";
+        }
+
+        const colorButtons = document.querySelectorAll('.color');
+        colorButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const color = button.id;
+                const hero = document.querySelector('#hero-image');
+                changeActiveButton(button);
+                hero.classList.add('hidden');
+                hero.addEventListener("transitionend", () => {
+                    hero.src = images[color].src;
+                    console.log("new")
+                    hero.addEventListener("load", () => {
+                        console.log('done');
+                        console.log(hero.complete)
+                        hero.classList.remove("hidden");
+                    })
+                })
+            })
         })
-        redBtn2.addEventListener('click', () => {
-            hero.src = "./img/BMW/P90312740_highRes_bmw-g-310-r-racing-r.jpg";
-        })
-        blueBtn.addEventListener('click', () => {
-            hero.src = "./img/BMW/P90427039_highRes_bmw-g-310-r.jpg";
-        })
-        blueBtn2.addEventListener('click', () => {
-            hero.src = "./img/BMW/P90407658_highRes_the-new-bmw-g-310-r.jpg";
-        })
-        blackBtn.addEventListener('click', () => {
-            hero.src = "./img/BMW/P90407650_highRes_the-new-bmw-g-310-r.jpg";
-        })
-        blackBtn2.addEventListener('click', () => {
-            hero.src = "./img/BMW/P90427035_highRes_bmw-g-310-r-cosmic-b.jpg";
-        })
+
+        function changeActiveButton(newButton) {
+            const currentActiveButton = document.querySelector('.color.active');
+            currentActiveButton.classList.remove('active');
+            newButton.classList.add('active');
+        }
     </script>
 </body>
 </html>
