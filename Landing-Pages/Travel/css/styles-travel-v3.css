@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
+/* 
+font-family: 'Abril Fatface', cursive;
+font-family: 'Courgette', cursive;
+font-family: 'Dancing Script', cursive;
+font-family: 'Great Vibes', cursive;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Limelight', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Oleo Script Swash Caps', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Raleway', sans-serif;
+*/
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 1em;
+    list-style: none;
+}
+
+a {
+    display: inline-block;
+    padding: 0.5em 1em;
+    color: #fff;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    border-radius: 1em;
+    transition: all 0.5s;
+}
+a:hover {
+    transform: scale(1.1);
+}
+
+i {
+    padding: 0.4em;
+    color: #fff;
+    transition: all 0.5s;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+button:hover {
+    transform: scale(1.1);
+}
+
+.hidden {
+    display: none;
+}
+
+.landing-page {
+    min-height: 100vh;
+    padding: min(2%, 1em);
+    display: flex;
+    flex-direction: column;
+    background-image: url('../img/vert-beach_coast_aerial_view_2728394.jpg');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    animation: animate 160s linear infinite;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: max(1rem, 10%);
+    z-index: 2;
+}
+.logo {
+    position: relative;
+    padding: min(0.4vw, 0.5em) min(0.8vw, 1em);
+    color: #fff;
+    font-size: min(6vw, 2rem);
+    font-family: 'Abril Fatface', cursive;
+    text-transform: capitalize;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.6);
+    transition: all 0.5s;
+}
+.menu-button {
+    font-size: 1.3rem;
+    cursor: pointer;
+    border-radius: 1em;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+}
+.toggle {
+    padding: 0.4em 1em;
+    color: #fff;
+    font-size: inherit;
+    font-weight: bold;
+    text-transform: capitalize;
+    border-radius: 1em;
+    backdrop-filter: blur(15px);
+}
+
+main {
+    z-index: 2;
+}
+.glass {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 40%;
+    backdrop-filter: blur(15px);
+    box-shadow: 10px 0px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s;
+    transition-delay: 1s;
+}
+
+h1 {
+    font-family: 'Abril Fatface', cursive;
+font-family: 'Courgette', cursive;
+font-family: 'Dancing Script', cursive;
+font-family: 'Great Vibes', cursive;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Limelight', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Oleo Script Swash Caps', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Raleway', sans-serif;
+}
+
+
+.landing-page.active .glass {
+    width: 100%;
+    backdrop-filter: blur(20px);
+    box-shadow: 10px 0px 15px rgba(0, 0, 0, 0.5);
+    transition-delay: 0s;
+}
+
+
+header {
+    /* border: 1px solid; */
+}
+
+
+@keyframes animate {
+    50% {
+        background-position: bottom;
+    }
+}
+
+
+@media screen and (max-width: 1670px) {
+
+}
+@media screen and (max-width: 660px) {
+    nav {
+        display: none;
+    }
+}
