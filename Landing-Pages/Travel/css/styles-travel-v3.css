@@ -36,6 +36,8 @@ a {
     text-transform: uppercase;
     text-decoration: none;
     white-space: nowrap;
+    outline: none;
+    border: none;
     border-radius: 1em;
     transition: all 0.5s;
 }
@@ -51,12 +53,21 @@ i {
 
 button {
     border: none;
+    outline: none;
     background-color: transparent;
     cursor: pointer;
     transition: all 0.5s;
 }
-button:hover {
+/* button:hover {
     transform: scale(1.1);
+} */
+
+button:focus-visible, .sci a:focus-visible {
+    box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.2),
+    inset -4px -4px 4px rgba(255, 255, 255, 0.2);
+}
+button:active, .sci a:active {
+    box-shadow: none;
 }
 
 .hidden {
@@ -66,8 +77,7 @@ button:hover {
 .landing-page {
     min-height: 100vh;
     padding: min(2%, 1em);
-    display: flex;
-    flex-direction: column;
+    display: grid;
     background-image: url('../img/vert-beach_coast_aerial_view_2728394.jpg');
     background-repeat: no-repeat;
     background-position: top;
@@ -79,8 +89,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: max(1rem, 10%);
-    z-index: 2;
+    margin-bottom: auto;
+    z-index: 3;
 }
 .logo {
     position: relative;
@@ -93,24 +103,43 @@ header {
     transition: all 0.5s;
 }
 .menu-button {
-    font-size: 1.3rem;
-    cursor: pointer;
+    font-size: min(4vw, 1.3rem);
     border-radius: 1em;
+    backdrop-filter: blur(15px);
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.menu-button:hover {
+    transform: scale(1.1);
 }
 .toggle {
-    padding: 0.4em 1em;
+    padding: 0.2em 1em;
     color: #fff;
     font-size: inherit;
     font-weight: bold;
     text-transform: capitalize;
     border-radius: 1em;
-    backdrop-filter: blur(15px);
 }
 
 main {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    transition: all 0.5s;
     z-index: 2;
+    transition-delay: 1s;
 }
+.fade-left {
+    opacity: 0;
+    transform: translateX(-10%);
+    transition-delay: 0s;
+}
+
 .glass {
     position: absolute;
     inset: 0 auto 0 0;
@@ -118,21 +147,46 @@ main {
     backdrop-filter: blur(15px);
     box-shadow: 10px 0px 15px rgba(0, 0, 0, 0.2);
     transition: all 0.5s;
-    transition-delay: 1s;
+    transition-delay: 0.5s;
 }
 
 h1 {
-    font-family: 'Abril Fatface', cursive;
-font-family: 'Courgette', cursive;
-font-family: 'Dancing Script', cursive;
-font-family: 'Great Vibes', cursive;
-font-family: 'Josefin Sans', sans-serif;
-font-family: 'Limelight', cursive;
-font-family: 'Lobster', cursive;
-font-family: 'Montserrat', sans-serif;
-font-family: 'Oleo Script Swash Caps', cursive;
-font-family: 'Poppins', sans-serif;
-font-family: 'Raleway', sans-serif;
+    color: #fff;
+    font-size: 10vw;
+    font-family: 'Dancing Script', cursive;
+    text-transform: capitalize;
+    text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+}
+h2 {
+    padding: 0.8em;
+    font-size: 2vw;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navigation {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    inset: 0 auto auto 0;
+    width: 100%;
+    padding-block: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
+    z-index: 2;
+}
+.navigation ul {
+    flex-direction: column;
+    row-gap: 1em;
+}
+.navigation a {
+    font-size: 1.6rem;
 }
 
 
@@ -140,13 +194,36 @@ font-family: 'Raleway', sans-serif;
     width: 100%;
     backdrop-filter: blur(20px);
     box-shadow: 10px 0px 15px rgba(0, 0, 0, 0.5);
-    transition-delay: 0s;
+    transition-delay: 0.5s;
+}
+.landing-page.active .navigation {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 1s;
+}
+
+footer {
+    margin: auto 0 0 auto;
+    z-index: 3;
+}
+footer ul {
+    row-gap: 0.5em;
+}
+.sci a {
+    backdrop-filter: blur(15px);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s;
+    /* box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.2),
+    inset -4px -4px 4px rgba(255, 255, 255, 0.2); */
 }
 
 
-header {
-    /* border: 1px solid; */
+/* main {
+    border: 3px solid;
 }
+.navigation {
+    border: 1px solid red;
+} */
 
 
 @keyframes animate {
@@ -154,6 +231,7 @@ header {
         background-position: bottom;
     }
 }
+
 
 
 @media screen and (max-width: 1670px) {
