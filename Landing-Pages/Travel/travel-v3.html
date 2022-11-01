@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel v.3</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/styles-travel-v3.css">
+</head>
+<body>
+    <section class="landing-page">
+        <header>
+            <a href="#" class="logo">water.</a>
+            <div class="menu-button">
+                <button class="toggle open">menu
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </button>
+                <button class="toggle close hidden">close
+                    <i class="fa fa-close" aria-hidden="true"></i>
+                </button>
+            </div>
+        </header>
+        <div class="glass"></div>
+        <main>
+            <h1>hapiness...</h1>
+            <h2>Crystal clear ocean water.</h2>
+        </main>
+        <div class="navigation">
+            <ul>
+                <li><a href="#">home</a></li>
+                <li><a href="#">about</a></li>
+                <li><a href="#">tour</a></li>
+                <li><a href="#">contact</a></li>
+            </ul>
+        </div>
+        <footer>
+            <ul class="sci">
+                <a href="#f">facebook</a>
+                <a href="#t">twitter</a>
+                <a href="#i">instagram</a>
+            </ul>
+        </footer>
+    </section>
+
+    <script>
+        console.log(Object.prototype)
+        const buttonOpenMenu = document.querySelector(".toggle.open");
+        const buttonCloseMenu = document.querySelector(".toggle.close");
+
+        buttonOpenMenu.addEventListener("click", () => {
+            buttonOpenMenu.classList.add("hidden");
+            buttonCloseMenu.classList.remove("hidden");
+            const page = document.querySelector(".landing-page");
+            page.classList.add("active");
+            const content = document.querySelector("main");
+            content.classList.add("fade-left");
+        })
+        buttonCloseMenu.addEventListener("click", () => {
+            buttonCloseMenu.classList.add("hidden");
+            buttonOpenMenu.classList.remove("hidden");
+            const page = document.querySelector(".landing-page");
+            page.classList.remove("active");
+            const content = document.querySelector("main");
+            content.classList.remove("fade-left");
+        })
+    </script>
+</body>
+</html>
