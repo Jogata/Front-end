@@ -6,14 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMW Bikes</title>
     <link rel="stylesheet" href="./css/styles-bmw.css">
-    <style>
-        #hero-image {
-            transition: opacity 1s;
-        }
-        .hidden {
-            opacity: 0;
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -63,7 +55,6 @@
             red: {
                 src: "./img/BMW/P90312740_highRes_bmw-g-310-r-racing-r.jpg",
             },
-
         }
 
         const colorButtons = document.querySelectorAll('.color');
@@ -72,16 +63,18 @@
                 const color = button.id;
                 const hero = document.querySelector('#hero-image');
                 changeActiveButton(button);
-                hero.classList.add('hidden');
+                hero.classList.add('hidden', "will-paint");
                 hero.addEventListener("transitionend", () => {
-                    hero.src = images[color].src;
-                    console.log("new")
                     hero.addEventListener("load", () => {
-                        console.log('done');
-                        console.log(hero.complete)
-                        hero.classList.remove("hidden");
-                    })
-                })
+                        // force the browser to paint
+                        hero.classList.remove("will-paint");
+                        // show the new image
+                        hero.addEventListener("transitionend", () => {
+                            hero.classList.remove("hidden");
+                        }, {once: true})
+                    }, {once: true})
+                    hero.src = images[color].src;
+                }, {once: true})
             })
         })
 
@@ -90,6 +83,7 @@
             currentActiveButton.classList.remove('active');
             newButton.classList.add('active');
         }
+
     </script>
 </body>
 </html>
