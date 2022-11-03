@@ -28,10 +28,10 @@
         </main>
         <div class="navigation">
             <ul>
-                <li><a href="#">home</a></li>
-                <li><a href="#">about</a></li>
-                <li><a href="#">tour</a></li>
-                <li><a href="#">contact</a></li>
+                <li style="--i:1"><a href="#">home</a></li>
+                <li style="--i:2"><a href="#">about</a></li>
+                <li style="--i:3"><a href="#">tour</a></li>
+                <li style="--i:4"><a href="#">contact</a></li>
             </ul>
         </div>
         <footer>
@@ -44,26 +44,24 @@
     </section>
 
     <script>
-        console.log(Object.prototype)
-        const buttonOpenMenu = document.querySelector(".toggle.open");
-        const buttonCloseMenu = document.querySelector(".toggle.close");
+        document.addEventListener("DOMContentLoaded", () => {
+            setUpMenuButton();
+        });
 
-        buttonOpenMenu.addEventListener("click", () => {
-            buttonOpenMenu.classList.add("hidden");
-            buttonCloseMenu.classList.remove("hidden");
-            const page = document.querySelector(".landing-page");
-            page.classList.add("active");
-            const content = document.querySelector("main");
-            content.classList.add("fade-left");
-        })
-        buttonCloseMenu.addEventListener("click", () => {
-            buttonCloseMenu.classList.add("hidden");
-            buttonOpenMenu.classList.remove("hidden");
-            const page = document.querySelector(".landing-page");
-            page.classList.remove("active");
-            const content = document.querySelector("main");
-            content.classList.remove("fade-left");
-        })
+        function setUpMenuButton() {
+            const buttonOpenMenu = document.querySelector(".toggle.open");
+            const buttonCloseMenu = document.querySelector(".toggle.close");
+    
+            buttonOpenMenu.addEventListener("click", toggleMenu);
+            buttonCloseMenu.addEventListener("click", toggleMenu);
+
+            function toggleMenu() {
+                buttonCloseMenu.classList.toggle("hidden");
+                buttonOpenMenu.classList.toggle("hidden");
+                const page = document.querySelector(".landing-page");
+                page.classList.toggle("active");
+            }
+        }
     </script>
 </body>
 </html>
