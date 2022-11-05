@@ -4,63 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel v.4</title>
+    <title>Iceland</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/styles-travel-v4.css">
-    <style>
-        /* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background: url("./img/iceland.jpg") no-repeat;
-    background-position: center;
-    background-size: 120% auto;
-    animation: move 60s linear infinite alternate;
-}
-@keyframes move {
-    0% {background-position: left;}
-    100% {background-position: right;}
-}
-
-h2 {
-    font-size: 16vw;
-    padding: 20px 40px;
-    border-radius: 50px;
-    text-transform: uppercase;
-}
-
-#v1 {
-    color: #000;
-    background: #fff;
-    background: rgba(255, 255, 255, 0.8);
-    mix-blend-mode: screen;
-}
-
-#v2 {
-    color: #fff;
-    background: rgba(0, 0, 0, 0.6);
-    mix-blend-mode: multiply;
-}
-#v3 {
-    color: transparent;
-    text-transform: capitalize;
-    font-family: 'Limelight', cursive;
-    -webkit-text-stroke-color: #fff;
-    -webkit-text-stroke-width: 1px;
-} */
-    </style>
+    <link rel="stylesheet" href="./css/styles-iceland.css">
 </head>
 <body>
     <section class="landing-page">
-        <header>
+        <header class="">
             <div class="navigation">
                 <ul class="sci">
                     <li><a href="#f">facebook
@@ -89,35 +39,48 @@ h2 {
                 </ul>
             </div>
         </header>
+        <div class="menu-button">
+            <button type="button" class="toggle">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </button>
+        </div>
         <div class="glass"></div>
-        <h1 id="v1"><span>ice</span><span>land</span></h1>
+        <h1><span>ice</span><span>land</span></h1>
+        <h2>adventure</h2>
+        <div class="info">
+            <div class="slider">
+                <span>01</span>
+                <div class="slide-buttons">
+                    <button type="button" class="active">01</button>
+                    <button type="button">02</button>
+                    <button type="button">03</button>
+                </div>
+            </div>
+            <div class="description">
+                <h3>discover tours</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque nobis facilis fuga vero non aliquam.</p>
+                <button type="button">view all trips
+                    <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
     </section>
 
-    <!-- <section class="landing-page">
-    <h2 id="v1"> text I </h2>
-    <h2 id="v2"> text II </h2>
-    <h2 id="v3"> text III </h2>
-    </section> -->
-
     <script>
-        // document.addEventListener("DOMContentLoaded", () => {
-        //     setUpMenuButton();
-        // });
+        document.addEventListener("DOMContentLoaded", () => {
+            setUpMenuButton();
+        });
 
-        // function setUpMenuButton() {
-        //     const buttonOpenMenu = document.querySelector(".toggle.open");
-        //     const buttonCloseMenu = document.querySelector(".toggle.close");
-    
-        //     buttonOpenMenu.addEventListener("click", toggleMenu);
-        //     buttonCloseMenu.addEventListener("click", toggleMenu);
+        function setUpMenuButton() {
+            const menuButton = document.querySelector(".toggle");
 
-        //     function toggleMenu() {
-        //         buttonCloseMenu.classList.toggle("hidden");
-        //         buttonOpenMenu.classList.toggle("hidden");
-        //         const page = document.querySelector(".landing-page");
-        //         page.classList.toggle("active");
-        //     }
-        // }
+            menuButton.addEventListener("click", toggleMenu);
+
+            function toggleMenu() {
+                const header = document.querySelector("header");
+                header.classList.toggle("active");
+            }
+        }
     </script>
 </body>
 </html>
