@@ -72,29 +72,32 @@ button:focus-visible, .sci a:focus-visible {
     inset -4px -4px 4px rgba(255, 255, 255, 0.2);
 }
 button:active, .sci a:active {
-    box-shadow: none;
+    border-color: transparent;
+    filter: none;
 }
-
-/* img {
-    display: block;
-    margin: auto;
-} */
 
 .hidden {
     display: none;
 }
 
 .landing-page {
+    max-width: 4000px;
     min-height: 100vh;
+    margin: auto;
     padding: min(5%, 1em) min(2%, 1em);
     display: grid;
     grid-template-rows: auto 1fr auto;
     background-image: url('../img/travel-4/bg.jpg'), url('../img/travel-4/mask.jpg');
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    background-position: center -10px, center;
+    background-size: cover, cover;
     background-blend-mode: screen;
-    /* animation: animate 160s linear infinite; */
+    animation: animate 6s linear infinite;
+}
+@keyframes animate {
+    50% {
+        background-position: center 0px, center;
+    }
 }
 
 header {
@@ -191,6 +194,9 @@ h1 span {
     color: #015b75;
     font-size: 1.6rem;
 }
+.navigation a:hover {
+    color: #ff286f;
+}
 
 
 .landing-page.active {
@@ -270,6 +276,9 @@ footer {
 }
 .sci a:focus-visible {
     background-color: whitesmoke;
+}
+.sci a:hover {
+    border-color: #015b75;
 }
 .sci a img {
     width: 2rem;
