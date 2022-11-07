@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+/* 
+font-family: 'Abril Fatface', cursive;
+font-family: 'Courgette', cursive;
+font-family: 'Dancing Script', cursive;
+font-family: 'Great Vibes', cursive;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Limelight', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Oleo Script Swash Caps', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Kaushan Script', cursive;
+*/
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: #fff;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+.person {
+    width: 724px;
+    margin-top: auto;
+    margin-inline: auto;
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    transform: translateX(-2%) translateY(8%);
+    z-index: 1;
+}
+.clouds {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    filter: brightness(0.8);
+    z-index: 1;
+}
+
+body {
+    background-color: #151515;
+}
+
+nav {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 2em;
+    font-size: 1.2rem;
+    z-index: 2;
+}
+nav a:nth-child(2) {
+    margin-left: auto;
+}
+
+.logo {
+    font-size: 2rem;
+    font-family: 'Abril Fatface', cursive;
+    font-family: 'Kaushan Script', cursive;
+    font-weight: bold;
+}
+
+.landing-page {
+    position: relative;
+    background-image: url('../img/rename/4k-wallpaper-adventure-climb-691668.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.grid-container {
+    max-width: 923px;
+    min-height: 100vh;
+    margin-inline: auto;
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+h1 {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    align-self: center;
+    color: #fff;
+    font-size: 5rem;
+    font-family: 'Abril Fatface', cursive;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 5rem;
+    padding-left: 5rem;
+}
+
+
+
+
+section {
+    color: #fff;
+    min-height: 100vh;
+    overflow: hidden;
+}
