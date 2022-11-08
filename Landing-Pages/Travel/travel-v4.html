@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel v.4</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/styles-travel-v4.css">
+</head>
+<body>
+    <section class="landing-page">
+        <header>
+            <a href="#" class="logo">travel</a>
+            <div class="menu-button">
+                <button class="toggle open">menu
+                    <img src="./img/travel-4/icons/menu.png" alt="menu button">
+                </button>
+                <button class="toggle close hidden">close
+                    <img src="./img/travel-4/icons/close.png" alt="close button">
+                </button>
+            </div>
+        </header>
+        <main>
+            <h1>dream <span>trip</span></h1>
+        </main>
+        <div class="navigation">
+            <ul>
+                <li style="--i:1"><a href="#">home</a></li>
+                <li style="--i:2"><a href="#">about</a></li>
+                <li style="--i:3"><a href="#">booking</a></li>
+                <li style="--i:4"><a href="#">tour</a></li>
+                <li style="--i:5"><a href="#">blog</a></li>
+                <li style="--i:6"><a href="#">contact</a></li>
+            </ul>
+        </div>
+        <footer>
+            <button type="button" class="play-button">
+                <img src="./img/travel-4/icons/play.png" alt="play button">
+                play video</button>
+            <ul class="sci">
+                <a href="#f">facebook
+                    <img src="./img/travel-4/icons/facebook.png" alt="facebook">
+                </a>
+                <a href="#t">twitter
+                    <img src="./img/travel-4/icons/twitter.png" alt="twitter">
+                </a>
+                <a href="#i">instagram
+                    <img src="./img/travel-4/icons/instagram.png" alt="instagram">
+                </a>
+            </ul>
+        </footer>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            setUpMenuButton();
+        });
+
+        function setUpMenuButton() {
+            const buttonOpenMenu = document.querySelector(".toggle.open");
+            const buttonCloseMenu = document.querySelector(".toggle.close");
+    
+            buttonOpenMenu.addEventListener("click", toggleMenu);
+            buttonCloseMenu.addEventListener("click", toggleMenu);
+
+            function toggleMenu() {
+                buttonCloseMenu.classList.toggle("hidden");
+                buttonOpenMenu.classList.toggle("hidden");
+                const page = document.querySelector(".landing-page");
+                page.classList.toggle("active");
+            }
+        }
+    </script>
+</body>
+</html>
