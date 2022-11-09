@@ -20,8 +20,7 @@ a {
 }
 
 svg {
-    width: 50px;
-    height: 50px;
+    width: 10vw;
     fill: #fff;
     cursor: pointer;
     display: none;
@@ -38,9 +37,10 @@ body {
     max-width: 1200px;
     min-height: 100vh;
     margin: auto;
-    padding: 3em min(5vw, 5em) 1.5em;
+    padding: min(5%, 3em) min(5vw, 5em) 1.5em;
     flex-direction: column;
     font-family: 'Abril Fatface', cursive;
+    overflow: hidden;
 }
 
 header {
@@ -72,7 +72,6 @@ header {
     padding: 2px 4px;
     color: #fff;
     text-transform: capitalize;
-    text-decoration: none;
     transition: all 0.5s;
 }
 .link::before {
@@ -92,14 +91,15 @@ header {
 }
 
 main {
-    flex-wrap: wrap;
-    gap: 2em;
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    column-gap: 2em;
+    row-gap: 4em;
     width: 100%;
     padding-block: 3em;
 }
 .info-box {
-    /* width: 100%; */
-    flex: 1;
+    grid-column: 1 / 2;
     min-width: 265px;
     max-width: 600px;
     margin-right: auto;
@@ -132,7 +132,6 @@ main {
     color: #004999;
     font-weight: bold;
     text-transform: uppercase;
-    text-decoration: none;
     letter-spacing: 1px;
     background-color: #fff;
     background-size: 100%;
@@ -152,10 +151,8 @@ main {
 }
 
 .product-box {
-    flex: 1;
-    width: 600px;
-    min-width: 265px;
-    overflow: hidden;
+    grid-column: 2 / 3;
+    min-width: 180px;
 }
 .pepsi-can {
     width: 100%;
@@ -172,12 +169,16 @@ main {
 }
 
 .thumbs {
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
     display: flex;
     margin: 0px auto;
 }
 .thumbs li {
     display: inline-block;
     margin: 0px 20px;
+    animation: moveup 3s ease-in-out backwards;
+    animation-delay: calc(var(--i) * 0.5s + 3s) ;
     cursor: pointer;
 }
 .thumbs li:hover .thumb {
@@ -189,20 +190,38 @@ main {
 }
 
 .social-links-pepsi {
-    position: absolute;
-    inset: 50% 30px auto auto;
+    margin: auto;
+    display: flex;
+    column-gap: 2rem;
+    flex-direction: column;
+    text-align: center;
+    animation: movelefticons 2s ease-in 3s backwards;
+}
+.social-links-pepsi li {
+    flex-grow: 1;
+    margin: 1rem 0;
 }
 .sci-link {
     display: inline-block;
-    margin: 5px 0px;
+    width: 100%;
+    padding: 0 0.5rem;
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 2rem;
     transition: all 0.5s;
 }
 .sci-link:hover {
     transform: scale(1.3);
 }
 
+@keyframes movelefticons {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    40% {
+        opacity: 0.2;
+    }
+}
 
 .red {
     background-color: #e60c2c;
@@ -225,15 +244,38 @@ main {
     fill: #000;
 }
 
+@media screen and (max-width: 800px) {
+    main {
+        grid-template-columns: 1fr auto;
+    }
+    .info-box {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+    }
+    .product-box {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+    .social-links-pepsi {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
+    .thumbs {
+        grid-column: 1 / 3;
+        grid-row: 3 / 4;
+    }
+}
+
 @media screen and (max-width: 520px) {
     svg {
         display: inline;
     }
     .links {
+        justify-content: flex-start;
         flex-direction: column;
         flex-wrap: nowrap;
         position: absolute;
-        inset: 0 0 auto 0;
+        inset: 0;
         min-height: 100vh;
         padding: 3em 0;
         font-size: 10vw;
@@ -243,24 +285,11 @@ main {
     }
     .link {
         color: #0062be;
-        /* color: #000; */
     }
     .link::before {
         border: 1px solid #ed0223;
     }
     .link:hover {
         color: #ed0223;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .social-links-pepsi {
-        position: relative;
-        inset: auto;
-        margin: 15px auto 0px;
-    }
-    .social-links-pepsi li {
-        display: inline-block;
-        margin: 0px 20px;
     }
 }
