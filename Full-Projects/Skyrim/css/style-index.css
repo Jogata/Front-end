@@ -79,7 +79,7 @@ ul {
     list-style: none;
 }
 li {
-    margin: 10px;
+    margin: 0.2rem;
 }
 a {
     display: flex;
@@ -114,8 +114,8 @@ a {
 }
 
 .options {
-    width: 64px;
-    height: 64px;
+    /* width: 64px;
+    height: 64px; */
     position: relative;
     display: flex;
     align-items: center;
@@ -124,14 +124,23 @@ a {
     transition: padding 3s linear;
 }
 #options-button {
-    position: absolute;
+    /* position: absolute; */
+    width: 64px;
+    height: 60px;
     border: 2px solid #fff;
     border-radius: 20px;
     background-color: transparent;
+    transition: all 0.5s;
+    transition-delay: 0.4s;
 }
 #options-button:hover {
     width: 128px;
     background: rgba(255,255,255,0.5);
+    transition-delay: 0.4s;
+}
+#options-button img {
+    margin-top: -4px;
+    margin-left: -2px;
 }
 .options ul {
     /* position: absolute; */
@@ -143,8 +152,12 @@ a {
 .options ul li {
     position: absolute;
     width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all calc(var(--i) * 0.3s);
+    /* transition-delay: calc(var(--i) * -0.3s); */
 
-    display: none;
+    /* display: none; */
 }
 #login {
     /* display: none; */
@@ -1289,3 +1302,33 @@ a {
     background: url('../assets/img/00bg/games-the-elder-scrolls-v-skyrim-8597\ -\ Copy.jpg');
     background: url('../assets/img/00bg/games-the-elder-scrolls-v-skyrim-9032\ -\ Copy.jpg');
 */
+
+.options.active #options-button {
+    width: 128px;
+}
+.options.active ul li {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0%);
+    transition-delay: calc((var(--i) * 0.1s));
+}
+.options {
+    position: relative;
+}
+.options ul li {
+    position: relative;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    transition-delay: calc((var(--i) - 3) * (-0.1s));
+    transform: translateY(-100%);
+}
+#options-button {
+    z-index: 99;
+    cursor: pointer;
+}
+.options ul {
+    position: absolute;
+    top: 100%;
+}
