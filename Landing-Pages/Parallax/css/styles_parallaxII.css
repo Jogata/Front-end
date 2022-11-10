@@ -27,36 +27,30 @@ a {
     text-decoration: none;
 }
 
-.person {
-    width: 724px;
-    margin-top: auto;
-    margin-inline: auto;
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-    transform: translateX(-2%) translateY(8%);
-    z-index: 1;
+img {
+    max-width: 100%;
 }
-.clouds {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    filter: brightness(0.8);
-    z-index: 1;
+
+section {
+    display: flex;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
 body {
-    background-color: #151515;
+    background-color: #fff;
 }
 
 nav {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
+    padding: 0.6em 1.2em;
     display: flex;
     align-items: center;
     justify-content: space-between;
     column-gap: 2em;
     font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
     z-index: 2;
 }
 nav a:nth-child(2) {
@@ -72,7 +66,8 @@ nav a:nth-child(2) {
 
 .landing-page {
     position: relative;
-    background-image: url('../img/rename/4k-wallpaper-adventure-climb-691668.jpg');
+    color: #fff;
+    background-image: url('../img/parallaxII/4k-wallpaper-adventure-climb-691668.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -86,25 +81,165 @@ nav a:nth-child(2) {
     grid-template-rows: auto 1fr;
 }
 
+.hero {
+    width: 724px;
+    margin-top: auto;
+    margin-inline: auto;
+    display: grid;
+}
+
 h1 {
     grid-column: 1 / 2;
-    grid-row: 2 / 3;
-    align-self: center;
+    grid-row: 1 / 2;
+    align-self: flex-start;
+    line-height: 2;
+    width: 100%;
     color: #fff;
-    font-size: 5rem;
+    font-size: 7rem;
     font-family: 'Abril Fatface', cursive;
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 5rem;
-    padding-left: 5rem;
+    letter-spacing: 6rem;
+    transform-origin: 40%;
+    animation: reveal 5s linear;
+}
+.person {
+    width: 100%;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    transform: translateX(-8%) translateY(8%);
+    z-index: 1;
+}
+
+.clouds {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    filter: brightness(0.8);
+    z-index: 1;
 }
 
 
+.main-container {
+    max-width: 1223px;
+    margin: auto;
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.text {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-right: 2em;
+}
+h2 {
+    width: fit-content;
+    position: relative;
+    color: #444;
+    padding: 1em 0;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+h2::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: '';
+    width: 90%;
+    height: 3%;
+    background-color: #aaa;
+}
+.text p {
+    margin-block: 2.2rem;
+    line-height: 1.4;
+}
+
+.arrows {
+    width: 70%;
+    margin-block: auto;
+    display: flex;
+}
+.arrows i {
+    color: #888;
+    font-size: 2.4rem;
+    cursor: pointer;
+}
+.arrows i:last-child {
+    margin-left: auto;
+}
+
+.image-slider {
+    grid-column: 2 / 4;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image-slider::before, 
+.image-slider::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    bottom: 0;
+    width: 20%;
+    z-index: 3;
+}
+.image-slider::before {
+    left: 0;
+    background-image: linear-gradient(to right, #fff, transparent);
+}
+.image-slider::after {
+    right: 0;
+    background-image: linear-gradient(to left, #fff, transparent);
+}
+
+.image-slider img {
+    position: absolute;
+    width: 30%;
+    transition: all 0.6s;
+    z-index: 1;
+}
+.left {
+    transform: translateX(-120%);
+}
+.image-slider img.middle {
+    width: 45%;
+    transform: translateX(0);
+    z-index: 2;
+}
+.right {
+    transform: translateX(120%);
+}
 
 
-section {
-    color: #fff;
-    min-height: 100vh;
-    overflow: hidden;
+@keyframes reveal {
+    0% {
+        transform: scale(0.2);    
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .main-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        row-gap: 5vw;
+    }
+    .image-slider {
+        grid-column: 1 / 2;
+    }
+    .image-slider img.middle {
+        position: relative;
+    }
+    h2 {
+        width: auto;
+    }
+    h2::after {
+        width: 70%;
+    }
 }
