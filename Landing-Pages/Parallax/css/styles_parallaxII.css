@@ -82,10 +82,11 @@ nav a:nth-child(2) {
 }
 
 .hero {
-    width: 724px;
+    max-width: min(724px, 100vw);
     margin-top: auto;
     margin-inline: auto;
     display: grid;
+    justify-content: center;
 }
 
 h1 {
@@ -95,20 +96,19 @@ h1 {
     line-height: 2;
     width: 100%;
     color: #fff;
-    font-size: 7rem;
+    font-size: min(13vw, 7rem);
     font-family: 'Abril Fatface', cursive;
-    font-weight: bold;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: 6rem;
-    transform-origin: 40%;
+    letter-spacing: min(13vw, 6rem);
+    padding-left: min(10vw, 6rem);
     animation: reveal 5s linear;
 }
 .person {
     width: 100%;
     grid-column: 1 / 2;
     grid-row: 1 / 2;
-    transform: translateX(-8%) translateY(8%);
+    transform: translateY(8%);
     z-index: 1;
 }
 
@@ -232,6 +232,7 @@ h2::after {
     }
     .image-slider {
         grid-column: 1 / 2;
+        height: 60vw;
     }
     .image-slider img.middle {
         position: relative;
