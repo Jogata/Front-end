@@ -18,19 +18,33 @@
             </nav>
             <div class="hero">
                 <h1 data-speed="0.4">alive</h1>
-                <img src="./img/rename/foreground.png" class="person" data-speed="0.3" alt="Person on the rock">
+                <img src="./img/parallaxII/foreground.png" class="person" data-speed="0.3" alt="Person on the rock">
             </div>
-            <img src="./img/rename/clouds.png" class="clouds" alt="Clouds">
+            <img src="./img/parallaxII/clouds.png" class="clouds" alt="Clouds">
         </div>
     </section>
     <section>
-        <h2>section2</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, ratione obcaecati. Corrupti, illo officia? Illum vero deleniti natus, voluptatum cum repellat tenetur non, laborum alias iure nobis velit reiciendis, aspernatur maxime doloribus magni! Nobis accusantium animi voluptate architecto dolorem officiis nostrum tempore itaque. Facilis vitae, corrupti itaque beatae repellendus laudantium veniam autem tempore temporibus ad quaerat perspiciatis ut. Soluta reiciendis quis inventore quia, rem animi repellat voluptates facere a molestiae incidunt sint illo doloremque excepturi delectus ad eos error illum odio dolores alias eligendi nostrum cum! Ratione et consequatur quas eos necessitatibus tenetur repellendus sit illo consequuntur laudantium est maxime quae nihil, culpa voluptates ducimus debitis eligendi, magni distinctio consectetur illum animi! Deserunt dolorem modi magni ea in alias quibusdam accusamus quis. Culpa quae cumque omnis corporis at voluptate enim quis earum. Minus, autem. Quia at molestias unde magni nobis vitae nisi mollitia. Nisi cupiditate voluptas, vel aspernatur nihil rem minus. Libero odit facere culpa maiores, natus vel obcaecati laboriosam minus nam necessitatibus voluptatum veniam quasi atque maxime molestiae. Doloremque laudantium ullam consequuntur in tempora perspiciatis dolore nam quis dignissimos rerum fugit libero adipisci unde quod quisquam nesciunt, cum ipsa quo. Tempora est in vero excepturi maiores accusamus libero quibusdam!</p>
+        <div class="main-container">
+            <div class="text">
+                <h2>the himalayas</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, ratione obcaecati. Corrupti, illo officia? Illum vero deleniti natus, voluptatum cum repellat tenetur non, laborum alias iure nobis velit reiciendis, aspernatur maxime doloribus magni! Nobis accusantium animi voluptate architecto dolorem officiis nostrum tempore itaque.</p>
+                <div class="arrows">
+                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="image-slider">
+                <img class="left" src="./img/parallaxII/slides/img-left.png" alt="">
+                <img class="middle" src="./img/parallaxII/slides/img-mid.png" alt="">
+                <img class="right" src="./img/parallaxII/slides/img-right.png" alt="">
+            </div>
+        </div>
     </section>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             setUpParallax();
+            setUpSlider();
         });
 
         function setUpParallax() {
@@ -40,18 +54,40 @@
                 let pixels = window.pageYOffset;
                 translateUp(title, pixels);
                 translateDown(person, pixels);
-                console.log(pixels)
             })
 
             function translateUp(element, pixels) {
                 let speed = element.dataset.speed;
-                console.log(speed, "title", pixels)
                 element.style.transform = `translateY(-${pixels * speed}px)`;
             }
             function translateDown(element, pixels) {
                 let speed = element.dataset.speed;
-                console.log(speed, "person", pixels)
-                element.style.transform = `translateX(-8%) translateY(calc(8% + ${pixels * speed}px))`;
+                element.style.transform = `translateY(calc(8% + ${pixels * speed}px))`;
+            }
+        }
+
+        function setUpSlider() {
+            const positions = ['left', 'middle', 'right'];
+            const slides = document.querySelectorAll('.image-slider img');
+            const leftArrow = document.querySelector('.fa-chevron-left');
+            const rightArrow = document.querySelector('.fa-chevron-right');
+            leftArrow.addEventListener('click', () => {rotateSlider(rotateLeft)});
+            rightArrow.addEventListener('click', () => {rotateSlider(rotateRight)});
+
+            function rotateSlider (callback) {
+                callback();
+                slides.forEach((slide, index) => {
+                    slide.className = `${positions[index]}`;
+                })
+            }
+
+            function rotateLeft() {
+                const lastElement = positions.pop();
+                positions.unshift(lastElement);
+            }
+            function rotateRight() {
+                const firstElement = positions.shift();
+                positions.push(firstElement);
             }
         }
     </script>
