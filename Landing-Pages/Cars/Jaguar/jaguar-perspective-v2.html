@@ -76,43 +76,58 @@
 
     <script>
         const images = document.querySelectorAll('.hero span');
-        const slides = document.querySelectorAll('.slide');
-        let angle = 0;
-        slides.forEach(slide => {
-            slide.addEventListener('click', () => {
+        const clickableSlide = document.querySelector('.next');
+
+        clickableSlide.addEventListener('click', rotateSlider, {once: true});
+
+        function rotateSlider() {
                 const currentActiveSlide = document.querySelector('.current-slide');
                 currentActiveSlide.classList.replace('current-slide', 'next');
-                slide.classList.replace('next', 'current-slide');
+                currentActiveSlide.addEventListener('click', rotateSlider, {once: true});
+                this.classList.replace('next', 'current-slide');
                 const oldFrontImage = document.querySelector('span.front');
                 oldFrontImage.classList.replace('front', 'back');
-                const index = slide.dataset.index;
+                const index = this.dataset.index;
                 const newFrontImage = images[index];
                 newFrontImage.classList.replace('back', 'front');
                 const slider = document.querySelector(".hero");
-                angle += 180;
-                console.log(angle)
-                slider.style.transform = `perspective(10000px) rotateY(${angle}deg) rotateX(-90deg)`;
-            })
+                let angle = getComputedStyle(slider).getPropertyValue('--angle');
+                angle = `${Number.parseInt(angle) + 180}deg`;
+                slider.style.setProperty('--angle', angle);
+        }
+
+        const leftArrow = document.querySelector('.fa-chevron-left');
+        leftArrow.addEventListener('click', () => {
+            swapImageStyles();
+            swapSliderButtons();
+            adjustAngle(-180);
         })
-        const arrows = document.querySelectorAll('.arrow');
-        arrows.forEach(arrow => {
-            arrow.addEventListener('click', () => {
-                const slider = document.querySelector(".hero");
-                angle += 180;
-                console.log(angle)
-                slider.style.transform = `perspective(10000px) rotateY(${angle}deg)`;
-                const front = document.querySelector('.front');
-                const back = document.querySelector('.back');
-                front.classList.replace('front', 'back');
-                front.style.transform = `rotateY(${angle * (-1)}deg) scale(0.6)`;
-                back.classList.replace('back', 'front');
-                back.style.transform = `rotateY(${angle * (-1)}deg)`;
-                const currentActiveSlide = document.querySelector('.current-slide');
-                const newActiveSlide = document.querySelector('.next');
-                currentActiveSlide.classList.replace('current-slide', 'next');
-                newActiveSlide.classList.replace('next', 'current-slide');
-            })
+
+        const rightArrow = document.querySelector('.fa-chevron-right');
+        rightArrow.addEventListener('click', () => {
+            swapImageStyles();
+            swapSliderButtons();
+            adjustAngle(180);
         })
+
+        function swapImageStyles() {
+            const front = document.querySelector('span.front');
+            const back = document.querySelector('span.back');
+            front.classList.replace('front', 'back');
+            back.classList.replace('back', 'front');
+        }
+        function swapSliderButtons() {
+            const currentActiveSlide = document.querySelector('.current-slide');
+            const newActiveSlide = document.querySelector('.next');
+            currentActiveSlide.classList.replace('current-slide', 'next');
+            newActiveSlide.classList.replace('next', 'current-slide');
+        }
+        function adjustAngle(number) {
+            const slider = document.querySelector(".hero");
+            let angle = getComputedStyle(slider).getPropertyValue('--angle');
+            angle = `${Number.parseInt(angle) + number}deg`;
+            slider.style.setProperty('--angle', angle);
+        }
 
         const imagesByColors = {
             white: {
@@ -145,13 +160,13 @@
                 
                 /* ====== styles to edit the images ====== */
                     if (color === 'white') {
-                        // image.classList.add('reverse');
                         document.querySelector('.front').classList.replace('blue', 'white');
                         document.querySelector('.back').classList.replace('blue', 'white');
+                        document.querySelector('.hero').classList.add('white');
                     } else if (color === 'blue') {
-                        // image.classList.remove('reverse');
                         document.querySelector('.front').classList.replace('white', 'blue');
                         document.querySelector('.back').classList.replace('white', 'blue');
+                        document.querySelector('.hero').classList.remove('white');
                     }
                 /* ====================================== */
                 })
