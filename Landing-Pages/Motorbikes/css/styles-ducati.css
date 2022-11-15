@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Montserrat&family=Playfair+Display&display=swap');
+
+/* 
+font-family: 'Abril Fatface', cursive;
+font-family: 'Playfair Display', serif;
+font-family: 'Montserrat', sans-serif;
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+/* 
+font-family: 'Abril Fatface', cursive;
+font-family: 'Courgette', cursive;
+font-family: 'Dancing Script', cursive;
+font-family: 'Great Vibes', cursive;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Limelight', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Oleo Script Swash Caps', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Kaushan Script', cursive;
+*/
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-transform: capitalize;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+img {
+    width: 100%;
+}
+
+button {
+    white-space: nowrap;
+    border: none;
+    background-color: transparent;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+body {
+    position: relative;
+    background: rgb(68,68,68);
+    background: radial-gradient(circle, rgba(68,68,68,1) 0%, rgba(0,0,0,1) 100%);
+}
+body::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/Ducati/ducati-logo.png');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
+    mix-blend-mode: color;
+    mix-blend-mode: luminosity;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.landing-page {
+    position: relative;
+    display: grid;
+    grid-template-columns: 0.4fr 1.4fr 0.3fr;
+    align-items: center;
+    justify-content: center;
+    grid-template-rows: 1fr auto;
+    gap: 10%;
+    width: 100%;
+    min-height: 100vh;
+    max-width: 1400px;
+    margin: auto;
+    padding: 20px 5%;
+    z-index: 2;
+}
+/* .landing-page::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/Ducati/ducati-logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    mix-blend-mode: color;
+    mix-blend-mode: luminosity;
+    opacity: 0.5;
+    z-index: -1;
+} */
+
+.left {}
+
+.center {
+    text-align: center;
+}
+
+h1 {
+    color: #fff;
+    font-size: 3rem;
+    font-family: 'Abril Fatface', cursive;
+    font-family: 'Kaushan Script', cursive;
+    text-transform: capitalize;
+}
+
+.info-btn {
+    display: inline-block;
+    margin: 2rem 0;
+    padding: 0.5em 1.6em;
+    color: #fff;
+    font-size: 1.2rem;
+    border-radius: 1em;
+    background-color: #f52425;
+    background-color: transparent;
+    box-shadow: 2px 2px 2px rgba(0,0,0,1),
+    -1px -1px 2px rgba(255, 255, 255, 0.2);
+}
+.info-btn:active {
+    transform: scale(0.98);
+    box-shadow: inset 2px 2px 2px rgba(0,0,0,1),
+    inset -1px -1px 2px rgba(255, 255, 255, 0.4);
+}
+.info-btn:focus-visible {
+    outline: 1px solid #f52425;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+.slide-btn {
+    border: 1px solid #fff;
+    border-radius: 0.4em;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: all 1s;
+}
+.slide-btn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+.slide-btn img {
+    transform: rotateY(180deg);
+}
+
+nav {
+    align-self: flex-start;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.logo {
+    width: 10rem;
+    max-width: 20vw;
+    position: absolute;
+    inset: auto auto 0 0;
+}
+
+
+
+.landing-page > * {
+    /* border: 1px solid red; */
+}
