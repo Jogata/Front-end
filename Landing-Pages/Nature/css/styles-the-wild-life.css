@@ -177,9 +177,7 @@ nav {
     transition: all 0.5s;
     transition-delay: calc(var(--i) * 0.05s);
 }
-/* .nav-link:nth-of-type(2) {
-    position: relative;
-} */
+
 .nav-link:nth-of-type(2) {
     position: absolute;
     inset: 0;
