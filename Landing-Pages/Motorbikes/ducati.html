@@ -12,43 +12,76 @@
         <img src="./img/Ducati/ducati-logo.png" alt="">
     </div>
     <section class="landing-page">
-        <div class="left">
-            <span>left</span>
+        <div class="info">
+            <div class="feature">
+                <h2>frame type</h2>
+                <p>large frame 10"</p>
+            </div>
+            <div class="feature">
+                <h2>rem gears</h2>
+                <p>5 rem gears</p>
+            </div>
+            <div class="feature">
+                <h2>speed kmh</h2>
+                <p class="speed">150 <span class="uppercase">kmh</span></p>
+            </div>
         </div>
         <div class="center">
             <h1>panigale <span class="uppercase">v4 sp2</span></h1>
-            <img src="./img/Ducati/Panigale-V4-SP2-Model-Blocks-630x390-v02.png" alt="Ducati Panigale V4 SP2 black">
-            <a href="#" class="info-btn">view more</a>
+            <img class="hero-img" src="./img/Ducati/Panigale-V4-SP2-Model-Blocks-630x390-v02.png" alt="Ducati Panigale V4 SP2 black">
+            <a href="#" class="info-btn">view 360&deg</a>
         </div>
         <div class="right">
-            <a href="#" class="slide-btn">
+            <a href="#" class="slide-btn" data-model="panigale">
                 <img src="./img/Ducati/Panigale-V4-SP2-Model-Blocks-630x390-v02.png" alt="Ducati Panigale V4 SP2 black">
             </a>
-            <!-- <a href="#" class="slide-btn">
-                <img src="./img/Ducati/Panigale-V4-SP2-Model-Blocks-630x390-v02.png" alt="Ducati Panigale V4 SP2 black">
-            </a> -->
-            <!-- <a href="#" class="slide-btn">
-                <img src="./img/Ducati/36342-9-ducati-image.png" alt="Ducati Panigale V4 SP2 black">
-            </a> -->
-            <a href="#" class="slide-btn">
+            <a href="#" class="slide-btn" data-model="supersport">
                 <img src="./img/Ducati/PV2-WH-MY21-Model-Preview-1050x650-v02.png" alt="Ducati Panigale V4 SP2 white">
             </a>
-            <!-- <a href="#" class="slide-btn">
-                <img src="./img/Ducati/Panigale-V4-SP-Transp.png" alt="Ducati Panigale V4 SP2 black">
-            </a> -->
-            <!-- <a href="#" class="slide-btn">
-                <img src="./img/Ducati/PV2-Bayliss-MY22-Tech-Spec-768x480-v02.png" alt="Ducati Panigale V4 SP2 black">
-            </a>
-            <a href="#" class="slide-btn">
-                <img src="./img/Ducati/pv2-Panigale-V4-MY22-Model-Preview-1050x650-v06.png" alt="Ducati Panigale V4 SP2 black">
-            </a> -->
-            <a href="#" class="slide-btn">
+            <a href="#" class="slide-btn" data-model="streetfighter">
                 <img src="./img/Ducati/PV2-R-MY21-Model-Preview-1050x650-v02.png" alt="Ducati Panigale V4 SP2 red">
             </a>
         </div>
     </section>
 
     <script>
+        const models = {
+            panigale: {
+                title: `panigale <span class="uppercase">v4 sp2</span>`,
+                src: "./img/Ducati/Panigale-V4-SP2-Model-Blocks-630x390-v02.png",
+                speed: `140 <span class="uppercase">kmh</span>`,
+            },
+            supersport: {
+                title: `supersport <span class="uppercase">950 s</span>`,
+                src: "./img/Ducati/PV2-WH-MY21-Model-Preview-1050x650-v02.png",
+                speed: `175 <span class="uppercase">kmh</span>`,
+            },
+            streetfighter: {
+                title: `streetfighter <span class="uppercase">v4</span>`,
+                src: "./img/Ducati/PV2-R-MY21-Model-Preview-1050x650-v02.png",
+                speed: `150 <span class="uppercase">kmh</span>`,
+            },
+        }
+
+        const slideButtons = document.querySelectorAll(".slide-btn");
+        slideButtons.forEach(button => {
+            button.addEventListener("click", () => {
+                const page = document.querySelector(".landing-page");
+                page.classList.remove("fade-in");
+                page.classList.add("fade-out");
+                page.addEventListener("animationend", () => {
+                    const model = button.dataset.model;
+                    document.body.className = model;
+                    const heroImage = document.querySelector(".hero-img");
+                    heroImage.src = models[model].src;
+                    const title = document.getElementsByTagName("h1");
+                    title[0].innerHTML = models[model].title;
+                    const infoSpeed = document.querySelector(".speed");
+                    infoSpeed.innerHTML = models[model].speed;
+                    page.classList.replace("fade-out", "fade-in");
+                })
+            })
+        })
     </script>
 </body>
 </html>
