@@ -42,6 +42,12 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            console.log("dom loaded");
+            document.addEventListener("scroll", () => {
+                const parallaxSection = document.querySelector(".images");
+                const styles = window.getComputedStyle(parallaxSection);
+                parallaxSection.style.setProperty('--scroll-value', scrollY);
+            });
         });
     </script>
 </body>
