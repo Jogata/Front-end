@@ -27,6 +27,7 @@
 
         h1 {
             padding: 15px;
+            text-align: center;
             border-radius: 20px;
             box-shadow: 2px 2px 2px rgba(0,0,0,0.6),
             -2px -2px 2px rgba(0,0,0,0.1);
@@ -43,10 +44,11 @@
 
         #slider {
             position: relative;
-            height: 5vw;
-            perspective: 100px;
+            width: 100%;
+            perspective: 1000px;
             transform-style: preserve-3d;
-            border: 1px solid green;
+            display: flex;
+            align-items: center;
         }
         #slider input {
             display: none;
@@ -58,18 +60,68 @@
             height: 620px;
             margin: auto;
             border-radius: 4px;
+            background-position: center;
+            background-size: cover;
             cursor: pointer;
             transition: transform 0.4s ease;
-            border: 1px solid red;
         }
+
 
         #s1:checked ~ #label4,
         #s2:checked ~ #label5,
         #s3:checked ~ #label1,
         #s4:checked ~ #label2,
         #s5:checked ~ #label3 {
-            transform: translate3d(-30%, 0, -200px);
-            box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.37);
+            transform: translate3d(35%, 0, -100px);
+            box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.37);
+        }
+        #s1:checked ~ #label5,
+        #s2:checked ~ #label1,
+        #s3:checked ~ #label2,
+        #s4:checked ~ #label3,
+        #s5:checked ~ #label4 {
+            transform: translate3d(70%, 0, -200px);
+            box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.3), 
+                        0px 2px 2px 0px rgba(0,0,0,0.2);
+        }
+        #s1:checked ~ #label2,
+        #s2:checked ~ #label3,
+        #s3:checked ~ #label4,
+        #s4:checked ~ #label5,
+        #s5:checked ~ #label1 {
+            transform: translate3d(-70%, 0, -200px);
+            box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.37), 
+                        0px 2px 2px 0px rgba(0,0,0,0.2);
+        }
+        #s1:checked ~ #label3,
+        #s2:checked ~ #label4,
+        #s3:checked ~ #label5,
+        #s4:checked ~ #label1,
+        #s5:checked ~ #label2 {
+            transform: translate3d(-35%, 0, -100px);
+            box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.37), 
+                        0px 2px 2px 0px rgba(0,0,0,0.2);
+        }
+
+        #label1 {
+            background-image: url("../Landing-Pages/00templates/lambo-logo-abstract.jpg");
+            background-image: url("../Landing-Pages/00templates/cars/porcshe/Alex-Grey-315991634_1384534358951064_4556188854349752105_n.jpg");
+        }
+        #label2 {
+            background-image: url("../Landing-Pages/00templates/bcb3a10d1e1dc6f6f3971e33972fcf64.jpg");
+            background-image: url("../Landing-Pages/00templates/cars/porcshe/GTS-Red-312382293_198291745926638_1578479981867238986_n.jpg");
+        }
+        #label3 {
+            background-image: url("../Landing-Pages/00templates/football/10c78154d77cda2f50eed2baa38c5ede.jpg");
+            background-image: url("../Landing-Pages/00templates/cars/porcshe/Gulf-Blue-312502406_526184235986672_8250477321868065797_n.jpg");
+        }
+        #label4 {
+            background-image: url("../Landing-Pages/00templates/football/70088da7e6ecd433b6d21464d2c2c726.jpg");
+            background-image: url("../Landing-Pages/00templates/cars/porcshe/Ice-Green-Metallic-314398192_489708073110986_2334403663181738895_n.jpg");
+        }
+        #label5 {
+            background-image: url("../Landing-Pages/00templates/football/Wallpaperkiss_1323479.png");
+            background-image: url("../Landing-Pages/00templates/cars/porcshe/Racing-Green-Metallic-315601499_503579125125727_453567937133274732_n.jpg");
         }
     </style>
 </head>
@@ -79,7 +131,7 @@
     <section id="slider">
         <input type="radio" name="slider" id="s1">
         <input type="radio" name="slider" id="s2">
-        <input type="radio" name="slider" id="s3" checked>
+        <input type="radio" name="slider" id="s3">
         <input type="radio" name="slider" id="s4">
         <input type="radio" name="slider" id="s5">
 
