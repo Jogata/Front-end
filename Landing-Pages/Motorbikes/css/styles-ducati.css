@@ -31,12 +31,6 @@ img {
     width: 100%;
 }
 
-button {
-    white-space: nowrap;
-    border: none;
-    background-color: transparent;
-}
-
 .uppercase {
     text-transform: uppercase;
 }
@@ -154,6 +148,61 @@ h1 {
     animation: fade-in 2s linear backwards;
     transition: all 1s;
 }
+.hero-img.rotate {
+    animation: rotate 6s linear forwards infinite;
+}
+@keyframes rotate {
+     0% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_00.png'); }
+     2% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_01.png'); }
+     4% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_02.png'); }
+     6% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_03.png'); }
+     8% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_04.png'); }
+    10% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_05.png'); }
+    12% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_06.png'); }
+    14% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_07.png'); }
+    16% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_08.png'); }
+    18% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_09.png'); }
+    20% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_10.png'); }
+    22% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_11.png'); }
+    24% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_12.png'); }
+    26% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_13.png'); }
+    28% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_14.png'); }
+    30% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_15.png'); }
+    32% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_16.png'); }
+    34% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_17.png'); }
+    36% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_18.png'); }
+    38% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_19.png'); }
+    40% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_20.png'); }
+    42% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_21.png'); }
+    44% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_22.png'); }
+    46% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_23.png'); }
+    48% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_24.png'); }
+    50% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_25.png'); }
+    52% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_26.png'); }
+    54% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_27.png'); }
+    56% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_28.png'); }
+    58% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_29.png'); }
+    60% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_30.png'); }
+    62% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_31.png'); }
+    64% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_32.png'); }
+    66% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_33.png'); }
+    68% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_34.png'); }
+    70% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_35.png'); }
+    72% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_36.png'); }
+    74% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_37.png'); }
+    76% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_38.png'); }
+    78% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_39.png'); }
+    80% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_40.png'); }
+    82% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_41.png'); }
+    84% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_42.png'); }
+    86% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_43.png'); }
+    88% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_44.png'); }
+    90% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_45.png'); }
+    92% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_46.png'); }
+    94% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_47.png'); }
+    96% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_00.png'); }
+    100% { content: url('../img/Ducati/360/PANV4SP2_TURNTABLE_00.png'); }
+}
 
 .info-btn {
     display: inline-block;
@@ -166,7 +215,7 @@ h1 {
     background-color: transparent;
     box-shadow: 2px 2px 2px rgba(0,0,0,1),
     -1px -1px 2px rgba(255, 255, 255, 0.2);
-    animation: fade-in 2s linear 1s backwards;
+    animation: fade-in 0s linear 3.2s backwards;
 }
 .info-btn:active {
     transform: scale(0.98);
@@ -186,6 +235,7 @@ h1 {
     display: flex;
     flex-direction: column;
     row-gap: 2rem;
+    animation: fade-left 2s linear 1s backwards;
 }
 
 .slide-btn {
@@ -201,14 +251,14 @@ h1 {
     transform: rotateY(180deg);
 }
 
-nav {
-    align-self: flex-start;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1em;
+@keyframes fade-left {
+    0% { 
+        transform: translateX(30%);
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.2;
+    }
 }
 
 .logo {
@@ -260,4 +310,7 @@ nav {
 }
 .feature {
     border: 1px solid white;
+} */
+/* .center {
+    border: 1px solid greenyellow;
 } */
