@@ -57,6 +57,7 @@ header::before {
 }
 
 .images {
+    --scroll-value: 0;
     position: absolute;
     width: 100%;
     height: 100vh;
@@ -71,32 +72,43 @@ header::before {
 
 .plan1 {
     z-index: 7;
+    transform: translateY(calc(var(--scroll-value) * 0.6 * -1px));
 }
 .plan2 {
     z-index: 6;
+    transform: translateY(calc(var(--scroll-value) * 0.55 * -1px));
 }
 .plan3 {
     z-index: 5;
+    transform: translateY(calc(var(--scroll-value) * 0.45 * -1px));
 }
 .plan4 {
     z-index: 4;
+    transform: translateY(calc(var(--scroll-value) * 0.35 * -1px));
 }
 .plan5 {
     z-index: 3;
+    transform: translateY(calc(var(--scroll-value) * 0.2 * -1px));
 }
 .plan6 {
     z-index: 2;
+    transform: translateY(calc(var(--scroll-value) * 0.1 * -1px));
 }
 .plan7 {
     z-index: 1;
+    transform: translateY(calc(var(--scroll-value) * 0.0 * -1px));
 }
 
 h1 {
     position: absolute;
-    font-size: 6rem;
+    font-size: 10rem;
     font-family: 'Abril Fatface', cursive;
-    text-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    color: transparent;
+    -webkit-text-stroke: 1px #000;
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.8));
+    /* text-shadow: 0px 5px 5px rgba(0,0,0,0.6); */
     z-index: 5;
+    opacity: 0.6;
 }
 h1, h2 {
     text-transform: capitalize;
@@ -111,4 +123,36 @@ p {
 
 .main {
     padding: 4rem 3rem 2rem;
+}
+.main article {
+    position: relative;
+}
+.main article p, h2 {
+    position: relative;
+    z-index: 5;
+}
+
+.main article:nth-child(2) {
+    position: relative;
+    padding-left: 30%;
+    background-image: url("../img/parallaxIII/NYcity.png");
+    background-repeat: no-repeat, no-repeat;
+    background-position: left, left;
+    background-size: contain, contain;
+}
+.main article:nth-child(2):after {
+    position: absolute;
+    inset: 0;
+    content: '';
+    background-image: linear-gradient(to left, #000, transparent, #000);
+    z-index: 1;
+}
+
+.main article:last-child {
+    position: relative;
+    padding-right: 20%;
+    background-image: url("../img/parallaxIII/park.png");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: contain;
 }
