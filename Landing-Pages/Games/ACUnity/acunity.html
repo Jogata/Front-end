@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUBG Mobile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/styles-pubg.css">
+</head>
+<body>
+    <header id="top">
+        <nav>
+            <div class="container">
+                <div class="nav-content">
+                    <ul class="nav-list">
+                        <li><a href="#top" class="nav-link active">home</a></li>
+                        <li><a href="#top" class="nav-link">royal pass</a></li>
+                        <li><a href="#top" class="nav-link">news</a></li>
+                        <li><a href="#top" class="nav-link">gallery</a></li>
+                        <li><a href="#top" class="nav-link">events</a></li>
+                        <li><a href="#top" class="nav-link">workshop</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <button class="menu" type="button">menu
+            <img src="./img/icons/hamburger.png" alt="">
+        </button>
+    </header>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <img src="./img/pubg-logo.png" class="logo" alt="PUBG Mobile logo">
+                <p class="description">PUBG Mobile is a free-to-play battle royale video game developed by LightSpeed & Quantum Studio, a division of Tencent Games. It is a mobile game adaptation of PUBG: Battlegrounds (previously known as PlayerUnknown's Battlegrounds).</p>
+                <div class="download">
+                    <a href="#" class="play-btn">google play</a>
+                    <a href="#" class="apple-btn">apple store</a>
+                </div>
+            </div>
+        </div>
+        <div class="slider">
+            <div class="slide fade-in">
+                <div class="slide-inner">
+                    <img src="./img/pubg-boy.png" class="slide-img" alt="Male shooter">
+                </div>
+            </div>
+            <div class="slide">
+                <div class="slide-inner">
+                    <img src="./img/pubg-girl.png" class="slide-img" alt="female shooter">
+                </div>
+            </div>
+            <div class="arrows">
+                <div class="arrow prev">
+                    <img src="./img/icons/arrow-left.png" alt="">
+                </div>
+                <div class="arrow next">
+                    <img src="./img/icons/arrow-right.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <ul class="social-icons">
+        <li>
+            <button type="button" class="share-btn">share
+                <img src="./img/icons/share.png" alt="Share icon">
+            </button>
+        </li>
+        <li>
+            <a href="#" class="social-icon" style="--i:0">
+                <img src="./img/icons/facebook.png" alt="Facebook">
+            </a>
+        </li>
+        <li>
+            <a href="#" class="social-icon" style="--i:1">
+                <img src="./img/icons/twitter.png" alt="Twitter">
+            </a>
+        </li>
+        <li>
+            <a href="#" class="social-icon" style="--i:2">
+                <img src="./img/icons/youtube.png" alt="Youtube">
+            </a>
+        </li>
+        <li>
+            <a href="#" class="social-icon" style="--i:3">
+                <img src="./img/icons/instagram.png" alt="Instagram">
+            </a>
+        </li>
+    </ul>
+
+    <script>
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                const activeLink = document.querySelector('.nav-link.active');
+                activeLink.classList.remove('active');
+                link.classList.add('active');
+            })
+        })
+
+        const menuBtn = document.querySelector('.menu');
+        const navigation = document.querySelector('nav');
+        menuBtn.addEventListener('click', () => {
+            navigation.classList.toggle('active');
+        })
+
+        const shareBtn = document.querySelector('.share-btn')
+        const socialIcons = document.querySelectorAll('.social-icon');
+        shareBtn.addEventListener('click', () => {
+            socialIcons.forEach(icon => {
+                icon.classList.toggle('visible');
+            })
+        })
+        socialIcons.forEach(icon => {
+            icon.addEventListener('click', () => {
+                icon.classList.remove('visible');
+            })
+        })
+
+        const arrows = document.querySelectorAll('.arrow');
+        arrows.forEach(arrow => {
+            arrow.addEventListener('click', () => {
+                const slides = document.querySelectorAll('.slide');
+                slides.forEach(slide => {
+                    slide.classList.toggle('fade-in');
+                })
+            })
+        })
+    </script>
+</body>
+</html>

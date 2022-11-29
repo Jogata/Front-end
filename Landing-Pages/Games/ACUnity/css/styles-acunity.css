@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+/* 
+font-family: 'Abril Fatface', cursive;
+*/
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 1em;
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    white-space: nowrap;
+}
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+    user-select: none;
+}
+
+nav {
+    position: absolute;
+    width: 100%;
+    padding: 1.5em 0;
+    z-index: 2;
+    transition: all 0.5s ease-in-out;
+}
+
+.container {
+    width: 100%;
+    max-width: 1370px;
+    margin: 0 auto;
+    padding: 0 1em;
+}
+
+.nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-list li {
+    margin-right: 2.5em;
+}
+.nav-link {
+    position: relative;
+    display: block;
+    color: #fff;
+    font-size: 1.7rem;
+    font-weight: 300;
+    text-transform: capitalize;
+    border-bottom: 0.1em solid transparent;
+    transition: all 0.5s;
+}
+.nav-link.active, 
+.nav-link:hover {
+    color: #f3ba19;
+}
+.nav-link.active {
+    border-bottom: 0.1em solid #f3ba19;
+}
+
+.menu {
+    position: absolute;
+    inset: 1rem 1rem auto auto;
+    display: none;
+    max-width: 2.4rem;
+    font-size: 0px;
+    border-radius: 0.5rem;
+    transition: all 0.5s;
+    z-index: 3;
+}
+.menu:hover {
+    background-color: #e7b11f;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap-reverse;
+    background-image: url('../img/pubg-background.jpg');
+    background-position: center;
+    background-size: cover;
+    transform-style: preserve-3d;
+    overflow: hidden;
+}
+.hero::after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: rgba(16, 16, 16, 0.5);
+    backdrop-filter: blur(1px);
+    z-index: 1;
+}
+.hero .container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+
+.hero-content {
+    max-width: 450px;
+    min-height: 600px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+}
+
+.logo {
+    margin-bottom: 0.75em;
+}
+.description {
+    margin-bottom: 2em;
+    padding: 0 1.2em;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+.download {
+    display: flex;
+    justify-content: space-evenly;
+    column-gap: 20px;
+    flex-wrap: wrap;
+}
+.play-btn, 
+.apple-btn {
+    min-width: 120px;
+    max-width: 180px;
+    width: 50%;
+    aspect-ratio: 8 / 3;
+    margin: 0 12px;
+    font-size: 0px;
+    outline: none;
+    transition: all 0.5s;
+}
+.play-btn {
+    background: url('../img/icons/googleplay.png') top center no-repeat;
+    background-size: contain;
+}
+.apple-btn {
+    background: url('../img/icons/appstore.png') top center no-repeat;
+    background-size: contain;
+}
+.play-btn:hover, 
+.play-btn:focus, 
+.apple-btn:hover, 
+.apple-btn:focus {
+    transform: scale(1.1);
+}
+
+.slider {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    margin-bottom: -270px;
+    isolation: isolate;
+    z-index: 2;
+}
+.slide {
+    display: flex;
+    justify-content: center;
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+    opacity: 0;
+    transition: all 0.8s;
+}
+.slide-img {
+    min-width: 250px;
+    height: 100vh;
+    min-height: 600px;
+    object-fit: contain;
+    object-position: center;
+}
+.slide.fade-in {
+    opacity: 1;
+    transition-delay: 0.6s;
+}
+
+.arrows {
+    width: 100%;
+    position: absolute;
+    inset: 30% auto auto 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 1vw;
+}
+.arrow {
+    width: min(10vw, 45px);
+    height: min(10vw, 45px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: invert(1);
+    border-radius: 10px;
+    opacity: 0.4;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+.arrow:hover {
+    opacity: 1;
+}
+
+.social-icons {
+    position: absolute;
+    inset: auto 1rem 1rem auto;
+    justify-content: center;
+    flex-direction: column-reverse;
+}
+.social-icon {
+    display: block;
+    width: 30px;
+    margin: auto;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s;
+    transition-delay: calc((3 - var(--i)) * 0.1s);
+}
+.social-icon:focus-visible {
+    transform: scale(1);
+    opacity: 1;
+}
+.social-icon.visible {
+    opacity: 1;
+    transform: scale(1);
+    transition-delay: calc(var(--i) * 0.1s);
+}
+.share-btn {
+    width: 40px;
+    font-size: 0px;
+    border: none;
+    background-color: transparent;
+}
+
+.hero > * {
+    width: 50%;
+    min-width: fit-content;
+}
+
+@media screen and (max-width: 600px) {
+    nav {
+        top: -100%;
+        background-color: #27211f;
+    }
+    .nav-list {
+        flex-direction: column;
+    }
+    .menu {
+        display: block;
+    }
+    nav.active {
+        top: 0;
+    }
+}
