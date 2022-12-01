@@ -1,7 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Herr+Von+Muellerhoff&family=Kaushan+Script&family=Playfair+Display&display=swap');
 /* 
 font-family: 'Abril Fatface', cursive;
+font-family: 'Courgette', cursive;
+font-family: 'Dancing Script', cursive;
+font-family: 'Great Vibes', cursive;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Limelight', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Oleo Script Swash Caps', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Kaushan Script', cursive;
+font-family: 'Fraunces', serif;
+font-family: 'Herr Von Muellerhoff', cursive;
+font-family: 'Playfair Display', serif;
 */
 
 *, *::before, *::after {
@@ -10,269 +24,173 @@ font-family: 'Abril Fatface', cursive;
     box-sizing: border-box;
 }
 
-body {
-    position: relative;
-}
-
 ul {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
+    column-gap: 3em;
     row-gap: 1em;
     list-style: none;
 }
 a {
     text-decoration: none;
     white-space: nowrap;
+    outline: none;
 }
+
 button {
+    text-transform: capitalize;
+    outline: none;
+    background-color: transparent;
     cursor: pointer;
 }
 
 img {
     max-width: 100%;
     vertical-align: middle;
-    user-select: none;
+    position: absolute;
+}
+
+body {
+    color: #fff;
+    background-color: #000;
+}
+
+.contentX {
+    height: 1950px;
+    background-image: url('../img/bg.jpg');
+    background-size: cover;
 }
 
 nav {
-    position: absolute;
-    width: 100%;
-    padding: 1.5em 0;
-    z-index: 2;
-    transition: all 0.5s ease-in-out;
-}
-
-.container {
-    width: 100%;
-    max-width: 1370px;
-    margin: 0 auto;
-    padding: 0 1em;
-}
-
-.nav-content {
+    padding: 1em;
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
-
-.nav-list li {
-    margin-right: 2.5em;
+.logo {
+    position: static;
+    width: 6%;
+    cursor: pointer;
 }
-.nav-link {
-    position: relative;
-    display: block;
-    color: #fff;
-    font-size: 1.7rem;
-    font-weight: 300;
-    text-transform: capitalize;
-    border-bottom: 0.1em solid transparent;
-    transition: all 0.5s;
-}
-.nav-link.active, 
-.nav-link:hover {
-    color: #f3ba19;
-}
-.nav-link.active {
-    border-bottom: 0.1em solid #f3ba19;
-}
-
-.menu {
-    position: absolute;
-    inset: 1rem 1rem auto auto;
-    display: none;
-    max-width: 2.4rem;
-    font-size: 0px;
-    border-radius: 0.5rem;
-    transition: all 0.5s;
-    z-index: 3;
-}
-.menu:hover {
-    background-color: #e7b11f;
-}
-
-.hero {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap-reverse;
-    background-image: url('../img/pubg-background.jpg');
-    background-position: center;
-    background-size: cover;
-    transform-style: preserve-3d;
-    overflow: hidden;
-}
-.hero::after {
-    position: absolute;
-    content: '';
-    width: 100%;
-    height: 100%;
-    background-color: rgba(16, 16, 16, 0.5);
-    backdrop-filter: blur(1px);
-    z-index: 1;
-}
-.hero .container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 3;
-}
-
-.hero-content {
-    max-width: 450px;
-    min-height: 600px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+ul {
     margin: auto;
 }
-
-.logo {
-    margin-bottom: 0.75em;
-}
-.description {
-    margin-bottom: 2em;
-    padding: 0 1.2em;
+a {
     color: #fff;
-    font-size: 1.1rem;
-    font-weight: 300;
-}
-.download {
-    display: flex;
-    justify-content: space-evenly;
-    column-gap: 20px;
-    flex-wrap: wrap;
-}
-.play-btn, 
-.apple-btn {
-    min-width: 120px;
-    max-width: 180px;
-    width: 50%;
-    aspect-ratio: 8 / 3;
-    margin: 0 12px;
-    font-size: 0px;
-    outline: none;
-    transition: all 0.5s;
-}
-.play-btn {
-    background: url('../img/icons/googleplay.png') top center no-repeat;
-    background-size: contain;
-}
-.apple-btn {
-    background: url('../img/icons/appstore.png') top center no-repeat;
-    background-size: contain;
-}
-.play-btn:hover, 
-.play-btn:focus, 
-.apple-btn:hover, 
-.apple-btn:focus {
-    transform: scale(1.1);
-}
-
-.slider {
-    position: relative;
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
-    margin-bottom: -270px;
-    isolation: isolate;
-    z-index: 2;
-}
-.slide {
-    display: flex;
-    justify-content: center;
-    grid-column: 1 / 1;
-    grid-row: 1 / 1;
-    opacity: 0;
-    transition: all 0.8s;
-}
-.slide-img {
-    min-width: 250px;
-    height: 100vh;
-    min-height: 600px;
-    object-fit: contain;
-    object-position: center;
-}
-.slide.fade-in {
-    opacity: 1;
-    transition-delay: 0.6s;
-}
-
-.arrows {
-    width: 100%;
-    position: absolute;
-    inset: 30% auto auto 0;
-    display: flex;
-    justify-content: space-between;
-    padding: 1vw;
-}
-.arrow {
-    width: min(10vw, 45px);
-    height: min(10vw, 45px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    filter: invert(1);
-    border-radius: 10px;
-    opacity: 0.4;
-    cursor: pointer;
+    padding: 0.4em 1em;
+    font-size: 1.6rem;
+    text-transform: capitalize;
+    border: 2px solid transparent;
+    border-radius: 1em;
     transition: all 0.4s;
 }
-.arrow:hover {
-    opacity: 1;
+a:hover {
+    color: #5f9ea0;
+}
+a:focus-visible {
+    border: 2px solid #fff;
 }
 
-.social-icons {
+header {
+    position: relative;
+    height: 100vh;
+    background-image: linear-gradient(to top, transparent, #000);
+    perspective: 5px;
+    transform-style: preserve-3d;
+}
+header::after {
     position: absolute;
-    inset: auto 1rem 1rem auto;
-    justify-content: center;
-    flex-direction: column-reverse;
-}
-.social-icon {
-    display: block;
-    width: 30px;
-    margin: auto;
+    content: '';
+    inset: 0;
+    background-image: url('../img/ac_unity_logo_big.png');
+    background-image: url('../img/ac_unity_logo_big.png'), url('../img/arno-jump.png');
+    background-repeat: no-repeat;
+    background-position: center 70%, 10% center;
+    background-size: auto 60%, contain;
+    backdrop-filter: blur(20px);
     opacity: 0;
-    transform: scale(0);
-    transition: all 0.3s;
-    transition-delay: calc((3 - var(--i)) * 0.1s);
+    /* z-index: -9; */
+    animation: fade 3s linear 3s backwards;
 }
-.social-icon:focus-visible {
-    transform: scale(1);
-    opacity: 1;
-}
-.social-icon.visible {
-    opacity: 1;
-    transform: scale(1);
-    transition-delay: calc(var(--i) * 0.1s);
-}
-.share-btn {
-    width: 40px;
-    font-size: 0px;
-    border: none;
-    background-color: transparent;
+@keyframes fade {
+    0% {
+        opacity: 1;
+    }
 }
 
-.hero > * {
-    width: 50%;
-    min-width: fit-content;
+.logo-big {
+    position: static;
+    display: block;
+    width: 30%;
+    margin: auto;
 }
 
-@media screen and (max-width: 600px) {
-    nav {
-        top: -100%;
-        background-color: #27211f;
-    }
-    .nav-list {
-        flex-direction: column;
-    }
-    .menu {
-        display: block;
-    }
-    nav.active {
-        top: 0;
-    }
+button {
+    display: block;
+    margin: auto;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 5rem;
+    padding: 0.4em 1em;
+    border: 1px solid #fff;
+    border-radius: 1em;
+    font-family: 'Kaushan Script', cursive;
+    font-family: 'Fraunces', serif;
+    transition: all 0.4s;
+}
+button:hover {
+    color: #5f9ea0;
+    border: 1px solid #5f9ea0;
+    background-color: #041413;
+}
+
+h1 {
+    align-self: center;
+    font-size: 5rem;
+    font-family: 'Great Vibes', cursive;
+    font-family: 'Kaushan Script', cursive;
+    text-align: center;
+}
+h2 {
+    align-self: center;
+    font-size: 2.5rem;
+    font-family: 'Fraunces', serif;
+    font-family: 'Playfair Display', serif;
+    font-family: 'Abril Fatface', cursive;
+    text-align: center;
+}
+cite {
+    font-weight: bold;
+}
+p {
+    margin: 0.5em 0;
+}
+
+.bgx {
+    padding: 2rem 5rem;
+}
+
+
+
+.contentX {
+    position: relative;
+}
+img:nth-child(11) {
+    right: 0;
+    bottom: 50%;
+}
+img:nth-child(12),
+img:nth-child(13) {
+    left: 0;
+    bottom: 10%;
+}
+img:nth-child(14) {
+    left: 40%;
+    bottom: 10%;
+}
+img:nth-child(15) {
+    bottom: 0;
+    left: 0;
 }
