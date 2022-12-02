@@ -16,12 +16,14 @@
 
         body {
             width: 100%;
-            height: 100vh;
+            min-height: 100vh;
+            padding: 2rem 5rem;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            row-gap: 5rem;
+            row-gap: 2rem;
+            background-color: whitesmoke;
             overflow-x: hidden;
         }
 
@@ -45,10 +47,12 @@
         #slider {
             position: relative;
             width: 100%;
+            height: 620px;
             perspective: 1000px;
             transform-style: preserve-3d;
             display: flex;
             align-items: center;
+            pointer-events: none;
         }
         #slider input {
             display: none;
@@ -59,75 +63,73 @@
             width: 450px;
             height: 620px;
             margin: auto;
+            font-size: 0px;
             border-radius: 4px;
             background-position: center;
             background-size: cover;
+            box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.2);
+            pointer-events: all;
             cursor: pointer;
             transition: transform 0.4s ease;
         }
 
 
-        #s1:checked ~ #label4,
-        #s2:checked ~ #label5,
-        #s3:checked ~ #label1,
-        #s4:checked ~ #label2,
-        #s5:checked ~ #label3 {
+        #s1:checked ~ #label2, 
+        #s2:checked ~ #label3, 
+        #s3:checked ~ #label4, 
+        #s4:checked ~ #label5, 
+        #s5:checked ~ #label1 {
             transform: translate3d(35%, 0, -100px);
             box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.37);
         }
-        #s1:checked ~ #label5,
-        #s2:checked ~ #label1,
-        #s3:checked ~ #label2,
-        #s4:checked ~ #label3,
-        #s5:checked ~ #label4 {
+        #s1:checked ~ #label3, 
+        #s2:checked ~ #label4, 
+        #s3:checked ~ #label5, 
+        #s4:checked ~ #label1,
+        #s5:checked ~ #label2 {
             transform: translate3d(70%, 0, -200px);
             box-shadow: 0px 6px 10px 0px rgba(0,0,0,0.3), 
                         0px 2px 2px 0px rgba(0,0,0,0.2);
         }
-        #s1:checked ~ #label2,
-        #s2:checked ~ #label3,
-        #s3:checked ~ #label4,
-        #s4:checked ~ #label5,
-        #s5:checked ~ #label1 {
+        #s1:checked ~ #label4, 
+        #s2:checked ~ #label5, 
+        #s3:checked ~ #label1, 
+        #s4:checked ~ #label2, 
+        #s5:checked ~ #label3 {
             transform: translate3d(-70%, 0, -200px);
             box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.37), 
                         0px 2px 2px 0px rgba(0,0,0,0.2);
         }
-        #s1:checked ~ #label3,
-        #s2:checked ~ #label4,
-        #s3:checked ~ #label5,
-        #s4:checked ~ #label1,
-        #s5:checked ~ #label2 {
+        #s1:checked ~ #label5,
+        #s2:checked ~ #label1, 
+        #s3:checked ~ #label2, 
+        #s4:checked ~ #label3, 
+        #s5:checked ~ #label4 {
             transform: translate3d(-35%, 0, -100px);
             box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.37), 
                         0px 2px 2px 0px rgba(0,0,0,0.2);
         }
 
         #label1 {
-            background-image: url("../Landing-Pages/00templates/lambo-logo-abstract.jpg");
-            background-image: url("../Landing-Pages/00templates/cars/porcshe/Alex-Grey-315991634_1384534358951064_4556188854349752105_n.jpg");
+            background-image: url("./img/v1/Alex-Grey-315991634.jpg");
         }
         #label2 {
-            background-image: url("../Landing-Pages/00templates/bcb3a10d1e1dc6f6f3971e33972fcf64.jpg");
-            background-image: url("../Landing-Pages/00templates/cars/porcshe/GTS-Red-312382293_198291745926638_1578479981867238986_n.jpg");
+            background-image: url("./img/v1/GTS-Red-312382293.jpg");
         }
         #label3 {
-            background-image: url("../Landing-Pages/00templates/football/10c78154d77cda2f50eed2baa38c5ede.jpg");
-            background-image: url("../Landing-Pages/00templates/cars/porcshe/Gulf-Blue-312502406_526184235986672_8250477321868065797_n.jpg");
+            background-image: url("./img/v1/Gulf-Blue-312502406.jpg");
         }
         #label4 {
-            background-image: url("../Landing-Pages/00templates/football/70088da7e6ecd433b6d21464d2c2c726.jpg");
-            background-image: url("../Landing-Pages/00templates/cars/porcshe/Ice-Green-Metallic-314398192_489708073110986_2334403663181738895_n.jpg");
+            background-image: url("./img/v1/Ice-Green-Metallic-314398192.jpg");
         }
         #label5 {
-            background-image: url("../Landing-Pages/00templates/football/Wallpaperkiss_1323479.png");
-            background-image: url("../Landing-Pages/00templates/cars/porcshe/Racing-Green-Metallic-315601499_503579125125727_453567937133274732_n.jpg");
+            background-image: url("./img/v1/Racing-Green-Metallic-315601499.jpg");
         }
     </style>
 </head>
 
 <body>
-    <h1><span>Slider</span><span>CSS only</span><em>&lt;input type="radio"&gt</em></h1>
+    <h1><span>Slider</span><span>CSS only</span><em>&lt; input type="radio"&gt </em></h1>
     <section id="slider">
         <input type="radio" name="slider" id="s1">
         <input type="radio" name="slider" id="s2">
@@ -135,11 +137,11 @@
         <input type="radio" name="slider" id="s4">
         <input type="radio" name="slider" id="s5">
 
-        <label for="s1" id="label1"></label>
-        <label for="s2" id="label2"></label>
-        <label for="s3" id="label3"></label>
-        <label for="s4" id="label4"></label>
-        <label for="s5" id="label5"></label>
+        <label for="s1" id="label1">Alex Grey</label>
+        <label for="s2" id="label2">GTS Red</label>
+        <label for="s3" id="label3">Gulf Blue</label>
+        <label for="s4" id="label4">Ice Green Metallic</label>
+        <label for="s5" id="label5">Racing Green Metallic</label>
     </section>
 </body>
 
