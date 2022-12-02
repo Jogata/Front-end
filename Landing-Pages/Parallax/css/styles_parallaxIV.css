@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Herr+Von+Muellerhoff&family=Kaushan+Script&family=Playfair+Display&display=swap');
+/* 
+font-family: 'Abril Fatface', cursive;
+font-family: 'Courgette', cursive;
+font-family: 'Dancing Script', cursive;
+font-family: 'Great Vibes', cursive;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Limelight', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Oleo Script Swash Caps', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Kaushan Script', cursive;
+font-family: 'Fraunces', serif;
+font-family: 'Herr Von Muellerhoff', cursive;
+font-family: 'Playfair Display', serif;
+*/
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+}
+
+.bird-box {
+    position: relative;
+    min-height: 100vh;
+    background-image: url("../img/parallaxIV/bird-bg.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.title {
+    z-index: 1;
+}
+
+h1 {
+    font-size: min(13vw, 5rem);
+    font-family: 'Dancing Script', cursive;
+    text-transform: capitalize;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
+}
+h1 span {
+    position: relative;
+    display: block;
+    width: fit-content;
+    margin: auto;
+    padding: 0 0.4em;
+    font-size: .4em;
+    font-weight: initial;
+}
+h1 span::before, 
+h1 span::after {
+    position: absolute;
+    top: 48%;
+    content: '';
+    width: 80%;
+    height: 5%;
+    background-color: #000;
+}
+h1 span::before {
+    left: -80%;
+}
+h1 span::after {
+    right: -80%;
+}
+
+
+/* .front-bird {
+    position: absolute;
+    left: 50%;
+    top: 400px;
+    margin-left: -480px;
+    width: 960px;
+    height: 733px;
+    background-image: url('../img/parallaxIV/fore-bird.png');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+}
+.back-bird {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 150px;
+    aspect-ratio: 1;
+    background-image: url('../img/parallaxIV/white_dove.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: blur(5px) brightness(0.2);
+} */
+
+.front-bird {
+    position: absolute;
+    right: 10%;
+    bottom: 0%;
+    width: 450px;
+    width: max(430px, 41%);
+    transform: translateY(70%);
+    z-index: 3;
+}
+.back-bird {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 14%;
+    width: max(150px, 14%);
+    aspect-ratio: 1;
+    transform: translateY(0%);
+    filter: blur(10px) brightness(0.2);
+}
+
+
+.bird-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+/* h1 {border: 1px solid;} */
+/* span {border: 1px solid red;} */
+
+.content {
+    height: 100vh;
+    padding: 5% 20%;
+    color: #888;
+    text-align: center;
+}
+h2 {
+    margin-bottom: 1em;
+    font-size: 3rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: initial;
+    text-transform: capitalize;
+}
