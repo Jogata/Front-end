@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax Scrolling Effect</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/styles_parallaxIV.css">
+</head>
+<body>
+    <header class="header">
+        <div class="back-bird">
+            <img src="./img/parallaxIV/white_dove.png" alt="">
+        </div>
+        <div class="title">
+            <h1>black bird <span>clothing</span></h1>
+        </div>
+        <div class="front-bird">
+            <img src="./img/parallaxIV/fore-bird.png" alt="">
+        </div>
+    </header>
+    <section class="content">
+        <h2>clothing store</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam eaque quod fuga eius dolores voluptatum fugit deserunt rerum asperiores. Aut corporis reiciendis impedit recusandae delectus aliquid illo odit itaque, iusto fuga eligendi quibusdam et ullam ipsa natus eveniet obcaecati, quas provident voluptas sequi earum inventore eum! Asperiores, in nesciunt itaque molestias assumenda magni perspiciatis veritatis mollitia deleniti voluptate ea nemo accusantium soluta saepe, eveniet quam, quisquam amet hic dolorum et impedit deserunt corrupti similique.</p>
+    </section>
+
+    <script>
+        window.addEventListener("scroll", parallax);
+
+        function parallax() {
+            const title = document.querySelector(".title");
+            const backBird = document.querySelector(".back-bird");
+            const frontBird = document.querySelector(".front-bird");
+            let frontBirdPosition = Math.max(1, (70 - (pageYOffset / 20)));
+            frontBird.style.transform = `translateY(${frontBirdPosition}%)`;
+        }
+    </script>
+</body>
+</html>
