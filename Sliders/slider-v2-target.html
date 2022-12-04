@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slider | CSS Only</title>
+
+    <style>
+        .slide-container {
+            position: relative;
+            width: 2160px;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .image-slider {
+            width: 100%;
+            height: 600px;
+            position: absolute;
+            left: 0;
+            display: flex;
+            align-items: center;
+            transition: all 0.7s;
+        }
+
+        .slide-div {
+            position: relative;
+            min-width: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 30px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .img {
+            width: 100%;
+            filter: saturate(10%);
+            transition: all 0.5s;
+        }
+
+        .button {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            transition: all 0.5s;
+        }
+        .slide-div:hover .button {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        .slide-div:hover .img {
+            filter: saturate(100%);
+        }
+
+
+        #slider-span-1:target ~ .image-slider #slide-1, 
+        #slider-span-1:target ~ .image-slider #img-1, 
+        #slider-span-1:target ~ .image-slider #button-1 {
+            min-width: 300px;
+            background-color: transparent;
+            filter: saturate(100%);
+        }
+        #slider-span-2:target ~ .image-slider #slide-2, 
+        #slider-span-2:target ~ .image-slider #img-2, 
+        #slider-span-2:target ~ .image-slider #button-2 {
+            min-width: 300px;
+            background-color: transparent;
+            filter: saturate(100%);
+        }
+        #slider-span-3:target ~ .image-slider #slide-3, 
+        #slider-span-3:target ~ .image-slider #img-3, 
+        #slider-span-3:target ~ .image-slider #button-3 {
+            min-width: 300px;
+            background-color: transparent;
+            filter: saturate(100%);
+        }
+        #slider-span-4:target ~ .image-slider #slide-4, 
+        #slider-span-4:target ~ .image-slider #img-4, 
+        #slider-span-4:target ~ .image-slider #button-4 {
+            min-width: 300px;
+            background-color: transparent;
+            filter: saturate(100%);
+        }
+        #slider-span-5:target ~ .image-slider #slide-5, 
+        #slider-span-5:target ~ .image-slider #img-5, 
+        #slider-span-5:target ~ .image-slider #button-5 {
+            min-width: 300px;
+            background-color: transparent;
+            filter: saturate(100%);
+        }
+        #slider-span-6:target ~ .image-slider #slide-6, 
+        #slider-span-6:target ~ .image-slider #img-6, 
+        #slider-span-6:target ~ .image-slider #button-6 {
+            min-width: 300px;
+            background-color: transparent;
+            filter: saturate(100%);
+        }
+        #slider-span-7:target ~ .image-slider #slide-7, 
+        #slider-span-7:target ~ .image-slider #img-7, 
+        #slider-span-7:target ~ .image-slider #button-7 {
+            min-width: 300px;
+            background-color: transparent;
+            filter: saturate(100%);
+        }
+
+        #slider-span-1:target ~ .image-slider  {left: 41.84%;}
+        #slider-span-2:target ~ .image-slider  {left: 28.56%;}
+        #slider-span-3:target ~ .image-slider  {left: 14.28%;}
+        #slider-span-4:target ~ .image-slider  {left: 0%;}
+        #slider-span-5:target ~ .image-slider  {left: -14.28%;}
+        #slider-span-6:target ~ .image-slider  {left: -28.56%;}
+        #slider-span-7:target ~ .image-slider  {left: -41.84%;}
+
+
+
+        *, ::before, ::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            padding: 2rem 5rem;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            row-gap: 2rem;
+            background-color: #444;
+            overflow-x: hidden;
+        }
+
+        h1.relef-frame-up {
+            padding: 15px;
+            text-align: center;
+            border: 4px solid #444;
+            border-radius: 10px;
+            box-shadow: 1px 2px 3px 2px rgba(0, 0, 0, 0.1), 
+                    -1px -1px 3px 0 rgba(255, 255, 255, 0.075), 
+                    inset 3px 3px 6px 0px rgba(0, 0, 0, 0.06), 
+                    inset 2px 2px 3px 0 rgba(0, 0, 0, 0.07), 
+            inset -3px -3px 4px 0px rgba(255, 255, 255, 0.05);
+        }
+        h1 span {
+            padding: 0px 15px;
+            color: cornflowerblue;
+            border-right: 2px solid cornflowerblue;
+        }
+        em {
+            color: crimson;
+            padding: 0 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="relef-frame-up"><span>Slider</span><span>CSS only</span><em>:target pseudo-class</em></h1>
+
+    <div class="slide-container">
+        <span class="slider-span" id="slider-span-1"></span>
+        <span class="slider-span" id="slider-span-2"></span>
+        <span class="slider-span" id="slider-span-3"></span>
+        <span class="slider-span" id="slider-span-4"></span>
+        <span class="slider-span" id="slider-span-5"></span>
+        <span class="slider-span" id="slider-span-6"></span>
+        <span class="slider-span" id="slider-span-7"></span>
+
+        <div class="image-slider">
+            <div class="slide-div" id="slide-1">
+                <img src="./img/porsche/Alex-Grey-315991634.jpg" alt="Porcshe 911" class="img" id="img-1">
+                <a href="#slider-span-1" class="button" id="button-1"></a>
+            </div>
+            <div class="slide-div" id="slide-2">
+                <img src="./img/porsche/GTS-Red-312382293.jpg" alt="Porcshe 911" class="img" id="img-2">
+                <a href="#slider-span-2" class="button" id="button-2"></a>
+            </div>
+            <div class="slide-div" id="slide-3">
+                <img src="./img/porsche/Gulf-Blue-312502406.jpg" alt="Porcshe 911" class="img" id="img-3">
+                <a href="#slider-span-3" class="button" id="button-3"></a>
+            </div>
+            <div class="slide-div" id="slide-4">
+                <img src="./img/porsche/Ice-Green-Metallic-314398192.jpg" alt="Porcshe 911" class="img" id="img-4">
+                <a href="#slider-span-4" class="button" id="button-4"></a>
+            </div>
+            <div class="slide-div" id="slide-5">
+                <img src="./img/porsche/Light-Ivory-311029983.jpg" alt="Porcshe 911" class="img" id="img-5">
+                <a href="#slider-span-5" class="button" id="button-5"></a>
+            </div>
+            <div class="slide-div" id="slide-6">
+                <img src="./img/porsche/Racing-Green-Metallic-315601499.jpg" alt="Porcshe 911" class="img" id="img-6">
+                <a href="#slider-span-6" class="button" id="button-6"></a>
+            </div>
+            <div class="slide-div" id="slide-7">
+                <img src="./img/porsche/Viola-Metallic-296701293.jpg" alt="Porcshe 911" class="img" id="img-7">
+                <a href="#slider-span-7" class="button" id="button-7"></a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
