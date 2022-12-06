@@ -142,12 +142,42 @@ body {
     text-align: center;
 }
 
+main {
+    display: grid;
+    column-gap: 3rem;
+}
+
 h1 {
     max-width: 12ch;
     margin: 0 auto 1em;
     font-size: var(--fs-900);
     color: var(--clr-primary-700);
     line-height: 1;
+}
+
+@media screen and (min-width: 50em) {
+    main {
+        grid-template-columns: 1fr 1fr;
+    }
+    .intro {
+        grid-column: 1 / 2;
+        text-align: left;
+    }
+    h1 {
+        margin: 0 0 1em;
+    }
+    .ratings {
+        grid-column: 2 / 3;
+    }
+    .rating:first-of-type {
+        margin: 2rem 0;
+    }
+    .rating:last-of-type {
+        margin-inline: auto 0;
+    }
+    .quotes {
+        grid-column: 1 / -1;
+    }
 }
 
 .lead {
