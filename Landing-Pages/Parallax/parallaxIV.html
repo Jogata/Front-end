@@ -10,7 +10,10 @@
 </head>
 <body>
     <header class="header">
-        <div class="back-bird">
+        <div class="back-bird left">
+            <img src="./img/parallaxIV/white-doves.png" alt="">
+        </div>
+        <div class="back-bird right">
             <img src="./img/parallaxIV/white_dove.png" alt="">
         </div>
         <div class="title">
@@ -29,11 +32,19 @@
         window.addEventListener("scroll", parallax);
 
         function parallax() {
-            const title = document.querySelector(".title");
-            const backBird = document.querySelector(".back-bird");
+            // const title = document.querySelector(".title");
+
             const frontBird = document.querySelector(".front-bird");
             let frontBirdPosition = Math.max(1, (70 - (pageYOffset / 20)));
             frontBird.style.transform = `translateY(${frontBirdPosition}%)`;
+            
+            const backBirdLeft = document.querySelector(".back-bird.left");
+            let backBirdLeftPosition = Math.max(0, pageYOffset / 4);
+            backBirdLeft.style.transform = `translateY(${backBirdLeftPosition}%)`;
+
+            const backBirdRight = document.querySelector(".back-bird.right");
+            let backBirdRightPosition = Math.max(0, pageYOffset / 5);
+            backBirdRight.style.transform = `translateY(${backBirdRightPosition}%)`;
         }
     </script>
 </body>
