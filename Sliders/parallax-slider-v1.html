@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider with Parallax Scrolling Effect</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Herr+Von+Muellerhoff&family=Kaushan+Script&family=Playfair+Display&display=swap');
+/* 
+font-family: 'Abril Fatface', cursive;
+font-family: 'Courgette', cursive;
+font-family: 'Dancing Script', cursive;
+font-family: 'Great Vibes', cursive;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Limelight', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Oleo Script Swash Caps', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Kaushan Script', cursive;
+font-family: 'Fraunces', serif;
+font-family: 'Herr Von Muellerhoff', cursive;
+font-family: 'Playfair Display', serif;
+*/
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #000;
+        }
+
+        .slide {
+            position: relative;
+            width: 100%;
+            height: 1000px;
+            min-height: 100vh;
+            margin-bottom: min(-45vh, -400px);
+            background: #000;
+            background-position: center center;
+            background-attachment: fixed;
+            background-size: cover, auto;
+            clip-path: polygon(50% 25%, 100% 0%, 100% 50%, 50% 75%, 0% 100%, 0% 50%);
+            background-blend-mode: lighten;
+            cursor: pointer;
+        }
+        
+        .slide:first-of-type {
+            clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+        }
+        .slide:last-of-type {
+            clip-path: polygon(0 50%, 100% 0, 100% 100%, 0 100%);
+        }
+        .slide:last-of-type .description {
+            top: 50%;
+        }
+        
+        .slide:not(:first-of-type, :last-of-type).preview {
+            height: 1400px;
+            clip-path: polygon(49% 10%, 100% 0, 100% 81%, 51% 90%, 0 100%, 0 20%);
+            z-index: 2;
+        }
+        .slide:first-of-type.preview {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            transition: all 0.7s ease-in-out;
+        }
+        .slide:last-of-type.preview {
+            clip-path: polygon(0 17%, 100% 0, 100% 100%, 0 100%);
+            transition: all 0.7s ease-in-out;
+        }
+
+        .one {
+            background-image: url('./img/civita-di-bagnoregio-town_2500x1623.jpg');
+        }
+        .two {
+            background-image: url('./img/colosseum-rome-italy_6000x3600.jpg');
+        }
+        .three {
+            background-image: url('./img/Edinburgh.jpg');
+        }
+        .four {
+            background-image: url('./img/germany-area-building_1680x1050.jpg');
+        }
+        .five {
+            background-image: url('./img/neuschwanstein-castle-hd_2047x1364.jpg');
+        }
+        .six {
+            background-image: url('./img/toscana-italy.jpg');
+        }
+
+        .description {
+            width: min-content;
+            position: relative;
+            top: 20%;
+            left: 10%;
+            color: #fff;
+            font-family: 'Great Vibes', cursive;
+            text-shadow: 1px 1px 1px #000;
+        }
+        .description.text-right {
+            top: 50%;
+            transform: translateY(0%);
+        }
+        .slide.preview .description.text-right {
+            transform: translateY(-50%);
+        }
+        .description.text-middle {
+            top: 30%;
+            right: 10%;
+            left: auto;
+            margin-left: auto;
+        }
+        
+        h2 {
+            width: fit-content;
+            font-size: 5rem;
+            white-space: nowrap;
+        }
+        h2 span {
+            display: block;
+            font-size: 4rem;
+            text-align: right;
+        }
+
+        p {
+            transform: translateX(-100%);
+            font-size: 2rem;
+            opacity: 0;
+            transition: all 1s;
+        }
+        .slide.preview .description p {
+            transform: translateY(0%);
+            opacity: 1;
+            transition-delay: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <section class="slider">
+        <div class="slide one">
+            <div class="description">
+                <h2>Civita di Bagnoregio, <span>Italy</span></h2>
+                <p>Civita Bagnoregio is considered one of the most beautiful villages in Italy and every year it is visited by thousands of thousands of people who come from all over the world to admire its timeless appearance and the magical aspect that can be perceived walking through its narrow alleys.</p>
+            </div>
+        </div>
+        <div class="slide two">
+            <div class="description text-right">
+                <h2>Colosseum, <span>Rome, Italy</span></h2>
+                <p>The Colosseum is an imposing construction that, with almost 2,000 years of history, will bring you back in time to discover the way of life in the Roman Empire.</p>
+            </div>
+        </div>
+        <div class="slide three">
+            <div class="description text-middle">
+                <h2>Edinburgh, <span>Scotland</span></h2>
+                <p>Edinburgh's beauty is both staggering and stunning - but the city is more than just a pretty face. Take a closer look and discover the city's fantastic stories!</p>
+            </div>
+        </div>
+        <div class="slide four">
+            <div class="description text-middle">
+                <h2>Nuremberg, <span>Germany</span></h2>
+                <p>Impressive, exciting, colourful, mighty and tragic: Nuremberg has reflected German history since the Middle Ages. Protected by the castle, a new spirit enlivened the city at a time when few other places could offer such a quality of life.</p>
+            </div>
+        </div>
+        <div class="slide five">
+            <div class="description text-right">
+                <h2>Neuschwanstein Castle, <span>Germany</span></h2>
+                <p>A fairytale palace constructed under the orders of the eccentric yet introverted Ludwig II of Bavaria, or Mad King Ludwig as he has come to be known by many, Neuschwanstein Castle is one of Germany's most popular tourist destinations.</p>
+            </div>
+        </div>
+        <div class="slide six">
+            <div class="description">
+                <h2>Pisa, <span>Tuscan, Italy</span></h2>
+                <p>Rising on the banks of the Arno river, it is one of the most important Tuscan cities and certainly the most surprising.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        slides.forEach(slide => {
+            slide.addEventListener('click', () => {
+                slide.classList.toggle('preview');
+            })
+        })
+    </script>
+</body>
+</html>
