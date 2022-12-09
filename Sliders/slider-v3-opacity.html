@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slider | CSS Only</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Herr+Von+Muellerhoff&family=Kaushan+Script&family=Playfair+Display&display=swap');
+/* 
+font-family: 'Abril Fatface', cursive;
+font-family: 'Courgette', cursive;
+font-family: 'Dancing Script', cursive;
+font-family: 'Great Vibes', cursive;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Limelight', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Oleo Script Swash Caps', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Kaushan Script', cursive;
+font-family: 'Fraunces', serif;
+font-family: 'Herr Von Muellerhoff', cursive;
+font-family: 'Playfair Display', serif;
+*/
+
+        .slide-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 5% auto;
+            border-radius: 15px;
+            border: 1px solid #2e2e2e;
+            background-color: #444;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+        }
+
+        .slider {
+            width: 100%;
+            height: 0;
+            padding-top: 56.25%;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            inset: 0 auto auto 0;
+        }
+        .slide-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.1);
+            opacity: 0;
+            transition: all 1.3s;
+        }
+        .caption {
+            position: absolute;
+            width: 100%;
+            inset: 5% auto auto 5%;
+            color: #fff;
+            font-size: 5rem;
+            font-weight: bold;
+            font-family: 'Dancing Script', cursive;
+            font-family: 'Herr Von Muellerhoff', cursive;
+            text-transform: capitalize;
+            text-shadow: 1px 1px 1px #000;
+            opacity: 0;
+            transition: all 1s;
+            user-select: none;
+        }
+        .caption span {
+            font-size: 0.6em;
+        }
+
+        input.radio {
+            display: none;
+        }
+
+        .dots {
+            position: absolute;
+            bottom: 5%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .dot {
+            width: 15px;
+            height: 15px;
+            margin: 0 10px;
+            border-radius: 50%;
+            background-color: #000;
+            opacity: 0.4;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        .dot:hover {
+            opacity: 0.8;
+        }
+
+
+        .radio:checked ~ .slide-image {
+            transform: scale(1);
+            opacity: 1;
+        }
+        .radio:checked ~ .caption {
+            opacity: 1;
+        }
+        
+        /* 
+        #radio-1:checked ~ #img-1, 
+        #radio-2:checked ~ #img-2, 
+        #radio-3:checked ~ #img-3, 
+        #radio-4:checked ~ #img-4, 
+        #radio-5:checked ~ #img-5 {
+            transform: scale(1);
+            opacity: 1;
+        }
+        #radio-1:checked ~ #label-1, 
+        #radio-2:checked ~ #label-2, 
+        #radio-3:checked ~ #label-3, 
+        #radio-4:checked ~ #label-4, 
+        #radio-5:checked ~ #label-5 {
+            outline: 1px solid;
+            outline-offset: 3px;
+        } 
+        */
+
+        *, ::before, ::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+            padding: 2rem 5rem;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            row-gap: 2rem;
+            background-color: #444;
+            overflow-x: hidden;
+        }
+
+        h1.relef-frame-up {
+            padding: 15px;
+            text-align: center;
+            border: 4px solid #444;
+            border-radius: 10px;
+            box-shadow: 1px 2px 3px 2px rgba(0, 0, 0, 0.1), 
+                    -1px -1px 3px 0 rgba(255, 255, 255, 0.075), 
+                    inset 3px 3px 6px 0px rgba(0, 0, 0, 0.06), 
+                    inset 2px 2px 3px 0 rgba(0, 0, 0, 0.07), 
+            inset -3px -3px 4px 0px rgba(255, 255, 255, 0.05);
+        }
+        h1 span {
+            padding: 0px 15px;
+            color: cornflowerblue;
+            border-right: 2px solid cornflowerblue;
+        }
+        em {
+            color: crimson;
+            padding: 0 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="relef-frame-up"><span>Slider</span><span>CSS only</span><em>"opacity"</em></h1>
+
+    <div class="slide-container">
+        <div class="slider">
+            <div class="slide" id="slide-1">
+                <input type="radio" name="images" id="radio-1" class="radio" checked>
+                <!-- <img src="./img/porsche/Alex-Grey-315991634.jpg" alt="Porcshe 911" class="slide-image" id="img-1"> -->
+                <img src="./img/germany-area-building_1680x1050.jpg" alt="Porcshe 911" class="slide-image" id="img-1">
+                <h2 class="caption">nuremberg, <span>germany</span></h2>
+            </div>
+            <div class="slide" id="slide-2">
+                <input type="radio" name="images" id="radio-2" class="radio">
+                <!-- <img src="./img/porsche/GTS-Red-312382293.jpg" alt="Porcshe 911" class="slide-image" id="img-2"> -->
+                <img src="./img/london-tower-bridge-uk_2880x1800.jpg" alt="Porcshe 911" class="slide-image" id="img-2">
+                <h2 class="caption">tower bridge, <span>london</span></h2>
+            </div>
+            <div class="slide" id="slide-3">
+                <input type="radio" name="images" id="radio-3" class="radio">
+                <!-- <img src="./img/porsche/Gulf-Blue-312502406.jpg" alt="Porcshe 911" class="slide-image" id="img-3"> -->
+                <img src="./img/mountain-in-meteora-greece_1920x1080.jpg" alt="Porcshe 911" class="slide-image" id="img-3">
+                <h2 class="caption">meteora, <span>greece</span></h2>
+            </div>
+            <div class="slide" id="slide-4">
+                <input type="radio" name="images" id="radio-4" class="radio">
+                <!-- <img src="./img/porsche/Ice-Green-Metallic-314398192.jpg" alt="Porcshe 911" class="slide-image" id="img-4"> -->
+                <img src="./img/switzerland-river.jpg" alt="Porcshe 911" class="slide-image" id="img-4">
+                <h2 class="caption">spring, <span>switzerland</span></h2>
+            </div>
+            <div class="slide" id="slide-5">
+                <input type="radio" name="images" id="radio-5" class="radio">
+                <!-- <img src="./img/porsche/Light-Ivory-311029983.jpg" alt="Porcshe 911" class="slide-image" id="img-5"> -->
+                <img src="./img/winter-in-russia_1920x1080.jpg" alt="Porcshe 911" class="slide-image" id="img-5">
+                <h2 class="caption">winter, <span>russia</span></h2>
+            </div>
+
+            <div class="dots">
+                <label for="radio-1" id="label-1" class="dot"></label>
+                <label for="radio-2" id="label-2" class="dot"></label>
+                <label for="radio-3" id="label-3" class="dot"></label>
+                <label for="radio-4" id="label-4" class="dot"></label>
+                <label for="radio-5" id="label-5" class="dot"></label>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
