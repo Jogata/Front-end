@@ -54,9 +54,57 @@
 
     <script>
         const container = document.querySelector(".slider-container");
-        const slides = document.querySelector(".slide");
+        const slides = document.querySelectorAll(".slide");
         const leftArrow = document.querySelector(".left");
         const rightArrow = document.querySelector(".right");
+
+        let offset = 0;
+        let slideIncrement = 0;
+        let slideDecrement = slides.length - 1;
+
+        leftArrow.addEventListener("click", function () {
+            leftArrow.disabled = true;
+            offset = slides[0].offsetWidth;
+            container.style.transition = "none";
+            if (slideDecrement < 0) {
+                slides.forEach(slide => {
+                    slide.style.order = "initial";
+                });
+                slideIncrement = slides.length - 1;
+            }
+            slides[slideDecrement].style.order = "-1";
+            container.style.left = -offset + "px";
+            setTimeout(() => {
+                container.style.transition = "ease-in-out 0.5s";
+                container.style.left = 0;
+            }, 1);
+            setTimeout(() => {
+               slideDecrement--;
+               slideIncrement = slideDecrement + 1;
+               leftArrow.disabled = false; 
+            }, 500);
+        });
+
+        rightArrow.addEventListener("click", function () {
+            rightArrow.disabled = true;
+            offset = slides[0].offsetWidth;
+            container.style.transition = "ease-in-out 0.5s";
+            container.style.left = -offset + "px";
+            setTimeout(() => {
+                container.style.transition = "none";
+                slides[slideIncrement].style.order = slides.length - 1;
+                container.style.left = 0;
+                slideIncrement++;
+                slideDecrement = slideIncrement - 1;
+                if (slideDecrement === slides.length) {
+                    slideIncrement = 0;
+                    slides.forEach(slide => {
+                        slide.style.order = "initial";
+                    });
+                }
+                rightArrow.disabled = false;
+            }, 500);
+        });
     </script>
 
 
