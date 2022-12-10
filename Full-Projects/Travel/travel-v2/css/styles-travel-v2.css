@@ -120,6 +120,140 @@ h3 {
 }
 
 
+/* ======================================================== slanted navbar ============================================================= */
+body {
+    min-height: 100vh;
+    text-transform: capitalize;
+    background-image: url('../../../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.container:nth-child(1) {
+    /* position: relative; */
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+#logo {
+    /* position: absolute; */
+    /* inset: 0 auto auto 0; */
+    color: whitesmoke;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+.navigation-wrapper {
+    position: relative;
+    z-index: 1;
+}
+.navigation-button {
+    will-change: transform;
+    position: fixed;
+    inset: 40px 5% auto auto;
+    font-size: 2rem;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    /* flex-wrap: wrap; */
+    /* background-color: transparent; */
+    cursor: pointer;
+}
+.navigation-button i {
+    color: whitesmoke;
+}
+.navigation-button.activex i {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.navigation-menu {
+    /* content: ''; */
+    position: fixed;
+    inset: 0 0 auto auto;
+    width: 50%;
+    height: 100%;
+    background-color: white;
+    transform: skewX(0deg) translate(100%, 0);
+    transform-origin: top right;
+    transition: all 0.2s ease-in;
+    z-index: -1;
+
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: center; */
+    margin: auto;
+    min-width: 400px;
+}
+.navigation-menu.activex {
+    transform: skewX(8deg) translate(0%, 0);
+}
+.navigation-menu ul {
+    list-style: none;
+    /* position: fixed;
+    top: 120px;
+    right: 120px;
+    min-width: 400px; */
+    margin: auto;
+    transform: skewX(-8deg);
+    transform-origin: top left;
+    text-align: right;
+}
+.navigation-menu li {
+    /* position: relative; */
+    color: hsl(0, 0%, 10%);
+    line-height: 64px;
+    font-size: 32px;
+    transform: translate(0, 0.6em);
+    opacity: 0;
+    transition: all 0s ease-in 0.3s;
+}
+.navigation-menu.activex li {
+    transform: translate(0, 0);
+    opacity: 1;
+    transition: all 0.9s ease-in;
+    transition-delay: calc(var(--i) * 0.1s);
+}
+.navigation-menu a {
+    color: hsl(0, 0%, 70%);
+    text-transform: uppercase;
+    transition: all 0.4s;
+}
+.navigation-menu a:hover {
+    color: hsl(0, 0%, 40%);
+}
+
+.hero {
+    display: grid;
+    height: 100%;
+}
+.hero h1 {
+    margin-top: auto;
+    color: #fff;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-family: 'Abril Fatface', cursive;
+}
+.hero span {
+    display: block;
+    font-size: 4rem;
+    letter-spacing: 2px;
+}
+.hero .button {
+    align-self: center;
+    margin-top: 1em;
+    margin-bottom: auto;
+}
+.hero .button a {
+    padding: 0.6em 1.6em;
+    font-size: 1.2rem;
+    border: 2px solid #fff;
+    border-radius: 1em;
+    /* color: #f20c4a; */
+}
+
+/* ===================================================================================================================================== */
 
 .navbar {
     width: 100%;
