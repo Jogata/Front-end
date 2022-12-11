@@ -83,6 +83,9 @@ a {
     text-transform: capitalize;
     text-decoration: none;
 }
+i {
+    color: whitesmoke;
+}
 
 /* 6. Improve media defaults */
 img,
@@ -195,6 +198,7 @@ body {
     right: 120px;
     min-width: 400px; */
     margin: auto;
+    padding-block: 20%;
     transform: skewX(-8deg);
     transform-origin: top left;
     text-align: right;
@@ -226,6 +230,7 @@ body {
 .hero {
     display: grid;
     height: 100%;
+    padding-block: 20%;
 }
 .hero h1 {
     margin-top: auto;
@@ -254,6 +259,100 @@ body {
 }
 
 /* ===================================================================================================================================== */
+
+
+/* ============================================================ slider ================================================================= */
+.slider2 {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+.slider2 .slide {
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+.slider2 .slide.current {
+    opacity: 1;
+}
+.slider2 .slide .content {
+    position: absolute;
+    bottom: 70px;
+    left: 70px;
+    width: 600px;
+    padding: 35px;
+    color: #333;
+    outline: 1px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 5px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: translateX(-150%);
+    transition: all 1s ease-in-out 0.5s;
+}
+.slider2 .slide.slide.current .content {
+    transform: translateX(0%);
+}
+.slider2 .slide .content h2 {
+    margin-bottom: 10px;
+}
+.slider2 .slide .content p {
+    text-transform: initial;
+    line-height: 1.4;
+}
+.slider2 .buttons {
+    position: absolute;
+    top: 45%;
+    width: 100%;
+    padding: 0 1%;
+}
+.slider2 .buttons button {
+    padding: 6px 13px;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+}
+.slider2 .buttons button:hover {
+    color: #333;
+    background-color: #fff;
+}
+.slider2 .buttons button i {
+    color: inherit;
+}
+
+.slider2 .buttons #next {
+    float: right;
+}
+
+.slider2 .slide:nth-child(1) {
+    background-image: url('../../../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg');
+}
+.slider2 .slide:nth-child(2) {
+    background-image: url('../../../../Sliders/img/germany-area-building_1680x1050.jpg');
+}
+.slider2 .slide:nth-child(3) {
+    background-image: url('../../../../Sliders/img/Edinburgh.jpg');
+}
+.slider2 .slide:nth-child(4) {
+    background-image: url('../../../../Sliders/img/switzerland-river.jpg');
+}
+.slider2 .slide:nth-child(5) {
+    background-image: url('../../../../Sliders/img/mountain-in-meteora-greece_1920x1080.jpg');
+}
+.slider2 .slide:nth-child(6) {
+    background-image: url('../../../../Sliders/img/toscana-italy.jpg');
+}
+/* ===================================================================================================================================== */
+
+
 
 .navbar {
     width: 100%;
@@ -348,7 +447,7 @@ header {
     grid-template-columns: repeat(4, 1fr);
     align-items: center;
 }
-.slide {
+.slider-container .slide {
     width: 100%;
     height: 100%;
     display: flex;
@@ -362,16 +461,16 @@ header {
     background-position: center;
     background-size: cover;
 }
-.slide:nth-child(1) {
+.slider-container .slide:nth-child(1) {
     background-image: url('../../../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg');
 }
-.slide:nth-child(2) {
+.slider-container .slide:nth-child(2) {
     background-image: url('../../../../Sliders/img/germany-area-building_1680x1050.jpg');
 }
-.slide:nth-child(3) {
+.slider-container .slide:nth-child(3) {
     background-image: url('../../../../Sliders/img/Edinburgh.jpg');
 }
-.slide:nth-child(4) {
+.slider-container .slide:nth-child(4) {
     background-image: url('../../../../Sliders/img/switzerland-river.jpg');
 }
 .arrow {
@@ -470,7 +569,7 @@ main {
     border-radius: var(--br);
     background-color: var(--clr-neutral-200);
 }
-i {
+.rating i {
     color: rgb(230, 154, 12);
 }
 
