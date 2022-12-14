@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Kaushan+Script&family=Playfair+Display&display=swap');
+/* 
+font-family: 'Abril Fatface', cursive;
+font-family: 'Courgette', cursive;
+font-family: 'Dancing Script', cursive;
+font-family: 'Great Vibes', cursive;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Limelight', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Oleo Script Swash Caps', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Kaushan Script', cursive;
+font-family: 'Fraunces', serif;
+font-family: 'Playfair Display', serif;
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*::before, *::after {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --green: #219150;
+    --black: #000;
+    --white: #fff;
+    --light-bg: #eee;
+    --border: 0.2rem solid var(var(--black));
+    --box-shadow: 0rem 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: var(--white);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.4s;
+}
+
+img {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+
+
+.home {
+    background-image: url("../img/home-bg-1.jpg");
+    background-repeat: no-repeat;
+    background-position: 30% center;
+    background-size: cover;
+}
+.home .box {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
