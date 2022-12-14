@@ -23,29 +23,71 @@
             <img src="./img/parallaxIV/fore-bird.png" alt="">
         </div>
     </header>
-    <section class="content">
-        <h2>clothing store</h2>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam eaque quod fuga eius dolores voluptatum fugit deserunt rerum asperiores. Aut corporis reiciendis impedit recusandae delectus aliquid illo odit itaque, iusto fuga eligendi quibusdam et ullam ipsa natus eveniet obcaecati, quas provident voluptas sequi earum inventore eum! Asperiores, in nesciunt itaque molestias assumenda magni perspiciatis veritatis mollitia deleniti voluptate ea nemo accusantium soluta saepe, eveniet quam, quisquam amet hic dolorum et impedit deserunt corrupti similique.</p>
-    </section>
 
     <script>
         window.addEventListener("scroll", parallax);
 
         function parallax() {
-            // const title = document.querySelector(".title");
+            const title = document.querySelector(".title");
+            let titlePosition = Math.max(0, pageYOffset / 5);;
+            title.style.transform = `translateY(${titlePosition}%)`;
 
             const frontBird = document.querySelector(".front-bird");
             let frontBirdPosition = Math.max(1, (70 - (pageYOffset / 20)));
             frontBird.style.transform = `translateY(${frontBirdPosition}%)`;
             
             const backBirdLeft = document.querySelector(".back-bird.left");
-            let backBirdLeftPosition = Math.max(0, pageYOffset / 4);
+            let backBirdLeftPosition = Math.max(0, pageYOffset / 3);
             backBirdLeft.style.transform = `translateY(${backBirdLeftPosition}%)`;
 
             const backBirdRight = document.querySelector(".back-bird.right");
-            let backBirdRightPosition = Math.max(0, pageYOffset / 5);
+            let backBirdRightPosition = Math.max(0, pageYOffset / 4);
             backBirdRight.style.transform = `translateY(${backBirdRightPosition}%)`;
         }
     </script>
+    
+    <section class="content">
+        <h2>clothing store</h2>
+        <hr>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam eaque quod fuga eius dolores voluptatum fugit deserunt rerum asperiores. Aut corporis reiciendis impedit recusandae delectus aliquid illo odit itaque, iusto fuga eligendi quibusdam et ullam ipsa natus eveniet obcaecati, quas provident voluptas sequi earum inventore eum! Asperiores, in nesciunt itaque molestias assumenda magni perspiciatis veritatis mollitia deleniti voluptate ea nemo accusantium soluta saepe, eveniet quam, quisquam amet hic dolorum et impedit deserunt corrupti similique.</p>
+        <hr>
+    </section>
+
+    <div class="clothes-pics" id="clothes-gallery">
+        <div class="row image-row">
+            <figure class="columns four">
+                <img src="./img/parallaxIV/gallery/120372783_340812587254299_774244032306180550_n.jpg" alt="">
+            </figure>
+            <figure class="columns four">
+                <img src="./img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg" alt="">
+            </figure>
+            <figure class="columns four">
+                <img src="./img/parallaxIV/gallery/72614063_433236090677267_2807365040358828412_n.jpg" alt="">
+            </figure>
+        </div>
+        <div class="row image-row">
+            <figure class="columns four">
+                <img src="./img/parallaxIV/gallery/120372783_340812587254299_774244032306180550_n.jpg" alt="">
+            </figure>
+            <figure class="columns four">
+                <img src="./img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg" alt="">
+            </figure>
+            <figure class="columns four">
+                <img src="./img/parallaxIV/gallery/72614063_433236090677267_2807365040358828412_n.jpg" alt="">
+            </figure>
+        </div>
+        <div class="row image-row">
+            <!-- <figure class="columns four">
+                <img src="./img/parallaxIV/gallery/120372783_340812587254299_774244032306180550_n.jpg" alt="">
+            </figure> -->
+            <figure class="columns four">
+                <img src="./img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg" alt="">
+            </figure>
+            <figure class="columns four">
+                <img src="./img/parallaxIV/gallery/72614063_433236090677267_2807365040358828412_n.jpg" alt="">
+            </figure>
+        </div>
+    </div>
+
 </body>
 </html>
