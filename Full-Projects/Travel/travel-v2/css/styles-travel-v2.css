@@ -262,7 +262,105 @@ svg {
 
 
 
-/* ============================================================== slider3 ============================================================== */
+#carrousel3dv1 {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+    padding: 2% 0;
+    background-color: #000;
+    background-image: url("../../../Skyrim/assets/img/00test/00tits/Victoria6-Linia-copy.png");
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: contain;
+}
+#carrousel3dv1 h2 {
+    color: #efc076;
+    font-size: 4rem;
+    font-family: 'Abril Fatface', cursive;
+    text-transform: capitalize;
+    text-align: left;
+    margin-top: 20px;
+    text-shadow: 0px 0px 6px #000;
+}
+#carrousel3dv1 h2 span {
+    text-transform: uppercase;
+}
+.content-all {
+    position: relative;
+    margin: auto;
+    width: 210px;
+    perspective: 1000px;
+}
+.content-carrousel {
+    position: absolute;
+    width: 100%;
+    margin: auto;
+    transform-style: preserve-3d;
+    animation: rotate 30s linear infinite;
+}
+@keyframes rotate {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+.content-carrousel:hover {
+    animation-play-state: paused;
+    cursor: pointer;
+}
+
+.content-carrousel figure {
+    position: absolute;
+    width: 100%;
+    height: 120px;
+    box-shadow: 0px 0px 20px 0px #000;
+    transition: all 0.3s;
+    overflow: hidden;
+}
+.content-carrousel figure:hover {
+    box-shadow: 0px 0px 20px 0px transparent;
+}
+.content-carrousel figure:nth-child(1){
+    transform: rotateY(0deg) translateZ(300px);
+}
+.content-carrousel figure:nth-child(2){
+    transform: rotateY(40deg) translateZ(300px);
+}
+.content-carrousel figure:nth-child(3){
+    transform: rotateY(80deg) translateZ(300px);
+}
+.content-carrousel figure:nth-child(4){
+    transform: rotateY(120deg) translateZ(300px);
+}
+.content-carrousel figure:nth-child(5){
+    transform: rotateY(160deg) translateZ(300px);
+}
+.content-carrousel figure:nth-child(6){
+    transform: rotateY(200deg) translateZ(300px);
+}
+.content-carrousel figure:nth-child(7){
+    transform: rotateY(240deg) translateZ(300px);
+}
+.content-carrousel figure:nth-child(8){
+    transform: rotateY(280deg) translateZ(300px);
+}
+.content-carrousel figure:nth-child(9){
+    transform: rotateY(320deg) translateZ(300px);
+}
+.content-carrousel figure:nth-child(10){
+    transform: rotateY(360deg) translateZ(300px);
+}
+.content-carrousel figure img {
+    width: 100%;
+    transition: all 0.3s;
+}
+.content-carrousel figure img:hover {
+    transform: scale(1.2);
+}
+
+/* ============================================================== slider3 / without IF statement ============================================================== */
 #slider3 {
     min-height: 100vh;
     display: flex;
