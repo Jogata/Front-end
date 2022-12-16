@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving background on Page Scroll</title>
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        
+        }
+        
+        #parallax-bg {
+            position: fixed;
+            inset: 0 auto auto 0;
+            width: 200%;
+            height: 100%;
+            background-image: url("../Full-Projects/Skyrim/assets/img/00test/wp5727297-3840x1080-desktop-river-wallpapers.jpg");
+            background-position-y: top;
+            background-size: auto 100%;
+            z-index: -1;
+            /* transition: left 0.3s linear; */
+        }
+
+        section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: 100vh;
+        }
+        section.overflow {
+            min-height: 3000vh;
+        }
+
+        h1 {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            color: beige;
+            font-size: 10vw;
+            text-align: center;
+        }
+        </style>
+</head>
+<body>
+    <section id="top">
+        <div id="parallax-bg"></div>
+        <h1>Moving background on Page Scroll</h1>
+    </section>
+    <section class="overflow"></section>
+
+    <script>
+        let left = 0;
+        let oldProcent = 0;
+        let diff = 0;
+        const section = document.getElementById("parallax-bg");
+        window.addEventListener("scroll", () => {
+            // section.style.backgroundPositionX = `-${window.pageYOffset/2}px`;
+            let y = pageYOffset/2000;
+            let newProcent = y * 100;
+            // let newProcent = procent2 % 100;
+            diff = newProcent - oldProcent;
+            let koef = Math.ceil(y);
+            let koef2 = Math.pow(-1, koef);
+            left = left + (diff * koef2);
+            console.log(scrollY + "px");
+            console.log(y);
+            // console.log(newProcent);
+            console.log("koef2" + koef2);
+            console.log(oldProcent + "%old");
+            console.log(newProcent + "%new");
+            console.log("diff " + diff);
+            console.log(left + "%%");
+            oldProcent = newProcent;
+            section.style.left = `${left}%`;
+        })
+    </script>
+</body>
+</html>
