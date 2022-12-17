@@ -32,13 +32,13 @@ font-family: 'Playfair Display', serif;
     --black: #000;
     --white: #fff;
     --light-bg: #eee;
-    --border: 0.2rem solid var(var(--black));
+    --border: 0.1em solid var(--black);
     --box-shadow: 0rem 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
+    /* scroll-padding-top: 5rem; */
 }
 
 ul {
@@ -52,12 +52,88 @@ a {
     transition: all 0.4s;
 }
 
+button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
 img {
     max-width: 100%;
     object-fit: cover;
 }
 
+html::-webkit-scrollbar {
+    width: 1rem;
+}
+html::-webkit-scrollbar-track {
+    background-color: var(--white);
+}
+html::-webkit-scrollbar-thumb {
+    color: var(--black);
+}
 
+.page-max-width {
+    max-width: 1800px;
+    margin: auto;
+}
+
+header {
+    position: fixed;
+    inset: 0 0 auto 0;
+    padding: 1.2rem;
+    display: flex;
+    column-gap: 4rem;
+    align-items: center;
+    z-index: 20;
+}
+.logo {
+    margin-right: auto;
+    color: var(--black);
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: 'Great Vibes', cursive;
+    text-transform: capitalize;
+}
+
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1.8rem;
+    row-gap: 1rem;
+}
+.navbar a {
+    padding: 0.2em 0.4em;
+    color: var(--black);
+    font-size: 1.2rem;
+}
+.navbar a:hover {
+    color: var(--green);
+}
+
+button.menu {
+    display: none;
+    margin-left: 2rem;
+    padding: 0.2em 0.35em;
+    color: var(--black);
+    border-radius: 0.5em;
+    transition: all 0.3s;
+    cursor: pointer;
+    z-index: 40;
+}
+button.menu:focus-visible {
+    color: var(--green);
+    outline: 0.2em solid var(--green);
+}
+button.menu i {
+    color: inherit;
+    font-size: 1.8rem;
+    transition: all 0.3s;
+}
+button.menu:hover i {
+    color: var(--green);
+}
 
 .home {
     background-image: url("../img/home-bg-1.jpg");
@@ -69,5 +145,66 @@ img {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
+    padding: 2rem 9%;
+}
+.content {
+    width: min(50%, 50rem);
+    color: var(--black);
+}
+.content h1 {
+    padding-top: 0.5rem;
+    font-size: min(5vw, 4rem);
+    line-height: 1;
+    text-transform: uppercase;
+}
+.content h1 span {
+    display: block;
+    color: var(--green);
+    font-size: min(8vw, 6rem);
+}
+.content p {
+    padding: 1em 0rem;
+    font-size: 1.5rem;
+}
+
+.explore-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5em 1.2em;
+    color: var(--black);
+    font-size: min(3vw, 1.7rem);
+    border: var(--border);
+    border-radius: 0.8em;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+.explore-btn:hover {
+    color: var(--green);
+    border-color: var(--green);
+}
+
+
+
+@media screen and (max-width: 768px) {
+    button.menu {
+        display: inline-block;
+    }
+    .navbar {
+        display: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column;
+        position: fixed;
+        inset: 0 0 auto 0;
+        min-height: 100vh;
+        background-color: var(--white);
+        z-index: 30;
+    }
+    .navbar a {
+        font-size: min(7vw, 3rem);
+    }
+    .content {
+        width: 100%;
+    }
 }
