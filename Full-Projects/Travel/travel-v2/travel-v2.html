@@ -9,72 +9,121 @@
     <link rel="stylesheet" href="./css/styles-travel-v2.css">
 </head>
 <body>
-    <!-- full screen navigation -->
-    <section class="full-screen-navigation">
-        <a href="#" class="panel-container-fsn">
-            <div class="panel-fsn">
-                <h3>studio</h3>
+    <!-- skewed banner -->
+    <section id="skewed-banner">
+        <div class="skewbox">
+            <div class="content">
+                <h2>amanda renj</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi nisi accusamus pariatur! Facere perspiciatis sed delectus doloremque, nostrum voluptate accusantium necessitatibus deleniti explicabo provident est sunt qui quaerat, voluptatem non sint nihil corrupti repellendus distinctio mollitia laudantium adipisci itaque illo! Qui voluptate quis eius et aliquam laboriosam eos ipsa. Iste a magni consequatur voluptatum officia fugit obcaecati totam, corporis autem culpa maxime nostrum maiores eligendi omnis ipsam explicabo nesciunt veniam doloremque.</p>
             </div>
-        </a>
-        <a href="#" class="panel-container-fsn">
-            <div class="panel-fsn">
-                <h3>home</h3>
-            </div>
-        </a>
-        <a href="#" class="panel-container-fsn">
-            <div class="panel-fsn">
-                <h3>news</h3>
-            </div>
-        </a>
-        <a href="#" class="panel-container-fsn">
-            <div class="panel-fsn">
-                <h3>projects</h3>
-            </div>
-        </a>
-        <a href="#" class="panel-container-fsn">
-            <div class="panel-fsn">
-                <h3>blog</h3>
-            </div>
-        </a>
-    </section>
-
-    <!-- slanted navbar -->
-    <section id="tilted-navigation">
-        <div class="container-tn">
-            <div id="logo">logo</div>
-            <div class="navigation-wrapper">
-                <div class="navigation-button">
-                    <i class="fa fa-bars" aria-hidden="true"></i>
-                </div>
-                <div class="navigation-menu">
-                    <ul>
-                        <li style="--i:3"><a href="">home</a></li>
-                        <li style="--i:4"><a href="">gallery</a></li>
-                        <li style="--i:5"><a href="">contact</a></li>
-                        <li style="--i:6"><a href="">locations</a></li>
-                        <li style="--i:7"><a href="">testimonial</a></li>
-                        <li style="--i:8"><a href="">pricing</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="hero">
-                <h1>creative design <span>introducing</span></h1>
-                <div class="button">
-                    <a href="">get started</a>
-                </div>
-            </div>
+            <div class="imagebox"></div>
         </div>
     </section>
 
+    <!-- slider whitout IF statement -->
+    <div id="slider3">
+        <div class="container-slider">
+            <div class="slider" id="slider">
+                <div class="slider__section">
+                    <img src="../../../Sliders/img/germany-area-building_1680x1050.jpg" alt="" class="slider__img">
+                </div>
+                <div class="slider__section">
+                    <img src="../../../Sliders/img/Edinburgh.jpg" alt="" class="slider__img">
+                </div>
+                <div class="slider__section">
+                    <img src="../../../Sliders/img/mountain-in-meteora-greece_1920x1080.jpg" alt="" class="slider__img">
+                </div>
+                <div class="slider__section">
+                    <img src="../../../Sliders/img/toscana-italy.jpg" alt="" class="slider__img">
+                </div>
+            </div>
+            <div class="slider__btn slider__btn--left">l</div>
+            <div class="slider__btn slider__btn--right">r</div>
+        </div>
+    </div>
     <script>
-        const menuButton = document.querySelector(".navigation-button");
-        const navigation = document.querySelector(".navigation-menu");
+        let slider = document.getElementById("slider");
+        let sliderSection = document.getElementsByClassName("slider__section");
+        let sliderSectionLast = sliderSection[sliderSection.length - 1];
 
-        menuButton.addEventListener("click", () => {
-            menuButton.classList.toggle("activex");
-            navigation.classList.toggle("activex");
-        })
+        slider.insertAdjacentElement("afterbegin", sliderSectionLast);
+
+        setInterval(nextSlider, 5000);
+
+        const buttonPrevSlide = document.getElementsByClassName("slider__btn--left")[0];
+        buttonPrevSlide.addEventListener("click", function() {
+            prevSlider();
+        });
+        // buttonPrevSlide.addEventListener("click", prevSlider);
+        
+        function prevSlider() {
+            let sliderSection = document.getElementsByClassName("slider__section");
+            let sliderSectionLast = sliderSection[sliderSection.length - 1];
+            slider.style.marginLeft = "0";
+            slider.style.transition = "all 0.5s";
+            setTimeout(function() {
+                slider.style.transition = "none";
+                slider.insertAdjacentElement("afterbegin", sliderSectionLast);
+                slider.style.marginLeft = "-100%";
+            }, 500);
+        };
+        
+        const buttonNextSlide = document.getElementsByClassName("slider__btn--right")[0];
+        buttonNextSlide.addEventListener("click", function() {
+            nextSlider();
+        });
+        // buttonNextSlide.addEventListener("click", nextSlider);
+
+        function nextSlider() {
+            let sliderSectionFirst = document.getElementsByClassName("slider__section")[0];
+            slider.style.marginLeft = "-200%";
+            slider.style.transition = "all 0.5s";
+            setTimeout(function() {
+                slider.style.transition = "none";
+                slider.insertAdjacentElement("beforeend", sliderSectionFirst);
+                slider.style.marginLeft = "-100%";
+            }, 500);
+        };
     </script>
+
+    <!-- -------------------------------------------- carousel - 3D -------------------------------------------- -->
+    <section id="carrousel3dv1">
+        <h2><span>3d</span> carrousel</h2>
+        <div class="content-all">
+            <div class="content-carrousel">
+                <figure><img src="./../../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg" alt=""></figure>
+                <figure><img src="./../../../Sliders/img/colosseum-rome-italy_6000x3600.jpg" alt=""></figure>
+                <figure><img src="./../../../Sliders/img/Edinburgh.jpg" alt=""></figure>
+                <figure><img src="./../../../Sliders/img/germany-area-building_1680x1050.jpg" alt=""></figure>
+                <figure><img src="./../../../Sliders/img/london-tower-bridge-uk_2880x1800.jpg" alt=""></figure>
+                <figure><img src="./../../../Sliders/img/mountain-in-meteora-greece_1920x1080.jpg" alt=""></figure>
+                <figure><img src="./../../../Sliders/img/neuschwanstein-castle-hd_2047x1364.jpg" alt=""></figure>
+                <figure><img src="./../../../Sliders/img/switzerland-river.jpg" alt=""></figure>
+                <figure><img src="./../../../Sliders/img/toscana-italy.jpg" alt=""></figure>
+                <figure><img src="./../../../Sliders/img/winter-in-russia_1920x1080.jpg" alt=""></figure>
+            </div>
+        </div>
+    </section>
+    <!-- ------------------------------------------------------------------------------------------------------- -->
+
+
+    <!-- -------------------------------------------- split traversy media -------------------------------------------- -->
+    <section class="split-screen" id="split-tm">
+        <div class="container">
+            <div class="split left">
+                <h1>the designer</h1>
+                <a href="#split-tm" class="read-more">read more</a>
+            </div>
+            <div class="split right">
+                <h1>the programmer</h1>
+                <a href="#split-tm" class="read-more">read more</a>
+            </div>
+        </div>
+    </section>
+    <script></script>
+    <!-- ------------------------------------------------------------------------------------------------------- -->
+
+
 
     <div class="slider2">
         <div class="slide current">
