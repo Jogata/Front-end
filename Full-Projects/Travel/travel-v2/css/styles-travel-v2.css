@@ -421,6 +421,80 @@ svg {
 /* ===================================================================================================================================== */
 
 
+
+/* <!-- -------------------------------------------- split traversy media -------------------------------------------- --> */
+.split-screen {
+    height: 100%;
+    min-height: 100vh;
+}
+.split-screen-container {
+    height: 100%;
+    display: flex;
+    background-color: #333;
+}
+.split-screen-container .split {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: 0.5s ease-in-out;
+}
+.split-screen-container .split:hover {
+    flex: 2;
+}
+.split-screen-container .split h1 {
+    color: #fff;
+    font-size: min(8vw, 3rem);
+    text-align: center;
+    text-transform: capitalize;
+    white-space: nowrap;
+    transition: 0.5s ease-in-out;
+}
+.split-screen-container .split:hover h1 {
+    font-size: min(8vw, 4rem);
+}
+.split.left {
+    background-color: rgba(223, 39, 39, 0.7);
+}
+.split.right {
+    background-color: rgba(43, 43, 43, 0.8);
+    background-image: url('../../../../00test/img/pngegg\(16\).png');
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 50% auto;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: max(2rem, 3vh);
+    padding: 0.2em 1.4em;
+    color: #fff;
+    font-size: 1.2rem;
+    border: 1px solid #fff;
+    border-radius: 1em;
+}
+
+@media screen and (max-width: 1200px) {
+    .split-screen {
+        height: auto;
+    }
+    .split-screen-container {
+        display: block;
+    }
+    .split-screen-container .split {
+        height: 50vh;
+        min-height: 50vh;
+    }
+    .split-screen-container .split:hover {
+        height: 75vh;
+        min-height: 75vh;
+    }
+}
+/* ===================================================================================================================================== */
+
+
 .navbar {
     width: 100%;
     margin-bottom: auto;
