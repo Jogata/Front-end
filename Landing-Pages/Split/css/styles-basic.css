@@ -47,13 +47,6 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-ul[class] {
-    display: flex;
-    list-style: none;
-}
-li {
-    margin: auto;
-}
 a {
     color: whitesmoke;
     text-transform: capitalize;
@@ -64,37 +57,19 @@ i {
 }
 
 /* 6. Improve media defaults */
-img,
-picture,
-video,
-canvas,
-svg {
+img {
     display: block;
     max-width: 100%;
 }
 
 /* 7. Remove built-in form typography styles */
-input,
-button,
-textarea,
-select {
+button {
     font: inherit;
 }
 
 /* 8. Avoid text overflows */
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1 {
     overflow-wrap: break-word;
-}
-
-h1,
-h2,
-h3 {
     line-height: 1;
 }
 
@@ -122,7 +97,7 @@ h3 {
     flex: 2;
 }
 .split-screen-container .split h1 {
-    color: #fff;
+    color: inherit;
     font-size: min(8vw, 3rem);
     text-align: center;
     text-transform: capitalize;
@@ -133,24 +108,37 @@ h3 {
     font-size: min(8vw, 4rem);
 }
 .split.left {
+    color: #000;
     background-color: rgba(223, 39, 39, 0.7);
+    background-image: url('../../../00test/img/design-banner.png');
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 65% auto;
 }
 .split.right {
+    color: #fff;
     background-color: rgba(43, 43, 43, 0.8);
-    background-image: url('../../../../00test/img/pngegg\(16\).png');
+    background-image: url('../../../00test/img/robot-straight-waving.png');
     background-repeat: no-repeat;
     background-position: right bottom;
     background-size: 50% auto;
+}
+.split.left h1 {
+    font-family: 'Great Vibes', cursive;
+}
+.split.split.right h1 {
+    font-family: 'Kaushan Script', cursive;
 }
 
 .read-more {
     display: inline-block;
     margin-top: max(2rem, 3vh);
     padding: 0.2em 1.4em;
-    color: #fff;
+    color: inherit;
     font-size: 1.2rem;
-    border: 1px solid #fff;
+    border: 1px solid currentColor;
     border-radius: 1em;
+    z-index: 2;
 }
 
 @media screen and (max-width: 1200px) {
@@ -167,5 +155,13 @@ h3 {
     .split-screen-container .split:hover {
         height: 75vh;
         min-height: 75vh;
+    }
+    .split.left {
+        background-position: left bottom;
+        background-size: contain;
+    }
+    .split.right {
+        background-image: url('../../../00test/img/robot-waving-lying-down.png');
+        background-size: auto 100%;
     }
 }
