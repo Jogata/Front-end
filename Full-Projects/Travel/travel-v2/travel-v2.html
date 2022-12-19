@@ -106,22 +106,95 @@
     </section>
     <!-- ------------------------------------------------------------------------------------------------------- -->
 
+    <!-- observer pattern -->
+    <script>
+        function Subject() {
+            this.observers = [];
+        }
 
-    <!-- -------------------------------------------- split traversy media -------------------------------------------- -->
-    <section class="split-screen" id="split-tm">
-        <div class="container">
-            <div class="split left">
-                <h1>the designer</h1>
-                <a href="#split-tm" class="read-more">read more</a>
-            </div>
-            <div class="split right">
-                <h1>the programmer</h1>
-                <a href="#split-tm" class="read-more">read more</a>
-            </div>
-        </div>
-    </section>
-    <script></script>
-    <!-- ------------------------------------------------------------------------------------------------------- -->
+        Subject.prototype = {
+            subscribe: function (func) {
+                this.observers.push(func);
+            },
+            unsubscribe: function (func) {
+                this.observers = this.observers.filter(x => {
+                    if (x != func) {
+                        return func;
+                    }
+                });
+            },
+            fire: function () {
+                this.observers.forEach(func => func.call());
+            },
+        }
+
+        const subject = new Subject();
+        subject.subscribe(observer1);
+        subject.subscribe(observer2);
+        subject.unsubscribe(observer1);
+
+        subject.fire();
+
+        function observer1() {
+            console.log("observer1 fire");
+        }
+        function observer2() {
+            console.log("observer2 fire");
+        }
+    </script>
+
+    <!-- proxy pattern -->
+    <script>
+        ////////////////////////////////////////////////
+        // simulation of External API
+        function CryptocurrencyAPI() {
+            this.getValue = function (coin) {
+                console.log("<<Send GET request to the CryptocurrencyAPI >>");
+                switch(coin) {
+                    case "Bitcoin": 
+                    return "$3,500";
+                    case "Litecoin": 
+                    return "$50";
+                    case "Etherium": 
+                    return "$175";
+                }
+            };
+        }
+        ////////////////////////////////////////////////
+
+        const api = new CryptocurrencyAPI();
+
+        function send(coin) {
+            return `The value of ${coin} is ${api.getValue(coin)}`;
+        }
+        
+        console.log(send("Bitcoin"));
+        console.log(send("Litecoin"));
+        console.log(send("Etherium"));
+
+        // Proxy
+        function CryptocurrencyProxy() {
+            this.api = new CryptocurrencyAPI();
+            this.cashe = {};
+
+            this.getValue = function (coin) {
+                if (this.cashe[coin] == null) {
+                    this.cashe[coin] = this.api.getValue(coin);
+                }
+                console.log(`Get the value of ${coin} from the cash`);
+                return this.cashe[coin];
+            }
+        }
+
+        const proxy = new CryptocurrencyProxy();
+
+        console.log(proxy.getValue("Bitcoin"));
+        console.log(proxy.getValue("Litecoin"));
+        console.log(proxy.getValue("Etherium"));
+        console.log(proxy.cashe);
+        console.log(proxy.getValue("Etherium"));
+    </script>
+    
 
 
 
