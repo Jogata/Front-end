@@ -86,23 +86,79 @@
         };
     </script>
 
-    <!-- -------------------------------------------- carousel - 3D -------------------------------------------- -->
-    <section id="carrousel3dv1">
-        <h2><span>3d</span> carrousel</h2>
-        <div class="content-all">
-            <div class="content-carrousel">
-                <figure><img src="./../../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg" alt=""></figure>
-                <figure><img src="./../../../Sliders/img/colosseum-rome-italy_6000x3600.jpg" alt=""></figure>
-                <figure><img src="./../../../Sliders/img/Edinburgh.jpg" alt=""></figure>
-                <figure><img src="./../../../Sliders/img/germany-area-building_1680x1050.jpg" alt=""></figure>
-                <figure><img src="./../../../Sliders/img/london-tower-bridge-uk_2880x1800.jpg" alt=""></figure>
-                <figure><img src="./../../../Sliders/img/mountain-in-meteora-greece_1920x1080.jpg" alt=""></figure>
-                <figure><img src="./../../../Sliders/img/neuschwanstein-castle-hd_2047x1364.jpg" alt=""></figure>
-                <figure><img src="./../../../Sliders/img/switzerland-river.jpg" alt=""></figure>
-                <figure><img src="./../../../Sliders/img/toscana-italy.jpg" alt=""></figure>
-                <figure><img src="./../../../Sliders/img/winter-in-russia_1920x1080.jpg" alt=""></figure>
+    
+    <!-- --------------------------------------------- testemonial --------------------------------------------- -->
+    <section id="testemonialv1">
+        <div class="hero">
+            <h1>customer reviews</h1>
+            <div class="review-box">
+                <div id="slidev1">
+                    <div class="card">
+                        <div class="profile">
+                            <img src="../../../../CSS/assets/img/profile-copy.jpg" alt="">
+                            <div>
+                                <h2>riley olie</h2>
+                                <p>web designer</p>
+                            </div>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque animi voluptate sit, delectus reiciendis, vero aliquid ipsam assumenda illum officiis voluptatibus eligendi libero quis voluptas. Recusandae nisi sint soluta adipisci.</p>
+                    </div>
+                    <div class="card">
+                        <div class="profile">
+                            <img src="../../../../CSS/assets/img/profile-copy.jpg" alt="">
+                            <div>
+                                <h2>steve McCurry</h2>
+                                <p>UI/UX designer</p>
+                            </div>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque animi voluptate sit, delectus reiciendis, vero aliquid ipsam assumenda illum officiis voluptatibus eligendi libero quis voluptas. Recusandae nisi sint soluta adipisci.</p>
+                    </div>
+                    <div class="card">
+                        <div class="profile">
+                            <img src="../../../../CSS/assets/img/profile-copy.jpg" alt="">
+                            <div>
+                                <h2>merlin nguyen</h2>
+                                <p>senior developer</p>
+                            </div>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque animi voluptate sit, delectus reiciendis, vero aliquid ipsam assumenda illum officiis voluptatibus eligendi libero quis voluptas. Recusandae nisi sint soluta adipisci.</p>
+                    </div>
+                    <div class="card">
+                        <div class="profile">
+                            <img src="../../../../CSS/assets/img/profile-copy.jpg" alt="">
+                            <div>
+                                <h2>john williams</h2>
+                                <p>team lead</p>
+                            </div>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque animi voluptate sit, delectus reiciendis, vero aliquid ipsam assumenda illum officiis voluptatibus eligendi libero quis voluptas. Recusandae nisi sint soluta adipisci.</p>
+                    </div>
+                </div>
+                <div id="sidebarv1">
+                    <button type="button" id="up">u</button>
+                    <button type="button" id="down">d</button>
+                </div>
             </div>
         </div>
+        
+        <script>
+            const sliderv1 = document.getElementById("slidev1");
+            const upArrow = document.getElementById("up");
+            const downArrow = document.getElementById("down");
+            let x = 0;
+            upArrow.addEventListener("click", function(){
+                if (x > -900) {
+                    x -= 300;
+                    sliderv1.style.top = `${x}px`;
+                }
+            });
+            downArrow.addEventListener("click", function(){
+                if (x < 0) {
+                    x += 300;
+                    sliderv1.style.top = `${x}px`;
+                }
+            });
+        </script>
     </section>
     <!-- ------------------------------------------------------------------------------------------------------- -->
 
