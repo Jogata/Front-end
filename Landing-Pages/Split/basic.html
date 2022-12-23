@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Split screen - basic example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/styles-basic.css">
 </head>
 <body>
@@ -20,5 +21,52 @@
             </div>
         </div>
     </section>
+
+    <ul class="social-icons">
+        <li>
+            <button type="button" class="share-btn">share
+                <img src="./img/basic/icons/share.png" alt="Share icon">
+            </button>
+        </li>
+        <li>
+            <a href="#" class="social-icon" style="--i:0">
+                <img src="./img/basic/icons/facebook.png" alt="Facebook">
+            </a>
+        </li>
+        <li>
+            <a href="#" class="social-icon" style="--i:1">
+                <img src="./img/basic/icons/twitter.png" alt="Twitter">
+            </a>
+        </li>
+        <li>
+            <a href="#" class="social-icon" style="--i:2">
+                <img src="./img/basic/icons/youtube.png" alt="Youtube">
+            </a>
+        </li>
+        <li>
+            <a href="#" class="social-icon" style="--i:3">
+                <img src="./img/basic/icons/instagram.png" alt="Instagram">
+            </a>
+        </li>
+    </ul>
+
+    <script>
+        window.addEventListener("load", function () {
+            const shareBtn = document.querySelector('.share-btn');
+            const socialIcons = document.querySelectorAll('.social-icon');
+            shareBtn.addEventListener('click', () => {
+                socialIcons.forEach(icon => {
+                    icon.classList.toggle('visible');
+                })
+            })
+            socialIcons.forEach(icon => {
+                icon.addEventListener('click', () => {
+                    socialIcons.forEach(icon => {
+                        icon.classList.remove('visible');
+                    })
+                })
+            })
+        })
+    </script>
 </body>
 </html>
