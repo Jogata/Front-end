@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Kaushan+Script&family=Playfair+Display&display=swap');
+
+/* 
+font-family: 'Abril Fatface', cursive;
+font-family: 'Courgette', cursive;
+font-family: 'Dancing Script', cursive;
+font-family: 'Great Vibes', cursive;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Limelight', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Oleo Script Swash Caps', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Kaushan Script', cursive;
+font-family: 'Fraunces', serif;
+font-family: 'Playfair Display', serif;
+*/
+
+/* 1. Use a more-intuitive box-sizing model. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 2. Remove default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* 3. Allow percentage-based heights in the application */
+html,
+body {
+    height: 100%;
+}
+
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-transform: capitalize;
+    text-decoration: none;
+}
+i {
+    color: whitesmoke;
+}
+
+/* 6. Improve media defaults */
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* 7. Remove built-in form typography styles */
+button {
+    font: inherit;
+}
+
+/* 8. Avoid text overflows */
+h1 {
+    overflow-wrap: break-word;
+    line-height: 1;
+}
+
+body {
+    line-height: 1.6;
+    overflow: hidden;
+}
+
+#wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.layer {
+    position: absolute;
+    width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.layer .content-wrap {
+    position: absolute;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.layer .content-body {
+    width: 25%;
+    position: absolute;
+    top: 30%;
+    text-align: center;
+    transform: translateY(-50%);
+    color: #FFFFFF;
+}
+
+.layer h1 {
+    font-size: 2.5em;
+    font-family: 'Limelight', cursive;
+}
+
+.bottom {
+    background: #222;
+    z-index: 1;
+}
+
+.bottom .content-body {
+    right: 5%;
+}
+
+.bottom h1 {
+    color: #FDAB00;
+}
+
+.top {
+    background: #eee;
+    color: #222;
+    z-index: 2;
+    width: 50vw;
+}
+
+.top .content-body {
+    left: 5%;
+    color: #222;
+}
+
+.handle {
+    position: absolute;
+    height: 100%;
+    display: block;
+    background-color: #FDAB00;
+    width: 5px;
+    top: 0;
+    left: 500%;
+    z-index: 3;
+}
+
+.skewed .handle {
+    top: 50%;
+    transform: rotate(30deg) translateY(-50%);
+    height: 200%;
+    transform-origin: top;
+}
+
+.skewed .top {
+    transform: skew(-30deg);
+    margin-left: -1000px;
+    width: calc(50vw + 1000px);
+}
+
+.skewed .top .content-wrap {
+    transform: skew(30deg);
+    margin-left: 1000px;
+}
+
+@media(max-width: 768px){
+    body {
+        font-size: 75%;
+    }
+}
+
+.layer .black {
+    position: absolute;
+    width: 44%;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.layer .white {
+    position: absolute;
+    width: 50%;
+    top: 63%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+}
