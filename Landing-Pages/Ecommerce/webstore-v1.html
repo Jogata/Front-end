@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebStore v.1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/styles_webstore-v1.css">
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 100vh;
+            user-select: none;
+            perspective: 1px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            font-family: fantasy;
+            scroll-behavior: smooth;
+        }
+        header {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            padding: 30vw 0 5vw;
+            transform-style: preserve-3d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            letter-spacing: 0.2em;
+            margin: 0;
+            padding: 1em 0;
+        }
+        header, header::before {
+            background: 50% 50% / cover;
+        }
+        header::before {
+            content: '';
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            background-image: url('../00templates/02aceb6efe233414bd2b242c88aa25a4.jpg');
+            background-size: cover;
+            transform-origin: center center 0;
+            transform: translateZ(-1px) scale(2);
+            z-index: -1;
+        }
+        h1 {
+            color: #fff;
+            font-size: 3rem;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        h2 {
+            text-transform: capitalize;
+        }
+        .buttons {
+            display: flex;
+            column-gap: 1rem;
+        }
+        button {
+            text-transform: capitalize;
+            padding: 12px 20px;
+            font-size: 1.4rem;
+            outline: none;
+            border: 1px solid;
+            border-radius: 10px;
+            transition: all 0.5s;
+            cursor: pointer;
+        }
+        button:hover {
+            color: #fff;
+            background-color: cadetblue;
+        }
+        a {
+            width: 70px;
+            text-transform: capitalize;
+            text-decoration: none;
+            color: #000;
+            padding: 20px 40px;
+            border-radius: 10px;
+            font-family: monospace;
+            background-color: #fff;
+            margin-top: 80px;
+        }
+        #main {
+            position: relative;
+            width: 100vh;
+            height: 400px;
+            background-color: whitesmoke;
+            padding: 100px 200px;
+        }
+        p {
+            color: #000;
+            width: 500px;
+            font-family: initial;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>parallax effect</h1>
+        <h2>css only</h2>
+        <a href="">more...</a>
+    </header>
+    <section id="main">
+        <h2>parallax effect</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia quam, nulla incidunt, ad non impedit quisquam nobis error voluptatem amet, accusamus sed totam. Iure autem illum temporibus excepturi dolore laborum vero possimus quaerat dolorum, at maiores enim aspernatur quae veritatis facere. Illum eos quod numquam vel quam eum! Sint totam delectus inventore deleniti ab dicta officiis saepe quia tenetur adipisci, debitis vel enim optio est? Aliquid laboriosam eos pariatur dicta saepe sint, cum, nesciunt commodi nihil debitis, laborum neque ea eveniet aliquam consectetur natus fugit esse! Asperiores, quo quia! Quaerat nam ducimus provident, soluta nihil, culpa tempora hic molestiae veniam rem illo dolore ut voluptate asperiores at, quasi incidunt doloribus quod consequatur? Cupiditate fuga dolore ad ea? Iusto dicta et, architecto cupiditate accusamus ipsa voluptatum voluptates itaque tempore assumenda blanditiis commodi! Eligendi quia, assumenda sequi quas officiis facere voluptas voluptatibus, corrupti, molestiae fugit cum nemo natus minus perspiciatis incidunt. Cupiditate, iste, impedit ratione perspiciatis odit praesentium officiis nesciunt harum cum eos ex soluta eum a temporibus nemo accusantium cumque dignissimos aut quaerat quas non ea! A quo totam non eius deleniti amet necessitatibus tempora tempore, nesciunt laudantium est consequatur ipsa magnam ipsum, velit cupiditate perferendis ex corporis ullam dolores exercitationem.</p>
+    </section>
+    <h1>change color on click</h1>
+    <div class="buttons">
+        <button class="color">change color</button>
+        <button class="createp">create p</button>
+    </div>
+    <div class="display"></div>
+    <script>
+        const htmlbody = document.body;
+        const colorbtn = document.querySelector(".color");
+        const createpbtn = document.querySelector(".createp");
+
+        colorbtn.onclick = changeColor;
+        createpbtn.onclick = createp;
+        
+        function changeColor() {
+            const colors = ["#002942", "#0ca7db", "#00f", "#0f0", "#00f", "yellow", "tomato", "orange"];
+            const random = Math.floor(Math.random() * colors.length);
+            
+            const color = colors[random];
+
+            htmlbody.style.backgroundColor = color;
+
+            console.log(`The color was changed to ${color}.`);
+        }
+
+        function createp() {
+            const newp = document.createElement("p");
+            newp.textContent = "New p was created.";
+            document.querySelector(".display").appendChild(newp);
+        }
+
+        const arr = [10, 20, 30, 40, 50];
+        arr.push(60);
+        console.log(arr);
+        arr.reverse();
+        console.log(arr);
+
+        const isTrue = !(((40 / 20) === 2 && true) || ('yes' === 'no'));
+        console.log(isTrue);
+
+        const e1 = 100 % 50;
+        console.log(e1)
+        const e2 = 100 / 2;
+        console.log(e2)
+        const e3 = e1 < e2;
+        console.log(e3)
+        const e4 = e3 && 300 + 5 === 305;
+        console.log(e4)
+        const e5 = !e4;
+        console.log(e5)
+
+        const obj = {
+            prop1: 'string',
+            prop2: 20,
+        };
+
+        const arr1 = [40, 50, 2];
+
+        let areEqual = obj.prop2 === arr1[0] / arr1[2];
+        console.log(areEqual)
+
+        const obj2 = {
+            nestedobj1: {
+                price: 100,
+                q: 5,
+            },
+            nestedobj2: {
+                price: 150,
+                q: 2,
+            }
+        };
+
+        const arr2 = [obj2.nestedobj1, obj2.nestedobj2];
+
+        let isBigger = arr2[0].price * arr2[0].q > arr2[1].price * arr2[1].q;
+        console.log(isBigger)
+
+        const n1 = -20;
+        const n2 = 10;
+        isBigger = n1 > n2;
+
+        if (isBigger) {
+            console.log('yes');
+        }
+
+        if (isBigger) {
+            console.log('yes');
+        } else {
+            console.log('no');
+        }
+
+        if (isBigger) {
+            console.log('yes');
+        } else if (n1 > 0) {
+            console.log('no and n1 is bigger than 0.');
+        }
+        else {
+            console.log('no and n1 is 0 or less.');
+        }
+
+        const colors2 = ["#002942", "#0ca7db", "#00f", "#0f0", "#00f", "yellow", "tomato", "orange", 20, 5, 67, 85, "brown"];
+
+        for (let index = 0; index < colors2.length; index++) {
+            if (typeof colors2[index] === "string") {
+                console.log(colors2[index]);
+            }
+        };
+
+        function func(x, y) {
+            console.log(x);
+            console.log(y);
+        }
+        func();
+        func(5, "y");
+    </script>
+</body>
+</html>
