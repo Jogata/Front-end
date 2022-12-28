@@ -142,41 +142,78 @@ button.menu:hover i {
     background-size: cover;
 }
 .home .box {
+    position: relative;
     min-height: 100vh;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: flex-end;
     padding: 2rem 9%;
 }
 .content {
     width: min(50%, 50rem);
     color: var(--black);
+    margin: auto 0 auto auto;
+
+    /* position: absolute;
+    bottom: 70px;
+    left: 70px; */
+    /* width: 600px; */
+    /* padding: 35px; */
+    /* color: #333; */
+    /* outline: 1px solid rgba(255, 255, 255, 0.8); */
+    /* outline-offset: 5px; */
+    /* border-radius: 20px; */
+    /* background-color: rgba(255, 255, 255, 0.4); */
+    transform: translateX(-150%);
+    opacity: 0;
+    transition: all 1s ease-in-out 0.5s;
 }
 .content h1 {
     padding-top: 0.5rem;
-    font-size: min(5vw, 4rem);
+    font-size: min(4vw, 4rem);
     line-height: 1;
     text-transform: uppercase;
 }
 .content h1 span {
     display: block;
     color: var(--green);
-    font-size: min(8vw, 6rem);
+    font-size: min(6vw, 6rem);
 }
 .content p {
     padding: 1em 0rem;
-    font-size: 1.5rem;
+    font-size: min(2vw, 1.5rem);
 }
+
+/* 
+.slider2 .slide .content {
+    position: absolute;
+    bottom: 70px;
+    left: 70px;
+    width: 600px;
+    padding: 35px;
+    color: #333;
+    outline: 1px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 5px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: translateX(-150%);
+    transition: all 1s ease-in-out 0.5s;
+}
+.slider2 .slide.current .content {
+    transform: translateX(0%);
+}
+*/
 
 .explore-btn {
     display: inline-block;
     margin-top: 1rem;
     padding: 0.5em 1.2em;
     color: var(--black);
-    font-size: min(3vw, 1.7rem);
+    font-size: min(2vw, 1.5rem);
     border: var(--border);
     border-radius: 0.8em;
     background-color: rgba(255, 255, 255, 0.6);
+    user-select: none;
 }
 .explore-btn:hover {
     color: var(--green);
@@ -191,7 +228,7 @@ button.menu:hover i {
     }
     .navbar {
         display: none;
-        display: flex;
+        /* display: flex; */
         align-items: center;
         justify-content: center;
         flex-flow: column;
@@ -204,7 +241,96 @@ button.menu:hover i {
     .navbar a {
         font-size: min(7vw, 3rem);
     }
-    .content {
-        width: 100%;
+    .home .box {
+        justify-content: center;
     }
+    .content {
+        margin: auto 15%;
+        text-align: center;
+    }
+}
+
+
+.slider2 {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+.slider2 .slide {
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0;
+    visibility: hidden;
+}
+.slider2 .slide.current {
+    opacity: 1;
+    visibility: visible;
+    transition: all 1.4s;
+}
+/* .slider2 .slide .content {
+    position: absolute;
+    bottom: 70px;
+    left: 70px;
+    width: 600px;
+    padding: 35px;
+    color: #333;
+    outline: 1px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 5px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: translateX(-150%);
+    transition: all 1s ease-in-out 0.5s;
+} */
+.slider2 .slide.slide.current .content {
+    transform: translateX(0%);
+    opacity: 1;
+    transition: all 1s;
+}
+.slider2 .slide .content h2 {
+    margin-bottom: 10px;
+}
+.slider2 .slide .content p {
+    text-transform: initial;
+    line-height: 1.4;
+}
+.slider2 .buttons {
+    position: absolute;
+    top: 45%;
+    width: 100%;
+    padding: 0 1%;
+}
+.slider2 .buttons button {
+    padding: 11px 13px;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+}
+.slider2 .buttons button:hover {
+    color: #333;
+    background-color: #fff;
+}
+.slider2 .buttons button i {
+    color: inherit;
+}
+
+.slider2 .buttons #next {
+    float: right;
+}
+
+.slider2 .slide:nth-child(1) {
+    background-image: url('../img/home-bg-1.jpg');
+}
+.slider2 .slide:nth-child(2) {
+    background-image: url('../img/home-bg-2.jpg');
+}
+.slider2 .slide:nth-child(3) {
+    background-image: url('../img/home-bg-3.jpg');
 }
