@@ -4,126 +4,93 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WebStore v.1</title>
+  <title>Webstore v.1</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./css/styles_webstore-v1.css">
-  
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    *::before, *::after {
-      margin: 0;
-      padding: 0;
-    }
-    
-    body {
-      overflow-x: hidden;
-    }
-    
-    h3 {
-      margin-bottom: 1rem;
-      text-align: center;
-      text-transform: capitalize;
-    }
-    
-    .left {
-      position: relative;
-      width: 40vw;
-      min-width: 580px;
-      min-height: 100vh;
-      background-attachment: fixed;
-      background-repeat: no-repeat;
-      background-size: auto 100%;
+    .intro {
       display: flex;
-    }
-    .left:nth-child(1) {
-      background-image: url('../../Sliders/img/v1/Alex-Grey-315991634.jpg');
-    }
-    .left:nth-child(2) {
-      background-image: url('../../Sliders/img/v1/GTS-Red-312382293.jpg');
-    }
-    .left:nth-child(3) {
-      background-image: url('../../Sliders/img/v1/Gulf-Blue-312502406.jpg');
-    }
-    .left:nth-child(4) {
-      background-image: url('../../Sliders/img/v1/Ice-Green-Metallic-314398192.jpg');
-    }
-    .left:nth-child(5) {
-      background-image: url('../../Sliders/img/v1/Racing-Green-Metallic-315601499.jpg');
-    }
-    .content {
-      position: relative;
-      left: min(40vw, 80%);
-      width: min(50vw, 500px);
-      margin-block: auto;
-      padding: 1em;
-      color: #000;
-      line-height: 1.3;
-      border-radius: 1em;
-      background: rgba(255,255,255,0.6);
-      box-shadow: 3px 3px 5px #000;
-      backdrop-filter: blur(1px);
-    }
-    
-    .right {
-      position: fixed;
-      inset: 0% 0% 0% auto;
-      width: calc(101% - 580px);
-      background-image: url('../Cars/Porsche/img/logo/logo-large.png'), linear-gradient(to top, #fefefe, #e8e8e8);
+      min-height: 100vh;
+      background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("../00templates/tropical_beach_resort-wallpaper-2560x1440.jpg");
       background-repeat: no-repeat;
       background-position: center;
-      background-size: contain;
-      background-size: min(570px, 90%), auto;
-      z-index: -1;
+      background-size: cover;
     }
-    
-    @media screen and (max-width: 710px) {
-      .right {
-        display: none;
-      }
-      .left {
-        min-width: 100%;
-        background-size: cover;
-        background-position: center;
-      }
+    h1 {
+      margin: auto;
+      color: #fff;
+      font-size: 3rem;
+      text-align: center;
+    }
+    h1::first-letter {
+      text-transform: uppercase;
+    }
+
+    .content {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      background-color: #333;
+      overflow: hidden;
+    }
+    .text, .image {
+      flex: 1;
+      padding: 5rem;
+      font-size: 1.2rem;
+      opacity: 1;
+      transform: translateX(0);
+      transition: all 1s ease-in-out;
+    }
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .left {
+      opacity: 0;
+      transform: translateX(-50%);
+    }
+    .right {
+      opacity: 0;
+      transform: translateX(50%);
     }
   </style>
 </head>
 <body>
-    <div class="left">
-        <div class="content">
-            <h3>parallax effect (css only)</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima eveniet non ab ea impedit quos suscipit quibusdam consequatur, rem obcaecati dolorem voluptatibus repellat laborum eligendi earum amet quisquam illo maiores voluptatem voluptatum? Facere nam quia nostrum? Tempora impedit, amet libero sequi, assumenda odio voluptatibus porro tenetur commodi magni ab explicabo.</p>
-        </div>
+  <div class="intro">
+    <h1>scroll down to see the effect</h1>
+  </div>
+  <div class="content">
+    <div class="text left">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat recusandae doloribus, dolor doloremque reiciendis temporibus in aspernatur nostrum eum est. Labore quaerat velit repudiandae rem.</p>
     </div>
-    <div class="left">
-        <div class="content">
-            <h3>parallax effect (css only)</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima eveniet non ab ea impedit quos suscipit quibusdam consequatur, rem obcaecati dolorem voluptatibus repellat laborum eligendi earum amet quisquam illo maiores voluptatem voluptatum? Facere nam quia nostrum? Tempora impedit, amet libero sequi, assumenda odio voluptatibus porro tenetur commodi magni ab explicabo.</p>
-        </div>
+    <div class="image right">
+      <img src="../template-v1/img/landscape-bg.jpg" alt="Mountains">
     </div>
-    <div class="left">
-        <div class="content">
-            <h3>parallax effect (css only)</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima eveniet non ab ea impedit quos suscipit quibusdam consequatur, rem obcaecati dolorem voluptatibus repellat laborum eligendi earum amet quisquam illo maiores voluptatem voluptatum? Facere nam quia nostrum? Tempora impedit, amet libero sequi, assumenda odio voluptatibus porro tenetur commodi magni ab explicabo.</p>
-        </div>
-    </div>
-    <div class="left">
-        <div class="content">
-            <h3>parallax effect (css only)</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima eveniet non ab ea impedit quos suscipit quibusdam consequatur, rem obcaecati dolorem voluptatibus repellat laborum eligendi earum amet quisquam illo maiores voluptatem voluptatum? Facere nam quia nostrum? Tempora impedit, amet libero sequi, assumenda odio voluptatibus porro tenetur commodi magni ab explicabo.</p>
-        </div>
-    </div>
-    <div class="left">
-        <div class="content">
-            <h3>parallax effect (css only)</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima eveniet non ab ea impedit quos suscipit quibusdam consequatur, rem obcaecati dolorem voluptatibus repellat laborum eligendi earum amet quisquam illo maiores voluptatem voluptatum? Facere nam quia nostrum? Tempora impedit, amet libero sequi, assumenda odio voluptatibus porro tenetur commodi magni ab explicabo.</p>
-        </div>
-    </div>
-    <div class="right"></div>
+  </div>
+  <script>
+    const text = document.querySelector(".text");
+    const image = document.querySelector(".image");
+
+    window.addEventListener("scroll", e => {
+      console.log(e);
+      show();
+    });
+
+    function show() {
+      let scrollPosition = innerHeight / 1.5;
+      let textPosition = text.getBoundingClientRect().top;
+      if (scrollPosition > textPosition) {
+        text.classList.remove("left");
+        image.classList.remove("right");
+      }
+    }
+  </script>
 </body>
 </html>
-
