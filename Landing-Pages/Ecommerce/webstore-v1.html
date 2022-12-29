@@ -13,84 +13,138 @@
       padding: 0;
       box-sizing: border-box;
     }
-    .intro {
-      display: flex;
-      min-height: 100vh;
-      background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("../00templates/tropical_beach_resort-wallpaper-2560x1440.jpg");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-    h1 {
-      margin: auto;
-      color: #fff;
-      font-size: 3rem;
-      text-align: center;
-    }
-    h1::first-letter {
-      text-transform: uppercase;
+
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: #e39343 #212529;
     }
 
-    .content {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      color: #fff;
-      background-color: #333;
-      overflow: hidden;
+    ::-webkit-scrollbar {
+      width: 10px;
     }
-    .text, .image {
-      flex: 1;
-      padding: 5rem;
-      font-size: 1.2rem;
-      opacity: 1;
-      transform: translateX(0);
-      transition: all 1s ease-in-out;
+    ::-webkit-scrollbar-track {
+      width: 10px;
+      background-color: #212529;
+      border-left: 0 solid #fff;
+      border-right: 0 solid #fff;
     }
+    ::-webkit-scrollbar-thumb {
+      background-color: #e39343;
+      width: 0;
+      height: 15%;
+      cursor: pointer;
+    }
+
     img {
       width: 100%;
-      object-fit: cover;
     }
 
-    .left {
-      opacity: 0;
-      transform: translateX(-50%);
+    .parallax {
+      /* position: absolute; */
+      /* height: 100%; */
+      height: 100vh;
     }
-    .right {
-      opacity: 0;
-      transform: translateX(50%);
+    .parallaxy {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      aspect-ratio: 3556/2000;
+      /* height: 100%; */
+      background-image: url("./img/test/bg.png");
+      background-position: top left;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .container {
+      position: relative;
+      max-width: 1140px;
+      margin-left: auto;
+      z-index: 1;
+    }
+
+    .content img {
+      position: absolute;
+      width: 50%;
+      right: 0;
+      transform: translateY(-50%);
+    }
+
+    #main {
+      position: relative;
+      height: 100vh;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      z-index: 3;
+    }
+    .flex-container {
+      height: 420px;
+      background: linear-gradient(120deg, #fff 0%, #fff 35%, hsl(283, 46%, 42%) 35%, hsl(283, 46%, 42%));
+      border-left: #fff;
+    }
+    #img-div {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin-left: 250px;
+      border: 15px solid #fff;
+      border-radius: 50%;
+      background-color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+    #img-div img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: block;
+      margin: auto;
+      max-width: 300px;
+      border-radius: 50%;
+    }
+    #title {
+      position: relative;
+      margin-top: -255px;
+      margin-left: 610px;
+      color: #fff;
+      font-size: 90px;
+      font-weight: 100;
+      font-family: Impact;
+      text-transform: capitalize;
+      letter-spacing: 3px;
+    }
+    #info {
+      margin: auto;
+      margin-top: 0px;
+      margin-left: 610px;
+      color: #fff;
+      font-size: 15px;
+      font-weight: bold;
+      text-transform: uppercase;
     }
   </style>
 </head>
 <body>
-  <div class="intro">
-    <h1>scroll down to see the effect</h1>
-  </div>
-  <div class="content">
-    <div class="text left">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat recusandae doloribus, dolor doloremque reiciendis temporibus in aspernatur nostrum eum est. Labore quaerat velit repudiandae rem.</p>
-    </div>
-    <div class="image right">
-      <img src="../template-v1/img/landscape-bg.jpg" alt="Mountains">
+  <div class="parallax">
+    <div class="parallaxy scroll">
+      <img src="./img/test/bg-copy.png" alt="">
     </div>
   </div>
-  <script>
-    const text = document.querySelector(".text");
-    const image = document.querySelector(".image");
+  <div class="container">
+    <div class="content">
+      <img src="./img/test/astro.png" alt="">
+    </div>
+  </div>
 
-    window.addEventListener("scroll", e => {
-      console.log(e);
-      show();
-    });
-
-    function show() {
-      let scrollPosition = innerHeight / 1.5;
-      let textPosition = text.getBoundingClientRect().top;
-      if (scrollPosition > textPosition) {
-        text.classList.remove("left");
-        image.classList.remove("right");
-      }
-    }
-  </script>
+  <section id="main">
+    <div class="flex-container">
+      <div id="img-div">
+        <img src="../../../CSS/assets/img/profile-copy.jpg" alt="">
+      </div>
+      <h1 id="title">slanted div</h1>
+      <p id="info">the amazing slanted div</p>
+    </div>
+  </section>
 </body>
 </html>
