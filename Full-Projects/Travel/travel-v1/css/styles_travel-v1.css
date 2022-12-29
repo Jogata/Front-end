@@ -49,7 +49,11 @@ a {
     color: var(--white);
     text-transform: uppercase;
     text-decoration: none;
+    border-radius: 1em;
     transition: all 0.4s;
+}
+a:focus-visible {
+    outline: 1px solid rgba(33, 145, 80, 0.6);
 }
 
 button {
@@ -90,11 +94,15 @@ header {
 }
 .logo {
     margin-right: auto;
+    padding: 0.1em 0.2em 0;
     color: var(--black);
     font-size: 2.5rem;
     font-weight: bold;
     font-family: 'Great Vibes', cursive;
     text-transform: capitalize;
+}
+.logo:hover {
+    transform: scale(1.2);
 }
 
 .navbar {
@@ -108,6 +116,7 @@ header {
     color: var(--black);
     font-size: 1.2rem;
 }
+
 .navbar a:hover {
     color: var(--green);
 }
@@ -135,44 +144,64 @@ button.menu:hover i {
     color: var(--green);
 }
 
-.home {
-    background-image: url("../img/home-bg-1.jpg");
-    background-repeat: no-repeat;
-    background-position: 30% center;
-    background-size: cover;
-}
-.home .box {
+.slider2 {
     position: relative;
     min-height: 100vh;
-    display: flex;
-    /* align-items: center; */
-    justify-content: flex-end;
-    padding: 2rem 9%;
+    overflow: hidden;
 }
+
+.slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    /* width: 100%; */
+    /* height: 100%; */
+    /* min-height: 100vh; */
+    padding: 2rem 9%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    visibility: hidden;
+    opacity: 0;
+}
+.slide:nth-child(1) {
+    background-image: url('../img/home-bg-1.jpg');
+}
+.slide:nth-child(2) {
+    background-image: url('../img/home-bg-2.jpg');
+}
+.slide:nth-child(3) {
+    background-image: url('../img/home-bg-3.jpg');
+}
+.slide.current {
+    opacity: 1;
+    visibility: visible;
+    transition: all 1.4s;
+}
+
 .content {
     width: min(50%, 50rem);
     color: var(--black);
     margin: auto 0 auto auto;
-
-    /* position: absolute;
-    bottom: 70px;
-    left: 70px; */
-    /* width: 600px; */
-    /* padding: 35px; */
-    /* color: #333; */
-    /* outline: 1px solid rgba(255, 255, 255, 0.8); */
-    /* outline-offset: 5px; */
-    /* border-radius: 20px; */
-    /* background-color: rgba(255, 255, 255, 0.4); */
     transform: translateX(-150%);
-    opacity: 0;
     transition: all 1s ease-in-out 0.5s;
+    opacity: 0;
+}
+.slide.current .content {
+    transform: translateX(0%);
+    opacity: 1;
+    transition: all 1s;
+}
+.content.left {
+    margin: auto auto auto 0;
+    transform: translateX(150%);
 }
 .content h1 {
     padding-top: 0.5rem;
     font-size: min(4vw, 4rem);
     line-height: 1;
     text-transform: uppercase;
+    font-family: 'Kaushan Script', cursive;
 }
 .content h1 span {
     display: block;
@@ -182,27 +211,8 @@ button.menu:hover i {
 .content p {
     padding: 1em 0rem;
     font-size: min(2vw, 1.5rem);
+    line-height: 1.4;
 }
-
-/* 
-.slider2 .slide .content {
-    position: absolute;
-    bottom: 70px;
-    left: 70px;
-    width: 600px;
-    padding: 35px;
-    color: #333;
-    outline: 1px solid rgba(255, 255, 255, 0.8);
-    outline-offset: 5px;
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.4);
-    transform: translateX(-150%);
-    transition: all 1s ease-in-out 0.5s;
-}
-.slider2 .slide.current .content {
-    transform: translateX(0%);
-}
-*/
 
 .explore-btn {
     display: inline-block;
@@ -219,85 +229,10 @@ button.menu:hover i {
     color: var(--green);
     border-color: var(--green);
 }
-
-
-
-@media screen and (max-width: 768px) {
-    button.menu {
-        display: inline-block;
-    }
-    .navbar {
-        display: none;
-        /* display: flex; */
-        align-items: center;
-        justify-content: center;
-        flex-flow: column;
-        position: fixed;
-        inset: 0 0 auto 0;
-        min-height: 100vh;
-        background-color: var(--white);
-        z-index: 30;
-    }
-    .navbar a {
-        font-size: min(7vw, 3rem);
-    }
-    .home .box {
-        justify-content: center;
-    }
-    .content {
-        margin: auto 15%;
-        text-align: center;
-    }
+.explore-btn:focus-visible {
+    border-color: var(--green);
 }
 
-
-.slider2 {
-    position: relative;
-    min-height: 100vh;
-    overflow: hidden;
-}
-.slider2 .slide {
-    position: absolute;
-    inset: 0 auto auto 0;
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    opacity: 0;
-    visibility: hidden;
-}
-.slider2 .slide.current {
-    opacity: 1;
-    visibility: visible;
-    transition: all 1.4s;
-}
-/* .slider2 .slide .content {
-    position: absolute;
-    bottom: 70px;
-    left: 70px;
-    width: 600px;
-    padding: 35px;
-    color: #333;
-    outline: 1px solid rgba(255, 255, 255, 0.8);
-    outline-offset: 5px;
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.4);
-    transform: translateX(-150%);
-    transition: all 1s ease-in-out 0.5s;
-} */
-.slider2 .slide.slide.current .content {
-    transform: translateX(0%);
-    opacity: 1;
-    transition: all 1s;
-}
-.slider2 .slide .content h2 {
-    margin-bottom: 10px;
-}
-.slider2 .slide .content p {
-    text-transform: initial;
-    line-height: 1.4;
-}
 .slider2 .buttons {
     position: absolute;
     top: 45%;
@@ -325,12 +260,66 @@ button.menu:hover i {
     float: right;
 }
 
-.slider2 .slide:nth-child(1) {
-    background-image: url('../img/home-bg-1.jpg');
+
+@media screen and (max-width: 768px) {
+    button.menu {
+        display: inline-block;
+    }
+    .navbar {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column;
+        position: fixed;
+        inset: 0 0 auto 0;
+        min-height: 100vh;
+        background-color: var(--white);
+        z-index: 30;
+    }
+    .navbar a {
+        font-size: min(7vw, 3rem);
+    }
+    .slider2 .slide:nth-child(2) {
+        background-position: 75% center;
+    }
+    .slider2 .slide:nth-child(3) {
+        background-position: 15% center;
+    }
+    .home .slide {
+        justify-content: center;
+    }
+    .content, 
+    .content.left {
+        margin: auto 15%;
+        text-align: center;
+    }
 }
-.slider2 .slide:nth-child(2) {
-    background-image: url('../img/home-bg-2.jpg');
+
+@media screen and (max-width: 600px) {
+    .content, 
+    .content.left {
+        width: 75%;
+    }
+    .content h1 {
+        font-size: 6vw;
+    }
+    .content h1 span {
+        font-size: 10vw;
+    }
+    .content p {
+        font-size: 3.6vw;
+    }
+    .explore-btn {
+        font-size: 3vw;
+    }
 }
-.slider2 .slide:nth-child(3) {
-    background-image: url('../img/home-bg-3.jpg');
-}
+
+
+
+
+
+
+/* .slider2 .slide .content p {
+    text-transform: initial;
+    line-height: 1.4;
+} */
