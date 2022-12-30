@@ -5,11 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel v.1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/styles_travel-v1.css">
 </head>
 <body>
-    <section class="home" id="homepg">
-        <div class="wrapper">
+    <header id="header" class="page-max-width">
+        <a href="#header" class="logo">travel.</a>
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#about">about</a>
+            <a href="#shop">shop</a>
+            <a href="#packages">packages</a>
+            <a href="#reviews">reviews</a>
+            <a href="#blogs">blogs</a>
+        </nav>
+        <button type="menu" class="menu">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+    </header>
+
+    <!-- <section class="home" id="homepg">
+        <div class="wrapper page-max-width">
             <div class="box">
                 <div class="content">
                     <h1>never stop <span>exploring</span></h1>
@@ -18,7 +34,123 @@
                 </div>
             </div>
         </div>
+    </section> -->
+
+    <section class="home" id="homepg">
+        <div class="wrapper slider2">
+            <div class="slide current">
+                <div class="content">
+                    <h1>never stop <span>exploring</span></h1>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam fugit corporis vitae facilis nesciunt quam optio dolore. Delectus, ea similique.</p>
+                    <a href="#homepg" class="explore-btn">learn more</a>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="content left">
+                    <h1>never stop <span>exploring</span></h1>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam fugit corporis vitae facilis nesciunt quam optio dolore. Delectus, ea similique.</p>
+                    <a href="#homepg" class="explore-btn">learn more</a>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="content">
+                    <h1>never stop <span>exploring</span></h1>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam fugit corporis vitae facilis nesciunt quam optio dolore. Delectus, ea similique.</p>
+                    <a href="#homepg" class="explore-btn">learn more</a>
+                </div>
+            </div>
+            <div class="buttons">
+                <button id="prev">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                </button>
+                <button id="next">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
     </section>
-    <script src="./js/script_JS.js"></script>
+
+    <section id="second" style="height: 100vh;">
+        <h2>second section</h2>
+    </section>
+
+    <!-- <div class="slider2 page-max-width">
+        <div class="slide current">
+            <div class="content">
+                <h2>Civita di Bagnoregio, Italy</h2>
+                <p>Civita Bagnoregio is considered one of the most beautiful villages in Italy and every year it is visited by thousands of thousands of people who come from all over the world to admire its timeless appearance and the magical aspect that can be perceived walking through its narrow alleys.</p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <h2>Nuremberg, Germany</h2>
+                <p><p>Impressive, exciting, colourful, mighty and tragic: Nuremberg has reflected German history since the Middle Ages. Protected by the castle, a new spirit enlivened the city at a time when few other places could offer such a quality of life.</p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <h2>Edinburgh, Scotland</h2>
+                <p>Edinburgh's beauty is both staggering and stunning - but the city is more than just a pretty face. Take a closer look and discover the city's fantastic stories.</p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <h2>slide four</h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui eos, sed eligendi animi quisquam error voluptates accusantium, nihil fugit dolorum laboriosam expedita laborum non officia quidem vel, rem soluta fuga et vero doloribus! Distinctio nesciunt, inventore et facere eius architecto expedita veritatis fuga molestiae nemo laboriosam optio minus aspernatur doloremque.</p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <h2>slide five</h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui eos, sed eligendi animi quisquam error voluptates accusantium, nihil fugit dolorum laboriosam expedita laborum non officia quidem vel, rem soluta fuga et vero doloribus! Distinctio nesciunt, inventore et facere eius architecto expedita veritatis fuga molestiae nemo laboriosam optio minus aspernatur doloremque.</p>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="content">
+                <h2>Pisa, Italy</h2>
+                <p>Rising on the banks of the Arno river, it is one of the most important Tuscan cities and certainly the most surprising.</p>
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="prev">
+                <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            </button>
+            <button id="next">
+                <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div> -->
+
+    <script>
+        // Setup the Slider in Home Section
+        (function setSliderButtons() {
+            const sliders = document.querySelectorAll(".slide");
+            const nextButton = document.querySelector("#next");
+            const prevButton = document.querySelector("#prev");
+            let currentIndex = Array.from(sliders).findIndex(slide => slide.classList.contains("current"));
+
+            nextButton.addEventListener("click", nextSlide);
+            prevButton.addEventListener("click", prevSlide);
+
+            function nextSlide() {
+                currentIndex++;
+                if (currentIndex >= sliders.length) {
+                    currentIndex = 0;
+                }
+                document.querySelector(".current").classList.remove("current");
+                sliders[currentIndex].classList.add("current");
+            };
+            
+            function prevSlide() {
+                currentIndex--;
+                if (currentIndex < 0) {
+                    currentIndex = sliders.length - 1;
+                }
+                document.querySelector(".current").classList.remove("current");
+                sliders[currentIndex].classList.add("current");
+            };
+        }());
+    </script>
+    <!-- <script src="./js/script_JS.js"></script> -->
 </body>
 </html>
