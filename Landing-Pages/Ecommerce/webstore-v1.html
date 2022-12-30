@@ -39,6 +39,13 @@
       width: 100%;
     }
 
+    .container-global {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      z-index: 10;
+    }
+
     .parallax {
       /* position: absolute; */
       /* height: 100%; */
@@ -123,6 +130,126 @@
       font-weight: bold;
       text-transform: uppercase;
     }
+
+    #slanted2 {
+      height: 400px;
+      width: 1200px;
+      margin: auto;
+      /* background-color: #000; */
+      box-shadow: 0px 25px 30px rgba(0,0,0,0.5);
+      display: flex;
+    }
+    #slanted2 .content {
+      /* width = 50% - (border-left/2) */
+      width: calc(50% - 50px);
+      height: 100%;
+      color: #fff;
+      background-color: #000;
+      display: flex;
+      flex-flow: column;
+    }
+    #slanted2 .content h1 {
+      margin-top: auto;
+      text-align: center;
+      text-transform: capitalize;
+    }
+    #slanted2 .content p {
+      margin-bottom: auto;
+      padding: 1em 2em;
+    }
+    #slanted2 .imagebox {
+      /* width = 50% + (border-left/2) */
+      width: calc(50% + 50px);
+      height: 100%;
+      border-left: 100px solid #000;
+      border-bottom: 400px solid transparent;
+      background-image: url("../00templates/nike-sitting-athletic.jpg");
+      background-repeat: no-repeat;
+      background-position: -110px -20px;
+      background-size: 120%;
+    }
+
+    .boxone {
+      width: 100%;
+      margin: auto;
+      background: #b2b4b3;
+
+      position: relative;
+      height: 400px;
+
+      padding: 20px 0px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .boxone::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      content: '';
+      width: 100%;
+      height: 100%;
+      background: inherit;
+      transform-origin: top right;
+      transform: skewY(-11deg);
+      z-index: -1;
+    }
+    .boxtwo {
+      width: 100%;
+      color: #fff;
+      background: #262626;
+
+      position: relative;
+
+      padding: 250px 0px 100px;
+      font-family: Arial, Helvetica, sans-serif;
+      z-index: -2;
+    }
+    .boxone .content {
+      width: 100%;
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+    .boxone .content p {
+      width: 50%;
+      margin-top: 20px;
+      font-size: 1em;
+      line-height: 25px;
+      letter-spacing: 1px;
+    }
+    .boxtwo .content {
+      width: 100%;
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+      text-align: right;
+    }
+    .boxtwo .content p {
+      width: 50%;
+      margin-top: 20px;
+      margin-left: auto;
+      font-size: 1em;
+      line-height: 25px;
+      letter-spacing: 1px;
+    }
+    .boxone h1 {
+      padding: 20px 0px;
+      font-size: 3rem;
+      text-transform: capitalize;
+    }
+    .boxtwo h1 {
+      padding: 20px 0px;
+      font-size: 3rem;
+      text-transform: capitalize;
+    }
+
+    #bltum {
+      position: absolute;
+      left: 50%;
+      width: 40%;
+      transform: translateY(-38%);
+    }
   </style>
 </head>
 <body>
@@ -145,6 +272,32 @@
       <h1 id="title">slanted div</h1>
       <p id="info">the amazing slanted div</p>
     </div>
+  </section>
+
+  <section class="container-global">
+    <section id="slanted2">
+      <div class="content">
+        <h1>angled div shape</h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae ipsam consectetur velit enim aliquam similique, odit ad fugiat eligendi id voluptate itaque ab pariatur maiores est, porro repudiandae blanditiis! Voluptatem corrupti quaerat commodi quasi similique deserunt, rem repudiandae distinctio a minus totam, qui eos. Quisquam, quis. Sapiente voluptate natus nesciunt. Totam, dolorem ad. Nemo earum fuga et magnam alias, aliquid illo beatae ducimus sequi nobis totam voluptates minus provident maxime odio praesentium mollitia architecto nam neque. Soluta harum dolorem hic tempora ipsa, dignissimos rem? Repellendus unde beatae debitis molestiae vel explicabo eum ipsam ab voluptatem a, eaque architecto, provident repellat.</p>
+      </div>
+      <div class="imagebox"></div>
+    </section>
+  </section>
+
+  <section class="container-global" style="display: block;">
+    <section class="boxone">
+      <div class="content">
+        <h1>title one</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi quia quisquam facere quas maiores, eos totam repellat assumenda eum quaerat adipisci doloremque quidem est vitae nam beatae consequuntur soluta, placeat nulla dicta incidunt minus, odio voluptatibus. Minima harum nisi dicta enim expedita commodi ducimus veritatis consectetur iusto inventore. Officia veritatis commodi qui labore necessitatibus possimus ullam beatae quasi sit obcaecati sunt, doloremque, fugiat tempora soluta laboriosam itaque iure aut recusandae quae error.</p>
+      </div>
+    </section>
+    <img id="bltum" src="../Blvck-Tumbler/img/mug.png" alt="">
+    <section class="boxtwo">
+      <div class="content">
+        <h1>title two</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non adipisci ab necessitatibus hic nobis, quos consectetur molestias quod. Voluptatem sequi mollitia sit autem similique beatae veritatis adipisci molestias doloremque ut quod tenetur, id quidem dolorum? Aliquam, harum ad. Eligendi consectetur tenetur officia beatae, saepe est illo aperiam eveniet repellat cum. Eligendi, nam, id ullam rerum laboriosam libero facere amet veniam temporibus quisquam quis aut totam consectetur dolorem aliquid voluptate voluptas quos corrupti. Esse est numquam quo vero. Fugiat omnis reiciendis velit illo voluptatibus suscipit accusantium beatae.</p>
+      </div>
+    </section>
   </section>
 </body>
 </html>
