@@ -9,30 +9,18 @@
   <link rel="stylesheet" href="./css/styles_webstore-v1.css">
   <style>
     * {
-      margin: 0;
-      padding: 0;
+      margin: 0px;
+      padding: 0px;
       box-sizing: border-box;
+    }
+    *::before, *::after {
+      padding: 0;
+      margin: 0;
     }
 
     html {
       scrollbar-width: thin;
       scrollbar-color: #e39343 #212529;
-    }
-
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-    ::-webkit-scrollbar-track {
-      width: 10px;
-      background-color: #212529;
-      border-left: 0 solid #fff;
-      border-right: 0 solid #fff;
-    }
-    ::-webkit-scrollbar-thumb {
-      background-color: #e39343;
-      width: 0;
-      height: 15%;
-      cursor: pointer;
     }
 
     img {
@@ -41,263 +29,146 @@
 
     .container-global {
       position: relative;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
-      z-index: 10;
     }
 
-    .parallax {
-      /* position: absolute; */
-      /* height: 100%; */
-      height: 100vh;
-    }
-    .parallaxy {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      aspect-ratio: 3556/2000;
-      /* height: 100%; */
-      background-image: url("./img/test/bg.png");
-      background-position: top left;
-      background-size: cover;
-      background-repeat: no-repeat;
+    body {
+      background-color: #262626;
+      font-family: Arial, Helvetica, sans-serif;
     }
 
-    .container {
+    section {
       position: relative;
-      max-width: 1140px;
-      margin-left: auto;
-      z-index: 1;
-    }
-
-    .content img {
-      position: absolute;
-      width: 50%;
-      right: 0;
-      transform: translateY(-50%);
-    }
-
-    #main {
-      position: relative;
-      height: 100vh;
-      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-      z-index: 3;
-    }
-    .flex-container {
-      height: 420px;
-      background: linear-gradient(120deg, #fff 0%, #fff 35%, hsl(283, 46%, 42%) 35%, hsl(283, 46%, 42%));
-      border-left: #fff;
-    }
-    #img-div {
-      position: relative;
-      width: 300px;
-      height: 300px;
-      margin-left: 250px;
-      border: 15px solid #fff;
-      border-radius: 50%;
-      background-color: #fff;
-      text-align: center;
-      overflow: hidden;
-    }
-    #img-div img {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      display: block;
-      margin: auto;
-      max-width: 300px;
-      border-radius: 50%;
-    }
-    #title {
-      position: relative;
-      margin-top: -255px;
-      margin-left: 610px;
-      color: #fff;
-      font-size: 90px;
-      font-weight: 100;
-      font-family: Impact;
-      text-transform: capitalize;
-      letter-spacing: 3px;
-    }
-    #info {
-      margin: auto;
-      margin-top: 0px;
-      margin-left: 610px;
-      color: #fff;
-      font-size: 15px;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-
-    #slanted2 {
-      height: 400px;
       width: 1200px;
-      margin: auto;
-      /* background-color: #000; */
-      box-shadow: 0px 25px 30px rgba(0,0,0,0.5);
-      display: flex;
+      height: 600px;
+      margin: 50px auto;
     }
-    #slanted2 .content {
-      /* width = 50% - (border-left/2) */
-      width: calc(50% - 50px);
+
+    .box {
+      position: relative;
+      width: calc(400px - 30px);
+      height: calc(300px - 30px);
+      margin: 15px;
+      display: flex;
+      float: left;
+      /* background-color: #e39343; */
+      box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .left {
+      width: calc(50% + 25px);
       height: 100%;
-      color: #fff;
       background-color: #000;
-      display: flex;
-      flex-flow: column;
     }
-    #slanted2 .content h1 {
-      margin-top: auto;
-      text-align: center;
-      text-transform: capitalize;
-    }
-    #slanted2 .content p {
-      margin-bottom: auto;
-      padding: 1em 2em;
-    }
-    #slanted2 .imagebox {
-      /* width = 50% + (border-left/2) */
-      width: calc(50% + 50px);
+    .right {
+      width: calc(50% + 25px);
       height: 100%;
-      border-left: 100px solid #000;
-      border-bottom: 400px solid transparent;
-      background-image: url("../00templates/nike-sitting-athletic.jpg");
+      border-left: 50px solid #000;
+      border-bottom: 270px solid transparent;
+      background-image: url("../00templates/nike-allyson-felix-running.jpg");
       background-repeat: no-repeat;
-      background-position: -110px -20px;
-      background-size: 120%;
-    }
-
-    .boxone {
-      width: 100%;
-      margin: auto;
-      background: #b2b4b3;
-
-      position: relative;
-      height: 400px;
-
-      padding: 20px 0px;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-    .boxone::after {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      content: '';
-      width: 100%;
-      height: 100%;
-      background: inherit;
-      transform-origin: top right;
-      transform: skewY(-11deg);
-      z-index: -1;
-    }
-    .boxtwo {
-      width: 100%;
-      color: #fff;
-      background: #262626;
-
-      position: relative;
-
-      padding: 250px 0px 100px;
-      font-family: Arial, Helvetica, sans-serif;
-      z-index: -2;
-    }
-    .boxone .content {
-      width: 100%;
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
-    }
-    .boxone .content p {
-      width: 50%;
-      margin-top: 20px;
-      font-size: 1em;
-      line-height: 25px;
-      letter-spacing: 1px;
-    }
-    .boxtwo .content {
-      width: 100%;
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
-      text-align: right;
-    }
-    .boxtwo .content p {
-      width: 50%;
-      margin-top: 20px;
-      margin-left: auto;
-      font-size: 1em;
-      line-height: 25px;
-      letter-spacing: 1px;
-    }
-    .boxone h1 {
-      padding: 20px 0px;
-      font-size: 3rem;
-      text-transform: capitalize;
-    }
-    .boxtwo h1 {
-      padding: 20px 0px;
-      font-size: 3rem;
-      text-transform: capitalize;
-    }
-
-    #bltum {
-      position: absolute;
-      left: 50%;
-      width: 40%;
-      transform: translateY(-38%);
+      background-position: -100px -15px;
+      background-size: cover;
     }
   </style>
 </head>
 <body>
-  <div class="parallax">
-    <div class="parallaxy scroll">
-      <img src="./img/test/bg-copy.png" alt="">
+  <section>
+    <div class="box">
+      <div class="left"></div>
+      <div class="right"></div>
     </div>
-  </div>
-  <div class="container">
-    <div class="content">
-      <img src="./img/test/astro.png" alt="">
+    <div class="box">
+      <div class="left"></div>
+      <div class="right"></div>
     </div>
-  </div>
-
-  <section id="main">
-    <div class="flex-container">
-      <div id="img-div">
-        <img src="../../../CSS/assets/img/profile-copy.jpg" alt="">
-      </div>
-      <h1 id="title">slanted div</h1>
-      <p id="info">the amazing slanted div</p>
+    <div class="box">
+      <div class="left"></div>
+      <div class="right"></div>
+    </div>
+    <div class="box">
+      <div class="left"></div>
+      <div class="right"></div>
+    </div>
+    <div class="box">
+      <div class="left"></div>
+      <div class="right"></div>
+    </div>
+    <div class="box">
+      <div class="left"></div>
+      <div class="right"></div>
     </div>
   </section>
 
-  <section class="container-global">
-    <section id="slanted2">
-      <div class="content">
-        <h1>angled div shape</h1>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae ipsam consectetur velit enim aliquam similique, odit ad fugiat eligendi id voluptate itaque ab pariatur maiores est, porro repudiandae blanditiis! Voluptatem corrupti quaerat commodi quasi similique deserunt, rem repudiandae distinctio a minus totam, qui eos. Quisquam, quis. Sapiente voluptate natus nesciunt. Totam, dolorem ad. Nemo earum fuga et magnam alias, aliquid illo beatae ducimus sequi nobis totam voluptates minus provident maxime odio praesentium mollitia architecto nam neque. Soluta harum dolorem hic tempora ipsa, dignissimos rem? Repellendus unde beatae debitis molestiae vel explicabo eum ipsam ab voluptatem a, eaque architecto, provident repellat.</p>
-      </div>
-      <div class="imagebox"></div>
-    </section>
-  </section>
+  <script>
+    const doWork = (resolve, reject) => {
+      // setTimeout(() => {resolve("Hello World")}, 1000);
+      setTimeout(() => {reject("Error 404")}, 1000);
+    };
 
-  <section class="container-global" style="display: block;">
-    <section class="boxone">
-      <div class="content">
-        <h1>title one</h1>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Modi quia quisquam facere quas maiores, eos totam repellat assumenda eum quaerat adipisci doloremque quidem est vitae nam beatae consequuntur soluta, placeat nulla dicta incidunt minus, odio voluptatibus. Minima harum nisi dicta enim expedita commodi ducimus veritatis consectetur iusto inventore. Officia veritatis commodi qui labore necessitatibus possimus ullam beatae quasi sit obcaecati sunt, doloremque, fugiat tempora soluta laboriosam itaque iure aut recusandae quae error.</p>
-      </div>
-    </section>
-    <img id="bltum" src="../Blvck-Tumbler/img/mug.png" alt="">
-    <section class="boxtwo">
-      <div class="content">
-        <h1>title two</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non adipisci ab necessitatibus hic nobis, quos consectetur molestias quod. Voluptatem sequi mollitia sit autem similique beatae veritatis adipisci molestias doloremque ut quod tenetur, id quidem dolorum? Aliquam, harum ad. Eligendi consectetur tenetur officia beatae, saepe est illo aperiam eveniet repellat cum. Eligendi, nam, id ullam rerum laboriosam libero facere amet veniam temporibus quisquam quis aut totam consectetur dolorem aliquid voluptate voluptas quos corrupti. Esse est numquam quo vero. Fugiat omnis reiciendis velit illo voluptatibus suscipit accusantium beatae.</p>
-      </div>
-    </section>
-  </section>
+    const doAnotherWork = (resolve, reject) => {
+      setTimeout(() => {resolve("How are you?")}, 3000);
+      // setTimeout(() => {reject("Error 404")}, 3000);
+    };
+
+    console.log(typeof doWork);
+
+    let response = new Promise(doWork); // reject("Error 404")
+
+    setTimeout(() => {
+      console.log(response)
+      console.dir(response)
+    }, 2000);
+
+    response
+    .then(text1 => {
+      console.log(`1st log: ${text1}`);
+      return text1;
+    }, err => {
+      console.log(`1st log: request was rejected with ${err}`);
+    })
+    .then(text2 => {
+      console.log(`2nd log: ${text2} again`);
+      return new Promise(doAnotherWork);
+    }, err => {
+      console.log(`2st log: request was rejected with ${err}`);
+    })
+    .then(text3 => {
+      text3 = `3rd log: ${text3}`;
+      console.log(text3);
+    }, err => {
+      console.log(`3st log: request was rejected with ${err}`);
+    });
+
+    class Person {
+      constructor(f1) {
+        this.salut = f1;
+      }
+    }
+
+    let p1 = new Person(doWork);
+
+    console.log(p1.salut);
+
+    var Human = Human || {};
+    Human.TeamA = Human.TeamA || {};
+
+    Human.TeamA.customer = function (firstName, lastName) {
+      console.log(this);
+      console.log("gfdd");
+      this.firstName = firstName;
+      this.lastName = lastName;
+
+      this.getFullName = function () {
+        return this.firstName + " " + this.lastName;
+      }
+    }
+
+    const human1 = new Human.TeamA.customer("jon", "wick");
+    const human2 = new Human.TeamA.customer("ivet", "valcheva");
+    console.log(human1.firstName);
+    console.log(human2.firstName);
+  </script>
 </body>
 </html>
