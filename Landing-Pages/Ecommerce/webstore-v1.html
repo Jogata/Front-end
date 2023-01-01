@@ -38,73 +38,13 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
-    section {
-      position: relative;
-      width: 1200px;
-      height: 600px;
-      margin: 50px auto;
-    }
-
-    .box {
-      position: relative;
-      width: calc(400px - 30px);
-      height: calc(300px - 30px);
-      margin: 15px;
-      display: flex;
-      float: left;
-      /* background-color: #e39343; */
-      box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.5);
-    }
-
-    .left {
-      width: calc(50% + 25px);
-      height: 100%;
-      background-color: #000;
-    }
-    .right {
-      width: calc(50% + 25px);
-      height: 100%;
-      border-left: 50px solid #000;
-      border-bottom: 270px solid transparent;
-      background-image: url("../00templates/nike-allyson-felix-running.jpg");
-      background-repeat: no-repeat;
-      background-position: -100px -15px;
-      background-size: cover;
-    }
   </style>
 </head>
 <body>
-  <section>
-    <div class="box">
-      <div class="left"></div>
-      <div class="right"></div>
-    </div>
-    <div class="box">
-      <div class="left"></div>
-      <div class="right"></div>
-    </div>
-    <div class="box">
-      <div class="left"></div>
-      <div class="right"></div>
-    </div>
-    <div class="box">
-      <div class="left"></div>
-      <div class="right"></div>
-    </div>
-    <div class="box">
-      <div class="left"></div>
-      <div class="right"></div>
-    </div>
-    <div class="box">
-      <div class="left"></div>
-      <div class="right"></div>
-    </div>
-  </section>
-
   <script>
     const doWork = (resolve, reject) => {
-      // setTimeout(() => {resolve("Hello World")}, 1000);
-      setTimeout(() => {reject("Error 404")}, 1000);
+      setTimeout(() => {resolve("Hello World")}, 1000);
+      // setTimeout(() => {reject("Error 404")}, 1000);
     };
 
     const doAnotherWork = (resolve, reject) => {
@@ -114,12 +54,8 @@
 
     console.log(typeof doWork);
 
-    let response = new Promise(doWork); // reject("Error 404")
-
-    setTimeout(() => {
-      console.log(response)
-      console.dir(response)
-    }, 2000);
+    // Primises
+    let response = new Promise(doWork);
 
     response
     .then(text1 => {
@@ -141,34 +77,104 @@
       console.log(`3st log: request was rejected with ${err}`);
     });
 
-    class Person {
-      constructor(f1) {
-        this.salut = f1;
-      }
+    // Async/Await
+    async function doAllTheWork() {
+      const text = new Promise(doWork);
+      const text1 = await text;
+      console.log(text1);
+
+      const text2 = new Promise(doAnotherWork);
+      const text3 = await text2;
+      console.log(text3);
     }
 
-    let p1 = new Person(doWork);
+    doAllTheWork();
+    console.log("Done!");
 
-    console.log(p1.salut);
 
-    var Human = Human || {};
-    Human.TeamA = Human.TeamA || {};
 
-    Human.TeamA.customer = function (firstName, lastName) {
-      console.log(this);
-      console.log("gfdd");
+
+    function Employee(firstName, lastName) {
+      // Public Fields
       this.firstName = firstName;
       this.lastName = lastName;
 
-      this.getFullName = function () {
-        return this.firstName + " " + this.lastName;
+      // Private Fields
+      let privateFullName;
+
+      // Private Function
+      function privateGetFullName() {
+        privateFullName = `${firstName} ${lastName}`;
+        return privateFullName;
+      }
+
+      // Privileged Function
+      // this.privilegedGetFullName = function () {
+      //   return privateGetFullName();
+      // }
+
+      // Public Function
+      Employee.prototype.publicGetFullName = function () {
+        return privateGetFullName();
       }
     }
 
-    const human1 = new Human.TeamA.customer("jon", "wick");
-    const human2 = new Human.TeamA.customer("ivet", "valcheva");
-    console.log(human1.firstName);
-    console.log(human2.firstName);
+    console.log(Employee.hasOwnProperty("publicGetFullName"))
+    console.log(Employee.hasOwnProperty("apply"))
+    console.log(Employee.hasOwnProperty("call"))
+    console.log(Employee.hasOwnProperty("bind"))
+    console.log(Employee.hasOwnProperty("toString"))
+    console.log(Employee.hasOwnProperty("arguments"))
+    console.log(Employee.hasOwnProperty("caller"))
+
+    console.log(Employee.hasOwnProperty("name"))
+    console.log(Employee.hasOwnProperty("length"))
+    console.log(Employee.hasOwnProperty("prototype"))
+    
+    const emp = new Employee("john", "wick");
+    console.log("117");
+    console.log(emp.publicGetFullName())
+    console.log(typeof Employee.prototype.publicGetFullName) // function
+    Employee.prototype.publicGetFullName = "softuni";
+    console.log(typeof Employee.prototype.publicGetFullName) // string
+    const emp2 = new Employee("ivet", "valcheva");
+    console.log(typeof Employee.prototype.publicGetFullName) // function
+    console.log("123");
+    // console.log(emp.privilegedGetFullName());
+    // console.log(emp2.publicGetFullName());
+
+    console.log(emp);
+
+    const EmployeeObj = {
+      prototype: {
+        thisis: "this is the prop prototype",
+        publicGetFullName: function () {
+          console.log(this.thisis);
+        }
+      },
+    };
+
+    EmployeeObj.prototype.publicGetFullName();
+
+    // Create Private Property with IIFE and Closures
+    const movie = (function () {
+      let _title = "Starman";
+      return {
+        year: 1981,
+        get title(){
+          return _title;
+        },
+        set title(val){
+          _title = val;
+        }
+      }
+    })();
+
+    console.log(movie.title)  // Starman
+    console.log(movie.year)   // 1981
+    movie.title = "The Big Lebowski";
+    console.log(movie.title)  // The Big Lebowski
+    console.log(movie._title) // undefined
   </script>
 </body>
 </html>
