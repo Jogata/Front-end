@@ -38,123 +38,139 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
+    section {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #eaffae;
+      overflow: hidden;
+    }
+    .sliding span {
+      color: #f55757;
+      text-transform: uppercase;
+      margin-inline: auto;
+      text-shadow: none;
+    }
+
+    .wrapper {
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 50%;
+      height: 100%;
+      box-shadow: inset -10px 0px 10px rgba(0, 0, 0, 0.6);
+      background-color: #f55757;
+      overflow: hidden;
+    }
+    .wrapper .sliding span {
+      color: #eaffae;
+      text-shadow: -10px 0px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .sliding {
+      position: absolute;
+      top: 50%;
+      font-size: 12rem;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: slidetext 20s linear infinite;
+    }
+
+    @keyframes slidetext {
+        0% {transform: translate(0, -50%);}
+      100% {transform: translate(-50%, -50%);}
+    }
   </style>
 </head>
 <body>
+  <section>
+    <span class="sliding">
+      <span>elder</span>
+      <span>scrolls</span>
+      <span>-</span>
+      <span>elder</span>
+      <span>scrolls</span>
+    </span>
+    <div class="wrapper">
+      <span class="sliding">
+        <span>elder</span>
+        <span>scrolls</span>
+        <span>-</span>
+        <span>elder</span>
+        <span>scrolls</span>
+      </span>
+    </div>
+  </section>
   <script>
+
+    // Create Custom Promise
+    const PENDING = 0;
+    const FULFILLED = 1;
+    const REJECTED = 2;
+
+    // executor = the function that should be executed
+    // value = the result from the executor
+    function CustomPromise(executor) {
+      let state = PENDING;
+      let value = null;
+      let handlers = [];
+      let errorHandlers = [];
+
+      function resolve(result) {
+        if (state !== PENDING) return;
+
+        state = FULFILLED;
+        value = result;
+
+        console.log("FULFILLED");
+
+        handlers.forEach(handler => handler(value));
+      }
+
+      function reject(err) {
+        if (state !== PENDING) return;
+
+        state = REJECTED;
+        value = err;
+
+        console.log("REJECTED");
+
+        errorHandlers.forEach(handler => handler(value));
+      }
+
+      this.then = function (callback) {
+        if (state === FULFILLED || state === REJECTED) {
+          callback(value);
+        } else {
+          handlers.push(callback);
+          errorHandlers.push(callback);
+        }
+      }
+
+      executor(resolve, reject);
+    }
+
     const doWork = (resolve, reject) => {
-      setTimeout(() => {resolve("Hello World")}, 1000);
-      // setTimeout(() => {reject("Error 404")}, 1000);
+      // setTimeout(() => {resolve("Hello World")}, 1000);
+      setTimeout(() => {reject("Error 404")}, 1000);
     };
 
-    const doAnotherWork = (resolve, reject) => {
-      setTimeout(() => {resolve("How are you?")}, 3000);
-      // setTimeout(() => {reject("Error 404")}, 3000);
-    };
+    let response = new CustomPromise(doWork);
 
-    console.log(typeof doWork);
-
-    // Primises
-    let response = new Promise(doWork);
-
-    response
-    .then(text1 => {
+    response.then(text1 => {
       console.log(`1st log: ${text1}`);
-      return text1;
-    }, err => {
-      console.log(`1st log: request was rejected with ${err}`);
-    })
-    .then(text2 => {
-      console.log(`2nd log: ${text2} again`);
-      return new Promise(doAnotherWork);
-    }, err => {
-      console.log(`2st log: request was rejected with ${err}`);
-    })
-    .then(text3 => {
-      text3 = `3rd log: ${text3}`;
-      console.log(text3);
-    }, err => {
-      console.log(`3st log: request was rejected with ${err}`);
     });
 
-    // Async/Await
-    async function doAllTheWork() {
-      const text = new Promise(doWork);
-      const text1 = await text;
-      console.log(text1);
+    response.then(text2 => {
+      console.log(`2nd log: ${text2} again`);
+    });
 
-      const text2 = new Promise(doAnotherWork);
-      const text3 = await text2;
-      console.log(text3);
-    }
-
-    doAllTheWork();
-    console.log("Done!");
+    setTimeout(() => {
+      response.then(text3 => {
+        console.log(`3rd log: ${text3} again`);
+      })
+    }, 3000);
 
 
-
-
-    function Employee(firstName, lastName) {
-      // Public Fields
-      this.firstName = firstName;
-      this.lastName = lastName;
-
-      // Private Fields
-      let privateFullName;
-
-      // Private Function
-      function privateGetFullName() {
-        privateFullName = `${firstName} ${lastName}`;
-        return privateFullName;
-      }
-
-      // Privileged Function
-      // this.privilegedGetFullName = function () {
-      //   return privateGetFullName();
-      // }
-
-      // Public Function
-      Employee.prototype.publicGetFullName = function () {
-        return privateGetFullName();
-      }
-    }
-
-    console.log(Employee.hasOwnProperty("publicGetFullName"))
-    console.log(Employee.hasOwnProperty("apply"))
-    console.log(Employee.hasOwnProperty("call"))
-    console.log(Employee.hasOwnProperty("bind"))
-    console.log(Employee.hasOwnProperty("toString"))
-    console.log(Employee.hasOwnProperty("arguments"))
-    console.log(Employee.hasOwnProperty("caller"))
-
-    console.log(Employee.hasOwnProperty("name"))
-    console.log(Employee.hasOwnProperty("length"))
-    console.log(Employee.hasOwnProperty("prototype"))
-    
-    const emp = new Employee("john", "wick");
-    console.log("117");
-    console.log(emp.publicGetFullName())
-    console.log(typeof Employee.prototype.publicGetFullName) // function
-    Employee.prototype.publicGetFullName = "softuni";
-    console.log(typeof Employee.prototype.publicGetFullName) // string
-    const emp2 = new Employee("ivet", "valcheva");
-    console.log(typeof Employee.prototype.publicGetFullName) // function
-    console.log("123");
-    // console.log(emp.privilegedGetFullName());
-    // console.log(emp2.publicGetFullName());
-
-    console.log(emp);
-
-    const EmployeeObj = {
-      prototype: {
-        thisis: "this is the prop prototype",
-        publicGetFullName: function () {
-          console.log(this.thisis);
-        }
-      },
-    };
-
-    EmployeeObj.prototype.publicGetFullName();
 
     // Create Private Property with IIFE and Closures
     const movie = (function () {
