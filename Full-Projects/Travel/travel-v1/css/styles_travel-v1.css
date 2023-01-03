@@ -67,6 +67,9 @@ button {
     background-color: transparent;
     cursor: pointer;
 }
+i {
+    cursor: pointer;
+}
 
 img {
     max-width: 100%;
@@ -88,6 +91,7 @@ html::-webkit-scrollbar-thumb {
     margin: auto;
 }
 
+/* =========================================================   NAVIGATION   ========================================================= */
 header {
     position: absolute;
     inset: 0 0 auto 0;
@@ -150,6 +154,7 @@ button.menu:hover i {
     color: var(--green);
 }
 
+/* =========================================================   SLIDER - INTRO SECTION   ========================================================= */
 .slider2 {
     position: relative;
     /* min-height: 100vh; */
@@ -189,7 +194,7 @@ button.menu:hover i {
     transition: opacity 1.4s;
 }
 
-.content {
+.slide-content {
     width: min(50%, 50rem);
     color: var(--black);
     margin: auto 0 auto auto;
@@ -197,27 +202,27 @@ button.menu:hover i {
     transition: all 1s ease-in-out 0.5s;
     opacity: 0;
 }
-.slide.current .content {
+.slide.current .slide-content {
     transform: translateX(0%);
     opacity: 1;
     transition: all 1s;
 }
-.content.left {
+.slide-content.left {
     margin: auto auto auto 0;
     transform: translateX(150%);
 }
-.content h1 {
+.slide-content h1 {
     padding-top: 0.5rem;
     font-size: min(4vw, 4rem);
     line-height: 1;
     font-family: 'Kaushan Script', cursive;
 }
-.content h1 span {
+.slide-content h1 span {
     display: block;
     color: var(--green);
     font-size: min(6vw, 6rem);
 }
-.content p {
+.slide-content p {
     padding: 1em 0rem;
     font-size: min(2vw, 1.5rem);
     line-height: 1.4;
@@ -294,24 +299,24 @@ button.menu:hover i {
     .home .slide {
         justify-content: center;
     }
-    .content, 
-    .content.left {
+    .slide-content, 
+    .slide-content.left {
         margin: auto 15%;
         text-align: center;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .content {
+    .slide-content {
         width: 75%;
     }
-    .content h1 {
+    .slide-content h1 {
         font-size: 6vw;
     }
-    .content h1 span {
+    .slide-content h1 span {
         font-size: 10vw;
     }
-    .content p {
+    .slide-content p {
         font-size: 3.6vw;
     }
     .explore-btn {
@@ -319,8 +324,7 @@ button.menu:hover i {
     }
 }
 
-
-
+/* =========================================================   SECTION   ========================================================= */
 .heading {
     margin-block: 2.5rem;
     color: var(--black);
@@ -334,18 +338,22 @@ button.menu:hover i {
     margin: 1rem;
 }
 .box {
-    flex-basis: 100%;
-    flex-basis: max(25%, 20rem);
+    /* flex-basis: 100%; */
+    flex-basis: max(24%, 20rem);
     display: flex;
     flex-flow: column;
     padding: 2rem;
     text-align: center;
     border-radius: 1em;
+    border-top-left-radius: 30%;
+    border-bottom-right-radius: 30%;
     transition: all 0.4s;
 }
 .box:hover {
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4),
-    -1px -1px 1px rgba(255, 255, 255, 0.6);
+    /* box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6),
+    -1px -1px 1px rgba(255, 255, 255, 0.6); */
+    /* box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6), 
+    -2px -2px 2px rgba(255, 255, 255, 0.6); */
 }
 
 .box img {
@@ -361,7 +369,7 @@ button.menu:hover i {
 }
 .box p {
     margin: auto 0;
-    padding: 1rem 0;
+    padding: 1rem;
     color: var(--black);
     font-size: 1.4rem;
     line-height: 1.5;
@@ -383,18 +391,160 @@ button.menu:hover i {
     border-color: var(--green);
 }
 
-section {
-    border: 1px solid red;
-}
-.shadow {
-    border: 10px solid transparent;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6), 
-    inset 2px 2px 2px rgba(0, 0, 0, 0.6), 
-    -2px -2px 2px rgba(0, 0, 0, 0.1), 
-    inset -2px -2px 2px rgba(0, 0, 0, 0.1);
+@media screen and (max-width: 600px) {
+    .more-btn {
+        font-size: 3vw;
+    }
 }
 
-/* .slider2 .slide .content p {
-    text-transform: initial;
-    line-height: 1.4;
-} */
+/* =========================================================   ABOUT SECTION   ========================================================= */
+#about {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 2rem;
+    column-gap: calc(2rem + 45px);
+    padding: calc(5% + 45px);
+}
+.about-image {
+    flex: 1 1 42rem;
+    max-width: 705px;
+    outline: 10px solid wheat;
+    outline-offset: 35px;
+    border-radius: 53% 47% 29% 71% / 32% 47% 53% 68%;
+    filter: drop-shadow(10px 10px 10px #000);
+    overflow: hidden;
+}
+.about-image img {
+    display: block;
+    width: 100%;
+}
+.about-content {
+    flex: 1 1 42rem;
+    display: flex;
+    flex-flow: column;
+    padding: 2rem;
+    text-align: center;
+}
+.about-content .heading {
+    font-size: 3rem;
+}
+.about-content p {
+    margin: auto 0;
+    padding: 1rem 0;
+    color: var(--black);
+    font-size: 1.4rem;
+    line-height: 1.5;
+}
+#about .more-btn {
+    display: inline-block;
+    margin-top: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+    #about {
+        column-gap: 2rem;
+        padding: 5%;
+    }.about-image {
+        outline: none;
+    }
+
+}
+
+/* =========================================================   SHOP SECTION   ========================================================= */
+#shop {
+    overflow: hidden;
+}
+#shop .heading {
+    margin: 0;
+    padding: 2.5rem;
+    background-color: #fff;
+}
+.product-slider {
+    background-color: #efedee;
+}
+.product-slider-wrapper {
+    position: relative;
+    display: flex;
+    column-gap: 3rem;
+    padding: 3rem;
+    background-color: #efedee;
+}
+.product-slide {
+    /* border: var(--border); */
+    min-width: 23%;
+}
+@media screen and (max-width: 1500px) {
+    .product-slide {
+        min-width: 31%;
+    }
+}
+@media screen and (max-width: 1050px) {
+    .product-slide {
+        min-width: 48%;
+    }
+}
+@media screen and (max-width: 670px) {
+    .product-slide {
+        min-width: 100%;
+    }
+}
+.product-image {
+    position: relative;
+    width: 100%;
+    border-radius: 1em;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.6);
+    overflow: hidden;
+}
+.product-image img {
+    height: 100%;
+    width: 100%;
+}
+.icons {
+    position: absolute;
+    inset: auto auto 2% 1%;
+    display: flex;
+    row-gap: 0.5rem;
+    flex-direction: column;
+    transform: translateX(-120%);
+    transition: all 0.5s;
+    z-index: 3;
+}
+.product-slide:hover .icons {
+    transform: translateX(0%);
+}
+.icons i {
+    padding: 0.5em;
+    color: var(--white);
+    font-size: 1.7rem;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: all 0.5s;
+}
+.icons i:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.content {
+    padding: 1rem 0;
+    text-align: center;
+}
+.content h3 {
+    color: var(--black);
+    font-size: 2rem;
+}
+.price {
+    padding: 1rem 0;
+    color: var(--green);
+    font-size: 2.5rem;
+}
+
+.stars {
+    user-select: none;
+}
+.stars i {
+    color: var(--black);
+    font-size: 1.7rem;
+    cursor: auto;
+}
+
+
