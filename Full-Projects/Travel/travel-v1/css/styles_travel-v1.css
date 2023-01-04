@@ -471,7 +471,6 @@ button.menu:hover i {
     background-color: #efedee;
 }
 .product-slide {
-    /* border: var(--border); */
     min-width: 23%;
 }
 @media screen and (max-width: 1500px) {
@@ -547,4 +546,103 @@ button.menu:hover i {
     cursor: auto;
 }
 
+.product-slider-wrapper .buttons {
+    position: absolute;
+    inset: 65% auto auto 0;
+    width: 100%;
+    padding: 0 1%;
+}
+.product-slider-wrapper .buttons button {
+    padding: 11px 13px;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6);
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;
+}
+.product-slider-wrapper .buttons button:hover {
+    color: #333;
+    background-color: #fff;
+}
+.product-slider-wrapper .buttons button i {
+    color: inherit;
+}
 
+.product-slider-wrapper .buttons #next-product {
+    float: right;
+}
+
+
+
+
+section {
+    border: 1px solid red;
+}
+#bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.shadow {
+    border: 10px solid transparent;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6), 
+    inset 2px 2px 2px rgba(0, 0, 0, 0.6), 
+    -2px -2px 2px rgba(0, 0, 0, 0.1), 
+    inset -2px -2px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+.box-container {
+    gap: 1rem;
+}
+.box {
+    position: relative;
+    padding: 0 0 2rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: all 0s;
+}
+.box:hover {
+    background-color: var(--white);
+}
+.box:hover img:nth-child(2) {
+    border-radius: 50%;
+    /* transition-delay: 0s; */
+}
+/* .box img:nth-child(2) {
+    transition-delay: 0.5s;
+} */
+.box:hover .mask {
+    opacity: 0;
+    transition: 0.5s;
+}
+.box img {
+    width: 100%;
+    border-radius: 0;
+    object-fit: fill;
+}
+.box .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    mix-blend-mode: screen;
+    border-radius: 0;
+    transition: all 0s;
+}
+.box h3 {
+    position: relative;
+z-index: 5;
+}
+
+.scaled {
+    transform: scale(1.2);
+}
+
+/* .slider2 .slide .content p {
+    text-transform: initial;
+    line-height: 1.4;
+} */
