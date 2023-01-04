@@ -8,162 +8,126 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./css/styles_webstore-v1.css">
   <style>
-    * {
-      margin: 0px;
-      padding: 0px;
-      box-sizing: border-box;
-      border: 1px solid red;
-    }
-    *::before, *::after {
-      padding: 0;
-      margin: 0;
-    }
-
-    html {
-      width: 100%;
-      height: 100%;
-      scrollbar-width: thin;
-      scrollbar-color: #e39343 #212529;
-    }
-
-    h1 {
-      margin-top: 20%;
-      text-transform: uppercase;
-      text-align: center;
-      transform: rotate(-5deg);
-      cursor: pointer;
-    }
-    .active h1 {
-      margin-top: 5%;
-      font-size: 45px;
-    }
-
     body {
-      width: 100%;
-      height: 100%;
-      background-color: #000;
-      overflow-x: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto repeat(3, auto);
+      text-align: center;
+      min-height: 100vh;
+      background-color: #aaa;
     }
-
-    #accordian {
-      width: 120%;
-      height: 100%;
+    hr {
+      grid-column: 1 / -1;
+      height: min-content;
     }
-
-    .about, .blog {
-      width: 34.75%;
-      /* height: 150%; */
-      margin-top: -10%;
-      padding: 10% 5%;
-      float: left;
-      transform: rotate(5deg);
-      transition: all 0.6s;
+    h1 {
+      grid-column: 1 / -1;
+      margin: auto;
+      font-size: 6vw;
     }
-
-    .about {
-      color: #fff;
-      background-color: #d94a0a;
+    h2 {
+      font-size: 4vw;
+      text-transform: capitalize;
     }
-    .blog {
-      color: #000;
-      background-color: #fff;
-    }
-
-    .about.active, 
-    .blog.active {
-      width: 50%;
-    }
-
     p {
-      /* display: none; */
-      margin: 100px 5%;
-      font-size: 18px;
-      transform: rotate(-5deg);
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.5s;
+      padding: 1em;
+      font-size: 2vw;
     }
-    .active p.visible {
-      /* display: block; */
-      opacity: 1;
-      visibility: visible;
+    button {
+      padding: 0.6em 1.2em;
+      font-size: 1.6vw;
+      text-transform: capitalize;
+      border: none;
+      border-radius: 0.6em;
+      background-color: transparent;
+      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8), 
+      -2px -2px 2px rgba(255, 255, 255, 0.2);
+    }
+    button:active {
+      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8), 
+      -1px -1px 1px rgba(255, 255, 255, 0.2);
+    }
+    .site {
+      margin: auto;
+      padding: 1em;
+      border: 1px solid #000;
+      border-radius: 1em;
     }
   </style>
 </head>
 <body>
-  <div id="accordian">
-    <div class="about">
-      <h1>portfolio</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos perferendis sit esse nesciunt inventore quae quaerat consectetur id quod dolorum. Officiis commodi quasi dolores excepturi dolore. Magni, iste mollitia? Qui eum labore consectetur laudantium reprehenderit possimus cupiditate odio aut, consequatur, ab vitae nostrum quaerat eaque odit! Voluptatum aspernatur eum in sunt, optio maxime eos quod doloremque, eaque aut asperiores repudiandae adipisci odio? Repudiandae officiis incidunt, earum reiciendis ut excepturi cupiditate totam dolor sint enim eaque nesciunt facere? Consequuntur pariatur sit amet ad molestiae, praesentium ducimus dolorem ipsa porro temporibus laboriosam aliquid exercitationem esse autem deserunt soluta voluptatibus, excepturi nulla laudantium culpa laborum doloremque iusto! Reiciendis quod minima quis. Quos nisi, accusantium delectus sunt quisquam dolor quibusdam! Illo quam doloremque qui ratione mollitia reiciendis hic cum natus, excepturi rem quis, iusto porro provident! Maiores est corrupti cupiditate sequi neque odio ratione architecto veniam iusto. Non quod ut veniam dolores nostrum porro sunt repudiandae excepturi maxime totam doloribus obcaecati laudantium, tempora quasi, facilis impedit similique voluptas ipsam distinctio fugit reprehenderit ratione, consectetur voluptatum magnam? Excepturi officiis, commodi minus deleniti quam quod. Dolorem cum rem facilis doloremque, in ex corporis maxime doloribus eum impedit, porro enim eius, error atque ullam voluptatibus libero beatae iusto nisi. Exercitationem, vel sunt excepturi, molestiae ipsum ullam necessitatibus, quibusdam perferendis dolorem labore hic quasi! Aut nisi error unde fugiat neque. Blanditiis doloribus fugiat molestias nostrum, et, dicta tempora, iste cumque ea maxime quibusdam soluta error eligendi ut perspiciatis ullam mollitia cupiditate nisi perferendis modi in sapiente placeat quas rerum. Unde, fugit placeat vel quo minima delectus sunt id consequuntur ipsa praesentium dolorum, laborum enim, voluptatem repellat iste eius similique fuga doloribus quis laboriosam asperiores. Dolor ducimus necessitatibus, iste ex nemo illo at adipisci? Illum, autem unde quaerat nesciunt cum sunt tenetur corporis quo assumenda iure reiciendis sit iusto.</p>
-    </div>
-    <div class="blog">
-      <h1>blog</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae enim aperiam laudantium, suscipit ullam officia esse ut quas vel ipsam, ad, fugit molestias quisquam assumenda adipisci minima inventore! Labore fugiat eos, delectus a, laborum praesentium consequatur amet nam similique officia aut molestiae totam veritatis magni quo, quos necessitatibus. Veritatis nostrum voluptates eveniet eum. Culpa dicta quos harum excepturi! Similique temporibus voluptatum consequatur voluptas! At voluptatibus debitis inventore quidem exercitationem porro velit unde doloremque, ipsam voluptatem quis dolores eum illum quam odit error eligendi. Quod provident consequatur quo qui, blanditiis ab amet, rem odit dolor ea voluptatum alias magni officiis eum. Deleniti vel accusantium expedita rerum soluta laborum non ullam beatae facilis sunt, quam aliquid tempora nemo asperiores quibusdam. Magni suscipit perspiciatis omnis! Sequi illo numquam sint laborum voluptates explicabo nobis inventore expedita magni quae fugit mollitia, doloremque asperiores incidunt sunt aliquam, iure pariatur quisquam possimus officiis. Mollitia vitae cumque error numquam culpa! A perspiciatis laboriosam minus animi voluptatem exercitationem voluptatibus, eos nisi hic sit, ut corporis et, minima aliquid adipisci perferendis tenetur reiciendis cumque molestias placeat unde? Quae soluta, saepe voluptatem accusantium in numquam reprehenderit veritatis voluptates quam facere minima autem adipisci nihil perspiciatis aliquam officiis iste! Porro nulla dicta exercitationem non ullam quae dolores labore excepturi laborum dolorum, magni tenetur perferendis, culpa rerum officia ratione officiis. Ipsam officia adipisci aut, dignissimos, laboriosam libero optio praesentium, soluta facere aliquid recusandae quos ducimus placeat temporibus et ex quae dolor nemo ut dicta autem? Id ducimus illum quae tenetur nostrum alias quod.</p>
-    </div>
+  <h1>Async/Await - Jokes</h1>
+  <hr>
+  <div class="site">
+    <h2>Users</h2>
+    <p>https://jsonplaceholder.typicode.com/users</p>
+    <button type="button">get user data</button>
+  </div>
+  <div class="site">
+    <h2>Dad's jokes</h2>
+    <p>https://jsonplaceholder.typicode.com/users</p>
+    <button type="button">get a joke</button>
+  </div>
+  <div class="site">
+    <h2>Celebrities jokes</h2>
+    <p>https://jsonplaceholder.typicode.com/users</p>
+    <button type="button">get a joke</button>
   </div>
 
   <script>
-    const left = document.querySelector(".about");
-    const right = document.querySelector(".blog");
-
-    left.addEventListener("click", () => {
-      left.classList.add("active");
-      right.classList.remove("active");
-      left.addEventListener("transitionend", () => {
-        console.log("end");
-        const paraL = document.querySelector(".about p");
-        paraL.classList.add("visible");
-        const paraR = document.querySelector(".blog p");
-        paraR.classList.remove("visible");
-      }, {once: true})
-    })
-    right.addEventListener("click", () => {
-      right.classList.add("active");
-      left.classList.remove("active");
-      right.addEventListener("transitionend", () => {
-        console.log("end");
-        const paraL = document.querySelector(".about p");
-        paraL.classList.remove("visible");
-        const paraR = document.querySelector(".blog p");
-        paraR.classList.add("visible");
-      }, {once: true})
-    })
-
     const users = {
       usersList: [],
     }
 
-    const myCoolFunction = async () => {
+    const getUsersData = async () => {
       const response = await fetch("https://jsonplaceholder.typicode.com/users");
       const jsonUsersData = await response.json();
-      return jsonUsersData;
+      users.usersList = jsonUsersData;
     }
 
-    const getUsersEmails = async () => {
-      const response = await fetch("https://jsonplaceholder.typicode.com/users");
-      const jsonUsersData = await response.json();
-      const usersEmails = jsonUsersData.map(user => {
-        return user.email;
-      })
-      console.log(usersEmails)
-      return usersEmails;
+    const displayUsersData = async () => {
+      await getUsersData();
+      const firstUser = users.usersList[0];
+      console.log(`ID: ${firstUser.id}`);
+      console.log(`Name: ${firstUser.name}`);
+      console.log(`Username: ${firstUser.username}`);
+      console.log("Address:");
+      console.log(`- ${firstUser.address.city}`);
+      console.log(`- "${firstUser.address.street}"`);
+      console.log(`- "${firstUser.address.suite}"`);
+      console.log(`- ${firstUser.address.zipcode}`);
+      console.log(`- ${firstUser.address.geo.lat}`);
+      console.log(`- ${firstUser.address.geo.lng}`);
+      console.log(`Phone: ${firstUser.phone}`);
+      console.log(`Email: ${firstUser.email}`);
+      console.log(`Website: ${firstUser.website}`);
+      console.log("Company:");
+      console.log(`- "${firstUser.company.name}"`);
+      console.log(`- ${firstUser.company.catchPhrase}`);
+      console.log(`- ${firstUser.company.bs}`);
     }
 
-    const anotherCoolFunction = async () => {
-      const usersData = await myCoolFunction();
-      users.usersList = usersData;
-      console.log(users.usersList);
-    }
-
-    anotherCoolFunction();
+    const buttons = document.getElementsByTagName("button");
+    buttons[0].addEventListener("click", displayUsersData);
 
     const emails = function () {
-      return getUsersEmails();
+      // return getUsersEmails();
     };
     const a = emails();
     console.log("164");
     console.log(a);
     console.log("166");
+
+    const prom = new Promise((res, rej) => {
+      const bool = true;
+      if (bool) {
+        return res("resolved");
+      } else {
+        rej("rejected");
+      }
+    })
+
+    prom.then(value => console.log(value), err => console.log(err));
 
   </script>
 </body>
