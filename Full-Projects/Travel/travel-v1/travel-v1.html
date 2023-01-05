@@ -62,24 +62,28 @@
         <h2 class="heading">adventure ideas!</h2>
         <div class="box-container">
             <div class="box">
+                <img src="./img/cat/mask-1.png" alt="" class="mask">
                 <img src="./img/cat/category-1.jpg" alt="">
                 <h3>bungee jump</h3>
                 <p>Lorem ipsum dolor sit amet consectetur.</p>
                 <a href="#category" class="more-btn">read more</a>
             </div>
             <div class="box">
+                <img src="./img/cat/mask-2.png" alt="" class="mask scaled">
                 <img src="./img/cat/category-2.jpg" alt="">
                 <h3>zip lines</h3>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, placeat.</p>
                 <a href="#category" class="more-btn">read more</a>
             </div>
             <div class="box">
+                <img src="./img/cat/mask-3.png" alt="" class="mask">
                 <img src="./img/cat/category-3.jpg" alt="">
                 <h3>canoeing</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde nam sed veniam.</p>
                 <a href="#category" class="more-btn">read more</a>
             </div>
             <div class="box">
+                <img src="./img/cat/mask-4.png" alt="" class="mask">
                 <img src="./img/cat/category-4.jpg" alt="">
                 <h3>kayaking</h3>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus libero aut impedit nihil consequatur.</p>
@@ -230,6 +234,77 @@
                         </div>
                     </div>
                 </div>
+                <div class="product-slide">
+                    <div class="product-image">
+                        <img src="./img/products/product-6.jpg" alt="">
+                        <div class="icons">
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                            <i class="fa fa-share-alt" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>survival kits</h3>
+                        <div class="price">$5.00 - $25.00</div>
+                        <div class="stars">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-slide">
+                    <div class="product-image">
+                        <img src="./img/products/product-6.jpg" alt="">
+                        <div class="icons">
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                            <i class="fa fa-share-alt" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>survival kits</h3>
+                        <div class="price">$5.00 - $25.00</div>
+                        <div class="stars">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-slide">
+                    <div class="product-image">
+                        <img src="./img/products/product-6.jpg" alt="">
+                        <div class="icons">
+                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                            <i class="fa fa-share-alt" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3>survival kits</h3>
+                        <div class="price">$5.00 - $25.00</div>
+                        <div class="stars">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <button id="prev-product">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                </button>
+                <button id="next-product">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </button>
             </div>
         </div>
     </section>
@@ -267,6 +342,44 @@
                 sliders[currentIndex].classList.add("current");
             };
         }());
+
+        // Setup the Slider in Product Section
+        (function setSliderButtons() {
+            const slider = document.querySelector(".product-slider-wrapper");
+            // const sliders = document.querySelectorAll(".slide");
+            const nextButton = document.querySelector("#next-product");
+            const prevButton = document.querySelector("#prev-product");
+            const totalNumberOfProducts = document.getElementsByClassName("product-slide").length;
+            let numberOfProductPerPage = getNumberOfProductPerPage();
+            let numberOfSlides = Math.floor(totalNumberOfProducts / numberOfProductPerPage);
+            let x = 0;
+
+            nextButton.addEventListener("click", nextSlide);
+            prevButton.addEventListener("click", prevSlide);
+
+            function nextSlide() {
+                x -= 100;
+                console.log(x);
+                const max = numberOfSlides * -100;
+                console.log(max);
+                x = Math.max(max , x);
+                slider.style.transform = `translateX(${x}%)`;
+            };
+            
+            function prevSlide() {
+                x += 100;
+                x = Math.min(0, x);
+                slider.style.transform = `translateX(${x}%)`;
+            };
+
+            function getNumberOfProductPerPage() {
+                const productWidth = document.querySelector(".product-slide").getBoundingClientRect().width;
+                const sliderWidth = slider.getBoundingClientRect().width;
+                return Math.floor(sliderWidth/productWidth);
+            }
+            console.log(numberOfProductPerPage)
+        }());
+
     </script>
     <!-- <script src="./js/script_JS.js"></script> -->
 </body>
