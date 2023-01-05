@@ -65,8 +65,13 @@
   </div>
   <div class="site">
     <h2>Dad's jokes</h2>
-    <p>https://jsonplaceholder.typicode.com/users</p>
+    <p>https://icanhazdadjoke.com</p>
     <button type="button">get a joke</button>
+  </div>
+  <div class="site">
+    <h2>POST data</h2>
+    <p>https://httpbin.org/post</p>
+    <button type="button">post a joke</button>
   </div>
   <div class="site">
     <h2>Celebrities jokes</h2>
@@ -107,28 +112,113 @@
       console.log(`- ${firstUser.company.bs}`);
     }
 
+    const getDadJoke = async () => {
+      const joke = await fetch("https://icanhazdadjoke.com", {
+        method: "GET",
+        headers: {
+          // Accept: "text/plain",
+          Accept: "application/json",
+        },
+      });
+      // For "text/plain" header
+      // const jokeText = await joke.text();
+      // console.log(jokeText);
+      // For "application/json" header
+      const jokeJSON = await joke.json();
+      console.log(jokeJSON);
+    }
+
+    const joke = {
+      id: "L6UnyP7Unyd",
+      joke: "Doctor, I've broken my arm in several places. Doctor: Well don't go to those places.",
+    }
+
+    const postData = async (joke) => {
+      const response = await fetch("https://httpbin.org/post", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(joke),
+      });
+
+      const responseJSON = await response.json();
+      console.log(responseJSON);
+    }
+
+    const getCelebrityJoke = async (firstName, lastName) => {
+      const response = await fetch(`https://api.icndb.com/jokes/random?firstName=${firstName}&lastName=${lastName}&limitTo=[nerdy]`);
+      const responseJSON = await response.json();
+      console.log(responseJSON.value);
+    }
+
     const buttons = document.getElementsByTagName("button");
     buttons[0].addEventListener("click", displayUsersData);
+    buttons[1].addEventListener("click", getDadJoke);
+    buttons[2].addEventListener("click", () => postData(joke));
+    buttons[3].addEventListener("click", () => getCelebrityJoke("An", "Sw"));
 
-    const emails = function () {
-      // return getUsersEmails();
-    };
-    const a = emails();
-    console.log("164");
-    console.log(a);
-    console.log("166");
-
-    const prom = new Promise((res, rej) => {
-      const bool = true;
-      if (bool) {
-        return res("resolved");
-      } else {
-        rej("rejected");
+    const getDataFromForm = () => {
+      const requestObj = {
+        firstName: "Bruce",
+        lastName: "Lee",
+        categories: ["nerdy"],
       }
-    })
+      return requestObj;
+    }
 
-    prom.then(value => console.log(value), err => console.log(err));
+    const buildRequestURL = (requestData) => {
+      return `https://api.icndb.com/jokes/random?firstName=${requestData.firstName}&lastName=${requestData.lastName}&limitTo=${requestData.categories}`;
+    }
 
+    const postJoke = (joke) => {
+      console.log(joke);
+    }
+
+    const requestJoke = async (url) => {
+      const response = await fetch(url);
+      const responseJSON = await response.json();
+      postJoke(responseJSON);
+    }
+
+    const processJokeRequest = async () => {
+      const requestData = getDataFromForm();
+      const requestUrl = buildRequestURL(requestData);
+      await requestJoke(requestUrl);
+      console.log("Finished!");
+    }
+
+    processJokeRequest();
+
+    // Builder Pattern
+    function Person(name, height, weight, gender) {
+      this.name = name;
+      this.height = height;
+      this.weight = weight;
+      this.gender = gender;
+    }
+
+    function PersonBuilder(name, gender) {
+      this.name = name;
+      this.gender = gender;
+
+      this.setHeight = function (height) {
+        this.height = height;
+        return this;
+      }
+
+      this.setWeight = function (weight) {
+        this.weight = weight;
+        return this;
+      }
+
+      this.build = function () {
+        return new Person(this.name, this.height, this.weight, this.gender);
+      }
+    }
+
+    const jogata = new PersonBuilder("Jogata", "male").setHeight(1.75).setWeight(60).build();
+    console.log(jogata);
   </script>
 </body>
 </html>
