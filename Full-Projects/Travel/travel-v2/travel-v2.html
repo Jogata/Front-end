@@ -89,7 +89,7 @@
     </script>
 
     <!-- --------------------------------------------- virtual keyboard v.2 --------------------------------------------- -->
-    <textarea style="position: absolute; top: 130px; right: 30px; width: 300px;"></textarea>
+    <textarea style="position: absolute; top: 130px; right: 30px; width: 300px;" class="use use-keyboard-input"></textarea>
 
     <!-- <div class="keyboard">
         <div class="keyboard__keys">
@@ -129,12 +129,24 @@
                 this.elements.main = document.createElement("div");
                 this.elements.keysContainer = document.createElement("div");
                 // Setup main elements
-                this.elements.main.classList.add("keyboard", "keyboard--hidden-devver");
+                this.elements.main.classList.add("keyboard", "keyboard--hidden");
                 this.elements.keysContainer.classList.add("keyboard__keys");
                 this.elements.keysContainer.appendChild(this._createKeys());
+
+                this.elements.keys = this.elements.keysContainer.querySelectorAll(".keyboard__key");
+
                 // Add to DOM
                 this.elements.main.appendChild(this.elements.keysContainer);
                 document.body.appendChild(this.elements.main);
+
+                // Popout the keyboard for elements with class "use"
+                document.querySelectorAll(".use").forEach(element => {
+                    element.addEventListener("focus", () => {
+                        this.open(element.value, currentValue => {
+                            element.value = currentValue;
+                        });
+                    })
+                })
             },
 
             _createKeys() {
@@ -238,21 +250,46 @@
             },
             
             _triggerEvent(handlerName) {
-                console.log(handlerName + " triggered");
+                if (typeof this.eventHandlers[handlerName] === "function") {
+                    this.eventHandlers[handlerName](this.properties.value);
+                }
+                // console.log(handlerName + " triggered");
             },
 
             _toggleCapsLock() {
-                console.log("caps lock toggled");
+                this.properties.capsLock = !this.properties.capsLock;
+
+                for (const key of this.elements.keys) {
+                    if (key.childElementCount === 0) {
+                        key.textContent = this.properties.capsLock ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
+                    }
+                }
             },
 
-            open(initialValue, oninput, onclose) {},
+            open(initialValue, oninput, onclose) {
+                this.properties.value = initialValue || "";
+                this.eventHandlers.oninput = oninput;
+                this.eventHandlers.onclose = onclose;
+                this.elements.main.classList.remove("keyboard--hidden");
+            },
 
-            close() {},
+            close() {
+                this.properties.value = "";
+                this.eventHandlers.oninput = oninput;
+                this.eventHandlers.onclose = onclose;
+                this.elements.main.classList.add("keyboard--hidden");
+            },
         };
 
         window.addEventListener("DOMContentLoaded", function () {
             Keyboard.init();
+            // Keyboard.open("jogata", function (currentValue) {
+            //     console.log("value changed: " + currentValue);
+            // }, function (currentValue) {
+            //     console.log("keyboard closed. Value: " + currentValue);
+            // });
         });
+
     </script>
     <!-- ---------------------------------------------------------------------------------------------------------------- -->
 
@@ -345,8 +382,84 @@
         console.log(proxy.cashe);
         console.log(proxy.getValue("Etherium"));
     </script>
-    
 
+    <!-- builder pattern with constructor function -->
+    <script>
+        function Person(name, height, weight, gender) {
+            this.name = name;
+            this.height = height;
+            this.weight = weight;
+            this.gender = gender;
+        }
+        
+        function PersonBuilder(name, gender) {
+            this.name = name;
+            this.gender = gender;
+            
+            this.setHeight = function (height) {
+                this.height = height;
+                return this;
+            }
+            
+            this.setWeight = function (weight) {
+                this.weight = weight;
+                return this;
+            }
+            
+            this.build = function () {
+                return new Person(this.name, this.height, this.weight, this.gender);
+            }
+        }
+        
+        const jogata = new PersonBuilder("Jogata", "male").setHeight(1.75).setWeight(60).build();
+        console.log(jogata);
+    </script>
+    <!-- builder pattern with class -->
+    <script>
+        class Address {
+            constructor (zip, street) {
+                this.zip = zip;
+                this.street = street
+            }
+        }
+
+        class User {
+            constructor (name, age, phone, address) {
+                this.name = name;
+                this.age = age;
+                this.phone = phone;
+                this.address = address;
+            }
+        }
+
+        class UserBuilder {
+            constructor (name) {
+                this.user = new User(name);
+            }
+
+            setAge(age = 20) {
+                this.user.age = age;
+                return this;
+            }
+
+            setPhone(phone = "+359") {
+                this.user.phone = phone;
+                return this;
+            }
+
+            setAddress(address = "bulgaria") {
+                this.user.address = address;
+                return this;
+            }
+
+            build() {
+                return this.user;
+            }
+        }
+
+        let user = new UserBuilder("Jogata").setAge(43).setPhone("+359000000000").setAddress().build();
+        console.log(user);
+    </script>
 
 
     <div class="slider2">
