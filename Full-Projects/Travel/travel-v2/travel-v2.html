@@ -6,22 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel v.2</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="./css/styles-travel-v2.css">
 </head>
 <body>
-    <!-- skewed banner -->
-    <section id="skewed-banner">
-        <div class="skewbox">
-            <div class="content">
-                <h2>amanda renj</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Modi nisi accusamus pariatur! Facere perspiciatis sed delectus doloremque, nostrum voluptate accusantium necessitatibus deleniti explicabo provident est sunt qui quaerat, voluptatem non sint nihil corrupti repellendus distinctio mollitia laudantium adipisci itaque illo! Qui voluptate quis eius et aliquam laboriosam eos ipsa. Iste a magni consequatur voluptatum officia fugit obcaecati totam, corporis autem culpa maxime nostrum maiores eligendi omnis ipsam explicabo nesciunt veniam doloremque.</p>
-            </div>
-            <div class="imagebox"></div>
-        </div>
-    </section>
-
     <!-- slider whitout IF statement -->
     <div id="slider3">
         <div class="container-slider">
@@ -86,210 +73,6 @@
                 slider.style.marginLeft = "-100%";
             }, 500);
         };
-    </script>
-
-    <!-- --------------------------------------------- virtual keyboard v.2 --------------------------------------------- -->
-    <textarea style="position: absolute; top: 130px; right: 30px; width: 300px;" class="use use-keyboard-input"></textarea>
-
-    <!-- <div class="keyboard">
-        <div class="keyboard__keys">
-            <button type="button" class="keyboard__key">a</button>
-            <button type="button" class="keyboard__key keyboard__key--wide">
-                <i class="material-icons">backspace</i>
-            </button>
-            <button type="button" class="keyboard__key keyboard__key--extra-wide">
-                <i class="material-symbols-outlined">space_bar</i>
-            </button>
-            <button type="button" class="keyboard__key keyboard__key--wide keyboard__key--activatable">
-                <i class="material-symbols-outlined">keyboard_capslock</i>
-            </button>
-            <button type="button" class="keyboard__key keyboard__key--wide keyboard__key--dark">
-                <i class="material-icons">check_circle</i>
-            </button>
-        </div>
-    </div> -->
-    <script>
-        const Keyboard = {
-            elements: {
-                main: null,
-                keysContainer: null,
-                keys: [],
-            },
-            eventHandlers: {
-                oninput: null,
-                onclose: null,
-            },
-            properties: {
-                value: "",
-                capsLock: false,
-            },
-
-            init() {
-                // Create main elements
-                this.elements.main = document.createElement("div");
-                this.elements.keysContainer = document.createElement("div");
-                // Setup main elements
-                this.elements.main.classList.add("keyboard", "keyboard--hidden");
-                this.elements.keysContainer.classList.add("keyboard__keys");
-                this.elements.keysContainer.appendChild(this._createKeys());
-
-                this.elements.keys = this.elements.keysContainer.querySelectorAll(".keyboard__key");
-
-                // Add to DOM
-                this.elements.main.appendChild(this.elements.keysContainer);
-                document.body.appendChild(this.elements.main);
-
-                // Popout the keyboard for elements with class "use"
-                document.querySelectorAll(".use").forEach(element => {
-                    element.addEventListener("focus", () => {
-                        this.open(element.value, currentValue => {
-                            element.value = currentValue;
-                        });
-                    })
-                })
-            },
-
-            _createKeys() {
-                const fragment = document.createDocumentFragment();
-                const keyLayout = [
-                    "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "backspace",
-                    "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
-                    "caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", "enter",
-                    "done", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?",
-                    "space"
-                ];
-
-                // Creates HTML for an icon
-                const createIconHTML = (icon_name) => {
-                    return `<i class="material-icons">${icon_name}</i>`;
-                };
-                
-                keyLayout.forEach(key => {
-                    const keyElement = document.createElement("button");
-                    const insertLineBreak = ["backspace", "p", "enter", "?"].indexOf(key) !== -1;
-                    
-                    // Add attributes/classes
-                    keyElement.setAttribute("type", "button");
-                    keyElement.classList.add("keyboard__key");
-                    
-                    switch (key) {
-                        case "backspace":
-                            keyElement.classList.add("keyboard__key--wide");
-                            keyElement.innerHTML = createIconHTML("backspace");
-                            
-                            keyElement.addEventListener("click", () => {
-                                this.properties.value = this.properties.value.substring(0, this.properties.value.length - 1);
-                                this._triggerEvent("oninput");
-                            });
-                            
-                            break;
-                        
-                        case "caps":
-                            keyElement.classList.add("keyboard__key--wide", "keyboard__key--activatable");
-                            keyElement.innerHTML = createIconHTML("keyboard_capslock");
-                            
-                            keyElement.addEventListener("click", () => {
-                                this._toggleCapsLock();
-                                keyElement.classList.toggle("keyboard__key--active", this.properties.capsLock);
-                            });
-                            
-                            break;
-                            
-                        case "enter":
-                            keyElement.classList.add("keyboard__key--wide");
-                            keyElement.innerHTML = createIconHTML("keyboard_return");
-                            
-                            keyElement.addEventListener("click", () => {
-                                this.properties.value += "\n";
-                                this._triggerEvent("oninput");
-                            });
-                            
-                            break;
-                        
-                        case "space":
-                            keyElement.classList.add("keyboard__key--extra-wide");
-                            keyElement.innerHTML = createIconHTML("space_bar");
-                            
-                            keyElement.addEventListener("click", () => {
-                                this.properties.value += " ";
-                                this._triggerEvent("oninput");
-                            });
-                            
-                            break;
-                        
-                        case "done":
-                            keyElement.classList.add("keyboard__key--wide", "keyboard__key--dark");
-                            keyElement.innerHTML = createIconHTML("check_circle");
-                            
-                            keyElement.addEventListener("click", () => {
-                                this.close();
-                                this._triggerEvent("onclose");
-                            });
-                            
-                            break;
-                        
-                        default:
-                            keyElement.textContent = key.toLowerCase();
-                            
-                            keyElement.addEventListener("click", () => {
-                                this.properties.value += this.properties.capsLock ? key.toUpperCase() : key.toLowerCase();
-                                this._triggerEvent("oninput");
-                            });
-                            
-                            break;
-                    }
-                    
-                    fragment.appendChild(keyElement);
-                    
-                    if (insertLineBreak) {
-                        fragment.appendChild(document.createElement("br"));
-                    }
-                });
-                
-                return fragment;
-            },
-            
-            _triggerEvent(handlerName) {
-                if (typeof this.eventHandlers[handlerName] === "function") {
-                    this.eventHandlers[handlerName](this.properties.value);
-                }
-                // console.log(handlerName + " triggered");
-            },
-
-            _toggleCapsLock() {
-                this.properties.capsLock = !this.properties.capsLock;
-
-                for (const key of this.elements.keys) {
-                    if (key.childElementCount === 0) {
-                        key.textContent = this.properties.capsLock ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
-                    }
-                }
-            },
-
-            open(initialValue, oninput, onclose) {
-                this.properties.value = initialValue || "";
-                this.eventHandlers.oninput = oninput;
-                this.eventHandlers.onclose = onclose;
-                this.elements.main.classList.remove("keyboard--hidden");
-            },
-
-            close() {
-                this.properties.value = "";
-                this.eventHandlers.oninput = oninput;
-                this.eventHandlers.onclose = onclose;
-                this.elements.main.classList.add("keyboard--hidden");
-            },
-        };
-
-        window.addEventListener("DOMContentLoaded", function () {
-            Keyboard.init();
-            // Keyboard.open("jogata", function (currentValue) {
-            //     console.log("value changed: " + currentValue);
-            // }, function (currentValue) {
-            //     console.log("keyboard closed. Value: " + currentValue);
-            // });
-        });
-
     </script>
     <!-- ---------------------------------------------------------------------------------------------------------------- -->
 
@@ -539,25 +322,7 @@
         }());
     </script>
 
-    <!-- <header id="top">
-        <nav class="navbar">
-            <a href="#top" class="logo">adventure</a>
-            <ul class="nav-links">
-                <li class="link active"><a href="#h">home</a></li>
-                <li class="link"><a href="#t">tours</a></li>
-                <li class="link"><a href="#e">explore</a></li>
-                <li class="link"><a href="#a">about</a></li>
-                <li class="link"><a class="ctn" href="#c">contact</a></li>
-            </ul>
-        </nav>
-        
-        <div class="header-content">
-            <h1>a wonderful gift</h1>
-            <div class="line"></div>
-            <h2>explore the colorful world</h2>
-            <a href="#top" class="ctn">learn more</a>
-        </div>
-    </header> -->
+
 
     <!-- <div class="image-slider">
         <div class="slider-container">
@@ -580,9 +345,9 @@
         <button class="arrow right">
             <i class="fa fa-chevron-right" aria-hidden="true"></i>
         </button>
-    </div> -->
+    </div>
 
-    <!-- <script>
+    <script>
         const container = document.querySelector(".slider-container");
         const slides = document.querySelectorAll(".slide");
         const leftArrow = document.querySelector(".left");
@@ -722,6 +487,137 @@
             </ul>
         </main>
     </div>
+
+    <section id="delete1">
+    <div class="card">
+        <div class="imgbox">
+            <img src="../../../../CSS/assets/img/profile-copy.jpg" alt="anne's profile picture"/>
+            <img src="../../../../CSS/assets/img/profile-copy.jpg" alt="anne's profile picture"/>
+        </div>
+        <div class="details">
+            <div class="content">
+                <h2>someone famous <span>some profession</span></h2>
+                <div class="social-icons">
+                    <a href="#">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa fa-linkedin" aria-hidden="true"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const blogPostsFromDatabase = [
+        {
+            title: "How to use the map() function",
+            category: "uncategorized"
+        },
+        {
+            title: "What is JavaScript",
+            category: "uncategorized"
+        },
+        {
+            title: "Are you crazy enough to learn to code",
+            category: "uncategorized"
+        },
+        {
+            gds: "fhavfdah",
+        }
+    ];
+
+    blogPostsFromDatabase.map(post => {
+        post.category = "Web Development";
+        return post;
+    })
+
+    blogPostsFromDatabase.forEach((post, index) => {
+        console.log(index + ": " + post.title);
+    })
+
+    console.log(blogPostsFromDatabase.includes(post => {
+        post.title === "js";
+    }));
+
+    console.log(blogPostsFromDatabase[3]);
+    console.log(blogPostsFromDatabase.map(x => x.title).indexOf('What is JavaScript'));
+    console.log(blogPostsFromDatabase[3]);
+
+    const newarr = blogPostsFromDatabase.filter(post => {
+        return post.title;
+    });
+
+    console.log(newarr);
+
+    const arr = [1,2,3,4,5];
+
+    const result = arr.reduce((sum, item) => {
+        return sum += item;
+    }, 0);
+
+    console.log(result);
+
+    const average = arr.reduce((sum, item) => sum += item, 0) / arr.length;
+
+    console.log(average);
+
+    const randomitems = [1,2,-3,"a","b","8",6];
+    const randomitems2 = [1,2,"a","b","8",6];
+
+    function filterlist(list) {
+        return list.filter(item => {
+            return typeof item === "number" && item >= 0;
+        })
+    }
+
+    console.log(filterlist(randomitems));
+
+    let shorterArray;
+    let longerArray;
+
+    if (randomitems.length <= randomitems2.length) {
+        shorterArray = randomitems;
+        longerArray = randomitems2;
+    } else {
+        shorterArray = randomitems2;
+        longerArray = randomitems;
+    }
+
+    function diff(arr1, arr2) {
+        if (arr1.length === 0) {
+            return arr2;
+        }
+        
+        if (arr2.length === 0) {
+            return arr1;
+        }
+
+        const unique = [];
+
+        arr1.forEach(item => {
+            if (!arr2.includes(item)) {
+                unique.push(item);
+            }
+        })
+
+        return unique;
+    }
+
+    console.log(diff(randomitems, randomitems2));
+</script>
+
+<section id="delete2"></section>
+<section id="delete3"></section>
+<section id="delete4"></section>
     
     <script src="./js/script_travel_v2.js"></script>
 </body>
