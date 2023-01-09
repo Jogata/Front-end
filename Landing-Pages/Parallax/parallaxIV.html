@@ -27,9 +27,27 @@
     <script>
         window.addEventListener("scroll", parallax);
 
+        // function parallax() {
+        //     const title = document.querySelector(".title");
+        //     let titlePosition = Math.max(0, pageYOffset / 5);
+        //     title.style.transform = `translateY(${titlePosition}%)`;
+
+        //     const frontBird = document.querySelector(".front-bird");
+        //     let frontBirdPosition = Math.max(1, (70 - (pageYOffset / 20)));
+        //     frontBird.style.transform = `translateY(${frontBirdPosition}%)`;
+            
+        //     const backBirdLeft = document.querySelector(".back-bird.left");
+        //     let backBirdLeftPosition = Math.max(0, pageYOffset / 3);
+        //     backBirdLeft.style.transform = `translateY(${backBirdLeftPosition}%)`;
+
+        //     const backBirdRight = document.querySelector(".back-bird.right");
+        //     let backBirdRightPosition = Math.max(0, pageYOffset / 4);
+        //     backBirdRight.style.transform = `translateY(${backBirdRightPosition}%)`;
+        // }
+
         function parallax() {
             const title = document.querySelector(".title");
-            let titlePosition = Math.max(0, pageYOffset / 5);;
+            let titlePosition = Math.max(0, pageYOffset / 12);
             title.style.transform = `translateY(${titlePosition}%)`;
 
             const frontBird = document.querySelector(".front-bird");
@@ -37,11 +55,11 @@
             frontBird.style.transform = `translateY(${frontBirdPosition}%)`;
             
             const backBirdLeft = document.querySelector(".back-bird.left");
-            let backBirdLeftPosition = Math.max(0, pageYOffset / 3);
+            let backBirdLeftPosition = Math.max(0, pageYOffset / 5);
             backBirdLeft.style.transform = `translateY(${backBirdLeftPosition}%)`;
 
             const backBirdRight = document.querySelector(".back-bird.right");
-            let backBirdRightPosition = Math.max(0, pageYOffset / 4);
+            let backBirdRightPosition = Math.max(0, pageYOffset / 10);
             backBirdRight.style.transform = `translateY(${backBirdRightPosition}%)`;
         }
     </script>
@@ -88,6 +106,127 @@
             </figure>
         </div>
     </div>
+
+
+    <script>
+        const users = [
+            {
+                name: "Bart",
+            },
+            {
+                name: "Lisa",
+            },
+            {
+                name: "Maggie",
+            },
+        ]
+
+        function list(names) {
+            if (names.length === 0) {
+                return "";
+            }
+            if (names.length === 1) {
+                return names[0].name;
+            }
+
+            let finalString = "";
+
+            names.forEach((user, index) => {
+                const name = user.name;
+
+                if (index === names.length - 1) {
+                    finalString = finalString + " & " + name;
+                } else if (index === names.length - 2) {
+                    finalString = finalString + name;
+                } else {
+                    finalString = finalString + name  + ", ";
+                }
+
+                console.log(finalString);
+            });
+
+            return finalString;
+        }
+
+        console.log(list(users));
+
+        const path1 = ["n","s","n","s","n","s","n","s","n","s"];    // true
+        const path2 = ["w","e","w","e","w","e","w","e","w","e"];    // true
+        const path3 = ["w"];                                        // false
+        const path4 = ["w","e","w","e","w","e","w","e","w","e"];
+
+        function isValidWalk(walk) {
+            if (walk.length !== 10) {
+                return false;
+            }
+
+            let nOffset = 0;
+            let wOffset = 0;
+            let eOffset = 0;
+            let sOffset = 0;
+
+            walk.forEach(direction => {
+                switch (direction) {
+                    case "n":
+                        nOffset += 1;
+                        break;
+                    case "w":
+                        wOffset += 1;
+                        break;
+                    case "e":
+                        eOffset += 1;
+                        break;
+                    case "s":
+                        sOffset += 1;
+                }
+            })
+
+            console.log(isValidWalk(path1));
+            console.log(isValidWalk(path2));
+            console.log(isValidWalk(path3));
+            console.log(isValidWalk(path4));
+
+            // if (nOffset - sOffset === 0 && wOffset - eOffset === 0) {
+            //     return true;
+            // } else {
+            //     return false;
+            // }
+            return nOffset - sOffset === 0 && wOffset - eOffset === 0;
+        }
+
+        function persistence(num) {
+            if (num < 10) {
+                return 0;
+            }
+
+            function recursion(num) {
+                let numAsString = num.toString();
+                
+                const arrOfChars = numAsString.split('');
+                
+                const result = arrOfChars.reduce((acc, number) => {
+                    console.log();
+                    return acc *= number;
+                })
+console.log(result);
+                if (result < 10) {
+                    return result;
+                }
+console.log("new");
+                return recursion(result);
+            }
+
+            const singleNumber = recursion(num);
+console.log("end");
+            return singleNumber;
+        }
+
+        console.log(persistence(39));    // 3
+        console.log(persistence(4));     // 0
+        console.log(persistence(25));    // 2
+        console.log(persistence(999));   // 4
+        console.log("110");
+    </script>
 
 </body>
 </html>
