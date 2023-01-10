@@ -7,6 +7,18 @@
     <title>Parallax Scrolling Effect</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/styles_parallaxIV.css">
+
+    <style>
+        .del {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .centered {
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -108,123 +120,114 @@
     </div>
 
 
+    <section class="del">
+        <div class="centered">
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+        </div>
+    </section>
+
     <script>
-        const users = [
-            {
-                name: "Bart",
-            },
-            {
-                name: "Lisa",
-            },
-            {
-                name: "Maggie",
-            },
-        ]
-
-        function list(names) {
-            if (names.length === 0) {
-                return "";
-            }
-            if (names.length === 1) {
-                return names[0].name;
-            }
-
-            let finalString = "";
-
-            names.forEach((user, index) => {
-                const name = user.name;
-
-                if (index === names.length - 1) {
-                    finalString = finalString + " & " + name;
-                } else if (index === names.length - 2) {
-                    finalString = finalString + name;
-                } else {
-                    finalString = finalString + name  + ", ";
-                }
-
-                console.log(finalString);
-            });
-
-            return finalString;
+        function lowercaseCount(input) {
+            return input.match(/[a-z]/g).length;
         }
 
-        console.log(list(users));
+        console.log(lowercaseCount("ASdhgGT564HGfhfg/\r#"));
 
-        const path1 = ["n","s","n","s","n","s","n","s","n","s"];    // true
-        const path2 = ["w","e","w","e","w","e","w","e","w","e"];    // true
-        const path3 = ["w"];                                        // false
-        const path4 = ["w","e","w","e","w","e","w","e","w","e"];
+        function isToday(date) {
+            const checkDay = date.getDate();
+            const checkMonth = date.getMonth();
+            const checkYear = date.getFullYear();
 
-        function isValidWalk(walk) {
-            if (walk.length !== 10) {
-                return false;
-            }
+            const today = new Date();
 
-            let nOffset = 0;
-            let wOffset = 0;
-            let eOffset = 0;
-            let sOffset = 0;
+            const todayDay = today.getDate();
+            const todayMonth = today.getMonth();
+            const todayYear = today.getFullYear();
 
-            walk.forEach(direction => {
-                switch (direction) {
-                    case "n":
-                        nOffset += 1;
-                        break;
-                    case "w":
-                        wOffset += 1;
-                        break;
-                    case "e":
-                        eOffset += 1;
-                        break;
-                    case "s":
-                        sOffset += 1;
+            return checkDay === todayDay && checkMonth === todayMonth && checkYear === todayYear;
+        }
+
+        console.log(isToday(new Date()));
+
+        function capitalize(input) {
+            const arr1 = input.split("");
+            const arr2 = input.split("");
+
+            arr1.forEach((char, index, arr) => {
+                if (index % 2 === 0) {
+                    arr[index] = char.toUpperCase();
                 }
             })
 
-            console.log(isValidWalk(path1));
-            console.log(isValidWalk(path2));
-            console.log(isValidWalk(path3));
-            console.log(isValidWalk(path4));
-
-            // if (nOffset - sOffset === 0 && wOffset - eOffset === 0) {
-            //     return true;
-            // } else {
-            //     return false;
-            // }
-            return nOffset - sOffset === 0 && wOffset - eOffset === 0;
-        }
-
-        function persistence(num) {
-            if (num < 10) {
-                return 0;
-            }
-
-            function recursion(num) {
-                let numAsString = num.toString();
-                
-                const arrOfChars = numAsString.split('');
-                
-                const result = arrOfChars.reduce((acc, number) => {
-                    console.log();
-                    return acc *= number;
-                })
-console.log(result);
-                if (result < 10) {
-                    return result;
+            arr2.forEach((char, index, arr) => {
+                if (index % 2 !== 0) {
+                    arr[index] = char.toUpperCase();
                 }
-console.log("new");
-                return recursion(result);
-            }
+            })
 
-            const singleNumber = recursion(num);
-console.log("end");
-            return singleNumber;
+            const stringEven = arr1.join("");
+            const stringOdd = arr2.join("");
+
+            return [stringEven, stringOdd];
         }
 
-        console.log(persistence(39));    // 3
-        console.log(persistence(4));     // 0
-        console.log(persistence(25));    // 2
-        console.log(persistence(999));   // 4
+        console.log(capitalize("abcdef"));
+
+        function maxNumber(number = 1) {
+            const numberAsString = number.toString();
+            const numberAsArray = numberAsString.split("");
+            const sortedArray = numberAsArray.sort((x, y) => {
+                return y - x;
+            })
+            const result = Number(sortedArray.join(""));
+
+            return result;
+        }
+
+        console.log(maxNumber(213));    // 321
+
+        const person = {
+            name: "Dom",
+            age: 46,
+            toJSON() {
+                return `This is ${this.name} and he is ${this.age} years old.`;
+            }
+        }
+
+        const data1 = {
+            data: person,
+        }
+
+        class Person {
+            constructor (name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            toJSON() {
+                return `This is ${this.name} and he is ${this.age} years old.`;
+            }
+        }
+
+        const data2 = {
+            data: new Person("Dom2", 47),
+        }
+
+        const h1 = document.querySelector("h1");
+
+        HTMLElement.prototype.toJSON = function () {
+            // return `<${this.tagName.toLowerCase()}>`;
+            return this.outerHTML;
+        }
+
+        console.log(JSON.stringify(h1));
+
+        console.log(JSON.stringify(data1));
+        console.log(JSON.stringify(data2));
+
         console.log("110");
     </script>
 
