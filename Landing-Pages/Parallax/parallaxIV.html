@@ -16,7 +16,30 @@
         }
 
         .centered {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            column-gap: 1rem;
             margin: auto;
+        }
+        p {
+            flex: 1;
+            text-align: center;
+        }
+
+        main {
+            display: flex;
+            flex-direction: row;
+            min-height: 100vh;
+            color: #bfa38a;
+            font-family: monospace;
+            background-color: #1d2326;
+            border: 1px solid red;
+        }
+
+        button {
+            padding: 0.6em 1em;
+            text-transform: capitalize;
         }
     </style>
 </head>
@@ -119,117 +142,127 @@
         </div>
     </div>
 
+    <main>
+        <section class="content">
+          <!-- Your HTML code goes here -->
+        </section>
+  
+        <!-- No need to change anything in this section -->
+        <section class="sidebar">
+          <h2>Actions</h2>
+          <button onclick="showMeme()">Show a Meme</button>
+          <button onclick="showJoke()">Tell Me a Joke</button>
+          <button onclick="showQuote()">Random Quote</button>
+          <button onclick="showRiddle()">Riddle me</button>
+          <button class="reveal-btn" onclick="revealAnswers()">
+            Reveal Riddle Answer
+          </button>
+          <p class="attribution">
+            Code challenge by
+            <a href="https://www.twitter.com/zg_dev" target="_top">@zg_dev</a>
+          </p>
+        </section>
+      </main>
+      <script></script>
 
     <section class="del">
         <div class="centered">
-            <button></button>
+            <button id="create-p" class="btn">create p tag</button>
             <button></button>
             <button></button>
             <button></button>
         </div>
+
+        <script>
+            const parent = document.querySelector(".centered");
+            const createPBtn = document.querySelector("#create-p");
+
+            createPBtn.addEventListener("click", addPTag);
+
+            function addPTag() {
+                const random = Math.floor(Math.random() * 100);
+                const pContent = `The random number is ${random}`;
+                const newPElement = document.createElement("p");
+                newPElement.textContent = pContent;
+                parent.appendChild(newPElement);
+            }
+
+            const btn2 = parent.children[1];
+            const btn3 = parent.children.item(2);
+            console.log(btn2);
+            console.log(btn3);
+            btn2.textContent = "click me";
+            btn3.textContent = "click me";
+
+            setTimeout(() => {
+                Array.from(parent.children)
+                .filter(item => {
+                    return item.textContent === "";
+                    // return item.tagName === "BUTTON";
+                })
+                .forEach(button => {
+                    button.textContent = "click me";
+                })
+            }, 2000);
+
+            btn2.addEventListener("click", () => {
+                insertNewElement("em", 2, "em tag");
+            });
+
+            function insertNewElement(tag, position, content) {
+                const parags = document.querySelectorAll(".centered p");
+                const newElement = document.createElement(tag);
+                const element = parags[position + 1];
+                newElement.textContent = content;
+                parent.insertBefore(newElement, element);
+                console.log(parags);
+            }
+
+            const original = "Jogata";
+            const base64 = btoa(original);
+            const decoded = atob(base64);
+
+            console.log(original);
+            console.log(base64);
+            console.log(decoded);
+
+            function funcWithRestParameters(a, ...nums) {
+                console.log(a);
+                console.log(nums);
+                let result = 0;
+
+                for (const num of nums) {
+                    result += num;
+                }
+
+                return result;
+            }
+
+            const result = funcWithRestParameters(5, 10, 20);   // 35
+            console.log(result);
+
+            const callback = () => {
+                console.log("from 245");
+                return this;
+            }
+
+            const obj = {
+                log: function () {
+                    console.log("from 251");
+                    console.log(this);
+                    return callback();
+                }
+            }
+
+            console.log(obj.log());
+            
+            btn3.addEventListener("click", function () {
+                console.log(this);
+                console.log(callback());
+            })
+
+            console.log("starts from: 130");
+        </script>
     </section>
-
-    <script>
-        function lowercaseCount(input) {
-            return input.match(/[a-z]/g).length;
-        }
-
-        console.log(lowercaseCount("ASdhgGT564HGfhfg/\r#"));
-
-        function isToday(date) {
-            const checkDay = date.getDate();
-            const checkMonth = date.getMonth();
-            const checkYear = date.getFullYear();
-
-            const today = new Date();
-
-            const todayDay = today.getDate();
-            const todayMonth = today.getMonth();
-            const todayYear = today.getFullYear();
-
-            return checkDay === todayDay && checkMonth === todayMonth && checkYear === todayYear;
-        }
-
-        console.log(isToday(new Date()));
-
-        function capitalize(input) {
-            const arr1 = input.split("");
-            const arr2 = input.split("");
-
-            arr1.forEach((char, index, arr) => {
-                if (index % 2 === 0) {
-                    arr[index] = char.toUpperCase();
-                }
-            })
-
-            arr2.forEach((char, index, arr) => {
-                if (index % 2 !== 0) {
-                    arr[index] = char.toUpperCase();
-                }
-            })
-
-            const stringEven = arr1.join("");
-            const stringOdd = arr2.join("");
-
-            return [stringEven, stringOdd];
-        }
-
-        console.log(capitalize("abcdef"));
-
-        function maxNumber(number = 1) {
-            const numberAsString = number.toString();
-            const numberAsArray = numberAsString.split("");
-            const sortedArray = numberAsArray.sort((x, y) => {
-                return y - x;
-            })
-            const result = Number(sortedArray.join(""));
-
-            return result;
-        }
-
-        console.log(maxNumber(213));    // 321
-
-        const person = {
-            name: "Dom",
-            age: 46,
-            toJSON() {
-                return `This is ${this.name} and he is ${this.age} years old.`;
-            }
-        }
-
-        const data1 = {
-            data: person,
-        }
-
-        class Person {
-            constructor (name, age) {
-                this.name = name;
-                this.age = age;
-            }
-
-            toJSON() {
-                return `This is ${this.name} and he is ${this.age} years old.`;
-            }
-        }
-
-        const data2 = {
-            data: new Person("Dom2", 47),
-        }
-
-        const h1 = document.querySelector("h1");
-
-        HTMLElement.prototype.toJSON = function () {
-            // return `<${this.tagName.toLowerCase()}>`;
-            return this.outerHTML;
-        }
-
-        console.log(JSON.stringify(h1));
-
-        console.log(JSON.stringify(data1));
-        console.log(JSON.stringify(data2));
-
-        console.log("110");
-    </script>
-
 </body>
 </html>
