@@ -39,14 +39,14 @@ nav a, header a {
     text-decoration: none;
 }
 nav .container {
-    max-width: 1150px;
+    max-width: 1250px;
     margin: 0 auto;
-    padding: 1em 2em;
+    padding: 1em 3rem;
 }
 nav .container > div {
-    display: grid;
-    grid-template-columns: 1fr 6fr;
+    display: flex;
     align-items: center;
+    gap: 2rem;
 }
 nav .menu, 
 nav form, 
@@ -66,9 +66,19 @@ nav ul li {
     margin: 0 0.5em;
 }
 nav ul a {
-    font-size: 0.8em;
+    padding: 0.5em;
+    font-size: 1.2rem;
     text-transform: uppercase;
-    text-decoration: none;
+    border: 1px solid transparent;
+    /* border-radius: 1em; */
+    transition: all 0.4s;
+}
+nav ul a:hover {
+    border-top: 1px solid #a3be52;
+    border-bottom: 1px solid #a3be52;
+}
+nav ul a:focus-visible {
+    outline: 1px solid #a3be52;
 }
 
 nav form {
@@ -77,18 +87,41 @@ nav form {
 
 nav form input {
     width: 12rem;
+    margin-right: 10px;
     padding: 0.5em 1em;
     color: #fff;
     border: none;
+    outline: none;
     background-color: transparent;
 }
 nav form input::placeholder {
     color: #fff;
 }
+nav form input:focus-visible {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
 
 .logo {
     display: inline-block;
-    width: 4rem;
+    width: 5rem;
+    transition: all 0.4s;
+}
+.logo:focus-visible, 
+.logo:hover {
+    transform: scale(1.2);
+}
+.logo svg {
+    fill: #fff;
+    transition: inherit;
+}
+.logo:focus-visible svg, 
+.logo:hover svg {
+    fill: #a3be52;
+}
+
+.menu {
+    width: 100%;
+    flex-wrap: wrap;
 }
 
 .nav-btn {
@@ -107,36 +140,39 @@ nav form input::placeholder {
     background-color: rgba(255, 255, 255, 0.6);
 }
 
-.menu-btn {
+nav .container .menu-btn {
     display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
 }
 
 header {
+    display: grid;
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
     color: #fff;
     background-color: #090909;
     overflow: hidden;
 }
 header::before {
     position: absolute;
-    top: 0;
-    right: -40rem;
+    /* top: -20%; */
+    /* right: -40rem; */
     content: '';
     width: 100%;
     height: 120%;
     background: linear-gradient(45deg, #ccee66, #6e9623);
-    transform: rotate(70deg);
+    transform: rotate(70deg) translateY(-70%);
     z-index: 0;
 }
 header::after {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    inset: 50% auto auto 50%;
     transform: translate(-50%, -50%);
-    content: "Ro645a";
-    color: rgba(0, 0, 0, 0.2);
-    font-size: 17rem;
+    content: "NIKE";
+    color: transparent;
+    -webkit-text-stroke: 3px rgba(250, 250, 250, 0.1);
+    font-size: min(30vw, 17rem);
     font-weight: 700;
     z-index: 0;
 }
@@ -149,15 +185,16 @@ header::after {
     grid-template-columns: 2fr 3fr;
     gap: 2em;
     max-width: 1250px;
-    height: 75%;
+    min-height: 75%;
     margin: 0 auto;
-    padding: 0 3em;
+    padding: 0 3rem;
     z-index: 1;
 }
 
 h1 {
     margin: 0.5rem 0;
     font-size: 3.5rem;
+    font-family: 'Fraunces', serif;
 }
 
 h4 {
@@ -174,6 +211,7 @@ h4 {
 }
 
 .btn {
+    display: inline-block;
     padding: 0.7em 1.5em;
     text-transform: capitalize;
     letter-spacing: 1px;
@@ -198,36 +236,158 @@ h4 {
 
 .body img {
     width: 45rem;
-    transform: rotate(-25deg);
+    transform: rotate(-25deg) translateY(0%) translateX(0%);
     filter: drop-shadow(30px 45px 40px #161616);
+    animation: updown 4s linear infinite, showleft 3s cubic-bezier(0.25, 1, 0.5, 1);
+    /* animation: showleft 2s linear; */
+    animation-delay: 3.4s, 0s;
+}
+@keyframes updown {
+    50% {
+        transform: rotate(-25deg) translateY(10%);
+    }
+    /* 75% {
+        transform: rotate(-25deg) translateY(10%);
+    } */
+}
+@keyframes showleft {
+    0%, 10% {
+        transform: translate(100vw, 0) rotate(-15deg);
+    }
+    90%, 100% {
+        transform: translate(0, 0) rotate(-25deg);
+    }
 }
 
 .footer {
     position: relative;
+    width: 100%;
     max-width: 1250px;
     margin: 0 auto;
-    padding: 0 3rem;
+    padding: 3rem;
     text-transform: uppercase;
 }
 .footer a {
-    margin: 0 0.4rem;
+    margin: 0 15px;
     font-size: 1.2rem;
 }
+.footer a i {
+    width: 3rem;
+    height: 3rem;
+    padding: 0.8rem 0;
+    text-align: center;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0px 0px 15px #fff;
+}
+
 .play-icon {
     width: 3rem;
     height: 3rem;
     margin-right: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 1.3rem;
-    line-height: 3rem;
-    text-align: center;
     border-radius: 50%;
     border: 3px solid #fff;
     box-shadow: 0px 0px 15px #fff;
     transition: all 0.3s;
     cursor: pointer;
 }
+.fa-play {
+    padding-left: 10%;
+}
+
+.footer a:hover i, 
 .play-icon:hover {
     background-color: rgba(255, 255, 255, 0.5);
     box-shadow: 0p 0px 0px transparent;
 }
 
+@media screen and (max-width: 1000px) {
+    nav .container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+    nav .container > div {
+        grid-template-columns: 1fr;
+    }
+    nav .menu {
+        flex-direction: column;
+        align-items: flex-start;
+        height: 0;
+        overflow: hidden;
+        transition: all 0.7s;
+    }
+    nav ul li {
+        display: block;
+        margin: 0.5rem 0;
+    }
+    nav il li:nth-child(1) {
+        margin-top: 1.5rem;
+    }
+    nav .container .menu-btn {
+        display: inline-block;
+        font-size: 1.4rem;
+    }
+    nav .container .nav-btn {
+        height: 16em;
+    }
+}
+
+@media screen and (max-width: 1210px) {
+    nav {
+        margin-bottom: 2rem;
+    }
+    .body {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    header {
+        height: initial;
+    }
+    header::before {
+        display: none;
+    }
+    .body > div:nth-child(2) {
+        justify-content: center;
+        margin: 3rem 0;
+    }
+    .body img {
+        transform: none;
+    }
+    .body p {
+        margin: 2rem auto 3rem auto;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    html {
+        font-size: 14px;
+    }
+    .body img  {
+        width: 90%;
+    }
+    .footer {
+        margin-top: 3rem;
+        flex-direction: column;
+    }
+    .watch {
+        margin: 2rem 0;
+        flex-direction: column;
+    }
+    .footer .play-icon {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    header {
+        height: initial;
+    }
+    .footer {
+        margin:  4rem auto 2rem auto;
+    }
+}
