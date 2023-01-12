@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Webstore v.1</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="./css/styles_webstore-v1.css">
+  <!-- <link rel="stylesheet" href="./css/styles_webstore-v1.css"> -->
   <style>
     * {
       margin: 0;
@@ -28,6 +28,9 @@
       text-transform: uppercase;
       text-decoration: none;
       white-space: nowrap;
+    }
+    ul {
+      list-style: none;
     }
 
     header {
@@ -53,7 +56,7 @@
       outline: 0;
     }
     .fa-bars {
-      color: #282828;
+      color: #fff;
     }
 
     .navigation {
@@ -72,9 +75,15 @@
       z-index: 9;
     }
 
+    i {
+      color: #fff;
+    }
+
     .navigation-inner {
       max-width: 650px;
       margin: 120px auto 0px;
+      display: flex;
+      justify-content: center;
     }
     .navigation-info {
       width: 100%;
@@ -113,6 +122,96 @@
       position: relative;
       line-height: 1;
     }
+
+    .hero {
+      height: calc(100vh - 40px);
+      min-height: 400px;
+      width: 100%;
+      background-image: url("../00templates/tropical_beach_resort-wallpaper-2560x1440.jpg");
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: cover;
+      color: #fff;
+      display: flex;
+    }
+    .hero::before {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+    .hero-caption {
+      position: relative;
+      max-width: 80%;
+      margin: auto;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 1.5;
+      letter-spacing: 5px;
+    }
+    h1 {
+      font-weight: 300;
+      font-size: 30px;
+    }
+
+    .opened .navigation {
+      visibility: visible;
+      transform: translate3d(0,0,0);
+      transition-delay: 0;
+    }
+    .opened .navigation-info {
+      visibility: visible;
+      transform: translate3d(0,0,0);
+      transition-delay: 0.3s;
+      opacity: 1;
+    }
+
+    .opened .menu {
+      visibility: visible;
+      transform: translate3d(0,0,0);
+      transition-delay: 0.3s;
+      opacity: 1;
+    }
+
+    .mask-polygon-1 {
+      clip-path: polygon(0 0, 100% 0, 100% 82.8%, 37.2% 100%, 0 77.2%);
+    }
+
+    .container {
+      width: 100%;
+      height: 50vh;
+      min-height: 50vh;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      align-content: center;
+      justify-content: center;
+    }
+
+    .content {
+      width: 400px;
+      height: 70px;
+      border: 2px solid #000;
+      border-radius: 50px;
+    }
+
+    button {
+      border: none;
+      background: none;
+    }
+
+    i.fa-search {
+      width: 60px;
+      height: 60px;
+      margin-top: 3px;
+      margin-left: 3px;
+      padding: 17px;
+      color: #000;
+      font-size: 25px;
+      border-radius: 50px;
+      border: 2px solid #000;
+    }
   </style>
 </head>
 <body>
@@ -143,7 +242,23 @@
     </div>
   </div>
 
+  <div class="container">
+    <div class="content">
+      <button type="submit">
+        <i class="fa fa-search"></i>
+        <input type="text" name="user" id="user" placeholder="Search here...">
+      </button>
+    </div>
+  </div>
+
   <script>
+    const triggerMenu = document.querySelector(".menu-btn");
+
+    triggerMenu.addEventListener("click", handleNavigation);
+
+    function handleNavigation() {
+      document.body.classList.toggle("opened");
+    }
   </script>
 </body>
 </html>
