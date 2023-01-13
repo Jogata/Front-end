@@ -25,6 +25,7 @@
         p {
             flex: 1;
             text-align: center;
+            color: #8097a6;
         }
 
         main {
@@ -40,6 +41,81 @@
         button {
             padding: 0.6em 1em;
             text-transform: capitalize;
+        }
+
+        a {
+          color: white;
+        }
+        
+        a:hover {
+          opacity: 0.8;
+        }
+        
+        img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 5px;
+            border: 1px solid white;
+        }
+        
+        .content {
+            width: 65%;
+            padding-left: 30px;
+            padding-right: 20px;
+        }
+        
+        .content p {
+            max-width: 80%;
+        }
+        
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            height: 85vh;
+            padding-left: 30px;
+            padding-right: 30px;
+            border-left: 1px dotted #bfa38a;
+        }
+        
+        button {
+            width: 200px;
+            max-width: 100%;
+            height: 35px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            color: #bfa38a;
+            border: 1px solid #bfa38a;
+            border-radius: 5px;
+            background: transparent;
+        }
+        
+        button:hover {
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .reveal-btn {
+            margin: 0;
+            border: none;
+            text-decoration: underline;
+        }
+        
+        .reveal-btn:hover {
+            color: white;
+            background-color: transparent;
+        }
+        
+        .attribution {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            font-size: 0.8rem;
+            background-color: #8097a6;
+            padding: 10px;
+            border-radius: 5px;
+            color: #1d2326;
+            box-shadow: 1px 2px 5px 1px rgba(255, 255, 255, 0.2);
         }
     </style>
 </head>
@@ -163,106 +239,19 @@
           </p>
         </section>
       </main>
-      <script></script>
+      <script>
+        /**
+        * TODO: Implement a function that clears all the content
+        * prior to generating new random content
+        */
+       function clearAll() {}
+    </script>
 
     <section class="del">
-        <div class="centered">
-            <button id="create-p" class="btn">create p tag</button>
-            <button></button>
-            <button></button>
-            <button></button>
-        </div>
-
-        <script>
-            const parent = document.querySelector(".centered");
-            const createPBtn = document.querySelector("#create-p");
-
-            createPBtn.addEventListener("click", addPTag);
-
-            function addPTag() {
-                const random = Math.floor(Math.random() * 100);
-                const pContent = `The random number is ${random}`;
-                const newPElement = document.createElement("p");
-                newPElement.textContent = pContent;
-                parent.appendChild(newPElement);
-            }
-
-            const btn2 = parent.children[1];
-            const btn3 = parent.children.item(2);
-            console.log(btn2);
-            console.log(btn3);
-            btn2.textContent = "click me";
-            btn3.textContent = "click me";
-
-            setTimeout(() => {
-                Array.from(parent.children)
-                .filter(item => {
-                    return item.textContent === "";
-                    // return item.tagName === "BUTTON";
-                })
-                .forEach(button => {
-                    button.textContent = "click me";
-                })
-            }, 2000);
-
-            btn2.addEventListener("click", () => {
-                insertNewElement("em", 2, "em tag");
-            });
-
-            function insertNewElement(tag, position, content) {
-                const parags = document.querySelectorAll(".centered p");
-                const newElement = document.createElement(tag);
-                const element = parags[position + 1];
-                newElement.textContent = content;
-                parent.insertBefore(newElement, element);
-                console.log(parags);
-            }
-
-            const original = "Jogata";
-            const base64 = btoa(original);
-            const decoded = atob(base64);
-
-            console.log(original);
-            console.log(base64);
-            console.log(decoded);
-
-            function funcWithRestParameters(a, ...nums) {
-                console.log(a);
-                console.log(nums);
-                let result = 0;
-
-                for (const num of nums) {
-                    result += num;
-                }
-
-                return result;
-            }
-
-            const result = funcWithRestParameters(5, 10, 20);   // 35
-            console.log(result);
-
-            const callback = () => {
-                console.log("from 245");
-                return this;
-            }
-
-            const obj = {
-                log: function () {
-                    console.log("from 251");
-                    console.log(this);
-                    return callback();
-                }
-            }
-
-            console.log(obj.log());
-            
-            btn3.addEventListener("click", function () {
-                console.log(this);
-                console.log(callback());
-            })
-
-            console.log("starts from: 130");
-        </script>
+        <div class="centered"></div>
     </section>
+    <script>
+        console.log("starts from: 130");
+    </script>
 </body>
 </html>
