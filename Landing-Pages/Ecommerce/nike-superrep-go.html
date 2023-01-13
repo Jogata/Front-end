@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nike SuperRep Go</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./css/styles_nike-superrep-go.css">
+</head>
+<body>
+  <header id="top">
+    <nav>
+      <div class="container">
+        <div class="nav">
+          <a href="#top" class="logo">
+            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Nike</title><path d="M24 7.8L6.442 15.276c-1.456.616-2.679.925-3.668.925-1.12 0-1.933-.392-2.437-1.177-.317-.504-.41-1.143-.28-1.918.13-.775.476-1.6 1.036-2.478.467-.71 1.232-1.643 2.297-2.8a6.122 6.122 0 00-.784 1.848c-.28 1.195-.028 2.072.756 2.632.373.261.886.392 1.54.392.522 0 1.11-.084 1.764-.252L24 7.8z"/></svg>
+          </a>
+          <div class="menu">
+            <ul>
+              <li><a href="#top">new releases</a></li>
+              <li><a href="#top">men</a></li>
+              <li><a href="#top">women</a></li>
+              <li><a href="#top">kids</a></li>
+              <li><a href="#top">categories</a></li>
+            </ul>
+            <form action="">
+              <div class="search-icon">
+                <i class="fa fa-search"></i>
+              </div>
+              <input type="text" name="" id="" class="serch" placeholder="Search...">
+              <button class="nav-btn">
+                <i class="fa fa-cart-plus"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="menu-btn">
+          <i class="fa fa-bars"></i>
+        </div>
+      </div>
+    </nav>
+    <div class="body">
+      <div>
+        <h4>$47.97</h4>
+        <h1>Nike SuperRep Go</h1>
+        <div class="rating">
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-o" aria-hidden="true"></i>
+        </div>
+        <p>Nike SuperRep Go combines comfortable foam cushioning, flexibility and support to get you moving in circuit-based fitness classes or while streaming workouts at home.</p>
+        <a href="#" class="btn">add to cart</a>
+      </div>
+      <div>
+        <img src="./img/Nike-SuperRep-Go-shoe.png" alt="Nike SuperRep Go">
+      </div>
+    </div>
+    <div class="footer">
+      <div class="social">
+        <a href="#f"><i class="fa fa-facebook" title="Facebook" aria-hidden="true"></i></a>
+        <a href="#t"><i class="fa fa-twitter" title="Twitter" aria-hidden="true"></i></a>
+        <a href="#i"><i class="fa fa-instagram" title="Instagram" aria-hidden="true"></i></a>
+      </div>
+      <div class="watch">
+        <div class="play-icon">
+          <i class="fa fa-play" aria-hidden="true"></i>
+        </div>
+        <h3>preview</h3>
+      </div>
+    </div>
+  </header>
+
+  <script>
+    const menu = document.querySelector(".menu");
+    const menuBtn = document.querySelector(".menu-btn");
+
+    menuBtn.addEventListener("click", () => {
+      menu.classList.toggle("nav-toggle");
+    })
+  </script>
+</body>
+</html>
