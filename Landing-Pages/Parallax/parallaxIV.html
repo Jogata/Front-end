@@ -64,8 +64,15 @@
             padding-right: 20px;
         }
         
-        .content p {
-            max-width: 80%;
+        .content div {
+            padding: 15px 0;
+        }
+        .content div p:nth-child(2) {
+            padding-top: 5px;
+            font-style: italic;
+        }
+        details {
+            padding-top: 5px;
         }
         
         .sidebar {
@@ -73,6 +80,7 @@
             flex-direction: column;
             width: 30%;
             height: 85vh;
+            padding: 5% 20%;
             padding-left: 30px;
             padding-right: 30px;
             border-left: 1px dotted #bfa38a;
@@ -218,9 +226,17 @@
         </div>
     </div>
 
-    <main>
+    <main id="test">
         <section class="content">
-          <!-- Your HTML code goes here -->
+          <h2>Output</h2>
+          <h3>Programmer Memes</h3>
+          <div class="meme-output"></div>
+          <h3>Tell me something funny!</h3>
+          <div class="joke-output"></div>
+          <h3>Give me some wisdom...</h3>
+          <div class="quote-output"></div>
+          <h3>I want a riddle!</h3>
+          <div class="riddle-output"></div>
         </section>
   
         <!-- No need to change anything in this section -->
@@ -244,8 +260,12 @@
         * TODO: Implement a function that clears all the content
         * prior to generating new random content
         */
-        function clearAll() {}
-
+        function clearAll() {
+            document.querySelector(".meme-output").textContent = "";
+            document.querySelector(".joke-output").textContent = "";
+            document.querySelector(".quote-output").textContent = "";
+            document.querySelector(".riddle-output").textContent = "";
+        }
        
         /**
         * TODO:
@@ -255,6 +275,11 @@
        function showMeme() {
             // Value is a string representing image URL
             const randomMemeUrl = getRandomData("memes");
+            const parent = document.querySelector(".meme-output");
+            clearAll();
+            const newElement = document.createElement("img");
+            newElement.setAttribute("src", randomMemeUrl);
+            parent.appendChild(newElement);
         }
         
         /**
@@ -265,6 +290,11 @@
         function showJoke() {
             // Value is a string representing the joke
             const randomJokeText = getRandomData("jokes");
+            const parent = document.querySelector(".joke-output");
+            clearAll();
+            const newElement = document.createElement("p");
+            newElement.innerText = randomJokeText;
+            parent.appendChild(newElement);
         }
         
         /**
@@ -275,6 +305,14 @@
         function showQuote() {
             // Value should be in format: { quote: '', author: '' }
             const randomQuote = getRandomData("quotes");
+            const parent = document.querySelector(".quote-output");
+            clearAll();
+            const quote = document.createElement("blockquote");
+            const author = document.createElement("p");
+            quote.innerText = randomQuote.quote;
+            author.innerText = `- ${randomQuote.author} -`;
+            parent.appendChild(quote);
+            parent.appendChild(author);
         }
         
         /**
@@ -286,6 +324,15 @@
         function showRiddle() {
             // Value should be in format: { question: '', answer: '' }
             const randomRiddle = getRandomData("riddles");
+            const parent = document.querySelector(".riddle-output");
+            clearAll();
+            const question = document.createElement("p");
+            const answer = document.createElement("details");
+            // answer.setAttribute("hidden", true);
+            question.innerHTML = `Question: <br> "${randomRiddle.question}"`;
+            answer.innerHTML = `<summary>Answer: </summary> "${randomRiddle.answer}"`;
+            parent.appendChild(question);
+            parent.appendChild(answer);
         }
         
         /**
@@ -295,7 +342,9 @@
          *   that the answer is already revealed
          * - If there is a riddle shown but no answer, unhide the answer!
          */
-        function revealAnswers() {}
+        function revealAnswers() {
+            document.getElementsByTagName("details")[0]?.setAttribute("open", true);
+        }
         
         /**
          * This function is used to get random data.  Don't worry about how it works, just know how to use it.  Usage is pre-filled in the functions above already, but here's an explanation of the function anyways.
@@ -324,6 +373,10 @@
             return data[type][rn(data[type].length)];
         }
 
+        function rn(len) {
+            return Math.floor(Math.random() * len);
+        }
+
         // Source: https://www.thecoderpedia.com/blog/programming-memes/, Reddit
         const memes = [
             "https://i.redd.it/a0v87gwzoge61.jpg",
@@ -345,9 +398,9 @@
         const jokes = [
             "This statement",
             "Eight bytes walk into a bar.  The bartender asks, “Can I get you anything?” “Yeah,” reply the bytes.  “Make us a double.”",
-            "There are only 10 kinds of people in this world: those who know binary and those who don’t.",
+            "There are only 10 kinds of people in this world: those who know binary and those who don't.",
             "All programmers are playwrights, and all computers are lousy actors.",
-            "Have you heard about the new Cray super computer?  It’s so fast, it executes an infinite loop in 6 seconds.",
+            "Have you heard about the new Cray super computer?  It's so fast, it executes an infinite loop in 6 seconds.",
             "The generation of random numbers is too important to be left to chance.",
             "Debugging: Removing the needles from the haystack.",
             "“Debugging” is like being the detective in a crime drama where you are also the murderer.",
@@ -427,7 +480,7 @@
             },
             {
                 question:
-                "You measure my life in hours and I serve you by expiring. I’m quick when I’m thin and slow when I’m fat. The wind is my enemy. ",
+                "You measure my life in hours and I serve you by expiring. I'm quick when I'm thin and slow when I'm fat. The wind is my enemy. ",
                 answer: "A Candle",
             },
             {
@@ -437,12 +490,12 @@
             },
             {
                 question:
-                "What is seen in the middle of March and April that can’t be seen at the beginning or end of either month?",
+                "What is seen in the middle of March and April that can't be seen at the beginning or end of either month?",
                 answer: 'The letter "R"',
             },
             {
                 question:
-                "You see a boat filled with people. It has not sunk, but when you look again you don’t see a single person on the boat. Why?",
+                "You see a boat filled with people. It has not sunk, but when you look again you don't see a single person on the boat. Why?",
                 answer: "All the people were married",
             },
             {
@@ -451,10 +504,6 @@
                 answer: "Heroine",
             },
         ];
-        
-        function rn(len) {
-            return Math.floor(Math.random() * len);
-        }
         
         const data = {
             memes,
@@ -468,7 +517,68 @@
         <div class="centered"></div>
     </section>
     <script>
-        console.log("starts from: 365");
+        // 1
+        const myBoolean = true;
+        
+        // 2
+        const myString = 'hello world';
+        
+        // 3
+        const firstNumber = 20;
+        
+        // 4 - notice how I have used `let` here.  We have to use this because we re-assign the value of this variable
+        let secondNumber = 40;
+        
+        // 5
+        secondNumber = 80;
+        
+        // 6
+        const myArray = [myBoolean, myString];
+        
+        // 7
+        const myObject = {
+            firstProperty: myArray,
+            sumProperty: firstNumber + secondNumber
+        };
+        
+        // 8
+        console.log(myObject);
+        
+        // 9
+        const sumProp = myObject.sumProperty;
+        console.log(sumProp);
+        
+        // 9 - Alternate solution
+        console.log(myObject.sumProperty);
+        
+        // 10
+        const firstProp = myObject.firstProperty;
+        const arrayValue = firstProp[1];
+        console.log(arrayValue);
+        
+        // 10 - Alternate solution
+        console.log(myObject.firstProperty[1]);
+
+        const variable1 = 20;
+        const variable2 = '40';
+
+        const resultVariable = variable1 + variable2;
+
+        console.log(resultVariable);
+
+        const stringVariable = 'some value here';
+        const numberVariable = 20;
+        
+        console.log(stringVariable + numberVariable);
+        
+        const variable3 = 20;
+        const variable4 = '40';
+        
+        const resultVariable1 = variable3 + Number(variable4);
+        
+        console.log(resultVariable1); // Prints 60, and is a number
+
+        console.log("starts from: 474");
     </script>
 </body>
 </html>
