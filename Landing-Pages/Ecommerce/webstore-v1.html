@@ -39,7 +39,7 @@
       align-items: center;
       align-content: center;
       justify-content: center;
-      background-color: #ff3040;
+      background-color: #363844;
     }
 
     .content {
@@ -57,7 +57,9 @@
 
     button {
       border: none;
-      background: none;
+      outline: 1px solid transparent;
+      background: transparent;
+      cursor: pointer;
     }
 
     i.fa-search {
@@ -71,7 +73,7 @@
       font-size: 25px;
       border-radius: 50px;
       border: 2px solid #fff;
-      background-color: darkorange;
+      background-color: #7ae3ba;
       box-shadow: 1px 1px 1px #000, 
       inset 1px 1px 1px #000;
       text-shadow: 1px 1px 1px #000;
@@ -79,8 +81,8 @@
       cursor: pointer;
     }
     i.fa-search:hover {
-      color: darkorange;
-      border: 2px solid darkorange;
+      color: #7ae3ba;
+      border: 2px solid #7ae3ba;
       background-color: #fff;
     }
 
@@ -100,7 +102,19 @@
       color: #fff;
     }
 
+    h1 {
+      position: absolute;
+      top: 0;
+      color: #fff;
+      font-size: 3rem;
+    }
+    h1 q {
+      color: #ff3040;
+      font-style: italic;
+    }
+
     #testimonial {
+      position: relative;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -110,21 +124,26 @@
     .review {
       position: relative;
       width: 400px;
-      height: 250px;
+      /* height: 250px; */
       margin: 10px;
-      padding: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
+      padding: 30px 30px 20px;
+      /* display: flex; */
+      /* align-items: center; */
+      /* justify-content: center; */
+      /* flex-direction: column; */
+      text-align: center;
+      border: 1px solid aliceblue;
+      border-radius: 1rem;
       background-color: #363844;
       box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.35);
     }
     .img-container {
-      position: absolute;
-      top: -45px;
+      position: relative;
       width: 100px;
       height: 100px;
+      margin-inline: auto;
+      margin-top: -22%;
+      margin-bottom: 8%;
       border-radius: 50%;
       box-shadow: 4px -3px 0px #7ae3ba;
     }
@@ -148,8 +167,44 @@
     .fa-quote-left {
       margin: auto;
     }
+
+    .review-body {
+      min-height: 120px;
+    }
     #author {
+      color: #fff;
+      font-size: 1.4rem;
       text-transform: capitalize;
+    }
+    #job {
+      margin: 2% 0;
+      color: #7ae3ba;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+    #info {
+      color: #fff;
+    }
+
+    .testimonial-buttons {
+      margin-top: 10px;
+    }
+    .testimonial-buttons button {
+      margin: 0 1rem;
+      padding: 0.3em 0.54em;
+      border-radius: 50%;
+      border: 1px solid transparent;
+      transition: all 0.4s;
+    }
+    .testimonial-buttons button:hover {
+      border-color: #7ae3ba;
+    }
+    button:focus-visible {
+      outline: 1px solid #7ae3ba;
+    }
+    .testimonial-buttons button i {
+      color: #7ae3ba;
+      font-size: 1rem;
     }
   </style>
 </head>
@@ -165,39 +220,107 @@
   </div>
 
   <section id="testimonial">
+    <h1>Testimonial without <q>if</q> statement</h1>
     <div class="review">
       <div class="img-container">
         <div class="icon">
           <i class="fa fa-quote-left" aria-hidden="true"></i>
         </div>
-        <img src="../../../CSS/assets/img/profile-copy.jpg" alt="anne's profile picture"/>
+        <img src="../../../CSS/assets/img/profile-copy.jpg" alt="anne's profile picture" class="profile-image">
       </div>
       <div class="review-body">
-        <h4 id="author">ane jackson</h4>
-        <p id="job">UX Designer</p>
+        <h4 id="author">ivet valcheva</h4>
+        <p id="job">ux designer</p>
         <p id="info">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero dignissimos unde assumenda minus labore corporis iure hic omnis ut facilis.</p>
       </div>
-      <div class="button-container">
+      <div class="testimonial-buttons">
         <button class="prev">
-          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+          <i class="fa fa-chevron-left" aria-hidden="true"></i>
         </button>
         <button class="next">
-          <i class="fa fa-arrow-right" aria-hidden="true"></i>
+          <i class="fa fa-chevron-right" aria-hidden="true"></i>
         </button>
       </div>
     </div>
   </section>
 
   <script>
-    const triggerMenu = document.querySelector(".menu-btn");
+    const reviews = [
+      {
+        id: 1,
+        name: "peter jones",
+        job: "ux designer",
+        img: "./img/testimonial-v1/pic-1.png",
+        info: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero dignissimos unde assumenda minus labore corporis iure hic omnis ut facilis."
+      },
+      {
+        id: 2,
+        name: "ane jackson",
+        job: "web designer",
+        img: "./img/testimonial-v1/pic-2.png",
+        info: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam tempora laboriosam at excepturi rem. Minima, earum soluta.",
+      },
+      {
+        id: 3,
+        name: "billy joel",
+        job: "c# developer",
+        img: "./img/testimonial-v1/pic-3.png",
+        info: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quasi dolorum quos non nulla possimus, est nostrum ad tenetur distinctio eos perferendis aliquam.",
+      },
+      {
+        id: 3,
+        name: "anna johnson",
+        job: "ux designer",
+        img: "./img/testimonial-v1/pic-4.png",
+        info: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci et, aut ipsa tempore veniam ab temporibus omnis eum mollitia.",
+      },
+      {
+        id: 3,
+        name: "john wick",
+        job: "seo",
+        img: "./img/testimonial-v1/pic-5.png",
+        info: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere eum perferendis quas non, sit totam incidunt accusantium recusandae. Animi maiores enim rerum.",
+      },
+      {
+        id: 6,
+        name: "susan son",
+        job: "web developer",
+        img: "./img/testimonial-v1/pic-6.png",
+        info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum inventore eius impedit a aspernatur quae rerum atque adipisci.",
+      },
+    ]
+    
+    {const prevButton = document.querySelector(".prev");
+    const nextButton = document.querySelector(".next");
+    
+    const profileImage = document.querySelector(".profile-image");
+    const name = document.querySelector("#author");
+    const job = document.querySelector("#job");
+    const info = document.querySelector("#info");
 
-    triggerMenu.addEventListener("click", handleNavigation);
+    let currentIndex = 0;
 
-    function handleNavigation() {
-      document.body.classList.toggle("opened");
-    }
+    prevButton.addEventListener("click", () => {
+      currentIndex--;
+      currentIndex = reviews.length + currentIndex;
+      currentIndex = currentIndex % reviews.length;
+      loadNewData();
+    });
+    
+    nextButton.addEventListener("click", () => {
+      currentIndex++;
+      currentIndex = currentIndex % reviews.length;
+      loadNewData();
+    });
 
-    console.log(263);
+    function loadNewData() {
+      profileImage.src = reviews[currentIndex].img;
+      name.textContent = reviews[currentIndex].name;
+      job.textContent = reviews[currentIndex].job;
+      info.textContent = reviews[currentIndex].info;
+    }}
+    
+    console.log(203);
   </script>
 </body>
 </html>
