@@ -63,67 +63,23 @@
             padding-left: 30px;
             padding-right: 20px;
         }
-        
-        .content div {
-            padding: 15px 0;
-        }
-        .content div p:nth-child(2) {
-            padding-top: 5px;
-            font-style: italic;
-        }
-        details {
-            padding-top: 5px;
+
+        #box {
+            background-color: orange;
+            border: 1px solid black;
         }
         
-        .sidebar {
-            display: flex;
-            flex-direction: column;
-            width: 30%;
-            height: 85vh;
-            padding: 5% 20%;
-            padding-left: 30px;
-            padding-right: 30px;
-            border-left: 1px dotted #bfa38a;
+        #border-explanation {
+            display: none;
         }
         
-        button {
-            width: 200px;
-            max-width: 100%;
-            height: 35px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            color: #bfa38a;
-            border: 1px solid #bfa38a;
-            border-radius: 5px;
-            background: transparent;
+        hr {
+            margin-top: 40px;
         }
         
-        button:hover {
-            cursor: pointer;
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        
-        .reveal-btn {
-            margin: 0;
-            border: none;
-            text-decoration: underline;
-        }
-        
-        .reveal-btn:hover {
-            color: white;
-            background-color: transparent;
-        }
-        
-        .attribution {
-            position: absolute;
-            right: 20px;
-            bottom: 20px;
-            font-size: 0.8rem;
-            background-color: #8097a6;
-            padding: 10px;
-            border-radius: 5px;
-            color: #1d2326;
-            box-shadow: 1px 2px 5px 1px rgba(255, 255, 255, 0.2);
+        #inline-example {
+            background-color: lightgreen;
+            border: 1px solid black;
         }
     </style>
 </head>
@@ -226,359 +182,102 @@
         </div>
     </div>
 
-    <main id="test">
-        <section class="content">
-          <h2>Output</h2>
-          <h3>Programmer Memes</h3>
-          <div class="meme-output"></div>
-          <h3>Tell me something funny!</h3>
-          <div class="joke-output"></div>
-          <h3>Give me some wisdom...</h3>
-          <div class="quote-output"></div>
-          <h3>I want a riddle!</h3>
-          <div class="riddle-output"></div>
-        </section>
-  
-        <!-- No need to change anything in this section -->
-        <section class="sidebar">
-          <h2>Actions</h2>
-          <button onclick="showMeme()">Show a Meme</button>
-          <button onclick="showJoke()">Tell Me a Joke</button>
-          <button onclick="showQuote()">Random Quote</button>
-          <button onclick="showRiddle()">Riddle me</button>
-          <button class="reveal-btn" onclick="revealAnswers()">
-            Reveal Riddle Answer
-          </button>
-          <p class="attribution">
-            Code challenge by
-            <a href="https://www.twitter.com/zg_dev" target="_top">@zg_dev</a>
-          </p>
-        </section>
-    </main>
-    <script>
-        /**
-        * TODO: Implement a function that clears all the content
-        * prior to generating new random content
-        */
-        function clearAll() {
-            document.querySelector(".meme-output").textContent = "";
-            document.querySelector(".joke-output").textContent = "";
-            document.querySelector(".quote-output").textContent = "";
-            document.querySelector(".riddle-output").textContent = "";
-        }
-       
-        /**
-        * TODO:
-        * - Show a random Meme in the correct location
-        * - Never show more than 1 meme at a time
-        */
-       function showMeme() {
-            // Value is a string representing image URL
-            const randomMemeUrl = getRandomData("memes");
-            const parent = document.querySelector(".meme-output");
-            clearAll();
-            const newElement = document.createElement("img");
-            newElement.setAttribute("src", randomMemeUrl);
-            parent.appendChild(newElement);
-        }
-        
-        /**
-        * TODO:
-        * - Show a random joke in the correct location
-        * - Never show more than 1 joke at a time
-        */
-        function showJoke() {
-            // Value is a string representing the joke
-            const randomJokeText = getRandomData("jokes");
-            const parent = document.querySelector(".joke-output");
-            clearAll();
-            const newElement = document.createElement("p");
-            newElement.innerText = randomJokeText;
-            parent.appendChild(newElement);
-        }
-        
-        /**
-         * TODO:
-         * - Show a random quote in the correct location
-         * - Never show more than 1 quote at a time
-         */
-        function showQuote() {
-            // Value should be in format: { quote: '', author: '' }
-            const randomQuote = getRandomData("quotes");
-            const parent = document.querySelector(".quote-output");
-            clearAll();
-            const quote = document.createElement("blockquote");
-            const author = document.createElement("p");
-            quote.innerText = randomQuote.quote;
-            author.innerText = `- ${randomQuote.author} -`;
-            parent.appendChild(quote);
-            parent.appendChild(author);
-        }
-        
-        /**
-         * TODO:
-         * - Show a random riddle in the correct location
-         * - Never show more than 1 riddle at a time
-         * - Always hide the riddle's answer initially
-         */
-        function showRiddle() {
-            // Value should be in format: { question: '', answer: '' }
-            const randomRiddle = getRandomData("riddles");
-            const parent = document.querySelector(".riddle-output");
-            clearAll();
-            const question = document.createElement("p");
-            const answer = document.createElement("details");
-            // answer.setAttribute("hidden", true);
-            question.innerHTML = `Question: <br> "${randomRiddle.question}"`;
-            answer.innerHTML = `<summary>Answer: </summary> "${randomRiddle.answer}"`;
-            parent.appendChild(question);
-            parent.appendChild(answer);
-        }
-        
-        /**
-         * TODO: Unhide the riddle's answer
-         * - If there is no riddle shown, alert the user that there is no riddle
-         * - If there is a riddle shown and an answer shown, alert the user
-         *   that the answer is already revealed
-         * - If there is a riddle shown but no answer, unhide the answer!
-         */
-        function revealAnswers() {
-            document.getElementsByTagName("details")[0]?.setAttribute("open", true);
-        }
-        
-        /**
-         * This function is used to get random data.  Don't worry about how it works, just know how to use it.  Usage is pre-filled in the functions above already, but here's an explanation of the function anyways.
-         *
-         * Valid arguments:
-         *
-         * 'memes', 'jokes', 'quotes', 'riddles'
-         *
-         * Return values:
-         *
-         * For meme data:
-         * A string representing an image url
-         *
-         * For joke data:
-         * A string representing the joke
-         *
-         * For quote data:
-         * An object - { quote: '', author: '' }
-         *
-         * For riddle data:
-         * An object - { question: '', answer: '' }
-         *
-         * Example usage: getRandomData('quotes');
-         */
-        function getRandomData(type) {
-            return data[type][rn(data[type].length)];
-        }
-
-        function rn(len) {
-            return Math.floor(Math.random() * len);
-        }
-
-        // Source: https://www.thecoderpedia.com/blog/programming-memes/, Reddit
-        const memes = [
-            "https://i.redd.it/a0v87gwzoge61.jpg",
-            "https://i.redd.it/q29egav34ee61.jpg",
-            "https://i.redd.it/iij16swxjie61.jpg",
-            "https://i.redd.it/vek7dm2hrge61.jpg",
-            "https://www.testbytes.net/wp-content/uploads/2019/06/Untitled-8.png",
-            "https://miro.medium.com/max/1000/0*Ua695vjzFHV6VNOX.png",
-            "https://pbs.twimg.com/media/EKkPagPXkAA__Qo.jpg",
-            "https://code-love.com/wp-content/uploads/2019/03/download.jpeg",
-            "https://www.thecoderpedia.com/wp-content/uploads/2020/06/Programming-Memes-Programmer-while-sleeping.jpg",
-            "https://www.thecoderpedia.com/wp-content/uploads/2020/06/Programming-Memes-Evolution-of-Memory-Storage-1024x996.jpg",
-            "https://www.thecoderpedia.com/wp-content/uploads/2020/06/Programming-Memes-Error-in-Code-896x1024.jpg",
-            "https://www.thecoderpedia.com/wp-content/uploads/2020/06/Coding-Meme-Code-Comments-be-Like-925x1024.jpg",
-            "https://www.thecoderpedia.com/wp-content/uploads/2020/06/Internet-Explorer-Joke-915x1024.jpg",
-        ];
-        
-        // Sourced from: http://www.devtopics.com/best-programming-jokes/
-        const jokes = [
-            "This statement",
-            "Eight bytes walk into a bar.  The bartender asks, “Can I get you anything?” “Yeah,” reply the bytes.  “Make us a double.”",
-            "There are only 10 kinds of people in this world: those who know binary and those who don't.",
-            "All programmers are playwrights, and all computers are lousy actors.",
-            "Have you heard about the new Cray super computer?  It's so fast, it executes an infinite loop in 6 seconds.",
-            "The generation of random numbers is too important to be left to chance.",
-            "Debugging: Removing the needles from the haystack.",
-            "“Debugging” is like being the detective in a crime drama where you are also the murderer.",
-            "There are two ways to write error-free programs; only the third one works.",
-            "The best thing about a Boolean is even if you are wrong, you are only off by a bit.",
-        ];
-        
-        // source: https://www.goodreads.com/quotes/tag/programming
-        const quotes = [
-            {
-                quote:
-                "Programs must be written for people to read, and only incidentally for machines to execute.",
-                author: "Harold Abelson",
-            },
-            {
-                quote:
-                "Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the Universe trying to produce bigger and better idiots. So far, the Universe is winning.",
-                author: "Rick Cook",
-            },
-            {
-                quote:
-                "Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live",
-                author: "John Woods",
-            },
-            {
-                quote:
-                "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
-                author: "Martin Fowler",
-            },
-            {
-                quote: "Truth can only be found in one place: the code.",
-                author: "Robert C. Martin",
-            },
-            {
-                quote:
-                "That's the thing about people who think they hate computers. What they really hate is lousy programmers.",
-                author: "Larry Niven",
-            },
-            {
-                quote:
-                "You've baked a really lovely cake, but then you've used dog shit for frosting.",
-                author: "Steve Jobs",
-            },
-            {
-                quote:
-                "A language that doesn't affect the way you think about programming is not worth knowing.",
-                author: "Alan J. Perlis",
-            },
-            {
-                quote:
-                "The most disastrous thing that you can ever learn is your first programming language.",
-                author: "Alan Kay",
-            },
-            {
-                quote:
-                "The computer programmer is a creator of universes for which he alone is the lawgiver. No playwright, no stage director, no emperor, however powerful, has ever exercised such absolute authority to arrange a stage or field of battle and to command such unswervingly dutiful actors or troops.",
-                author: "Joseph Weizenbaum",
-            },
-            {
-                quote:
-                "Everyone knows that debugging is twice as hard as writing a program in the first place. So if you're as clever as you can be when you write it, how will you ever debug it?",
-                author: "Brian Kernighan",
-            },
-            {
-                quote:
-                "No matter which field of work you want to go in, it is of great importance to learn at least one programming language.",
-                author: "Ram Ray",
-            },
-        ];
-
-        // Source: https://www.rd.com/list/challenging-riddles/
-        const riddles = [
-            {
-                question:
-                "I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?",
-                answer: "An echo",
-            },
-            {
-                question:
-                "You measure my life in hours and I serve you by expiring. I'm quick when I'm thin and slow when I'm fat. The wind is my enemy. ",
-                answer: "A Candle",
-            },
-            {
-                question:
-                "I have cities, but no houses. I have mountains, but no trees. I have water, but no fish. What am I? ",
-                answer: "A Map",
-            },
-            {
-                question:
-                "What is seen in the middle of March and April that can't be seen at the beginning or end of either month?",
-                answer: 'The letter "R"',
-            },
-            {
-                question:
-                "You see a boat filled with people. It has not sunk, but when you look again you don't see a single person on the boat. Why?",
-                answer: "All the people were married",
-            },
-            {
-                question:
-                "What word in the English language does the following: the first two letters signify a male, the first three letters signify a female, the first four letters signify a great, while the entire world signifies a great woman. What is the word?",
-                answer: "Heroine",
-            },
-        ];
-        
-        const data = {
-            memes,
-            jokes,
-            quotes,
-            riddles,
-        };
-        </script>
-
     <section class="del">
         <div class="centered"></div>
     </section>
     <script>
-        // 1
-        const myBoolean = true;
+        const objectVariable = {
+            property1: 'i am property 1',
+            property2: 'i am property 2',
+            property3: [20, 30, 40],
+        };
+
+        console.log(objectVariable.property3[2]);
+
+        const myArray = [20, 30, 40];
+
+        console.log(myArray[2]);
+
+        let numberVariable = 0;
         
-        // 2
-        const myString = 'hello world';
+        numberVariable++;
+        numberVariable++;
+        numberVariable++;
         
-        // 3
+        console.log(numberVariable); // 3
+        
         const firstNumber = 20;
+        const secondNumber = 20;
         
-        // 4 - notice how I have used `let` here.  We have to use this because we re-assign the value of this variable
-        let secondNumber = 40;
+        const result = firstNumber === secondNumber;
         
-        // 5
-        secondNumber = 80;
+        console.log(result);
         
-        // 6
-        const myArray = [myBoolean, myString];
+        const expression1 = 100 % 50;
+        const expression2 = 100 / 50;
+        const expression3 = expression1 < expression2;
+        const expression4 = expression3 && 300 + 5 === 305;
+        const expression5 = !expression4;
         
-        // 7
-        const myObject = {
-            firstProperty: myArray,
-            sumProperty: firstNumber + secondNumber
+        console.log(expression5);
+        
+        const myObj = {
+            prop1: 'first value',
+            prop2: 20
         };
         
-        // 8
-        console.log(myObject);
+        const numbers = [40, 50, 2];
         
-        // 9
-        const sumProp = myObject.sumProperty;
-        console.log(sumProp);
+        const result2 = myObj.prop2 === (numbers[0] / numbers[2]);
         
-        // 9 - Alternate solution
-        console.log(myObject.sumProperty);
+        console.log(result2);
         
-        // 10
-        const firstProp = myObject.firstProperty;
-        const arrayValue = firstProp[1];
-        console.log(arrayValue);
+        const myObj2 = {
+            nestedObject1: {
+                price: 100,
+                quantity: 5
+            },
+            nestedObject2: {
+                price: 150,
+                quantity: 2
+            }
+        };
         
-        // 10 - Alternate solution
-        console.log(myObject.firstProperty[1]);
+        const myArray2 = [myObj2.nestedObject1, myObj2.nestedObject2];
+        
+        const result3 = (myArray2[0].price * myArray2[0].quantity) > (myArray2[1].price * myArray2[1].quantity); 
+        
+        console.log(result3);
+        
+        function Cons(head,tail){
+            this.head = head;
+            this.tail = tail;
+        }
+        
+        const numbers2  = new Cons(1, new Cons(2, new Cons(3, new Cons(4, new Cons(5, null)))));
+        
+        function toArray(list) {
+            if(list){
+                var more = list.tail;
+                return [list.head].concat(more? toArray(more) : []);
+            }
+            return [];
+        }
+        
+        Cons.prototype.toArray = function(){ return toArray(this); };
+        
+        console.log(numbers.toArray());  // [1,2,3,4,5]
+        
+        var numbers4  = Cons.fromArray([1,2,3,4,5]);
+        numbers4.filter(function(n){ return n % 2 === 0; }).toArray();  // [2,4]
+        numbers4.map( function(n){ return n * n; }).toArray(); // [1,4,9,16,25]
+        
+        var digits = Cons.fromArray(["1","2","3","4","5"]);
+        var integers = digits.map(function(s){return parseInt(s);})
+        .filter(function(n){ return n > 3;})
+        .toArray(); // [4,5]
 
-        const variable1 = 20;
-        const variable2 = '40';
-
-        const resultVariable = variable1 + variable2;
-
-        console.log(resultVariable);
-
-        const stringVariable = 'some value here';
-        const numberVariable = 20;
-        
-        console.log(stringVariable + numberVariable);
-        
-        const variable3 = 20;
-        const variable4 = '40';
-        
-        const resultVariable1 = variable3 + Number(variable4);
-        
-        console.log(resultVariable1); // Prints 60, and is a number
-
-        console.log("starts from: 474");
+        console.log("starts from: 174");
     </script>
 </body>
 </html>
