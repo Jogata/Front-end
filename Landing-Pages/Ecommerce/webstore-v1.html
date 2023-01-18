@@ -30,31 +30,6 @@
       color: #fff;
     }
 
-    .container {
-      width: 100%;
-      height: 50vh;
-      min-height: 50vh;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      align-content: center;
-      justify-content: center;
-      background-color: #363844;
-    }
-
-    .content {
-      width: 400px;
-      height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid #fff;
-      border-radius: 50px;
-      box-shadow: 0px 0px 10px 5px #fff, 
-      inset -1px -1px 1px rgba(255, 255, 255, 0.2), 
-      inset 1px 1px 1px #000;
-    }
-
     button {
       border: none;
       outline: 1px solid transparent;
@@ -62,265 +37,170 @@
       cursor: pointer;
     }
 
-    i.fa-search {
-      width: 60px;
-      height: 60px;
-      /* margin-top: 3px; */
-      margin-left: 3px;
-      padding: 17px;
-      color: #000;
-      color: #fff;
-      font-size: 25px;
-      border-radius: 50px;
-      border: 2px solid #fff;
-      background-color: #7ae3ba;
-      box-shadow: 1px 1px 1px #000, 
-      inset 1px 1px 1px #000;
-      text-shadow: 1px 1px 1px #000;
-      transition: all 0.4s ease;
-      cursor: pointer;
+    #box {
+      border: 1px solid black;
+      background-color: orange;
     }
-    i.fa-search:hover {
-      color: #7ae3ba;
-      border: 2px solid #7ae3ba;
-      background-color: #fff;
+    
+    #border-explanation {
+      display: none;
     }
-
-    input {
-      width: 100%;
-      height: 100%;
-      padding-left: 25px;
-      color: #fff;
-      font-size: 20px;
-      border: none;
-      outline: none;
-      background: none;
-      text-shadow: 1px 1px 1px #000;
+    
+    hr {
+      margin-top: 40px;
     }
-
-    ::placeholder {
-      color: #fff;
-    }
-
-    h1 {
-      position: absolute;
-      top: 0;
-      color: #fff;
-      font-size: 3rem;
-    }
-    h1 q {
-      color: #ff3040;
-      font-style: italic;
-    }
-
-    #testimonial {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #363844;
-    }
-    .review {
-      position: relative;
-      width: 400px;
-      /* height: 250px; */
-      margin: 10px;
-      padding: 30px 30px 20px;
-      /* display: flex; */
-      /* align-items: center; */
-      /* justify-content: center; */
-      /* flex-direction: column; */
-      text-align: center;
-      border: 1px solid aliceblue;
-      border-radius: 1rem;
-      background-color: #363844;
-      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.35);
-    }
-    .img-container {
-      position: relative;
-      width: 100px;
-      height: 100px;
-      margin-inline: auto;
-      margin-top: -22%;
-      margin-bottom: 8%;
-      border-radius: 50%;
-      box-shadow: 4px -3px 0px #7ae3ba;
-    }
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
-    }
-    .icon {
-      position: absolute;
-      top: 0;
-      left: 5px;
-      width: 35px;
-      height: 35px;
-      display: flex;
-      color: #fff;
-      border-radius: 50%;
-      background-color: #7ae3ba;
-    }
-    .fa-quote-left {
-      margin: auto;
-    }
-
-    .review-body {
-      min-height: 120px;
-    }
-    #author {
-      color: #fff;
-      font-size: 1.4rem;
-      text-transform: capitalize;
-    }
-    #job {
-      margin: 2% 0;
-      color: #7ae3ba;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-    }
-    #info {
-      color: #fff;
-    }
-
-    .testimonial-buttons {
-      margin-top: 10px;
-    }
-    .testimonial-buttons button {
-      margin: 0 1rem;
-      padding: 0.3em 0.54em;
-      border-radius: 50%;
-      border: 1px solid transparent;
-      transition: all 0.4s;
-    }
-    .testimonial-buttons button:hover {
-      border-color: #7ae3ba;
-    }
-    button:focus-visible {
-      outline: 1px solid #7ae3ba;
-    }
-    .testimonial-buttons button i {
-      color: #7ae3ba;
-      font-size: 1rem;
+    
+    #inline-example {
+      background-color: lightgreen;
+      border: 1px solid black;
     }
   </style>
 </head>
 <body>
-
   <div class="container">
-    <div class="content">
-      <button type="submit">
-        <i class="fa fa-search"></i>
-      </button>
-      <input type="text" name="user" id="user" placeholder="Search here...">
+    <div>
+      <h2>Our "Box"</h2>
+      <span id="inline-example">This text will be on the same line as our box when you set Display Type to "inline" or "inline-block"</span>
+      <div id="box">Some Content</div>
+      <hr>
+
+      <h2>Current values</h2>
+      <button onclick="resetAll()">Reset All</button>
+      <ul>
+          <li>Content Width: 
+          <select onchange="onChange(event)" name="width-sel">
+            <option value="auto">auto (default)</option>
+            <option value="400px">400px</option>
+          </select>
+        </li>
+          <li>Content Height: 
+          <select onchange="onChange(event)" name="height-sel">
+            <option value="auto">auto (default)</option>
+            <option value="200px">200px</option>
+          </select>
+        </li>
+              </li>
+       <li>Line Height: 
+          <select onchange="onChange(event)" name="line-sel">
+            <option value="auto">normal (default)</option>
+            <option value="50px">50px</option>
+          </select>
+        </li>
+        <li>Padding: 
+          <select onchange="onChange(event)" name="padding-sel">
+            <option value="0px">0px</option>
+            <option value="20px">20px</option>
+          </select>
+        </li>
+        <li>Border: 
+          <select onchange="onChange(event)" name="border-sel">
+            <option value="1px solid black">1px solid black</option>
+            <option value="none">none (default)</option>
+          </select>
+        </li>
+        <li>Margin: 
+          <select onchange="onChange(event)" name="margin-sel">
+            <option value="0px">0px</option>
+            <option value="10px">10px</option>
+          </select>
+        </li>
+        <li>Box Type: 
+          <select onchange="onChange(event)" name="type-sel">
+            <option value="content-box">content-box (default for all elements)</option>
+            <option value="border-box">border-box</option>
+          </select>
+        </li>
+        <li>Display Type: 
+          <select onchange="onChange(event)" name="display-sel">
+            <option value="block">block (default for a `p` element)</option>
+            <option value="inline">inline</option>
+            <option value="inline-block">inline-block</option>
+            <option value="none">none</option>
+          </select>
+        </li>
+      </ul>
+  
     </div>
+  
+  <h2>Box Model Calculation</h2>
+      <div id="content-explanation">
+        <p>The current box type is set to <strong>content-box</strong>, which means:</p>
+        <ul>
+          <li>Margin does not affect the box size, just the spacing around the box</li>
+          <li>Total height = height + top padding + bottom padding + top border + bottom border</li>
+          <li>Total width = width + left padding + right padding + left border + right border</li>
+        </ul>
+      </div>
+      <div id="border-explanation">
+        <p>The current box type is set to <strong>border-box</strong>, which means:</p>
+        <ul>
+          <li>Margin does not affect the box size, just the spacing around the box</li>
+          <li>Total height = height</li>
+          <li>Total width = width</li>
+        </ul>
+      </div>
+   
   </div>
 
-  <section id="testimonial">
-    <h1>Testimonial without <q>if</q> statement</h1>
-    <div class="review">
-      <div class="img-container">
-        <div class="icon">
-          <i class="fa fa-quote-left" aria-hidden="true"></i>
-        </div>
-        <img src="../../../CSS/assets/img/profile-copy.jpg" alt="anne's profile picture" class="profile-image">
-      </div>
-      <div class="review-body">
-        <h4 id="author">ivet valcheva</h4>
-        <p id="job">ux designer</p>
-        <p id="info">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero dignissimos unde assumenda minus labore corporis iure hic omnis ut facilis.</p>
-      </div>
-      <div class="testimonial-buttons">
-        <button class="prev">
-          <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        </button>
-        <button class="next">
-          <i class="fa fa-chevron-right" aria-hidden="true"></i>
-        </button>
-      </div>
-    </div>
-  </section>
-
   <script>
-    const reviews = [
-      {
-        id: 1,
-        name: "peter jones",
-        job: "ux designer",
-        img: "./img/testimonial-v1/pic-1.png",
-        info: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero dignissimos unde assumenda minus labore corporis iure hic omnis ut facilis."
-      },
-      {
-        id: 2,
-        name: "ane jackson",
-        job: "web designer",
-        img: "./img/testimonial-v1/pic-2.png",
-        info: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam tempora laboriosam at excepturi rem. Minima, earum soluta.",
-      },
-      {
-        id: 3,
-        name: "billy joel",
-        job: "c# developer",
-        img: "./img/testimonial-v1/pic-3.png",
-        info: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quasi dolorum quos non nulla possimus, est nostrum ad tenetur distinctio eos perferendis aliquam.",
-      },
-      {
-        id: 3,
-        name: "anna johnson",
-        job: "ux designer",
-        img: "./img/testimonial-v1/pic-4.png",
-        info: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci et, aut ipsa tempore veniam ab temporibus omnis eum mollitia.",
-      },
-      {
-        id: 3,
-        name: "john wick",
-        job: "seo",
-        img: "./img/testimonial-v1/pic-5.png",
-        info: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere eum perferendis quas non, sit totam incidunt accusantium recusandae. Animi maiores enim rerum.",
-      },
-      {
-        id: 6,
-        name: "susan son",
-        job: "web developer",
-        img: "./img/testimonial-v1/pic-6.png",
-        info: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum inventore eius impedit a aspernatur quae rerum atque adipisci.",
-      },
-    ]
+    const el = document.querySelector('#box');
     
-    {const prevButton = document.querySelector(".prev");
-    const nextButton = document.querySelector(".next");
+    function onChange(e) {
+      const selectId = e.target.name;
+      switch (selectId) {
+        case 'padding-sel':
+          el.style.padding = e.target.value;
+          break;
+        case 'width-sel':
+          el.style.width = e.target.value;
+          break;
+        case 'height-sel':
+          el.style.height = e.target.value;
+          break;
+        case 'border-sel':
+          el.style.border = e.target.value;
+          break;
+        case 'margin-sel':
+          el.style.margin = e.target.value;
+          break;
+        case 'type-sel':
+          const cb = document.querySelector('#content-explanation');
+          const bb = document.querySelector('#border-explanation');
+          if (e.target.value === 'content-box') {
+            cb.style.display = 'block';
+            bb.style.display = 'none';
+          } else {
+            cb.style.display = 'none';
+            bb.style.display = 'block';
+          }
+          el.style.boxSizing = e.target.value;
+          break;
+        case 'display-sel':
+          el.style.display = e.target.value;
+          break;
+        case 'line-sel':
+          el.style.lineHeight = e.target.value;
+          break;
+      }
+    }
     
-    const profileImage = document.querySelector(".profile-image");
-    const name = document.querySelector("#author");
-    const job = document.querySelector("#job");
-    const info = document.querySelector("#info");
+    function resetAll() {
+      const selectEls = document.querySelectorAll('select');
+      selectEls.forEach(s => {
+        s.selectedIndex = 0;
+      });
+      
+      el.style.width = 'auto';
+      el.style.height = 'auto';
+      el.style.lineHeight = 'normal';
+      el.style.padding = '0px';
+      el.style.border = '1px solid black';
+      el.style.margin = '0px';
+      el.style.boxType = 'content-box';
+      el.style.display = 'block';
+    }
 
-    let currentIndex = 0;
-
-    prevButton.addEventListener("click", () => {
-      currentIndex--;
-      currentIndex = reviews.length + currentIndex;
-      currentIndex = currentIndex % reviews.length;
-      loadNewData();
-    });
-    
-    nextButton.addEventListener("click", () => {
-      currentIndex++;
-      currentIndex = currentIndex % reviews.length;
-      loadNewData();
-    });
-
-    function loadNewData() {
-      profileImage.src = reviews[currentIndex].img;
-      name.textContent = reviews[currentIndex].name;
-      job.textContent = reviews[currentIndex].job;
-      info.textContent = reviews[currentIndex].info;
-    }}
-    
-    console.log(203);
+    console.log(48);
   </script>
 </body>
 </html>
