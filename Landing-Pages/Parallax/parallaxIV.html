@@ -23,7 +23,6 @@
             margin: auto;
         }
         p {
-            flex: 1;
             text-align: center;
             color: #8097a6;
         }
@@ -80,6 +79,79 @@
         #inline-example {
             background-color: lightgreen;
             border: 1px solid black;
+        }
+
+        .del {
+            flex-direction: row;
+        }
+
+        .box-1 {
+            flex: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 10px;
+            color: green;
+            text-align: center;
+            border: 2px solid green;
+        }
+        .box-2 {
+            flex: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 10px;
+            color: blue;
+            text-align: center;
+            border: 2px solid blue;
+        }
+        .del p {
+            color: inherit;
+            font-size: 2rem;
+        }
+        .del p::first-letter {
+            text-transform: uppercase;
+        }
+
+        .header {
+            z-index: -1;
+        }
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 100px;
+            background-color: #222;
+            box-shadow: 
+            0px 10px 10px rgba(0, 0, 0, 0.1);
+        }
+        .nav {
+            width: 100%;
+            text-align: center;
+            background-color: #111;
+        }
+        .center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+        h4 {
+            color: #fff;
+            font-size: 2em;
+            text-transform: capitalize;
+        }
+        .notes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-height: 100vh;
+            background-color: #111;
+            z-index: 1;
         }
     </style>
 </head>
@@ -183,101 +255,75 @@
     </div>
 
     <section class="del">
-        <div class="centered"></div>
+        <!-- <div class="centered"></div> -->
+        <div class="box-1">
+            <h2>box 1</h2>
+            <p>some text</p>
+        </div>
+        <div class="box-2">
+            <h2>box 2</h2>
+            <p>some text</p>
+        </div>
+
+        <nav class="center">
+            <div class="nav">
+                <h4>my notes</h4>
+            </div>
+        </nav>
+        <div class="notes center">
+            <div class="cardBx center">
+                <div class="cardBx-body center">
+                    <h1 class="title">add a note</h1>
+                </div>
+            </div>
+        </div>
     </section>
     <script>
-        const objectVariable = {
-            property1: 'i am property 1',
-            property2: 'i am property 2',
-            property3: [20, 30, 40],
-        };
-
-        console.log(objectVariable.property3[2]);
-
-        const myArray = [20, 30, 40];
-
-        console.log(myArray[2]);
-
-        let numberVariable = 0;
+        fetch("https://dog.ceo/api/breeds/image/random")
+        .then(data => {
+            console.log(326);
+            console.log(data);
+            return data;
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(err => {
+            console.log(`error ${err}`);
+        });
         
-        numberVariable++;
-        numberVariable++;
-        numberVariable++;
-        
-        console.log(numberVariable); // 3
-        
-        const firstNumber = 20;
-        const secondNumber = 20;
-        
-        const result = firstNumber === secondNumber;
-        
-        console.log(result);
-        
-        const expression1 = 100 % 50;
-        const expression2 = 100 / 50;
-        const expression3 = expression1 < expression2;
-        const expression4 = expression3 && 300 + 5 === 305;
-        const expression5 = !expression4;
-        
-        console.log(expression5);
-        
-        const myObj = {
-            prop1: 'first value',
-            prop2: 20
-        };
-        
-        const numbers = [40, 50, 2];
-        
-        const result2 = myObj.prop2 === (numbers[0] / numbers[2]);
-        
-        console.log(result2);
-        
-        const myObj2 = {
-            nestedObject1: {
-                price: 100,
-                quantity: 5
-            },
-            nestedObject2: {
-                price: 150,
-                quantity: 2
-            }
-        };
-        
-        const myArray2 = [myObj2.nestedObject1, myObj2.nestedObject2];
-        
-        const result3 = (myArray2[0].price * myArray2[0].quantity) > (myArray2[1].price * myArray2[1].quantity); 
-        
-        console.log(result3);
-        
-        function Cons(head,tail){
-            this.head = head;
-            this.tail = tail;
+        function houseOne() {
+            return new Promise((resolve,reject) => {
+                setTimeout(() => {
+                    resolve("Paper was delivered to house 1");
+                }, 1000);
+            })
+        }
+        function houseTwo() {
+            return new Promise((resolve,reject) => {
+                setTimeout(() => {
+                    resolve("Paper was delivered to house 2");
+                }, 5000);
+            })
+        }
+        function houseThree() {
+            return new Promise((resolve,reject) => {
+                setTimeout(() => {
+                    resolve("Paper was delivered to house 3");
+                }, 2000);
+            })
         }
         
-        const numbers2  = new Cons(1, new Cons(2, new Cons(3, new Cons(4, new Cons(5, null)))));
+        houseOne()
+        .then(data => console.log(data))
+        .then(houseTwo)
+        .then(data => console.log(data))
+        .then(houseThree)
+        .then(data => console.log(data))
+        .catch(err => console.log(err));
         
-        function toArray(list) {
-            if(list){
-                var more = list.tail;
-                return [list.head].concat(more? toArray(more) : []);
-            }
-            return [];
-        }
-        
-        Cons.prototype.toArray = function(){ return toArray(this); };
-        
-        console.log(numbers.toArray());  // [1,2,3,4,5]
-        
-        var numbers4  = Cons.fromArray([1,2,3,4,5]);
-        numbers4.filter(function(n){ return n % 2 === 0; }).toArray();  // [2,4]
-        numbers4.map( function(n){ return n * n; }).toArray(); // [1,4,9,16,25]
-        
-        var digits = Cons.fromArray(["1","2","3","4","5"]);
-        var integers = digits.map(function(s){return parseInt(s);})
-        .filter(function(n){ return n > 3;})
-        .toArray(); // [4,5]
-
-        console.log("starts from: 174");
+        console.log("starts from: 194");
     </script>
 </body>
 </html>
