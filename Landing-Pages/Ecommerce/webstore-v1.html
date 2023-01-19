@@ -14,16 +14,20 @@
       box-sizing: border-box;
     }
     body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
       min-height: 100vh;
-      background-color: #fff;
+      background-color: #000;
+    }
+    ul {
+      list-style: none;
     }
     a {
       text-transform: uppercase;
       text-decoration: none;
       white-space: nowrap;
-    }
-    ul {
-      list-style: none;
     }
 
     i {
@@ -37,170 +41,144 @@
       cursor: pointer;
     }
 
-    #box {
-      border: 1px solid black;
-      background-color: orange;
+    .container {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-box-reflect: below 0 linear-gradient(transparent, transparent, #005);
     }
-    
-    #border-explanation {
-      display: none;
+
+    .loader {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      animation: rotate 2s linear infinite;
     }
-    
-    hr {
-      margin-top: 40px;
+    .loader:nth-child(2), 
+    .loader:nth-child(4) {
+      filter: hue-rotate(290deg);
+      animation-delay: -1s;
     }
-    
-    #inline-example {
-      background-color: lightgreen;
-      border: 1px solid black;
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    .loader:nth-child(1)::before, 
+    .loader:nth-child(2)::before {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(to top, transparent, rgba(0, 255, 249, 0.4));
+      background-repeat: no-repeat;
+      background-size: 100px 180px;
+      border-top-left-radius: 100px;
+      border-bottom-left-radius: 100px;
+    }
+    i {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #00fff9;
+      box-shadow: 
+      0px 0px 10px #00fff9,
+      0px 0px 20px #00fff9,
+      0px 0px 30px #00fff9,
+      0px 0px 40px #00fff9,
+      0px 0px 50px #00fff9,
+      0px 0px 60px #00fff9,
+      0px 0px 70px #00fff9,
+      0px 0px 80px #00fff9,
+      0px 0px 90px #00fff9,
+      0px 0px 100px #00fff9;
+      z-index: 10;
+    }
+    .loader span {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      border-radius: 50%;
+      background-color: #000;
+      z-index: 1;
+    }
+
+    .container:nth-child(2) {
+      background-color: #509991;
+    }
+    .button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      letter-spacing: 0.6rem;
+      width: 25rem;
+      height: 10rem;
+      font-size: 3em;
+      text-align: center;
+      line-height: 10rem;
+      cursor: pointer;
+      box-shadow: 0px 60px 40px -7px rgba(0, 0, 0, 0.2);
+    }
+    .button::before, 
+    .button::after {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      box-shadow: 0px 60px 40px -7px rgba(0, 0, 0, 0.2);
+      transition: all 1s;
+    }
+    .button::before {
+      content: '';
+      top: -0.3rem;
+      left: -0.3rem;
+      transform: translate(1rem, 1rem);
+      border: 0.5rem solid #fff;
+    }
+    .button::after {
+      content: attr(data-text);
+      left: 0;
+      background: hotpink;
+    }
+    .button:hover::after {
+      background: #1b6ca8;
+      transform: translate(1rem, 1rem);
+    }
+    .button:hover::before {
+      transform: translate(0rem, 0rem);
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div>
-      <h2>Our "Box"</h2>
-      <span id="inline-example">This text will be on the same line as our box when you set Display Type to "inline" or "inline-block"</span>
-      <div id="box">Some Content</div>
-      <hr>
-
-      <h2>Current values</h2>
-      <button onclick="resetAll()">Reset All</button>
-      <ul>
-          <li>Content Width: 
-          <select onchange="onChange(event)" name="width-sel">
-            <option value="auto">auto (default)</option>
-            <option value="400px">400px</option>
-          </select>
-        </li>
-          <li>Content Height: 
-          <select onchange="onChange(event)" name="height-sel">
-            <option value="auto">auto (default)</option>
-            <option value="200px">200px</option>
-          </select>
-        </li>
-              </li>
-       <li>Line Height: 
-          <select onchange="onChange(event)" name="line-sel">
-            <option value="auto">normal (default)</option>
-            <option value="50px">50px</option>
-          </select>
-        </li>
-        <li>Padding: 
-          <select onchange="onChange(event)" name="padding-sel">
-            <option value="0px">0px</option>
-            <option value="20px">20px</option>
-          </select>
-        </li>
-        <li>Border: 
-          <select onchange="onChange(event)" name="border-sel">
-            <option value="1px solid black">1px solid black</option>
-            <option value="none">none (default)</option>
-          </select>
-        </li>
-        <li>Margin: 
-          <select onchange="onChange(event)" name="margin-sel">
-            <option value="0px">0px</option>
-            <option value="10px">10px</option>
-          </select>
-        </li>
-        <li>Box Type: 
-          <select onchange="onChange(event)" name="type-sel">
-            <option value="content-box">content-box (default for all elements)</option>
-            <option value="border-box">border-box</option>
-          </select>
-        </li>
-        <li>Display Type: 
-          <select onchange="onChange(event)" name="display-sel">
-            <option value="block">block (default for a `p` element)</option>
-            <option value="inline">inline</option>
-            <option value="inline-block">inline-block</option>
-            <option value="none">none</option>
-          </select>
-        </li>
-      </ul>
-  
-    </div>
-  
-  <h2>Box Model Calculation</h2>
-      <div id="content-explanation">
-        <p>The current box type is set to <strong>content-box</strong>, which means:</p>
-        <ul>
-          <li>Margin does not affect the box size, just the spacing around the box</li>
-          <li>Total height = height + top padding + bottom padding + top border + bottom border</li>
-          <li>Total width = width + left padding + right padding + left border + right border</li>
-        </ul>
-      </div>
-      <div id="border-explanation">
-        <p>The current box type is set to <strong>border-box</strong>, which means:</p>
-        <ul>
-          <li>Margin does not affect the box size, just the spacing around the box</li>
-          <li>Total height = height</li>
-          <li>Total width = width</li>
-        </ul>
-      </div>
-   
+    <div class="loader"><span></span></div>
+    <div class="loader"><span></span></div>
+    <div class="loader"><i></i></div>
+    <div class="loader"><i></i></div>
   </div>
 
+  <div class="container">
+    <div data-text="READ MORE" class="button"></div>
+  </div>
   <script>
-    const el = document.querySelector('#box');
-    
-    function onChange(e) {
-      const selectId = e.target.name;
-      switch (selectId) {
-        case 'padding-sel':
-          el.style.padding = e.target.value;
-          break;
-        case 'width-sel':
-          el.style.width = e.target.value;
-          break;
-        case 'height-sel':
-          el.style.height = e.target.value;
-          break;
-        case 'border-sel':
-          el.style.border = e.target.value;
-          break;
-        case 'margin-sel':
-          el.style.margin = e.target.value;
-          break;
-        case 'type-sel':
-          const cb = document.querySelector('#content-explanation');
-          const bb = document.querySelector('#border-explanation');
-          if (e.target.value === 'content-box') {
-            cb.style.display = 'block';
-            bb.style.display = 'none';
-          } else {
-            cb.style.display = 'none';
-            bb.style.display = 'block';
-          }
-          el.style.boxSizing = e.target.value;
-          break;
-        case 'display-sel':
-          el.style.display = e.target.value;
-          break;
-        case 'line-sel':
-          el.style.lineHeight = e.target.value;
-          break;
-      }
-    }
-    
-    function resetAll() {
-      const selectEls = document.querySelectorAll('select');
-      selectEls.forEach(s => {
-        s.selectedIndex = 0;
-      });
-      
-      el.style.width = 'auto';
-      el.style.height = 'auto';
-      el.style.lineHeight = 'normal';
-      el.style.padding = '0px';
-      el.style.border = '1px solid black';
-      el.style.margin = '0px';
-      el.style.boxType = 'content-box';
-      el.style.display = 'block';
-    }
-
-    console.log(48);
+    console.log(43);
   </script>
 </body>
 </html>
