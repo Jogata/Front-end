@@ -13,172 +13,201 @@
       padding: 0;
       box-sizing: border-box;
     }
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      min-height: 100vh;
-      background-color: #000;
-    }
-    ul {
-      list-style: none;
-    }
-    a {
-      text-transform: uppercase;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    i {
-      color: #fff;
-    }
-
-    button {
-      border: none;
-      outline: 1px solid transparent;
-      background: transparent;
-      cursor: pointer;
-    }
-
-    .container {
-      position: relative;
-      width: 100%;
-      height: 200px;
-      min-height: 50vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      -webkit-box-reflect: below 0 linear-gradient(transparent, transparent, #005);
-    }
-
-    .loader {
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      animation: rotate 2s linear infinite;
-    }
-    .loader:nth-child(2), 
-    .loader:nth-child(4) {
-      filter: hue-rotate(290deg);
-      animation-delay: -1s;
-    }
-    @keyframes rotate {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-    .loader:nth-child(1)::before, 
-    .loader:nth-child(2)::before {
-      position: absolute;
-      content: '';
-      top: 0;
-      left: 0;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(to top, transparent, rgba(0, 255, 249, 0.4));
-      background-repeat: no-repeat;
-      background-size: 100px 180px;
-      border-top-left-radius: 100px;
-      border-bottom-left-radius: 100px;
-    }
-    i {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: #00fff9;
-      box-shadow: 
-      0px 0px 10px #00fff9,
-      0px 0px 20px #00fff9,
-      0px 0px 30px #00fff9,
-      0px 0px 40px #00fff9,
-      0px 0px 50px #00fff9,
-      0px 0px 60px #00fff9,
-      0px 0px 70px #00fff9,
-      0px 0px 80px #00fff9,
-      0px 0px 90px #00fff9,
-      0px 0px 100px #00fff9;
-      z-index: 10;
-    }
-    .loader span {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      right: 20px;
-      bottom: 20px;
-      border-radius: 50%;
-      background-color: #000;
-      z-index: 1;
-    }
-
-    .container:nth-child(2) {
-      background-color: #509991;
-    }
-    .button {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #fff;
-      letter-spacing: 0.6rem;
-      width: 25rem;
-      height: 10rem;
-      font-size: 3em;
-      text-align: center;
-      line-height: 10rem;
-      cursor: pointer;
-      box-shadow: 0px 60px 40px -7px rgba(0, 0, 0, 0.2);
-    }
-    .button::before, 
-    .button::after {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      box-shadow: 0px 60px 40px -7px rgba(0, 0, 0, 0.2);
-      transition: all 1s;
-    }
-    .button::before {
-      content: '';
-      top: -0.3rem;
-      left: -0.3rem;
-      transform: translate(1rem, 1rem);
-      border: 0.5rem solid #fff;
-    }
-    .button::after {
-      content: attr(data-text);
-      left: 0;
-      background: hotpink;
-    }
-    .button:hover::after {
-      background: #1b6ca8;
-      transform: translate(1rem, 1rem);
-    }
-    .button:hover::before {
-      transform: translate(0rem, 0rem);
-    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="loader"><span></span></div>
-    <div class="loader"><span></span></div>
-    <div class="loader"><i></i></div>
-    <div class="loader"><i></i></div>
+                            <h1 style="position: absolute; z-index: 10; top: 0;">Object.entries(person) - convert object to array</h1>
+  <section class="section">
+    <div class="slider">
+      <div class="slide slide1">
+        <div class="overlay"></div>
+        <div class="slide-details">
+          <p class="date">14 may 2021</p>
+          <h1>architecture agency project title</h1>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo non explicabo architecto adipisci sint optio autem aliquam enim illo perferendis.</p>
+          <a href="" class="btn">view project</a>
+        </div>
+        <div class="dec right top"></div>
+        <div class="dec right bottom"></div>
+        <div class="dec left top"></div>
+        <div class="dec left bottom"></div>
+      </div>
+      <div class="slide slide2">
+        <div class="overlay"></div>
+        <div class="slide-details">
+          <p class="date">welcome to my website</p>
+          <h1>jogata - beginner</h1>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo non explicabo architecto adipisci sint optio autem aliquam enim illo perferendis.</p>
+          <a href="" class="btn">view project</a>
+        </div>
+        <div class="dec right top"></div>
+        <div class="dec right bottom"></div>
+        <div class="dec left top"></div>
+        <div class="dec left bottom"></div>
+      </div>
+      <div class="slide slide3">
+        <div class="overlay"></div>
+        <div class="slide-details">
+          <p class="date">24 may 2020</p>
+          <h1>personal creative portfolio project</h1>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo non explicabo architecto adipisci sint optio autem aliquam enim illo perferendis.</p>
+          <a href="" class="btn">view project</a>
+        </div>
+        <div class="dec right top"></div>
+        <div class="dec right bottom"></div>
+        <div class="dec left top"></div>
+        <div class="dec left bottom"></div>
+      </div>
+      <div class="slide slide4">
+        <div class="overlay"></div>
+        <div class="slide-details">
+          <p class="date">14 may 2021</p>
+          <h1>architecture agency project title</h1>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo non explicabo architecto adipisci sint optio autem aliquam enim illo perferendis.</p>
+          <a href="" class="btn">view project</a>
+        </div>
+        <div class="dec right top"></div>
+        <div class="dec right bottom"></div>
+        <div class="dec left top"></div>
+        <div class="dec left bottom"></div>
+      </div>
+      <div class="slide slide5">
+        <div class="overlay"></div>
+        <div class="slide-details">
+          <p class="date">14 may 2021</p>
+          <h1>architecture agency project title</h1>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo non explicabo architecto adipisci sint optio autem aliquam enim illo perferendis.</p>
+          <a href="" class="btn">view project</a>
+        </div>
+        <div class="dec right top"></div>
+        <div class="dec right bottom"></div>
+        <div class="dec left top"></div>
+        <div class="dec left bottom"></div>
+      </div>
+      <div class="left-arrow"><button>L</button></div>
+      <div class="right-arrow"><button>R</button></div>
+    </div>
+  </section>
+
+  <div class="navigation">
+    <div class="menuToggle"><i></i></div>
+    <div class="menu">
+      <ul>
+        <li style="--i:0.1s">
+          <a href="#">
+            <i class="fa fa-home" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li style="--i:0.2s">
+          <a href="#">
+            <i class="fa fa-globe" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li style="--i:0.3s">
+          <a href="#">
+            <i class="fa fa-heart-o" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li style="--i:0.4s">
+          <a href="#">
+            <i class="fa fa-bell-o" aria-hidden="true"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 
-  <div class="container">
-    <div data-text="READ MORE" class="button"></div>
-  </div>
   <script>
-    console.log(43);
+    "use strict"
+    const leftArrow = document.querySelector(".left-arrow");
+    const rightArrow = document.querySelector(".right-arrow");
+    const slider = document.querySelector(".slider");
+
+    leftArrow.addEventListener("click", () => {
+      scrollLeft();
+      // resetAutoSlide();
+    });
+    rightArrow.addEventListener("click", () => {
+      scrollRight();
+      // resetAutoSlide();
+    });
+
+    function scrollRight() {
+      if (slider.scrollWidth - slider.clientWidth === slider.scrollLeft) {
+        // currentIndex = sliders.length + currentIndex;
+        // currentIndex = currentIndex % sliders.length;
+        slider.scrollTo({
+          left: 0,
+          behavior: "smooth",
+        })
+      } else {
+        slider.scrollBy({
+          left: window.innerWidth,
+          behavior: "smooth",
+        })
+      }
+    }
+
+    function scrollLeft() {
+        slider.scrollBy({
+          left: -window.innerWidth,
+          behavior: "smooth",
+        })
+    }
+
+    // Set Auto Slide
+    // let intervalID = setInterval(scrollRight, 7000);
+    // console.log(intervalID);
+    function resetAutoSlide() {
+      clearInterval(intervalID);
+      intervalID = setInterval(scrollRight, 7000);
+      // console.log(intervalID);
+    }
+// test
+    const person = {
+      name: "jogata",
+      age: 43,
+    }
+
+    const personAsArray = Object.entries(person);
+    console.log(personAsArray);
+
+    for (const [key, value] of personAsArray) {
+      console.log(`Key: ${key} | Value: ${value}`);
+    }
+
+    class Rectangle {
+      constructor(w,h,unit) {
+        this.w = w;
+        this.h = h;
+        this.unit = unit;
+      }
+
+      toString () {
+        return `Rectangle (${this.w}x${this.h}${this.unit})`;
+      }
+    }
+
+    const rec1 = new Rectangle(5,3,"cm");
+
+    console.log(rec1.toString());
+
+    class ColoredRectangle extends Rectangle {
+      constructor(w, h, unit, color) {
+        super(w,h,unit);
+        this.color = color;
+      }
+
+      toString() {
+        return `Colored ${super.toString()} with ${this.color} color`;
+      }
+    }
+
+    const rec2 = new ColoredRectangle(4,5,"mm","red");
+
+    console.log(rec2.toString());
+
+    console.log(50, 400);
   </script>
 </body>
 </html>
