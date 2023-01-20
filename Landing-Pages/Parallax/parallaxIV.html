@@ -6,9 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parallax Scrolling Effect</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/styles_parallaxIV.css">
+    <!-- <link rel="stylesheet" href="./css/styles_parallaxIV.css"> -->
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Herr+Von+Muellerhoff&family=Kaushan+Script&family=Playfair+Display&display=swap');
+/* 
+font-family: 'Abril Fatface', cursive;
+font-family: 'Courgette', cursive;
+font-family: 'Dancing Script', cursive;
+font-family: 'Great Vibes', cursive;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Limelight', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Oleo Script Swash Caps', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Kaushan Script', cursive;
+font-family: 'Fraunces', serif;
+font-family: 'Herr Von Muellerhoff', cursive;
+font-family: 'Playfair Display', serif;
+*/
+
         .del {
             display: flex;
             flex-direction: column;
@@ -63,58 +83,6 @@
             padding-right: 20px;
         }
 
-        #box {
-            background-color: orange;
-            border: 1px solid black;
-        }
-        
-        #border-explanation {
-            display: none;
-        }
-        
-        hr {
-            margin-top: 40px;
-        }
-        
-        #inline-example {
-            background-color: lightgreen;
-            border: 1px solid black;
-        }
-
-        .del {
-            flex-direction: row;
-        }
-
-        .box-1 {
-            flex: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            margin: 10px;
-            color: green;
-            text-align: center;
-            border: 2px solid green;
-        }
-        .box-2 {
-            flex: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            margin: 10px;
-            color: blue;
-            text-align: center;
-            border: 2px solid blue;
-        }
-        .del p {
-            color: inherit;
-            font-size: 2rem;
-        }
-        .del p::first-letter {
-            text-transform: uppercase;
-        }
-
         .header {
             z-index: -1;
         }
@@ -123,7 +91,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            padding: 10px 100px;
+            /* padding: 10px 100px; */
             background-color: #222;
             box-shadow: 
             0px 10px 10px rgba(0, 0, 0, 0.1);
@@ -138,6 +106,12 @@
             align-items: center;
             justify-content: center;
             z-index: 2;
+            font-family: 'Playfair Display', serif;
+        }
+        h1 {
+            text-transform: uppercase;
+            text-align: center;
+            white-space: nowrap;
         }
         h4 {
             color: #fff;
@@ -150,8 +124,81 @@
             left: 0;
             width: 100%;
             min-height: 100vh;
+            padding: 90px 0;
+            flex-direction: column;
             background-color: #111;
             z-index: 1;
+        }
+
+        .cardBx {
+            width: 100%;
+            padding: 0 15px;
+        }
+        .cardBx-body {
+            width: 100%;
+            flex-direction: column;
+        }
+
+        .title {
+            color: #e18728;
+            font-size: 2em;
+        }
+        textarea {
+            width: 100%;
+            max-width: 600px;
+            height: 100px;
+            margin-bottom: 20px;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-size: 1em;
+            background-color: #222;
+        }
+
+        .add-btn {
+            padding: 10px 25px;
+            color: #e18728;
+            background-color: #222;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.4s;
+        }
+        .add-btn:hover {
+            color: #222;
+            background-color: #e18728;
+        }
+
+        #notes {
+            width: 100%;
+            margin: 10px auto 0;
+            padding: 30px;
+            flex-wrap: wrap;
+        }
+        .notecard {
+            width: 200px;
+            margin: 10px;
+            padding: 10px;
+            word-break: break-all;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .notecard:nth-child(odd) {
+            color: #222;
+            background-color: #e18728;
+        }
+        .notecard:nth-child(even) {
+            color: #fff;
+            background-color: #222;
+        }
+        h5 {
+            color: inherit;
+        }
+        h5 span {
+            font-size: 1.4em;
+        }
+        #notes p {
+            color: #fff;
+            font-size: 1.3em;
         }
     </style>
 </head>
@@ -255,16 +302,6 @@
     </div>
 
     <section class="del">
-        <!-- <div class="centered"></div> -->
-        <div class="box-1">
-            <h2>box 1</h2>
-            <p>some text</p>
-        </div>
-        <div class="box-2">
-            <h2>box 2</h2>
-            <p>some text</p>
-        </div>
-
         <nav class="center">
             <div class="nav">
                 <h4>my notes</h4>
@@ -274,56 +311,73 @@
             <div class="cardBx center">
                 <div class="cardBx-body center">
                     <h1 class="title">add a note</h1>
+                    <textarea name="" id="addTxt" cols="30" rows="10" class="form-control"></textarea>
+                    <button class="add-btn" id="addBtn">add note</button>
                 </div>
             </div>
+            <h1 class="title">your notes</h1>
+            <div id="notes" class="center"></div>
         </div>
     </section>
     <script>
-        fetch("https://dog.ceo/api/breeds/image/random")
-        .then(data => {
-            console.log(326);
-            console.log(data);
-            return data;
+        const addbtn = document.querySelector("#addBtn");
+        let notesObj = [];
+
+        addbtn.addEventListener("click", (e) => {
+            let addTxt = document.getElementById("addTxt");
+            const notes = undefined;
+            // let notes = sessionStorage.getItem("notes");
+            if (notes === null) {
+                notesObj = [];
+            } else {
+                // notesObj = JSON.parse(notes);
+            }
+            if (addTxt.value) {
+                notesObj.push(addTxt.value);
+            }
+            // sessionStorage.setItem("note", JSON.stringify(notesObj));
+            addTxt.value = '';
+            showNotes();
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-        })
-        .catch(err => {
-            console.log(`error ${err}`);
-        });
         
-        function houseOne() {
-            return new Promise((resolve,reject) => {
-                setTimeout(() => {
-                    resolve("Paper was delivered to house 1");
-                }, 1000);
+        function showNotes() {
+            if (notes === null) {
+                notesObj = [];
+            } else {
+                // notesObj = JSON.parse(notes);
+            }
+            let html = '';
+            notesObj.forEach((note, index) => {
+                html += `<div class="notecard">
+            <div class="noteCard-body">
+                <h5>Note <span>${index + 1}</span></h5>
+                <p>${note}</p>
+                <button onclick="deleteNote(${index})" class="btn">
+                    <i>delete</i>
+                </button>
+            </div>
+        </div>`;
             })
+            let notesDiv = document.getElementById("notes");
+            if (notesObj.length != 0) {
+                notesDiv.innerHTML = html;
+            } else {
+                notesDiv.innerHTML = `<p>Nothing to show! Create your first Note!</p>`;
+            }
         }
-        function houseTwo() {
-            return new Promise((resolve,reject) => {
-                setTimeout(() => {
-                    resolve("Paper was delivered to house 2");
-                }, 5000);
-            })
+
+        function deleteNote(id) {
+            // let notes = sessionStorage.getItem("notes");
+            if (notes === null) {
+                notesObj = [];
+            } else {
+                // notesObj = JSON.parse(notes);
+            }
+            notesObj.splice(id, 1);
+            // localStorage.setItem("notes", JSON.stringify(notesObj));
+            showNotes();
         }
-        function houseThree() {
-            return new Promise((resolve,reject) => {
-                setTimeout(() => {
-                    resolve("Paper was delivered to house 3");
-                }, 2000);
-            })
-        }
-        
-        houseOne()
-        .then(data => console.log(data))
-        .then(houseTwo)
-        .then(data => console.log(data))
-        .then(houseThree)
-        .then(data => console.log(data))
-        .catch(err => console.log(err));
-        
-        console.log("starts from: 194");
+        console.log("starts from: 224");
     </script>
 </body>
 </html>
