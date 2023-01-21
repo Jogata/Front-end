@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Kaushan+Script&family=Playfair+Display&display=swap');
+/* 
+font-family: 'Kaushan Script', cursive;
+font-family: 'Playfair Display', serif;
+*/
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+    list-style: none;
+}
+
+a {
+    display: inline-block;
+    padding: 0.2em 0.6em;
+    text-decoration: none;
+    white-space: nowrap;
+    border: none;
+    outline: none;
+    transition: all 0.5s;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+button:hover {
+    transform: scale(1.1);
+}
+.fa {
+    font-size: 1.2rem;
+}
+
+img {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+}
+
+section {
+    position: relative;
+    max-width: 2000px;
+    height: 100%;
+    min-height: 100vh;
+    margin: auto;
+    padding: 3% 4%;
+    display: flex;
+    flex-flow: column;
+    background-image: 
+    url("../img/explore-v2/volkswagen-van-toy-lg.jpg"), 
+    url("../img/explore-v2/mask.png");
+    background-blend-mode: screen;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover, 100% 100%;
+}
+/* To make the logo more readable */
+section::after {
+    position: absolute;
+    inset: 0 auto auto 0;
+    content: "";
+    width: 10%;
+    height: 15%;
+    background-color: #fff;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 3;
+}
+
+.logo {
+    position: relative;
+    padding: 0;
+    color: #015b75;
+    font-size: 2rem;
+    font-family: 'Playfair Display', serif;
+    text-transform: capitalize;
+    text-shadow: 0px 0px 3px #fff;
+}
+
+.menu-btn {
+    position: relative;
+    width: 30px;
+    min-width: 30px;
+    height: 30px;
+    min-height: 30px;
+    font-size: 0px;
+    filter: drop-shadow(0px 0px 3px #fff);
+    background-image: url("../img/explore-v2/icons/menu.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+}
+.opened {
+    background-image: url("../img/explore-v2/icons/close.png");
+    background-size: 80% 80%;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    text-align: center;
+    background-color: #fff;
+    transition: all 0.2s;
+    z-index: 2;
+}
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+nav ul {
+    flex-direction: column;
+    margin: auto;
+    padding: 1em;
+}
+nav a {
+    color: #015b75;
+    font-size: 2rem;
+    text-transform: capitalize;
+}
+nav a:focus-visible, nav a:hover {
+    border-top: 1px solid #015b75;
+    border-bottom: 1px solid #015b75;
+}
+
+.flex-container {
+    flex: 1;
+    margin: auto 0;
+    display: flex;
+}
+
+main {
+    margin: auto 0%;
+}
+h1 {
+    color: #015b75;
+    font-size: min(20vw, 7.2rem);
+    font-family: 'Kaushan Script', cursive;
+    text-transform: capitalize;
+    filter: drop-shadow(0px 0px 3px #fff);
+    /* text-shadow: 0px 0px 3px #fff; */
+}
+h1 span {
+    font-size: 0.8em;
+    display: block;
+}
+
+.sci {
+    row-gap: 0;
+    margin: auto 0 0 auto;
+    padding-top: 20%;
+    align-items: center;
+    flex-direction: column;
+    transform: translateX(25%);
+    filter: drop-shadow(0px 0px 3px #fff);
+    /* text-shadow: 0px 0px 3px #fff; */
+    z-index: 2;
+}
+.sci li {
+    position: relative;
+    width: 90px;
+    transition: all 0.5s;
+}
+.sci li::after {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    content: "";
+    width: 30%;
+    height: 30%;
+    background-color: #fff;
+    z-index: -1;
+}
+.sci a {
+    padding: 0;
+}
+
+.logo:focus-visible, 
+.logo:hover, 
+.sci li a:focus-visible, 
+.sci li:hover {
+    transform: scale(1.2);
+}
+
+@media screen and (max-width: 600px) {
+    section {
+        padding: 5% 7%;
+    }
+    .sci img {
+        height: 100%;
+        object-fit: contain;
+    }
+    .sci li {
+        width: 70px;
+        height: 70px;
+    }
+}
