@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exlore v.2</title>
+    <link rel="stylesheet" href="./css/styles-explore-v2.css">
+</head>
+<body>
+    <section id="top">
+        <header>
+            <a href="#top" class="logo">logo</a>
+            <button class="menu-btn">menu</button>
+        </header>
+        <nav class="hidden">
+            <ul>
+                <li><a href="#top">home</a></li>
+                <li><a href="#top">about</a></li>
+                <li><a href="#top">booking</a></li>
+                <li><a href="#top">tour</a></li>
+                <li><a href="#top">blog</a></li>
+                <li><a href="#top">contact</a></li>
+            </ul>
+        </nav>
+        <div class="flex-container">
+            <main>
+                <h1>explore <span>the world</span></h1>
+            </main>
+            <ul class="sci">
+                <li><a href="#top">
+                    <img src="./img/explore-v2/icons/facebook-splash-trans.png" alt="Facebook">
+                </a></li>
+                <li><a href="#top">
+                    <img src="./img/explore-v2/icons/twitter-splash-trans.png" alt="Twitter">
+                </a></li>
+                <li><a href="#top">
+                    <img src="./img/explore-v2/icons/insta-splash-trans.png" alt="Instagram">
+                </a></li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        const menuButton = document.querySelector(".menu-btn");
+
+        menuButton.addEventListener("click", () => {
+            menuButton.classList.toggle("opened");
+            document.querySelector("nav").classList.toggle("hidden");
+        })
+    </script>
+</body>
+</html>
