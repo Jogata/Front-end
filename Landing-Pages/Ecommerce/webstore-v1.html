@@ -13,9 +13,21 @@
       padding: 0;
       box-sizing: border-box;
     }
+
+    :root {
+      --clr: #20415c;
+    }
+
     body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       min-height: 100vh;
-      background-color: #28282c;
+      background-color: var(--clr);
+    }
+
+    ul {
+      list-style: none;
     }
 
     a {
@@ -36,267 +48,144 @@
       transition: all 0.3s;
       cursor: pointer;
     }
-    section {
+
+    .navigation {
       position: relative;
-      margin: 0 1rem;
-    }
-    .btn {
-      display: inline-block;
-      margin-bottom: 2rem;
-      padding: 1rem 2.6rem;
-      color: #000;
-      font-size: 0.8rem;
-      font-weight: bold;
-      border-radius: 2em;
-      background-color: #f7b90f;
-    }
-    .btn:hover {
-      box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .slider {
-      display: flex;
-      width: 100%;
-      margin-top: 2rem;
-      overflow-x: hidden;
-      overflow-y: hidden;
-      scroll-snap-type: x mandatory;
-    }
-
-    .slide {
-      display: flex;
+    .menu-btn {
       position: relative;
-      width: 100%;
-      min-width: 100vw;
-      min-width: calc(100vw - 2rem - 17px);
-      height: 100%;
-      min-height: 90vh;
-      background-position: center;
-      background-size: cover;
-      scroll-snap-align: start;
+      width: 65px;
+      height: 65px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 5px solid var(--clr);
+      border-radius: 50%;
+      background-color: #ff4886;
+      transform: translateY(-30px);
+      cursor: pointer;
+      z-index: 1;
     }
-    .overlay {
+    .menu-btn::before {
+      position: absolute;
+      content: "+";
+      font-size: 3rem;
+      color: #fff;
+      transform: translateY(-1px) rotate(0deg);
+      transition: all 1.5s;
+    }
+    .menu-btn.active::before {
+      transform: translateX(-1px) rotate(225deg);
+    }
+    .menu-btn i {
       position: absolute;
       inset: 0;
-      background-color: rgba(0, 0, 0, 0.5);
     }
-    .slide-details {
-      position: relative;
-      max-width: 60%;
-      margin: auto;
-      text-align: center;
-    }
-    .date {
-      position: relative;
-      color: #fff;
-      font-size: 14px;
-      font-weight: bold;
-      text-transform: capitalize;
-    }
-    .date::before {
+    .menu-btn i::before {
       position: absolute;
-      inset: -60% auto auto 50%;
-      transform: translate(-50%, 0);
+      top: 22px;
+      left: -23px;
       content: "";
-      width: 70px;
-      height: 1px;
-      background-color: #f7b90f;
+      width: 20px;
+      height: 20px;
+      background-color: transparent;
+      border-top-right-radius: 20px;
+      box-shadow: 3px -6px var(--clr);
     }
-    .slide-details h1 {
-      position: relative;
-      color: #fff;
-      font-size: 30px;
-      text-transform: uppercase;
-    }
-    .slide-details h1::before {
+    .menu-btn i::after {
       position: absolute;
-      inset: auto auto -1rem 50%;
-      transform: translate(-50%, 0);
+      top: 22px;
+      right: -23px;
       content: "";
-      width: 380px;
-      height: 1px;
-      background-color: #e2e2e244;
-    }
-    .slide-details h1::after {
-      position: absolute;
-      inset: auto auto -1rem 50%;
-      transform: translate(-50%, 50%);
-      content: "";
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background-color: #f7b90f;
-    }
-    .slide-details p {
-      font-size: 14px;
-      color: #fff;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-    }
-    .slide1 {
-      background-image: url("../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg");
-    }
-    .slide2 {
-      background-image: url("../../Sliders/img/colosseum-rome-italy_6000x3600.jpg");
-    }
-    .slide3 {
-      background-image: url("../../Sliders/img/germany-area-building_1680x1050.jpg");
-    }
-    .slide4 {
-      background-image: url("../../Sliders/img/mountain-in-meteora-greece_1920x1080.jpg");
-    }
-    .slide5 {
-      background-image: url("../../Sliders/img/switzerland-river.jpg");
+      width: 20px;
+      height: 20px;
+      background-color: transparent;
+      border-top-left-radius: 20px;
+      box-shadow: -3px -6px var(--clr);
     }
 
-    .left-arrow, 
-    .right-arrow {
+    .menu {
+      position: absolute;
       display: flex;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 1rem;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background-color: #f7b90f;
-      z-index: 2;
+      width: 60px;
+      height: 60px;
+      border-radius: 70px;
+      background-color: #fff;
+      transform: translateY(-30px);
+      transition: transform 0.5s, width 0.5s, height 0.5s;
+      transition-delay: 1s, 0.5s, 0.5s;
     }
-    .left-arrow {
-      left: 1rem;
-    }
-    .right-arrow {
-      right: 1rem;
-    }
-    button {
+    .menu ul {
+      position: relative;
+      display: flex;
       width: 100%;
-      height: 100%;
+      /* align-items: center; */
+      justify-content: center;
+      gap: 35px;
       margin: auto;
-      font-size: inherit;
-      font-weight: bold;
-      border-radius: inherit;
     }
-    button:hover {
-      box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.4);
+    .menu li {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-30px);
+      transition: 0.25s;
+      transition-delay: calc(0s + var(--i));
+    }
+    .menu li:nth-child(odd) {
+      margin-left: auto;
+    }
+    .menu li:nth-child(even) {
+      margin-right: auto;
+    }
+    .menu a {
+      color: #555;
+      font-size: 2rem;
+    }
+    .menu a:hover {
+      color: #ff4886;
     }
 
-    .dec {
-      position: absolute;
-      width: 100px;
-      height: 100px;
+    .menu-btn.active ~ .menu {
+      width: 360px;
+      height: 70px;
+      transform: translateY(0px);
+      transition-delay: 0s, 0.5s, 0.5s;
     }
-    .right {
-      right: 5%;
-      border-right: 2px solid #e2e2e244;
-    }
-    .left {
-      left: 5%;
-      border-left: 2px solid #e2e2e244;
-    }
-    .top {
-      top: 5%;
-      border-top: 2px solid #e2e2e244;
-    }
-    .bottom {
-      bottom: 5%;
-      border-bottom: 2px solid #e2e2e244;
+    .menu-btn.active ~ .menu li {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0px);
+      transition-delay: calc(0.75s + var(--i));
     }
   </style>
 </head>
 <body>
                             <h1 style="position: absolute; z-index: 10; top: 0;">Object.entries(person) - convert object to array</h1>
-  <section class="section">
-    <div class="slider">
-      <div class="slide slide1">
-        <div class="overlay"></div>
-        <div class="slide-details">
-          <p class="date">14 may 2021</p>
-          <h1>architecture agency project title</h1>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo non explicabo architecto adipisci sint optio autem aliquam enim illo perferendis.</p>
-          <a href="" class="btn">view project</a>
-        </div>
-        <div class="dec right top"></div>
-        <div class="dec right bottom"></div>
-        <div class="dec left top"></div>
-        <div class="dec left bottom"></div>
-      </div>
-      <div class="slide slide2">
-        <div class="overlay"></div>
-        <div class="slide-details">
-          <p class="date">welcome to my website</p>
-          <h1>jogata - beginner</h1>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo non explicabo architecto adipisci sint optio autem aliquam enim illo perferendis.</p>
-          <a href="" class="btn">view project</a>
-        </div>
-        <div class="dec right top"></div>
-        <div class="dec right bottom"></div>
-        <div class="dec left top"></div>
-        <div class="dec left bottom"></div>
-      </div>
-      <div class="slide slide3">
-        <div class="overlay"></div>
-        <div class="slide-details">
-          <p class="date">24 may 2020</p>
-          <h1>personal creative portfolio project</h1>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo non explicabo architecto adipisci sint optio autem aliquam enim illo perferendis.</p>
-          <a href="" class="btn">view project</a>
-        </div>
-        <div class="dec right top"></div>
-        <div class="dec right bottom"></div>
-        <div class="dec left top"></div>
-        <div class="dec left bottom"></div>
-      </div>
-      <div class="slide slide4">
-        <div class="overlay"></div>
-        <div class="slide-details">
-          <p class="date">14 may 2021</p>
-          <h1>architecture agency project title</h1>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo non explicabo architecto adipisci sint optio autem aliquam enim illo perferendis.</p>
-          <a href="" class="btn">view project</a>
-        </div>
-        <div class="dec right top"></div>
-        <div class="dec right bottom"></div>
-        <div class="dec left top"></div>
-        <div class="dec left bottom"></div>
-      </div>
-      <div class="slide slide5">
-        <div class="overlay"></div>
-        <div class="slide-details">
-          <p class="date">14 may 2021</p>
-          <h1>architecture agency project title</h1>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo non explicabo architecto adipisci sint optio autem aliquam enim illo perferendis.</p>
-          <a href="" class="btn">view project</a>
-        </div>
-        <div class="dec right top"></div>
-        <div class="dec right bottom"></div>
-        <div class="dec left top"></div>
-        <div class="dec left bottom"></div>
-      </div>
-      <div class="left-arrow"><button>L</button></div>
-      <div class="right-arrow"><button>R</button></div>
-    </div>
-  </section>
 
   <div class="navigation">
-    <div class="menuToggle"><i></i></div>
+    <div class="menu-btn"><i></i></div>
     <div class="menu">
       <ul>
-        <li style="--i:0.1s">
+        <li style="--i:0.2s">
           <a href="#">
             <i class="fa fa-home" aria-hidden="true"></i>
           </a>
         </li>
-        <li style="--i:0.2s">
+        <li style="--i:0.1s">
           <a href="#">
             <i class="fa fa-globe" aria-hidden="true"></i>
           </a>
         </li>
-        <li style="--i:0.3s">
+        <li style="--i:0.1s">
           <a href="#">
             <i class="fa fa-heart-o" aria-hidden="true"></i>
           </a>
         </li>
-        <li style="--i:0.4s">
+        <li style="--i:0.2s">
           <a href="#">
             <i class="fa fa-bell-o" aria-hidden="true"></i>
           </a>
@@ -306,96 +195,11 @@
   </div>
 
   <script>
-    "use strict"
-    const leftArrow = document.querySelector(".left-arrow");
-    const rightArrow = document.querySelector(".right-arrow");
-    const slider = document.querySelector(".slider");
-
-    leftArrow.addEventListener("click", () => {
-      scrollLeft();
-      // resetAutoSlide();
-    });
-    rightArrow.addEventListener("click", () => {
-      scrollRight();
-      // resetAutoSlide();
-    });
-
-    function scrollRight() {
-      if (slider.scrollWidth - slider.clientWidth === slider.scrollLeft) {
-        // currentIndex = sliders.length + currentIndex;
-        // currentIndex = currentIndex % sliders.length;
-        slider.scrollTo({
-          left: 0,
-          behavior: "smooth",
-        })
-      } else {
-        slider.scrollBy({
-          left: window.innerWidth,
-          behavior: "smooth",
-        })
-      }
-    }
-
-    function scrollLeft() {
-        slider.scrollBy({
-          left: -window.innerWidth,
-          behavior: "smooth",
-        })
-    }
-
-    // Set Auto Slide
-    // let intervalID = setInterval(scrollRight, 7000);
-    // console.log(intervalID);
-    function resetAutoSlide() {
-      clearInterval(intervalID);
-      intervalID = setInterval(scrollRight, 7000);
-      // console.log(intervalID);
-    }
-// test
-    const person = {
-      name: "jogata",
-      age: 43,
-    }
-
-    const personAsArray = Object.entries(person);
-    console.log(personAsArray);
-
-    for (const [key, value] of personAsArray) {
-      console.log(`Key: ${key} | Value: ${value}`);
-    }
-
-    class Rectangle {
-      constructor(w,h,unit) {
-        this.w = w;
-        this.h = h;
-        this.unit = unit;
-      }
-
-      toString () {
-        return `Rectangle (${this.w}x${this.h}${this.unit})`;
-      }
-    }
-
-    const rec1 = new Rectangle(5,3,"cm");
-
-    console.log(rec1.toString());
-
-    class ColoredRectangle extends Rectangle {
-      constructor(w, h, unit, color) {
-        super(w,h,unit);
-        this.color = color;
-      }
-
-      toString() {
-        return `Colored ${super.toString()} with ${this.color} color`;
-      }
-    }
-
-    const rec2 = new ColoredRectangle(4,5,"mm","red");
-
-    console.log(rec2.toString());
-
-    console.log(50, 400);
+    const menuBtn = document.querySelector(".menu-btn");
+    menuBtn.addEventListener("click", () => {
+      menuBtn.classList.toggle("active");
+    })
+    console.log(400>76>205);
   </script>
 </body>
 </html>
