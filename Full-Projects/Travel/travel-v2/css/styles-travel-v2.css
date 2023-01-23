@@ -581,97 +581,210 @@ blockquote .split {
 }
 
 
-
-
-#delete1 {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #fbe9e7;
+body {
+    padding-bottom: 5px;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    background-color: #fdc927;
+    overflow-x: hidden;
 }
-#delete1 .card {
-    position: relative;
-    width: 300px;
-    height: 400px;
-    background-color: #fff;
-    transform-style: preserve-3d;
-    transform: perspective(1000px);
-    box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.25);
-    transition: 1s;
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    text-transform: capitalize;
 }
-#delete1 .imgbox {
+
+.timeline {
     position: relative;
-    width: 100%;
-    height: 100%;
-    transform-origin: left;
-    transform-style: preserve-3d;
-    background-color: #000;
-    transition: all 1s;
+    max-width: 1300px;
+    margin: 2rem auto;
+    padding: 50px 0px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.09);
+    box-shadow: 0px 25px 45px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+}
+
+@keyframes zoominOut {
+    0%, 100% {
+        transform: scale(0.5);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.timeline ul li {
+    position: relative;
+    width: 6px;
+    margin: 0 auto;
+    padding-top: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.09);
+    box-shadow: 0px 25px 45px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+}
+.timeline ul li::after {
+    position: absolute;
+    inset: auto auto 5% 50%;
+    transform: translateX(-50%);
+    content: "";
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: inherit;
+    transition: background-color 0.5s ease-in-out;
     z-index: 1;
 }
-#delete1 .card:hover {
-    transform: translateX(50%);
-}
-#delete1 .card:hover .imgbox {
-    transform: rotateY(-180deg);
-}
-#delete1 .imgbox img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform-style: preserve-3d;
-    backface-visibility: hidden;
-}
-#delete1 .details {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-#delete1 .content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-#delete1 .content h2 {
-    text-align: center;
-    font-weight: 700;
-    line-height: 1em;
-}
-#delete1 .content h2 span {
-    display: block;
-    color: #e21212;
-    font-size: 0.8em;
-}
-#delete1 .social-icons {
+
+.timeline ul li div {
     position: relative;
-    display: flex;
-    margin-top: 10px;
+    bottom: 0;
+    width: 400px;
+    margin: 1rem 0;
+    padding: 2rem;
+    color: #000;
+    border-radius: 10px;
+    background-color: #fdc927;
+    box-shadow: 0px 0px 0px 6px rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+    transition: all 0.5s ease-in-out;
+    visibility: hidden;
+    opacity: 0;
 }
-#delete1 .social-icons a {
-    display: inline-block;
-    width: 35px;
-    height: 35px;
-    background-color: #333;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    margin: 5px;
-    font-size: 18px;
-    transition: 0.2s;
+.timeline ul li div::before {
+    position: absolute;
+    bottom: 7px;
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-style: solid;
 }
-#delete1 .social-icons a:hover {
-    background-color: #e21212;
+.timeline ul li div::after {
+    position: absolute;
+    left: 20%;
+    bottom: 20px;
+    content: "";
+    width: 100%;
+    height: 100%;
+    /* background-image: url(""); */
+    animation: zoomInOut 8s linear infinite;
+    z-index: -1;
+}
+
+.timeline ul li:nth-child(odd) div {
+    left: 45px;
+    transform: translate3d(200px, 0, 0);
+}
+.timeline ul li:nth-child(odd) div::before {
+    left: -21px;
+    border-width: 8px 16px 8px 0px;
+    border-color: transparent #fee289 transparent transparent;
+}
+
+.timeline ul li:nth-child(even) div {
+    left: -429px;
+    transform: translate3d(-200px, 0, 0);
+}
+.timeline ul li:nth-child(even) div::before {
+    right: -21px;
+    border-width: 8px 0px 8px 16px;
+    border-color: transparent transparent transparent #fee289;
+}
+
+.timeline ul li div img {
+    width: 100px;
+    height: 100px;
+    margin-top: -100px;
+    padding: 2px;
+    border-radius: 50px;
+    background-color: #fdc927;
+    box-shadow: 0px 0px 0px 6px rgba(255, 255, 255, 0.4);
+}
+
+h3 {
+    /* display: block; */
+    float: right;
+    margin-top: -0.5rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+.timeline ul li div p {
+    margin-top: 1rem;
+}
+
+.timeline ul li.in-view::after {
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    background-color: #fdc927;
+}
+.timeline ul li.in-view div {
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+}
+.timeline ul li:nth-child(even).in-view div {
+    transform: translate3d(-15px, 0, 0);
+}
+
+@media screen and (max-width: 900px) {
+    .timeline ul li div {
+        width: 300px;
+    }
+    .timeline ul li:nth-child(even) div {
+        left: -330px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .timeline ul li {
+        margin-left: 20px;
+    }
+    .timeline ul li div {
+        width: calc(100vw - 91px);
+    }
+    .timeline ul li:nth-child(even) div {
+        left: 45px;
+        border-width: 8px 16px 8px 0px;
+        border-color: transparent #000 transparent transparent;
+    }
+}
+
+.timeline-clippy ul li::after {
+    width: 40px;
+    height: 40px;
+    border-radius: 0px;
+}
+.timeline-rhombus ul li::after {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.timeline-rhombus ul li div::before {
+    bottom: 12px;
+}
+
+.timeline-star ul li::after {
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%,68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.timeline-heptagon ul li::after {
+    clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+}
+
+.timeline-infinite ul li::after {
+    animation: scale 2s infinite;
+}
+
+@keyframes scale {
+    0% {
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.25);
+    }
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
 }
