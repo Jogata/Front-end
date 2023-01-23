@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parallax Scrolling Effect</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="./css/styles_parallaxIV.css"> -->
+    <link rel="stylesheet" href="./css/styles_parallaxIV.css">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
@@ -76,130 +76,191 @@ font-family: 'Playfair Display', serif;
             border-radius: 5px;
             border: 1px solid white;
         }
+
         
         .content {
             width: 65%;
             padding-left: 30px;
             padding-right: 20px;
         }
-
-        .header {
-            z-index: -1;
-        }
-        nav {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            /* padding: 10px 100px; */
-            background-color: #222;
-            box-shadow: 
-            0px 10px 10px rgba(0, 0, 0, 0.1);
-        }
-        .nav {
-            width: 100%;
-            text-align: center;
-            background-color: #111;
-        }
-        .center {
+        
+        .del > div {
+            min-height: 50vh;
+            background-color: #333;
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 2;
-            font-family: 'Playfair Display', serif;
-        }
-        h1 {
-            text-transform: uppercase;
-            text-align: center;
-            white-space: nowrap;
-        }
-        h4 {
-            color: #fff;
-            font-size: 2em;
-            text-transform: capitalize;
-        }
-        .notes {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            min-height: 100vh;
-            padding: 90px 0;
-            flex-direction: column;
-            background-color: #111;
-            z-index: 1;
         }
 
-        .cardBx {
-            width: 100%;
-            padding: 0 15px;
-        }
-        .cardBx-body {
-            width: 100%;
-            flex-direction: column;
-        }
+        @property --d{
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 0deg;
+}
 
-        .title {
-            color: #e18728;
-            font-size: 2em;
-        }
-        textarea {
-            width: 100%;
-            max-width: 600px;
-            height: 100px;
-            margin-bottom: 20px;
-            border: none;
-            outline: none;
-            color: #fff;
-            font-size: 1em;
-            background-color: #222;
-        }
+#btn1 {
+  width: 200px;
+  aspect-ratio:1;
+  font-size:30px;
+  color: #fff;
+  background: none;
+  border: none;
+  border-radius: 20px; 
+  position: relative;
+  z-index: 0;
+  transition: .3s;
+  cursor: pointer;
+}
+#btn1:before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  padding: 8px;
+  border-radius: 28px; 
+  background: conic-gradient(from var(--d,0deg),
+        #ff53bb ,
+        #0000 30deg 120deg,
+        #00f8d3 150deg 180deg,
+        #0000 210deg 300deg,
+        #ff53bb 330deg
+    );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: intersect;
+}
+#btn1:after {
+  content: "";
+  position: absolute;
+  inset: -100px;
+  background:
+    radial-gradient(80px at left  150px top    120px,#ff53bb 98%,#0000),
+    radial-gradient(80px at right 150px bottom 120px,#00f8d3 98%,#0000);
+  filter: blur(60px);
+  opacity: .5;
+}
 
-        .add-btn {
-            padding: 10px 25px;
-            color: #e18728;
-            background-color: #222;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            transition: all 0.4s;
-        }
-        .add-btn:hover {
-            color: #222;
-            background-color: #e18728;
-        }
+#btn1:before,
+#btn1:after {
+  transition:.5s, 99999s 99999s transform, 99999s 99999s --d;
+}
+#btn1:hover {
+  box-shadow: 0 0 0 1px #666;
+}
 
-        #notes {
-            width: 100%;
-            margin: 10px auto 0;
-            padding: 30px;
-            flex-wrap: wrap;
-        }
-        .notecard {
-            width: 200px;
-            margin: 10px;
-            padding: 10px;
-            word-break: break-all;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        .notecard:nth-child(odd) {
-            color: #222;
-            background-color: #e18728;
-        }
-        .notecard:nth-child(even) {
-            color: #fff;
-            background-color: #222;
-        }
-        h5 {
-            color: inherit;
-        }
-        h5 span {
-            font-size: 1.4em;
-        }
-        #notes p {
-            color: #fff;
-            font-size: 1.3em;
-        }
+
+#btn1:hover:after {
+  transform: rotate(3600deg);
+  transition: .5s,60s linear transform;
+}
+#btn1:hover:before {
+  --d: 3600deg;
+  transition: .5s,60s linear --d;
+}
+#btn1:hover:before {
+  background-color: #222;
+}
+
+.loader {
+    position: relative;
+    width: 400px;
+    height: 4px;
+    background-color: #000;
+    /* overflow: hidden; */
+}
+.loader::before {
+    position: absolute;
+    /* content: ''; */
+    width: 100%;
+    /* width: 0%; */
+    height: 100%;
+    background-color: #0bec7c;
+    transform-origin: right;
+    animation: load 8s linear infinite;
+}
+@keyframes load {
+    0% {
+        /* width: 0%; */
+        transform: translateX(-100%) scaleX(1);
+        /* transform: scaleX(0); */
+        /* transform-origin: left; */
+    }
+    40% {
+        /* transform: translateX(0%) scaleX(1); */
+    }
+    45% {
+        /* transform: scaleX(1); */
+        /* transform-origin: left; */
+        /* width: 100%; */
+        /* transform: translateX(0%) scaleX(1); */
+    }
+    60% {
+        transform: translateX(100%) scaleX(1);
+        /* transform: scaleX(1); */
+        /* transform-origin: right; */
+        width: 100%;
+    }
+    61% {
+        transform: translateX(100000%) scaleX(1);
+        width: 2px;
+    }
+    80% {
+        /* transform: scaleX(0); */
+        /* transform-origin: right; */
+        transform: translateX(50000%) scaleX(1);
+    }
+    100% {
+        transform: translateX(0%) scaleX(1);
+        width: 2px;
+    }
+}
+
+.loader::after {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+    animation: dot 8s linear infinite;
+}
+@keyframes dot {
+    0% {
+        transform: translateY(-50%) scale(0);
+    }
+    50% {
+        transform: translateY(-50%) scale(1);
+    }
+    15%, 20% {
+        transform: translateY(-50%) scale(1);
+        box-shadow: 0 0 0 4px #0bec7c22, 
+        0 0 0 10px #0bec7c22,
+        0 0 20px #0bec7c,
+        0 0 40px 5px #0bec7c,
+        0 0 60px 10px #0bec7c;
+    }
+    40% {
+        transform: translateY(-50%) translateX(-395px) scale(1);
+    }
+    80% {
+        transform: translateY(-50%) translateX(395px) scale(1);
+        box-shadow: 0 0 0 4px #0bec7c22, 
+        0 0 0 10px #0bec7c22,
+        0 0 20px #0bec7c,
+        0 0 40px 5px #0bec7c,
+        0 0 60px 10px #0bec7c;
+    }
+    95% {
+        transform: translateY(-50%) translateX(395px) scale(1);
+        box-shadow: none;
+    }
+    100% {
+        transform: translateY(-50%) translateX(395px) scale(0);
+    }
+}
     </style>
 </head>
 <body>
@@ -302,82 +363,15 @@ font-family: 'Playfair Display', serif;
     </div>
 
     <section class="del">
-        <nav class="center">
-            <div class="nav">
-                <h4>my notes</h4>
-            </div>
-        </nav>
-        <div class="notes center">
-            <div class="cardBx center">
-                <div class="cardBx-body center">
-                    <h1 class="title">add a note</h1>
-                    <textarea name="" id="addTxt" cols="30" rows="10" class="form-control"></textarea>
-                    <button class="add-btn" id="addBtn">add note</button>
-                </div>
-            </div>
-            <h1 class="title">your notes</h1>
-            <div id="notes" class="center"></div>
+        <div>
+            <button id="btn1">read more</button>
+        </div>
+        <div>
+            <span class="loader"></span>
         </div>
     </section>
     <script>
-        const addbtn = document.querySelector("#addBtn");
-        let notesObj = [];
-
-        addbtn.addEventListener("click", (e) => {
-            let addTxt = document.getElementById("addTxt");
-            const notes = undefined;
-            // let notes = sessionStorage.getItem("notes");
-            if (notes === null) {
-                notesObj = [];
-            } else {
-                // notesObj = JSON.parse(notes);
-            }
-            if (addTxt.value) {
-                notesObj.push(addTxt.value);
-            }
-            // sessionStorage.setItem("note", JSON.stringify(notesObj));
-            addTxt.value = '';
-            showNotes();
-        })
-        
-        function showNotes() {
-            if (notes === null) {
-                notesObj = [];
-            } else {
-                // notesObj = JSON.parse(notes);
-            }
-            let html = '';
-            notesObj.forEach((note, index) => {
-                html += `<div class="notecard">
-            <div class="noteCard-body">
-                <h5>Note <span>${index + 1}</span></h5>
-                <p>${note}</p>
-                <button onclick="deleteNote(${index})" class="btn">
-                    <i>delete</i>
-                </button>
-            </div>
-        </div>`;
-            })
-            let notesDiv = document.getElementById("notes");
-            if (notesObj.length != 0) {
-                notesDiv.innerHTML = html;
-            } else {
-                notesDiv.innerHTML = `<p>Nothing to show! Create your first Note!</p>`;
-            }
-        }
-
-        function deleteNote(id) {
-            // let notes = sessionStorage.getItem("notes");
-            if (notes === null) {
-                notesObj = [];
-            } else {
-                // notesObj = JSON.parse(notes);
-            }
-            notesObj.splice(id, 1);
-            // localStorage.setItem("notes", JSON.stringify(notesObj));
-            showNotes();
-        }
-        console.log("starts from: 224");
+        console.log("starts from: 193 to 377");
     </script>
 </body>
 </html>
