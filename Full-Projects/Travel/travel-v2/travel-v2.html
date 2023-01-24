@@ -488,137 +488,135 @@
         </main>
     </div>
 
-    <section id="delete1">
-    <div class="card">
-        <div class="imgbox">
-            <img src="../../../../CSS/assets/img/profile-copy.jpg" alt="anne's profile picture"/>
-            <img src="../../../../CSS/assets/img/profile-copy.jpg" alt="anne's profile picture"/>
-        </div>
-        <div class="details">
-            <div class="content">
-                <h2>someone famous <span>some profession</span></h2>
-                <div class="social-icons">
-                    <a href="#">
-                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa fa-linkedin" aria-hidden="true"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <script>
-    const blogPostsFromDatabase = [
-        {
-            title: "How to use the map() function",
-            category: "uncategorized"
-        },
-        {
-            title: "What is JavaScript",
-            category: "uncategorized"
-        },
-        {
-            title: "Are you crazy enough to learn to code",
-            category: "uncategorized"
-        },
-        {
-            gds: "fhavfdah",
-        }
-    ];
-
-    blogPostsFromDatabase.map(post => {
-        post.category = "Web Development";
-        return post;
-    })
-
-    blogPostsFromDatabase.forEach((post, index) => {
-        console.log(index + ": " + post.title);
-    })
-
-    console.log(blogPostsFromDatabase.includes(post => {
-        post.title === "js";
-    }));
-
-    console.log(blogPostsFromDatabase[3]);
-    console.log(blogPostsFromDatabase.map(x => x.title).indexOf('What is JavaScript'));
-    console.log(blogPostsFromDatabase[3]);
-
-    const newarr = blogPostsFromDatabase.filter(post => {
-        return post.title;
-    });
-
-    console.log(newarr);
-
-    const arr = [1,2,3,4,5];
-
-    const result = arr.reduce((sum, item) => {
-        return sum += item;
-    }, 0);
-
-    console.log(result);
-
-    const average = arr.reduce((sum, item) => sum += item, 0) / arr.length;
-
-    console.log(average);
-
-    const randomitems = [1,2,-3,"a","b","8",6];
-    const randomitems2 = [1,2,"a","b","8",6];
-
-    function filterlist(list) {
-        return list.filter(item => {
-            return typeof item === "number" && item >= 0;
-        })
-    }
-
-    console.log(filterlist(randomitems));
-
-    let shorterArray;
-    let longerArray;
-
-    if (randomitems.length <= randomitems2.length) {
-        shorterArray = randomitems;
-        longerArray = randomitems2;
-    } else {
-        shorterArray = randomitems2;
-        longerArray = randomitems;
-    }
-
-    function diff(arr1, arr2) {
-        if (arr1.length === 0) {
-            return arr2;
-        }
-        
-        if (arr2.length === 0) {
-            return arr1;
-        }
-
-        const unique = [];
-
-        arr1.forEach(item => {
-            if (!arr2.includes(item)) {
-                unique.push(item);
-            }
-        })
-
-        return unique;
-    }
-
-    console.log(diff(randomitems, randomitems2));
+    
 </script>
 
-<section id="delete2"></section>
+<section id="delete2">
+    <section class="timeline">
+        <h1>vertical timeline &darr;</h1>
+        <ul>
+            <li>
+                <div>
+                    <img src="./img/ivet.jpg" alt="">
+                    <h3>ivet valcheva</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quis vitae odit, sunt, possimus similique accusantium id aspernatur porro velit odio! Alias culpa, eaque sint voluptate ipsam perspiciatis nostrum temporibus.</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="./img/loki.png" alt="">
+                    <h3>ivet valcheva</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quis vitae odit, sunt, possimus similique accusantium id aspernatur porro velit odio! Alias culpa, eaque sint voluptate ipsam perspiciatis nostrum temporibus.</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="./img/mage.png" alt="">
+                    <h3>ivet valcheva</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quis vitae odit, sunt, possimus similique accusantium id aspernatur porro velit odio! Alias culpa, eaque sint voluptate ipsam perspiciatis nostrum temporibus.</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="./img/ivet.jpg" alt="">
+                    <h3>ivet valcheva</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quis vitae odit, sunt, possimus similique accusantium id aspernatur porro velit odio! Alias culpa, eaque sint voluptate ipsam perspiciatis nostrum temporibus.</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="./img/pic-1.png" alt="">
+                    <h3>ivet valcheva</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quis vitae odit, sunt, possimus similique accusantium id aspernatur porro velit odio! Alias culpa, eaque sint voluptate ipsam perspiciatis nostrum temporibus.</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="./img/pic-2.png" alt="">
+                    <h3>ivet valcheva</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quis vitae odit, sunt, possimus similique accusantium id aspernatur porro velit odio! Alias culpa, eaque sint voluptate ipsam perspiciatis nostrum temporibus.</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="./img/ivet.jpg" alt="">
+                    <h3>ivet valcheva</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quis vitae odit, sunt, possimus similique accusantium id aspernatur porro velit odio! Alias culpa, eaque sint voluptate ipsam perspiciatis nostrum temporibus.</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="./img/pic-3.png" alt="">
+                    <h3>ivet valcheva</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quis vitae odit, sunt, possimus similique accusantium id aspernatur porro velit odio! Alias culpa, eaque sint voluptate ipsam perspiciatis nostrum temporibus.</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="./img/pic-4.png" alt="">
+                    <h3>ivet valcheva</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quis vitae odit, sunt, possimus similique accusantium id aspernatur porro velit odio! Alias culpa, eaque sint voluptate ipsam perspiciatis nostrum temporibus.</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="./img/ivet.jpg" alt="">
+                    <h3>ivet valcheva</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quis vitae odit, sunt, possimus similique accusantium id aspernatur porro velit odio! Alias culpa, eaque sint voluptate ipsam perspiciatis nostrum temporibus.</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="./img/pic-5.png" alt="">
+                    <h3>ivet valcheva</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quis vitae odit, sunt, possimus similique accusantium id aspernatur porro velit odio! Alias culpa, eaque sint voluptate ipsam perspiciatis nostrum temporibus.</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <img src="./img/pic-6.png" alt="">
+                    <h3>ivet valcheva</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quis vitae odit, sunt, possimus similique accusantium id aspernatur porro velit odio! Alias culpa, eaque sint voluptate ipsam perspiciatis nostrum temporibus.</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+      <script>
+        (function () {
+            "use strict";
+            let item = document.querySelectorAll(".timeline li");
+    
+            function isElementInViewport(el) {
+                let rect = el.getBoundingClientRect();
+                return (
+                    rect.top >= 0 && 
+                    rect.left >= 0 && 
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && 
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                )
+            }
+    
+            function callback() {
+                for (let i = 0; i < item.length; i++) {
+                    if (isElementInViewport(item[i])) {
+                        item[i].classList.add("in-view");
+                    }
+                }
+            }
+    
+            window.addEventListener("load", callback);
+            window.addEventListener("resize", callback);
+            window.addEventListener("scroll", callback);
+        })();
+      </script>
+</section>
 <section id="delete3"></section>
 <section id="delete4"></section>
     
-    <script src="./js/script_travel_v2.js"></script>
+    <script src="./js/script_travel_v2.js">
+        console.log("500>620");
+        console.log("CSS: 580>790");
+    </script>
 </body>
 </html>
