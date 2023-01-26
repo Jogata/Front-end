@@ -56,10 +56,6 @@ font-family: 'Playfair Display', serif;
           color: white;
         }
         
-        a:hover {
-          opacity: 0.8;
-        }
-        
         img {
             width: 100%;
             max-width: 350px;
@@ -67,7 +63,6 @@ font-family: 'Playfair Display', serif;
             border: 1px solid white;
         }
 
-        
         .content {
             width: 65%;
             padding-left: 30px;
@@ -76,170 +71,95 @@ font-family: 'Playfair Display', serif;
         
         .del {
             min-height: 200vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background-color: #edf1f4;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
-
-        .container {
-            width: 100%;
-            min-height: 50vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #363636;
-            background-image: linear-gradient(
-                45deg, rgba(0,0,0,0.25) 25%, 
-                transparent 25%, 
-                transparent 75%, 
-                rgba(0,0,0,0.25) 75%, 
-                rgba(0,0,0,0.25)
-            );
-        }
-
-        .button {
-            position: relative;
+        .del > section {
+            position: fixed;
             top: 0;
-            display: inline-block;
-            margin: 0 10px;
-            padding: 15px 30px;
-            color: #303030;
-            font-size: 2em;
-            text-transform: capitalize;
-            text-decoration: none;
-            border-radius: 5px;
-            background: #444;
-            text-shadow: 
-            0px 1px 1px rgba(255,255,255,0.25), 
-            0 -1px 1px rgba(0,0,0,0.75);
-            transition: all 0.06s ease-out;
-        }
-        .button:hover {
-            background: #555;
-        }
-        .button:active {
-            top: 6px;
-            color: rgba(194, 15, 15, 0.3);
-            text-shadow: 
-            0px 0px 20px rgba(239,143,146,0.5),
-            0px 1px 1px rgba(255,255,255,0.25),
-            0px -1px 1px rgba(0,0,0,0.75);
-        }
-        .button::before {
-            position: absolute;
-            top: 6px;
             left: 0;
-            right: 0;
-            content: "";
-            height: 100%;
-            display: inline-block;
-            border-radius: 5px;
-            background: rgba(194, 15, 15, 0.3);
-            box-shadow: 
-            0px 1px 0px 2px rgba(194, 15, 15, 0.3), 
-            0px 5px 2.4px rgba(0,0,0,0.2);
-            transition: all 0.078s ease-out;
-            z-index: -1;
-        }
-
-        .input-box {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: auto;
-            padding: 20px;
-            border-radius: 40px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.05), #edf1f4);
-            box-shadow: -15px -15px 20px #fff, 15px 15px 20px rgba(0,0,0,0.1);
-        }
-
-        #range {
-            width: 400px;
-            height: 15px;
-            /* appearance: none; */
-            background: #edf1f4;
-            outline: none;
-            border-radius: 15px;
-            box-shadow: -5px -5px 10px #fff, 
-            5px 5px 5px rgba(0,0,0,0.1), 
-            inset 5px 5px 5px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-        input::-webkit-slider-thumb {
-            appearance: none;
-            width: 15px;
-            height: 15px;
-            background: #000;
-            border-radius: 50%;
-            border: 2px solid #0074cf;
-            box-shadow: -400px 0 0 400px #27a0ff;
-        }
-
-        #value {
-            position: relative;
-            width: 60px;
-            margin-left: 15px;
-            color: #27a0ff;
-            font-size: 1.25rem;
-            font-weight: bold;
-            text-align: center;
-            border-radius: 25px;
-            /* background: #27a0ff; */
-            box-shadow: -5px -5px 10px #fff, 
-            5px 5px 10px rgba(0,0,0,0.1), 
-            inset 5px 5px 10px rgba(0,0,0,0.1), 
-            inset -3px -3px 5px rgba(255,255,255,0.25);
-        }
-
-        .box {
             width: 100%;
             min-height: 100vh;
-            background: #000;
-            margin-top: auto;
+            background-color: #333;
+            display: flex;
+        }
+
+        .sec {
+            display: flex;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        .sec1 {
+            background-color: #b0ff54;
+            clip-path: circle(0px at 0 0);
+        }
+        .del .sec1 h1 {
+            color: #333;
+            -webkit-text-stroke: 3px #fff;
+        }
+        .sec2 {
+            background-color: #03a9f4;
+            clip-path: circle(0px at 100% 100%);
+        }
+        .del .sec2 h1 {
+            color: #333;
+            -webkit-text-stroke: 3px #fff;
+        }
+
+        .del h1 {
+            color: #fff;
+            font-family: 'Fraunces', serif;
+            font-family: 'Abril Fatface', cursive;
+            font-size: 18rem;
+            text-align: center;
+            margin: auto;
+        }
+
+        .del2 {
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            background-color: #2196f3;
+            background-image: linear-gradient(45deg, #0b61a7, #5babec, #0b61a7);
         }
 
-        .circle {
+        .menu {
             position: relative;
-            width: 200px;
-            height: 200px;
+            width: 280px;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0,0,0,0.1);
+        }
+
+        .toggle {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border-radius: 50%;
-        }
-        .circle.left {
-            border: 25px solid #fff;
-        }
-        .circle.left::before {
-            position: absolute;
-            inset: -25px;
-            content: "";
-            border: 25px solid transparent;
-            border-top: 25px solid #fff;
-            border-right: 25px solid #fff;
             border-radius: 50%;
-            transform: rotate(-45deg);
-            z-index: 2;
+            background-color: #fff;
+            box-shadow: 
+            0px 3px 4px rgba(0,0,0,0.15),
+            0px 0px 0px 2px transparent, 
+            0px 0px 0px 8px transparent;
+            transition: all 1.2s;
+            cursor: pointer;
         }
-        .circle.left::after {
-            position: absolute;
-            inset: -25px;
-            content: "";
-            border-top: 25px solid transparent;
-            border-left: 25px solid #fff;
-            border-radius: 50%;
-            transform: rotate(-245deg);
-            filter: drop-shadow(-1px 0px 5px #000) 
-                    drop-shadow(1px 0px 5px #000);
-            z-index: 1;
-        }
-        .circle.right {
-            margin-left: -60px;
-            border: 25px solid #f00;
-            box-shadow: -2px 4px 10px #000, 
-            inset 4px -4px 10px #000;
+        .menu.active .toggle {
+            transform: rotate(360deg);
+            box-shadow: 0 0 0 2px #333, 
+            0px 0px 0px 8px #ffffff,
+            0px 6px 8px rgba(0,0,0,0.15);
         }
     </style>
 </head>
@@ -342,30 +262,85 @@ font-family: 'Playfair Display', serif;
         </div>
     </div>
 
-    <section class="del">
-        <div class="container">
-            <a href="#b" class="button">button</a>
-            <a href="#b" class="button">button</a>
-            <a href="#b" class="button">button</a>
-        </div>
-        <div class="input-box">
-            <input type="range" name="" id="range" value="0" min="0" max="100">
-            <span id="value">0</span>
-        </div>
-        <div class="box">
-            <div class="circle left"></div>
-            <div class="circle right"></div>
+    <section class="del" style="display: none;">
+        <section>
+            <div class="sec sec1">
+                <h1>magic</h1>
+            </div>
+            <div class="sec sec2">
+                <h1>magic</h1>
+            </div>
+            <h1>magic</h1>
+        </section>
+    </section>
+    <script>
+        let sec1 = document.querySelector(".sec1");
+        let sec2 = document.querySelector(".sec2");
+
+        window.addEventListener("scroll", () => {
+            let y = window.scrollY;
+            console.log(window.screenY);
+            sec1.style.clipPath = "circle(" + y * 1.15 + "px at 0 0)";
+            sec2.style.clipPath = "circle(" + y * 0.85 + "px at 100% 100%)";
+        })
+    </script>
+
+    <section class="del2" id="del22">
+        <div class="menu">
+            <div class="toggle">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </div>
+            <ul>
+                <li style="--i:0">
+                    <a href="#f">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li style="--i:1">
+                    <a href="#f">
+                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li style="--i:2">
+                    <a href="#f">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li style="--i:3">
+                    <a href="#f">
+                        <i class="fa fa-dribbble" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li style="--i:4">
+                    <a href="#f">
+                        <i class="fa fa-linkedin" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li style="--i:5">
+                    <a href="#f">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li style="--i:6">
+                    <a href="#f">
+                        <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li style="--i:7">
+                    <a href="#f">
+                        <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
         </div>
     </section>
     <script>
-        const slide = document.querySelector("#range");
-        const result = document.querySelector("#value");
-        result.textContent = slide.value;
-
-        slide.addEventListener("input", () => {
-            result.textContent = slide.value;
+        const menu = document.querySelector(".menu");
+        const toggle = document.querySelector(".toggle");
+        toggle.addEventListener("click", () => {
+            menu.classList.toggle("active");
         })
-        console.log("starts from: 191 to 368");
+        console.log("starts from: 371>186>346");
     </script>
 </body>
 </html>
