@@ -1,11 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
-
-/* 
-font-family: 'Josefin Sans', sans-serif;
-font-family: 'Limelight', cursive;
-font-family: 'Montserrat', sans-serif;
-*/
-
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Kaushan+Script&family=Playfair+Display&display=swap');
 /* 
@@ -175,4 +167,171 @@ nav a:hover, .btn:hover {
     inset -11px -11px 14px rgba(255, 255, 255, 0.623);
 }
 
+.btn-v2 {
+    width: 5rem;
+    height: 5rem;
+    padding: 18px 10px 2px;
+    padding: 1.2rem 0.5rem;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    text-align: center;
+    white-space: break-spaces;
+}
 
+main {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 2rem;
+    margin: 10% 0 5%;
+    background-image: url("../img/orange-paint-splash.png");
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    z-index: 1;
+}
+
+.main-box {
+    max-width: 30rem;
+    min-width: 460px;
+    margin-right: auto;
+    padding-right: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 1rem;
+}
+
+h1 {
+    margin-bottom: 1rem;
+    color: #000;
+    font-size: min(13vw, 5rem);
+    line-height: 0.9;
+    font-family: 'Kaushan Script', cursive;
+}
+
+main .btn {
+    align-self: start;
+    border-bottom: 2px solid transparent;
+}
+
+main .img {
+    position: relative;
+    max-width: 30rem;
+    margin-left: auto;
+}
+.img img {
+    animation: float 6s linear infinite;
+}
+@keyframes float {
+    50% {
+        transform: translateY(5%);
+    }
+}
+
+main .img::after {
+    position: absolute;
+    top: 100%;
+    left: 13%;
+    content: "";
+    width: 60%;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.05);
+    filter: blur(5px);
+    z-index: -1;
+    animation: shadow 6s linear infinite;
+}
+@keyframes shadow {
+    50% {
+        transform: scale(1.1);
+        background-color: rgba(0,0,0,0.15);
+    }
+}
+
+.info {
+    width: 100%;
+}
+.info ul {
+    column-gap: 2rem;
+    row-gap: 1.2rem;
+}
+.info li {
+    display: flex;
+    align-items: center;
+}
+.info i {
+    padding: 0.4em;
+    font-size: 2rem;
+    color: #8a2435;
+}
+.info h2 {
+    text-transform: uppercase;
+}
+.info h2 span {
+    display: block;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+}
+
+@media screen and (max-width: 850px) {
+    #menu-btn {
+        display: inline;
+    }
+    nav {
+        /* display: none; */
+        position: absolute;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+@media screen and (max-width: 585px) {
+    .main-box, main img {
+        max-width: 100%;
+        min-width: 100%;
+    }
+    header nav, header .btn {
+        display: none;
+    }
+}
+
+header.active {
+    position: absolute;
+    inset: 0;
+    padding: 2rem;
+    background-color: #f7fcca;
+    z-index: 2;
+}
+header.active .btn {
+    display: inline;
+    align-self: start;
+    margin: 0 auto;
+    order: 2;
+}
+header.active nav {
+    position: static;
+    align-self: start;
+    display: block;
+    width: 100%;
+    visibility: visible;
+    opacity: 1;
+    order: 1;
+}
+header.active ul {
+    display: block;
+    align-self: start;
+    text-align: center;
+}
+header.active li {
+    margin:  1.5rem 0;
+}
+header.active nav a {
+    display: inline-block;
+    padding: 0.2em 1.6em;
+    font-size: 2.4rem;
+}
+header.active #menu-btn, 
+header.active .logo {
+    align-self: start;
+    display: inline;
+}
