@@ -68,56 +68,6 @@ font-family: 'Playfair Display', serif;
             padding-left: 30px;
             padding-right: 20px;
         }
-        
-        .del {
-            min-height: 200vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #edf1f4;
-        }
-        .del > section {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            min-height: 100vh;
-            background-color: #333;
-            display: flex;
-        }
-
-        .sec {
-            display: flex;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-        .sec1 {
-            background-color: #b0ff54;
-            clip-path: circle(0px at 0 0);
-        }
-        .del .sec1 h1 {
-            color: #333;
-            -webkit-text-stroke: 3px #fff;
-        }
-        .sec2 {
-            background-color: #03a9f4;
-            clip-path: circle(0px at 100% 100%);
-        }
-        .del .sec2 h1 {
-            color: #333;
-            -webkit-text-stroke: 3px #fff;
-        }
-
-        .del h1 {
-            color: #fff;
-            font-family: 'Fraunces', serif;
-            font-family: 'Abril Fatface', cursive;
-            font-size: 18rem;
-            text-align: center;
-            margin: auto;
-        }
 
         .del2 {
             min-height: 100vh;
@@ -135,17 +85,15 @@ font-family: 'Playfair Display', serif;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: rgba(0,0,0,0.1);
         }
 
-        .toggle {
+        .toggle-btn {
             position: relative;
             width: 60px;
             height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%;
             border-radius: 50%;
             background-color: #fff;
             box-shadow: 
@@ -155,11 +103,83 @@ font-family: 'Playfair Display', serif;
             transition: all 1.2s;
             cursor: pointer;
         }
-        .menu.active .toggle {
+        .menu.active .toggle-btn {
             transform: rotate(360deg);
             box-shadow: 0 0 0 2px #333, 
             0px 0px 0px 8px #ffffff,
             0px 6px 8px rgba(0,0,0,0.15);
+        }
+
+        .fa-share-alt {
+            color: #333;
+            font-size: 2rem;
+        }
+        .fa-facebook {
+            color: #1877f2;
+        }
+        .fa-whatsapp {
+            color: #25d366;
+        }
+        .fa-twitter {
+            color: #1da1f2;
+        }
+        .fa-dribbble {
+            color: #ea4c89;
+        }
+        .fa-linkedin {
+            color: #0a66c2;
+        }
+        .fa-instagram {
+            color: #c32aa3;
+        }
+        .fa-pinterest-p {
+            color: #bd081c;
+        }
+        .fa-youtube-play {
+            color: #ff0000;
+        }
+
+        .menu ul {
+            display: flex;
+            align-items: center;
+        }
+
+        .menu li {
+            position: absolute;
+            left: 0;
+            list-style: none;
+            transform-origin: 140px;
+            transform: rotate(calc(360deg/8 * var(--i)));
+            scale: 0;
+            transition: all 0.5s;
+            transition-delay: calc(0.05s * var(--i));
+        }
+        .menu.active li {
+            scale: 1;
+        }
+
+        .menu li a {
+            position: relative;
+            display: flex;
+            transform: rotate(calc(360deg/-8 * var(--i)));
+        }
+        .menu li a i {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            width: 3.6rem;
+            height: 3.6rem;
+            border-radius: 50%;
+            background-color: #fff;
+            box-shadow: 0px 3px 4px rgba(0,0,0,0.15);
+            transition: all 0.5s;
+        }
+        .menu li:hover a i {
+            font-size: 2.5rem;
+            box-shadow: 
+            0px 0px 0px 2px currentColor, 
+            0px 0px 0px 6px #ffffff;
         }
     </style>
 </head>
@@ -262,32 +282,14 @@ font-family: 'Playfair Display', serif;
         </div>
     </div>
 
-    <section class="del" style="display: none;">
-        <section>
-            <div class="sec sec1">
-                <h1>magic</h1>
-            </div>
-            <div class="sec sec2">
-                <h1>magic</h1>
-            </div>
-            <h1>magic</h1>
-        </section>
+    <section class="del">
     </section>
     <script>
-        let sec1 = document.querySelector(".sec1");
-        let sec2 = document.querySelector(".sec2");
-
-        window.addEventListener("scroll", () => {
-            let y = window.scrollY;
-            console.log(window.screenY);
-            sec1.style.clipPath = "circle(" + y * 1.15 + "px at 0 0)";
-            sec2.style.clipPath = "circle(" + y * 0.85 + "px at 100% 100%)";
-        })
     </script>
 
     <section class="del2" id="del22">
         <div class="menu">
-            <div class="toggle">
+            <div class="toggle-btn">
                 <i class="fa fa-share-alt" aria-hidden="true"></i>
             </div>
             <ul>
@@ -336,11 +338,11 @@ font-family: 'Playfair Display', serif;
     </section>
     <script>
         const menu = document.querySelector(".menu");
-        const toggle = document.querySelector(".toggle");
-        toggle.addEventListener("click", () => {
+        const toggleBtn = document.querySelector(".toggle-btn");
+        toggleBtn.addEventListener("click", () => {
             menu.classList.toggle("active");
         })
-        console.log("starts from: 371>186>346");
+        console.log("starts from: 346 > 375 > 307 > 348");
     </script>
 </body>
 </html>
