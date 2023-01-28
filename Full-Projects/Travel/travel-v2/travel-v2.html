@@ -7,76 +7,161 @@
     <title>Travel v.2</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/styles-travel-v2.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Kaushan+Script&family=Playfair+Display&display=swap');
+
+/* 
+font-family: 'Abril Fatface', cursive;
+font-family: 'Courgette', cursive;
+font-family: 'Dancing Script', cursive;
+font-family: 'Great Vibes', cursive;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Limelight', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Oleo Script Swash Caps', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Kaushan Script', cursive;
+font-family: 'Fraunces', serif;
+font-family: 'Playfair Display', serif;
+*/
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            color: #fff;
+            background-color: #000;
+
+            --img-offset: -50px;
+            --text-offset: -120px;
+        }
+
+        .wrapper {
+            position: relative;
+        }
+
+        h1 {
+            position: absolute;
+            top: 35vh;
+            width: 100%;
+            font-size: 10vw;
+            font-family: 'Kaushan Script', cursive;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .landscape {
+            width: 100%;
+        }
+        .bush, .house {
+            position: absolute;
+            bottom: var(--img-offset);
+        }
+        .bush {
+            left: 0;
+        }
+        .house {
+            width: 40%;
+            right: 0;
+        }
+
+        .bottom {
+            position: relative;
+            display: flex;
+            background-color: rgba(0,0,0,0.5);
+            box-shadow: 0px -1px 46px 15px #000;
+        }
+
+        .bottom p {
+            padding: 20px;
+        }
+
+        .fog-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .fog-img {
+            position: absolute;
+            width: 300vw;
+            height: 100%;
+            z-index: 2;
+        }
+        .fog-img-first {
+            background-image: url("./00/img/fog-1.png");
+            background-repeat: repeat-x;
+            background-position: center;
+            background-size: contain;
+            animation: marquee 60s linear infinite alternate;
+        }
+        .fog-img-second {
+            background-image: url("./00/img/fog-2.png");
+            background-repeat: repeat-x;
+            background-position: center;
+            background-size: contain;
+            animation: marquee 30s linear infinite alternate;
+        }
+        @keyframes marquee {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+            100% {
+                transform: translate3d(-200vw, 0, 0);
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- slider whitout IF statement -->
-    <div id="slider3">
-        <div class="container-slider">
-            <div class="slider" id="slider">
-                <div class="slider__section">
-                    <img src="../../../Sliders/img/germany-area-building_1680x1050.jpg" alt="" class="slider__img">
-                </div>
-                <div class="slider__section">
-                    <img src="../../../Sliders/img/Edinburgh.jpg" alt="" class="slider__img">
-                </div>
-                <div class="slider__section">
-                    <img src="../../../Sliders/img/mountain-in-meteora-greece_1920x1080.jpg" alt="" class="slider__img">
-                </div>
-                <div class="slider__section">
-                    <img src="../../../Sliders/img/toscana-italy.jpg" alt="" class="slider__img">
-                </div>
-            </div>
-            <div class="slider__btn slider__btn--left">l</div>
-            <div class="slider__btn slider__btn--right">r</div>
+    <div class="wrapper">
+        <div class="fog-container">
+            <div class="fog-img fog-img-first"></div>
+            <div class="fog-img fog-img-second"></div>
         </div>
+        <h1>nature</h1>
+        <img src="./00/img/landscape.jpg" alt="Lake" class="landscape">
+        <img src="./00/img/bush.png" class="bush">
+        <img src="./00/img/house.png" alt="house" class="house">
     </div>
+    <div class="bottom">
+        <p>The bluest and clearest of the lakes near Salzburg, you can jump into Attersee and enjoy a wonderful dip. Surrounded by the mountains there are numerous walks and hikes, pristine farms and countryside. Seemingly off the tourist route, there are few of the tour groups found at other lakes in the region. The many public bathing areas, such as the one at Unterach am Attersee, provide food, watersports, shade, slides and shallow areas for children.</p>
+        <p>It's hard to imagine getting closer to nature than sleeping on a lake. We enjoyed a weekend staying in a basic but completely adequate camping raft for two. We were provided with a canoe, which is the only way to reach your bed for the night, and some basic camping equipment. Marnemoende lake is beautiful and is bursting with wildlife. There is a village about an hour away by foot, but otherwise there is just peace and quiet and the most stunning sunrises to wake up to.</p>
+        <p>Snowdonia is not just a land of mountains, but of wonderful lakes. Llyn Idwal is a beautiful, isolated lake backed by the cliffs rising above to the Devil's Kitchen, a high fissure in the rocks above. Parking at a car park at Ogwen Cottage on the A5, between Snowdon and Capel Curig, follow a lower footpath around the lake and admire the rugged landscape above. In good weather there is a challenging walk up to the Devil's Kitchen, following a rocky path. You can then scramble up to Llyn y Cwm, a small tan on the top, which is more satisfying for the effort and view than the lake, to then return on a knee-aching descent with stunning views.</p>
+    </div>
+
     <script>
-        let slider = document.getElementById("slider");
-        let sliderSection = document.getElementsByClassName("slider__section");
-        let sliderSectionLast = sliderSection[sliderSection.length - 1];
+        const imgOffset = -50;
+        const speed = 4; // higher nimber - slower parallax
 
-        slider.insertAdjacentElement("afterbegin", sliderSectionLast);
+        document.addEventListener("DOMContentLoaded", () => {
+            const text = document.querySelector("h1");
+            const bush = document.querySelector(".bush");
+            const house = document.querySelector(".house");
 
-        setInterval(nextSlider, 5000);
+            window.addEventListener("scroll", () => {
+                const newImgOffset = imgOffset + window.scrollY / speed;
+                if (newImgOffset < 0) {
+                    house.style.bottom = `${newImgOffset}px`;
+                    bush.style.bottom = `${newImgOffset}px`;
+                }
 
-        const buttonPrevSlide = document.getElementsByClassName("slider__btn--left")[0];
-        buttonPrevSlide.addEventListener("click", function() {
-            prevSlider();
-        });
-        // buttonPrevSlide.addEventListener("click", prevSlider);
-        
-        function prevSlider() {
-            let sliderSection = document.getElementsByClassName("slider__section");
-            let sliderSectionLast = sliderSection[sliderSection.length - 1];
-            slider.style.marginLeft = "0";
-            slider.style.transition = "all 0.5s";
-            setTimeout(function() {
-                slider.style.transition = "none";
-                slider.insertAdjacentElement("afterbegin", sliderSectionLast);
-                slider.style.marginLeft = "-100%";
-            }, 500);
-        };
-        
-        const buttonNextSlide = document.getElementsByClassName("slider__btn--right")[0];
-        buttonNextSlide.addEventListener("click", function() {
-            nextSlider();
-        });
-        // buttonNextSlide.addEventListener("click", nextSlider);
+                const newTextOffset = window.scrollY / 4;
+                console.log(newTextOffset);
+                    text.style.transform = `translateY(-${newTextOffset}px)`;
+            })
+        })
 
-        function nextSlider() {
-            let sliderSectionFirst = document.getElementsByClassName("slider__section")[0];
-            slider.style.marginLeft = "-200%";
-            slider.style.transition = "all 0.5s";
-            setTimeout(function() {
-                slider.style.transition = "none";
-                slider.insertAdjacentElement("beforeend", sliderSectionFirst);
-                slider.style.marginLeft = "-100%";
-            }, 500);
-        };
     </script>
-    <!-- ---------------------------------------------------------------------------------------------------------------- -->
-
-
     <!-- observer pattern -->
     <script>
         function Subject() {
@@ -244,379 +329,13 @@
         console.log(user);
     </script>
 
+    <section id="delete2"></section>
+    <section id="delete3"></section>
+    <section id="delete4"></section>
 
-    <div class="slider2">
-        <div class="slide current">
-            <div class="content">
-                <h2>Civita di Bagnoregio, Italy</h2>
-                <p>Civita Bagnoregio is considered one of the most beautiful villages in Italy and every year it is visited by thousands of thousands of people who come from all over the world to admire its timeless appearance and the magical aspect that can be perceived walking through its narrow alleys.</p>
-            </div>
-        </div>
-        <div class="slide">
-            <div class="content">
-                <h2>Nuremberg, Germany</h2>
-                <p><p>Impressive, exciting, colourful, mighty and tragic: Nuremberg has reflected German history since the Middle Ages. Protected by the castle, a new spirit enlivened the city at a time when few other places could offer such a quality of life.</p>
-            </div>
-        </div>
-        <div class="slide">
-            <div class="content">
-                <h2>Edinburgh, Scotland</h2>
-                <p>Edinburgh's beauty is both staggering and stunning - but the city is more than just a pretty face. Take a closer look and discover the city's fantastic stories.</p>
-            </div>
-        </div>
-        <div class="slide">
-            <div class="content">
-                <h2>slide four</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui eos, sed eligendi animi quisquam error voluptates accusantium, nihil fugit dolorum laboriosam expedita laborum non officia quidem vel, rem soluta fuga et vero doloribus! Distinctio nesciunt, inventore et facere eius architecto expedita veritatis fuga molestiae nemo laboriosam optio minus aspernatur doloremque.</p>
-            </div>
-        </div>
-        <div class="slide">
-            <div class="content">
-                <h2>slide five</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui eos, sed eligendi animi quisquam error voluptates accusantium, nihil fugit dolorum laboriosam expedita laborum non officia quidem vel, rem soluta fuga et vero doloribus! Distinctio nesciunt, inventore et facere eius architecto expedita veritatis fuga molestiae nemo laboriosam optio minus aspernatur doloremque.</p>
-            </div>
-        </div>
-        <div class="slide">
-            <div class="content">
-                <h2>Pisa, Italy</h2>
-                <p>Rising on the banks of the Arno river, it is one of the most important Tuscan cities and certainly the most surprising.</p>
-            </div>
-        </div>
-        <div class="buttons">
-            <button id="prev">
-                <i class="fa fa-arrow-left" aria-hidden="true"></i>
-            </button>
-            <button id="next">
-                <i class="fa fa-arrow-right" aria-hidden="true"></i>
-            </button>
-        </div>
-    </div>
-
-    <script>
-        (function setSliderButtons() {
-            const sliders = document.querySelectorAll(".slide");
-            const nextButton = document.querySelector("#next");
-            const prevButton = document.querySelector("#prev");
-            let currentIndex = Array.from(sliders).findIndex(slide => slide.classList.contains("current"));
-
-            nextButton.addEventListener("click", nextSlide);
-            prevButton.addEventListener("click", prevSlide);
-
-            function nextSlide() {
-                currentIndex++;
-                if (currentIndex >= sliders.length) {
-                    currentIndex = 0;
-                }
-                document.querySelector(".current").classList.remove("current");
-                sliders[currentIndex].classList.add("current");
-            };
-            
-            function prevSlide() {
-                currentIndex--;
-                if (currentIndex < 0) {
-                    currentIndex = sliders.length - 1;
-                }
-                document.querySelector(".current").classList.remove("current");
-                sliders[currentIndex].classList.add("current");
-            };
-        }());
-    </script>
-
-
-
-    <!-- <div class="image-slider">
-        <div class="slider-container">
-            <div class="slide">
-                <h1>slide 1</h1>
-            </div>
-            <div class="slide">
-                <h1>slide 2</h1>
-            </div>
-            <div class="slide">
-                <h1>slide 3</h1>
-            </div>
-            <div class="slide">
-                <h1>slide 4</h1>
-            </div>
-        </div>
-        <button class="arrow left">
-            <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        </button>
-        <button class="arrow right">
-            <i class="fa fa-chevron-right" aria-hidden="true"></i>
-        </button>
-    </div>
-
-    <script>
-        const container = document.querySelector(".slider-container");
-        const slides = document.querySelectorAll(".slide");
-        const leftArrow = document.querySelector(".left");
-        const rightArrow = document.querySelector(".right");
-
-        let offset = 0;
-        let slideIncrement = 0;
-        let slideDecrement = slides.length - 1;
-
-        leftArrow.addEventListener("click", function () {
-            leftArrow.disabled = true;
-            offset = slides[0].offsetWidth;
-            container.style.transition = "none";
-            if (slideDecrement < 0) {
-                slides.forEach(slide => {
-                    slide.style.order = "initial";
-                });
-                slideIncrement = slides.length - 1;
-            }
-            slides[slideDecrement].style.order = "-1";
-            container.style.left = -offset + "px";
-            setTimeout(() => {
-                container.style.transition = "ease-in-out 0.5s";
-                container.style.left = 0;
-            }, 1);
-            setTimeout(() => {
-               slideDecrement--;
-               slideIncrement = slideDecrement + 1;
-               leftArrow.disabled = false; 
-            }, 500);
-        });
-
-        rightArrow.addEventListener("click", function () {
-            rightArrow.disabled = true;
-            offset = slides[0].offsetWidth;
-            container.style.transition = "ease-in-out 0.5s";
-            container.style.left = -offset + "px";
-            setTimeout(() => {
-                container.style.transition = "none";
-                slides[slideIncrement].style.order = slides.length - 1;
-                container.style.left = 0;
-                slideIncrement++;
-                slideDecrement = slideIncrement - 1;
-                if (slideDecrement === slides.length) {
-                    slideIncrement = 0;
-                    slides.forEach(slide => {
-                        slide.style.order = "initial";
-                    });
-                }
-                rightArrow.disabled = false;
-            }, 500);
-        });
-    </script> -->
-
-
-    <div class="container">
-        <main>
-            <div class="intro">
-                <h1>10,000+ of our users love our products.</h1>
-    
-                <p class="lead">We only provide great products combined with excellent customer service. See what our satisfied customers are saying about our services.</p>
-            </div>
-    
-            <ul class="ratings">
-                <li class="rating">
-                    <div>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                    </div>
-                    Rated 5 Stars in Reviews</li>
-                <li class="rating">
-                    <div>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                    </div>
-                    Rated 5 Stars in Report Guru</li>
-                <li class="rating">
-                    <div>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                        <i class="fa fa-star" aria-hidden="true"></i>
-                    </div>
-                    Rated 5 Stars in BestTech</li>
-            </ul>
-    
-            <ul class="quotes split">
-                <li>
-                    <blockquote>
-                        <div class="split a-center">
-                            <img src="../../../../CSS/assets/img/profile-copy.jpg" alt="colton's profile picture"/>
-                            <div>
-                                <p class="name">Colton Smith</p>
-                                <p class="status">Verified Buyer</p>
-                            </div>
-                        </div>
-                        <p class="quote">
-                            "We needed the same printed design as the one we had ordered a week prior. Not only did they find the original order, but we also received it in time. Excellent!"
-                        </p>
-                    </blockquote>
-                </li>
-                <li>
-                    <blockquote>
-                        <div class="split a-center">
-                            <img src="../../../../CSS/assets/img/profile-copy.jpg" alt="irene's profile picture"/>
-                            <div>
-                                <p class="name">Irene Roberts</p>
-                                <p class="status">Verified Buyer</p>
-                            </div>
-                        </div>
-                        <p class="quote">
-                            "Customer service is always excellent and very quick turn around. Completely delighted with the simplicity of the purchase and the speed of delivery."
-                        </p>
-                    </blockquote>
-                </li>
-                <li>
-                    <blockquote>
-                        <div class="split a-center">
-                            <img src="../../../../CSS/assets/img/profile-copy.jpg" alt="anne's profile picture"/>
-                            <div>
-                                <p class="name">Anne Wallace</p>
-                                <p class="status">Verified Buyer</p>
-                            </div>
-                        </div>
-                        <p class="quote">
-                            "Put an order with this company and can only praise them for the very high standard. Will definitely use them again and recommend them to everyone!"
-                        </p>
-                    </blockquote>
-                </li>
-            </ul>
-        </main>
-    </div>
-
-<script>
-    
-</script>
-
-<section id="delete2">
-    <section class="timeline">
-        <h1>vertical timeline &darr;</h1>
-        <ul>
-            <li>
-                <div>
-                    <img src="./img/ivet.jpg" alt="">
-                    <h3>ivet valcheva</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quis vitae odit, sunt, possimus similique accusantium id aspernatur porro velit odio! Alias culpa, eaque sint voluptate ipsam perspiciatis nostrum temporibus.</p>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/loki.png" alt="">
-                    <h3>ivet valcheva</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quis vitae odit, sunt, possimus similique accusantium id aspernatur porro velit odio! Alias culpa, eaque sint voluptate ipsam perspiciatis nostrum temporibus.</p>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/mage.png" alt="">
-                    <h3>ivet valcheva</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quis vitae odit, sunt, possimus similique accusantium id aspernatur porro velit odio! Alias culpa, eaque sint voluptate ipsam perspiciatis nostrum temporibus.</p>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/ivet.jpg" alt="">
-                    <h3>ivet valcheva</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quis vitae odit, sunt, possimus similique accusantium id aspernatur porro velit odio! Alias culpa, eaque sint voluptate ipsam perspiciatis nostrum temporibus.</p>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/pic-1.png" alt="">
-                    <h3>ivet valcheva</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quis vitae odit, sunt, possimus similique accusantium id aspernatur porro velit odio! Alias culpa, eaque sint voluptate ipsam perspiciatis nostrum temporibus.</p>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/pic-2.png" alt="">
-                    <h3>ivet valcheva</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quis vitae odit, sunt, possimus similique accusantium id aspernatur porro velit odio! Alias culpa, eaque sint voluptate ipsam perspiciatis nostrum temporibus.</p>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/ivet.jpg" alt="">
-                    <h3>ivet valcheva</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quis vitae odit, sunt, possimus similique accusantium id aspernatur porro velit odio! Alias culpa, eaque sint voluptate ipsam perspiciatis nostrum temporibus.</p>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/pic-3.png" alt="">
-                    <h3>ivet valcheva</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quis vitae odit, sunt, possimus similique accusantium id aspernatur porro velit odio! Alias culpa, eaque sint voluptate ipsam perspiciatis nostrum temporibus.</p>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/pic-4.png" alt="">
-                    <h3>ivet valcheva</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quis vitae odit, sunt, possimus similique accusantium id aspernatur porro velit odio! Alias culpa, eaque sint voluptate ipsam perspiciatis nostrum temporibus.</p>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/ivet.jpg" alt="">
-                    <h3>ivet valcheva</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quis vitae odit, sunt, possimus similique accusantium id aspernatur porro velit odio! Alias culpa, eaque sint voluptate ipsam perspiciatis nostrum temporibus.</p>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/pic-5.png" alt="">
-                    <h3>ivet valcheva</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quis vitae odit, sunt, possimus similique accusantium id aspernatur porro velit odio! Alias culpa, eaque sint voluptate ipsam perspiciatis nostrum temporibus.</p>
-                </div>
-            </li>
-            <li>
-                <div>
-                    <img src="./img/pic-6.png" alt="">
-                    <h3>ivet valcheva</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam quis vitae odit, sunt, possimus similique accusantium id aspernatur porro velit odio! Alias culpa, eaque sint voluptate ipsam perspiciatis nostrum temporibus.</p>
-                </div>
-            </li>
-        </ul>
-    </section>
-      <script>
-        (function () {
-            "use strict";
-            let item = document.querySelectorAll(".timeline li");
-    
-            function isElementInViewport(el) {
-                let rect = el.getBoundingClientRect();
-                return (
-                    rect.top >= 0 && 
-                    rect.left >= 0 && 
-                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && 
-                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-                )
-            }
-    
-            function callback() {
-                for (let i = 0; i < item.length; i++) {
-                    if (isElementInViewport(item[i])) {
-                        item[i].classList.add("in-view");
-                    }
-                }
-            }
-    
-            window.addEventListener("load", callback);
-            window.addEventListener("resize", callback);
-            window.addEventListener("scroll", callback);
-        })();
-      </script>
-</section>
-<section id="delete3"></section>
-<section id="delete4"></section>
-    
     <script src="./js/script_travel_v2.js">
-        console.log("500>620");
-        console.log("CSS: 580>790");
+        console.log(190>340);
+        console.log(140);
     </script>
 </body>
 </html>
