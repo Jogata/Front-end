@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamburger v.1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/styles_hamburger-v1.css">
+</head>
+<body>
+    <div class="container">
+        <section id="top" class="landing-page">
+            <div class="blur-clr"></div>
+            <div class="blur-clr"></div>
+            <header class="">
+                <a href="#top" class="logo">
+                    <img src="./img/logo-fast-food.png" alt="Logo">
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="#top">home</a></li>
+                        <li><a href="#top">menu</a></li>
+                        <li><a href="#top">about us</a></li>
+                        <li><a href="#top">contact</a></li>
+                    </ul>
+                </nav>
+                <button id="menu-btn">
+                    <!-- <img src="./img/menu-button-1.png" alt="Menu button"> -->
+                    <img src="./img/menu-png.png" alt="Menu button">
+                </button>
+                <!-- <a href="#top" class="btn">sign up</a> -->
+                <a href="#top" class="btn btn-v2">sign up</a>
+            </header>
+            <main>
+                <div class="main-box">
+                    <h1>Best Food for your taste</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt, cum libero. Sint quis temporibus nisi nam ipsa quas unde neque repudiandae sed? Veniam expedita dolor quibusdam ratione suscipit inventore fuga.</p>
+                    <a href="#order" class="btn">order now</a>
+                </div>
+                <div class="img">
+                <img src="./img/burger-png-png-images-yellow-images-12.png" alt="">
+                </div>
+                <div class="info">
+                    <ul>
+                        <li>
+                            <i class="fa fa-user-o" aria-hidden="true"></i>
+                            <h2>5k+ <span>customers</span></h2>
+                        </li>
+                        <li>
+                            <i class="fa fa-bicycle" aria-hidden="true"></i>
+                            <h2>7k+ <span>deliveries</span></h2>
+                        </li>
+                        <li>
+                            <i class="fa fa-comments-o" aria-hidden="true"></i>
+                            <h2>2k+ <span>ratings</span></h2>
+                        </li>
+                    </ul>
+                </div>
+            </main>
+        </section>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById("menu-btn");
+
+        menuBtn.addEventListener("click", () => {
+            document.querySelector("header").classList.toggle("active");
+            document.querySelector("header .btn").classList.toggle("btn-v2");
+        })
+    </script>
+</body>
+</html>
