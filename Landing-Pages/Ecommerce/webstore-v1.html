@@ -36,175 +36,199 @@
       color: #fff;
     } */
 
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
+    * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ecf2f8;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+#testimonial-grid-container {
+    padding: 5% 3%;
+}
+
+#testimonial-1 {
+    background-color: #7541c8;
+    color: #ffffff;
+    position: relative;
+    z-index: 0;
+}
+
+#testimonial-2 {
+    background-color: #48556a;
+    color: #ffffff;
+}
+
+#testimonial-3, #testimonial-5 {
+    background-color: #ffffff;
+    color: #48556a;
+}
+
+#testimonial-4 {
+    background-color: #19212e;
+    color: #ffffff;
+}
+
+.grid-item {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.2);
+    font-size: 13px;
+}
+
+.grid-item p {
+    opacity: 70%;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    z-index: 3;
+    position: relative;
+}
+
+.header .name {
+    opacity: 100%;
+    font-size: 1rem;
+}
+
+.header img {
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 2px solid #7541c8;
+}
+
+.grid-item h4 {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+#quote {
+    position: absolute;
+    right: 15%;
+    top: 0;
+    z-index: 1;
+}
+
+@media (min-width: 576px) {
+
+    #testimonial-grid-container,
+    #main-left,
+    #top,
+    #bottom {
+        display: flex;
     }
 
-    body {
-  padding: 20px;
-}
+    #top, #bottom {
+        flex-basis: 50%;
+    }
 
-#card {
-  box-shadow: 2px 3px 7px 0px rgba(0, 0, 0, 0.35);
-  border-radius: 1em;
-  overflow: hidden;
-  width: 600px;
-  height: 400px;
-}
+    #testimonial-5 {
+        flex-basis: 20%;
+    }
 
-#top-section {
-  width: 100%;
-  height: 45%;
-  padding: 25px;
-}
+    #main-left {
+        flex-direction: column;
+        flex-basis: 80%;
+    }
 
-#bottom-section {
-  width: 100%;
-  height: 55%;
-  color: white;
-}
+    #testimonial-1, #testimonial-4 {
+        flex-basis: 65%;
+    }
+    
+    #testimonial-2, #testimonial-3 {
+        flex-basis: 35%;
+    }
 
-#bottom-left-section {
-  display: inline-block;
-  width: 50%;
-  height: 100%;
-  vertical-align: top;
-  background-color: #2ab2af;
-  padding: 25px;
-}
+    #testimonial-grid-container {
+        max-width: 1440px;
+        margin: 0 auto;
+    }
 
-#bottom-right-section {
-  display: inline-block;
-  width: 50%;
-  height: 100%;
-  background-color: #2ebfbd;
-  vertical-align: top;
-  padding: 25px;
-}
-
-#top-section h2 {
-  color: #2ab2af;
-  margin-bottom: 20px;
-}
-
-#top-section h4 {
-  color: #c0df34;
-  margin-bottom: 10px;
-}
-
-#top-section p {
-  color: #98a6bd;
-}
-
-button {
-  color: white;
-  background-color: #c0df34;
-  border: none;
-  padding: 10px;
-  width: 100%;
-  border-radius: 5px;
-  transition: all 0.4s;
-}
-
-button:hover {
-  cursor: pointer;
-  background-color: #a9c42d;
-  transform: scale(1.02);
-}
-
-#price {
-  font-weight: 700;
-  font-size: 1.4rem;
-}
-
-#bottom-left-section h4 {
-  margin-bottom: 25px;
-}
-
-#bottom-left-section p {
-  font-size: 0.8rem;
-  margin-bottom: 40px;
-}
-
-#price-frequency,
-#price {
-  display: inline-block;
-}
-
-#price-frequency {
-  position: relative;
-  top: -3px;
-  font-size: 0.8rem;
-  opacity: 0.7;
-  margin-left: 5px;
-}
-
-#price-container {
-  margin-bottom: 10px;
-}
-
-ul {
-  padding: 0;
-  list-style: none;
-  font-size: 0.8rem;
-  opacity: 0.8;
-}
-
-@media (max-width: 650px) {
-  #card,
-  #bottom-left-section,
-  #bottom-right-section {
-    width: 100%;
-    height: auto;
-  }
+    #main-left .grid-item {
+        margin-right: 15px;
+    }
 }
   </style>
 </head>
 <body>
-                              <h1 style="position: absolute; z-index: 10; top: 0;">Object.entries(person) - convert object to array</h1>
+                            <h1 style="position: absolute; z-index: 10; top: 0;">Object.entries(person) - convert object to array</h1>
 
-  <div id="card">
-    <div id="top-section">
-      <h2>Join our community</h2>
-      <h4>30-day, hassle-free money back guarantee</h4>
-      <p>
-        Gain access to our full library of tutorials along with expert code
-        reviews. Perfect for any developers who are serious about honing their
-        skills.
-      </p>
-    </div>
-    <div id="bottom-section">
-      <div id="bottom-left-section">
-        <h4>Monthly Subscription</h4>
-        <div id="price-container">
-          <div id="price">$29 <span id="price-frequency">per month</span></div>
+  <div id="testimonial-grid-container">
+    <div id="main-left">
+      <div id="top">
+        <div id="testimonial-1" class="grid-item">
+          <img id="quote" src="./images/bg-pattern-quotation.svg" alt="quote">
+          <div class="header">
+            <img src="./images/image-daniel.jpg" alt="daniel profile picture">
+            <div class="header-txt">
+              <p class="name">Daniel Clifford</p>
+              <p>Verified Graduate</p>
+            </div>
+          </div>
+          <h4>I received a job offer mid-course, and the subjects I learned were current, if not more so, in the company I joined. I honestly feel I got every penny's worth.</h4>
+          <p>“ I was an EMT for many years before I joined the bootcamp. I've been looking to make a transition and have heard some people who had an amazing experience here. I signed up for the free intro course and found it incredibly fun! I enrolled shortly thereafter. The next 12 weeks was the best - and most grueling - time of my life. Since completing the course, I've successfully switched careers, working as a Software Engineer at a VR startup. ”</p>
         </div>
-        <p>Full access for less than $1 a day</p>
-        <button onclick="alertUser()">Sign Up</button>
-      </div><div id="bottom-right-section">
-        <h4>Why Us</h4>
-        <ul>
-          <li>Tutorials by industry experts</li>
-          <li>Peer & expert code review</li>
-          <li>Coding exercises</li>
-          <li>Access to our GitHub repos</li>
-          <li>Community forum</li>
-          <li>Flashcard decks</li>
-          <li>New videos every week</li>
-        </ul>
+        <div id="testimonial-2" class="grid-item">
+          <div class="header">
+            <img src="./images/image-jonathan.jpg" alt="jonathan profile picture">
+            <div class="header-txt">
+              <p class="name">Jonathan Walters</p>
+              <p>Verified Graduate</p>
+            </div>
+          </div>
+          <h4>The team was very supportive and kept me motivated</h4>
+          <p>“ I started as a total newbie with virtually no coding skills. I now work as a mobile engineer 
+            for a big company. This was one of the best investments I've made in myself. ”</p>
+          </div>
+        </div>        
+        <div id="bottom">
+          <div id="testimonial-3" class="grid-item">
+            <div class="header">
+              <img src="./images/image-jeanette.jpg" alt="jeanette profile picture">
+              <div class="header-txt">
+                <p class="name">Jeanette Harmon</p>
+                <p>Verified Graduate</p>
+              </div>
+            </div>
+            <h4>An overall wonderful and rewarding experience</h4>
+            <p>“ Thank you for the wonderful experience! I now have a job I really enjoy, and make a good living while doing something I love. ”</p>
+          </div>
+          <div id="testimonial-4" class="grid-item">
+            <div class="header">
+              <img src="./images/image-patrick.jpg" alt="Patrick profile picture">
+              <div class="header-txt">
+                <p class="name">Patrick Abrams</p>
+                <p>Verified Graduate</p>
+              </div>
+            </div>
+            <h4>Awesome teaching support from TAs who did the bootcamp themselves. Getting guidance from them and learning from their experiences was easy.</h4>
+            <p>“ The staff seem genuinely concerned about my progress which I find really refreshing. The program gave me the confidence necessary to be able to go out in the world and present myself as a capable junior developer. The standard is above the rest. You will get the personal attention you need from an incredible community of smart and amazing people. ”</p>
+          </div>
+        </div>        
+    </div>
+    <div id="testimonial-5" class="grid-item">
+      <div class="header">
+        <img src="./images/image-kira.jpg" alt="Kira profile picture">
+        <div class="header-txt">
+          <p class="name">Kira Whittle</p>
+          <p>Verified Graduate</p>
+        </div>
       </div>
+      <h4>Such a life-changing experience. Highly recommended!</h4>
+      <p>“ Before joining the bootcamp, I've never written a line of code. I needed some structure from professionals who can help me learn programming step by step. I was encouraged to enroll by a former student of theirs who can only say wonderful things about the program. The entire curriculum and staff did not disappoint. They were very hands-on and I never had to wait long for assistance. The agile team project, in particular, was outstanding. It took my learning to the next level in a way that no tutorial could ever have. In fact, I've often referred to it during interviews as an example of my development experience. It certainly helped me land a job as a full-stack developer after receiving multiple offers. 100% recommend! ”</p>
     </div>
   </div>
 
   <script>
-    function alertUser() {
-      alert("Hey, you clicked the button!");
-    }
-
-    console.log("205>40>210");
+    console.log("210>180>240>120>240");
   </script>
 </body>
 </html>
