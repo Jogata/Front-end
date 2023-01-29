@@ -30,9 +30,13 @@ font-family: 'Playfair Display', serif;
 */
 
         .del {
+            position: relative;
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             min-height: 100vh;
+            background-color: #034071;
+            overflow: hidden;
         }
 
         .centered {
@@ -58,9 +62,9 @@ font-family: 'Playfair Display', serif;
         
         img {
             width: 100%;
-            max-width: 350px;
+            /* max-width: 350px; */
             border-radius: 5px;
-            border: 1px solid white;
+            /* border: 1px solid white; */
         }
 
         .content {
@@ -69,117 +73,131 @@ font-family: 'Playfair Display', serif;
             padding-right: 20px;
         }
 
-        .del2 {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #2196f3;
-            background-image: linear-gradient(45deg, #0b61a7, #5babec, #0b61a7);
-        }
-
-        .menu {
+        .runway {
             position: relative;
-            width: 280px;
-            height: 280px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 400px;
+            height: 100vh;
+            background-color: #1378bc;
+            border-left: 20px solid rgba(0,0,0,0.25);
+            border-right: 20px solid rgba(0,0,0,0.25);
+            transition: transform 2s ease-in;
+            transform-origin: top;
+        }
+        /* hide runway on left click/hold */
+        section:active .runway {
+            transform: scaleX(0.7) scaleY(0);
+            transform-origin: bottom;
+        }
+        .runway::before {
+            position: absolute;
+            content: "";
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15px;
+            height: 100%;
+            background: repeating-linear-gradient(transparent 0%, transparent 50%, #fff 50%, #fff 100%);
+            background-position-x: 0px;
+            background-size: 20px 320px;
+            animation: runway 1s linear infinite;
+        }
+        /* increased speed on left click/hold */
+        section:active .runway::before {
+            animation: runway 0.25s linear infinite;
+        }
+        @keyframes runway {
+            100% {
+                background-position-y: 320px;
+            }
         }
 
-        .toggle-btn {
-            position: relative;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background-color: #fff;
-            box-shadow: 
-            0px 3px 4px rgba(0,0,0,0.15),
-            0px 0px 0px 2px transparent, 
-            0px 0px 0px 8px transparent;
-            transition: all 1.2s;
-            cursor: pointer;
-        }
-        .menu.active .toggle-btn {
-            transform: rotate(360deg);
-            box-shadow: 0 0 0 2px #333, 
-            0px 0px 0px 8px #ffffff,
-            0px 6px 8px rgba(0,0,0,0.15);
+        .plane {
+            position: absolute;
+            bottom: 100px;
+            max-width: 250px;
+            filter: drop-shadow(10px 10px 0px rgba(0,0,0,0.5));
+            transition: all 5s;
         }
 
-        .fa-share-alt {
-            color: #333;
-            font-size: 2rem;
-        }
-        .fa-facebook {
-            color: #1877f2;
-        }
-        .fa-whatsapp {
-            color: #25d366;
-        }
-        .fa-twitter {
-            color: #1da1f2;
-        }
-        .fa-dribbble {
-            color: #ea4c89;
-        }
-        .fa-linkedin {
-            color: #0a66c2;
-        }
-        .fa-instagram {
-            color: #c32aa3;
-        }
-        .fa-pinterest-p {
-            color: #bd081c;
-        }
-        .fa-youtube-play {
-            color: #ff0000;
+        section:active .plane {
+            max-width: 500px;
+            filter: drop-shadow(200px 200px 0px rgba(0,0,0,0));
         }
 
-        .menu ul {
-            display: flex;
-            align-items: center;
-        }
-
-        .menu li {
+        .clouds {
             position: absolute;
             left: 0;
-            list-style: none;
-            transform-origin: 140px;
-            transform: rotate(calc(360deg/8 * var(--i)));
-            scale: 0;
-            transition: all 0.5s;
-            transition-delay: calc(0.05s * var(--i));
+            width: 100%;
+            height: 100%;
+            /* pointer-events: none; */
+            transition: opacity 2s;
+            transition-delay: 0s;
+            opacity: 0;
+            z-index: 2;
         }
-        .menu.active li {
-            scale: 1;
+        /* show clouds on left click/hold */
+        section:active .clouds {
+            opacity: 1;
+            transition-delay: 1s;
+        }
+        .clouds img {
+            position: absolute;
+            left: 0;
+            width: 800px;
+            animation: clouds 4s linear infinite;
+            animation-delay: calc(-1.5s * var(--i));
+        }
+        .clouds.right {
+            left: auto;
+            right: 0;
+            transform: rotateY(180deg);
+        }
+        @keyframes clouds {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(100%);
+            }
         }
 
-        .menu li a {
-            position: relative;
-            display: flex;
-            transform: rotate(calc(360deg/-8 * var(--i)));
+        /* STOPWATCH */
+        .del + .del {
+            background-color: #edeaff;
         }
-        .menu li a i {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            width: 3.6rem;
-            height: 3.6rem;
+
+        #stopwatch {
+            padding: 2rem;
+            border-radius: 2em;
+            box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2), 
+            -3px -3px 3px rgba(255, 255, 255, 0.8);
+        }
+
+        .buttons {
+            text-align: center;
+        }
+        .buttons button {
+            width: 3rem;
+            height: 3rem;
+            margin: 0px 0.5rem;
             border-radius: 50%;
-            background-color: #fff;
-            box-shadow: 0px 3px 4px rgba(0,0,0,0.15);
-            transition: all 0.5s;
+            border: 1px solid #000;
+            background-color: transparent;
+            cursor: pointer;
         }
-        .menu li:hover a i {
-            font-size: 2.5rem;
-            box-shadow: 
-            0px 0px 0px 2px currentColor, 
-            0px 0px 0px 6px #ffffff;
+        #play {
+            width: 4rem;
+            height: 4rem;
+            background-color: gold;
+        }
+        .fa-stop {
+            font-size: 1.2rem;
+        }
+        .fa-play {
+            font-size: 2rem;
+            transform: translateX(15%);
+        }
+        .fa-refresh {
+            font-size: 1.4rem;
         }
     </style>
 </head>
@@ -283,66 +301,32 @@ font-family: 'Playfair Display', serif;
     </div>
 
     <section class="del">
+        <div class="clouds">
+            <img style="--i:1;" src="./00/img/cloud1.png" alt="cloud">
+            <img style="--i:2;" src="./00/img/cloud2.png" alt="cloud">
+            <img style="--i:3;" src="./00/img/cloud3.png" alt="cloud">
+        </div>
+        <div class="clouds right">
+            <img style="--i:1;" src="./00/img/cloud2.png" alt="cloud">
+            <img style="--i:2;" src="./00/img/cloud3.png" alt="cloud">
+            <img style="--i:3;" src="./00/img/cloud1.png" alt="cloud">
+        </div>
+        <div class="runway"></div>
+        <img src="./00/img/aviao-04.png" alt="" class="plane">
     </section>
-    <script>
-    </script>
 
-    <section class="del2" id="del22">
-        <div class="menu">
-            <div class="toggle-btn">
-                <i class="fa fa-share-alt" aria-hidden="true"></i>
+    <section class="del">
+        <div id="stopwatch">
+            <h1>00:00:00</h1>
+            <div class="buttons">
+                <button><i class="fa fa-stop" aria-hidden="true"></i></button>
+                <button id="play"><i class="fa fa-play" aria-hidden="true"></i></button>
+                <button><i class="fa fa-refresh" aria-hidden="true"></i></button>
             </div>
-            <ul>
-                <li style="--i:0">
-                    <a href="#f">
-                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
-                </li>
-                <li style="--i:1">
-                    <a href="#f">
-                        <i class="fa fa-whatsapp" aria-hidden="true"></i>
-                    </a>
-                </li>
-                <li style="--i:2">
-                    <a href="#f">
-                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
-                </li>
-                <li style="--i:3">
-                    <a href="#f">
-                        <i class="fa fa-dribbble" aria-hidden="true"></i>
-                    </a>
-                </li>
-                <li style="--i:4">
-                    <a href="#f">
-                        <i class="fa fa-linkedin" aria-hidden="true"></i>
-                    </a>
-                </li>
-                <li style="--i:5">
-                    <a href="#f">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                    </a>
-                </li>
-                <li style="--i:6">
-                    <a href="#f">
-                        <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                    </a>
-                </li>
-                <li style="--i:7">
-                    <a href="#f">
-                        <i class="fa fa-youtube-play" aria-hidden="true"></i>
-                    </a>
-                </li>
-            </ul>
         </div>
     </section>
     <script>
-        const menu = document.querySelector(".menu");
-        const toggleBtn = document.querySelector(".toggle-btn");
-        toggleBtn.addEventListener("click", () => {
-            menu.classList.toggle("active");
-        })
-        console.log("starts from: 346 > 375 > 307 > 348");
+        console.log("starts from: 348>177>330");
     </script>
 </body>
 </html>
