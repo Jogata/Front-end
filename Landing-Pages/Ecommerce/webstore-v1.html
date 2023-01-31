@@ -24,386 +24,125 @@
       white-space: nowrap;
       transition: all 0.3s;
     }
-
-    html {
-      /* font-family: "Dosis", sans-serif; */
-      font-size: 16px;
-      color: #1e4040;
-    }
-    
-    a {
-      color: #71d99e;
-    }
     
     img {
-      border-radius: 5px;
-      box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.2);
       max-width: 100%;
     }
-    
-    header,
-    footer {
-      background-color: #1e4040;
-      color: #71d99e;
+
+    /* .container {
+      width: 50%;
+      margin: 150px auto;
     }
-    
-    main,
-    aside {
-      padding: 20px 5%;
+
+    .move-zone {
+      position: relative;
+      width: 85%;
+      height: 985%;
+      margin: auto;
+      perspective: 800px;
     }
-    
-    h1,
-    h2,
-    h3 {
-      margin-top: 10px;
-      margin-bottom: 20px;
+
+    .layer {
+      padding: 10px;
+      transform-style: preserve-3d;
+      cursor: pointer;
     }
-    
-    p {
-      margin-bottom: 15px;
+
+    .layer-2 {
+      position: absolute;
+      top: 14% !important;
+      top: 14%;
+      left: 20%;
+      padding: 20px;
+      transform: translateZ(100px) !important;
+      transform-style: preserve-3d;
+      cursor: pointer;
     }
-    
-    /* 
-    ================================
-    CSS OUTER GRID STYLES
-    ================================
-    */
-    
-    .outer-grid {
-      height: 100vh;
+    .layer-2 img {
       overflow: hidden;
-      display: grid;
-      grid-template-rows: 70px 1fr;
-      grid-template-columns: 90px 1fr;
-      grid-template-areas:
-      "alias-header alias-header"
-      "alias-innergrid alias-innergrid";
-    }
-    
-    .outer-grid-expanded {
-      grid-template-areas:
-      "alias-header alias-header"
-      "alias-nav alias-innergrid";
-    }
-    
-    .hide-nav {
-      display: none;
-    }
-    
-    header {
-      grid-area: alias-header;
-    }
-    
-    nav {
-      grid-area: alias-nav;
-    }
-    
-    /* 
-    ================================
-    CSS INNER GRID STYLES
-    ================================
-    */
-    
-    .inner-grid {
-      overflow-y: scroll;
-      display: grid;
-      grid-area: alias-innergrid;
-      grid-template-rows: 1fr auto 60px;
-      grid-template-columns: 1fr;
-      grid-template-areas:
-      "alias-main alias-main"
-      "alias-aside alias-aside"
-      "alias-footer alias-footer";
-    }
-    
-    main {
-      grid-area: alias-main;
-    }
-    
-    aside {
-      grid-area: alias-aside;
-    }
-    
-    footer {
-      grid-area: alias-footer;
-    }
-    
-    /* 
-    ================================
-    HEADER STYLES
-    ================================
-    */
-    
-    header {
+    } */
+
+    body {
+      min-height: 100vh;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 20px;
     }
-    
-    .left-header {
-      display: flex;
-      align-items: center;
+    .container {
+      position: relative;
+      width: 75%;
+      margin: auto;
+      transform-style: preserve-3d;
+      transform: rotateY(-356deg);
+      /* perspective: 10000px; */
     }
-    
-    .fa-bars {
-      margin-right: 10px;
-    }
-    
-    .fa-bars:hover {
+
+    .layer {
+      padding: 10px;
+      transform-style: preserve-3d;
       cursor: pointer;
-      opacity: 0.8;
     }
-    
-    .right-header {
-      display: flex;
+
+    .moving-2 {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transform: translateZ(100px);
     }
-    
-    .header-link {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-left: 10px;
-    }
-    
-    .header-link i {
-      font-size: 0.8rem;
-    }
-    
-    /* 
-    ================================
-    NAV STYLES
-    ================================
-    */
-    
-    nav {
-      padding-top: 20px;
-      border-right: 1px solid rgba(0, 0, 0, 0.1);
-    }
-    
-    .nav-link {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 15px;
-    }
-    
-    .nav-link a {
-      color: #1e4040;
-      text-decoration: none;
-    }
-    
-    .nav-link:hover {
+
+    .layer-2 {
+      position: absolute;
+      top: -5%;
+      left: 23%;
+      padding: 20px;
+      transform: rotateX(0deg) rotateY(0deg) translateZ(100px);
+      transform-style: preserve-3d;
       cursor: pointer;
-      opacity: 0.8;
-    }
-    
-    /* 
-    ================================
-    SIDEBAR STYLES
-    ================================
-    */
-    
-    aside {
-      border-top: 1px solid rgba(0, 0, 0, 0.1);
-    }
-    
-    /* 
-    ================================
-    COLLAGE
-    ================================
-    */
-    
-    .collage {
-      height: 550px;
-      display: grid;
-      grid-template-rows: 1fr;
-      grid-template-columns: 1fr 40px 1fr 40px 1fr;
-      align-items: center;
-    }
-    
-    .collage * {
-      grid-row-start: 1;
-      grid-row-end: 2;
-    }
-    
-    .collage-1 {
-      grid-column-start: 1;
-      grid-column-end: 3;
-      z-index: 1;
-      transform: rotate(-3deg);
-    }
-    
-    .collage-2 {
-      grid-column-start: 2;
-      grid-column-end: 5;
-      z-index: 2;
-      box-shadow: 2px 4px 10px 2px rgba(0, 0, 0, 0.5);
-    }
-    
-    .collage-3 {
-      grid-column-start: 4;
-      grid-column-end: 6;
-      z-index: 1;
-      transform: rotate(3deg);
-    }
-    
-    /* 
-    ================================
-    BREAKPOINTS
-    ================================
-    */
-    
-    @media (min-width: 576px) {
-      nav {
-        display: block !important;
-      }
-      
-      .outer-grid {
-        grid-template-areas:
-        "alias-header alias-header"
-        "alias-nav alias-innergrid";
-      }
-      
-      .fa-bars {
-        display: none;
-      }
-    }
-    
-    @media (min-width: 992px) {
-      .inner-grid {
-        grid-template-rows: 1fr 60px;
-        grid-template-columns: minmax(auto, 700px) 1fr;
-        grid-template-areas:
-        "alias-main alias-aside"
-        "alias-footer alias-footer";
-      }
-      
-      aside {
-        border-left: 1px solid rgba(0, 0, 0, 0.1);
-      }
-    }
-    
-    @media (min-width: 1440px) {
-      .outer-grid {
-        grid-template-columns: 1fr 950px 1fr;
-        grid-template-areas:
-        "alias-header alias-header alias-header"
-        "alias-nav alias-innergrid alias-innergrid";
-      }
-      
-      header {
-        display: grid;
-        grid-template-columns: 1fr 950px 1fr;
-        grid-template-areas: "alias-lh . alias-rh";
-      }
-      
-      .left-header {
-        grid-area: alias-lh;
-        justify-self: end;
-      }
-      
-      .right-header {
-        grid-area: alias-rh;
-        justify-self: start;
-      }
-      
-      nav {
-        display: flex !important;
-        flex-direction: column;
-        align-items: flex-end;
-        padding-right: 15px;
-      }
     }
   </style>
 </head>
 <body>
-                            <h1 style="position: absolute; z-index: 10; top: 0;">Object.entries(person) - convert object to array</h1>
-
-  <div class="outer-grid">
-    <header>
-      <div class="left-header">
-        <i class="fa fa-bars" onclick="toggleNav()"></i>
-        <h2 class="logo">LOGO</h2>
+  <div class="container">
+    <div class="moving">
+      <div class="layer">
+        <img src="../Parallax/00/img/lake-house/landscape.jpg" alt="" class="margin">
       </div>
-      <div class="right-header">
-        <div class="header-link">
-          <i class="fa fa-youtube"></i>
-          <a href="#">Video</a>
-        </div>
-        <div class="header-link">
-          <i class="fa fa-paragraph"></i>
-          <a href="#">Article</a>
-        </div>
+    </div>
+    <div class="moving-2">
+      <div class="layer-2">
+        <img src="../Parallax/00/img/airplain/aviao-04.png" alt="" class="plane">
       </div>
-    </header>
-    <nav class="hide-nav">
-      <div class="nav-link">
-        <i class="fa fa-home"></i>
-        <a href="#">Home</a>
-      </div>
-      <div class="nav-link">
-        <i class="fa fa-user-circle"></i>
-        <a href="#">Profile</a>
-      </div>
-      <div class="nav-link">
-        <i class="fa fa-usd"></i>
-        <a href="#">Billing</a>
-      </div>
-    </nav>
-    <div class="inner-grid">
-      <main>
-        <article>
-          <div class="collage">
-            <img class="collage-1" src="https://picsum.photos/300/400?random=2"/>
-            <img class="collage-2" src="https://picsum.photos/300/500?random=3"/>
-            <img class="collage-3" src="https://picsum.photos/300/400?random=4"/>
-          </div>
-          <p>
-            Alright, let's throw some good 'ole Lorem Ipsum to finish this
-            article off.
-          </p>
-          <h3>What is Lorem Ipsum?</h3>
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-          </p>
-          <h3>Why do we use it?</h3>
-          <p>
-            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-          </p>
-          <h3>Where does it come from?</h3>
-          <p>
-            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-          </p>
-          <p>
-            The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
-          </p>
-          <h3>Where can I get some?</h3>
-          <p>
-            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.
-          </p>
-        </article>
-      </main>
-      <aside>
-        <h2>Sidebar + Image</h2>
-        <p>
-          Many websites have a sidebar that sits to the right of the text on
-          Desktop and below the text on mobile.
-        </p>
-        <img src="https://picsum.photos/300/300?random=1" />
-      </aside>
     </div>
   </div>
+  <!-- <h1 style="position: absolute; z-index: 10; top: 0;">Object.entries(person) - convert object to array</h1> -->
   
   <script>
-    function toggleNav() {
-      const outerGrid = document.querySelector(".outer-grid");
-      outerGrid.classList.toggle("outer-grid-expanded");
-      
-      const nav = document.querySelector("nav");
-      nav.classList.toggle("hide-nav");
-    }
-    console.log("197>408");
+    const layer = document.querySelector(".layer");
+    const layer2 = document.querySelector(".layer-2");
+    let moveForce = 50;
+    let rotateForce = 40;
+
+    console.log(layer, layer2);
+
+    window.addEventListener("mousemove", function (e) {
+      let docX = window.innerWidth;
+      let docY = window.innerHeight;
+
+      let moveX = (e.pageX - docX/2) / (docX/2) * moveForce;
+      let moveY = (e.pageY - docY/2) / (docY/2) * moveForce;
+
+      let rotateY = (e.pageX / docX * rotateForce * 2) - rotateForce;
+      let rotateX = -((e.pageY / docY * rotateForce * 2) - rotateForce);
+
+      layer.style.left = `${moveX}px`;
+      layer.style.top = `${moveY}px`;
+      layer.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+      layer2.style.right = `${moveX}px`;
+      layer2.style.bottom = `${moveY}px`;
+      layer2.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(100px)`;
+    })
+    console.log("408>42");
   </script>
 </body>
 </html>
