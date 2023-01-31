@@ -31,11 +31,7 @@ font-family: 'Playfair Display', serif;
 
         .del {
             position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             min-height: 100vh;
-            background-color: #034071;
             overflow: hidden;
         }
 
@@ -73,90 +69,99 @@ font-family: 'Playfair Display', serif;
             padding-right: 20px;
         }
 
-        /* STOPWATCH */
-        .del {
-            background-color: #edeaff;
-            /* background-image: url("./00/img/lake-house/landscape.jpg"); */
-        }
-
-        #stopwatch {
-            padding: 2rem;
-            border: 5px solid transparent;
-            border-radius: 2em;
-            box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2), 
-            -3px -3px 3px rgba(255, 255, 255, 0.8), 
-            inset 3px 3px 3px rgba(0, 0, 0, 0.2), 
-            inset -3px -3px 3px rgba(255, 255, 255, 0.8);
-        }
-
-        #display {
-            margin-bottom: 1rem;
-            color: transparent;
-            background: rgba(0, 0, 0, 0.7);
-            background-clip: border-box;
-            -webkit-background-clip: text;
-            text-shadow: 1px 2px 1px rgba(255, 255, 255, 0.8);
-            font-family: 'Dancing Script', cursive;
-            user-select: none;
+        #toast-notifications {
+            width: 100%;
+            min-height: 100vh;
+            background-color: #f7edff;
         }
 
         .buttons {
-            text-align: center;
+            margin: 3rem;
         }
         .buttons button {
-            width: 3rem;
-            height: 3rem;
-            margin: 0px 0.5rem;
+            width: 6rem;
+            margin: 5px;
+            color: #fff;
+            background-color: #333;
             border: none;
-            border-radius: 50%;
-            background-color: transparent;
-            box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2), 
-            -3px -3px 3px rgba(255, 255, 255, 0.8);
-            transition: all 0.4s ease;
+            outline: none;
             cursor: pointer;
         }
-        button:active {
-            box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.2), 
-            inset -3px -3px 3px rgba(255, 255, 255, 0.8);
-        }
-        #play {
-            width: 4rem;
-            height: 4rem;
-        }
-        i {
-            color: transparent;
-            background: rgba(0, 0, 0, 0.7);
-            background-clip: border-box;
-            -webkit-background-clip: text;
-            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
-        }
-        .fa-stop {
-            font-size: 1.2rem;
-        }
-        .fa-play {
-            font-size: 2rem;
-            transform: translateX(15%);
-            background: rgba(0, 0, 0, 0.4);
-            background-clip: border-box;
-            -webkit-background-clip: text;
-            text-shadow: 1px 2px 1px rgba(255, 255, 255, 0.8);
-        }
-        .fa-refresh {
-            font-size: 1.4rem;
+
+        #toasts {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            max-height: 85vh;
+            padding: 1em;
+            margin-left: auto;
+            display: flex;
+            align-items: flex-end;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 5;
         }
 
-        h1 em {
-            display: inline-flex;
-            justify-content: flex-end;
+        .toast {
             position: relative;
-            width: 5rem;
-            padding-right: 0.4rem;
-            overflow: hidden;
+            width: 100%;
+            min-width: 20rem;
+            margin: 1rem 1rem 1rem auto;
+            padding: 1em;
+            background-color: #fff;
+            transform: translateX(0%);
+            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+            animation: fadein 6s ease forwards;
         }
-        em::before {
-            position: relative;
-            content: "00";
-            inset: 0 0 0 0;
+        @keyframes fadein {
+            0% {
+                transform: translateX(120%);
+            }
+            20% {
+                transform: translateX(0);
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        .toast:first-child {
+            margin-top: 0;
+        }
+        .toast:last-child {
+            margin-bottom: 0;
+        }
+        .toast i {
+            margin-right: 6px;
+            color: inherit;
+        }
+        .green {
+            color: green;
+        }
+        .red {
+            color: red;
+        }
+        .orange {
+            color: orange;
+        }
+
+        .toast::after {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            content: "";
+            width: 100%;
+            height: 3px;
+            background-color: currentColor;
+            animation: fadeout 4s linear forwards;
+            animation-delay: 1s;
+        }
+        @keyframes fadeout {
+            100% {
+                width: 0;
+            }
         }
     </style>
 </head>
@@ -260,61 +265,31 @@ font-family: 'Playfair Display', serif;
     </div>
 
     <section class="del">
-        <div id="stopwatch">
-            <h1 id="display">00:00:00:<em>9</em></h1>
+        <section id="toast-notifications">
             <div class="buttons">
-                <button onclick="pauseStopwatch()"><i class="fa fa-stop" aria-hidden="true"></i></button>
-                <button id="play" onclick="startStopwatch()"><i class="fa fa-play" aria-hidden="true"></i></button>
-                <button onclick="resetStopwatch()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+                <button onclick="creatToast(success, 'green')">success</button>
+                <button onclick="creatToast(error, 'red')">error</button>
+                <button onclick="creatToast(invalid, 'orange')">invalid</button>
             </div>
-        </div>
+            <div id="toasts"></div>
+        </section>
     </section>
     <script>
-        let display = document.getElementById("display");
-        let seconds = 0;
-        let minutes = 0;
-        let hours = 0;
-        let id = null;
+        const toasts = document.getElementById("toasts");
+        const success = '<i class="fa fa-check-circle" aria-hidden="true"></i> Successfully submitted.';
+        const error = '<i class="fa fa-times-circle" aria-hidden="true"></i> Please fix the error!';
+        const invalid = '<i class="fa fa-exclamation-circle" aria-hidden="true"></i> Invalid input. Try again.';
 
-        function stopwatch() {
-            seconds++;
-            if (seconds == 60) {
-                seconds = 0;
-                minutes++;
-                if (minutes == 60) {
-                    minutes = 0;
-                    hours++;
-                }
-            }
+        function creatToast(message, color) {
+            let toast = document.createElement("span");
+            toast.classList.add("toast", color);
+            toast.innerHTML = message;
+            toasts.appendChild(toast);
+            setTimeout(() => {
+                toast.remove();
+            }, 6000);
         }
-
-        function startStopwatch() {
-            id = setInterval(() => {
-                stopwatch();
-                displayTime();
-            }, 1000);
-        }
-
-        function pauseStopwatch() {
-            clearInterval(id);
-        }
-
-        function resetStopwatch() {
-            clearInterval(id);
-            display.textContent = "00:00:00";
-            seconds = 0;
-            minutes = 0;
-            hours = 0;
-        }
-
-        function displayTime() {
-            let h = hours < 10 ? `0${hours}` : hours;
-            let m = minutes < 10 ? `0${minutes}` : minutes;
-            let s = seconds < 10 ? `0${seconds}` : seconds;
-            display.textContent = `${h}:${m}:${s}`;
-        }
-
-        console.log("starts from: 332>230>320");
+        console.log("starts from: 320>180>295");
     </script>
 </body>
 </html>
