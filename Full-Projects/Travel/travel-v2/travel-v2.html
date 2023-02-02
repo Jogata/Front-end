@@ -8,26 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/styles-travel-v2.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Kaushan+Script&family=Playfair+Display&display=swap');
-
-/* 
-font-family: 'Abril Fatface', cursive;
-font-family: 'Courgette', cursive;
-font-family: 'Dancing Script', cursive;
-font-family: 'Great Vibes', cursive;
-font-family: 'Josefin Sans', sans-serif;
-font-family: 'Limelight', cursive;
-font-family: 'Lobster', cursive;
-font-family: 'Montserrat', sans-serif;
-font-family: 'Oleo Script Swash Caps', cursive;
-font-family: 'Poppins', sans-serif;
-font-family: 'Raleway', sans-serif;
-font-family: 'Kaushan Script', cursive;
-font-family: 'Fraunces', serif;
-font-family: 'Playfair Display', serif;
-*/
-
         * {
             margin: 0;
             padding: 0;
@@ -35,131 +15,113 @@ font-family: 'Playfair Display', serif;
         *, *::before, *::after {
             box-sizing: border-box;
         }
-
-        body {
-            color: #fff;
-            background-color: #000;
-
-            --img-offset: -50px;
-            --text-offset: -120px;
-        }
-
-        .wrapper {
-            position: relative;
-        }
-
-        h1 {
-            position: absolute;
-            top: 35vh;
-            width: 100%;
-            font-size: 10vw;
-            font-family: 'Kaushan Script', cursive;
-            text-transform: uppercase;
-            text-align: center;
-        }
-
-        .landscape {
-            width: 100%;
-        }
-        .bush, .house {
-            position: absolute;
-            bottom: var(--img-offset);
-        }
-        .bush {
-            left: 0;
-        }
-        .house {
-            width: 40%;
-            right: 0;
-        }
-
-        .bottom {
-            position: relative;
-            display: flex;
-            background-color: rgba(0,0,0,0.5);
-            box-shadow: 0px -1px 46px 15px #000;
-        }
-
-        .bottom p {
-            padding: 20px;
-        }
-
-        .fog-container {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .fog-img {
-            position: absolute;
-            width: 300vw;
-            height: 100%;
-            z-index: 2;
-        }
-        .fog-img-first {
-            background-image: url("./00/img/fog-1.png");
-            background-repeat: repeat-x;
-            background-position: center;
-            background-size: contain;
-            animation: marquee 60s linear infinite alternate;
-        }
-        .fog-img-second {
-            background-image: url("./00/img/fog-2.png");
-            background-repeat: repeat-x;
-            background-position: center;
-            background-size: contain;
-            animation: marquee 30s linear infinite alternate;
-        }
-        @keyframes marquee {
-            0% {
-                transform: translate3d(0, 0, 0);
-            }
-            100% {
-                transform: translate3d(-200vw, 0, 0);
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="wrapper">
-        <div class="fog-container">
-            <div class="fog-img fog-img-first"></div>
-            <div class="fog-img fog-img-second"></div>
-        </div>
-        <h1>nature</h1>
-        <img src="./00/img/landscape.jpg" alt="Lake" class="landscape">
-        <img src="./00/img/bush.png" class="bush">
-        <img src="./00/img/house.png" alt="house" class="house">
-    </div>
-    <div class="bottom">
-        <p>The bluest and clearest of the lakes near Salzburg, you can jump into Attersee and enjoy a wonderful dip. Surrounded by the mountains there are numerous walks and hikes, pristine farms and countryside. Seemingly off the tourist route, there are few of the tour groups found at other lakes in the region. The many public bathing areas, such as the one at Unterach am Attersee, provide food, watersports, shade, slides and shallow areas for children.</p>
-        <p>It's hard to imagine getting closer to nature than sleeping on a lake. We enjoyed a weekend staying in a basic but completely adequate camping raft for two. We were provided with a canoe, which is the only way to reach your bed for the night, and some basic camping equipment. Marnemoende lake is beautiful and is bursting with wildlife. There is a village about an hour away by foot, but otherwise there is just peace and quiet and the most stunning sunrises to wake up to.</p>
-        <p>Snowdonia is not just a land of mountains, but of wonderful lakes. Llyn Idwal is a beautiful, isolated lake backed by the cliffs rising above to the Devil's Kitchen, a high fissure in the rocks above. Parking at a car park at Ogwen Cottage on the A5, between Snowdon and Capel Curig, follow a lower footpath around the lake and admire the rugged landscape above. In good weather there is a challenging walk up to the Devil's Kitchen, following a rocky path. You can then scramble up to Llyn y Cwm, a small tan on the top, which is more satisfying for the effort and view than the lake, to then return on a knee-aching descent with stunning views.</p>
-    </div>
-
-    <script>
-        const imgOffset = -50;
-        const speed = 4; // higher nimber - slower parallax
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const text = document.querySelector("h1");
-            const bush = document.querySelector(".bush");
-            const house = document.querySelector(".house");
-
-            window.addEventListener("scroll", () => {
-                const newImgOffset = imgOffset + window.scrollY / speed;
-                if (newImgOffset < 0) {
-                    house.style.bottom = `${newImgOffset}px`;
-                    bush.style.bottom = `${newImgOffset}px`;
-                }
-
-                const newTextOffset = window.scrollY / 4;
-                console.log(newTextOffset);
-                    text.style.transform = `translateY(-${newTextOffset}px)`;
-            })
-        })
+    <main class="testimonial-grid">
+        <article class="testimonial grid-col-span-2 flow bg-primary-400 quote text-neutral-100">
+          <div class="flex">
+            <div>
+              <img  src="./00/img/pic-1.png" alt="daniel clifford">
+            </div>
+            <div>
+              <h2 class="name">Daniel Clifford</h2>
+              <p class="position">Verified Graduate</p>
+            </div>
+          </div>
+          <p>
+            I received a job offer mid-course, and the subjects I learned were current, if not more so,
+            in the company I joined. I honestly feel I got every penny’s worth.
+          </p>
+          <p>
+            “ I was an EMT for many years before I joined the bootcamp. I’ve been looking to make a
+            transition and have heard some people who had an amazing experience here. I signed up
+            for the free intro course and found it incredibly fun! I enrolled shortly thereafter.
+            The next 12 weeks was the best - and most grueling - time of my life. Since completing
+            the course, I’ve successfully switched careers, working as a Software Engineer at a VR startup. ”
+          </p>
+        </article>
+        <article class="testimonial flow bg-secondary-400 text-neutral-100">
+          <div class="flex">
+            <div>
+              <img src="./00/img/pic-3.png" alt="Jonathan Walters">
+            </div>
+            <div>
+              <h2 class="name">Jonathan Walters</h2>
+              <p class="position">Verified Graduate</p>
+            </div>
+          </div>
+          <p>
+            The team was very supportive and kept me motivated
+          </p>
+          <p>
+            “ I started as a total newbie with virtually no coding skills. I now work as a mobile engineer
+            for a big company. This was one of the best investments I’ve made in myself. ”
+          </p>
+        </article>
+        <article class="testimonial flow bg-neutral-100 text-secondary-400">
+          <div class="flex">
+            <div>
+              <img src="./00/img/pic-2.png" alt="Jeanette Harmon">
+            </div>
+            <div>
+              <h2 class="name">Jeanette Harmon</h2>
+              <p class="position">Verified Graduate</p>
+            </div>
+          </div>
+          <p>
+            An overall wonderful and rewarding experience</p>
+          <p>
+            “ Thank you for the wonderful experience! I now have a job I really enjoy, and make a good living
+            while doing something I love. ”
+          </p>
+        </article>
+        <article class="testimonial grid-col-span-2 flow bg-secondary-500 text-neutral-100">
+          <div class="flex">
+            <div>
+              <img class="border-primary-400" src="./00/img/pic-5.png" alt="Patrick Abrams">
+            </div>
+            <div>
+              <h2 class="name">Patrick Abrams</h2>
+              <p class="position">Verified Graduate</p>
+            </div>
+          </div>
+          <p>
+            Awesome teaching support from TAs who did the bootcamp themselves. Getting guidance from them and
+            learning from their experiences was easy.
+          </p>
+          <p>
+            “ The staff seem genuinely concerned about my progress which I find really refreshing. The program
+            gave me the confidence necessary to be able to go out in the world and present myself as a capable
+            junior developer. The standard is above the rest. You will get the personal attention you need from
+            an incredible community of smart and amazing people. ”
+          </p>
+        </article>
+        <article class="testimonial flow bg-neutral-100 text-secondary-400">
+          <div class="flex">
+            <div>
+              <img src="./00/img/pic-4.png" alt="Kira Whittle">
+            </div>
+            <div>
+              <h2 class="name">Kira Whittle</h2>
+              <p class="position">Verified Graduate</p>
+            </div>
+          </div>
+          <p>
+            Such a life-changing experience. Highly recommended!
+          </p>
+          <p>
+            “ Before joining the bootcamp, I’ve never written a line of code. I needed some structure from
+            professionals who can help me learn programming step by step. I was encouraged to enroll by a former
+            student of theirs who can only say wonderful things about the program. The entire curriculum and staff
+            did not disappoint. They were very hands-on and I never had to wait long for assistance. The agile team
+            project, in particular, was outstanding. It took my learning to the next level in a way that no tutorial
+            could ever have. In fact, I’ve often referred to it during interviews as an example of my developent
+            experience. It certainly helped me land a job as a full-stack developer after receiving multiple offers.
+            100% recommend! ”
+          </p>
+        </article>
+      </main>
 
     </script>
     <!-- observer pattern -->
@@ -333,9 +295,25 @@ font-family: 'Playfair Display', serif;
     <section id="delete3"></section>
     <section id="delete4"></section>
 
+    <script>
+      function damage(d, hp) {
+        return new Promise(resolve => {
+          const newHP = hp - d;
+          setTimeout(() => {
+            resolve(`The player with ${hp} HP suffers ${d} DP and now has ${newHP} HP.`)
+          }, 1000);
+        })
+      }
+
+      damage(21, 50).then(result => {
+        console.log(result)
+      }
+      );
+    </script>
+
     <script src="./js/script_travel_v2.js">
-        console.log(190>340);
-        console.log(140);
+        console.log(200>320);
+        console.log(140>311);
     </script>
 </body>
 </html>
