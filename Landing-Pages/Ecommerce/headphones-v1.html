@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Headphones v.1</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./css/styles_headphones-v1.css">
+</head>
+<body>
+  <section id="headphones-v1">
+    <header>
+      <a class="logo" href="#top">
+        <div class="logo-ring"></div>
+        <div class="logo-ring"></div>
+        <div class="logo-ring"></div>
+        <div class="logo-ring"></div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#1" class="active">overview</a></li>
+          <li><a href="#2">tech specs</a></li>
+          <li><a href="#3">reviews</a></li>
+          <li><a href="#4">contact us</a></li>
+        </ul>
+      </nav>
+      <div class="header-icons">
+        <button id="cart">
+          <svg aria-hidden="true" class="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+            <path stroke="currentColor" stroke-width="1.5" d="M8.25 8.25V6a2.25 2.25 0 012.25-2.25h3a2.25 2.25 0 110 4.5H3.75v8.25a3.75 3.75 0 003.75 3.75h9a3.75 3.75 0 003.75-3.75V8.25H17.5"></path>
+          </svg>
+        </button>
+        <button id="menu-btn">
+          <svg aria-hidden="true" class="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+            <path stroke="currentColor" stroke-width="1.5" d="M21 5.25H3M21 12H3m18 6.75H3"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <main>
+      <div class="sticks-container">
+        <div class="sticks">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+      </div>
+      <ul class="thumbs">
+        <li class="thumb" onclick="slider('./img/headphones/v1/product1.png')">
+          <img src="./img/headphones/v1/product1.png" alt="Headphones">
+        </li>
+        <li class="thumb thumb-2" onclick="slider('./img/headphones/v1/product2.png')">
+          <img src="./img/headphones/v1/product2.png" alt="Headphones">
+        </li>
+        <li class="thumb thumb-3" onclick="slider('./img/headphones/v1/product3.png')">
+          <img src="./img/headphones/v1/product3.png" alt="Headphones">
+        </li>
+      </ul>
+      <div class="product-img-box">
+        <img src="./img/headphones/v1/product1.png" alt="Headphones" id="product-img">
+      </div>
+      <div class="product-info">
+        <h1>wireless <span>headphones</span></h1>
+        <h2>the smarter way to listen</h2>
+        <h3>$199.<span>00</span></h3>
+        <a href="#buy" class="btn">buy now</a>
+      </div>
+    </main>
+
+    <a href="#down" class="btn bottom">scroll down
+      <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+    </a>
+  </section>
+
+  <script>
+    function slider(src) {
+      document.querySelector("#product-img").src = src;
+    }
+  </script>
+</body>
+</html>
