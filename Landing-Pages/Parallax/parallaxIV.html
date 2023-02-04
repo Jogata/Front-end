@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parallax Scrolling Effect</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/styles_parallaxIV.css">
+    <!-- <link rel="stylesheet" href="./css/styles_parallaxIV.css"> -->
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Herr+Von+Muellerhoff&family=Kaushan+Script&family=Playfair+Display&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Herr+Von+Muellerhoff&family=Kaushan+Script&family=Playfair+Display:wght@400;700&display=swap');
 /* 
 font-family: 'Abril Fatface', cursive;
 font-family: 'Courgette', cursive;
@@ -26,7 +26,7 @@ font-family: 'Raleway', sans-serif;
 font-family: 'Kaushan Script', cursive;
 font-family: 'Fraunces', serif;
 font-family: 'Herr Von Muellerhoff', cursive;
-font-family: 'Playfair Display', serif;
+font-family: 'Playfair Display', serif;     //400,700
 */
 
         .del {
@@ -69,100 +69,112 @@ font-family: 'Playfair Display', serif;
             padding-right: 20px;
         }
 
-        #toast-notifications {
-            width: 100%;
-            min-height: 100vh;
-            background-color: #f7edff;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .del {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .quote-box {
+            width: 44rem;
+            margin: 2rem auto;
+            padding: 5%;
+            text-align: center;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.55);
+        }
+
+        h2 {
+            position: relative;
+            margin-bottom: 2.5rem;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        h2::after {
+            position: absolute;
+            bottom: -10px;
+            left: 44%;
+            content: "";
+            width: 12%;
+            height: 3px;
+            border-radius: 3px;
+            background-color: #177ce5;
+        }
+
+        blockquote {
+            min-height: 7rem;
+            font-size: 1.6rem;
+        }
+
+        blockquote::before, 
+        blockquote::after {
+            content: '"';
+        }
+
+        #author {
+            position: relative;
+            display: block;
+            width: min-content;
+            margin-top: 0.6rem;
+            margin-left: auto;
+            white-space: nowrap;
+        }
+        #author::before {
+            position: absolute;
+            top: 50%;
+            left: -45px;
+            content: "";
+            width: 30px;
+            height: 2px;
+            background-color: #177ce5;
         }
 
         .buttons {
-            margin: 3rem;
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
         }
-        .buttons button {
-            width: 6rem;
-            margin: 5px;
+
+        button {
+            min-width: 9rem;
+            margin: 0.4rem;
+            padding: 0.8em 2em;
             color: #fff;
-            background-color: #333;
-            border: none;
-            outline: none;
+            font-family: inherit;
+            text-transform: capitalize;
+            border: 1px solid #177ce5;
+            border-radius: 2em;
+            background-color: #177ce5;
+            transition: all 0.4s;
             cursor: pointer;
         }
+        button:first-child {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+        button:hover {
+            transform: scale(1.1);
+        }
 
-        #toasts {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            max-height: 85vh;
-            padding: 1em;
-            margin-left: auto;
+        .twitter {
             display: flex;
-            align-items: flex-end;
-            flex-direction: column;
-            overflow: hidden;
-            z-index: 5;
-        }
-
-        .toast {
-            position: relative;
-            width: 100%;
-            min-width: 20rem;
-            margin: 1rem 1rem 1rem auto;
-            padding: 1em;
+            align-items: center;
+            justify-content: center;
+            column-gap: 10%;
+            color: #333;
             background-color: #fff;
-            transform: translateX(0%);
-            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
-            animation: fadein 6s ease forwards;
         }
-        @keyframes fadein {
-            0% {
-                transform: translateX(120%);
-            }
-            20% {
-                transform: translateX(0);
-            }
-            80% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-            }
-        }
-        .toast:first-child {
-            margin-top: 0;
-        }
-        .toast:last-child {
-            margin-bottom: 0;
-        }
-        .toast i {
-            margin-right: 6px;
-            color: inherit;
-        }
-        .green {
-            color: green;
-        }
-        .red {
-            color: red;
-        }
-        .orange {
-            color: orange;
+        .fa-twitter {
+            color: #177ce5;
+            font-size: 1.4rem;
         }
 
-        .toast::after {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            content: "";
-            width: 100%;
-            height: 3px;
-            background-color: currentColor;
-            animation: fadeout 4s linear forwards;
-            animation-delay: 1s;
-        }
-        @keyframes fadeout {
-            100% {
-                width: 0;
-            }
-        }
+        header {display: none;}
     </style>
 </head>
 <body>
@@ -264,32 +276,54 @@ font-family: 'Playfair Display', serif;
         </div>
     </div>
 
-    <section class="del">
-        <section id="toast-notifications">
+    <section class="del" id="del">
+        <div class="quote-box">
+            <h2>Quote of the day</h2>
+            <blockquote>Loading...</blockquote>
+            <span id="author">Loading...</span>
             <div class="buttons">
-                <button onclick="creatToast(success, 'green')">success</button>
-                <button onclick="creatToast(error, 'red')">error</button>
-                <button onclick="creatToast(invalid, 'orange')">invalid</button>
+                <button>new quote</button>
+                <button class="twitter">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                    tweet</button>
             </div>
-            <div id="toasts"></div>
-        </section>
+        </div>
+        <em style="display: block;">Daily Quote API:</em>
+        <a href="https://github.com/lukePeavey/quotable" style="color: #333;">https://github.com/lukePeavey/quotable</a>
+        <em style="display: block;">Share on Twitter:</em>
+        <a href="https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/overview" style="color: #333;">
+            https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/overview
+        </a>
     </section>
     <script>
-        const toasts = document.getElementById("toasts");
-        const success = '<i class="fa fa-check-circle" aria-hidden="true"></i> Successfully submitted.';
-        const error = '<i class="fa fa-times-circle" aria-hidden="true"></i> Please fix the error!';
-        const invalid = '<i class="fa fa-exclamation-circle" aria-hidden="true"></i> Invalid input. Try again.';
+        const quoteField = document.querySelector("blockquote");
+        const author = document.querySelector("#author");
 
-        function creatToast(message, color) {
-            let toast = document.createElement("span");
-            toast.classList.add("toast", color);
-            toast.innerHTML = message;
-            toasts.appendChild(toast);
-            setTimeout(() => {
-                toast.remove();
-            }, 6000);
+        const quoteAPI_URL = "https://api.quotable.io/random";
+
+        async function getQuote(url) {
+            const response = await fetch(url);
+            const quoteData = await response.json();
+            quoteField.textContent = quoteData.content;
+            author.textContent = quoteData.author;
         }
-        console.log("starts from: 320>180>295");
+
+        function tweet(quote) {
+            window.open(`https://twitter.com/intent/tweet?text=${quote}`);
+        }
+
+        document.querySelector(".twitter").addEventListener("click", () => {
+            tweet(quoteField.textContent);
+        })
+
+        // Get the first quote
+        getQuote(quoteAPI_URL);
+
+        document.querySelector("button").addEventListener("click", () => {
+            getQuote(quoteAPI_URL);
+        });
+
+        console.log("starts from: 295>177>329");
     </script>
 </body>
 </html>
