@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- <link rel="stylesheet" href="./css/styles_webstore-v1.css"> -->
   <style>
-    * {
+    /* * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -28,201 +28,161 @@
     img {
       width: 100%;
       max-width: 100%;
-    }
+    } */
 
-    #main {
-      position: absolute;
-      width: 100%;
-      height: 100vh;
-      background-color: #212228;
-      overflow: hidden;
-    }
-    .gridline {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 10%;
-      margin: 0 0 0 -5%;
-      border-right: 1px solid rgb(37, 38, 44);
-      transform-origin: 100% 50%;
-    }
-    .gridline:nth-child(2) {
-      right: 10%;
-      left: 10%;
-    }
-    .gridline:nth-child(3) {
-      right: 20%;
-      left: 20%;
-    }
-    .gridline:nth-child(4) {
-      right: 30%;
-      left: 30%;
-    }
-    .gridline:nth-child(5) {
-      right: 40%;
-      left: 40%;
-    }
-    .gridline:nth-child(6) {
-      right: 50%;
-      left: 50%;
-    }
-    .gridline:nth-child(7) {
-      right: 60%;
-      left: 60%;
-    }
-    .gridline:nth-child(8) {
-      right: 70%;
-      left: 70%;
-    }
-    .gridline:nth-child(9) {
-      right: 80%;
-      left: 80%;
-    }
-    .gridline:nth-child(10) {
-      right: 90%;
-      left: 90%;
-    }
-    .gridline:nth-child(11) {
-      right: 100%;
-      left: 100%;
-    }
 
-    #bgtext{
+    @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Kaushan+Script&family=Playfair+Display&display=swap');
+/* 
+font-family: 'Playfair Display', serif;
+*/
+    /* =============== VARIABLES CSS =============== */
+    :root {
+      /* ========== Colors ========== */
+      --hue-color: 240;
+      
+      --first-color: hsl(var(--hue-color), 53%, 49%);
+      --title-color: hsl(var(--hue-color), 53%, 15%);
+      --text-color: hsl(var(--hue-color), 12%, 35%);
+      --text-color-light: hsl(var(--hue-color), 12%, 65%);
+      --white-color: #FFF;
+      --body-color: hsl(var(--hue-color), 24%, 94%);
+      
+      /* ========== Font and typography ========== */
+      --body-font: 'Playfair Display', serif;;
+      --biggest-font-size: 3rem;
+      --small-font-size: .813rem;
+      --smaller-font-size: .75rem;
+      --tiny-font-size: .625rem;
+      
+      /* ========== Font weight ========== */
+      --font-medium: 500;
+      
+      /* ========== Margenes Bottom ========== */
+      --mb-0-25: .25rem;
+      --mb-1: 1rem;
+      --mb-1-5: 1.5rem;
+      --mb-2-5: 2.5rem;
+      
+      /* ========== z index ========== */
+      --z-normal: 1;
+      --z-tooltip: 10;
+    }
+    
+    @media screen and (min-width: 968px) {
+      :root {
+        --biggest-font-size: 3.5rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+        --tiny-font-size: .75rem;
+      }
+    }
+    
+    /* ========== Variables Dark theme ========== */
+    body.dark-theme {
+      --title-color: hsl(var(--hue-color), 12%, 95%);
+      --text-color: hsl(var(--hue-color), 12%, 75%);
+      --body-color: hsl(var(--hue-color), 10%, 16%);
+    }
+    
+    /* ========== Button Dark/Light ========== */
+    .clock__theme {
       position: absolute;
-      top: 50%;
-      left: 10%;
-      transform: translate(0%, -50%);
-      color: transparent;
-      -webkit-text-stroke: 1px #444;
-      font-size: 18rem;
-      font-weight: bold;
-      text-transform: capitalize;
-      letter-spacing: 0.2em;
-      line-height: 300px;
-    }
-
-    #logo {
-      position: relative;
-      inset: 3% auto auto 3%;
-      color: #fff;
-      font-size: 2rem;
-      text-transform: capitalize;
-    }
-
-    #menu {
-      position: absolute;
-      top: 0;
-      width: 100vw;
-      height: 100%;
-      z-index: 3;
-    }
-    #menu ul {
-      width: 100vw;
-      height: 100%;
+      top: -1rem;
+      right: -1rem;
       display: flex;
-      align-items: end;
-      flex-direction: column;
-      transform: rotate(180deg);
-      row-gap: 2rem;
+      padding: .25rem;
+      border-radius: 50%;
+      box-shadow: inset -1px -1px 1px hsla(var(--hue-color), 0%, 100%, 1), 
+      inset 1px 1px 1px hsla(var(--hue-color), 30%, 86%, 1);
+      color: var(--text-color);
+      cursor: pointer;
+      transition: .4s;    /* For dark mode animation */
     }
-    #menu li:first-child {
-      margin-top: auto;
+    
+    /* ========== Box shadow Dark theme ========== */
+    .dark-theme .clock__circle {
+      box-shadow: 6px 6px 16px hsla(var(--hue-color), 8%, 12%, 1), 
+      -6px -6px 16px hsla(var(--hue-color), 8%, 20%, 1), 
+      inset -6px -6px 16px hsla(var(--hue-color), 8%, 20%, 1), 
+      inset 6px 6px 12px hsla(var(--hue-color), 8%, 12%, 1);
     }
-    #menu li:last-child {
-      margin-bottom: auto;
+    
+    .dark-theme .clock__theme {
+      box-shadow: inset -1px -1px 1px hsla(var(--hue-color), 8%, 20%, 1), 
+      inset 1px 1px 1px hsla(var(--hue-color), 8%, 12%, 1);
     }
-    #menu a {
-      padding: 1em 0.5em;
-      color: #fff;
-      writing-mode: sideways-rl;
+    
+    /* =============== BASE =============== */
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
     }
-
-    #imgs img {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      height: 100%;
-      object-fit: cover;
-      transform: translate(-50%, -50%);
-      z-index: 2;
+    
+    body {
+      font-family: var(--body-font);
+      background-color: var(--body-color);
+      color: var(--text-color);
+      transition: .4s;    /* For dark mode animation */
     }
-    #imgs #img2, 
-    #imgs #img4 {
-      transform: translate(-50%, -40%);
+    
+    a {
+      text-decoration: none;
     }
-    #imgs #img1 {
-      width: 88%;
-      object-fit: cover;
-      object-position: top left;
+    
+    /* =============== REUSABLE CSS CLASSES =============== */
+    .container {
+      max-width: 968px;
+      margin-left: var(--mb-1);
+      margin-right: var(--mb-1);
     }
-    #imgs #img3 {
-      width: 30%;
-      object-fit: contain;
-      z-index: 1;
+    
+    .grid {
+      display: grid;
     }
-    #imgs #img4 {
-      width: 90%;
-    }
+    
 
   </style>
 </head>
 <body>
-  <div id="main">
-    <!-- <div id="grid">
-      <div class="gridline"></div>
-      <div class="gridline"></div>
-      <div class="gridline"></div>
-      <div class="gridline"></div>
-      <div class="gridline"></div>
-      <div class="gridline"></div>
-      <div class="gridline"></div>
-      <div class="gridline"></div>
-      <div class="gridline"></div>
-      <div class="gridline"></div>
-      <div class="gridline"></div>
-    </div> -->
-    <div id="bgtext">
-      parallax
+  <section class="clock container">
+    <div class="clock__container grid">
+      <div class="clock__content grid">
+        <div class="clock__circle">
+          <span class="clock__twelve"></span>
+          <span class="clock__three"></span>
+          <span class="clock__six"></span>
+          <span class="clock__nine"></span>
+          
+          <div class="clock__rounder"></div>
+          <div class="clock__hour" id="clock-hour"></div>
+          <div class="clock__minutes" id="clock-minutes"></div>
+          <div class="clock__seconds" id="clock-seconds"></div>
+          
+          <!-- Dark/light button -->
+          <div class="clock__theme">
+            <i class="fa fa-moon-o" id="theme-button" aria-hidden="true"></i>
+          </div>
+        </div>
+        
+        <div>
+          <div class="clock__text">
+            <div class="clock__text-hour" id="text-hour"></div>
+            <div class="clock__text-minutes" id="text-minutes"></div>
+            <div class="clock__text-ampm" id="text-ampm"></div>
+          </div>
+          
+          <div class="clock__date">
+            <!-- <span id="date-day-week"></span> -->
+            <span id="date-day"></span>
+            <span id="date-month"></span>
+            <span id="date-year"></span>
+          </div>
+        </div>
+      </div>
     </div>
-    <div id="logo">
-      logo
-    </div>
-    <div id="menu">
-      <ul>
-        <li><a href="#h">home</a></li>
-        <li><a href="#a">about</a></li>
-        <li><a href="#p">project</a></li>
-        <li><a href="#c">contact</a></li>
-      </ul>
-    </div>
-    <div id="imgs">
-      <img src="./img/mouse-move/1.png" alt="" id="img1">
-      <img src="./img/mouse-move/2.png" alt="" id="img2">
-      <img src="./img/mouse-move/3.png" alt="" id="img3">
-      <img src="./img/mouse-move/4.png" alt="" id="img4">
-    </div>
-  </div>
-  <h1 style="position: absolute; z-index: 10; bottom: 0;">Object.entries(person) - convert object to array</h1>
-  
-  <script>
-    const layer = document.querySelector("#main");
-    const image2 = document.querySelector("#img2");
-    const image4 = document.querySelector("#img4");
+  </section>
 
-    layer.addEventListener("mousemove", function (e) {
-      const valueX = (e.pageX * -1 / 20);
-      const valueY = (e.pageY * -1 / 20);
-      
-      image2.style.transform = `translate(-50%, -40%) translate3d(${valueX}px, ${valueY}px, 0)`;
-    })
-    layer.addEventListener("mousemove", function (e) {
-      const valueX = (e.pageX * -1 / 50);
-      const valueY = (e.pageY * -1 / 50);
-      
-      image4.style.transform = `translate(-50%, -40%) translate3d(${valueX}px, ${valueY}px, 0)`;
-    })
 
-    console.log("148>40>230");
-  </script>
 </body>
 </html>
