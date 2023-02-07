@@ -1,0 +1,96 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.bcg {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+.bcg img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.sky {
+    z-index: 1;
+}
+.city {
+    z-index: 3;
+}
+
+h1 {
+    --shadow: max(1px, 0.1vw);
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    color: transparent;
+    font-size: max(4rem, 10vw);
+    text-transform: capitalize;
+    -webkit-text-stroke: max(2px, 0.2vw) ivory;
+    filter: drop-shadow(var(--shadow) var(--shadow) var(--shadow) #000);
+    z-index: 2;
+}
+
+.bottom {
+    padding: max(5rem, 5%) 5%;
+    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    align-items: center;
+    background-color: #151515;
+    position: relative;
+    z-index: 4;
+}
+.bottom::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to top, #151515, transparent);
+    transform: translateY(-99%);
+}
+
+h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    text-transform: capitalize;
+}
+p {
+    margin: 0.6rem 0;
+}
+
+.bottom img {
+    width: 100%;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.5rem #fff;
+}
+
+.right, .left {
+    color: #fff;
+}
+.left {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    max-width: 50rem;
+    margin-left: auto;
+    z-index: 2;
+}
+.right {
+    grid-column: 2 / 4;
+    grid-row: 1 / 2;
+}
+
+@media screen and (max-width: 65rem) {
+    .bottom {
+        display: block;
+    }
+    .left {
+        margin: 0 0 5rem;
+    }
+}
