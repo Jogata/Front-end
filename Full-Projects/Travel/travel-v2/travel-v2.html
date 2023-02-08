@@ -6,26 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel v.2</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="./css/styles-travel-v2.css"> -->
+    <link rel="stylesheet" href="./css/styles-travel-v2.css">
     <style>
-        body {
-            text-align: center;
+        #speech-synthesis {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
         }
         h1 {
             font-size: 3rem;
-        }
-        h1::first-letter {
             text-transform: uppercase;
         }
-        label::first-letter {
-            text-transform: uppercase;
+        h2 {
+            text-transform: capitalize;
         }
-
+        label {
+            text-transform: capitalize;
+        }
         button {
             display: inline-block;
-            margin: 2rem;
-            padding: 0.5em 1em;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            padding: 0.4em 2em;
             text-transform: uppercase;
+            border: 1px solid;
+            border-radius: 1em;
+        }
+
+        #delete3 {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        h1 {
+            max-width: 40%;
+            text-align: center;
+            text-transform: initial;
+            margin-bottom: 2rem;
         }
     </style>
 </head>
@@ -199,123 +220,113 @@
         console.log(user);
     </script>
 
-    <section id="delete2">
-        <h1>what is today?</h1>
-
-        <form>
-            <label for="day">Day of the week: </label>
-            <input type="text" name="button" id="day" placeholder="Day of the week">
-        </form>
-
-        <button id="check" type="button" name="button">check</button>
-
+    <section id="speech-synthesis" style="display: none;">
+        <h1>display the name</h1>
+        <label for="fn">first name</label>
+        <input type="text" name="fn" id="fn">
+        <label for="fmn">first middle name</label>
+        <input type="text" name="fmn" id="fmn">
+        <label for="lmn">last middle name</label>
+        <input type="text" name="lmn" id="lmn">
+        <label for="ln">last name</label>
+        <input type="text" name="ln" id="ln">
+        <button>click</button>
         <h2 id="result"></h2>
 
         <script>
-            const button = document.querySelector("#check");
-            const input = document.querySelector("input");
-            const h2 = document.querySelector("#result");
+            const synth = window.speechSynthesis;
 
-            button.addEventListener("click", () => {
-                const day = input.value.toLowerCase();
-                let result = null;
+            const FName = document.getElementById("fn");
+            const FMName = document.getElementById("fmn");
+            const LMName = document.getElementById("lmn");
+            const LName = document.getElementById("ln");
+            const btn = document.querySelector("button");
+            const displayPanel = document.getElementById("result");
 
-                if (day === "monday" || day === "tuesday" || day === "thursday" || day === "friday") {
-                    result = "Class";
-                } else if (day === "saturday" || day === "sunday") {
-                    result = "Weekend";
-                } else if (day === "wednesday") {
-                    result = "Just boring day";
-                } else {
-                    result = `Doesn't exist day of the week called ${day}`;
-                }
+            btn.addEventListener("click", displayName);
 
-                h2.textContent = result;
-            })
-
-            async function start() {
-                const apiKey = generateKey();
-                const items = await getItemData(apiKey)
-                logItems(items);
+            function displayName() {
+                const name = `${FName.value} ${FMName.value} ${LName.value} ${LMName.value}`;
+                displayPanel.textContent = name;
+                const yellThis = new SpeechSynthesisUtterance(name);
+                synth.speak(yellThis);
             }
-
-            start();
-
-// don't touch below this line
-
-async function getItemData(apiKey) {
-  const response = await fetch('https://api.boot.dev/v1/courses_rest_api/learn-http/items', {
-    method: 'GET',
-    mode: 'cors',
-    headers: {
-      'X-API-Key': apiKey,
-      'Content-Type': 'application/json'
-    }
-  })
-  return response.json()
-}
-
-function generateKey() {
-  const characters = 'ABCDEF0123456789'
-  let result = ''
-  for (let i = 0; i < 16; i++){
-    result += characters.charAt(Math.floor(Math.random() * characters.length))
-  }
-  return result
-}
-
-function logItems(items) {
-  for (const item of items) {
-    console.log(item.name)
-  } 
-}
-
-async function start2() {
-    const apiKey = generateKey()
-const itemURL = 'https://api.boot.dev/v1/courses_rest_api/learn-http/items'
-
-const items = await getData(itemURL, apiKey);
-
-logItems(items);
-}
-
-start2();
-
-// don't touch below this line
-
-async function getData(url, apiKey) {
-  const response = await fetch(url, {
-    method: 'GET',
-    mode: 'cors',
-    headers: {
-      'X-API-Key': apiKey,
-      'Content-Type': 'application/json'
-    }
-  })
-  return response.json()
-}
-
-function generateKey() {
-  const characters = 'ABCDEF0123456789'
-  let result = ''
-  for (let i = 0; i < 16; i++){
-    result += characters.charAt(Math.floor(Math.random() * characters.length))
-  }
-  return result
-}
-
-function logItems(items) {
-  for (const item of items) {
-    console.log(item.name)
-  } 
-}
         </script>
     </section>
-    <section id="delete3"></section>
+
+    <section id="delete3">
+        <h1>Convert Degrees from Celsius to Fahrenheit</h1>
+        <label for="celsius">Degrees in Celsius</label>
+        <input type="text" name="celsius" id="celsius">
+        <button id="degree">click</button>
+        <h2 id="fahrenheit">Degrees in Fahrenheit</h2>
+
+        <script>
+            const celsius = document.getElementById("celsius");
+            const displayResult = document.getElementById("fahrenheit");
+            const btn2 = document.getElementById("degree");
+
+            btn2.addEventListener("click", convertToFahrenheit);
+
+            function convertToFahrenheit() {
+                const degreesCelsius = celsius.value;
+                const degreesFahrenheit = degreesCelsius * 1.8 + 32;
+                displayResult.innerHTML = `${degreesFahrenheit} &#8457;`;
+            }
+        </script>
+    </section>
     <section id="delete4"></section>
 
+    <script>
+        const apiKey = generateKey()
+const url = getURL()
+const settings = getSettings()
+
+async function start() {
+    const response = await fetch(url, settings)
+const responseData = await response.json()
+
+logItems(responseData)
+}
+
+start();
+
+// don't touch below this line
+
+
+function getSettings() {
+  return {
+    method: 'GET',
+    mode: 'cors',
+    headers: {
+      'X-API-Key': apiKey,
+      'Content-Type': 'application/json'
+    }
+  }
+}
+
+function getURL() {
+  return 'https://api.boot.dev/v1/courses_rest_api/learn-http/items'
+}
+
+function generateKey() {
+  const characters = 'ABCDEF0123456789'
+  let result = ''
+  for (let i = 0; i < 16; i++){
+    result += characters.charAt(Math.floor(Math.random() * characters.length))
+  }
+  return result
+}
+
+function logItems(items) {
+  for (const item of items) {
+    console.log(item.name)
+  } 
+}
+    </script>
+
     <script src="./js/script_travel_v2.js">
-        console.log(330>190>322);
+        console.log(322>190>330);
         console.log(311>130);
     </script>
 </body>
