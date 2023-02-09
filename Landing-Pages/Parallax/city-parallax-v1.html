@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax City v.1</title>
+    <link rel="stylesheet" href="./css/styles_city-parallax-v1.css">
+</head>
+<body>
+    <section>
+        <div class="bcg">
+            <h1>new york</h1>
+            <img src="./img/city-parallax-v1/sky.png" alt="A sky, at sunset" class="sky">
+            <img src="./img/city-parallax-v1/city.png" alt="New York City" class="city">
+        </div>
+    </section>
+    <section class="bottom">
+        <div class="left">
+            <h2>above the big apple</h2>
+            <p> <dfn>"The Big Apple"</dfn> is a nickname for New York City. It was first popularized in the 1920s by John J. Fitz Gerald, a sportswriter for the New York Morning Telegraph. Its popularity since the 1970s is due in part to a promotional campaign by the New York tourist authorities.</p>
+            <p>Although the history of Big Apple was once thought a mystery, a clearer picture of the term's history has emerged due to the work of historian Barry Popik, and Gerald Cohen of the Missouri University of Science and Technology. A number of false theories had previously existed, including a claim that the term derived from a woman named Eve who ran a brothel in the city. This was subsequently exposed as a hoax.</p>
+        </div>
+        <div class="right">
+            <img src="./img/city-parallax-v1/united-states-above-the-big-apple_3860x2573.jpg" alt="New York at night">
+        </div>
+    </section>
+
+    <script>
+        const sky = document.querySelector(".sky");
+        const city = document.querySelector(".city");
+        const title = document.querySelector("h1");
+
+        window.addEventListener("scroll", () => {
+            let y = window.scrollY / window.innerHeight;
+            sky.style.transform = `translateY(${window.scrollY * y}px)`;
+            title.style.transform = `translateY(${window.scrollY * 2 * y}px)`;
+            city.style.transform = `translateY(${window.scrollY / 2 * y}px)`;
+        });
+    </script>
+</body>
+</html>
