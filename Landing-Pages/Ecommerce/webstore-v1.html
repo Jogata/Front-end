@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- <link rel="stylesheet" href="./css/styles_webstore-v1.css"> -->
   <style>
-    /* * {
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -28,452 +28,329 @@
     img {
       width: 100%;
       max-width: 100%;
-    } */
+    }
 
-
-    @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Kaushan+Script&family=Playfair+Display&display=swap');
-/* 
-font-family: 'Playfair Display', serif;
-*/
-    /* =============== VARIABLES CSS =============== */
-    :root {
-      /* ========== Colors ========== */
-      --hue-color: 240;
-      
-      --first-color: hsl(var(--hue-color), 53%, 49%);
-      --title-color: hsl(var(--hue-color), 53%, 15%);
-      --text-color: hsl(var(--hue-color), 12%, 35%);
-      --text-color-light: hsl(var(--hue-color), 12%, 65%);
-      --white-color: #FFF;
-      --body-color: hsl(var(--hue-color), 24%, 94%);
-      
-      /* ========== Font and typography ========== */
-      --body-font: 'Playfair Display', serif;;
-      --biggest-font-size: 3rem;
-      --small-font-size: .813rem;
-      --smaller-font-size: .75rem;
-      --tiny-font-size: .625rem;
-      
-      /* ========== Font weight ========== */
-      --font-medium: 500;
-      
-      /* ========== Margenes Bottom ========== */
-      --mb-0-25: .25rem;
-      --mb-1: 1rem;
-      --mb-1-5: 1.5rem;
-      --mb-2-5: 2.5rem;
-      
-      /* ========== z index ========== */
-      --z-normal: 1;
-      --z-tooltip: 10;
-    }
-    
-    @media screen and (min-width: 968px) {
-      :root {
-        --biggest-font-size: 3.5rem;
-        --small-font-size: .875rem;
-        --smaller-font-size: .813rem;
-        --tiny-font-size: .75rem;
-      }
-    }
-    
-    /* ========== Variables Dark theme ========== */
-    body.dark-theme {
-      --title-color: hsl(var(--hue-color), 12%, 95%);
-      --text-color: hsl(var(--hue-color), 12%, 75%);
-      --body-color: hsl(var(--hue-color), 10%, 16%);
-    }
-    
-    /* ========== Button Dark/Light ========== */
-    .clock__theme {
-      position: absolute;
-      top: -1rem;
-      right: -1rem;
-      display: flex;
-      padding: .25rem;
-      border-radius: 50%;
-      box-shadow: inset -1px -1px 1px hsla(var(--hue-color), 0%, 100%, 1), 
-      inset 1px 1px 1px hsla(var(--hue-color), 30%, 86%, 1);
-      color: var(--text-color);
-      cursor: pointer;
-      transition: .4s;    /* For dark mode animation */
-    }
-    
-    /* ========== Box shadow Dark theme ========== */
-    .dark-theme .clock__circle {
-      box-shadow: 6px 6px 16px hsla(var(--hue-color), 8%, 12%, 1), 
-      -6px -6px 16px hsla(var(--hue-color), 8%, 20%, 1), 
-      inset -6px -6px 16px hsla(var(--hue-color), 8%, 20%, 1), 
-      inset 6px 6px 12px hsla(var(--hue-color), 8%, 12%, 1);
-    }
-    
-    .dark-theme .clock__theme {
-      box-shadow: inset -1px -1px 1px hsla(var(--hue-color), 8%, 20%, 1), 
-      inset 1px 1px 1px hsla(var(--hue-color), 8%, 12%, 1);
-    }
-    
-    /* =============== BASE =============== */
-    * {
-      box-sizing: border-box;
-      padding: 0;
-      margin: 0;
-    }
-    
     body {
-      font-family: var(--body-font);
-      background-color: var(--body-color);
-      color: var(--text-color);
-      transition: .4s;    /* For dark mode animation */
+      display: flex;
+      background-color: #f1f1f1;
     }
-    
-    a {
-      text-decoration: none;
-    }
-    
-    /* =============== REUSABLE CSS CLASSES =============== */
-    .container {
-      max-width: 968px;
-      margin-left: var(--mb-1);
-      margin-right: var(--mb-1);
-    }
-    
-    .grid {
-      display: grid;
-    }
-    
-    /* =============== CLOCK =============== */
-    .clock__container {
-      height: 100vh;
-      grid-template-rows: 1fr max-content;
-    }
-    
-    .clock__circle {
+
+    .slider-box {
       position: relative;
-      width: 200px;
-      height: 200px;
-      box-shadow: -6px -6px 16px var(--white-color), 
-      6px 6px 16px hsla(var(--hue-color), 30%, 86%, 1), 
-      inset 6px 6px 16px hsla(var(--hue-color), 30%, 86%, 1), 
-      inset -6px -6px 16px var(--white-color);
-      border-radius: 50%;
-      justify-self: center;
+      min-width: 250px;
+      /* height: 350px; */
       display: flex;
-      justify-content: center;
       align-items: center;
-      transition: .4s;    /* For dark mode animation */
-    }
-    
-    .clock__content {
-      align-self: center;
-      row-gap: 3.5rem;
-    }
-    
-    .clock__twelve, 
-    .clock__three, 
-    .clock__six, 
-    .clock__nine {
-      position: absolute;
-      width: 1rem;
-      height: 1px;
-      background-color: var(--text-color-light);
-    }
-    
-    .clock__twelve, 
-    .clock__six {
-      transform: translateX(-50%) rotate(90deg);
-    }
-    
-    .clock__twelve {
-      top: 1.25rem;
-      left: 50%;
-    }
-    
-    .clock__three {
-      top: 50%;
-      right: .75rem;
-    }
-    
-    .clock__six {
-      bottom: 1.25rem;
-      left: 50%;
-    }
-    
-    .clock__nine {
-      left: .75rem;
-      top: 50%;
-    }
-    
-    .clock__rounder {
-      width: .75rem;
-      height: .75rem;
-      background-color: var(--first-color);
-      border-radius: 50%;
-      border: 2px solid var(--body-color);
-      z-index: var(--z-tooltip);
-    }
-    
-    .clock__hour, 
-    .clock__minutes, 
-    .clock__seconds {
-      position: absolute;
-      display: flex;
       justify-content: center;
-    }
-    
-    .clock__hour {
-      width: 105px;
-      height: 105px;
-    }
-    
-    .clock__hour::before {
-      content: '';
-      position: absolute;
-      background-color: var(--text-color);
-      width: .25rem;
-      height: 3rem;
-      border-radius: .75rem;
-      z-index: var(--z-normal);
-    }
-    
-    .clock__minutes {
-      width: 136px;
-      height: 136px;
-    }
-    
-    .clock__minutes::before {
-      content: '';
-      position: absolute;
-      background-color: var(--text-color);
-      width: .25rem;
-      height: 4rem;
-      border-radius: .75rem;
-      z-index: var(--z-normal);
-    }
-    
-    .clock__seconds {
-      width: 130px;
-      height: 130px;
-    }
-    
-    .clock__seconds::before {
-      content: '';
-      position: absolute;
-      background-color: var(--first-color);
-      width: .125rem;
-      height: 5rem;
-      border-radius: .75rem;
-      z-index: var(--z-normal);
-    }
-    
-    .clock__logo {
-      width: max-content;
-      justify-self: center;
-      margin-bottom: var(--mb-2-5);
-      font-size: var(--smaller-font-size);
-      font-weight: var(--font-medium);
-      color: var(--text-color-light);
-      transition: .3s;
-    }
-    
-    .clock__logo:hover {
-      color: var(--first-color);
-    }
-    
-    .clock__text {
-      display: flex;
-      justify-content: center;
-    }
-    
-    .clock__text-hour, 
-    .clock__text-minutes {
-      font-size: var(--biggest-font-size);
-      font-weight: var(--font-medium);
-      color: var(--title-color);
-    }
-    
-    .clock__text-ampm {
-      position: absolute;
-      font-size: var(--tiny-font-size);
-      color: var(--title-color);
-      font-weight: var(--font-medium);
-      margin-left: var(--mb-0-25);
-    }
-    
-    .clock__date {
+      flex-direction: column;
+      row-gap: 1rem;
+      margin: 20px;
+      padding: 1em 2em;
       text-align: center;
-      font-size: var(--small-font-size);
-      font-weight: var(--font-medium);
+      border-radius: 5px;
+      background-color: #fff;
+      transition: all 0.4s ease;
     }
-    
-    /* =============== MEDIA QUERIES =============== */
-    /* For large devices */
-    @media screen and (min-width: 968px) {
-      .container {
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .clock__logo {
-        margin-bottom: 3rem;
-      }
+    .slider-box:hover {
+      box-shadow: 2px 2px 12px rgba(47, 47, 47, 0.4);
+    }
+
+    .img-box {
+      width: 100%;
+    }
+
+    .img-box img {
+      height: 100%;
+      max-height: 240px;
+      object-fit: cover;
+      border-radius: 5px;
+      transition: all 0.4s ease;
+    }
+    .slider-box:hover .img-box img {
+      transform: scale(1.07);
+    }
+
+    .time {
+      align-self: flex-end;
+      color: #f16007;
+      text-transform: capitalize;
+    }
+
+    .details::first-letter {
+      text-transform: uppercase;
+    }
+
+    .price {
+      display: inline-block;
+      margin-top: 0.6rem;
+      padding: 0.4em 1em;
+      color: #fff;
+      border-radius: 5px;
+      background-color: #ff555b;
+    }
+
+    .cart {
+      display: inline-block;
+      padding: 0.4em 1em;
+      border-radius: 5px;
+      background-color: #ff696e;
+      transition: all 0.4s ease;
+    }
+    .cart:hover {
+      background-color: #fe9048;
+      transform: scale(1.1);
+      box-shadow: 2px 2px 12px rgba(47, 47, 47, 0.4);
+    }
+    .cart a {
+      color: #fff;
     }
   </style>
 </head>
 <body>
-  <section class="clock container">
-    <div class="clock__container grid">
-      <div class="clock__content grid">
-        <div class="clock__circle">
-          <span class="clock__twelve"></span>
-          <span class="clock__three"></span>
-          <span class="clock__six"></span>
-          <span class="clock__nine"></span>
-          
-          <div class="clock__rounder"></div>
-          <div class="clock__hour" id="clock-hour"></div>
-          <div class="clock__minutes" id="clock-minutes"></div>
-          <div class="clock__seconds" id="clock-seconds"></div>
-          
-          <!-- Dark/light button -->
-          <div class="clock__theme">
-            <i class="fa fa-moon-o" id="theme-button" aria-hidden="true"></i>
-          </div>
-        </div>
-        
-        <div>
-          <div class="clock__text">
-            <div class="clock__text-hour" id="text-hour"></div>
-            <div class="clock__text-minutes" id="text-minutes"></div>
-            <div class="clock__text-ampm" id="text-ampm"></div>
-          </div>
-          
-          <div class="clock__date">
-            <!-- <span id="date-day-week"></span> -->
-            <span id="date-day"></span>
-            <span id="date-month"></span>
-            <span id="date-year"></span>
-          </div>
-        </div>
-      </div>
+  <div class="slider-box">
+    <p class="time">new</p>
+    <div class="img-box">
+      <img src="./../Parallax/img/parallaxIV/gallery/120372783_340812587254299_774244032306180550_n.jpg" alt="">
     </div>
-  </section>
-
+    <p class="details">black ladies dress collection
+      <a href="" class="price">price-40$</a>
+    </p>
+    <div class="cart">
+      <a href="#">add to cart</a>
+    </div>
+  </div>
+  <div class="slider-box">
+    <p class="time">new</p>
+    <div class="img-box">
+      <img src="./../Parallax/img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg" alt="">
+    </div>
+    <p class="details">black ladies dress collection
+      <a href="" class="price">price-40$</a>
+    </p>
+    <div class="cart">
+      <a href="#">add to cart</a>
+    </div>
+  </div>
+  <div class="slider-box">
+    <p class="time">new</p>
+    <div class="img-box">
+      <img src="./../Parallax/img/parallaxIV/gallery/212573141_870101006920357_9185461114137501578_n.jpg" alt="">
+    </div>
+    <p class="details">black ladies dress collection
+      <a href="" class="price">price-40$</a>
+    </p>
+    <div class="cart">
+      <a href="#">add to cart</a>
+    </div>
+  </div>
+  <div class="slider-box">
+    <p class="time">new</p>
+    <div class="img-box">
+      <img src="./../Parallax/img/parallaxIV/gallery/212696607_565196161514018_1044941815810703332_n.jpg" alt="">
+    </div>
+    <p class="details">black ladies dress collection
+      <a href="" class="price">price-40$</a>
+    </p>
+    <div class="cart">
+      <a href="#">add to cart</a>
+    </div>
+  </div>
+  <div class="slider-box">
+    <p class="time">new</p>
+    <div class="img-box">
+      <img src="./../Parallax/img/parallaxIV/gallery/310312823_1063165841035871_7233886241606775336_n.jpg" alt="">
+    </div>
+    <p class="details">black ladies dress collection
+      <a href="" class="price">price-40$</a>
+    </p>
+    <div class="cart">
+      <a href="#">add to cart</a>
+    </div>
+  </div>
+  <div class="slider-box">
+    <p class="time">new</p>
+    <div class="img-box">
+      <img src="./../Parallax/img/parallaxIV/gallery/314989870_440856418203915_8112806341494003649_n.jpg" alt="">
+    </div>
+    <p class="details">black ladies dress collection
+      <a href="" class="price">price-40$</a>
+    </p>
+    <div class="cart">
+      <a href="#">add to cart</a>
+    </div>
+  </div>
+  <div class="slider-box">
+    <p class="time">new</p>
+    <div class="img-box">
+      <img src="./../Parallax/img/parallaxIV/gallery/320075870_672693277833663_8152859641160213840_n.jpg" alt="">
+    </div>
+    <p class="details">black ladies dress collection
+      <a href="" class="price">price-40$</a>
+    </p>
+    <div class="cart">
+      <a href="#">add to cart</a>
+    </div>
+  </div>
+  <div class="slider-box">
+    <p class="time">new</p>
+    <div class="img-box">
+      <img src="./../Parallax/img/parallaxIV/gallery/320815532_716429662995872_7462497255081682829_n.jpg" alt="">
+    </div>
+    <p class="details">black ladies dress collection
+      <a href="" class="price">price-40$</a>
+    </p>
+    <div class="cart">
+      <a href="#">add to cart</a>
+    </div>
+  </div>
+  <div class="slider-box">
+    <p class="time">new</p>
+    <div class="img-box">
+      <img src="./../Parallax/img/parallaxIV/gallery/320907932_870320980825676_7214722970886057296_n.jpg" alt="">
+    </div>
+    <p class="details">black ladies dress collection
+      <a href="" class="price">price-40$</a>
+    </p>
+    <div class="cart">
+      <a href="#">add to cart</a>
+    </div>
+  </div>
+  <div class="slider-box">
+    <p class="time">new</p>
+    <div class="img-box">
+      <img src="./../Parallax/img/parallaxIV/gallery/321827323_3093252334300032_7029766100428068075_n.jpg" alt="">
+    </div>
+    <p class="details">black ladies dress collection
+      <a href="" class="price">price-40$</a>
+    </p>
+    <div class="cart">
+      <a href="#">add to cart</a>
+    </div>
+  </div>
+  <div class="slider-box">
+    <p class="time">new</p>
+    <div class="img-box">
+      <img src="./../Parallax/img/parallaxIV/gallery/321930869_1351698535640550_1096427312314771662_n.jpg" alt="">
+    </div>
+    <p class="details">black ladies dress collection
+      <a href="" class="price">price-40$</a>
+    </p>
+    <div class="cart">
+      <a href="#">add to cart</a>
+    </div>
+  </div>
+  <div class="slider-box">
+    <p class="time">new</p>
+    <div class="img-box">
+      <img src="./../Parallax/img/parallaxIV/gallery/322037338_903937667444419_1150556650884973098_n.jpg" alt="">
+    </div>
+    <p class="details">black ladies dress collection
+      <a href="" class="price">price-40$</a>
+    </p>
+    <div class="cart">
+      <a href="#">add to cart</a>
+    </div>
+  </div>
+  <div class="slider-box">
+    <p class="time">new</p>
+    <div class="img-box">
+      <img src="./../Parallax/img/parallaxIV/gallery/322318175_701328178064960_1602812384467330909_n.jpg" alt="">
+    </div>
+    <p class="details">black ladies dress collection
+      <a href="" class="price">price-40$</a>
+    </p>
+    <div class="cart">
+      <a href="#">add to cart</a>
+    </div>
+  </div>
+  <div class="slider-box">
+    <p class="time">new</p>
+    <div class="img-box">
+      <img src="./../Parallax/img/parallaxIV/gallery/322647774_677534777488877_1665398286234001681_n.jpg" alt="">
+    </div>
+    <p class="details">black ladies dress collection
+      <a href="" class="price">price-40$</a>
+    </p>
+    <div class="cart">
+      <a href="#">add to cart</a>
+    </div>
+  </div>
+  <div class="slider-box">
+    <p class="time">new</p>
+    <div class="img-box">
+      <img src="./../Parallax/img/parallaxIV/gallery/322775040_929793954673118_5045271755039520595_n.jpg" alt="">
+    </div>
+    <p class="details">black ladies dress collection
+      <a href="" class="price">price-40$</a>
+    </p>
+    <div class="cart">
+      <a href="#">add to cart</a>
+    </div>
+  </div>
+  <div class="slider-box">
+    <p class="time">new</p>
+    <div class="img-box">
+      <img src="./../Parallax/img/parallaxIV/gallery/322856872_3338980252985550_4703983171844042070_n.jpg" alt="">
+    </div>
+    <p class="details">black ladies dress collection
+      <a href="" class="price">price-40$</a>
+    </p>
+    <div class="cart">
+      <a href="#">add to cart</a>
+    </div>
+  </div>
+  <div class="slider-box">
+    <p class="time">new</p>
+    <div class="img-box">
+      <img src="./../Parallax/img/parallaxIV/gallery/323190425_3479465432272428_8130945090487720111_n.jpg" alt="">
+    </div>
+    <p class="details">black ladies dress collection
+      <a href="" class="price">price-40$</a>
+    </p>
+    <div class="cart">
+      <a href="#">add to cart</a>
+    </div>
+  </div>
+  <div class="slider-box">
+    <p class="time">new</p>
+    <div class="img-box">
+      <img src="./../Parallax/img/parallaxIV/gallery/325586993_881203163307253_9018218563960739518_n.jpg" alt="">
+    </div>
+    <p class="details">black ladies dress collection
+      <a href="" class="price">price-40$</a>
+    </p>
+    <div class="cart">
+      <a href="#">add to cart</a>
+    </div>
+  </div>
+  <div class="slider-box">
+    <p class="time">new</p>
+    <div class="img-box">
+      <img src="./../Parallax/img/parallaxIV/gallery/329001962_563211575850512_3191882877192115306_n.jpg" alt="">
+    </div>
+    <p class="details">black ladies dress collection
+      <a href="" class="price">price-40$</a>
+    </p>
+    <div class="cart">
+      <a href="#">add to cart</a>
+    </div>
+  </div>
+  <div class="slider-box">
+    <p class="time">new</p>
+    <div class="img-box">
+      <img src="./../Parallax/img/parallaxIV/gallery/72614063_433236090677267_2807365040358828412_n.jpg" alt="">
+    </div>
+    <p class="details">black ladies dress collection
+      <a href="" class="price">price-40$</a>
+    </p>
+    <div class="cart">
+      <a href="#">add to cart</a>
+    </div>
+  </div>
   <h1 style="position: absolute; z-index: 10; bottom: 0;">Object.entries(person) - convert object to array</h1>
   
   <script>
-    /* ==================== CLOCK ==================== */
-const hour = document.getElementById('clock-hour');
-const minutes = document.getElementById('clock-minutes');
-const seconds = document.getElementById('clock-seconds');
-
-const clock = () => {
-    let date = new Date()
-
-    let hh = date.getHours() * 30;
-    let mm = date.getMinutes() * 6;
-    let ss = date.getSeconds() * 6;
-        
-    // We add a rotation to the elements
-    hour.style.transform = `rotateZ(${hh + mm / 12}deg)`;
-    minutes.style.transform = `rotateZ(${mm}deg)`;
-    seconds.style.transform = `rotateZ(${ss}deg)`;
-}
-
-setInterval(clock, 1000);
-
-/* ==================== CLOCK & DATE TEXT ==================== */
-const textHour = document.getElementById('text-hour');
-const textMinutes = document.getElementById('text-minutes');
-const textAmPm = document.getElementById('text-ampm');
-// const dateWeek = document.getElementById('date-day-week');
-const dateDay = document.getElementById('date-day');
-const dateMonth = document.getElementById('date-month');
-const dateYear = document.getElementById('date-year');
-
-const clockText = () => {
-    let date = new Date();
-
-    let hh = date.getHours();
-    let ampm = '';
-    let mm = date.getMinutes();
-    let day = date.getDate();
-    // let dayweek = date.getDay();
-    let month = date.getMonth();
-    let year = date.getFullYear();
-
-    // AM or PM
-    if (hh >= 12) {
-        hh = hh - 12;
-        ampm = 'PM';
-    } else {
-        ampm = 'AM';
-    }
-
-    // 0 AM => 12 AM
-    if(hh == 0){hh = 12}
-
-    // Show a zero before hours
-    if(hh < 10){hh = `0${hh}`}
-
-    // Show time
-    textHour.innerHTML = `${hh}:`
-    
-    // Show a zero before the minutes
-    if(mm < 10){mm = `0${mm}`}
-    
-    // Show minutes
-    textMinutes.innerHTML = mm;
-
-    // Show am or pm
-    textAmPm.innerHTML = ampm;
-
-    // If you want to show the name of the day of the week
-    // let week = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat']
-
-    // We get the months of the year and show it
-    let months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-    // We show the day, the month and the year
-    dateDay.innerHTML = day;
-    // dateWeek.innerHTML = `${week[dayweek]}`
-    dateMonth.innerHTML = `${months[month]},`;
-    dateYear.innerHTML = year;
-}
-setInterval(clockText, 1000) // 1000 = 1s
-
-/* ==================== DARK/LIGHT THEME ==================== */
-const themeButton = document.getElementById('theme-button');
-const darkTheme = 'dark-theme';
-let iconTheme = 'fa-moon-o';
-
-// Previously selected topic (if user selected)
-const selectedTheme = null;
-// const selectedTheme = sessionStorage.getItem('selected-theme')
-// const selectedIcon = sessionStorage.getItem('selected-icon')
-
-// We obtain the current theme that the interface has by validating the dark-theme class
-const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light';
-const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'fa-moon-o' : 'fa-sun-o';
-
-// We validate if the user previously chose a topic
-if (selectedTheme) {
-  // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
-  document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme);
-  themeButton.classList[selectedIcon === 'fa-moon-o' ? 'add' : 'remove'](iconTheme);
-}
-
-// Activate / deactivate the theme manually with the button
-themeButton.addEventListener('click', () => {
-    // Add or remove the dark / icon theme
-    iconTheme = themeButton.classList[1];
-    let newIconTheme = iconTheme === 'fa-moon-o' ? 'fa-sun-o' : 'fa-moon-o';
-    document.body.classList.toggle(darkTheme);
-    themeButton.classList.replace(iconTheme, newIconTheme);
-    // We save the theme and the current icon that the user chose
-    // sessionStorage.setItem('selected-theme', getCurrentTheme())
-    // sessionStorage.setItem('selected-icon', getCurrentIcon())
-    iconTheme = newIconTheme;
-})
-    console.log("230>40>475");
+    console.log("480>40>356");
   </script>
 </body>
 </html>
