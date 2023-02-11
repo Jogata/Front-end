@@ -58,7 +58,7 @@ font-family: 'Playfair Display', serif;     //400,700
         
         img {
             width: 100%;
-            /* max-width: 350px; */
+            max-width: 350px;
             border-radius: 5px;
             /* border: 1px solid white; */
         }
@@ -74,107 +74,42 @@ font-family: 'Playfair Display', serif;     //400,700
             padding: 0;
             box-sizing: border-box;
         }
-        .del {
-            font-family: 'Playfair Display', serif;
-        }
 
-        .quote-box {
-            width: 44rem;
-            margin: 2rem auto;
-            padding: 5%;
-            text-align: center;
-            border-radius: 10px;
-            background-color: #fff;
-            box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.55);
-        }
-
-        h2 {
+        #space {
             position: relative;
-            margin-bottom: 2.5rem;
-            font-size: 2rem;
-            font-weight: 700;
+            height: 100vh;
+            background: #111;
+            overflow: hidden;
+        }
+        #banner {
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            background-image: 
+                url("./00/img/space/deathstar.png"), 
+                url("./00/img/space/stars.png"), 
+                url("./00/img/space/stars.png");
+            background-repeat: no-repeat, repeat, repeat;
+            background-position: 120% 20%, 0px 0px, 0px 0px;
+            background-size: 20% auto, 500px, 700px;
+            animation: animebg linear 50s infinite;
+        }
+        @keyframes animebg {
+            from {
+                background-position: 120% 20%, 0px 0px, 0px 0px;
+            }
+            to {
+                background-position: -20% 20%, -1000px 0px, -700px 0px;
+            }
         }
 
-        h2::after {
-            position: absolute;
-            bottom: -10px;
-            left: 44%;
-            content: "";
-            width: 12%;
-            height: 3px;
-            border-radius: 3px;
-            background-color: #177ce5;
-        }
-
-        blockquote {
-            min-height: 7rem;
-            font-size: 1.6rem;
-        }
-
-        blockquote::before, 
-        blockquote::after {
-            content: '"';
-        }
-
-        #author {
+        #spaceship {
             position: relative;
-            display: block;
-            width: min-content;
-            margin-top: 0.6rem;
-            margin-left: auto;
-            white-space: nowrap;
+            width: 10%;
+            top: 40%;
+            left: 30%;
+            transform: rotateY(180deg);
         }
-        #author::before {
-            position: absolute;
-            top: 50%;
-            left: -45px;
-            content: "";
-            width: 30px;
-            height: 2px;
-            background-color: #177ce5;
-        }
-
-        .buttons {
-            margin-top: 2rem;
-            display: flex;
-            justify-content: center;
-        }
-
-        button {
-            min-width: 9rem;
-            margin: 0.4rem;
-            padding: 0.8em 2em;
-            color: #fff;
-            font-family: inherit;
-            text-transform: capitalize;
-            border: 1px solid #177ce5;
-            border-radius: 2em;
-            background-color: #177ce5;
-            transition: all 0.4s;
-            cursor: pointer;
-        }
-        button:first-child {
-            font-size: 1rem;
-            font-weight: 700;
-        }
-        button:hover {
-            transform: scale(1.1);
-        }
-
-        .twitter {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            column-gap: 10%;
-            color: #333;
-            background-color: #fff;
-        }
-        .fa-twitter {
-            color: #177ce5;
-            font-size: 1.4rem;
-        }
-
-        header {display: none;}
     </style>
 </head>
 <body>
@@ -276,54 +211,90 @@ font-family: 'Playfair Display', serif;     //400,700
         </div>
     </div>
 
-    <section class="del" id="del">
-        <div class="quote-box">
-            <h2>Quote of the day</h2>
-            <blockquote>Loading...</blockquote>
-            <span id="author">Loading...</span>
-            <div class="buttons">
-                <button>new quote</button>
-                <button class="twitter">
-                    <i class="fa fa-twitter" aria-hidden="true"></i>
-                    tweet</button>
-            </div>
+    <div id="space">
+        <div id="banner">
+            <img src="./00/img/space/millennium-falcon.png" alt="Spaceship" id="spaceship">
         </div>
-        <em style="display: block;">Daily Quote API:</em>
-        <a href="https://github.com/lukePeavey/quotable" style="color: #333;">https://github.com/lukePeavey/quotable</a>
-        <em style="display: block;">Share on Twitter:</em>
-        <a href="https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/overview" style="color: #333;">
-            https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/overview
-        </a>
-    </section>
+    </div>
+    <p>Starts from: 329>182>300</p>
     <script>
-        const quoteField = document.querySelector("blockquote");
-        const author = document.querySelector("#author");
+        const url = 'https://api.boot.dev/v1/courses_rest_api/learn-http/users'
 
-        const quoteAPI_URL = "https://api.quotable.io/random";
+async function getUserById(url, id) {
+  const path = `${url}/${id}`;
+  const response = await fetch(path, {
+    method: 'GET',
+    mode: 'cors',
+    headers: {
+      'X-API-Key': apiKey,
+      'Content-Type': 'application/json'
+    }
+  })
+  return response.json();
+}
 
-        async function getQuote(url) {
-            const response = await fetch(url);
-            const quoteData = await response.json();
-            quoteField.textContent = quoteData.content;
-            author.textContent = quoteData.author;
-        }
+// don't touch below this line
 
-        function tweet(quote) {
-            window.open(`https://twitter.com/intent/tweet?text=${quote}`);
-        }
+const uuid = '2f8282cb-e2f9-496f-b144-c0aa4ced56db';
+const apiKey = generateKey();
 
-        document.querySelector(".twitter").addEventListener("click", () => {
-            tweet(quoteField.textContent);
-        })
+function generateKey() {
+  const characters = 'ABCDEF0123456789';
+  let result = '';
+  for (let i = 0; i < 16; i++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return result;
+}
 
-        // Get the first quote
-        getQuote(quoteAPI_URL);
+function logUser(user) {
+  console.log(`User uuid: ${user.id}, Character Name: ${user.characterName}, Class: ${user.class}, Level: ${user.level}, PVP Status: ${user.pvpEnabled}, User name: ${user.user.name}`);
+}
 
-        document.querySelector("button").addEventListener("click", () => {
-            getQuote(quoteAPI_URL);
-        });
+async function start() {
+    const user = await getUserById(url, uuid);
+    logUser(user);
+}
 
-        console.log("starts from: 295>177>329");
+start();
+
+async function fetchIPAddress(domain) {
+  const resp = await fetch(`https://cloudflare-dns.com/dns-query?name=${domain}&type=A`, {
+    headers: {
+      'accept': 'application/dns-json'
+    }
+  })
+  const respObject = await resp.json()
+  for (const record of respObject.Answer) {
+    return record.data
+  }
+  return null
+}
+
+// don't touch below this line
+
+async function  start2() {
+    const domain = 'api.boot.dev'
+const ipAddress = await fetchIPAddress(domain)
+if (!ipAddress) {
+  console.log('something went wrong in fetchIPAddress');
+} else {
+  console.log(`found IP address for domain ${domain}: ${ipAddress}`);
+}
+}
+
+start2();
+
+function getDomainNameFromURL(url) {
+  const urlObj = new URL(url);
+  return urlObj.hostname;
+}
+
+// don't touch below this line
+
+const bootdevURL = 'https://boot.dev/learn/learn-python';
+const domainName = getDomainNameFromURL(bootdevURL);
+console.log(`The domain name for ${bootdevURL} is ${domainName}`);
     </script>
 </body>
 </html>
