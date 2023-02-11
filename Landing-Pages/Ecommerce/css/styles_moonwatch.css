@@ -139,9 +139,9 @@ nav.visible a {
 }
 nav li a::after {
     position: absolute;
-    content: "";
     left: 50%;
     bottom: 0;
+    content: "";
     width: 0%;
     height: 2px;
     background-color: #ff3131;
@@ -209,19 +209,10 @@ nav li a:hover::after {
     animation-delay: calc(0.1s * var(--i));
 }
 
-/* main {
-    position: relative;
-    display: flex;
-    align-items: center;
-    z-index: 3;
-} */
-
 .hero-img {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
     min-width: 300px;
-    /* max-width: 600px; */
-    /* margin-left: auto; */
     z-index: 2;
 }
 .hero-img img {
@@ -254,23 +245,10 @@ h1 {
 h2 {
     color: #808080;
     font-size: min(3vw, 2.6rem);
+    font-family: 'Playfair Display', serif;
     font-weight: lighter;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    font-family: 'Abril Fatface', cursive;
-font-family: 'Courgette', cursive;
-font-family: 'Dancing Script', cursive;
-font-family: 'Great Vibes', cursive;
-font-family: 'Josefin Sans', sans-serif;
-font-family: 'Limelight', cursive;
-font-family: 'Lobster', cursive;
-font-family: 'Montserrat', sans-serif;
-font-family: 'Oleo Script Swash Caps', cursive;
-font-family: 'Poppins', sans-serif;
-font-family: 'Raleway', sans-serif;
-font-family: 'Kaushan Script', cursive;
-font-family: 'Fraunces', serif;
-font-family: 'Playfair Display', serif;
 }
 
 .buy {
@@ -288,15 +266,17 @@ font-family: 'Playfair Display', serif;
     border-radius: 1em;
     background: linear-gradient(to right, #183d79,transparent, transparent, #183d79);
     box-shadow: 1px 2px 1px 1px rgba(0, 0, 0, 0.6), 
-        inset -3px -3px 2px 0px rgba(0, 0, 0, 0.02), 
+    inset -3px -3px 2px 0px rgba(0, 0, 0, 0.02), 
         -1px -1px 3px 0 rgba(255, 255, 255, 0.6), 
         inset 2px 2px 1px 0px rgba(0, 0, 0, 0.6), 
         inset -2px -2px 3px 0 rgba(255, 255, 255, 0.6);
 }
 .buy a:focus-visible {
-    /* outline: 1px solid #183d79; */
-    /* outline-offset: -2px; */
-    box-shadow: 1px 2px 1px 1px rgba(0, 0, 0, 0.6), inset -3px -3px 2px 0px rgba(0, 0, 0, 0), -1px -1px 3px 0 rgba(255, 255, 255, 0.6), inset 2px 2px 1px 0px rgba(0, 0, 0, 0), inset -2px -2px 3px 0 rgb(255, 255, 255);
+    box-shadow: 1px 2px 1px 1px rgba(0, 0, 0, 0.6), 
+        inset -3px -3px 2px 0px rgba(0, 0, 0, 0), 
+        -1px -1px 3px 0 rgba(255, 255, 255, 0.6), 
+        inset 2px 2px 1px 0px rgba(0, 0, 0, 0), 
+        inset -2px -2px 3px 0 rgb(255, 255, 255);
 }
 .buy a:hover {
     color: #fff;
@@ -381,17 +361,223 @@ a.twitter:hover svg {
     }
 }
 
-        /* .relef-frame-up {
-            padding: 0px 20px;
-            border: 4px solid rgb(255, 255, 255);
-            border-radius: 10px;
-            box-shadow: 
-            1px 2px 3px 2px rgba(0, 0, 0, 0.2), 
-            inset -3px -3px 4px 0px rgba(0, 0, 0, 0.02), 
-            -1px -1px 3px 0 rgba(255, 255, 255, 0.075), 
-            inset 3px 3px 6px 0px rgba(0, 0, 0, 0.2), 
-            inset 2px 2px 3px 0 rgba(255, 255, 255, 0.07);
-        } */
+/* ANIMATIONS */
+@keyframes fadeinright {
+    0% {
+        transform: translateX(-40%);
+        opacity: 0;
+    }
+}
 
+@keyframes fadeinup {
+    0% {
+        transform: translateY(10%);
+        opacity: 0;
+    }
+}
+@keyframes fadeinup2 {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+@keyframes fadeindown {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
 
+/* Clock v.1 */
+.clock-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: scale(0.3);
+}
+.clock {
+    width: 350px;
+    height: 350px;
+    border: 4px solid transparent;
+    border-radius: 50%;
+    background-image: url("../img/clock.png");
+    background-size: cover;
+    box-shadow: 1px 2px 3px 2px rgba(0, 0, 0, 0.2), 
+        inset -3px -3px 4px 0px rgba(0, 0, 0, 0.02), 
+        -1px -1px 3px 0 rgba(255, 255, 255, 0.075), 
+        inset 3px 3px 6px 0px rgba(0, 0, 0, 0.2), 
+        inset -2px -2px 3px 0 rgba(255, 255, 255, 0.07);
+}
+.clock::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #fff;
+    z-index: 3;
+}
+.hours,
+.minutes,
+.seconds {
+    position: absolute;
+}
+.hours, .hour {
+    width: 180px;
+    height: 180px;
+}
+.minutes, .minute {
+    width: 220px;
+    height: 220px;
+}
+.seconds, .second {
+    width: 240px;
+    height: 240px;
+}
+.hour,
+.minute,
+.second {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    border-radius: 50%;
+}
+.hour::before {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 90px;
+    background: #fff;
+    border-radius: 6px 6px 0 0;
+    z-index: 2;
+}
+.minute::before {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 110px;
+    background: #fff;
+    border-radius: 6px 6px 0 0;
+    z-index: 3;
+}
+.second::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 140px;
+    background: #ff105e;
+    border-radius: 6px 6px 0 0;
+    z-index: 4;
+}
 
+.clock-box .clock::before {
+    background: #808080;
+}
+.clock-box .second::before {
+    background: #008eff;
+}
+.clock-box .minute::before {
+    background: #808080;
+}
+.clock-box .hour::before {
+    background: #808080;
+}
+
+/* Clock v.2 */
+#clockv2 {
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    top: 10%;
+    right: 15%;
+    transform: scale(0.5);
+}
+
+.circle2 {
+    position: absolute;
+    width: 76%;
+    height: 76%;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: inset 3px 3px 4px 3px rgb(119, 119, 119),
+    inset -3px -3px 3px 3px rgba(255, 255, 255, 0.85);
+}
+.circle3 {
+    position: absolute;
+    width: 40%;
+    height: 40%;
+    border-radius: 50%;
+    background-color: #000;
+    box-shadow: 3px 3px 4px 3px rgb(119, 119, 119),
+    -3px -3px 3px 3px rgba(255, 255, 255, 0.85);
+}
+.clock-face {
+    position: absolute;
+    width: 112%;
+    height: 112%;
+    background-image: url('../img/clock.png');
+    background-size: cover;
+}
+
+.clock-hands {
+    position: absolute;
+}
+.clock-hands::before {
+    position: absolute;
+    content: '';
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #f00;
+    z-index: 4;
+}
+
+.hh, .mm, .ss {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}
+.hh {
+    height: 200px;
+    z-index: 2;
+}
+.mm {
+    height: 320px;
+}
+.ss {
+    height: 370px;
+    z-index: 3;
+}
+.hh::after, 
+.mm::after, 
+.ss::after {
+    position: absolute;
+    content: '';
+    height: 50%;
+    border-radius: 20px;
+    background-color: rgb(213, 213, 213);
+}
+.hh::after {
+    width: 6px;
+}
+.mm::after {
+    width: 5px;
+}
+.ss::after {
+    width: 3px;
+    height: 59%;
+    background-color: #f00;
+}
+
+#clockv2 p {
+    position: absolute;
+    left: 0;
+    bottom: -3rem;
+    font-size: 3rem;
+    font-style: italic;
+    font-weight: bold;
+}
