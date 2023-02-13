@@ -1,11 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
-
-/* 
-font-family: 'Josefin Sans', sans-serif;
-font-family: 'Limelight', cursive;
-font-family: 'Montserrat', sans-serif;
-*/
-
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -13,7 +5,9 @@ font-family: 'Montserrat', sans-serif;
 }
 
 a {
+    display: inline-block;
     text-decoration: none;
+    white-space: nowrap;
 }
 button {
     border: 1px solid transparent;
@@ -21,29 +15,72 @@ button {
     cursor: pointer;
 }
 
-.hero {
+.landing-page {
     position: relative;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
 nav {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 30px 100px;
+    column-gap: 10%;
+    padding: 2% 5%;
+    z-index: 2;
 }
 
 .logo {
-    color: #f9b033;
-    font-size: 24px;
-    font-weight: bold;
-    letter-spacing: 1px;
-    text-transform: capitalize;
+    align-self: start;
+    background-image: url('../img/logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 50%;
+}
+.logo-ring {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.logo-ring:nth-child(1) {
+    border-top: 3px solid #ffa500;
+    animation: loaderv321 2s linear infinite;
+}
+@keyframes loaderv321 {
+    0% { transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);}
+    100% { transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);}
+}
+.logo-ring:nth-child(2) {
+    border-right: 3px solid #ffa500;
+    animation: loaderv322 2s linear infinite;
+}
+@keyframes loaderv322 {
+    0% { transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);}
+    100% { transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);}
+}
+.logo-ring:nth-child(3) {
+    border-bottom: 3px solid #ffa500;
+    animation: loaderv323 2s linear infinite;
+}
+@keyframes loaderv323 {
+    0% { transform: rotateX(35deg) rotateY(65deg) rotateZ(0deg);}
+    100% { transform: rotateX(35deg) rotateY(65deg) rotateZ(360deg);}
+}
+.logo-ring:nth-child(4) {
+    position: relative;
+    border-left: 3px solid #ffa500;
+    animation: loaderv324 2s linear infinite;
+}
+@keyframes loaderv324 {
+    0% { transform: rotateX(50deg) rotateY(150deg) rotateZ(0deg);}
+    100% { transform: rotateX(50deg) rotateY(150deg) rotateZ(360deg);}
 }
 
 nav ul {
-    z-index: 2;
+    margin-left: auto;
 }
 nav ul li {
     list-style: none;
@@ -52,33 +89,26 @@ nav ul li {
 }
 
 nav ul li a {
-    position: relative;
-    color: #fff;
-    padding: 5px 0;
+    color: #f9b033;
+    padding: 0.4em 1.2em;
     text-transform: capitalize;
-}
-nav ul li a::after {
-    position: absolute;
-    content: "";
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 2px;
+    border-radius: 1em;
     background-color: #fff;
-    transition: all 0.3s;
+    box-shadow: inset 3px 1px 4px #0008;
+    transition: all 0.3s ease-in-out;
 }
-nav ul li a:hover:after {
-    width: 100%;
+nav ul li a:hover {
+    padding: 0.5em 1.4em;
 }
 
 .btn {
-    padding: 6px 12px;
+    padding: 0.4em 1.2em;
     color: #f9b033;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: bold;
     text-transform: capitalize;
     border: 1px solid #fff;
-    border-radius: 19px;
+    border-radius: 1em;
     background-color: #fff;
     box-shadow: 5px 10px 10px rgba(51, 51, 51, 0.1);
     transition: all  0.3s ease-in-out;
@@ -88,16 +118,31 @@ nav ul li a:hover:after {
     background-color: #f9b033;
 }
 
-.content {
-    position: absolute;
-    top: 30%;
-    left: 8%;
+nav .btn {
+    box-shadow: inset 3px 1px 4px #0008;
 }
-.content span {
-    color: #f9b033;
-    font-size: 70px;
+nav .btn:active {
+    box-shadow: inset 3px 1px 4px transparent;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 3fr 1fr;
+    padding: 2% 5%;
+}
+
+.content {
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+    z-index: 3;
+}
+.content h1 {
+    color: #fbc15e;
+    font-size: 10vw;
     font-weight: bold;
     text-transform: capitalize;
+    text-shadow: -1px -1px 0px #000;
     line-height: 1;
 }
 .content p {
@@ -109,50 +154,88 @@ nav ul li a:hover:after {
 }
 
 .btn2 {
-    color: #fff;
-    background-color: #f9b033;
+    font-size: 1.4rem;
+    border: 2px solid #f9b033;
+    box-shadow: 1px 1px 4px #0008;
+}
+.btn2:hover {
+    color: #f9b033;
+    background-color: #fff;
+    box-shadow: 1px 3px 4px #0008;
+}
+.btn2:active {
+    box-shadow: inset 3px 1px 4px #0008;
 }
 
 .right {
-    position: absolute;
-    right: 15%;
-    width: 38%;
+    grid-column: 2 / 4;
+    grid-row: 1 / 2;
+    width: 55%;
+    margin-left: auto;
     z-index: 2;
 }
 .right img {
     width: 100%;
+    filter: drop-shadow(3px 3px 3px #333);
 }
 
 .sci {
-    position: absolute;
-    right: 86px;
-    bottom: 7%;
+    grid-column: 1 / -1;
+    grid-row: -2 / -1;
+    margin-left: auto;
+    margin-top: auto;
     display: flex;
     align-items: center;
     z-index: 3;
 }
+
+.share {
+    margin-left: auto;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    background-color: #fff;
+    box-shadow: inset 3px 1px 4px #0008;
+    transition: all 0.3s ease-in-out;
+}
+.share:hover {
+    background-color: #f9b033;
+}
+.share:active {
+    box-shadow: inset 3px 1px 4px transparent;
+}
+
 .sci ul {
     display: flex;
     align-items: center;
+    column-gap: 1rem;
+    margin-left: 1rem;
     list-style: none;
 }
 .sci a {
-    padding: 10px;
+    padding: 0.5em;
     color: #2f2f2f;
-    font-size: 22px;
-    transform: scale(0.8);
+    font-size: 1.4rem;
+    border-radius: 50%;
+    background-color: #fff;
+    transform: scale(1);
     transition: all 0.3s ease-in-out;
+    box-shadow: inset 3px 1px 4px #0008;
     cursor: pointer;
 }
 .sci a:hover {
-    transform: scale(1.5);
+    transform: scale(1.2);
 }
-.fa-facebook-f {
-    font-size: 20px;
+.sci i {
+    font-size: 1.4rem;
+    padding: 0 0.15em;
 }
-.fa-share-alt {
-    padding: 10px 15px;
-    font-size: 30px;
+i.fa-facebook-f {
+    padding: 0 0.26em;
+    font-size: 1.5rem;
+}
+i.fa-share-alt {
+    padding: 0.4em 0.5em;
+    font-size: 1.8rem;
 }
 
 .bg {
@@ -160,7 +243,17 @@ nav ul li a:hover:after {
     top: 0;
     right: 0;
     bottom: 0;
-    width: 100%;
+    width: 50%;
+    height: 120%;
     background: #f9b033;
-    clip-path: polygon(52% 0, 100% 0, 100% 100%, 68% 100%);
+    box-shadow: inset 3px 0px 4px #0008;
+    transform: rotate(-12deg) translate(10%, -10%);
+    transform-origin: top;
+    /* clip-path: polygon(52% 0, 100% 0, 100% 100%, 68% 100%); */
+}
+
+@media screen and (max-width: 58rem) {
+    nav ul {
+        display: none;
+    }
 }
