@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
+/*
+font-family: 'Great Vibes', cursive;
+*/
+
+@font-face {
+    font-family: "Against";
+    src:url("../assets/fonts/against-regular.ttf");
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 55vw;
+    overflow: hidden;
+}
+
+.layer {
+    position: absolute;
+    width: 100vw;
+    min-height: 55vw;
+    overflow: hidden;
+}
+.bottom {
+    color: #fff;
+    background-color: #222;
+    z-index: 1;
+}
+.top {
+    width: calc(50vw + 1000px);
+    margin-left: -1000px;
+    color: #222;
+    background-color: #eee;
+    transform: skew(-30deg);
+    z-index: 2;
+}
+
+.content-wrap {
+    position: absolute;
+    width: 100vw;
+    min-height: 55vw;
+}
+.top .content-wrap {
+    margin-left: 1000px;
+    transform: skew(30deg);
+}
+
+.content-body {
+    position: absolute;
+    top: 50%;
+    width: 25%;
+    text-align: center;
+    transform: translateY(-50%);
+}
+.bottom .content-body {
+    right: 5%;
+}
+.top .content-body {
+    left: 5%;
+}
+.content-body p {
+    font-size: max(1rem, 1vw);
+}
+
+.layer img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35%;
+    max-width: 40rem;
+}
+.layer.bottom img {
+    transform: translate(-50%, -51%) scale(1.04);
+}
+
+h1 {
+    margin-bottom: 1rem;
+    font-size: 5vw;
+    font-family: 'Against', 'Great Vibes', cursive;
+    text-transform: capitalize;
+}
+.top h1 {
+    color: #dfdee1;
+    filter: drop-shadow(1px 1px 1px #000);
+    /* -webkit-text-stroke: 1px #dfdee1;
+    color: transparent; */
+}
+.bottom h1 {
+    color: #444;
+    filter: drop-shadow(-1px -1px 1px #fff);
+    -webkit-text-stroke: 1px #444;
+    /* color: transparent; */
+}
+
+.handle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 5px;
+    height: 200%;
+    background-color: #fdab00;
+    transform-origin: top;
+    transform: rotate(30deg) translateY(-50%);
+    z-index: 3;
+}
