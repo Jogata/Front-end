@@ -188,7 +188,7 @@ header.active {
 .logo:hover .logo-ring {
     animation-duration: 1s;
 }
-/* ------------------------------------------------------- */
+
 nav {
     display: flex;
     position: absolute;
@@ -249,19 +249,12 @@ nav a.active {
     transform: scale(1.2);
     filter: drop-shadow(1px 1px 1px #000);
 }
-/* #menu-btn:focus-visible {
-    border-color: var(--main-color);
-} */
 #menu-btn svg {
     width: 2rem;
     height: 2rem;
     color: #fff;
     transition: all 0.5s ease;
 }
-/* header button:hover svg {
-    color: var(--main-color);
-    color: #ee1423;
-} */
 
 main {
     position: relative;
@@ -280,7 +273,6 @@ main {
 }
 #product-img {
     object-fit: contain;
-    /* animation: bounce 6s ease-in-out infinite; */
 }
 @keyframes bounce {
     0%, 100% {
@@ -298,7 +290,6 @@ main {
     display: flex;
     justify-content: center;
     column-gap: 10px;
-    /* border: 1px solid red; */
 }
 .bottom-thumbs button {
     width: 10px;
@@ -309,8 +300,6 @@ main {
 
 .thumbs {
     grid-column: 1 / 2;
-    /* flex-direction: column; */
-    /* row-gap: 20px; */
     z-index: 3;
 }
 .thumb {
@@ -394,4 +383,167 @@ main:active .sticks-container span {
     grid-column: 3 / 4;
     z-index: 2;
 }
-/* ------------------------------------------------------- */
+
+h1 {
+    color: var(--text-color);
+    font-size: min(5vw, 5rem);
+    font-family: "Against";
+    font-weight: lighter;
+    text-transform: uppercase;
+}
+h1 span {
+    display: block;
+}
+h2 {
+    display: inline;
+    font-size: 1.6rem;
+}
+
+.stars {
+    display: flex;
+    align-items: center;
+    column-gap: 3%;
+    width: 80%;
+}
+.stars i {
+    font-size: min(2rem, 2.2vw);
+    cursor: initial;
+}
+.stars span {
+    margin-left: auto;
+    color: var(--text-color-transparent);
+    font-size: 1.4rem;
+    font-family: "Against";
+}
+
+.features {
+    width: 80%;
+    margin: 5% 0;
+    color: #eee;
+    font-size: 0.9rem;
+}
+sup {
+    vertical-align: super;
+}
+
+.product-color {
+    display: inline;
+}
+.color {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 20%;
+    border-radius: 50%;
+    border: 2px solid var(--text-color);
+    background-color: var(--acent-color);
+}
+.color-name {
+    display: inline-block;
+    margin: auto 3%;
+    color: var(--text-color-transparent);
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.btn {
+    display: block;
+    width: fit-content;
+    margin: 5% 0;
+    padding: 0.4em 1em;
+    color: var(--text-color);
+    font-size: min(2.6vw, 2rem);
+    border: 0.06em solid currentColor;
+    border-radius: 1em;
+    transition: all 0.5s ease;
+    position: relative;
+    z-index: 2;
+}
+.btn:hover {
+    filter: drop-shadow(2px 2px 0px #000);
+}
+
+.side-nav {
+    grid-column: 4 / 5;
+    grid-row: 1 / 2;
+    text-align: center;
+}
+.side-nav li {
+    font-size: 1.4rem;
+    color: var(--text-color-transparent);
+}
+.side-nav li.active {
+    color: var(--text-color);
+}
+
+.search {
+    padding: 0.5em 0.5em 0.3em;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+.search:hover {
+    border: 1px solid #fff;
+}
+
+@media screen and (max-width: 55rem) {
+    main {
+        min-height: 90vh;
+        align-content: center;
+        row-gap: 3rem;
+    }
+    .sticks-container {
+        grid-column: 1 / 4;
+    }
+    .product-img-box {
+        grid-column: 2 / 4;
+    }
+    .product-info {
+        grid-column: 1 / 4;
+        text-align: center;
+    }
+    h1, h3 {
+        font-size: 10vw;
+    }
+    h2 {
+        font-size: max(4vw, 0.8rem);
+    }
+    .stars {
+        width: auto;
+        justify-content: center;
+    }
+    .stars i {
+        font-size: 5vw;
+    }
+    .stars span {
+        margin-left: initial;
+    }
+    .features {
+        margin: 5% auto;
+    }
+    .btn {
+        margin: 5% auto;
+        font-size: max(4vw, 1rem);
+    }
+    .btn.bottom {
+        font-size: max(3vw, 0.6rem);
+    }
+}
+
+
+/* just to match the desigh */
+h1, .color-name {
+    transform: scaleY(1.2) scaleX(0.8) translateX(-12%) translateY(-10%);
+}
+.stars span {
+    display: inline-block;
+    transform: scaleY(1.1) scaleX(0.9) translateX(-1%);
+}
+
+@media screen and (max-width: 55rem) {
+    h1 {
+        transform: scaleY(1.2) scaleX(0.8) translateX(0%) translateY(-10%);
+    }
+}
