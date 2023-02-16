@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Half Screen Parallax Effect</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    h1, h3 {
+      position: relative;
+      width: 50%;
+      margin: 10% 0 10% auto;
+      color: transparent;
+      font-size: 10rem;
+      text-align: center;
+      text-transform: uppercase;
+      -webkit-text-stroke: 1px #000;
+      z-index: 2;
+    }
+
+    h2 {
+      margin-bottom: 0.5em;
+      font-size: 3vw;
+      text-align: center;
+      text-transform: capitalize;
+    }
+    p {
+      margin: revert;
+    }
+
+    img {
+      width: 100%;
+    }
+    
+    .left-panel {
+      position: fixed;
+      top: 20%;
+      left: 5%;
+      width: 35%;
+      height: 60vh;
+      /* aspect-ratio: 1.222 / 1; */
+      background-color: #498dff;
+      background-image: linear-gradient(45deg, #aa0100, #fff, #000a4d);
+      border-radius: 52% 48% 33% 67% / 38% 45% 55% 62%;
+      transition: all 0.4s;
+      z-index: 1;
+    }
+    .hidden {
+      opacity: 0;
+    }
+    
+    .section {
+      position: relative;
+      display: flex;
+      min-height: 100vh;
+      z-index: 2;
+    }
+    .section > div {
+      width: 50%;
+    }
+    
+    .section-img-inner {
+      position: fixed;
+      top: 0;
+      left: 5%;
+      width: 40%;
+      filter: blur(30px);
+      opacity: 0;
+      transition: opacity 0.6s ease, background-position 0.8s ease;
+    }
+    .section-img-inner img {
+      margin: auto;
+      animation: bounce 6s linear infinite;
+    }
+    @keyframes bounce {
+      50% {
+        transform: translateY(6%);
+      }
+    }
+    
+    .section.active .section-img-inner {
+      display: flex;
+      height: 100%;
+      filter: blur(0);
+      opacity: 1;
+    }
+    
+    .section-body {
+      display: flex;
+      align-items: center;
+    }
+    
+    .section-text {
+      padding: 5vw;
+    }
+  </style>
+</head>
+<body>
+  <h1>nike</h1>
+  <div class="left-panel hidden"></div>
+  <div class="section">
+    <div class="section-img">
+      <div class="section-img-inner">
+        <img src="../assets/img/shoes/slider-1.png" alt="Nike Shoes">
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="section-text">
+        <h2>air retro 5</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis repudiandae consectetur reiciendis dicta reprehenderit odio velit. Excepturi harum beatae recusandae, unde cupiditate, corporis eaque modi deserunt sint nostrum molestias magnam! Illo quos maxime libero, ea facere commodi et rerum temporibus, accusamus saepe eum quibusdam debitis. Distinctio voluptas, sapiente, rerum corrupti, sunt necessitatibus porro vero fugiat dolorem possimus accusamus ut. Maxime reprehenderit adipisci quasi vero blanditiis in laborum quisquam, qui impedit assumenda ipsa quam magni placeat culpa perferendis est amet nulla atque consequatur id non facere, recusandae ex. Modi quam tempore provident eligendi minus, dolorum, cupiditate vitae laborum illo voluptate cum.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe, quo, debitis neque magnam sit placeat ratione error beatae fugit illum necessitatibus esse? Harum, asperiores expedita. Ipsum officia earum optio aperiam, suscipit totam placeat adipisci sequi nulla esse ex odio libero hic expedita assumenda animi fugit id, et dicta pariatur ut soluta! Molestias illum cupiditate ratione.</p>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-img">
+      <div class="section-img-inner">
+        <img src="../assets/img/shoes/slider-2.png" alt="Nike Shoes">
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="section-text">
+        <h2>jordan leva</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis repudiandae consectetur reiciendis dicta reprehenderit odio velit. Excepturi harum beatae recusandae, unde cupiditate, corporis eaque modi deserunt sint nostrum molestias magnam! Illo quos maxime libero, ea facere commodi et rerum temporibus, accusamus saepe eum quibusdam debitis. Distinctio voluptas, sapiente, rerum corrupti, sunt necessitatibus porro vero fugiat dolorem possimus accusamus ut. Maxime reprehenderit adipisci quasi vero blanditiis in laborum quisquam, qui impedit assumenda ipsa quam magni placeat culpa perferendis est amet nulla atque consequatur id non facere, recusandae ex. Modi quam tempore provident eligendi minus, dolorum, cupiditate vitae laborum illo voluptate cum.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe, quo, debitis neque magnam sit placeat ratione error beatae fugit illum necessitatibus esse? Harum, asperiores expedita. Ipsum officia earum optio aperiam, suscipit totam placeat adipisci sequi nulla esse ex odio libero hic expedita assumenda animi fugit id, et dicta pariatur ut soluta! Molestias illum cupiditate ratione.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro odio, veritatis, id iste quisquam delectus nesciunt earum expedita fugiat minus iure eum blanditiis voluptatibus consectetur obcaecati placeat explicabo praesentium voluptatum ducimus, corporis quia minima cum molestias. Iste provident, quia expedita officia aut autem tenetur voluptates. Quod non voluptas facere. Vero nulla beatae expedita natus dolor dolorum tenetur optio delectus possimus sint quo accusamus, porro explicabo! Quibusdam voluptatem officiis impedit fugit consequuntur nam rem hic, sequi, placeat tenetur iste perferendis incidunt veritatis ab error. Deserunt cum quisquam alias praesentium aliquid consequatur error atque incidunt officia voluptates fugit est dolores, sit impedit.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus modi reprehenderit dolorum dolore quisquam provident repudiandae minima doloribus. Quasi, ea modi totam cupiditate, voluptatibus laudantium voluptas corporis debitis officia fugit vel perspiciatis dolorum asperiores! Officia sint, beatae id architecto consequuntur voluptatum explicabo repellendus molestiae officiis inventore expedita quia fugiat animi laboriosam nulla. Sapiente, porro illo.</p>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-img">
+      <div class="section-img-inner">
+        <img src="../assets/img/shoes/slider-3.png" alt="Nike Shoes">
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="section-text">
+        <h2>air jordan</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis repudiandae consectetur reiciendis dicta reprehenderit odio velit. Excepturi harum beatae recusandae, unde cupiditate, corporis eaque modi deserunt sint nostrum molestias magnam! Illo quos maxime libero, ea facere commodi et rerum temporibus, accusamus saepe eum quibusdam debitis. Distinctio voluptas, sapiente, rerum corrupti, sunt necessitatibus porro vero fugiat dolorem possimus accusamus ut. Maxime reprehenderit adipisci quasi vero blanditiis in laborum quisquam, qui impedit assumenda ipsa quam magni placeat culpa perferendis est amet nulla atque consequatur id non facere, recusandae ex. Modi quam tempore provident eligendi minus, dolorum, cupiditate vitae laborum illo voluptate cum.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe, quo, debitis neque magnam sit placeat ratione error beatae fugit illum necessitatibus esse? Harum, asperiores expedita. Ipsum officia earum optio aperiam, suscipit totam placeat adipisci sequi nulla esse ex odio libero hic expedita assumenda animi fugit id, et dicta pariatur ut soluta! Molestias illum cupiditate ratione.</p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio sed quam enim aliquid aperiam dolorum quae ea accusamus laboriosam maiores nam sapiente obcaecati voluptas tempora eius recusandae impedit mollitia et assumenda, nostrum perspiciatis! Quia aspernatur, quam autem, neque doloribus delectus ducimus consequatur error assumenda molestiae amet velit officiis necessitatibus ipsam sunt distinctio architecto quidem corrupti facere iusto itaque consectetur voluptatem inventore. Consectetur possimus nesciunt ipsam.</p>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-img">
+      <div class="section-img-inner">
+        <img src="../assets/img/shoes/slider-4.png" alt="Nike Shoes">
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="section-text">
+        <h2>nike mercurial</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis repudiandae consectetur reiciendis dicta reprehenderit odio velit. Excepturi harum beatae recusandae, unde cupiditate, corporis eaque modi deserunt sint nostrum molestias magnam! Illo quos maxime libero, ea facere commodi et rerum temporibus, accusamus saepe eum quibusdam debitis. Distinctio voluptas, sapiente, rerum corrupti, sunt necessitatibus porro vero fugiat dolorem possimus accusamus ut. Maxime reprehenderit adipisci quasi vero blanditiis in laborum quisquam, qui impedit assumenda ipsa quam magni placeat culpa perferendis est amet nulla atque consequatur id non facere, recusandae ex. Modi quam tempore provident eligendi minus, dolorum, cupiditate vitae laborum illo voluptate cum.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe, quo, debitis neque magnam sit placeat ratione error beatae fugit illum necessitatibus esse? Harum, asperiores expedita. Ipsum officia earum optio aperiam, suscipit totam placeat adipisci sequi nulla esse ex odio libero hic expedita assumenda animi fugit id, et dicta pariatur ut soluta! Molestias illum cupiditate ratione.</p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio sed quam enim aliquid aperiam dolorum quae ea accusamus laboriosam maiores nam sapiente obcaecati voluptas tempora eius recusandae impedit mollitia et assumenda, nostrum perspiciatis! Quia aspernatur, quam autem, neque doloribus delectus ducimus consequatur error assumenda molestiae amet velit officiis necessitatibus ipsam sunt distinctio architecto quidem corrupti facere iusto itaque consectetur voluptatem inventore. Consectetur possimus nesciunt ipsam.</p>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <h3>the end</h3>
+  </div>
+
+  <script>
+    const colors = [
+        {
+            color: "linear-gradient(45deg, #aa0100, #fff, #000a4d)",
+        },
+        {
+            color: "linear-gradient(45deg, #aa0100, #fff, #1e1a1a)",
+        },
+        {
+            color: "linear-gradient(45deg, #aa0100, #fff, #266baa)",
+        },
+        {
+            // color: "linear-gradient(45deg, #00aa00, #298e97, #afe992)",
+            color: "linear-gradient(45deg, #26bb18, #b4dee0, #007981)",
+        },
+        {
+            color: "linear-gradient(45deg, #fff, #fff, #fff",
+        }
+    ]
+
+    const leftPanel = document.querySelector(".left-panel");
+    const sections = document.querySelectorAll(".section");
+    let section = sections[0];
+    let topBorder = section.offsetTop;
+    let bottomBorder = topBorder + section.offsetHeight;
+    const halfScreen = window.innerHeight / 2;
+    let y = window.scrollY;
+    let index = 0;
+    
+    // Check the starting position of the scroll when the page load
+    if (y > topBorder - halfScreen) {
+        sections.forEach((element, i) => {
+            const elementTop = element.offsetTop - halfScreen;
+            const elementBottom = elementTop + element.offsetHeight;
+            if (elementTop < y && elementBottom > y) {
+                section = element;
+                section.classList.add("active");
+                index = i;
+                leftPanel.classList.remove("hidden");
+                leftPanel.style.backgroundImage = colors[index].color;
+            }
+        })
+    }
+
+    // this will add class "active" to every sibling element - even for elements outside the slider
+    window.addEventListener("scroll", () => {
+        y = window.scrollY;
+        let topBorder = section.getBoundingClientRect().top;
+        let bottomBorder = section.getBoundingClientRect().bottom;
+        if (topBorder < halfScreen && bottomBorder > halfScreen) {
+            section.classList.add("active");
+            leftPanel.classList.remove("hidden");
+        } else if (bottomBorder < halfScreen) {
+            section.classList.remove("active");
+            section = section.nextElementSibling;
+            index++;
+            leftPanel.style.backgroundImage = colors[index].color;
+        } else if (topBorder > halfScreen && bottomBorder > halfScreen && y > halfScreen) {
+            section.classList.remove("active");
+            section = section.previousElementSibling;
+            index--;
+            leftPanel.style.backgroundImage = colors[index].color;
+        } else if (y < halfScreen) {
+            section.classList.remove("active");
+            leftPanel.classList.add("hidden");
+        }
+    })
+  </script>
+</body>
+</html>
