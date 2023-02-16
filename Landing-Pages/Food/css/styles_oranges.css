@@ -43,12 +43,15 @@ button {
 
 nav {
     position: relative;
+    width: 100%;
+    max-width: 120rem;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
     column-gap: 10%;
     padding: 2% 5%;
-    z-index: 2;
+    z-index: 3;
 }
 
 .logo {
@@ -56,12 +59,12 @@ nav {
     background-image: url('../img/logo.png');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: auto 50%;
+    background-size: auto 55%;
 }
 .logo-ring {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
 }
 .logo-ring:nth-child(1) {
@@ -96,6 +99,14 @@ nav {
 @keyframes loaderv324 {
     0% { transform: rotateX(50deg) rotateY(150deg) rotateZ(0deg);}
     100% { transform: rotateX(50deg) rotateY(150deg) rotateZ(360deg);}
+}
+
+#decoration-top {
+    position: absolute;
+    left: 40%;
+    width: max(8rem, 20%);
+    max-width: 20rem;
+    z-index: 2;
 }
 
 nav ul {
@@ -151,6 +162,7 @@ main {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 3fr 1fr;
     align-items: center;
+    max-width: 100rem;
     margin: auto;
     padding: 2% 5%;
 }
@@ -170,10 +182,10 @@ main {
 }
 .content p {
     width: 45%;
-    margin-top: 20px;
-    margin-bottom: 30px;
-    color: #b6b6b6;
-    font-size: 18px;
+    margin-top: 1.2rem;
+    margin-bottom: 2rem;
+    color: #555;
+    font-size: 1.1rem;
 }
 
 .btn2 {
@@ -188,6 +200,16 @@ main {
 }
 .btn2:active {
     box-shadow: inset 3px 1px 4px #0008;
+}
+
+#water-splash {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    width: 60%;
+    max-width: 40rem;
+    margin: 0 auto auto;
+    filter: brightness(1.1) saturate(1.6);
+    z-index: 1;
 }
 
 .product-image {
@@ -288,5 +310,26 @@ i.fa-share-alt {
     .product-image {
         grid-column: 1 / 2;
         grid-row: 2 / 3;
+    }
+}
+
+@media screen and (max-width: 30rem) {
+    main {
+        grid-template-rows: 1fr auto auto;
+    }
+    .product-image {
+        width: 100%;
+    }
+    #water-splash {
+        width: 110%;
+    }
+    .content {
+        grid-row: 1 / 2;
+    }
+    .content p {
+        width: 100%;
+    }
+    .sci {
+        margin-top: 3rem;
     }
 }
