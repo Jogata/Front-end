@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Headphones v.2</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./css/styles_headphones-v2.css">
+</head>
+<body>
+  <section id="headphones-v2" class="red">
+    <header>
+      <a class="logo" href="#top">
+        <div class="logo-ring"></div>
+        <div class="logo-ring"></div>
+        <div class="logo-ring"></div>
+        <div class="logo-ring"></div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#1" class="active">overview</a></li>
+          <li><a href="#2">tech specs</a></li>
+          <li><a href="#3">reviews</a></li>
+          <li><a href="#4">contact us</a></li>
+        </ul>
+      </nav>
+        <button id="menu-btn">
+          <svg aria-hidden="true" class="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+            <path stroke="currentColor" stroke-width="1.5" d="M21 5.25H3M21 12H3m18 6.75H3"></path>
+          </svg>
+        </button>
+    </header>
+    <main>
+      <div class="sticks-container">
+        <div class="sticks">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+      </div>
+      <ul class="thumbs">
+        <li class="thumb active" data-id="red"><button type="button">red</button></li>
+        <li class="thumb" data-id="black"><button type="button">black</button></li>
+        <li class="thumb" data-id="blue"><button type="button">blue</button></li>
+        <li class="thumb" data-id="white"><button type="button">white</button></li>
+        <li class="thumb" data-id="orange"><button type="button">orange</button></li>
+        <li class="thumb" data-id="gold"><button type="button">gold</button></li>
+      </ul>
+      <div class="product-img-box">
+        <img src="./img/headphones/v2/red.png" alt="Headphones" id="product-img" height="500">
+        <div class="bottom-thumbs"></div>
+      </div>
+      <div class="product-info">
+        <h1>studio <span>wireless</span></h1>
+        <div class="stars">
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star-o" aria-hidden="true"></i>
+          <span>(261)</span>
+        </div>
+        <div class="features">
+          <p>Pair and play with your Bluetooth<sup>&reg;</sup> device with 30 foot range.</p>
+          <p>Dual-mode Adaptive Noise Canceling.</p>
+          <p>12 hour rechargeable battery with Fuel Gauge.</p>
+          <p>Take hands-free calls with built-in mic.</p>
+        </div>
+        <h2>$379.95</h2>
+        <div class="product-color">
+          <span class="color"></span>
+          <span class="color-name">red</span>
+        </div>
+        <a href="#buy" class="btn">buy now</a>
+      </div>
+      <ul class="side-nav">
+        <li class="active"><i class="fa fa-truck" aria-hidden="true"></i></li>
+        <li><i class="fa fa-info" aria-hidden="true"></i></li>
+        <li><i class="fa fa-globe" aria-hidden="true"></i></li>
+        <li><i class="fa fa-comment-o" aria-hidden="true"></i></li>
+      </ul>
+      <form action="" class="search">
+        <svg aria-hidden="true" class="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+          <path stroke="currentColor" stroke-width="1.5" d="M13.962 16.296a6.716 6.716 0 01-3.462.954 6.728 6.728 0 01-4.773-1.977A6.728 6.728 0 013.75 10.5c0-1.864.755-3.551 1.977-4.773A6.728 6.728 0 0110.5 3.75c1.864 0 3.551.755 4.773 1.977A6.728 6.728 0 0117.25 10.5a6.726 6.726 0 01-.921 3.407c-.517.882-.434 1.988.289 2.711l3.853 3.853"></path>
+        </svg>
+      </form>
+    </main>
+  </section>
+
+  <script>
+    const productsDB = {
+      red: {
+        src: './img/headphones/v2/red.png',
+        adds: [],
+      },
+      black: {
+        src: './img/headphones/v2/black.png',
+        adds: ['./img/headphones/v2/black.png', './img/headphones/v2/black-red.png', './img/headphones/v2/black-white.png'],
+      },
+      blue: {
+        src: './img/headphones/v2/blue.png',
+        adds: [],
+      },
+      white: {
+        src: './img/headphones/v2/white.png',
+        adds: ['./img/headphones/v2/white.png', './img/headphones/v2/white-bottom.png'],
+      },
+      orange: {
+        src: './img/headphones/v2/orange.png',
+        adds: [],
+      },
+      gold: {
+        src: './img/headphones/v2/gold.png',
+        adds: [],
+      }
+    }
+
+    const slideButtons = document.querySelectorAll(".thumb");
+
+    slideButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const id = button.dataset.id;
+        changeSlide(button, id);
+      });
+    })
+
+    function changeSlide(button, productID) {
+      document.querySelector("li.active").classList.remove("active");
+      button.classList.add("active");
+      const image = document.querySelector("#product-img");
+      image.src = productsDB[productID].src;
+      document.querySelector("#headphones-v2").className = productID;
+      document.querySelector(".color-name").textContent = productID;
+      createBottomThumbs(image, productID);
+    }
+
+    function createBottomThumbs(image, productID) {
+      const thumbs = document.querySelector(".bottom-thumbs");
+      thumbs.textContent = '';
+      productsDB[productID].adds.forEach((add, index, array) => {
+        const thumb= document.createElement("button");
+        thumb.addEventListener("click", () => {
+          image.src = array[index];
+        })
+        thumbs.appendChild(thumb);
+      })
+    }
+
+    const menuButton = document.querySelector("#menu-btn");
+    menuButton.addEventListener("click", () => {
+      document.querySelector("header").classList.toggle("active");
+    })
+  </script>
+</body>
+</html>
