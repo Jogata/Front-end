@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Herr+Von+Muellerhoff&family=Kaushan+Script&family=Playfair+Display:wght@400;700&display=swap');
+/* 
+font-family: 'Abril Fatface', cursive;
+font-family: 'Lemon', cursive;
+font-family: 'Playfair Display', serif;    //400,700
+font-family: 'Courgette', cursive;
+font-family: 'Dancing Script', cursive;
+font-family: 'Great Vibes', cursive;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Limelight', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Oleo Script Swash Caps', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Kaushan Script', cursive;
+font-family: 'Fraunces', serif;
+font-family: 'Herr Von Muellerhoff', cursive;
+*/
+
+@font-face {
+    font-family: "Against";
+    src:url("../../../assets/fonts/against-regular.ttf");
+}
+@font-face {
+    font-family: "monk";
+    src:url("../../../assets/fonts/Monk-Gothic.ttf");
+}
+@font-face {
+    font-family: "Charlie Kayden";
+    src:url("../../../assets/fonts/CharlieKaydenDemoRegular.ttf");
+}
+@font-face {
+    font-family: "Leomarle";
+    src:url("../../../assets/fonts/LeomarleFreeVersionRegular.ttf");
+}
+@font-face {
+    font-family: "Retention";
+    src:url("../../../assets/fonts/Retention-Script-Demo.ttf");
+}
+@font-face {
+    font-family: "Strongwild";
+    src:url("../../../assets/fonts/Strongwild-Demo.ttf");
+}
+/* font-family: "monk"; */
+/* font-family: "against"; */
+/* font-family: "Charlie Kayden"; */
+/* font-family: "Leomarle"; */
+/* font-family: "Retention"; */
+/* font-family: "Strongwild"; */
+
+/* ========== Base styles ========== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+li {
+    display: inline-block;
+}
+
+a {
+    display: inline-block;
+    color: #000;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+button {
+    border: 1px solid transparent;
+    background-color: transparent;
+}
+
+i, button, .account, .cart {
+    cursor: pointer;
+}
+
+a, button, svg {
+    transition: all 0.4s ease;
+}
+
+button:focus-visible, 
+a:focus-visible {
+    outline: 2px solid #999;
+}
+
+p::first-letter {
+    text-transform: uppercase;
+}
+
+.container {
+    max-width: 90rem;
+    min-height: 100vh;
+    margin: auto;
+    padding: 1em;
+    font-family: "Against";
+    overflow: hidden;
+}
+
+h2, .logo {
+    font-family: 'Lemon', cursive;
+}
+
+header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 2em;
+    row-gap: 1em;
+    margin-bottom: min(10vw, 6rem, 6em);
+    font-family: 'Playfair Display', serif;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+.logo {
+    font-size: min(8vw, 2rem);
+    /* font-size: 3rem; */
+    text-align: center;
+    outline: none;
+    animation: floatleft 1.5s ease-in-out backwards;
+}
+.logo:focus-visible {
+    transform: scale(1.1);
+}
+
+.logo span {
+    color: #aecd31;
+}
+
+.menu-links {
+    order: 1;
+    margin: auto;
+}
+.menu-links a {
+    color: #222;
+    padding: 0.4em 1em;
+    border-radius: 1em;
+}
+.menu-links a.active {
+    color: #aecd31;
+    border-bottom: 1px solid #aecd31;
+}
+.menu-links a:hover {
+    color: #aecd31;
+}
+
+.search-bar {
+    margin-left: auto;
+    padding: 0.5em 0.5em 0.2em;
+    border: 1px solid #000;
+    border-radius: 50%;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+.search-bar svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.search-bar:hover {
+    border: 1px solid #aecd31;
+}
+.search-bar:hover svg {
+    color: #aecd31;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.links li {
+    padding: 0.8em;
+}
+
+.link, .account, .search-bar, .cart {
+    animation: floatleft 1s ease-in-out backwards;
+    animation-delay: calc(var(--i) * 0.3s);
+}
+
