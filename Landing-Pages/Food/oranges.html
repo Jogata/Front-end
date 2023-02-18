@@ -9,16 +9,8 @@
     <link rel="stylesheet" href="./css/styles_oranges.css">
 </head>
 <body>
-    <section class="landing-page" id="top">
-        <header>
-            <nav>
-                <ul role="list">
-                    <li><a href="#top">juice</a></li>
-                    <li><a href="#top">about</a></li>
-                    <li><a href="#top">benefit</a></li>
-                    <li><a href="#top">contact</a></li>
-                </ul>
-            </nav>
+    <div class="landing-page">
+        <nav>
             <div class="logo">
                 <a href="#top">
                     <div class="logo-ring"></div>
@@ -27,43 +19,44 @@
                     <div class="logo-ring"></div>
                 </a>
             </div>
-            <div class="cart">
-                <ul role="list">
-                    <li><i class="fa fa-heart" aria-hidden="true"></i></li>
-                    <li><i class="fa fa-shopping-cart" aria-hidden="true"></i></li>
+            <ul role="list">
+                <li><a href="#top">home</a></li>
+                <li><a href="#top">about</a></li>
+                <li><a href="#top">contact</a></li>
+                <li><a href="#top">info</a></li>
+            </ul>
+            <a href="#" class="btn">add to cart</a>
+        </nav>
+        <img id="decoration-top" src="./img/decoration-top.png">
+        <main>
+            <div class="content">
+                <h1>eat fresh <br> stay healthy...</h1>
+                <p>Orange is not just a tasty fruit, its more. Get to know the multiple health benefits of adding oranges to your daily diet.</p>
+                <a href="#" class="btn btn2">buy now</a>
+            </div>
+            <img id="water-splash" src="./img/water-splash.png">
+            <div class="product-image">
+                <img src="./img/oranges-2.png" alt="Oranges">
+            </div>
+            <div class="sci">
+                <button class="share">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </button>
+                <ul class="hidden">
+                    <li style="--i:0"><a class="sci-link" href="#f"><i class="fa fa-facebook-f"></i></a></li>
+                    <li style="--i:1"><a class="sci-link" href="#i"><i class="fa fa-instagram"></i></a></li>
+                    <li style="--i:2"><a class="sci-link" href="#t"><i class="fa fa-twitter"></i></a></li>
                 </ul>
             </div>
-        </header>
-        <div class="tag">
-            <p>benefits of juice</p>
-        </div>
-        <main>
-            <h1>ora<span>nge</span></h1>
-            <!-- <span>nge</span> -->
-            <div class="hero">
-                <img src="./img/oranges.png" alt="Oranges">
-            </div>
-            <div class="tabs-container">
-                <div class="tabs-header">
-                    <ul>
-                        <li class="active">
-                            <label for="">vitamin c</label>
-                        </li>
-                        <li>
-                            <label for="">vitamin d</label>
-                        </li>
-                        <li>
-                            <label for="">vitamin e</label>
-                        </li>
-                    </ul>
-                </div>
-                <div class="tabs">
-                    <p class="tab active">Vit C Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas fuga, itaque quam hic, quis corrupti nam minus accusantium quisquam facere eos saepe? Vitae id ipsum, nulla ex consequuntur animi repellat.</p>
-                    <p class="tab">Vit D Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit earum, commodi veniam dolores facere accusamus incidunt id aspernatur? Vel, eaque?</p>
-                    <p class="tab">Vit E Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur debitis odit, nesciunt id reiciendis ab.</p>
-                </div>
-            </div>
         </main>
-    </section>
+    </div>
+
+    <script>
+        const shareButton = document.querySelector(".share");
+        shareButton.addEventListener("click", () => {
+            const links = document.querySelector(".sci ul");
+            links.classList.toggle("hidden");
+        })
+    </script>
 </body>
 </html>
