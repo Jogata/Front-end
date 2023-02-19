@@ -5,51 +5,13 @@
 font-family: 'Abril Fatface', cursive;
 font-family: 'Lemon', cursive;
 font-family: 'Playfair Display', serif;    //400,700
-font-family: 'Courgette', cursive;
-font-family: 'Dancing Script', cursive;
-font-family: 'Great Vibes', cursive;
-font-family: 'Josefin Sans', sans-serif;
-font-family: 'Limelight', cursive;
-font-family: 'Lobster', cursive;
-font-family: 'Montserrat', sans-serif;
-font-family: 'Oleo Script Swash Caps', cursive;
-font-family: 'Poppins', sans-serif;
-font-family: 'Raleway', sans-serif;
-font-family: 'Kaushan Script', cursive;
-font-family: 'Fraunces', serif;
-font-family: 'Herr Von Muellerhoff', cursive;
 */
 
 @font-face {
     font-family: "Against";
     src:url("../../../assets/fonts/against-regular.ttf");
 }
-@font-face {
-    font-family: "monk";
-    src:url("../../../assets/fonts/Monk-Gothic.ttf");
-}
-@font-face {
-    font-family: "Charlie Kayden";
-    src:url("../../../assets/fonts/CharlieKaydenDemoRegular.ttf");
-}
-@font-face {
-    font-family: "Leomarle";
-    src:url("../../../assets/fonts/LeomarleFreeVersionRegular.ttf");
-}
-@font-face {
-    font-family: "Retention";
-    src:url("../../../assets/fonts/Retention-Script-Demo.ttf");
-}
-@font-face {
-    font-family: "Strongwild";
-    src:url("../../../assets/fonts/Strongwild-Demo.ttf");
-}
-/* font-family: "monk"; */
-/* font-family: "against"; */
-/* font-family: "Charlie Kayden"; */
-/* font-family: "Leomarle"; */
-/* font-family: "Retention"; */
-/* font-family: "Strongwild"; */
+/* font-family: "Against"; */
 
 /* ========== Base styles ========== */
 *, *::before, *::after {
@@ -185,4 +147,192 @@ header {
     animation: floatleft 1s ease-in-out backwards;
     animation-delay: calc(var(--i) * 0.3s);
 }
+
+/* ======================================================================================== */
+main {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.first-row {
+    width: 95%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.first-row p {
+    margin-right: 2em;
+    font-size: min(5vw, 2rem);
+    color: #999;
+}
+
+.last-row {
+    display: grid;
+    grid-template-columns: 1fr 0.2fr 1fr 0.2fr 1fr;
+    margin: auto;
+}
+
+.wrapper {
+    min-height: 100vh;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-transform: uppercase;
+}
+
+.pages span {
+    color: #222;
+    font-size: 60px;
+}
+
+.leaves {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+}
+.leaves img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.layer {
+    position: relative;
+}
+.leaves .layer:nth-child(1) {
+    top: -100px;
+    left: -480px;
+}
+.leaves .layer:nth-child(2) {
+    top: -10px;
+    left: -160px;
+}
+.leaves .layer:nth-child(3) {
+    top: -300px;
+    left: -160px;
+}
+.leaves .layer:nth-child(4) {
+    top: -10px;
+    left: -320px;
+}
+.leaves .layer:nth-child(5) {
+    top: -200px;
+    left: -320px;
+}
+.scene {
+    display: block;
+}
+
+.arrows button {
+    padding: 20px;
+    outline: none;
+    border: 1px solid #999;
+    border-radius: 50%;
+}
+.arrows button:hover {
+    color: #fff;
+    background-color: #000;
+}
+.arrows #prev {
+    position: absolute;
+    top: 50%;
+    left: 100px;
+}
+.arrows #next {
+    position: absolute;
+    top: 50%;
+    right: 100px;
+}
+
+@media screen and (max-width: 58rem) {
+    nav ul {
+        display: none;
+    }
+}
+
+.more {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    z-index: 2;
+}
+.more a {
+    display: inline-block;
+    padding: 0.5em;
+    color: #000;
+    font-size: 1.25rem;
+    text-transform: capitalize;
+    background-color: transparent;
+    border: 1px solid #000;
+    border-radius: 0.5em;
+    transition: all 0.4s;
+}
+
+ .juice {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    display: flex;
+    justify-content: center;
+    animation: floatdown 2s ease-in-out backwards;
+    animation-delay: 2.5s;
+}
+.juice img {
+    max-width: 120%;
+    align-self: center;
+    transform: translateY(-25%) scale(1.5);
+    animation: float 4s ease-in-out infinite;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: -1;
+}
+
+.description {
+    flex: 0 0 32%;
+    flex: 1;
+    grid-column: 5 / 6;
+    grid-row: 1 / 2;
+    align-self: center;
+    z-index: 2;
+}
+.description p:first-child {
+    max-width: 12em;
+    margin-bottom: 1em;
+    font-size: min(7vw, 2rem);
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #999;
+}
+.description p:last-child {
+    max-width: 30em;
+    margin: auto;
+    font-size: 1rem;
+    line-height: 2;
+}
+.olive {
+    color: #aecd31;
+}
+
+.front, .back {
+    width: 100%;
+    height: 100%;
+}
+
+/* ======================================================================================== */
 
