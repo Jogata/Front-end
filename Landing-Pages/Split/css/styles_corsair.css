@@ -5,7 +5,7 @@ font-family: 'Great Vibes', cursive;
 
 @font-face {
     font-family: "Against";
-    src:url("../assets/fonts/against-regular.ttf");
+    src:url("../../../assets/fonts/against-regular.ttf");
 }
 
 *, *::before, *::after {
@@ -17,22 +17,22 @@ font-family: 'Great Vibes', cursive;
 #wrapper {
     position: relative;
     width: 100%;
-    min-height: 55vw;
+    min-height: 100vh;
     overflow: hidden;
 }
 
 .layer {
     position: absolute;
     width: 100vw;
-    min-height: 55vw;
     overflow: hidden;
 }
-.bottom {
+.back {
     color: #fff;
     background-color: #222;
     z-index: 1;
 }
-.top {
+.front {
+    position: relative;
     width: calc(50vw + 1000px);
     margin-left: -1000px;
     color: #222;
@@ -42,57 +42,57 @@ font-family: 'Great Vibes', cursive;
 }
 
 .content-wrap {
-    position: absolute;
-    width: 100vw;
-    min-height: 55vw;
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
 }
-.top .content-wrap {
+.front .content-wrap {
+    width: 100vw;
     margin-left: 1000px;
     transform: skew(30deg);
 }
 
 .content-body {
-    position: absolute;
-    top: 50%;
-    width: 25%;
+    padding: 20% 0;
     text-align: center;
-    transform: translateY(-50%);
 }
-.bottom .content-body {
-    right: 5%;
+.back .content-body {
+    grid-column: -2 / -1;
+    padding-right: 5%;
 }
-.top .content-body {
-    left: 5%;
+.front .content-body {
+    padding-left: 5%;
 }
 .content-body p {
     font-size: max(1rem, 1vw);
 }
 
 .layer img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 35%;
+    width: 100%;
     max-width: 40rem;
+    justify-self: center;
 }
-.layer.bottom img {
-    transform: translate(-50%, -51%) scale(1.04);
+.layer.back img {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    transform: translate(0%, -1%) scale(1.04);
 }
 
 h1 {
     margin-bottom: 1rem;
-    font-size: 5vw;
+    font-size: 5.6vw;
     font-family: 'Against', 'Great Vibes', cursive;
     text-transform: capitalize;
 }
-.top h1 {
+.front h1 {
     color: #dfdee1;
     filter: drop-shadow(1px 1px 1px #000);
     /* -webkit-text-stroke: 1px #dfdee1;
     color: transparent; */
 }
-.bottom h1 {
+.back h1 {
     color: #444;
     filter: drop-shadow(-1px -1px 1px #fff);
     -webkit-text-stroke: 1px #444;
@@ -110,4 +110,28 @@ h1 {
     transform-origin: top;
     transform: rotate(30deg) translateY(-50%);
     z-index: 3;
+}
+
+@media screen and (max-width: 768px) {
+    .content-wrap {
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+    .back .content-body {
+        grid-row: 3 / 4;
+        grid-column: -3 / -1;
+        padding-top: 7%;
+        padding-right: 10%;
+    }
+    .front .content-body {
+        grid-column: 1 / 3;
+        padding-bottom: 7%;
+    }
+    .layer img {
+        grid-row: 2 / 3;
+        grid-column: 2 / 3;
+        width: 200%;
+    }
+    .layer.back img {
+        grid-row: 2 / 3;
+    }
 }
