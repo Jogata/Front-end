@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corsair | Split Screen</title>
+    <link rel="stylesheet" href="./css/styles_corsair.css">
+</head>
+<body>
+    <section id="wrapper">
+        <div class="layer back">
+            <div class="content-wrap">
+                <div class="content-body">
+                    <h1>look sharp</h1>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi sed blanditiis eveniet tenetur reprehenderit accusamus soluta vitae accusantium sint nemo.</p>
+                </div>
+                <img src="./img/corsair/corsair-600T-silver.png" alt="Corsair 600T">
+            </div>
+        </div>
+        <div class="layer front">
+            <div class="content-wrap">
+                <div class="content-body">
+                    <h1>stay cool</h1>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi sed blanditiis eveniet tenetur reprehenderit accusamus soluta vitae accusantium sint nemo.</p>
+                </div>
+                <img src="./img/corsair/corsair-600T-black.png" alt="Corsair 600T">
+            </div>
+        </div>
+
+        <div class="handle"></div>
+    </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let wrapper = document.getElementById("wrapper");
+            let frontLayer = wrapper.querySelector(".front");
+            let handle = wrapper.querySelector(".handle");
+            let skew = 1000;
+            let delta = 0;
+    
+            wrapper.addEventListener("mousemove", (e) => {
+                delta = (e.clientX - window.innerWidth / 2) * 0.5;
+                handle.style.left = `${e.clientX + delta}px`;
+                frontLayer.style.width = `${e.clientX + skew + delta}px`;
+            })
+        })
+    </script>
+</body>
+</html>
