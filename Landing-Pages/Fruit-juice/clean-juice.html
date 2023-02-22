@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clean Juice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/styles_clean-juice.css">
+    <!-- <link rel="stylesheet" href="../Food/css/styles_oranges.css"> -->
+</head>
+
+<body>
+    <div class="container">
+        <header class="nav">
+            <a href="#" class="logo">clean <span>juice</span></a>
+            <div class="menu-links">
+                <ul class="links">
+                    <li><a class="link active" style="--i:3" href="#">location</a></li>
+                    <li><a class="link" style="--i:4" href="#">our menu</a></li>
+                    <li><a class="link" style="--i:5" href="#">our story</a></li>
+                    <li><a class="link" style="--i:6" href="#">meet our team</a></li>
+                    <li><a class="link" style="--i:7" href="#">own a clean juice</a></li>
+                    <li><a class="link" style="--i:8" href="#">contact us</a></li>
+                </ul>
+            </div>
+            <form action="" class="search-bar"  style="--i:9">
+                <svg aria-hidden="true" class="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+                  <path stroke="currentColor" stroke-width="1.5" d="M13.962 16.296a6.716 6.716 0 01-3.462.954 6.728 6.728 0 01-4.773-1.977A6.728 6.728 0 013.75 10.5c0-1.864.755-3.551 1.977-4.773A6.728 6.728 0 0110.5 3.75c1.864 0 3.551.755 4.773 1.977A6.728 6.728 0 0117.25 10.5a6.726 6.726 0 01-.921 3.407c-.517.882-.434 1.988.289 2.711l3.853 3.853"></path>
+                </svg>
+            </form>
+            <div class="account"  style="--i:10">my account</div>
+            <div class="cart"  style="--i:12">cart</div>
+        </header>
+        <div class="content">
+            <div class="tagline">find your clean juice</div>
+            <div class="pages"><span>2</span>/21</div>
+            <h2 class="title">orange</h2>
+            <div class="more">
+                <a href="#">show all products</a>
+            </div>
+            <div class="juice">
+                <img src="./img/clean/juice.png" alt="A Bottle of Orange Juice">
+            </div>
+            <!-- <div class="leaves"> -->
+                <div class="leaves front">
+                    <img style="--i:1" src="./img/clean/leaf01.png">
+                    <img style="--i:2" src="./img/clean/leaf02.png">
+                    <img style="--i:3" src="./img/clean/leaf03.png">
+                </div>
+                <div class="leaves back">
+                    <img style="--i:4" src="./img/clean/leaf04.png">
+                    <img style="--i:5" src="./img/clean/leaf05.png">
+                </div>
+            <!-- </div> -->
+            <div class="description">
+                <p>your <span>healthy</span> life starts here with us</p>
+                <p>a family owned company founded with the purpose of giving to your family access to clean, organic products while you are on the go.</p>
+            </div>
+            <div class="arrows">
+                <button id="prev">p</button>
+                <button id="next">n</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const layer = document.querySelector(".content");
+        const front = document.querySelector(".front");
+        const back = document.querySelector(".back");
+        
+        layer.addEventListener("mousemove", function (e) {
+            const x = (e.pageX - layer.offsetWidth/2);
+            const y = (e.pageY - layer.offsetHeight/2);
+            
+            front.style.transform = `translate3d(${x/10}px, ${y/10}px, 0)`;
+            back.style.transform = `translate3d(${x/25}px, ${y/25}px, 0)`;
+            
+        })
+    </script>
+</body>
+
+</html>
