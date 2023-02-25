@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
+/* 
+font-family: 'Great Vibes', cursive;
+*/
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+}
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+a {
+    display: inline-block;
+    color: #000;
+    text-transform: capitalize;
+    text-decoration: none;
+    outline: 1px solid transparent;
+    transition: all 0.4s;
+}
+a:focus-visible {
+    outline: 1px solid #d41c28;
+}
+i, label, svg {
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.button {
+    padding: 0.4em 1.4em;
+    color: #fff;
+    font-size: 1.3rem;
+    border-radius: 1em;
+    border-bottom: 2px solid transparent;
+    background-color: #d41c28;
+}
+.button:focus-visible, 
+.button:hover {
+    color: #d41c28;
+    background-color: transparent;
+    box-shadow: inset 12px 12px 14px rgba(70, 70, 70, 0.12), 
+        inset -11px -11px 14px rgba(255, 255, 255, 0.623);
+}
+/* Overrides focus-visible */
+.button:hover {
+    outline: none;
+    border-bottom: currentColor 2px solid;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: #ffd5d6;
+    background-image: url("../img/healthy-food/plate.png"), url("../img/healthy-food/decoration.png");
+    background-image: url("../img/healthy-food/plate.png"), url("../img/healthy-food/decoration.png"), 
+                    linear-gradient(to left, #ffd5d6, #fff, #ffd5d6);
+    /* background-image: url("../img/healthy-food/plate.png"), url("../img/healthy-food/decoration.png"), 
+                    linear-gradient(to left, #fff, #ffd5d6, #fff); */
+    background-repeat: no-repeat;
+    background-position: 0 25%;
+    background-position: right, left;
+    background-size: contain, contain;
+}
+
+.landing-page {
+    max-width: 120rem;
+    margin: auto;
+    padding: 1em 2em;
+    background-color: #fff;
+    padding: 2% 4%;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    column-gap: 3rem;
+    row-gap: 1rem;
+}
+
+.logo {
+    position: relative;
+    font-size: 1.6rem;
+}
+.logo span {
+    color: #d41c28;
+}
+.logo::before {
+    position: absolute;
+    inset: 0;
+    content: "";
+    background: linear-gradient(-45deg, transparent 35%, #fff 50%, transparent 65%);
+    background-position: 120% 0;
+    background-size: 300%;
+    pointer-events: none;
+}
+.logo:hover::before {
+    background-position: -20% 0;
+    transition: all 2s;
+}
+
+nav ul {
+    justify-content: space-between;
+    column-gap: 1em;
+}
+nav ul a {
+    padding: 0.4em 1em;
+    font-size: 1.2rem;
+    border-radius: 1em;
+}
+nav ul a:hover {
+    color: #d41c28;
+}
+
+.search-design-icon {
+    width: 2rem;
+    height: 2rem;
+}
+.search-design-icon:hover {
+    color: #d41c28;
+}
+
+main {
+    margin: 2rem 0;
+}
+
+.hero-img {
+    margin-bottom: auto;
+}
+.info {
+    position: relative;
+    --padding: 1rem;
+    padding: var(--padding);
+    z-index: 2;
+}
+.info::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    filter: drop-shadow(1px 1px 1px #000);
+    background-image: url("../img/healthy-food/plates.png");
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    background-size: 60%;
+    z-index: -1;
+}
+
+h1 {
+    position: relative;
+    padding: 0.2em 0;
+    color: #111;
+    font-size: 10vw;
+    font-family: 'Great Vibes', cursive;
+    text-transform: capitalize;
+}
+h1::before, 
+h1::after {
+    position: absolute;
+    left: calc(var(--padding) * -1);
+    content: "";
+    width: 0.1em;
+}
+h1::before {
+    top: 0;
+    height: 100%;
+    background-color: #d41c28;
+}
+h1::after {
+    top: 80%;
+    height: 6%;
+    background-color: #fff;
+}
+h1 span {
+    display: block;
+}
+.light-font {
+    font-weight: lighter;
+}
+
+.info p {
+    padding: 1em 0 2em;
+    color: #888;
+}
+
+.time {
+    margin: 5rem 0 1rem;
+}
+.time span {
+    position: relative;
+}
+.time span::after {
+    position: absolute;
+    inset: auto auto -30% 0;
+    content: "";
+    width: 40%;
+    height: 15%;
+    background-color: #d41c28;
+}
+
+.time h2 {
+    padding-bottom: 0.4em;
+    text-transform: capitalize;
+}
+
+
