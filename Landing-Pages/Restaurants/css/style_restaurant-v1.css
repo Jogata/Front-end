@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Herr+Von+Muellerhoff&family=Kaushan+Script&family=Playfair+Display:wght@400;700&display=swap');
+/* 
+font-family: 'Abril Fatface', cursive;
+font-family: 'Lemon', cursive;
+font-family: 'Playfair Display', serif;    //400,700
+font-family: 'Courgette', cursive;
+font-family: 'Dancing Script', cursive;
+font-family: 'Great Vibes', cursive;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Limelight', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Oleo Script Swash Caps', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Kaushan Script', cursive;
+font-family: 'Fraunces', serif;
+font-family: 'Herr Von Muellerhoff', cursive;
+*/
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+}
+
+.logo-ring {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.logo-ring:nth-child(1) {
+    border-top: 3px solid #ffa500;
+    animation: loaderv321 2s linear infinite;
+}
+@keyframes loaderv321 {
+    0% { transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);}
+    100% { transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);}
+}
+.logo-ring:nth-child(2) {
+    border-right: 3px solid #ffa500;
+    animation: loaderv322 2s linear infinite;
+}
+@keyframes loaderv322 {
+    0% { transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);}
+    100% { transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);}
+}
+.logo-ring:nth-child(3) {
+    border-bottom: 3px solid #ffa500;
+    animation: loaderv323 2s linear infinite;
+}
+@keyframes loaderv323 {
+    0% { transform: rotateX(35deg) rotateY(65deg) rotateZ(0deg);}
+    100% { transform: rotateX(35deg) rotateY(65deg) rotateZ(360deg);}
+}
+.logo-ring:nth-child(4) {
+    position: relative;
+    border-left: 3px solid #ffa500;
+    animation: loaderv324 2s linear infinite;
+}
+@keyframes loaderv324 {
+    0% { transform: rotateX(50deg) rotateY(150deg) rotateZ(0deg);}
+    100% { transform: rotateX(50deg) rotateY(150deg) rotateZ(360deg);}
+}
