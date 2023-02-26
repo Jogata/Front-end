@@ -1,20 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Herr+Von+Muellerhoff&family=Kaushan+Script&family=Playfair+Display:wght@400;700&display=swap');
 /* 
 font-family: 'Abril Fatface', cursive;
-font-family: 'Courgette', cursive;
-font-family: 'Dancing Script', cursive;
-font-family: 'Great Vibes', cursive;
-font-family: 'Josefin Sans', sans-serif;
-font-family: 'Limelight', cursive;
-font-family: 'Lobster', cursive;
-font-family: 'Montserrat', sans-serif;
-font-family: 'Oleo Script Swash Caps', cursive;
 font-family: 'Poppins', sans-serif;
-font-family: 'Raleway', sans-serif;
-font-family: 'Kaushan Script', cursive;
-font-family: 'Fraunces', serif;
-font-family: 'Herr Von Muellerhoff', cursive;
 font-family: 'Playfair Display', serif;    //400,700
 */
 
@@ -60,9 +48,30 @@ a:focus-visible {
     --dark-color: #222;
 }
 
+.fade-out {
+    animation: fade-out 1s linear forwards;
+}
+@keyframes fade-out {
+    100% {
+        opacity: 0;
+    }
+}
+.fade-in {
+    animation: fade-in 1s linear backwards;
+}
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.2;
+    }
+}
+
 body {
     display: flex;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 #headphones-v3 {
@@ -95,40 +104,6 @@ header {
     outline: 1px solid var(--main-color);
     outline-offset: 8px;
 }
-/* ============================================= */
-
-.slide-button.active {
-    background-color: var(--main-color);
-}
-.slide-bar div:nth-of-type(1) {
-    display: block;
-    order: 1;
-    width: 100%;
-    height: 50%;
-}
-
-.slide-bar div {
-    width: 100%;
-    height: 50%;
-}
-.slide-bar div:nth-of-type(2) {
-    display: block;
-    width: 100%;
-    height: 50%;
-    background-color: var(--main-color);
-    background: hsl(120, 100%, 25%);
-}
-
-.current-slide {
-    grid-column: 4 / 5;
-    grid-column: -2 / -1;
-    grid-row: -2 / -1;
-    margin: 0.6em 0;
-    font-size: 7rem;
-    font-family: 'Abril Fatface', cursive;
-}
-
-/* ============================================= */
 
 #menu-btn {
     margin-right: auto;
@@ -230,11 +205,23 @@ main {
 }
 
 nav {
-    display: flex;
     grid-column: 1 / 2;
     grid-row: 1 / 2;
     align-self: end;
+    position: relative;
     margin-bottom: 5%;
+    display: flex;
+}
+nav::after {
+    position: absolute;
+    content: "";
+    inset: -3% auto auto 0;
+    width: 100vw;
+    height: 100%;
+    background-color: var(--main-color);
+    background: linear-gradient(to left, var(--main-color) 10%, transparent 20%);
+    transform: translateX(-100%);
+    z-index: -1;
 }
 nav ul {
     margin: auto;
@@ -243,7 +230,18 @@ nav ul {
 .sci {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
+    position: relative;
     padding: 3em;
+}
+.sci::after {
+    position: absolute;
+    content: "";
+    inset: -3% auto auto 0;
+    width: 200vw;
+    height: 100%;
+    background-color: var(--main-color);
+    transform: translateX(-50%);
+    z-index: -1;
 }
 .sci ul {
     margin: auto;
@@ -309,13 +307,13 @@ h2 {
 .slide-bar {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
-    display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
+    align-self: flex-end;
     height: 66%;
-align-self: flex-end;
-transform: translateY(50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transform: translateY(50%);
 }
 
 .slide-bar span {
@@ -324,8 +322,8 @@ transform: translateY(50%);
     height: 0;
     font-weight: bold;
     line-height: 0;
-transform: rotate(-90deg) translateX(-200%);
-user-select: none;
+    transform: rotate(-90deg) translateX(-200%);
+    user-select: none;
 }
 
 .slide-button {
@@ -355,10 +353,196 @@ user-select: none;
 .current-slide {
     grid-column: -2 / -1;
     grid-row: -2 / -1;
+    position: relative;
     margin: 0.6em 0;
     font-size: 7rem;
     font-family: 'Abril Fatface', cursive;
 }
 
+.overflow {
+    position: relative;
+    overflow: hidden;
+}
+.current-slide span {
+    padding: 0 0.3em;
+}
+.overflow span::after {
+    position: absolute;
+    top: 50%;
+    content: "";
+    width: 100%;
+    border-bottom: 3px solid #fff;
+    transform: translateX(0.3em);
+}
 
+.current-slide::after {
+    position: absolute;
+    content: "";
+    inset: -3% auto auto 100%;
+    width: 100vw;
+    height: 100%;
+    background-color: var(--main-color);
+    background: linear-gradient(to right, var(--main-color) 10%, transparent 20%);
+    z-index: -1;
+}
 
+.white-stripes {
+    grid-column: -2 / -1;
+    grid-row: 2 / 3;
+    position: relative;
+    height: 100%;
+}
+.stripe {
+    position: absolute;
+    right: 0;
+    height: 25%;
+    background-color: var(--white-color);
+}
+.stripe:first-child {
+    width: 45%;
+    top: 20%;
+}
+.stripe:last-child {
+    width: 90%;
+    bottom: 20%;
+}
+.stripe::after {
+    position: absolute;
+    inset: -3% auto auto 100%;
+    content: "";
+    width: 50vw;
+    height: 100%;
+    background-color: var(--white-color);
+    z-index: -1;
+}
+
+@media screen and (max-width: 120rem) {
+    header {
+        padding: 2% 6%;
+    }
+    main {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto 1fr auto;
+    }
+    nav {
+        border: 1px solid var(--main-color);
+        border-radius: 1em;
+        background-color: #fcfcfc;
+    }
+    nav ul {
+        padding: 0 10%;
+    }
+    nav li:hover {
+        border-bottom: 1px solid var(--main-color);
+    }
+    nav a {
+        color: var(--main-color);
+    }
+    .white-stripes, .sci {
+        display: none;
+    }
+    .product-info {
+        grid-column: 1 / -1;
+        grid-row: 2 / 3;
+    }
+    h1 {
+        font-size: 5vw;
+    }
+    h2 {
+        font-size: min(3vw, 1.4rem);
+    }
+    .more {
+        padding: 0.8em 2em;
+        font-size: min(1.8vw, 1.1rem);
+        border-radius: 2em;
+    }
+    .product-img-box {
+        grid-column: 2 / 3;
+        grid-row: 2 / 4;
+        margin: 0;
+    }
+    #product-img {
+        margin: -10%;
+        transform: translateX(0%);
+    }
+    .slide-bar {
+        grid-column: 1 / 2;
+        grid-row: -2 / -1;
+        flex-direction: row-reverse;
+        width: 80%;
+        height: 100%;
+        margin: auto;
+        transform: translateY(0%);
+    }
+    .slide-bar span {
+        padding-right: 1em;
+        transform: none;
+    }
+    .slide-bar div {
+        width: 100%;
+        height: 2%;
+    }
+    .slide-bar div:nth-of-type(2) {
+        border: 1px solid var(--main-color);
+    }
+    .slide-button {
+        width: 100%;
+    }
+    .current-slide {
+        font-size: 7vw;
+        width: 80%;
+        margin-left: auto;
+    }
+}
+
+@media screen and (max-width: 48rem) {
+    main {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto auto;
+    }
+    .product-info {
+        grid-row: 3 / 4;
+        padding: 1.6em;
+        text-align: center;
+    }
+    .product-img-box {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+    #product-img {
+        margin: auto;
+    }
+    h1 {
+        font-size: min(4rem, 10vw);
+    }
+    h2 {
+        width: 100%;
+        max-width: 20rem;
+        margin-inline: auto;
+        font-size: max(3vw, 1.2rem);
+        line-height: 1.4;
+    }
+    .slide-bar {
+        grid-row: -3 / -2;
+        padding: 1em 2vw;
+    }
+    .slide-bar span {
+        height: auto;
+        line-height: initial;
+    }
+    .current-slide {
+        width: auto;
+        margin: auto;
+        transform: translateX(-50%);
+    }
+    .current-slide::after {
+        content: none;
+    }
+    .overflow {
+        width: 180%;
+        background-color: var(--main-color);
+    }
+    .overflow span::after {
+        width: 35%;
+    }
+}
