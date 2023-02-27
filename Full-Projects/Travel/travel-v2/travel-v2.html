@@ -35,70 +35,6 @@
             border: 1px solid;
             border-radius: 1em;
         }
-
-        #delete3 {
-            padding: 10vh 20px;
-            min-height: 100vh;
-        }
-
-        h1 {
-            padding: 100px 0;
-            font-size: 10vw;
-            text-align: center;
-            text-transform: uppercase;
-        }
-
-        p {
-            margin: 25vh 0;
-            font-size: calc(3vw + 12px);
-        }
-        p::first-letter {
-            text-transform: uppercase;
-        }
-        .gap {
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .slider {
-            margin-top: 10rem;
-            margin-left: -20px;
-            margin-right: -20px;
-        }
-        .js .slider {
-            /* height: 300vh; */
-        }
-
-        .scrollable {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            /* overflow-x: auto; */
-        }
-        .js .slider .scrollable {
-            /* overflow: hidden; */
-            /* position: -webkit-sticky; */
-            /* position: sticky; */
-            /* top: 0; */
-        }
-
-        .scrollable-container {
-            display: flex;
-            align-items: center;
-        }
-        .scrollable-container img {
-            flex-shrink: 0;
-            max-width: none;
-            max-height: 90vh;
-            margin: 0 2rem;
-        }
-
-        .horiz-scroll {
-            direction: ltr;
-            overflow-y: hidden;
-            overflow-x: scroll;
-        }
     </style>
 </head>
 <body>
@@ -305,58 +241,112 @@
         </script>
     </section>
 
-    <section id="delete3" class="js">
-        <h1>keep scrolling</h1>
-        <br>
-        <p class="gap">a bit more...</p>
-        <div class="slider">
-            <div class="scrollable">
-                <div class="scrollable-container">
-                    <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/120372783_340812587254299_774244032306180550_n.jpg" alt="">
-                    <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg" alt="">
-                    <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/212573141_870101006920357_9185461114137501578_n.jpg" alt="">
-                    <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/212696607_565196161514018_1044941815810703332_n.jpg" alt="">
-                    <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/320075870_672693277833663_8152859641160213840_n.jpg" alt="">
-                    <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/72614063_433236090677267_2807365040358828412_n.jpg" alt="">
-                </div>
-            </div>
-        </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus quidem atque architecto numquam tempore explicabo officiis est dolorum exercitationem. Quasi, ipsum? Odit nemo dolore veritatis quos, exercitationem dignissimos ipsum! Autem corporis, inventore saepe culpa asperiores repudiandae molestias debitis magnam consequuntur a nesciunt nulla totam aspernatur aliquid, obcaecati odit! Iste quod possimus excepturi dignissimos ipsa provident incidunt omnis atque voluptatem! Molestiae dolores alias eveniet nostrum aperiam optio! Officiis neque id, facere minus accusamus necessitatibus odit non voluptas atque, dolorum nisi tempora rem. Laborum numquam consequuntur corrupti debitis. Harum aut eius quidem fugiat nulla temporibus, maxime non blanditiis tempora veritatis repellat cumque.</p>
-
-        <script>
-            // document.documentElement.classList.add("js");
-        </script>
-        <script>
-            const slider = document.querySelector(".slider");
-            const elSliderScroll = document.querySelector(".slider .scrollable");
-            const wh = window.innerHeight;
-            // let sliderScroll = 0;
-            const scrollH = elSliderScroll.scrollWidth - elSliderScroll.offsetWidth;
-                    console.log(scrollH);
-            window.addEventListener("scroll", function () {
-                const scrollTop = window.pageYOffset - slider.offsetTop;
-                if (scrollTop > 0) {
-                    const scrollH = elSliderScroll.scrollWidth - elSliderScroll.offsetWidth;
-                    console.log(scrollH);
-                    // document.body.classList.add("horiz-scroll");
-                    // console.log(elSliderScroll.scrollWidth);
-                    // console.log(elSliderScroll.offsetWidth);
-                    elSliderScroll.scrollTo((scrollH / (wh * 2)) * scrollTop, 0);
-                } else {
-                    elSliderScroll.scrollLeft = 0;
-                }
-                // else {
-                //     elSliderScroll.scrollLeft = elSliderScroll.scrollWidth;
-                //     console.log("else");
-                // }
-            })
-        </script>
-    </section>
+    <section id="delete3" class="js"></section>
     <section id="delete4"></section>
 
+    <script>
+        let stopwatch = {};
+
+        stopwatch.currentTime = 12;
+
+        stopwatch.tellTime = function (time) {
+            console.log(`The current time is ${time}`);
+        }
+
+        stopwatch.tellTime(stopwatch.currentTime);
+
+        function MakeCar(make, model, color, numOfDoors) {
+            this.make = make;
+            this.model = model;
+            this.color = color;
+            this.doors = numOfDoors;
+
+            this.honk = function () {
+                alert("BEEP BEEP BEEP");
+            }
+
+            this.lock = function () {
+                alert(`Locked ${this.doors} doors!`);
+            }
+        }
+
+        let honda = new MakeCar("Honda", "Civic", "Silver", 4);
+
+        let tesla = new MakeCar("Tesla", "Roadster", "Red", 2);
+
+        console.log(tesla.bluetooth);
+
+        MakeCar.prototype.bluetooth = true;
+
+        console.log(tesla.bluetooth);
+
+        console.log(tesla.doors.toString());
+
+        const bootdevAPIDomain = 'api.boot.dev'
+
+// don't touch below this line
+const apiKey = generateKey();
+async function start() {
+    const items = await getItemData(bootdevAPIDomain);
+
+    logItems(items);
+}
+
+start();
+
+async function getItemData(domain) {
+  const response = await fetch(`https://${domain}/v1/courses_rest_api/learn-http/items`, {
+    method: 'GET',
+    mode: 'cors',
+    headers: {
+      'X-API-Key': apiKey,
+      'Content-Type': 'application/json'
+    }
+  })
+  return response.json();
+}
+
+function generateKey() {
+  const characters = 'ABCDEF0123456789';
+  let result = '';
+  for (let i = 0; i < 16; i++){
+    result += characters.charAt(Math.floor(Math.random() * characters.length))
+  }
+  return result;
+}
+
+function logItems(items) {
+  for (item of items) {
+    console.log(item.name);
+  } 
+}
+
+    class MakeCarClass {
+        constructor(make, model, color, numOfDoors) {
+            this.make = make;
+            this.model = model;
+            this.color = color;
+            this.doors = numOfDoors;
+
+            this.honk = function () {
+                alert("BEEP BEEP BEEP");
+            }
+
+            this.lock = function () {
+                alert(`Locked ${this.doors} doors!`);
+            }
+        }
+    }
+
+    let hondaFromClass = new MakeCarClass("Honda", "Civic", "Silver", 4);
+
+    console.log(honda);
+    console.log(hondaFromClass);
+    
+    </script>
+
     <script src="./js/script_travel_v2.js">
-        console.log(260);
-        console.log(311>130);
+        console.log(250);
     </script>
 </body>
 </html>
