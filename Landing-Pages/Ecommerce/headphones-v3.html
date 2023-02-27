@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Headphones v.3</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./css/styles_headphones-v3.css">
+</head>
+<body>
+  <section id="headphones-v3">
+    <header>
+      <a class="logo" href="#top">
+        <img src="./img/headphones/v3/logo.png" alt="Logo">
+      </a>
+      <button id="menu-btn">
+        <svg aria-hidden="true" class="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+          <path stroke="currentColor" stroke-width="1.5" d="M21 5.25H3M21 12H3m18 6.75H3"></path>
+        </svg>
+      </button>
+      <select name="language" id="language">
+        <option value="eng">ENG</option>
+        <option value="esp">ESP</option>
+        <option value="jp">JP</option>
+        <option value="fr">FR</option>
+      </select>
+      <form action="" class="search">
+        <svg aria-hidden="true" class="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+          <path stroke="currentColor" stroke-width="1.5" d="M13.962 16.296a6.716 6.716 0 01-3.462.954 6.728 6.728 0 01-4.773-1.977A6.728 6.728 0 013.75 10.5c0-1.864.755-3.551 1.977-4.773A6.728 6.728 0 0110.5 3.75c1.864 0 3.551.755 4.773 1.977A6.728 6.728 0 0117.25 10.5a6.726 6.726 0 01-.921 3.407c-.517.882-.434 1.988.289 2.711l3.853 3.853"></path>
+        </svg>
+      </form>
+    </header>
+    <main>
+        <nav>
+          <ul>
+            <li><a href="#h">home</a></li>
+            <li><a href="#a">about</a></li>
+            <li><a href="#c">contact</a></li>
+          </ul>
+        </nav>
+        <div class="sci">
+          <ul>
+            <li><a class="sci-link" href="#f"><i class="fa fa-facebook-official"></i></a></li>
+            <li><a class="sci-link" href="#i"><i class="fa fa-instagram"></i></a></li>
+            <li><a class="sci-link" href="#t"><i class="fa fa-twitter"></i></a></li>
+          </ul>
+        </div>
+      <div class="product-info">
+        <h1>extra bass</h1>
+        <h2>wireless noise canceling headphones</h2>
+        <a href="#more" class="more">learn more</a>
+      </div>
+      <div class="white-stripes">
+        <div class="stripe"></div>
+        <div class="stripe"></div>
+      </div>
+      <div class="product-img-box">
+        <img src="./img/headphones/v3/product1.png" alt="Headphones" id="product-img">
+      </div>
+      <div class="slide-bar">
+        <span>01</span>
+        <div>
+          <button class="slide-button active">slide 1</button>
+        </div>
+        <div>
+          <button class="slide-button">slide 2</button>
+        </div>
+      </div>
+      <div class="current-slide">
+        <div class="overflow">
+          <span>01</span>
+        </div>
+      </div>
+    </main>
+  </section>
+
+  <script>
+    const productImages = [
+      {
+        src: "./img/headphones/v3/product1.png",
+        color: "bordeaux",
+      }, 
+      {
+        src: "./img/headphones/v3/product2.png",
+        color: "blue",
+      }
+    ]
+    const slideButtons = document.querySelectorAll(".slide-button");
+    slideButtons.forEach((button, index) => {
+      button.addEventListener("click", () => {
+        const page = document.querySelector("main");
+        page.classList.remove("fade-in");
+        page.classList.add("fade-out");
+        page.addEventListener("animationend", () => {
+          document.getElementById("product-img").src = productImages[index].src;
+          let body = document.getElementById("headphones-v3").className = productImages[index].color;
+          // const currentActiveButton = document.querySelector(".slide-button.active");
+          // currentActiveButton.classList.remove("active");
+          // button.classList.add("active");
+          page.classList.replace("fade-out", "fade-in");
+        }, {once: true})
+      })
+    })
+  </script>
+</body>
+</html>
