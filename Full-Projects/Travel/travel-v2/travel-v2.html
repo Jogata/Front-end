@@ -35,6 +35,13 @@
             border: 1px solid;
             border-radius: 1em;
         }
+
+        #delete4 {
+            min-height: 100vh;
+        }
+        h2 {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -241,110 +248,110 @@
         </script>
     </section>
 
-    <section id="delete3" class="js"></section>
-    <section id="delete4"></section>
+    <section id="delete3" class="js">
+        <h2></h2>
+        <button>click</button>
+    </section>
+    <section id="delete4">
+        <h2>Cards Game</h2>
+        <button id="cards">cards</button>
+    </section>
 
     <script>
-        let stopwatch = {};
-
-        stopwatch.currentTime = 12;
-
-        stopwatch.tellTime = function (time) {
-            console.log(`The current time is ${time}`);
-        }
-
-        stopwatch.tellTime(stopwatch.currentTime);
-
-        function MakeCar(make, model, color, numOfDoors) {
-            this.make = make;
-            this.model = model;
-            this.color = color;
-            this.doors = numOfDoors;
-
-            this.honk = function () {
-                alert("BEEP BEEP BEEP");
+        class CreateNetflixTVShow {
+            constructor(title, genre, rating, series) {
+                this.title - title;
+                this.genre = genre;
+                this.rating = rating;
+                this.series = series;
             }
-
-            this.lock = function () {
-                alert(`Locked ${this.doors} doors!`);
+            play() {
+                console.log("Playing...");
+            }
+            pause() {
+                console.log("Paused...");
+            }
+            addToPlaylist() {
+                console.log("Added to playlist");
             }
         }
 
-        let honda = new MakeCar("Honda", "Civic", "Silver", 4);
+        const bridgerton = new CreateNetflixTVShow("Bbridgerton", "Drama", 9, 18);
 
-        let tesla = new MakeCar("Tesla", "Roadster", "Red", 2);
+        console.log(bridgerton.play);
 
-        console.log(tesla.bluetooth);
+        const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita";
 
-        MakeCar.prototype.bluetooth = true;
+        fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            const img = document.createElement("img");
+            img.src = data.drinks[1].strDrinkThumb;
+            console.log(img);
+            document.body.appendChild(img);
+        })
+        .catch(err => {
+            console.log(`error: ${err}`);
+        })
 
-        console.log(tesla.bluetooth);
-
-        console.log(tesla.doors.toString());
-
-        const bootdevAPIDomain = 'api.boot.dev'
-
-// don't touch below this line
-const apiKey = generateKey();
-async function start() {
-    const items = await getItemData(bootdevAPIDomain);
-
-    logItems(items);
-}
-
-start();
-
-async function getItemData(domain) {
-  const response = await fetch(`https://${domain}/v1/courses_rest_api/learn-http/items`, {
-    method: 'GET',
-    mode: 'cors',
-    headers: {
-      'X-API-Key': apiKey,
-      'Content-Type': 'application/json'
-    }
-  })
-  return response.json();
-}
-
-function generateKey() {
-  const characters = 'ABCDEF0123456789';
-  let result = '';
-  for (let i = 0; i < 16; i++){
-    result += characters.charAt(Math.floor(Math.random() * characters.length))
-  }
-  return result;
-}
-
-function logItems(items) {
-  for (item of items) {
-    console.log(item.name);
-  } 
-}
-
-    class MakeCarClass {
-        constructor(make, model, color, numOfDoors) {
-            this.make = make;
-            this.model = model;
-            this.color = color;
-            this.doors = numOfDoors;
-
-            this.honk = function () {
-                alert("BEEP BEEP BEEP");
-            }
-
-            this.lock = function () {
-                alert(`Locked ${this.doors} doors!`);
+        const store = {
+            setItem: function (prop, value) {
+                this[prop] = value;
+            },
+            getItem: function (prop) {
+                return this.prop;
             }
         }
-    }
 
-    let hondaFromClass = new MakeCarClass("Honda", "Civic", "Silver", 4);
+        document.getElementsByTagName("button")[0].addEventListener("click", setScore);
 
-    console.log(honda);
-    console.log(hondaFromClass);
-    
+        if (!store.getItem("score")) {
+            store.setItem("score", 0);
+        }
+
+        console.log(store);
+        
+        function setScore() {
+            let score = Number(store.getItem("score"));
+            console.log(score);
+            score += 1;
+            store.setItem("score", score);
+        }
+
+        const url2 = "https://deckofcardsapi.com/api/deck/nkl4g1no3g0c/draw/?count=2";
+
+        document.getElementById("cards").addEventListener("click", () => {
+            cards(url2)
+        });
+
+        // fetch(url2)
+        // .then(res => res.json())
+        // .then(data => console.log(data));
+        // nkl4g1no3g0c
+
+        function cards(url) {
+            fetch(url)
+            .then(res => res.json())
+            .then(data => console.log(data));
+        }
+
+        class Car {
+            constructor(num) {
+                this.age = num;
+            }
+        }
+
+        Car.prototype.toString = function() {
+            return `My car is ${this.age} years old`;
+        }
+        Number.prototype.toString = function(age) {
+            return `My car is ${age} years old - num.pro`;
+        }
+
+        const car1 = new Car(5);
+        console.log(car1.age.toString(car1.age));
     </script>
-
     <script src="./js/script_travel_v2.js">
         console.log(250);
     </script>
