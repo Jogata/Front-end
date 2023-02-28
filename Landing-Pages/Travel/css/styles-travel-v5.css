@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Herr+Von+Muellerhoff&family=Kaushan+Script&family=Playfair+Display:wght@400;700&display=swap');
+/* 
+font-family: 'Great Vibes', cursive;
+font-family: 'Kaushan Script', cursive;
+font-family: 'Fraunces', serif;
+font-family: 'Playfair Display', serif;    //400,700
+*/
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    white-space: nowrap;
+    outline: 1px solid transparent;
+    border: 1px solid transparent;
+    border-radius: 1em;
+    transition: all 0.5s;
+}
+a:hover {
+    transform: scale(1.1);
+}
+
+i {
+    transition: all 0.5s;
+}
+
+button {
+    white-space: nowrap;
+    border: 1px solid transparent;
+    outline: 1px solid transparent;
+    border-radius: 0.6rem;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+button:hover {
+    transform: scale(1.1);
+}
+
+button:focus-visible, .sci a:focus-visible {
+    box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.2),
+    inset -4px -4px 4px rgba(255, 255, 255, 0.2);
+}
+button:active, .sci a:active {
+    border-color: transparent;
+    filter: none;
+}
+
+img {
+    width: 100%;
+    object-fit: cover;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background-image: url("../img/travel-5/peakpx-180deg.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    backdrop-filter: blur(15px);
+}
+
+.decor {
+    position: absolute;
+    inset: 0 auto 0 0;
+    height: 100vh;
+    object-fit: contain;
+    object-position: left;
+    z-index: -3;
+}
+
+.landing-page {
+    position: relative;
+    max-width: 150rem;
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr 1fr auto;
+    align-items: center;
+}
+.landing-page::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    background-image: linear-gradient(to right, #fff, transparent, transparent, transparent);
+    z-index: -1;
+}
+
+header {
+    grid-column: 2 / -1;
+    grid-row: 1 / 2;
+    display: flex;
+    align-items: center;
+    padding-right: 2em;
+    z-index: 2;
+}
+.logo {
+    position: relative;
+    color: #00aece;
+    font-size: 2rem;
+    text-transform: capitalize;
+    font-family: 'Playfair Display', serif;
+    font-family: 'Fraunces', serif;
+    transform: translateX(-20%);
+}
+.logo:hover {
+    transform: translateX(-20%) scale(1.1);
+}
+.logo::after {
+    position: absolute;
+    inset: 9% 7% auto auto;
+    content: "";
+    width: 38%;
+    height: 75%;
+    border-top: 3px solid grey;
+    border-radius: 50%;
+    transform: rotate(45deg);
+    opacity: 0.4;
+}
+/* Logo v.2 */
+/* .logo::after {
+    inset: 11% 7% 0 auto;
+    width: 50.8%;
+    height: 98%;
+    border-bottom: 2px solid grey;
+    transform: rotate(0deg);
+    animation: rotate 5s linear infinite;
+}
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+} */
+.logo .grey {
+    display: inline-block;
+    color: gray;
+    font-size: 0.8em;
+    font-family: 'Great Vibes', cursive;
+    text-transform: capitalize;
+}
+.logo .small {
+    display: block;
+    font-size: 0.5em;
+    text-align: right;
+}
+.menu-button {
+    margin-left: auto;
+    padding: 0.4rem;
+    font-size: 0px;
+    background-color: rgba(0, 173, 204, 0.5);
+}
+
+h1 {
+    grid-column: 2 / -1;
+    grid-row: 2 / 3;
+    width: 50%;
+    max-width: 50rem;
+    padding: 1em 0;
+    font-size: 3rem;
+    color: #00aece;
+    font-family: 'Kaushan Script', cursive;
+    z-index: 2;
+}
+.hero {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    height: 100%;
+    z-index: -2;
+}
+
