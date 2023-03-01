@@ -38,15 +38,24 @@
 
         #delete4 {
             min-height: 100vh;
+            text-align: center;
         }
         h2 {
-            text-align: center;
+            margin-top: 2em;
+            text-transform: capitalize;
+        }
+        #delete4 img {
+            display: inline;
+        }
+        button {
+            margin-top: 4em;
+            padding: 0.4em 1.2em;
+            text-transform: capitalize;
+            border-radius: 1em;
         }
     </style>
 </head>
 <body>
-
-    </script>
     <!-- observer pattern -->
     <script>
         function Subject() {
@@ -248,112 +257,132 @@
         </script>
     </section>
 
-    <section id="delete3" class="js">
-        <h2></h2>
-        <button>click</button>
-    </section>
+    <section id="delete3" class="js"></section>
     <section id="delete4">
         <h2>Cards Game</h2>
-        <button id="cards">cards</button>
+        <div>
+            <h2>player 1</h2>
+            <div id="p1-cards">
+                <img src="" alt="card" id="p1">
+            </div>
+            <h2>player 2</h2>
+            <div id="p2-cards">
+                <img src="" alt="card" id="p2">
+            </div>
+        </div>
+        <h3></h3>
+        <button id="cards">deal cards</button>
     </section>
 
     <script>
-        class CreateNetflixTVShow {
-            constructor(title, genre, rating, series) {
-                this.title - title;
-                this.genre = genre;
-                this.rating = rating;
-                this.series = series;
-            }
-            play() {
-                console.log("Playing...");
-            }
-            pause() {
-                console.log("Paused...");
-            }
-            addToPlaylist() {
-                console.log("Added to playlist");
-            }
-        }
-
-        const bridgerton = new CreateNetflixTVShow("Bbridgerton", "Drama", 9, 18);
-
-        console.log(bridgerton.play);
-
-        const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita";
-
-        fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            const img = document.createElement("img");
-            img.src = data.drinks[1].strDrinkThumb;
-            console.log(img);
-            document.body.appendChild(img);
-        })
-        .catch(err => {
-            console.log(`error: ${err}`);
-        })
-
-        const store = {
-            setItem: function (prop, value) {
-                this[prop] = value;
-            },
-            getItem: function (prop) {
-                return this.prop;
-            }
-        }
-
-        document.getElementsByTagName("button")[0].addEventListener("click", setScore);
-
-        if (!store.getItem("score")) {
-            store.setItem("score", 0);
-        }
-
-        console.log(store);
+        const startingURL = "https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1";
         
-        function setScore() {
-            let score = Number(store.getItem("score"));
-            console.log(score);
-            score += 1;
-            store.setItem("score", score);
-        }
+        let deckOfCardsID;
 
-        const url2 = "https://deckofcardsapi.com/api/deck/nkl4g1no3g0c/draw/?count=2";
-
-        document.getElementById("cards").addEventListener("click", () => {
-            cards(url2)
-        });
-
-        // fetch(url2)
-        // .then(res => res.json())
-        // .then(data => console.log(data));
-        // nkl4g1no3g0c
-
-        function cards(url) {
+        function createDeckOfCards(url) {            
             fetch(url)
             .then(res => res.json())
-            .then(data => console.log(data));
+            .then(data => deckOfCardsID = data.deck_id)
+            // .then(id => console.log(id))
+        }
+        
+        createDeckOfCards(startingURL);
+        // console.log(deckOfCardsID);
+        // const deckOfCardsID = "f98a6aenc1oa";
+        
+        document.getElementById("cards").addEventListener("click", () => {
+            const deckOfCardsURL = `https://deckofcardsapi.com/api/deck/${deckOfCardsID}/draw/?count=2`;
+            drawTwoCards(deckOfCardsURL);
+        });
+
+        const nonnumericalCards = {
+            ace: 14,
+            king: 13,
+            queen: 12,
+            jack: 11,
         }
 
-        class Car {
-            constructor(num) {
-                this.age = num;
-            }
+        function convertCardToNumber(card) {
+            return nonnumericalCards[card.toLowerCase()];
         }
 
-        Car.prototype.toString = function() {
-            return `My car is ${this.age} years old`;
-        }
-        Number.prototype.toString = function(age) {
-            return `My car is ${age} years old - num.pro`;
+        function drawTwoCards(url) {
+            fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                document.querySelector("#p1").src = data.cards[0].image;
+                document.querySelector("#p2").src = data.cards[1].image;
+                let p1val = Number(data.cards[0].value) || convertCardToNumber(data.cards[0].value);
+                let p2val = Number(data.cards[1].value) || convertCardToNumber(data.cards[1].value);
+
+                console.log(p1val, p2val);
+
+                if (p1val > p2val) {
+                    document.querySelector("h3").innerText = "P1 wins";
+                } else if (p1val < p2val) {
+                    document.querySelector("h3").innerText = "P2 wins";
+                } 
+                else {
+                    document.querySelector("h3").innerText = "WAR";
+                    drawThreeCards(deckOfCardsID);
+                }
+            });
         }
 
-        const car1 = new Car(5);
-        console.log(car1.age.toString(car1.age));
+        function drawThreeCards(id) {
+            const url = `https://deckofcardsapi.com/api/deck/${id}/draw/?count=6`;
+            fetch(url)
+            .then(res => res.json())
+            .then(cards => {
+                const cardsAsNumbers = cards.cards.map((card, index, arr) => {
+                    console.log(card);
+                    return Number(arr[index].value) || convertCardToNumber(arr[index].value);
+                })
+                let p1val = cardsAsNumbers[0] + cardsAsNumbers[1] + cardsAsNumbers[2];
+                let p2val = cardsAsNumbers[3] + cardsAsNumbers[4] + cardsAsNumbers[5];
+                console.log(p1val, p2val);
+                
+                console.log(cards.cards);
+                displayAddCards("p1-cards", 0, cards.cards);
+                displayAddCards("p2-cards", 3, cards.cards);
+
+                function displayAddCards(parentID, num, arr) {
+                    console.log(parentID, num, arr.length);
+                    const imageContainer = document.createElement("div");
+                    for (let index = 0; index < arr.length/2; index++) {
+                        const image = document.createElement("img");
+                        image.src = arr[index + num].image;
+                        imageContainer.appendChild(image);
+                        console.log(index);
+                    }
+                    document.getElementById(parentID).appendChild(imageContainer);
+                }
+
+                if (p1val > p2val) {
+                    document.querySelector("h3").innerText = "P1 wins";
+                } else if (p1val < p2val) {
+                    document.querySelector("h3").innerText = "P2 wins";
+                } 
+                else {
+                    document.querySelector("h3").innerText = "WAR";
+                    drawThreeCards(deckOfCardsID);
+                }
+
+                document.getElementById("cards").addEventListener("click", () => {
+                    deleteEl(["p1-cards", "p2-cards"]);
+                }, {once: true});
+
+                function deleteEl(arrayOfIDs) {
+                    arrayOfIDs.forEach(id => {
+                        document.querySelector(`#${id} div`).remove();
+                    })
+                }
+            })
+        }
     </script>
     <script src="./js/script_travel_v2.js">
-        console.log(250);
+        console.log(272);
     </script>
 </body>
 </html>
