@@ -8,28 +8,76 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/style_restaurant-v1.css">
     <style>
-        .shape {
-          position: relative;
-          width: 500px;
-          height: 500px;
-        }
-        .up, .bottom {
-          position: absolute;
-          width: 100%;
-          height: 50%;
-          background-color: palevioletred;
-        }
-        .bottom {
-          bottom: 0;
-          border-radius: 26% 75% 48% 49% / 48% 0% 100% 47%;
-        }
-        .up {
-          border-radius: 50% 68% 48% 49% / 48% 100% 0% 47%;
-        }
+        html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #fff;
+}
+
+.hero-image {
+      width: 100%;
+      height: 100vh;
+      position: absolute;
+      background: url(img/proba/hero.jpg) no-repeat 50% 50%;
+      background-size: cover;
+}
+
+.parallax-el {
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      background: url(img/proba/upper.png) no-repeat 50% 50%;
+      background-size: cover;
+      top: 20%;
+}
+
+.text {
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      top: 32%;
+      background: url(img/proba/text.png) no-repeat 50% 50%;
+      background-size: cover;
+      mix-blend-mode: overlay;
+}
+
+.clouds {
+      position: absolute;
+      width: 100%;
+      height: 100vh;
+      background: url(img/proba/clouds.png) no-repeat 50% 50%;
+      background-size: cover;
+}
+
+.whitespace {
+      width: 100%;
+      height: 100vh;
+}
+
+.content {
+      width: 80%;
+      margin: 0 auto;
+      padding: 80px 0;
+      font-family: Helvetica;
+}
+
+h1 {
+      font-size: 42px;
+      font-family: Anton;
+      text-transform: uppercase;
+      text-align: center;
+}
+
+p {
+      line-height: 40px;
+      text-align: justify;
+}
     </style>
 </head>
 <body>
-    <div class="landing-page">
+    <!-- <div class="landing-page">
         <nav>
             <div class="logo">
                 <a href="#top">
@@ -46,13 +94,21 @@
                 <li><a href="#top">info</a></li>
             </ul>
             <a href="#" class="btn">add to cart</a>
-        </nav>
-        <main>
-            <div class="shape">
-                <div class="up"></div>
-                <div class="bottom"></div>
-            </div>
-        </main>
-    </div>
+        </nav> -->
+        <div class="hero-image"></div>
+      <div class="rellax parallax-el" data-rellax-speed="5"></div>
+      <div class="rellax text" data-rellax-speed="10"></div>
+      <div class="rellax clouds" data-rellax-speed="8"></div>
+      <div class="whitespace"></div>
+      <div class="content">
+            <h1>This is parallax effect.</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia quas, nemo eligendi, sequi dolores perspiciatis nobis libero cumque consequatur odit obcaecati excepturi deleniti veniam aliquid repellendus distinctio reprehenderit, nam provident reiciendis repellat itaque placeat. Nisi dolorem vel delectus aliquid rem.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus laboriosam eveniet excepturi, quis veritatis quasi nulla veniam mollitia. Id velit alias, accusamus. Sit similique, consectetur mollitia sint, sequi porro rerum commodi aliquam eaque dolorum natus doloribus? Minus eaque laborum in fugiat natus delectus assumenda. Mollitia minima necessitatibus iste ipsam quaerat! Adipisci doloremque in nisi quos voluptatibus praesentium, beatae molestiae consequuntur aspernatur! Ratione, nobis, maiores. Ratione consectetur ipsum laborum cupiditate dolorem voluptas provident obcaecati eaque qui amet nihil reprehenderit corporis, consequuntur, atque aliquid sunt, minima debitis sequi nisi. Dolorem iste quisquam id voluptatem, vero quasi similique officiis sint nisi rerum inventore.</p>
+      </div>
+      <!-- <script src="rellax.min.js"></script>
+      <script type="text/javascript">
+            var rellax = new Rellax('.rellax');
+      </script> -->
+    <!-- </div> -->
 </body>
 </html>
