@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel v.5</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/styles-travel-v5.css">
+</head>
+<body>
+    <img src="./img/water-splash.png" class="decor">
+    <section class="landing-page">
+        <header>
+            <a href="#top" class="logo">sky<span class="grey">high</span><span class="small">travels</span></a>
+            <button class="menu-button">menu
+                <svg width="26" height="26">
+                    <pattern id="pattern-circles" x="0" y="0" width="15" height="15" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse">
+                       <circle id="pattern-circle" cx="5" cy="5" r="3" fill="#fff"></circle>
+                    </pattern>
+                    <rect  id="rect" x="0" y="0" width="30" height="30" fill="url(#pattern-circles)"></rect>
+                </svg>
+            </button>
+        </header>
+        <h1>Travel doesn't become adventure until you leave yorself behind</h1>
+        <img src="./img/travel-5/peakpx-180deg.jpg" alt="Beach" class="hero">
+        <a href="#more" class="more">read more</a>
+        <div class="sci">
+            <ul>
+                <li><a href="#i">i</a></li>
+                <li><a href="#f" id="facebook">f</a></li>
+                <li><a href="#t">t</a></li>
+                <li><a href="#y" id="youtube">y</a></li>
+            </ul>
+        </div>
+        <div class="bottom">
+            <button type="button" class="play-button">
+                play video
+                <i class="fa fa-play" aria-hidden="true"></i>
+            </button>
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <div class="slider">
+                <button class="active prev">
+                    <span>&lsaquo;</span>
+                </button>
+                <button class="next">
+                    <span>&rsaquo;</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const images = [
+            {
+                src: "./img/travel-5/peakpx-180deg.jpg",
+            },
+            {
+                src: "./img/travel-5/peakpxa-croped.jpg",
+            },
+            {
+                src: "./img/travel-5/peakpxb-croped.jpg",
+            }
+        ]
+
+        const prevButton = document.querySelector(".prev");
+        const nextButton = document.querySelector(".next");
+        const heroImage = document.querySelector(".hero");
+        const slidesIndicators= document.querySelectorAll(".dot");
+
+        let index = 0;
+
+        prevButton.addEventListener("click", () => {
+            index--;
+            index = index + images.length;
+            index = index % images.length;
+            heroImage.src = images[index].src;
+            document.body.style.backgroundImage = `url("${images[index].src}")`;
+            changeSliderIndicator();
+        })
+        nextButton.addEventListener("click", () => {
+            index++;
+            index = index % images.length;
+            heroImage.src = images[index].src;
+            document.body.style.backgroundImage = `url("${images[index].src}")`;
+            changeSliderIndicator();
+        })
+
+        function changeSliderIndicator() {
+            const activeIndicator = document.querySelector(".dot.active");
+            activeIndicator.classList.remove("active");
+            slidesIndicators[index].classList.add("active");
+        }
+    </script>
+</body>
+</html>
