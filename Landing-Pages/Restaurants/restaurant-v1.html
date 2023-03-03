@@ -8,71 +8,49 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/style_restaurant-v1.css">
     <style>
-        html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      background: #fff;
+        *, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.hero-image {
-      width: 100%;
-      height: 100vh;
-      position: absolute;
-      background: url(img/proba/hero.jpg) no-repeat 50% 50%;
-      background-size: cover;
+::-webkit-scrollbar {
+  width: 0;
 }
 
-.parallax-el {
-      position: absolute;
-      width: 100%;
-      height: 100vh;
-      background: url(img/proba/upper.png) no-repeat 50% 50%;
-      background-size: cover;
-      top: 20%;
+body {
+  height: 200vh;
+  background: #121212;
 }
 
-.text {
-      position: absolute;
-      width: 100%;
-      height: 100vh;
-      top: 32%;
-      background: url(img/proba/text.png) no-repeat 50% 50%;
-      background-size: cover;
-      mix-blend-mode: overlay;
+section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background: url("https://images.unsplash.com/photo-1509023464722-18d996393ca8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80") no-repeat top / cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.clouds {
-      position: absolute;
-      width: 100%;
-      height: 100vh;
-      background: url(img/proba/clouds.png) no-repeat 50% 50%;
-      background-size: cover;
+section::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  height: 200px;
+  width: 100%;
+  background: linear-gradient(to bottom, transparent, #121212 50%);
 }
 
-.whitespace {
-      width: 100%;
-      height: 100vh;
+.title {
+  color: #f7f7f7;
+  font-size: 5rem;
+  font-family: "Dela Gothic One";
+  font-weight: lighter;
 }
-
-.content {
-      width: 80%;
-      margin: 0 auto;
-      padding: 80px 0;
-      font-family: Helvetica;
-}
-
-h1 {
-      font-size: 42px;
-      font-family: Anton;
-      text-transform: uppercase;
-      text-align: center;
-}
-
-p {
-      line-height: 40px;
-      text-align: justify;
+h2 {
+    color: #f7f7f7;
 }
     </style>
 </head>
@@ -94,21 +72,19 @@ p {
                 <li><a href="#top">info</a></li>
             </ul>
             <a href="#" class="btn">add to cart</a>
-        </nav> -->
-        <div class="hero-image"></div>
-      <div class="rellax parallax-el" data-rellax-speed="5"></div>
-      <div class="rellax text" data-rellax-speed="10"></div>
-      <div class="rellax clouds" data-rellax-speed="8"></div>
-      <div class="whitespace"></div>
-      <div class="content">
-            <h1>This is parallax effect.</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia quas, nemo eligendi, sequi dolores perspiciatis nobis libero cumque consequatur odit obcaecati excepturi deleniti veniam aliquid repellendus distinctio reprehenderit, nam provident reiciendis repellat itaque placeat. Nisi dolorem vel delectus aliquid rem.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus laboriosam eveniet excepturi, quis veritatis quasi nulla veniam mollitia. Id velit alias, accusamus. Sit similique, consectetur mollitia sint, sequi porro rerum commodi aliquam eaque dolorum natus doloribus? Minus eaque laborum in fugiat natus delectus assumenda. Mollitia minima necessitatibus iste ipsam quaerat! Adipisci doloremque in nisi quos voluptatibus praesentium, beatae molestiae consequuntur aspernatur! Ratione, nobis, maiores. Ratione consectetur ipsum laborum cupiditate dolorem voluptas provident obcaecati eaque qui amet nihil reprehenderit corporis, consequuntur, atque aliquid sunt, minima debitis sequi nisi. Dolorem iste quisquam id voluptatem, vero quasi similique officiis sint nisi rerum inventore.</p>
-      </div>
-      <!-- <script src="rellax.min.js"></script>
-      <script type="text/javascript">
-            var rellax = new Rellax('.rellax');
-      </script> -->
-    <!-- </div> -->
+        </nav>
+    </div> -->
+    <section>
+        <h1 class="title">Parallax Effect</h1>
+        <h2>using background-position-y</h2>
+    </section>
+
+    <script>
+        const section = document.querySelector("section");
+
+window.addEventListener("scroll", () => {
+  section.style.backgroundPositionY = `${scrollY / 1.5}px`;
+})
+    </script>
 </body>
 </html>
