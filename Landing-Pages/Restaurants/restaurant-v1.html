@@ -8,49 +8,56 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/style_restaurant-v1.css">
     <style>
-        *, *::before, *::after {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+        body{
+    margin: 0px;
+    padding: 0px;
+    height: 200%;
+    background-color:#0A2B3E;
 }
-
-::-webkit-scrollbar {
-  width: 0;
+#main{
+    width: 92%;
+    height: 560px;
+    background: linear-gradient(#66FFFD,#FFF);
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden;
 }
-
-body {
-  height: 200vh;
-  background: #121212;
+#logo{
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    top: 40%;
+    margin-top: -50px;
+    text-align: center;
 }
-
-section {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  background: url("https://images.unsplash.com/photo-1509023464722-18d996393ca8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80") no-repeat top / cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+#mountainImg{
+    height: 350px;
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top:250px;
 }
-
-section::after {
-  content: "";
-  position: absolute;
-  bottom: -100px;
-  height: 200px;
-  width: 100%;
-  background: linear-gradient(to bottom, transparent, #121212 50%);
+#btn{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background: linear-gradient(#8EFFFc,#6AF0D5);
+    position: absolute;
+    top:80%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    box-shadow: 0 0 0 8px rgba(140,237,243,.2),0 0 0 16px rgba(140,237,243,.3);
+    cursor: pointer;
 }
-
-.title {
-  color: #f7f7f7;
-  font-size: 5rem;
-  font-family: "Dela Gothic One";
-  font-weight: lighter;
-}
-h2 {
-    color: #f7f7f7;
+#btn img{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
     </style>
 </head>
@@ -74,17 +81,24 @@ h2 {
             <a href="#" class="btn">add to cart</a>
         </nav>
     </div> -->
-    <section>
-        <h1 class="title">Parallax Effect</h1>
-        <h2>using background-position-y</h2>
-    </section>
+    <div id="main">
+        <div id="logo"><img src="DAFT%20CREATION2.png"/></div>
+        <div id="mountainImg"><img src="Mountain.png" width="100%"/></div>
+    </div>
+    
+    <div id="btn">
+        <img src="Playpng.png" width="20px"/>
+    </div>
 
+    <script src="jquery-1.10.2.min.js"></script>
+        <script src="JavaScript%20Main.js"></script>
     <script>
-        const section = document.querySelector("section");
-
-window.addEventListener("scroll", () => {
-  section.style.backgroundPositionY = `${scrollY / 1.5}px`;
-})
+        $(window).scroll(function(){
+    var scrollval = $(this).scrollTop();    // It will return scroll value
+    
+    $("#logo").css("transform",'translate(0px,-'+scrollval/2+'%)');
+    $("#btn").css("transform",'translate(-50%,'+scrollval/3+'%)');
+});
     </script>
 </body>
 </html>
