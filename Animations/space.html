@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    #space {
+      position: relative;
+      height: 100vh;
+      background: #111;
+      overflow: hidden;
+    }
+    #banner {
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      background-image: 
+      url("./img/space/deathstar.png"), 
+      url("./img/space/stars.png"), 
+      url("./img/space/stars.png");
+      background-repeat: no-repeat, repeat, repeat;
+      background-position: 120% 20%, 0px 0px, 0px 0px;
+      background-size: 20% auto, 500px, 700px;
+      animation: animebg linear 50s infinite;
+    }
+    #banner:active {
+      animation: animebg linear 10s infinite;
+    }
+    @keyframes animebg {
+      from {
+        background-position: 120% 20%, 0px 0px, 0px 0px;
+      }
+      to {
+        background-position: -20% 20%, -1000px 0px, -700px 0px;
+      }
+    }
+    
+    #spaceship {
+      position: relative;
+      width: 10%;
+      top: 40%;
+      left: 30%;
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body>
+  <div id="space">
+    <div id="banner">
+        <img src="./img/space/millennium-falcon.png" alt="Spaceship" id="spaceship">
+    </div>
+  </div>
+</body>
+</html>
