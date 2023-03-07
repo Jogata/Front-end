@@ -6,59 +6,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant v.1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/style_restaurant-v1.css">
+    <!-- <link rel="stylesheet" href="./css/style_restaurant-v1.css"> -->
     <style>
-        body{
-    margin: 0px;
-    padding: 0px;
-    height: 200%;
-    background-color:#0A2B3E;
-}
-#main{
-    width: 92%;
-    height: 560px;
-    background: linear-gradient(#66FFFD,#FFF);
-    position: absolute;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    overflow: hidden;
-}
-#logo{
-    height: 100px;
-    width: 100%;
-    position: absolute;
-    top: 40%;
-    margin-top: -50px;
-    text-align: center;
-}
-#mountainImg{
-    height: 350px;
-    width: 100%;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top:250px;
-}
-#btn{
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
-    background: linear-gradient(#8EFFFc,#6AF0D5);
-    position: absolute;
-    top:80%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 999;
-    box-shadow: 0 0 0 8px rgba(140,237,243,.2),0 0 0 16px rgba(140,237,243,.3);
-    cursor: pointer;
-}
-#btn img{
-    position: absolute;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-}
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 120rem;
+        }
+
+        header {
+            position: relative;
+            min-height: 100vh;
+            background-image: url("../Parallax/img/00/img/01/one.png");
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            overflow: hidden;
+
+            display: flex;
+flex-direction: column;
+justify-content: space-between;
+        }
+
+        h1 {
+            margin: 5% auto;
+            color: #fff;
+            font-size: min(7vw + 1rem, 7rem);
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .front {
+            z-index: 1;
+        }
+        .front img {
+            display: block;
+            width: 50%;
+            max-width: 100rem;
+            margin: auto;
+        }
+
+        .content {
+            max-width: 75rem;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+        h2 {
+            margin: 2rem 0;
+            text-align: center;
+            text-transform: capitalize;
+        }
+
+        @media screen and (max-width: 50rem) {
+            h1 {
+                margin: 15vh auto;
+            }
+            .front img {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -81,24 +92,31 @@
             <a href="#" class="btn">add to cart</a>
         </nav>
     </div> -->
-    <div id="main">
-        <div id="logo"><img src="DAFT%20CREATION2.png"/></div>
-        <div id="mountainImg"><img src="Mountain.png" width="100%"/></div>
-    </div>
-    
-    <div id="btn">
-        <img src="Playpng.png" width="20px"/>
-    </div>
+    <header>
+        <h1 class="logo">parallax</h1>
+        <div class="front">
+            <img src="../Parallax/img/00/img/01/lensy.png" alt="">
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="content">
+                <h2> some content just for height</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe incidunt recusandae soluta perferendis, alias vel, ipsum quibusdam officiis temporibus culpa sapiente quas? Quaerat minus illo dolorum necessitatibus architecto rem velit doloremque fugit ullam odit quas, error, ducimus neque laudantium culpa veritatis corporis cum explicabo. Nostrum saepe a tenetur ea veritatis quis maxime atque, placeat in autem aliquid asperiores dolorum impedit. Beatae repellat sed exercitationem blanditiis atque architecto, consequatur dolor iure quis illum commodi, neque obcaecati in quae iusto soluta laudantium! Officia, saepe quasi. Corrupti, neque facilis. Tempore quidem debitis doloribus, sapiente, eveniet nemo exercitationem cupiditate, voluptatum repudiandae sequi ratione veritatis.</p>
+            </div>
+        </div>
+    </main>
 
-    <script src="jquery-1.10.2.min.js"></script>
-        <script src="JavaScript%20Main.js"></script>
     <script>
-        $(window).scroll(function(){
-    var scrollval = $(this).scrollTop();    // It will return scroll value
-    
-    $("#logo").css("transform",'translate(0px,-'+scrollval/2+'%)');
-    $("#btn").css("transform",'translate(-50%,'+scrollval/3+'%)');
-});
+        const text = document.querySelector(".logo");
+        const back = document.querySelector(".back");
+        const front = document.querySelector(".front");
+
+        window.addEventListener("scroll", () => {
+            let scrolled = window.scrollY;
+            text.style.transform = `translate(0px, ${scrolled*1.4}%)`;
+            // front.style.transform = `translate(0px, -${scrolled/10}%)`;
+        })
     </script>
 </body>
 </html>
