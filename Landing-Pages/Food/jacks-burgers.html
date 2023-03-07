@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jack's Burgers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/styles_jacks-burgers.css">
+</head>
+<body>
+    <div id="top" class="landing-page">
+        <header>
+            <div class="logo">
+                <a href="#logo"><span class="top-line">Jack's</span> Burger<span class="last-letter">s</span></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a class="active" href="#top">burgers</a></li>
+                    <li><a href="#top">desserts</a></li>
+                    <li><a href="#top">drinks</a></li>
+                    <li><a href="#top">order</a></li>
+                </ul>
+            </nav>
+            <button id="menu-btn">
+                <img src="./img/jacks-burgers/menu-icon.png" alt="">
+            </button>
+            <div class="nav-left">
+                <a href="#in" class="signin">sign in</a>
+                <a href="#cart" class="cart">cart</a>
+                <button id="theme">dark</button>
+            </div>
+        </header>
+        <main>
+            <div class="info">
+                <div class="headers">
+                    <h1>special tasty burger.</h1>
+                    <h2>discover new taste in every bite.</h2>
+                </div>
+                <p>The best way to cook burgers in <span class="logo">Jack's Burger<span class="last-letter">s</span></span> the ultimate goal when cooking a burger is a perfectly cooked burger that is juicy and packed with flavor.</p>
+                <button id="order">order now</button>
+                <a id="our-menu" href="menu-link">Go to Menu</a>
+            </div>
+            <div class="image">
+                <img src="./img/jacks-burgers/black-burger.png" alt="Burger">
+                <h3 class="price-tag"><span>only</span>$15.99</h3>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const themeButtonTexts = {
+            dark: "light",
+            undefined: "dark",
+        }
+
+        const menuBtn = document.getElementById("menu-btn");
+
+        menuBtn.addEventListener("click", () => {
+            document.querySelector("header").classList.toggle("active");
+        })
+
+        const themeButton = document.querySelector("#theme");
+
+        themeButton.addEventListener("click", () => {
+            const page = document.querySelector(".landing-page");
+            page.classList.toggle("dark");
+            themeButton.textContent = themeButtonTexts[page.classList[1]];
+        })
+    </script>
+</body>
+</html>
