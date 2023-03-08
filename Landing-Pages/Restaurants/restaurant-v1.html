@@ -6,71 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant v.1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="./css/style_restaurant-v1.css"> -->
-    <style>
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            height: 120rem;
-        }
-
-        header {
-            position: relative;
-            min-height: 100vh;
-            background-image: url("../Parallax/img/00/img/01/one.png");
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            overflow: hidden;
-
-            display: flex;
-flex-direction: column;
-justify-content: space-between;
-        }
-
-        h1 {
-            margin: 5% auto;
-            color: #fff;
-            font-size: min(7vw + 1rem, 7rem);
-            text-align: center;
-            text-transform: uppercase;
-        }
-
-        .front {
-            z-index: 1;
-        }
-        .front img {
-            display: block;
-            width: 50%;
-            max-width: 100rem;
-            margin: auto;
-        }
-
-        .content {
-            max-width: 75rem;
-            margin: 0 auto;
-            font-size: 1.2rem;
-        }
-        h2 {
-            margin: 2rem 0;
-            text-align: center;
-            text-transform: capitalize;
-        }
-
-        @media screen and (max-width: 50rem) {
-            h1 {
-                margin: 15vh auto;
-            }
-            .front img {
-                width: 100%;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="./css/style_restaurant-v1.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
     <!-- <div class="landing-page">
@@ -92,31 +29,73 @@ justify-content: space-between;
             <a href="#" class="btn">add to cart</a>
         </nav>
     </div> -->
-    <header>
-        <h1 class="logo">parallax</h1>
-        <div class="front">
-            <img src="../Parallax/img/00/img/01/lensy.png" alt="">
-        </div>
-    </header>
-    <main>
+
+    <section class="s-1">
         <div class="container">
+            <h2 id="main-title">reveal elements on scroll</h2>
             <div class="content">
-                <h2> some content just for height</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe incidunt recusandae soluta perferendis, alias vel, ipsum quibusdam officiis temporibus culpa sapiente quas? Quaerat minus illo dolorum necessitatibus architecto rem velit doloremque fugit ullam odit quas, error, ducimus neque laudantium culpa veritatis corporis cum explicabo. Nostrum saepe a tenetur ea veritatis quis maxime atque, placeat in autem aliquid asperiores dolorum impedit. Beatae repellat sed exercitationem blanditiis atque architecto, consequatur dolor iure quis illum commodi, neque obcaecati in quae iusto soluta laudantium! Officia, saepe quasi. Corrupti, neque facilis. Tempore quidem debitis doloribus, sapiente, eveniet nemo exercitationem cupiditate, voluptatum repudiandae sequi ratione veritatis.</p>
+                <div class="image">
+                    <img src="../Parallax/img/parallaxIV/gallery/120372783_340812587254299_774244032306180550_n.jpg" alt="">
+                </div>
+                <div class="text-box">
+                    <h3>lorem ipsum</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae assumenda quod laboriosam voluptatum consectetur, perspiciatis, veritatis magnam minus unde exercitationem nesciunt asperiores harum ad dicta, doloribus et odit obcaecati id quam aliquam? Quidem obcaecati vitae tempora. Doloremque quis rerum amet odit. Dolorem enim a asperiores commodi itaque quaerat dicta tenetur aspernatur facere, ad optio reprehenderit iste doloribus necessitatibus dolorum eligendi.</p>
+                </div>
+            </div>
+            <div class="sci">
+                <a href="#f" class="icon"><i>f</i></a>
+                <a href="#i" class="icon"><i>i</i></a>
+                <a href="#t" class="icon"><i>t</i></a>
+                <a href="#y" class="icon"><i>y</i></a>
             </div>
         </div>
-    </main>
+    </section>
+    <section class="s-2">
+        <div class="container">
+            <h3 class="section-title">lorem ipsum</h3>
+            <div class="content">
+                <div class="image">
+                    <img src="../Parallax/img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg" alt="">
+                </div>
+                <div class="info">
+                    <h4>description</h4>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium quod beatae sequi asperiores nostrum ipsum dignissimos ipsam voluptatum! Alias harum cupiditate accusantium voluptatem debitis eligendi iusto dolorum veniam in reiciendis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="s-3">
+        <div class="container">
+            <h3 class="section-title">lorem ipsum</h3>
+            <div class="content">
+                <div class="sci-2">
+                    <a href="#f" class="icon"><i>f</i> facebook</a>
+                    <a href="#i" class="icon"><i>i</i> instagramm</a>
+                    <a href="#t" class="icon"><i>t</i> twitter</a>
+                    <a href="#y" class="icon"><i>y</i> youtube</a>
+                    <a href="#l" class="icon"><i>l</i> linkedin</a>
+                </div>
+                <div class="image">
+                    <img src="../Parallax/img/parallaxIV/gallery/212573141_870101006920357_9185461114137501578_n.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script>
-        const text = document.querySelector(".logo");
-        const back = document.querySelector(".back");
-        const front = document.querySelector(".front");
+        ScrollReveal({ 
+            reset: true,
+            distance: "60px",
+            duration: 2500,
+            delay: 400
+        });
 
-        window.addEventListener("scroll", () => {
-            let scrolled = window.scrollY;
-            text.style.transform = `translate(0px, ${scrolled*1.4}%)`;
-            // front.style.transform = `translate(0px, -${scrolled/10}%)`;
-        })
+        ScrollReveal().reveal('#main-title, .section-title', {delay: 500, origin: 'left'});
+        ScrollReveal().reveal('.s-1 .image, .info', {delay: 600, origin: 'bottom'});
+        ScrollReveal().reveal('.text-box', {delay: 600, origin: 'right'});
+        ScrollReveal().reveal('.sci a', {delay: 500, origin: 'bottom', interval: 200});
+        ScrollReveal().reveal('.s-2 .image, .s-3 .image', {delay: 500, origin: 'top'});
+        ScrollReveal().reveal('.sci-2 a', {delay: 500, origin: 'left', interval: 200});
     </script>
 </body>
 </html>
