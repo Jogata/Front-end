@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parallax Scrolling Effect</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="./css/styles_parallaxIV.css"> -->
+    <link rel="stylesheet" href="./css/styles_parallaxIV.css">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
@@ -28,7 +28,9 @@ font-family: 'Fraunces', serif;
 font-family: 'Herr Von Muellerhoff', cursive;
 font-family: 'Playfair Display', serif;     //400,700
 */
-
+body {
+    background-color: #1e2021;
+}
         .del {
             position: relative;
             min-height: 100vh;
@@ -75,41 +77,84 @@ font-family: 'Playfair Display', serif;     //400,700
             box-sizing: border-box;
         }
 
-        #space {
-            position: relative;
-            height: 100vh;
-            background: #111;
-            overflow: hidden;
-        }
-        #banner {
-            width: 100%;
-            height: 100%;
-            background-color: #000;
-            background-image: 
-                url("./00/img/space/deathstar.png"), 
-                url("./00/img/space/stars.png"), 
-                url("./00/img/space/stars.png");
-            background-repeat: no-repeat, repeat, repeat;
-            background-position: 120% 20%, 0px 0px, 0px 0px;
-            background-size: 20% auto, 500px, 700px;
-            animation: animebg linear 50s infinite;
-        }
-        @keyframes animebg {
-            from {
-                background-position: 120% 20%, 0px 0px, 0px 0px;
-            }
-            to {
-                background-position: -20% 20%, -1000px 0px, -700px 0px;
-            }
-        }
+        .del {
+      margin: 0;
+      padding: 0;
+      background-color: #1e2021;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-        #spaceship {
-            position: relative;
-            width: 10%;
-            top: 40%;
-            left: 30%;
-            transform: rotateY(180deg);
-        }
+    .wrapper {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      max-width: 1600px;
+      padding: 80px;
+      /* background-color: red; */
+    }
+
+    .container {
+      position: relative;
+      width: calc(100% - 80px);
+      height: 100%;
+      margin: 0 auto;
+      /* background-color: blue; */
+    }
+
+    .grid-item {
+      width: 40%;
+      height: 80%;
+      background-color: #2c2c2c;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      clip-path: polygon(30% 0%, 100% 0%, 70% 100%, 0% 100%);
+    }
+    .grid-item:nth-child(2) {
+      left: 30%;
+    }
+    .grid-item:nth-child(3) {
+      left: 60%;
+    }
+
+    .grid-img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .grid-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    @media screen and (max-width: 768px) {
+      .wrapper {
+        padding: 80px 20px;
+      }
+      .container {
+        width: calc((100% - 20px));
+      }
+    }
+    @media screen and (max-width: 550px) {
+      .grid-item {
+        left: 5%;
+        width: 90%;
+        clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
+      }
+      .grid-item:nth-child(2) {
+        left: 5%;
+        top: 150%;
+      }
+      .grid-item:nth-child(3) {
+        left: 5%;
+        top: 250%;
+      }
+    }
     </style>
 </head>
 <body>
@@ -211,90 +256,28 @@ font-family: 'Playfair Display', serif;     //400,700
         </div>
     </div>
 
-    <div id="space">
-        <div id="banner">
-            <img src="./00/img/space/millennium-falcon.png" alt="Spaceship" id="spaceship">
-        </div>
+    <div class="del">
+        <div class="wrapper">
+            <div class="container">
+              <div class="grid-item">
+                <div class="grid-img">
+                  <img src="../../../CSS/assets/img/forest.jpg" alt="Forest">
+                </div>
+              </div>
+              <div class="grid-item">
+                <div class="grid-img">
+                  <img src="../../../CSS/assets/img/rainforest-kunal-shinde--f0YLss50Bs-unsplash.jpg" alt="Forest">
+                </div>
+              </div>
+              <div class="grid-item">
+                <div class="grid-img">
+                  <img src="../../../CSS/assets/img/spring-forest-copy.jpg" alt="Forest">
+                </div>
+              </div>
+            </div>
+          </div>
     </div>
-    <p>Starts from: 329>182>300</p>
-    <script>
-        const url = 'https://api.boot.dev/v1/courses_rest_api/learn-http/users'
-
-async function getUserById(url, id) {
-  const path = `${url}/${id}`;
-  const response = await fetch(path, {
-    method: 'GET',
-    mode: 'cors',
-    headers: {
-      'X-API-Key': apiKey,
-      'Content-Type': 'application/json'
-    }
-  })
-  return response.json();
-}
-
-// don't touch below this line
-
-const uuid = '2f8282cb-e2f9-496f-b144-c0aa4ced56db';
-const apiKey = generateKey();
-
-function generateKey() {
-  const characters = 'ABCDEF0123456789';
-  let result = '';
-  for (let i = 0; i < 16; i++) {
-    result += characters.charAt(Math.floor(Math.random() * characters.length));
-  }
-  return result;
-}
-
-function logUser(user) {
-  console.log(`User uuid: ${user.id}, Character Name: ${user.characterName}, Class: ${user.class}, Level: ${user.level}, PVP Status: ${user.pvpEnabled}, User name: ${user.user.name}`);
-}
-
-async function start() {
-    const user = await getUserById(url, uuid);
-    logUser(user);
-}
-
-start();
-
-async function fetchIPAddress(domain) {
-  const resp = await fetch(`https://cloudflare-dns.com/dns-query?name=${domain}&type=A`, {
-    headers: {
-      'accept': 'application/dns-json'
-    }
-  })
-  const respObject = await resp.json()
-  for (const record of respObject.Answer) {
-    return record.data
-  }
-  return null
-}
-
-// don't touch below this line
-
-async function  start2() {
-    const domain = 'api.boot.dev'
-const ipAddress = await fetchIPAddress(domain)
-if (!ipAddress) {
-  console.log('something went wrong in fetchIPAddress');
-} else {
-  console.log(`found IP address for domain ${domain}: ${ipAddress}`);
-}
-}
-
-start2();
-
-function getDomainNameFromURL(url) {
-  const urlObj = new URL(url);
-  return urlObj.hostname;
-}
-
-// don't touch below this line
-
-const bootdevURL = 'https://boot.dev/learn/learn-python';
-const domainName = getDomainNameFromURL(bootdevURL);
-console.log(`The domain name for ${bootdevURL} is ${domainName}`);
-    </script>
+    <p>Starts from: 300>182</p>
+    <script></script>
 </body>
 </html>
