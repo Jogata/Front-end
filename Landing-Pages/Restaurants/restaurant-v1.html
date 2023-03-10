@@ -7,7 +7,176 @@
     <title>Restaurant v.1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/style_restaurant-v1.css">
-    <script src="https://unpkg.com/scrollreveal"></script>
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+        h3 {
+            margin-top: 2rem;
+            font-size: 3rem;
+            text-align: center;
+            text-transform: capitalize;
+        }
+        h2 span, h3 span {
+            text-transform: uppercase;
+        }
+
+        .css-slider-wrapper {
+            position: relative;
+            display: table;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        input {
+            display: none;
+        }
+        .slide-radio1 {}
+        .slide-radio2 {}
+        .slide-radio3 {}
+        .slide-radio4 {}
+
+        .slider-pagination {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            z-index: 2;
+        }
+
+        label {
+            width: 12px;
+            height: 12px;
+            display: inline-block;
+            margin: 0 2px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 2px solid red;
+            cursor: pointer;
+        }
+
+        .page1 {}
+        .page2 {}
+        .page3 {}
+        .page4 {}
+        
+        .slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            font-family: sans-serif;
+            background: #333;
+            transform: scale(1);
+            transition: transform 1600ms, transform 1600ms;
+            opacity: 1;
+            z-index: 0;
+        }
+
+        .slider div {
+            text-align: center;
+        }
+
+        .slider h2 {
+            margin-top: -30px;
+            color: #fff;
+            font-size: 65px;
+            font-weight: 400;
+            transform: translateX(500px);
+            opacity: 0;
+        }
+
+        .slide-1 {
+            background-image: url("../Parallax/img/parallaxIV/gallery/120372783_340812587254299_774244032306180550_n.jpg");
+            background-repeat: no-repeat;
+            background-position: right;
+            background-size: contain;
+            left: 0;
+        }
+        .slide-2 {
+            background-image: url("../Parallax/img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg");
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: contain;
+            left: 100%;
+        }
+        .slide-3 {
+            background-image: url("../Parallax/img/parallaxIV/gallery/212573141_870101006920357_9185461114137501578_n.jpg");
+            background-repeat: no-repeat;
+            background-position: right;
+            background-size: contain;
+            left: 200%;
+        }
+        .slide-4 {
+            background-image: url("../Parallax/img/parallaxIV/gallery/212696607_565196161514018_1044941815810703332_n.jpg");
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: contain;
+            left: 300%;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            text-transform: capitalize;
+            transition: opacity 800ms, transform 800ms;
+            transition-delay: 1s;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: -50px;
+            padding: 12px 50px;
+            color: #fff;
+            font-size: 15px;
+            line-height: 30px;
+            text-transform: capitalize;
+            border-radius: 50px;
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateX(-500px);
+            transition: opacity 800ms, transform 800ms;
+            transition-delay: 1s;
+            opacity: 0;
+        }
+
+        .slide-radio1:checked ~ .slider {
+            transform: translateX(0%);
+        }
+        .slide-radio2:checked ~ .slider {
+            transform: translateX(-100%);
+        }
+        .slide-radio3:checked ~ .slider {
+            transform: translateX(-200%);
+        }
+        .slide-radio4:checked ~ .slider {
+            transform: translateX(-300%);
+        }
+
+        .slide-radio1:checked ~ .slide-1 h2, 
+        .slide-radio2:checked ~ .slide-2 h2, 
+        .slide-radio3:checked ~ .slide-3 h2, 
+        .slide-radio4:checked ~ .slide-4 h2 {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .slide-radio1:checked ~ .slide-1 .button, 
+        .slide-radio2:checked ~ .slide-2 .button, 
+        .slide-radio3:checked ~ .slide-3 .button, 
+        .slide-radio4:checked ~ .slide-4 .button {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    </style>
 </head>
 <body>
     <!-- <div class="landing-page">
@@ -29,73 +198,44 @@
             <a href="#" class="btn">add to cart</a>
         </nav>
     </div> -->
+    <h3>pure <span>css</span> image slider</h3>
+    <div class="css-slider-wrapper">
+        <input type="radio" name="slider" id="slide-1" class="slide-radio1" checked>
+        <input type="radio" name="slider" id="slide-2" class="slide-radio2">
+        <input type="radio" name="slider" id="slide-3" class="slide-radio3">
+        <input type="radio" name="slider" id="slide-4" class="slide-radio4">
 
-    <section class="s-1">
-        <div class="container">
-            <h2 id="main-title">reveal elements on scroll</h2>
-            <div class="content">
-                <div class="image">
-                    <img src="../Parallax/img/parallaxIV/gallery/120372783_340812587254299_774244032306180550_n.jpg" alt="">
-                </div>
-                <div class="text-box">
-                    <h3>lorem ipsum</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae assumenda quod laboriosam voluptatum consectetur, perspiciatis, veritatis magnam minus unde exercitationem nesciunt asperiores harum ad dicta, doloribus et odit obcaecati id quam aliquam? Quidem obcaecati vitae tempora. Doloremque quis rerum amet odit. Dolorem enim a asperiores commodi itaque quaerat dicta tenetur aspernatur facere, ad optio reprehenderit iste doloribus necessitatibus dolorum eligendi.</p>
-                </div>
-            </div>
-            <div class="sci">
-                <a href="#f" class="icon"><i>f</i></a>
-                <a href="#i" class="icon"><i>i</i></a>
-                <a href="#t" class="icon"><i>t</i></a>
-                <a href="#y" class="icon"><i>y</i></a>
+        <div class="slider-pagination">
+            <label for="slide-1" class="page-1"></label>
+            <label for="slide-2" class="page-2"></label>
+            <label for="slide-3" class="page-3"></label>
+            <label for="slide-4" class="page-4"></label>
+        </div>
+
+        <div class="slider slide-1">
+            <div>
+                <h2>css based slider</h2>
+                <a href="#d" class="button">download</a>
             </div>
         </div>
-    </section>
-    <section class="s-2">
-        <div class="container">
-            <h3 class="section-title">lorem ipsum</h3>
-            <div class="content">
-                <div class="image">
-                    <img src="../Parallax/img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg" alt="">
-                </div>
-                <div class="info">
-                    <h4>description</h4>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium quod beatae sequi asperiores nostrum ipsum dignissimos ipsam voluptatum! Alias harum cupiditate accusantium voluptatem debitis eligendi iusto dolorum veniam in reiciendis.</p>
-                </div>
+        <div class="slider slide-2">
+            <div>
+                <h2>true & loveworthy slides</h2>
+                <a href="#d" class="button">download</a>
             </div>
         </div>
-    </section>
-    <section class="s-3">
-        <div class="container">
-            <h3 class="section-title">lorem ipsum</h3>
-            <div class="content">
-                <div class="sci-2">
-                    <a href="#f" class="icon"><i>f</i> facebook</a>
-                    <a href="#i" class="icon"><i>i</i> instagramm</a>
-                    <a href="#t" class="icon"><i>t</i> twitter</a>
-                    <a href="#y" class="icon"><i>y</i> youtube</a>
-                    <a href="#l" class="icon"><i>l</i> linkedin</a>
-                </div>
-                <div class="image">
-                    <img src="../Parallax/img/parallaxIV/gallery/212573141_870101006920357_9185461114137501578_n.jpg" alt="">
-                </div>
+        <div class="slider slide-3">
+            <div>
+                <h2>design matters</h2>
+                <a href="#d" class="button">download</a>
             </div>
         </div>
-    </section>
-
-    <script>
-        ScrollReveal({ 
-            reset: true,
-            distance: "60px",
-            duration: 2500,
-            delay: 400
-        });
-
-        ScrollReveal().reveal('#main-title, .section-title', {delay: 500, origin: 'left'});
-        ScrollReveal().reveal('.s-1 .image, .info', {delay: 600, origin: 'bottom'});
-        ScrollReveal().reveal('.text-box', {delay: 600, origin: 'right'});
-        ScrollReveal().reveal('.sci a', {delay: 500, origin: 'bottom', interval: 200});
-        ScrollReveal().reveal('.s-2 .image, .s-3 .image', {delay: 500, origin: 'top'});
-        ScrollReveal().reveal('.sci-2 a', {delay: 500, origin: 'left', interval: 200});
-    </script>
+        <div class="slider slide-4">
+            <div>
+                <h2>pure <span>css</span> image</h2>
+                <a href="#d" class="button">download</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
