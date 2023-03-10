@@ -36,26 +36,63 @@
             border-radius: 1em;
         }
 
-        #delete4 {
-            min-height: 100vh;
+        #delete3 {
+            padding: 30vh 0;
             text-align: center;
         }
-        h2 {
-            margin-top: 2em;
-            text-transform: capitalize;
-        }
-        #delete4 img {
-            display: inline;
-        }
-        button {
-            margin-top: 4em;
+        .test {
             padding: 0.4em 1.2em;
-            text-transform: capitalize;
-            border-radius: 1em;
+            text-transform: uppercase;
+            border-radius: 2em;
+            border: 1px solid grey;
+            background-color: transparent;
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+        .test:hover {
+            font-size: 1.1em;
+            box-shadow: 2px 2px 2px #0004;
         }
     </style>
 </head>
 <body>
+    <!-- factory pattern -->
+    <script>
+        function Developer(name) {
+            this.name = name;
+            this.type = "Developer";
+        }
+        function Tester(name) {
+            this.name = name;
+            this.type = "Tester";
+        }
+        function EmployeeFactory() {
+            this.whatami = "factory";
+            this.create = (name, type) => {
+                console.log(54, this);
+                switch (type) {
+                    case 1:
+                        return new Developer(name)
+                        break;
+                        
+                        case 2:
+                            return new Tester(name)
+                            break;
+                        }
+                    }
+                    console.log(52, this);
+        }
+
+        console.log(68);
+        const employeeFactory = new EmployeeFactory();
+        const employees = [];
+
+        console.log(72);
+        employees.push(employeeFactory.create("Bob", 1));
+
+        console.log(employees[0].whatami);
+    </script>
+
     <!-- observer pattern -->
     <script>
         function Subject() {
@@ -257,132 +294,95 @@
         </script>
     </section>
 
-    <section id="delete3" class="js"></section>
-    <section id="delete4">
-        <h2>Cards Game</h2>
-        <div>
-            <h2>player 1</h2>
-            <div id="p1-cards">
-                <img src="" alt="card" id="p1">
-            </div>
-            <h2>player 2</h2>
-            <div id="p2-cards">
-                <img src="" alt="card" id="p2">
-            </div>
-        </div>
-        <h3></h3>
-        <button id="cards">deal cards</button>
+    <section id="delete3" class="js">
+        <button id="test1" class="test">normal f</button>
+        <button id="test2" class="test">arrow f</button>
+        <button id="test3" class="test">factory f</button>
     </section>
+    <section id="delete4"></section>
 
     <script>
-        const startingURL = "https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1";
+        // Detect Mobile browser with JS
+        // v.1 - regular expression
+        function isMobileRegex() {
+            return /Android|iPhone/i.test(navigator.userAgent);
+        }
+
+        console.log(isMobileRegex());
+
+        // v.2 - check for Touch Screen support
+        function isMobileTouchScreen() {
+            return navigator.maxTouchPoints > 0;
+        }
+
+        console.log(isMobileTouchScreen());
+
+        // v.3 - both
+        function isMobile() {
+            return /Android|iPhone/i.test(navigator.userAgent) && navigator.maxTouchPoints > 0;
+        }
+
+        console.log(isMobile());
         
-        let deckOfCardsID;
-
-        function createDeckOfCards(url) {            
-            fetch(url)
-            .then(res => res.json())
-            .then(data => deckOfCardsID = data.deck_id)
-            // .then(id => console.log(id))
-        }
-        
-        createDeckOfCards(startingURL);
-        // console.log(deckOfCardsID);
-        // const deckOfCardsID = "f98a6aenc1oa";
-        
-        document.getElementById("cards").addEventListener("click", () => {
-            const deckOfCardsURL = `https://deckofcardsapi.com/api/deck/${deckOfCardsID}/draw/?count=2`;
-            drawTwoCards(deckOfCardsURL);
-        });
-
-        const nonnumericalCards = {
-            ace: 14,
-            king: 13,
-            queen: 12,
-            jack: 11,
-        }
-
-        function convertCardToNumber(card) {
-            return nonnumericalCards[card.toLowerCase()];
-        }
-
-        function drawTwoCards(url) {
-            fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                document.querySelector("#p1").src = data.cards[0].image;
-                document.querySelector("#p2").src = data.cards[1].image;
-                let p1val = Number(data.cards[0].value) || convertCardToNumber(data.cards[0].value);
-                let p2val = Number(data.cards[1].value) || convertCardToNumber(data.cards[1].value);
-
-                console.log(p1val, p2val);
-
-                if (p1val > p2val) {
-                    document.querySelector("h3").innerText = "P1 wins";
-                } else if (p1val < p2val) {
-                    document.querySelector("h3").innerText = "P2 wins";
-                } 
-                else {
-                    document.querySelector("h3").innerText = "WAR";
-                    drawThreeCards(deckOfCardsID);
+        const factoryFunc = function (num2) {
+            const num = 100;
+            return {
+                sum () {
+                    return num * num2;
                 }
-            });
+            }
         }
 
-        function drawThreeCards(id) {
-            const url = `https://deckofcardsapi.com/api/deck/${id}/draw/?count=6`;
-            fetch(url)
-            .then(res => res.json())
-            .then(cards => {
-                const cardsAsNumbers = cards.cards.map((card, index, arr) => {
-                    console.log(card);
-                    return Number(arr[index].value) || convertCardToNumber(arr[index].value);
-                })
-                let p1val = cardsAsNumbers[0] + cardsAsNumbers[1] + cardsAsNumbers[2];
-                let p2val = cardsAsNumbers[3] + cardsAsNumbers[4] + cardsAsNumbers[5];
-                console.log(p1val, p2val);
-                
-                console.log(cards.cards);
-                displayAddCards("p1-cards", 0, cards.cards);
-                displayAddCards("p2-cards", 3, cards.cards);
-
-                function displayAddCards(parentID, num, arr) {
-                    console.log(parentID, num, arr.length);
-                    const imageContainer = document.createElement("div");
-                    for (let index = 0; index < arr.length/2; index++) {
-                        const image = document.createElement("img");
-                        image.src = arr[index + num].image;
-                        imageContainer.appendChild(image);
-                        console.log(index);
-                    }
-                    document.getElementById(parentID).appendChild(imageContainer);
-                }
-
-                if (p1val > p2val) {
-                    document.querySelector("h3").innerText = "P1 wins";
-                } else if (p1val < p2val) {
-                    document.querySelector("h3").innerText = "P2 wins";
-                } 
-                else {
-                    document.querySelector("h3").innerText = "WAR";
-                    drawThreeCards(deckOfCardsID);
-                }
-
-                document.getElementById("cards").addEventListener("click", () => {
-                    deleteEl(["p1-cards", "p2-cards"]);
-                }, {once: true});
-
-                function deleteEl(arrayOfIDs) {
-                    arrayOfIDs.forEach(id => {
-                        document.querySelector(`#${id} div`).remove();
-                    })
-                }
-            })
+        class Greeting1 {
+            constructor(greet) {
+                this.greeting = greet;
+            }
+            greet() {
+                console.log(this.greeting);
+            }
         }
+
+        const ffunc = factoryFunc(5);
+
+        console.log(ffunc.sum());
+
+        const Greeting2 = function (greet) {
+            this.greeting = greet;
+            this.greet = () => {
+                console.log(this.greeting);
+            }
+        }
+
+        const greet1 = new Greeting1('Hi');
+        const greet2 = new Greeting2('Hello');
+
+        function greetingFF(greeting) {
+            return {
+                greet () {
+                    console.log(greeting);
+                }
+            }
+        }
+
+        const greet3 = greetingFF("ff");
+
+        greet1.greet();
+        greet2.greet();
+
+        var greet = "i am global";
+
+        const testButton1 = document.querySelector("#test1");
+        const testButton2 = document.querySelector("#test2");
+        const testButton3 = document.querySelector("#test3");
+
+        // testButton1.greeting = "i am a button";
+
+        testButton1.addEventListener("click", greet1.greet);
+        testButton2.addEventListener("click", greet2.greet);
+        testButton3.addEventListener("click", greet3.greet);
     </script>
     <script src="./js/script_travel_v2.js">
-        console.log(272);
+        console.log(386>246>266);
     </script>
 </body>
 </html>
