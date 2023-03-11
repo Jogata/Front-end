@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
+/* 
+font-family: 'Abril Fatface', cursive;
+font-family: 'Great Vibes', cursive;
+*/
+
+@font-face {
+    font-family: "against";
+    src:url("../../../Full-Projects/Skyrim/assets/fonts/against-regular.ttf");
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+    background: radial-gradient(circle, #fff 0%, #a1f444 100%);
+}
+.inner-container {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 5vh;
+    width: 75rem;
+    margin: auto;
+    padding-block: 5rem;
+    overflow: hidden;
+}
+
+.product-box {
+    flex-basis: 37.5rem;
+    position: relative;
+    width: 100%;
+    max-width: 37.5rem;
+    margin: auto;
+    overflow: hidden;
+    z-index: 2;
+}
+
+#lime {
+    position: absolute;
+    inset: auto auto 0 0;
+    width: 60%;
+    transform: translate(15%, 20%);
+    filter: drop-shadow(3px 1px 3px #000);
+}
+
+#decoration-top {
+    position: absolute;
+    inset: 0 0 auto auto;
+    height: 55%;
+    transform: rotateY(180deg);
+    object-fit: contain;
+    object-position: top;
+    z-index: 1;
+}
+
+#decoration-left {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    object-fit: contain;
+    filter: blur(2px);
+}
+/* ================ v.1 ================ */
+#splash {
+    position: absolute;
+    top: 10%;
+    filter: hue-rotate(250deg);
+}
+/* ================ v.2 / with rotation ================ */
+#splash-rotate {
+    position: absolute;
+    top: 0%;
+    filter: hue-rotate(250deg);
+    animation: rotate 60s linear infinite;
+    z-index: -1;
+}
+@keyframes rotate {
+    100% { transform: rotate(360deg); }
+}
+/* ================ v.3 / 3D ================ */
+#splash-3d {
+    position: absolute;
+    top: -12%;
+    height: 115%;
+    filter: hue-rotate(250deg);
+    clip-path: inset(40% 34% 30% 38%);
+}
+#splash-back {
+    position: absolute;
+    top: -12%;
+    height: 115%;
+    filter: hue-rotate(250deg);
+    z-index: -1;
+}
+/* ================ v.4 ================ */
+#splash-infront {
+    position: absolute;
+    top: -10%;
+    height: 117%;
+    filter: hue-rotate(250deg);
+}
+
+.info {
+    flex-basis: 37.5rem;
+    margin: auto auto 3%;
+    text-align: center;
+    z-index: 2;
+}
+.info .inner {
+    position: relative;
+    width: min-content;
+    padding: min(2vw, 2em);
+    border-radius: 1em;
+    border: 2px solid transparent;
+    box-shadow: 2px 2px 1px #0008, -2px -2px 1px #fff, 
+    inset 2px 2px 1px #0008, inset -2px -2px 1px #fff;
+}
+
+.decoration {
+    position: absolute;
+    inset: 0;
+}
+.decoration img {
+    position: absolute;
+    width: 18%;
+    z-index: 1;
+}
+#decoration-top-left {
+    inset: 0% auto auto 0%;
+    transform: translateY(-20%);
+}
+#decoration-bottom-left {
+    inset: auto auto 0 94%;
+}
+#decoration-top-right {
+    inset: -2% 0% auto auto;
+    width: 12%;
+    transform: rotate(-90deg);
+}
+#decoration-bottom-right {
+    inset: auto 95% 0 auto;
+}
+#decoration-top-middle {
+    inset: 0% 41% auto auto;
+    transform: translateY(-50%);
+}
+#vines-left {
+    left: 0;
+    width: auto;
+    height: 100%;
+    transform: translate(-46%, -8%);
+}
+#vines-right {
+    right: 0;
+    width: auto;
+    height: 100%;
+    transform: translate(46%, -8%) rotateY(180deg);
+}
+#vines-bottom {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    transform: translate(0%, 58%);
+    z-index: 0;
+}
+#hibiscus {
+    inset: 4% 20% auto auto;
+    z-index: -1;
+}
+#mint {
+    inset: auto auto 5% 9%;
+}
+
+.headers {
+    width: min-content;
+}
+h1 {
+    padding: 0.6em 1em;
+    font-size: 1.4rem;
+    font-weight: lighter;
+    font-family: 'Great Vibes', cursive;
+    text-transform: capitalize;
+    letter-spacing: 0.6em;
+    line-height: 1;
+}
+h1 span {
+    display: block;
+    color: #a0bc1c;
+    font-size: min(6vw, 3rem);
+    font-family: 'Abril Fatface', cursive;
+    font-family: "against";
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 1px #000;
+}
+.info p {
+    color: #999;
+    margin-bottom: 2rem;
+}
+
+#buy {
+    padding: 0.4em 1.2em;
+    color: #222;
+    font-size: 1rem;
+    font-family: 'Abril Fatface', cursive;
+    text-transform: uppercase;
+    border-radius: 1em;
+    border: 1px solid transparent;
+    outline: 1px solid transparent;
+    background-color: transparent;
+    box-shadow: 2px 2px 1px #0008, -2px -2px 1px #fff8;
+    cursor: pointer;
+}
+#buy:active {
+    box-shadow: 0px 0px 0px #0008, 0px 0px 0px #fff, 
+    inset 1px 1px 1px #0008, inset -1px -1px 1px #fff;
+}
+
+@media screen and (max-width: 75rem) {
+    .info .inner {
+        margin: auto;
+    }
+    #decoration-top {
+        filter: blur(2px);
+    }
+}
