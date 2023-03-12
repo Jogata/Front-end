@@ -7,6 +7,121 @@
     <title>Travel v.1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/styles_travel-v1.css">
+    <style>
+        #bottom {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #000;
+        }
+        .cont-proba {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            gap: 40px;
+            -webkit-box-reflect: below 2px linear-gradient(transparent, #0005);
+        }
+        .box-proba {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, #00f376 10%, transparent 10%, transparent 50%, #00f376 50%, #00f376 60%, transparent 60%, transparent 100%);
+            background-size: 40px 40px;
+            transform: rotate(calc(var(--i) * 90deg));
+            filter: hue-rotate(calc(var(--i) * 90deg));
+            animation: bg 0.5s linear infinite;
+        }
+        @keyframes bg {
+            0% {
+                background-position: 0px;
+            }
+            100% {
+                background-position: 40px;
+            }
+        }
+
+        #services {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            min-height: 100vh;
+            background: linear-gradient(#0f4675 50%, #fff 50%);
+        }
+        #services .heading {
+            width: 100%;
+            /* flex-grow: 1; */
+        }
+        #services .box-container {
+            width: 1100px;
+            /* flex: 1; */
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        #services .box {
+            position: relative;
+            width: 320px;
+            background-color: #fff;
+            padding: 100px 40px 60px;
+            box-shadow: 0px 15px 45px rgba(0,0,0,0.1);
+        }
+        #services .box::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: #ff226d;
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.5s;
+        }
+        #services .box:hover:before {
+            transform: scaleY(1);
+            transform-origin: bottom;
+            transition: transform 0.5s;
+        }
+        #services .box > :nth-child(n) {
+            z-index: 2;
+        }
+        #services .box h2 {
+            position: absolute;
+            top: 60px;
+            left: 40px;
+            font-size: 4rem;
+            font-weight: bold;
+            font-family: 'Abril Fatface', cursive;
+            transition: all 0.5s;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        #services .box:hover h2 {
+            color: #fff;
+            transform: translateY(-40px);
+            opacity: 1;
+        }
+        #services .box h3 {
+            position: relative;
+            color: #333;
+            font-size: 1.5rem;
+            transition: all 0.5s;
+        }
+        #services .box p {
+            color: #555;
+        }
+        #services .box:hover p, 
+        #services .box:hover h3 {
+            color: #fff;
+        }
+        #services {}
+        #services {}
+    </style>
 </head>
 <body>
     <header id="header" class="page-max-width">
@@ -95,11 +210,11 @@
     <section id="about" class="page-max-width">
         <div class="fog-container">
             <div class="fog-img fog-img-first"></div>
-            <div class="fog-img fog-img-second"></div>
+            <!-- <div class="fog-img fog-img-second"></div> -->
         </div>
-        <div class="about-image">
+        <!-- <div class="about-image">
             <img src="./img/about-img.jpg" alt="">
-        </div>
+        </div> -->
         <div class="about-content">
             <h2 class="heading">memorable outdoor experiences</h2>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate, incidunt obcaecati! Dolore qui officia rem ut culpa velit aliquid veniam doloribus odit repudiandae. Possimus tempore neque optio dignissimos, adipisci distinctio.</p>
@@ -389,19 +504,43 @@
         <h2 class="heading">our services</h2>
         <div class="box-container">
             <div class="box">
-                <img src="./img/services/serv-1.png">
+                <!-- <img src="./img/services/serv-1.png"> -->
+                <h2>01</h2>
                 <h3>complete guide</h3>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit esse vitae libero doloribus dolore aperiam.</p>
                 <a href="#services" class="more-btn">read more</a>
             </div>
             <div class="box">
-                <img src="./img/services/serv-2.png">
+                <!-- <img src="./img/services/serv-2.png"> -->
+                <h2>02</h2>
                 <h3>custom packages</h3>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit esse vitae libero doloribus dolore aperiam.</p>
                 <a href="#services" class="more-btn">read more</a>
             </div>
             <div class="box">
-                <img src="./img/services/serv-3.png">
+                <!-- <img src="./img/services/serv-3.png"> -->
+                <h2>03</h2>
+                <h3>family trips</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit esse vitae libero doloribus dolore aperiam.</p>
+                <a href="#services" class="more-btn">read more</a>
+            </div>
+            <div class="box">
+                <!-- <img src="./img/services/serv-4.png"> -->
+                <h2>04</h2>
+                <h3>family trips</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit esse vitae libero doloribus dolore aperiam.</p>
+                <a href="#services" class="more-btn">read more</a>
+            </div>
+            <div class="box">
+                <!-- <img src="./img/services/serv-5.png"> -->
+                <h2>05</h2>
+                <h3>family trips</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit esse vitae libero doloribus dolore aperiam.</p>
+                <a href="#services" class="more-btn">read more</a>
+            </div>
+            <div class="box">
+                <!-- <img src="./img/services/serv-6.png"> -->
+                <h2>06</h2>
                 <h3>family trips</h3>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit esse vitae libero doloribus dolore aperiam.</p>
                 <a href="#services" class="more-btn">read more</a>
@@ -411,42 +550,13 @@
 
     <section id="bottom" style="min-height: 40vh;">
         <h1 style="font-size: 5vw; text-align: center;">footer</h1>
+        <div class="cont-proba">
+            <div class="box-proba" style="--i:1"></div>
+            <div class="box-proba" style="--i:3"></div>
+            <div class="box-proba" style="--i:2"></div>
+            <div class="box-proba" style="--i:4"></div>
+        </div>
     </section>
-
-    <div id="container">
-        <div>
-            <img src="" alt="" width="100%" height="50%">
-            <h1>Laptop ASUS Vivobook Pro 14 OLED K3400PA</h1>
-            <p>24x40,70e/m<s>41.66e</s></p>
-            <button class="btn1">buy now</button>
-            <button class="btn2">add to basket</button>
-            <a href="#f">more</a>
-        </div>
-        <div>
-            <img src="" alt="" width="100%" height="50%">
-            <h1>Laptop TOSHIBA Dynabook Satellite Pro A50-J-1IA</h1>
-            <p>1.226,99 &euro;<s>1.249,99 &euro;</s></p>
-            <button class="btn1">buy now</button>
-            <button class="btn2">add to basket</button>
-            <a href="#f">more</a>
-        </div>
-        <div>
-            <img src="" alt="" width="100%" height="50%">
-            <h1>Laptop ASUS ProArt Studiobook 16 OLED H5600QM</h1>
-            <p>2.726,99 &euro;<s>2.749,99 &euro;</s></p>
-            <button class="btn1">buy now</button>
-            <button class="btn2">add to basket</button>
-            <a href="#f">more</a>
-        </div>
-        <div>
-            <img src="" alt="" width="100%" height="50%">
-            <h1>Laptop HUAWEI MateBook D 14  I5/8GB/512GB/WIN</h1>
-            <p>1.076,99 &euro;<s>1.099,99 &euro;</s></p>
-            <button class="btn1">buy now</button>
-            <button class="btn2">add to basket</button>
-            <a href="#f">more</a>
-        </div>
-    </div>
 
     <script>
         // Setup the Slider in Home Section
