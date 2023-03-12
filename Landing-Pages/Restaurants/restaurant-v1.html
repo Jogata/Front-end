@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant v.1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/style_restaurant-v1.css">
+    <!-- <link rel="stylesheet" href="./css/style_restaurant-v1.css"> -->
     <style>
         *, *::before, *::after {
     margin: 0;
@@ -14,146 +14,84 @@
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    display: flex;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    font-size: 62.5%;
-    font-weight: 600;
-    font-family: sans-serif;
-    background-color: #17141d;
+ul {
+    list-style: none;
 }
-
 a {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
     text-decoration: none;
-    white-space: nowrap;
-    font-size: 1rem;
-    color: #a1a1af;
+}
+img {
+    max-width: 100%;
 }
 
-.tag {
-    display: block;
-    padding: 0.3em 0.85em;
-    margin: 0.5em;
-    text-transform: capitalize;
-    border: 3px solid #2a242f;
-    border-radius: 2em;
-    transition: transform 0.2s;
-    transition-timing-function: cubic-bezier(0.45, -0.85, 0.55, -0.45);
-}
-.tag:hover {
-    transform: scale(1.2);
-    background-color: #ff8a00;
-    background: linear-gradient(to right, #ff8a00, #da1b60);
-    background-clip: text;
-    color: transparent;
-}
+        .slider-container {
+            /* width: 100%; */
+            height: 100vh;
+            padding: 10% 2%;
+            background-color: #a4152c;
+            display: flex;
+            align-items: center;
+            /* justify-content: center; */
+        }
 
-.container {
-    margin: 2em 6em;
-    padding: 3em;
-    padding-left: 1em;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
-    font-size: 1rem;
-    color: #a1a1af;
-    border: 1px solid #28242f;
-    border-radius: 0.35em;
-    box-shadow: 0px 10px 60px #070509;
-}
+        .box {
+            position: relative;
+            max-width: 350px;
+            /* height: 610px; */
+            height: 100%;
+            min-height: 610px;
+            margin: 20px 10px;
+            padding: 20px 0;
+            border-radius: 10px;
+            background-color: #1e1e26;
+            box-shadow: 2px 10px 12px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: column;
+        }
 
-.tags {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-transform: capitalize;
-}
+        .marvel {
+            color: #32323e;
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-family: bebas kai;
+            text-transform: uppercase;
+            margin-bottom: 5rem;
+        }
 
-.tags span {
-    font-size: 1.2rem;
-    padding: 1em;
-    margin-right: 1em;
-    text-transform: uppercase;
-    transform: rotate(180deg);
-    writing-mode: vertical-rl;
-    border-left: 3px solid #28242f;
-    background: linear-gradient(to right, #ff8a00, #da1b60);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+        .model {
+            height: 100%;
+            max-height: 350px;
+            z-index: 1;
+        }
 
-.tags a:last-child {
-    margin-left: 0.5em;
-}
-.tags a:last-child:hover {
-    color: #fff;
-}
+        .details {
+            width: 300px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
 
-label {
-    position: relative;
-    white-space: nowrap;
-    display: flex;
-    width: 48px;
-    height: 48px;
-    align-items: center;
-    justify-content: flex-end;
-    border: 3px solid transparent;
-    border-radius: 2em;
-    background-color: #17141d;
-    background-image: radial-gradient(circle at 50%, #ff8a00, #da1b60);
-    transition: all 0.25s ease-in-out;
-}
-label::before {
-    position: absolute;
-    right: 0;
-    bottom: -20px;
-    z-index: 0;
-    transform: rotate(-35deg);
-    width: 4px;
-    height: 25px;
-    content: "";
-    border-radius: 2px;
-    background: linear-gradient(to top, #ff8a00, #da1b60);
-    transition: all 0.25s ease-in-out;
-}
+        .logo {
+            width: 100px;
+            /* height: auto; */
+            position: absolute;
+top: 10%;
+width: 90%;
+z-index: 0;
+        }
 
-#search {
-    position: relative;
-    z-index: 1;
-    display: block;
-    padding-left: 1.75em;
-    width: 42px;
-    height: 42px;
-    font-size: 1rem;
-    border: 0;
-    border-radius: inherit;
-    background-color: #17141d;
-    color: #fff;
-    transition: width 0.25s ease-in-out;
-}
-#search:focus {
-    outline: none;
-}
-
-label:hover {
-    width: 20%;
-}
-label:hover::before {
-    height: 30px;
-    transform: rotate(-90deg) translate(28px, 15px);
-}
-
-label:hover #search {
-    width: 100%;
-    padding-right: 1em;
-    padding-left: 1em;
-}
+        .details p {
+            margin-top: 20px;
+            color: #6a6a74;
+            font-family: Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: bold;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -176,19 +114,56 @@ label:hover #search {
             <a href="#" class="btn">add to cart</a>
         </nav>
     </div> -->
-    <div class="container">
-        <p class="tags">
-            <span>menu</span>
-            <a href="#h" class="tag">home</a>
-            <a href="#h" class="tag">gallery</a>
-            <a href="#h" class="tag">contact</a>
-            <a href="#h" class="tag active">about</a>
-            <a href="#h" class="tag">clients</a>
-            <a href="#h" class="tag">locations</a>
-        </p>
-        <label for="search">
-            <input type="search" name="search" id="search" placeholder="Search...">
-        </label>
+<!-- https://github.com/sachinchoolur/lightslider -->
+    <div class="slider-container">
+        <div class="box">
+            <p class="marvel">marvel</p>
+            <img src="./img/marvel-slider/Ant-Man.png" alt="Ant-Man" class="model">
+            <div class="details">
+                <img src="./img/marvel-slider/AntMan-logo.png" class="logo">
+                <p>Armed with a super-suit with the astonishing ability to shrink in scale but increase in strength, cat burglar Scott Lang must embrace his inner hero and save the world.</p>
+            </div>
+        </div>
+        <div class="box">
+            <p class="marvel">marvel</p>
+            <img src="./img/marvel-slider/DeadPool.png" alt="Deadpool" class="model">
+            <div class="details">
+                <img src="./img/marvel-slider/Deadpool-logo.png" class="logo">
+                <p>A wisecracking mercenary gets experimented on and becomes immortal but ugly, and sets out to track down the man who ruined his looks.</p>
+            </div>
+        </div>
+        <div class="box">
+            <p class="marvel">marvel</p>
+            <img src="./img/marvel-slider/IronMan.png" alt="Iron Man" class="model">
+            <div class="details">
+                <img src="./img/marvel-slider/IronMan-logo.png" class="logo">
+                <p>After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.</p>
+            </div>
+        </div>
+        <div class="box">
+            <p class="marvel">marvel</p>
+            <img src="./img/marvel-slider/SpiderMan.png" alt="Spider-Man" class="model">
+            <div class="details">
+                <img src="./img/marvel-slider/SpiderMan-logo.png" class="logo">
+                <p>After being bitten by a genetically-modified spider, a shy teenager gains spider-like abilities that he uses to fight injustice as a masked superhero and face a vengeful enemy.</p>
+            </div>
+        </div>
+        <div class="box">
+            <p class="marvel">marvel</p>
+            <img src="./img/marvel-slider/Thor.png" alt="Thor" class="model">
+            <div class="details">
+                <img src="./img/marvel-slider/Thor-logo.png" class="logo">
+                <p>The powerful but arrogant god Thor is cast out of Asgard to live amongst humans in Midgard (Earth), where he soon becomes one of their finest defenders.</p>
+            </div>
+        </div>
+        <div class="box">
+            <p class="marvel">marvel</p>
+            <img src="./img/marvel-slider/Venom.png" alt="Venom" class="model">
+            <div class="details">
+                <img src="./img/marvel-slider/Venom-logo.png" class="logo">
+                <p>A failed reporter is bonded to an alien entity, one of many symbiotes who have invaded Earth. But the being takes a liking to Earth and decides to protect it.</p>
+            </div>
+        </div>
     </div>
 </body>
 </html>
