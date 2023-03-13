@@ -8,119 +8,114 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/styles_travel-v1.css">
     <style>
-        #bottom {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            height: 100vh;
-            background-color: #000;
-        }
-        .cont-proba {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            gap: 40px;
-            -webkit-box-reflect: below 2px linear-gradient(transparent, #0005);
-        }
-        .box-proba {
-            position: relative;
-            width: 200px;
-            height: 200px;
-            background: linear-gradient(45deg, #00f376 10%, transparent 10%, transparent 50%, #00f376 50%, #00f376 60%, transparent 60%, transparent 100%);
-            background-size: 40px 40px;
-            transform: rotate(calc(var(--i) * 90deg));
-            filter: hue-rotate(calc(var(--i) * 90deg));
-            animation: bg 0.5s linear infinite;
-        }
-        @keyframes bg {
-            0% {
-                background-position: 0px;
-            }
-            100% {
-                background-position: 40px;
-            }
-        }
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        #services {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            min-height: 100vh;
-            background: linear-gradient(#0f4675 50%, #fff 50%);
-        }
-        #services .heading {
-            width: 100%;
-            /* flex-grow: 1; */
-        }
-        #services .box-container {
-            width: 1100px;
-            /* flex: 1; */
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-        #services .box {
-            position: relative;
-            width: 320px;
-            background-color: #fff;
-            padding: 100px 40px 60px;
-            box-shadow: 0px 15px 45px rgba(0,0,0,0.1);
-        }
-        #services .box::before {
-            position: absolute;
-            top: 0;
-            left: 0;
-            content: "";
-            width: 100%;
-            height: 100%;
-            background-color: #ff226d;
-            transform: scaleY(0);
-            transform-origin: top;
-            transition: transform 0.5s;
-        }
-        #services .box:hover:before {
-            transform: scaleY(1);
-            transform-origin: bottom;
-            transition: transform 0.5s;
-        }
-        #services .box > :nth-child(n) {
-            z-index: 2;
-        }
-        #services .box h2 {
-            position: absolute;
-            top: 60px;
-            left: 40px;
-            font-size: 4rem;
-            font-weight: bold;
-            font-family: 'Abril Fatface', cursive;
-            transition: all 0.5s;
-            opacity: 0.1;
-            z-index: 1;
-        }
-        #services .box:hover h2 {
-            color: #fff;
-            transform: translateY(-40px);
-            opacity: 1;
-        }
-        #services .box h3 {
-            position: relative;
-            color: #333;
-            font-size: 1.5rem;
-            transition: all 0.5s;
-        }
-        #services .box p {
-            color: #555;
-        }
-        #services .box:hover p, 
-        #services .box:hover h3 {
-            color: #fff;
-        }
-        #services {}
-        #services {}
+#bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    height: 100vh;
+    background-color: #fada3e;
+    flex-wrap: wrap;
+}
+#bottom > h2 {
+    width: 100%;
+}
+
+.flex-cont {
+    position: relative;
+    width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+}
+.card:nth-child(even) {
+    flex-direction: column-reverse;
+}
+
+.img-box {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background: #000;
+}
+
+.img-box img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.content {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content > div {
+    padding: 20px;
+    text-align: center;
+}
+
+@media screen and (max-width: 1000px) {
+    .flex-cont {
+        margin: 50px;
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    }
+
+    .card {
+        margin: 10px 0;
+        flex-direction: row;
+    }
+
+    .card:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+    .content, 
+    .img-box {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .card {
+        margin: 10px 0;
+        flex-direction: column;
+    }
+    .card:nth-child(even) {
+        flex-direction: column;
+    }
+    .content, 
+    .img-box {
+        width: 100%;
+    }
+    .content {
+        height: 200px;
+    }
+}
     </style>
 </head>
 <body>
@@ -550,11 +545,51 @@
 
     <section id="bottom" style="min-height: 40vh;">
         <h1 style="font-size: 5vw; text-align: center;">footer</h1>
-        <div class="cont-proba">
-            <div class="box-proba" style="--i:1"></div>
-            <div class="box-proba" style="--i:3"></div>
-            <div class="box-proba" style="--i:2"></div>
-            <div class="box-proba" style="--i:4"></div>
+        <div class="flex-cont">
+            <div class="card">
+                <div class="img-box">
+                    <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/120372783_340812587254299_774244032306180550_n.jpg" alt="">
+                </div>
+                <div class="content">
+                    <div>
+                        <h2>box one</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure dolorem exercitationem tempore, assumenda minima commodi explicabo perferendis recusandae nostrum officia.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-box">
+                    <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg" alt="">
+                </div>
+                <div class="content">
+                    <div>
+                        <h2>box two</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure dolorem exercitationem tempore, assumenda minima commodi explicabo perferendis recusandae nostrum officia.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-box">
+                    <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/212573141_870101006920357_9185461114137501578_n.jpg" alt="">
+                </div>
+                <div class="content">
+                    <div>
+                        <h2>box three</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure dolorem exercitationem tempore, assumenda minima commodi explicabo perferendis recusandae nostrum officia.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img-box">
+                    <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/212696607_565196161514018_1044941815810703332_n.jpg" alt="">
+                </div>
+                <div class="content">
+                    <div>
+                        <h2>box four</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure dolorem exercitationem tempore, assumenda minima commodi explicabo perferendis recusandae nostrum officia.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
