@@ -8,69 +8,61 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" href="./css/style_restaurant-v1.css"> -->
     <style>
-        ol {
-            display: inline-block;
-            padding: 0 3em;
-            color: greenyellow;
-            font-size: 3rem;
-            text-align: left;
-        }
-        body {
-            color: #fff;
-            text-align: center;
-            background-image: url("https://dnd.wizards.com/assets/img/footer-background.png");
-            background-size: cover;
-            background-position: right;
-        }
-
-        span {
-            opacity: 0.4;
-        }
-
-        input {
-            display: block;
-            margin: 0rem auto 2rem;
-            padding: 1em;
-            color: #fff;
-            background-color: #000;
-        }
-
         h1 {
-            font-size: 2rem;
-            text-transform: capitalize;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        em {
+            display: block;
+            font-size: 12px;
+            opacity: 0.6;
+        }
+        em:last-of-type {
+            margin-bottom: 20px;
         }
 
-        h2 {
-            font-size: 4rem;
-            color: coral;
-        }
-        h2::first-letter {
+        button {
             text-transform: uppercase;
+        }
+        #isbn::placeholder {
+            text-transform: uppercase;
+        }
+
+        div {
+            text-align: center;
+            padding-bottom: 2em;
+        }
+
+        fieldset {
+            margin: auto;
+            padding: 1em;
+            border-radius: 1em;
+            width: fit-content;
+            max-width: 60rem;
         }
 
         legend {
             margin: auto;
             padding: 0 0.4em;
-            font-size: 2rem;
+            font-size: 3rem;
             text-align: center;
             text-transform: capitalize;
         }
 
-        fieldset {
-            width: fit-content;
-            max-width: 60rem;
-            margin: auto;
-            border-radius: 1em;
+        ol {
+            margin: 0 3rem;
+            /* padding: 0 1em; */
         }
 
-        button {
-            color: #fff;
-            padding: 0.6em 1em;
-            font-size: 1.2rem;
-            border-radius: 2em;
-            background-color: transparent;
-            border: 3px solid currentColor;
-            cursor: pointer;
+        li {
+            margin-bottom: 1rem;
+            font-size: 3.6rem;
+        }
+
+        p {
+            padding: 0.4em 1em;
+            font-size: 3.6rem;
+            text-align: center;
         }
     </style>
 </head>
@@ -94,87 +86,100 @@
             <a href="#" class="btn">add to cart</a>
         </nav>
     </div> -->
-<!-- https://github.com/sachinchoolur/lightslider -->
-<span>Acid-Arrow</span>
-<h1>choose spell:</h1>
-<input type="text">
-<button>Get Dungeons and Dragons data</button>
-<h2>name</h2>
-<h3>class</h3>
+<!-- https://openlibrary.org/dev/docs/api/books -->
+<h1>booktracker</h1>
+<em>example: 9780140328721</em>
+<em>example: 0201558025</em>
+<div>
+    <input type="text" name="" id="isbn" placeholder="isbn">
+    <button>get a book</button>
+</div>
+
 <fieldset>
-    <legend>subclasses</legend>
-    <ol type="I"></ol>
+    <legend>books</legend>
+    <p>Your list is empty</p>
+    <ol id="books"></ol>
 </fieldset>
 
 <script>
-    const but = document.querySelector("button");
-    but.addEventListener("click", () => {
-        const userReq = document.querySelector("input").value
-        .toLowerCase()
-        .split(" ")
-        .join("-");
+    class MyLocalStorage {
+        constructor() {
+            this.storage = [];
+        }
 
-        console.log(userReq);
+        setItem(item) {
+            this.storage.push(item);
+        }
+        getItem(i) {
+            console.log(this);
+            return this.storage[i];
+        }
+        getAllItems() {
+            return this.storage;
+        }
+        deleteItem(item) {
+            this.storage.pop(item);
+        }
+    }
 
-        const url = `https://www.dnd5eapi.co/api/spells/${userReq}`;
-        const dd = fetch(url)
-    .then(res => res.json())
-    .then(data => {
-        // console.log(data.subclasses);
-        const parent = document.querySelector("ol");
-        parent.textContent = "";
-        data.subclasses.forEach(subclass => {
-           console.log(subclass.name);
-           const name = document.querySelector("h2");
-           name.textContent = data.name;
-           const li = document.createElement("li");
-           li.textContent = subclass.name;
-           parent.appendChild(li);
+    const myLocalStorage = new MyLocalStorage();
+
+    // myLocalStorage.storage[0] = "9780140328721";
+    // myLocalStorage.storage[1] = "0201558025";
+
+    console.log(myLocalStorage.getAllItems());
+
+    if (myLocalStorage.storage[0]) {
+        const parentEl = document.querySelector("fieldset");
+        parentEl.removeChild(document.querySelector("p"));
+        myLocalStorage.storage.forEach((isbn, index) => {
+        // console.log(myLocalStorage.getItem(index));
+        const url = `https://openlibrary.org/isbn/${myLocalStorage.getItem(index)}.json`;
+        fetch(url)
+        .then(data => data.json())
+        .then(data => {
+            console.log(data);
+            const title = data.title;
+            console.log(title);
+            // myLocalStorage.setItem(isbn);
+            // console.log(myLocalStorage);
+            const liEl = document.createElement("li");
+            liEl.textContent = title;
+            const parentEl = document.querySelector("#books");
+            parentEl.appendChild(liEl);
+        })
+        .catch(err => {
+            console.log(err);
         });
     })
-    .catch(err => {
-        console.log(err);
-    });
-    })
-
-    const apiKey = generateKey();
-const itemURL = 'https://api.boot.dev/v1/courses_rest_api/learn-http/items';
-
-async function start () {
-    const items = await getData(itemURL);
-    logItems(items);
-}
-
-start();
-
-// don't touch below this line
-
-async function getData(url) {
-  const response = await fetch(url, {
-    method: 'GET',
-    mode: 'cors',
-    headers: {
-      'X-API-Key': apiKey,
-      'Content-Type': 'application/json'
+    } else {
+        
     }
-  })
-  return response.json();
-}
 
-function generateKey() {
-  const characters = 'ABCDEF0123456789';
-  let result = '';
-  for (let i = 0; i < 16; i++){
-    result += characters.charAt(Math.floor(Math.random() * characters.length))
-  }
-  return result;
-}
-
-function logItems(items) {
-  for (const item of items) {
-    console.log(item.name);
-  } 
-}
+    
+    const btn = document.querySelector("button");
+    
+    btn.addEventListener("click", () => {
+        const isbn = document.querySelector("#isbn").value;
+        const url = `https://openlibrary.org/isbn/${isbn}.json`;
+        fetch(url)
+        .then(data => data.json())
+        .then(data => {
+            console.log(data);
+            const title = data.title;
+            console.log(title);
+            myLocalStorage.setItem(isbn);
+            console.log(myLocalStorage);
+            const liEl = document.createElement("li");
+            liEl.textContent = title;
+            const parentEl = document.querySelector("#books");
+            // parentEl.removeChild(document.querySelector("p"));
+            parentEl.appendChild(liEl);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    })
 </script>
 </body>
 </html>
