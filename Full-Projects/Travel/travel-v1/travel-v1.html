@@ -8,114 +8,130 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/styles_travel-v1.css">
     <style>
-        * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-::before, ::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        #bottom {
+            text-align: center;
+            background-color: #f1f1f1;
+            flex-wrap: wrap;
+        }
+        #bottom h1 {
+            display: inline-block;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 20px;
+            margin-top: 40px;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            border-bottom: 4px solid #3498db;
+        }
 
-#bottom {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    height: 100vh;
-    background-color: #fada3e;
-    flex-wrap: wrap;
-}
-#bottom > h2 {
-    width: 100%;
-}
+        .cen {
+            max-width: 1200px;
+            /* display: flex; */
+            /* align-items: center; */
+            /* justify-content: center; */
+            /* height: 100vh; */
+            /* min-height: 100vh; */
+            margin: auto;
+            padding: 20px;
+            overflow: hidden;
+        }
 
-.flex-cont {
-    position: relative;
-    width: 1000px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
+        .service {
+            display: inline-block;
+            width: calc(100% / 3);
+            margin: 0 -2px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.4s;
+        }
+        .service:hover {
+            background-color: #ddd;
+        }
 
-.card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    background: #fff;
-}
-.card:nth-child(even) {
-    flex-direction: column-reverse;
-}
+        .service i {
+            color: #3498db;
+            font-size: 34px;
+            margin-bottom: 30px;
+        }
 
-.img-box {
-    position: relative;
-    width: 250px;
-    height: 250px;
-    background: #000;
-}
+        .service h2 {
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin: 0;
+        }
 
-.img-box img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
+        .service p {
+            color: gray;
+            font-size: 15px;
+            font-weight: 500;
+        }
 
-.content {
-    position: relative;
-    width: 250px;
-    height: 250px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        @media screen and (max-width: 900px) {
+            .service {
+                width: 50%;
+            }
+        }
 
-.content > div {
-    padding: 20px;
-    text-align: center;
-}
+        @media screen and (max-width: 500px) {
+            .service {
+                width: 100%;
+            }
+        }
 
-@media screen and (max-width: 1000px) {
-    .flex-cont {
-        margin: 50px;
-        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-    }
-
-    .card {
-        margin: 10px 0;
-        flex-direction: row;
-    }
-
-    .card:nth-child(even) {
-        flex-direction: row-reverse;
-    }
-
-    .content, 
-    .img-box {
-        width: 50%;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .card {
-        margin: 10px 0;
-        flex-direction: column;
-    }
-    .card:nth-child(even) {
-        flex-direction: column;
-    }
-    .content, 
-    .img-box {
-        width: 100%;
-    }
-    .content {
-        height: 200px;
-    }
-}
+        .service button {
+            position: relative;
+            display: inline-block;
+            font-size: 14px;
+            margin: 30px 0;
+            text-transform: capitalize;
+            border: 2px solid #ff7675;
+            padding: 14px 50px;
+            overflow: hidden;
+            transition: all 1s ease;
+            z-index: 1;
+        }
+        .service button::after {
+            position: absolute;
+            content: "";
+            background-color: #ff7675;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.6s ease;
+            z-index: -1;
+        }
+        .service button:nth-of-type(1)::after {
+            width: 0;
+            height: 100%;
+        }
+        .service button:hover::after {
+            width: 100%;
+        }
+        .service button:nth-of-type(1)::after {
+            width: 100%;
+            height: 0;
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+        .service button:nth-of-type(1):hover::after {
+            height: 400%;
+        }
+        .service button:nth-of-type(2)::after {
+            width: 100%;
+            height: 0;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+        .service button:nth-of-type(2):hover::after {
+            height: 380%;
+        }
+        .service button:nth-of-type(4)::after {
+            width: 100%;
+            height: 0;
+        }
+        .service button:hover::after {
+            height: 100%;
+        }
     </style>
 </head>
 <body>
@@ -545,55 +561,46 @@
 
     <section id="bottom" style="min-height: 40vh;">
         <h1 style="font-size: 5vw; text-align: center;">footer</h1>
-        <div class="flex-cont">
-            <div class="card">
-                <div class="img-box">
-                    <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/120372783_340812587254299_774244032306180550_n.jpg" alt="">
-                </div>
-                <div class="content">
-                    <div>
-                        <h2>box one</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure dolorem exercitationem tempore, assumenda minima commodi explicabo perferendis recusandae nostrum officia.</p>
-                    </div>
-                </div>
+        <div class="cen">
+            <div class="service">
+                <i class="fa fa-anchor" aria-hidden="true"></i>
+                <h2>service one</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti, dicta.</p>
+                <button>hover1</button>
             </div>
-            <div class="card">
-                <div class="img-box">
-                    <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg" alt="">
-                </div>
-                <div class="content">
-                    <div>
-                        <h2>box two</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure dolorem exercitationem tempore, assumenda minima commodi explicabo perferendis recusandae nostrum officia.</p>
-                    </div>
-                </div>
+            <div class="service">
+                <i class="fa fa-android" aria-hidden="true"></i>
+                <h2>service two</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti, dicta.</p>
+                <button>hover2</button>
             </div>
-            <div class="card">
-                <div class="img-box">
-                    <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/212573141_870101006920357_9185461114137501578_n.jpg" alt="">
-                </div>
-                <div class="content">
-                    <div>
-                        <h2>box three</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure dolorem exercitationem tempore, assumenda minima commodi explicabo perferendis recusandae nostrum officia.</p>
-                    </div>
-                </div>
+            <div class="service">
+                <i class="fa fa-angellist" aria-hidden="true"></i>
+                <h2>service three</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti, dicta.</p>
+                <button>hover3</button>
             </div>
-            <div class="card">
-                <div class="img-box">
-                    <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/212696607_565196161514018_1044941815810703332_n.jpg" alt="">
-                </div>
-                <div class="content">
-                    <div>
-                        <h2>box four</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure dolorem exercitationem tempore, assumenda minima commodi explicabo perferendis recusandae nostrum officia.</p>
-                    </div>
-                </div>
+            <div class="service">
+                <i class="fa fa-apple" aria-hidden="true"></i>
+                <h2>service four</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti, dicta.</p>
+                <button>hover4</button>
+            </div>
+            <div class="service">
+                <i class="fa fa-university" aria-hidden="true"></i>
+                <h2>service five</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti, dicta.</p>
+            </div>
+            <div class="service">
+                <i class="fa fa-shield" aria-hidden="true"></i>
+                <h2>service six</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti, dicta.</p>
             </div>
         </div>
     </section>
 
     <script>
+        console.log("540>700");
         // Setup the Slider in Home Section
         (function setSliderButtons() {
             const sliders = document.querySelectorAll(".slide");
