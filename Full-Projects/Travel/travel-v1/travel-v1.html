@@ -7,132 +7,6 @@
     <title>Travel v.1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/styles_travel-v1.css">
-    <style>
-        #bottom {
-            text-align: center;
-            background-color: #f1f1f1;
-            flex-wrap: wrap;
-        }
-        #bottom h1 {
-            display: inline-block;
-            width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 20px;
-            margin-top: 40px;
-            padding-bottom: 10px;
-            text-transform: uppercase;
-            border-bottom: 4px solid #3498db;
-        }
-
-        .cen {
-            max-width: 1200px;
-            /* display: flex; */
-            /* align-items: center; */
-            /* justify-content: center; */
-            /* height: 100vh; */
-            /* min-height: 100vh; */
-            margin: auto;
-            padding: 20px;
-            overflow: hidden;
-        }
-
-        .service {
-            display: inline-block;
-            width: calc(100% / 3);
-            margin: 0 -2px;
-            padding: 20px;
-            cursor: pointer;
-            transition: all 0.4s;
-        }
-        .service:hover {
-            background-color: #ddd;
-        }
-
-        .service i {
-            color: #3498db;
-            font-size: 34px;
-            margin-bottom: 30px;
-        }
-
-        .service h2 {
-            font-size: 18px;
-            text-transform: uppercase;
-            font-weight: 500;
-            margin: 0;
-        }
-
-        .service p {
-            color: gray;
-            font-size: 15px;
-            font-weight: 500;
-        }
-
-        @media screen and (max-width: 900px) {
-            .service {
-                width: 50%;
-            }
-        }
-
-        @media screen and (max-width: 500px) {
-            .service {
-                width: 100%;
-            }
-        }
-
-        .service button {
-            position: relative;
-            display: inline-block;
-            font-size: 14px;
-            margin: 30px 0;
-            text-transform: capitalize;
-            border: 2px solid #ff7675;
-            padding: 14px 50px;
-            overflow: hidden;
-            transition: all 1s ease;
-            z-index: 1;
-        }
-        .service button::after {
-            position: absolute;
-            content: "";
-            background-color: #ff7675;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            transition: all 0.6s ease;
-            z-index: -1;
-        }
-        .service button:nth-of-type(1)::after {
-            width: 0;
-            height: 100%;
-        }
-        .service button:hover::after {
-            width: 100%;
-        }
-        .service button:nth-of-type(1)::after {
-            width: 100%;
-            height: 0;
-            transform: translate(-50%, -50%) rotate(-45deg);
-        }
-        .service button:nth-of-type(1):hover::after {
-            height: 400%;
-        }
-        .service button:nth-of-type(2)::after {
-            width: 100%;
-            height: 0;
-            transform: translate(-50%, -50%) rotate(45deg);
-        }
-        .service button:nth-of-type(2):hover::after {
-            height: 380%;
-        }
-        .service button:nth-of-type(4)::after {
-            width: 100%;
-            height: 0;
-        }
-        .service button:hover::after {
-            height: 100%;
-        }
-    </style>
 </head>
 <body>
     <header id="header" class="page-max-width">
@@ -559,48 +433,65 @@
         </div>
     </section>
 
-    <section id="bottom" style="min-height: 40vh;">
+    <section id="bottom" style="min-height: 40vh; display: block;">
         <h1 style="font-size: 5vw; text-align: center;">footer</h1>
-        <div class="cen">
-            <div class="service">
-                <i class="fa fa-anchor" aria-hidden="true"></i>
-                <h2>service one</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti, dicta.</p>
-                <button>hover1</button>
+        <main>
+            <div class="text">
+                <h1>simple single carousel</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti qui tempore dolor soluta veniam at. Temporibus iure fugit adipisci molestias praesentium, aut odit possimus ad libero porro officia, autem ipsum.</p>
             </div>
-            <div class="service">
-                <i class="fa fa-android" aria-hidden="true"></i>
-                <h2>service two</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti, dicta.</p>
-                <button>hover2</button>
-            </div>
-            <div class="service">
-                <i class="fa fa-angellist" aria-hidden="true"></i>
-                <h2>service three</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti, dicta.</p>
-                <button>hover3</button>
-            </div>
-            <div class="service">
-                <i class="fa fa-apple" aria-hidden="true"></i>
-                <h2>service four</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti, dicta.</p>
-                <button>hover4</button>
-            </div>
-            <div class="service">
-                <i class="fa fa-university" aria-hidden="true"></i>
-                <h2>service five</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti, dicta.</p>
-            </div>
-            <div class="service">
-                <i class="fa fa-shield" aria-hidden="true"></i>
-                <h2>service six</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti, dicta.</p>
-            </div>
-        </div>
+            <header>
+                <h1>top products</h1>
+                <p>
+                    <span>&#139</span>
+                    <span>&#155</span>
+                </p>
+            </header>
+        </main>
     </section>
 
     <script>
-        console.log("540>700");
+        let span = document.getElementsByTagName("span");
+        console.log(span); // 3, 4
+        let product = document.getElementsByClassName("product");
+        let page = Math.ceil(product.length/4);
+        let l = 0;
+        let movePer = 25.34;
+        let maxMove = 203;
+
+        // mobile
+        let mob_view = window.matchMedia("(max-width: 768px)");
+	if (mob_view.matches)
+	 {
+	 	movePer = 50.36;
+	 	maxMove = 504;
+	 }
+
+        let right_mover = ()=>{
+		l = l + movePer;
+		if (product == 1){l = 0; }
+		for(const i of product)
+		{
+			if (l > maxMove){l = l - movePer;}
+			i.style.left = '-' + l + '%';
+		}
+
+	}
+	let left_mover = ()=>{
+		l = l - movePer;
+		if (l<=0){l = 0;}
+		for(const i of product){
+			if (page>1){
+				i.style.left = '-' + l + '%';
+			}
+		}
+	}
+	span[4].onclick = ()=>{right_mover();}
+	span[3].onclick = ()=>{left_mover();}
+    </script>
+
+    <script>
+        console.log("436>757");
         // Setup the Slider in Home Section
         (function setSliderButtons() {
             const sliders = document.querySelectorAll(".slide");
