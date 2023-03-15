@@ -460,7 +460,6 @@ button.menu:hover i {
     }.about-image {
         outline: none;
     }
-
 }
 
 /* =========================================================   SHOP SECTION   ========================================================= */
@@ -622,7 +621,7 @@ section {
     transition: all 0s;
 }
 .box:hover {
-    background-color: var(--white);
+    /* background-color: var(--white); */
 }
 .box:hover img:nth-child(2) {
     border-radius: 50%;
@@ -686,7 +685,8 @@ section {
 
 #about {
     position: relative;
-    background-image: url("../img/about/autumn-forest-in-fog-3840x2160.jpg"), url("../img/about/mask.png");
+    background-color: #000;
+    /* background-image: url("../img/about/autumn-forest-in-fog-3840x2160.jpg"), url("../img/about/mask.png"); */
     background-blend-mode: screen;
     background-repeat: no-repeat;
     background-position: center;
@@ -710,29 +710,178 @@ section {
 }
 .fog-img-first {
     background-image: url("../img/about/fog-1.png");
-    background-repeat: repeat-x;
+    background-repeat: repeat;
     background-position: center;
     background-size: contain;
+    background-position: 0% 0%;
+    background-size: 500px 100%;
     animation: marquee 60s linear infinite;
+    animation: marquee 10s linear infinite;
 }
-.fog-img-second {
+/* .fog-img-second {
     background-image: url("./img/about/fog-2.png");
     background-repeat: repeat-x;
     background-position: center;
     background-size: contain;
     animation: marquee 30s linear infinite;
-}
+} */
 @keyframes marquee {
     0% {
-        transform: translate3d(0, 0, 0);
+        /* transform: translate3d(0, 0, 0); */
+        background-position: 0px;
     }
     100% {
-        transform: translate3d(-200vw, 0, 0);
+        /* transform: translate3d(-200vw, 0, 0); */
+        background-position: -500px;
     }
 }
 
 @media screen and (max-width: 1600px) {
     .fog-img-first {
         animation-duration: 30s;
+    }
+}
+
+
+main {
+    width: 100%;
+    height: 840px;
+    margin: 10px auto;
+    position: relative;
+    padding: 5px 0;
+}
+
+.text {
+    padding: 10px;
+    text-align: center;
+    color: #554;
+}
+.text h1 {
+    font-size: 50px;
+}
+.text p {
+    width: 60%;
+    padding: 5px;
+    margin: auto;
+    line-height: 30px;
+}
+
+main header {
+    position: static;
+    width: 98%;
+    height: 60px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #ddd;
+}
+
+header p span {
+    font-size: 40px;
+    margin: 0 5px;
+    /* padding: 0em 0.5em 0.2em; */
+    width: 30px;
+    height: 30px;
+    color: #555;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 19px;
+    text-align: center;
+    border-radius: 3px;
+}
+header p span:hover {
+    color: #fff;
+    background-color: #222;
+}
+
+main section {
+    width: 90%;
+    height: 600px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+}
+
+main section .product {
+    min-width: 24%;
+    height: 90%;
+    background-color: whitesmoke;
+    margin: 0 20px 0 0;
+    border-radius: 20px;
+    position: relative;
+    left: 0;transition: all 0.5s;
+}
+
+picture {
+    width: 100%;
+    height: 70%;
+    padding: 20px;
+    display: flex;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.details, .button {
+    width: 90%;
+    margin: auto;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    font-size: 20px;
+    color: #444;
+}
+
+small {
+    color: #554;
+    text-transform: capitalize;
+}
+
+.details p b {
+    text-transform: capitalize;
+}
+
+.button a {
+    display: inline-block;
+    margin: 5px 0 0 20px;
+    padding: 6px 14px;
+    color: #fff;
+    font-size: 15px;
+    background-color: #6773ff;
+}
+
+p.star {
+    width: 65%;
+    margin: 5px auto;
+    color: #808080;
+    font-size: 25px;
+}
+
+@media screen and (max-width: 768px) {
+    .text h1 {
+        font-size: 35px;
+    }
+    .text p {
+        width: 90%;
+    }
+    header h1 {
+        font-size: 25px;
+    }
+    header p span {
+        font-size: 30px;
+    }
+    main section .product {
+        min-width: 49%;
+        margin: 0 10px 0 0;
+    }
+    .details, .button {
+        font-size: 16px;
+    }
+    .button a {
+        padding: 6px 10px;
     }
 }
