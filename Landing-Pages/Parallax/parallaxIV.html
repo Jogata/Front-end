@@ -59,7 +59,13 @@ font-family: 'Playfair Display', serif;     //400,700
             width: 100%;
             max-width: 350px;
             border-radius: 5px;
+            display: block;
+            margin: auto;
             /* border: 1px solid white; */
+        }
+        body > img {
+            margin-top: 3rem;
+            margin-bottom: 5rem;
         }
 
         .content {
@@ -72,111 +78,6 @@ font-family: 'Playfair Display', serif;     //400,700
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        .container {
-          position: relative;
-          width: auto;
-          max-width: 100vw;
-          height: 100vh;
-          max-height: 100vh;
-          margin: 0 auto;
-          overflow: hidden;
-        }
-
-        .slider {
-          position: absolute;
-          left: 0;
-          top: 0;
-          width: 500%;
-          height: 100%;
-          /* animation: design 25s ease-out 0s backwards infinite; */
-        }
-
-        @keyframes design {
-          0% {
-            left: 0%;
-          }
-          15% {
-            left: 0%;
-          }
-          20% {
-            left: -100%;
-          }
-          35% {
-            left: -100%;
-          }
-          40% {
-            left: -200%;
-          }
-          55% {
-            left: -200%;
-          }
-          60% {
-            left: -300%;
-          }
-          75% {
-            left: -300%;
-          }
-          80% {
-            left: -400%;
-          }
-          95% {
-            left: -400%;
-          }
-          100% {
-            left: 0%;
-          }
-        }
-
-        .slide {
-          position: relative;
-          display: inline-block;
-          width: 20%;
-          height: 100%;
-          background-attachment: fixed;
-          background-position: center;
-          background-size: cover;
-        }
-
-        .slide span {
-          position: absolute;
-          left: 14vh;
-          top: 40vh;
-          color: #fff;
-          padding: 0.2em;
-          font-size: 20vh;
-          line-height: 20vh;
-          text-transform: capitalize;
-          border:  1px solid rgba(255, 255, 255, 0.45);
-          border-left: 0 auto;
-          background-color: rgba(0, 0, 0, 0.3);
-        }
-
-        .one {
-          background-image: url("../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg");
-          background-position: center;
-          background-size: cover;
-        }
-        .two {
-          background-image: url("../../Sliders/img/colosseum-rome-italy_6000x3600.jpg");
-          background-position: center;
-          background-size: cover;
-        }
-        .three {
-          background-image: url("../../Sliders/img/germany-area-building_1680x1050.jpg");
-          background-position: center;
-          background-size: cover;
-        }
-        .four {
-          background-image: url("../../Sliders/img/mountain-in-meteora-greece_1920x1080.jpg");
-          background-position: center;
-          background-size: cover;
-        }
-        .five {
-          background-image: url("../../Sliders/img/switzerland-river.jpg");
-          background-position: center;
-          background-size: cover;
         }
     </style>
 </head>
@@ -279,29 +180,96 @@ font-family: 'Playfair Display', serif;     //400,700
         </div>
     </div>
 
-    <h1>Slider - CSS Only</h1>
+    <img src="./img/parallaxIV/gallery/120372783_340812587254299_774244032306180550_n.jpg" name="slide" alt="">
 
-    <header class="container">
-      <section class="slider">
-        <article class="slide one">
-          <span>hero</span>
-        </article>
-        <article class="slide two">
-          <span>image</span>
-        </article>
-        <article class="slide three">
-          <span>slider</span>
-        </article>
-        <article class="slide four">
-          <span>using</span>
-        </article>
-        <article class="slide five">
-          <span>html css</span>
-        </article>
-      </section>
-    </header>
+    <script>
+        const pokemons = [
+            {
+                name: "bulbasaur",
+                currentLevel: 5,
+                evolutionLevel: 16,
+            },
+            {
+                name: "caterpie",
+                currentLevel: 1,
+                evolutionLevel: 7,
+            },
+            {
+                name: "weedle",
+                currentLevel: 1,
+                evolutionLevel: 7,
+            }
+        ]
 
-    <p>Starts from: 280>180</p>
-    <script></script>
+        function substract(n1, n2) {
+            return n1 - n2;
+        }
+
+        const levels = pokemons.map(pokemon => {
+            return substract(pokemon.evolutionLevel, pokemon.currentLevel);
+        })
+
+        console.log(levels);
+        levels.forEach((levels, index) => {
+            console.log(`${pokemons[index].name} needs ${levels} rare candies to evolve.`);
+        })
+
+        const totalCandies = levels.reduce((acc, current) => {
+            return acc += current;
+        }, 0);
+
+        console.log(`Total amount of rare candies needed: ${totalCandies}`);
+
+        // ==================================================================
+        
+        function convertFahrenheitToCelsius(degrees) {
+            const degreesCelsius = (degrees - 32) * 5 / 9;
+            return degreesCelsius;
+        }
+
+        function canPokemonBattles(degreesFahrenheit) {
+            const degreesCelsius = convertFahrenheitToCelsius(degreesFahrenheit).toFixed();
+
+            if (degreesCelsius > 0) {
+                console.log(`Pokemon can battles at ${degreesCelsius} degrees.`);
+            } else {
+                console.log(`Pokemon can't battles at ${degreesCelsius} degrees.`);
+            }
+        }
+
+        canPokemonBattles(54);
+        canPokemonBattles(14);
+        
+        // ==================================================================
+        
+        const numberOfPokemons = pokemons.length;
+        
+        for (let index = 0; index < numberOfPokemons; index++) {
+            console.log("Pikachu I choose you");
+        }
+
+        // ==================================================================
+
+        let index = 0;
+        const slides = [];
+        const time = 5000;
+
+        slides[0] = "120372783_340812587254299_774244032306180550_n";
+        slides[1] = "210603643_1010676219690043_7853467171473160756_n";
+        slides[2] = "212573141_870101006920357_9185461114137501578_n";
+        slides[3] = "212696607_565196161514018_1044941815810703332_n";
+
+        function changeSlide() {
+            index++;
+            index = index % slides.length;
+            document.slide.src=`./img/parallaxIV/gallery/${slides[index]}.jpg`;
+
+            setTimeout(changeSlide, time);
+        }
+
+        changeSlide();
+
+        console.log("177>277");
+    </script>
 </body>
 </html>
