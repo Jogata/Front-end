@@ -8,111 +8,47 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./css/styles_webstore-v1.css">
   <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.5;
-      font-weight: 400;
-      color: #fff;
-      background-color: #4c4177;
-      background-image: linear-gradient(315deg, #4c4177 0%, #2a5470 74%);
+    img {
+      width: 100%;
+      min-height: 100%;
+      object-fit: cover;
     }
-
-    .tameline-container {
-      padding: 2rem;
-      padding-bottom: 400px;
-      margin: 0 auto;
-      max-width: 800px;
-    }
-
-    .top-section {
-      text-align: center;
-      padding: 4rem 0;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    h1 {
-      font-weight: 400;
-      text-transform: capitalize;
-      letter-spacing: 1px;
-    }
-
-    .timeline {
+    .slider {
       position: relative;
-      min-height: 150px;
+      width: 100%;
+      height: 100vh;
+      min-height: 700px;
+      overflow: hidden;
     }
 
-    .line {
+    .slide {
       position: absolute;
-      z-index: 2;
-      left: calc(50% - 1px);
-      width: 2px;
-      top: -50px;
-      bottom: -50px;
-      background-color: #000;
-      display: none;
-    }
-    .line::before, 
-    .line::after {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      content: "";
-      display: block;
-      width: 1rem;
-      height: 1rem;
-      border-radius: 50%;
-      background-color: #000;
-    }
-    .line::after {
-      bottom: 0;
-    }
-
-    .section {
-      display: flex;
+      width: 100%;
+      height: 100%;
+      transform: scale(4) rotate(45deg);
+      transition: all 0.6s ease-in-out;
       opacity: 0;
-      transform: translateX(-100%);
-      transition: all 0.6s ease;
-      position: relative;
-      z-index: 1;
-      margin: 50px 0;
-      padding: 1rem;
-      border-radius: 1rem;
     }
-    .section:nth-child(odd) {
-      flex-direction: row-reverse;
-      transform: translateX(100%);
-    }
-
-    .bead {
-      position: absolute;
-      top: 20%;
-      left: 50%;
-      transform: translateX(-50%);
-      display: block;
-      width: 1rem;
-      height: 1rem;
-      border-radius: 50%;
-      background-color: #000;
-    }
-
-    .content {
-      width: calc(50% - 2rem);
-    }
-
-    h2 {
-      padding: 1em 0;
-      text-transform: capitalize;
-    }
-    h2 span {
-      text-transform: uppercase;
-    }
-
-    .show:nth-child(n) {
-      transform: none;
+    .slide.active {
+      transform: scale(1) rotate(0deg);
       opacity: 1;
+    }
+
+    .buttons {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      padding: 0 10px;
+    }
+    .buttons button {
+      padding: 0.066em 0.3em 0.266em;
+      font-size: 3rem;
+      font-family: initial;
+      line-height: 0.6;
+      transition: all 0.4s ease;
+    }
+    #next {
+      float: right;
     }
   </style>
 </head>
@@ -121,52 +57,91 @@
 
   <!-- menu -->
   <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
-  <div class="tameline-container">
-    <div class="top-section">
-      <h1>animated timeline</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam voluptate unde officiis sapiente, officia itaque dicta cumque asperiores dolore quaerat enim ullam similique possimus sequi amet, numquam expedita ipsam.</p>
-    </div>
-    <div class="timeline">
-      <div class="line"></div>
-      <div class="section">
-        <div class="bead"></div>
-        <div class="content">
-          <h2>web design</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo omnis voluptates inventore accusamus? Repudiandae nobis ad ipsum ex rerum nisi alias eaque consequatur eos hic. Dicta quisquam ipsam quod officia.</p>
-        </div>
-      </div>
-      <div class="section">
-        <div class="bead"></div>
-        <div class="content">
-          <h2>web development</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo omnis voluptates inventore accusamus? Repudiandae nobis ad ipsum ex rerum nisi alias eaque consequatur eos hic. Dicta quisquam ipsam quod officia.</p>
-        </div>
-      </div>
-      <div class="section">
-        <div class="bead"></div>
-        <div class="content">
-          <h2>front end</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo omnis voluptates inventore accusamus? Repudiandae nobis ad ipsum ex rerum nisi alias eaque consequatur eos hic. Dicta quisquam ipsam quod officia.</p>
-        </div>
-      </div>
-      <div class="section">
-        <div class="bead"></div>
-        <div class="content">
-          <h2>back end</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo omnis voluptates inventore accusamus? Repudiandae nobis ad ipsum ex rerum nisi alias eaque consequatur eos hic. Dicta quisquam ipsam quod officia.</p>
-        </div>
-      </div>
-      <div class="section">
-        <div class="bead"></div>
-        <div class="content">
-          <h2><span>seo</span> optimized</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo omnis voluptates inventore accusamus? Repudiandae nobis ad ipsum ex rerum nisi alias eaque consequatur eos hic. Dicta quisquam ipsam quod officia.</p>
-        </div>
-      </div>
+  <div class="slider">
+    <section id="1" class="slide active">
+      <img src="../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg" alt="">
+    </section>
+    <section id="2" class="slide">
+      <img src="../../Sliders/img/switzerland-river.jpg" alt="">
+    </section>
+    <section id="3" class="slide">
+      <img src="../../Sliders/img/mountain-in-meteora-greece_1920x1080.jpg" alt="">
+    </section>
+    <div class="buttons">
+      <button id="prev">&#139</button>
+      <button id="next">&#155</button>
     </div>
   </div>
   <script>
     console.log("110>20");
+    const slides = document.querySelectorAll(".slide");
+    let indexCurrentSlide = 0;
+    function nextSlide() {
+      indexCurrentSlide++;
+      indexCurrentSlide = indexCurrentSlide % slides.length;
+      const activeSlide = document.querySelector(".slide.active");
+      activeSlide.classList.remove("active");
+      slides[indexCurrentSlide].classList.add("active");
+    }
+    function prevSlide() {
+      indexCurrentSlide--;
+      indexCurrentSlide = slides.length + indexCurrentSlide;
+      indexCurrentSlide = indexCurrentSlide % slides.length;
+      const activeSlide = document.querySelector(".slide.active");
+      activeSlide.classList.remove("active");
+      slides[indexCurrentSlide].classList.add("active");
+    }
+
+    const buttonPrev = document.querySelector("#prev");
+    const buttonNext = document.querySelector("#next");
+
+    buttonPrev.addEventListener("click", prevSlide);
+    buttonNext.addEventListener("click", nextSlide);
+  </script>
+
+  <script>
+    const url = 'https://api.boot.dev/v1/courses_rest_api/learn-http/locations';
+
+// don't touch below this line
+const apiKey = generateKey();
+console.log(apiKey);
+// const response = fetch(url, {
+//   method: 'GET',
+//   mode: 'cors',
+//   headers: {
+//     'X-API-Key': apiKey,
+//     'Content-Type': 'application/json'
+//   }
+// })
+
+async function start() {
+  let response = await fetch(url, {
+  method: 'GET',
+  mode: 'cors',
+  headers: {
+    'X-API-Key': apiKey,
+    'Content-Type': 'application/json'
+  }
+})
+  response = await response.json();
+  logLocations(response);
+}
+
+start();
+
+function generateKey() {
+  const characters = 'ABCDEF0123456789';
+  let result = '';
+  for (let i = 0; i < 16; i++){
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return result;
+}
+function logLocations(locations) {
+  for (const location of locations) {
+    console.log(`Location: ${location.name}, Recommended Character Level: ${location.recommendedLevel}`);
+  } 
+}
   </script>
 </body>
 </html>
