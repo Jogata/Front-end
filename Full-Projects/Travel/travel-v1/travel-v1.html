@@ -7,6 +7,63 @@
     <title>Travel v.1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/styles_travel-v1.css">
+    <style>
+        #bottom {
+            height: 100vh;
+            padding: 0 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #343f4f;
+        }
+        .wrapper {
+            position: relative;
+            max-width: 1200px;
+        }
+        .carousel {
+            font-size: 0px;
+            white-space: nowrap;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .carousel img {
+            width: calc((100% / 3) - 10px);
+            /* height: 340px; */
+            margin-left: 14px;
+            object-fit: cover;
+        }
+        .carousel img:first-child {
+            margin-left: 0px;
+        }
+
+        .wrapper button {
+            position: absolute;
+            top: 48%;
+            text-transform: uppercase;
+            padding: 0.4em 0.7em;
+            font-size: 1.4rem;
+            font-weight: bold;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+        #prev {
+            left: -23px;
+        }
+        #next {
+            right: -23px;
+        }
+
+        @media screen and (max-width: 900px) {
+            .carousel img {
+                width: calc((100% / 2) - 10px);
+            }
+        }
+        @media screen and (max-width: 550px) {
+            .carousel img {
+                width: calc((100%) - 10px);
+            }
+        }
+    </style>
 </head>
 <body>
     <header id="header" class="page-max-width">
@@ -433,331 +490,88 @@
         </div>
     </section>
 
-    <section id="bottom" style="min-height: 40vh; display: block;">
-        <h1 style="font-size: 5vw; text-align: center;">footer</h1>
-        <main>
-            <div class="text">
-                <h1>simple single carousel</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti qui tempore dolor soluta veniam at. Temporibus iure fugit adipisci molestias praesentium, aut odit possimus ad libero porro officia, autem ipsum.</p>
+    <section id="bottom" style="min-height: 40vh; display: flex;">
+        <!-- <h1 style="font-size: 5vw; text-align: center;">footer</h1> -->
+        <div class="wrapper">
+            <button id="prev">p</button>
+            <div class="carousel">
+                <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/120372783_340812587254299_774244032306180550_n.jpg" alt="">
+                <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg" alt="">
+                <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/212573141_870101006920357_9185461114137501578_n.jpg" alt="">
+                <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/212696607_565196161514018_1044941815810703332_n.jpg" alt="">
+                <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/310312823_1063165841035871_7233886241606775336_n.jpg" alt="">
+                <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/72614063_433236090677267_2807365040358828412_n.jpg" alt="">
             </div>
-            <header>
-                <h1>top products</h1>
-                <p>
-                    <span>&#139</span>
-                    <span>&#155</span>
-                </p>
-            </header>
-        </main>
-        <section>
-            <div class="product">
-                <picture>
-                    <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/120372783_340812587254299_774244032306180550_n.jpg" alt="">
-                </picture>
-                <div class="details">
-                    <p>
-                        <b>product one</b>
-                        <small>new arrival</small>
-                    </p>
-                    <samp>$45.00</samp>
-                </div>
-                <div class="button">
-                    <p class="star">
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                    </p>
-                    <a href="#add">add to cart</a>
-                </div>
-            </div>
-            <div class="product">
-                <picture>
-                    <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg" alt="">
-                </picture>
-                <div class="details">
-                    <p>
-                        <b>product two</b>
-                        <small>new arrival</small>
-                    </p>
-                    <samp>$45.00</samp>
-                </div>
-                <div class="button">
-                    <p class="star">
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                    </p>
-                    <a href="#add">add to cart</a>
-                </div>
-            </div>
-            <div class="product">
-                <picture>
-                    <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/212573141_870101006920357_9185461114137501578_n.jpg" alt="">
-                </picture>
-                <div class="details">
-                    <p>
-                        <b>product three</b>
-                        <small>new arrival</small>
-                    </p>
-                    <samp>$45.00</samp>
-                </div>
-                <div class="button">
-                    <p class="star">
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                    </p>
-                    <a href="#add">add to cart</a>
-                </div>
-            </div>
-            <div class="product">
-                <picture>
-                    <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/212696607_565196161514018_1044941815810703332_n.jpg" alt="">
-                </picture>
-                <div class="details">
-                    <p>
-                        <b>product four</b>
-                        <small>new arrival</small>
-                    </p>
-                    <samp>$45.00</samp>
-                </div>
-                <div class="button">
-                    <p class="star">
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                    </p>
-                    <a href="#add">add to cart</a>
-                </div>
-            </div>
-            <div class="product">
-                <picture>
-                    <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/310312823_1063165841035871_7233886241606775336_n.jpg" alt="">
-                </picture>
-                <div class="details">
-                    <p>
-                        <b>product five</b>
-                        <small>new arrival</small>
-                    </p>
-                    <samp>$45.00</samp>
-                </div>
-                <div class="button">
-                    <p class="star">
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                    </p>
-                    <a href="#add">add to cart</a>
-                </div>
-            </div>
-            <div class="product">
-                <picture>
-                    <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/314989870_440856418203915_8112806341494003649_n.jpg" alt="">
-                </picture>
-                <div class="details">
-                    <p>
-                        <b>product six</b>
-                        <small>new arrival</small>
-                    </p>
-                    <samp>$45.00</samp>
-                </div>
-                <div class="button">
-                    <p class="star">
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                    </p>
-                    <a href="#add">add to cart</a>
-                </div>
-            </div>
-            <div class="product">
-                <picture>
-                    <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/320075870_672693277833663_8152859641160213840_n.jpg" alt="">
-                </picture>
-                <div class="details">
-                    <p>
-                        <b>product seven</b>
-                        <small>new arrival</small>
-                    </p>
-                    <samp>$45.00</samp>
-                </div>
-                <div class="button">
-                    <p class="star">
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                    </p>
-                    <a href="#add">add to cart</a>
-                </div>
-            </div>
-            <div class="product">
-                <picture>
-                    <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/320815532_716429662995872_7462497255081682829_n.jpg" alt="">
-                </picture>
-                <div class="details">
-                    <p>
-                        <b>product eight</b>
-                        <small>new arrival</small>
-                    </p>
-                    <samp>$45.00</samp>
-                </div>
-                <div class="button">
-                    <p class="star">
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                    </p>
-                    <a href="#add">add to cart</a>
-                </div>
-            </div>
-            <div class="product">
-                <picture>
-                    <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/320907932_870320980825676_7214722970886057296_n.jpg" alt="">
-                </picture>
-                <div class="details">
-                    <p>
-                        <b>product nine</b>
-                        <small>new arrival</small>
-                    </p>
-                    <samp>$45.00</samp>
-                </div>
-                <div class="button">
-                    <p class="star">
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                    </p>
-                    <a href="#add">add to cart</a>
-                </div>
-            </div>
-            <div class="product">
-                <picture>
-                    <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/321827323_3093252334300032_7029766100428068075_n.jpg" alt="">
-                </picture>
-                <div class="details">
-                    <p>
-                        <b>product ten</b>
-                        <small>new arrival</small>
-                    </p>
-                    <samp>$45.00</samp>
-                </div>
-                <div class="button">
-                    <p class="star">
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                    </p>
-                    <a href="#add">add to cart</a>
-                </div>
-            </div>
-            <div class="product">
-                <picture>
-                    <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/321930869_1351698535640550_1096427312314771662_n.jpg" alt="">
-                </picture>
-                <div class="details">
-                    <p>
-                        <b>product eleven</b>
-                        <small>new arrival</small>
-                    </p>
-                    <samp>$45.00</samp>
-                </div>
-                <div class="button">
-                    <p class="star">
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                    </p>
-                    <a href="#add">add to cart</a>
-                </div>
-            </div>
-            <div class="product">
-                <picture>
-                    <img src="../../../Landing-Pages/Parallax/img/parallaxIV/gallery/322037338_903937667444419_1150556650884973098_n.jpg" alt="">
-                </picture>
-                <div class="details">
-                    <p>
-                        <b>product twelve</b>
-                        <small>new arrival</small>
-                    </p>
-                    <samp>$45.00</samp>
-                </div>
-                <div class="button">
-                    <p class="star">
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                        <strong>&star;</strong>
-                    </p>
-                    <a href="#add">add to cart</a>
-                </div>
-            </div>
-        </section>
+            <button id="next">n</button>
+        </div>
     </section>
 
     <script>
-        let span = document.getElementsByTagName("span");
-        console.log(span); // 3, 4
-        let product = document.getElementsByClassName("product");
-        let page = Math.ceil(product.length/4);
-        let l = 0;
-        let movePer = 25.34;
-        let maxMove = 203;
-
-        // mobile
-        let mob_view = window.matchMedia("(max-width: 768px)");
-	if (mob_view.matches)
-	 {
-	 	movePer = 50.36;
-	 	maxMove = 504;
-	 }
-
-        let right_mover = ()=>{
-		l = l + movePer;
-		if (product == 1){l = 0; }
-		for(const i of product)
-		{
-			if (l > maxMove){l = l - movePer;}
-			i.style.left = '-' + l + '%';
-		}
-
-	}
-	let left_mover = ()=>{
-		l = l - movePer;
-		if (l<=0){l = 0;}
-		for(const i of product){
-			if (page>1){
-				i.style.left = '-' + l + '%';
-			}
-		}
-	}
-	span[4].onclick = ()=>{right_mover();}
-	span[3].onclick = ()=>{left_mover();}
+        const carousel = document.querySelector(".carousel");
+const firstImg = carousel.querySelectorAll("img")[0];
+const arrowIcons = document.querySelectorAll(".wrapper button");
+let isDragStart = false, isDragging = false, prevPageX, prevScrollLeft, positionDiff;
+const showHideIcons = () => {
+    // showing and hiding prev/next icon according to carousel scroll left value
+    let scrollWidth = carousel.scrollWidth - carousel.clientWidth; // getting max scrollable width
+    arrowIcons[0].style.display = carousel.scrollLeft == 0 ? "none" : "block";
+    arrowIcons[1].style.display = carousel.scrollLeft == scrollWidth ? "none" : "block";
+}
+arrowIcons.forEach(icon => {
+    icon.addEventListener("click", () => {
+        let firstImgWidth = firstImg.clientWidth + 14; // getting first img width & adding 14 margin value
+        // if clicked icon is left, reduce width value from the carousel scroll left else add to it
+        carousel.scrollLeft += icon.id == "left" ? -firstImgWidth : firstImgWidth;
+        setTimeout(() => showHideIcons(), 60); // calling showHideIcons after 60ms
+    });
+});
+const autoSlide = () => {
+    // if there is no image left to scroll then return from here
+    if(carousel.scrollLeft - (carousel.scrollWidth - carousel.clientWidth) > -1 || carousel.scrollLeft <= 0) return;
+    positionDiff = Math.abs(positionDiff); // making positionDiff value to positive
+    let firstImgWidth = firstImg.clientWidth + 14;
+    // getting difference value that needs to add or reduce from carousel left to take middle img center
+    let valDifference = firstImgWidth - positionDiff;
+    if(carousel.scrollLeft > prevScrollLeft) { // if user is scrolling to the right
+        return carousel.scrollLeft += positionDiff > firstImgWidth / 3 ? valDifference : -positionDiff;
+    }
+    // if user is scrolling to the left
+    carousel.scrollLeft -= positionDiff > firstImgWidth / 3 ? valDifference : -positionDiff;
+}
+const dragStart = (e) => {
+    // updatating global variables value on mouse down event
+    isDragStart = true;
+    prevPageX = e.pageX || e.touches[0].pageX;
+    prevScrollLeft = carousel.scrollLeft;
+}
+const dragging = (e) => {
+    // scrolling images/carousel to left according to mouse pointer
+    if(!isDragStart) return;
+    e.preventDefault();
+    isDragging = true;
+    carousel.classList.add("dragging");
+    positionDiff = (e.pageX || e.touches[0].pageX) - prevPageX;
+    carousel.scrollLeft = prevScrollLeft - positionDiff;
+    showHideIcons();
+}
+const dragStop = () => {
+    isDragStart = false;
+    carousel.classList.remove("dragging");
+    if(!isDragging) return;
+    isDragging = false;
+    autoSlide();
+}
+carousel.addEventListener("mousedown", dragStart);
+carousel.addEventListener("touchstart", dragStart);
+document.addEventListener("mousemove", dragging);
+carousel.addEventListener("touchmove", dragging);
+document.addEventListener("mouseup", dragStop);
+carousel.addEventListener("touchend", dragStop);
     </script>
 
+
     <script>
-        console.log("436>757");
+        console.log("541");
         // Setup the Slider in Home Section
         (function setSliderButtons() {
             const sliders = document.querySelectorAll(".slide");
