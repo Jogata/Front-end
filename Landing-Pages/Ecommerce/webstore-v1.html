@@ -7,141 +7,129 @@
   <title>Webstore v.1</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./css/styles_webstore-v1.css">
-  <style>
-    img {
-      width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-    }
-    .slider {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      min-height: 700px;
-      overflow: hidden;
-    }
-
-    .slide {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      transform: scale(4) rotate(45deg);
-      transition: all 0.6s ease-in-out;
-      opacity: 0;
-    }
-    .slide.active {
-      transform: scale(1) rotate(0deg);
-      opacity: 1;
-    }
-
-    .buttons {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      padding: 0 10px;
-    }
-    .buttons button {
-      padding: 0.066em 0.3em 0.266em;
-      font-size: 3rem;
-      font-family: initial;
-      line-height: 0.6;
-      transition: all 0.4s ease;
-    }
-    #next {
-      float: right;
-    }
-  </style>
 </head>
 <body>
   <h1 style="position: absolute; z-index: 10; bottom: 0;">Object.entries(person) - convert object to array</h1>
 
   <!-- menu -->
   <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
-  <div class="slider">
-    <section id="1" class="slide active">
-      <img src="../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg" alt="">
-    </section>
-    <section id="2" class="slide">
-      <img src="../../Sliders/img/switzerland-river.jpg" alt="">
-    </section>
-    <section id="3" class="slide">
-      <img src="../../Sliders/img/mountain-in-meteora-greece_1920x1080.jpg" alt="">
-    </section>
-    <div class="buttons">
-      <button id="prev">&#139</button>
-      <button id="next">&#155</button>
-    </div>
-  </div>
-  <script>
-    console.log("110>20");
-    const slides = document.querySelectorAll(".slide");
-    let indexCurrentSlide = 0;
-    function nextSlide() {
-      indexCurrentSlide++;
-      indexCurrentSlide = indexCurrentSlide % slides.length;
-      const activeSlide = document.querySelector(".slide.active");
-      activeSlide.classList.remove("active");
-      slides[indexCurrentSlide].classList.add("active");
-    }
-    function prevSlide() {
-      indexCurrentSlide--;
-      indexCurrentSlide = slides.length + indexCurrentSlide;
-      indexCurrentSlide = indexCurrentSlide % slides.length;
-      const activeSlide = document.querySelector(".slide.active");
-      activeSlide.classList.remove("active");
-      slides[indexCurrentSlide].classList.add("active");
-    }
-
-    const buttonPrev = document.querySelector("#prev");
-    const buttonNext = document.querySelector("#next");
-
-    buttonPrev.addEventListener("click", prevSlide);
-    buttonNext.addEventListener("click", nextSlide);
-  </script>
 
   <script>
-    const url = 'https://api.boot.dev/v1/courses_rest_api/learn-http/locations';
+        const pokemons = ["Pikachu", "Cosmog", "Swablu", "Jigglypuff", "Charmander" , "Sylveon", "Eevee", "Pumpkaboo"];
 
-// don't touch below this line
-const apiKey = generateKey();
-console.log(apiKey);
-// const response = fetch(url, {
-//   method: 'GET',
-//   mode: 'cors',
-//   headers: {
-//     'X-API-Key': apiKey,
-//     'Content-Type': 'application/json'
-//   }
-// })
-
-async function start() {
-  let response = await fetch(url, {
-  method: 'GET',
-  mode: 'cors',
-  headers: {
-    'X-API-Key': apiKey,
-    'Content-Type': 'application/json'
-  }
-})
-  response = await response.json();
-  logLocations(response);
+function reverseArray(array) {
+    console.log(array.reverse());
 }
 
-start();
+reverseArray(pokemons);
 
-function generateKey() {
-  const characters = 'ABCDEF0123456789';
-  let result = '';
-  for (let i = 0; i < 16; i++){
-    result += characters.charAt(Math.floor(Math.random() * characters.length));
-  }
-  return result;
+// =========================================================
+
+const a = [1, 2, 3, 4, 5];
+const b = [1, 2, 3];
+
+const squares = a.reduce((acc, num) => {
+    return acc + num * num;
+}, 0)
+const cubes = b.reduce((acc, num) => {
+    return acc + num * num * num;
+}, 0)
+
+console.log(squares, cubes);
+
+if (squares > cubes) {
+    console.log(true);
+} else {
+    console.log(false);
 }
-function logLocations(locations) {
-  for (const location of locations) {
-    console.log(`Location: ${location.name}, Recommended Character Level: ${location.recommendedLevel}`);
-  } 
+
+// =========================================================
+
+function sumValuePowIndex(array) {
+    const result = array.map((num, index) => {
+        return Math.pow(num, index);
+    })
+    return result;
 }
+
+console.log(sumValuePowIndex(a));
+
+const arr = [22, -6, 32, 82, 9, 25];
+const arr2 = [68, -1, 1, -7, 10, 10];
+
+function filterMultiple(array) {
+    return array.filter((num, index) => {
+        return num % index === 0;
+    })
+}
+
+console.log(filterMultiple(arr));
+console.log(filterMultiple(arr2));
+
+// =========================================================
+
+const mixedArray = ["1", 2, "3", 4, "5", 6]; // 21
+
+function sum(array) {
+    return array.reduce((acc, num) => {
+        return acc + Number(num);
+    }, 0)
+}
+
+console.log(sum(mixedArray));
+
+// ==========================================================
+
+let hourlyRate = 250;
+let hours = 160;
+let taxRate = 0.35;
+
+function calcProfit(rate, hours, taxes) {
+    return rate * hours * (1 - taxes);
+}
+
+function holdForTaxes(profitMade) {
+    return hourlyRate * hours - profitMade;
+}
+
+let profit = calcProfit(hourlyRate, hours, taxRate);
+
+let taxesHeld = holdForTaxes(profit);
+
+console.log(profit);
+console.log(taxesHeld);
+
+// ==========================================================
+
+let seriousBusinessPerson = {
+    hourlyRate: 250,
+    hours: 160,
+    taxRate: 0.35,
+    calcProfit: function() {
+        return this.hourlyRate * this.hours * (1 - this.taxRate);
+    },
+    holdForTaxes: function() {
+        return this.hourlyRate * this.hours - this.calcProfit();
+    },
+}
+
+function AgencyContractor(hourlyRate, hours, taxRate) {
+    this.hourlyRate = hourlyRate;
+    this.hours = hours;
+    this.taxRate = taxRate;
+    this.calcProfit = function() {
+        return this.hourlyRate * this.hours * (1 - this.taxRate);
+    };
+    this.invoiceClient = function() {
+        return `Your total invoice is ${this.hourlyRate * this.hours}`;
+    }
+}
+
+let client = new AgencyContractor(250, 160, 0.35);
+
+console.log(client.invoiceClient());
+console.log(client.hourlyRate);
+console.log(client.calcProfit());
   </script>
 </body>
 </html>
