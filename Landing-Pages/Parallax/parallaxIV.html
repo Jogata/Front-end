@@ -28,11 +28,6 @@ font-family: 'Fraunces', serif;
 font-family: 'Herr Von Muellerhoff', cursive;
 font-family: 'Playfair Display', serif;     //400,700
 */
-        .del {
-            position: relative;
-            min-height: 100vh;
-            overflow: hidden;
-        }
 
         .centered {
             display: flex;
@@ -59,25 +54,13 @@ font-family: 'Playfair Display', serif;     //400,700
             width: 100%;
             max-width: 350px;
             border-radius: 5px;
-            display: block;
-            margin: auto;
             /* border: 1px solid white; */
-        }
-        body > img {
-            margin-top: 3rem;
-            margin-bottom: 5rem;
         }
 
         .content {
             width: 65%;
             padding-left: 30px;
             padding-right: 20px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
         }
     </style>
 </head>
@@ -180,96 +163,204 @@ font-family: 'Playfair Display', serif;     //400,700
         </div>
     </div>
 
-    <img src="./img/parallaxIV/gallery/120372783_340812587254299_774244032306180550_n.jpg" name="slide" alt="">
+    <div class="container">
+        <div class="slider banner-slider" data-slider>
+          <div class="slider-container" data-slider-container>
+            <div class="slider-item">
+              <div class="card img-holder" style="--width: 1000; --height: 560;">
+                <img src="./images/movie-wide-1.jpg" width="1000" height="560" alt="" class="img-cover">
+              </div>
+            </div>
+            <div class="slider-item">
+              <div class="card img-holder" style="--width: 1000; --height: 560;">
+                <img src="./images/movie-wide-2.jpg" width="1000" height="560" alt="" class="img-cover">
+              </div>
+            </div>
+            <div class="slider-item">
+              <div class="card img-holder" style="--width: 1000; --height: 560;">
+                <img src="./images/movie-wide-3.jpg" width="1000" height="560" alt="" class="img-cover">
+              </div>
+            </div>
+            <div class="slider-item">
+              <div class="card img-holder" style="--width: 1000; --height: 560;">
+                <img src="./images/movie-wide-4.jpg" width="1000" height="560" alt="" class="img-cover">
+              </div>
+            </div>
+            <div class="slider-item">
+              <div class="card img-holder" style="--width: 1000; --height: 560;">
+                <img src="./images/movie-wide-5.jpg" width="1000" height="560" alt="" class="img-cover">
+              </div>
+            </div>
+          </div>
+    
+          <button class="btn-icon slider-control prev" data-slider-prev>
+            <ion-icon name="arrow-back-sharp"></ion-icon>
+          </button>
+          <button class="btn-icon slider-control next" data-slider-next>
+            <ion-icon name="arrow-forward-sharp"></ion-icon>
+          </button>
+        </div>
+    
+        <div class="slider card-slider" data-slider>
+          <div class="slider-container" data-slider-container>
+            <div class="slider-item">
+              <div class="card img-holder" style="--width: 500; --height: 750;">
+                <img src="./images/movie-01.jpg" width="500" height="750" alt="" class="img-cover">
+              </div>
+            </div>
+            <div class="slider-item">
+              <div class="card img-holder" style="--width: 500; --height: 750;">
+                <img src="./images/movie-02.jpg" width="500" height="750" alt="" class="img-cover">
+              </div>
+            </div>
+            <div class="slider-item">
+              <div class="card img-holder" style="--width: 500; --height: 750;">
+                <img src="./images/movie-03.jpg" width="500" height="750" alt="" class="img-cover">
+              </div>
+            </div>
+            <div class="slider-item">
+              <div class="card img-holder" style="--width: 500; --height: 750;">
+                <img src="./images/movie-04.jpg" width="500" height="750" alt="" class="img-cover">
+              </div>
+            </div>
+            <div class="slider-item">
+              <div class="card img-holder" style="--width: 500; --height: 750;">
+                <img src="./images/movie-05.jpg" width="500" height="750" alt="" class="img-cover">
+              </div>
+            </div>
+            <div class="slider-item">
+              <div class="card img-holder" style="--width: 500; --height: 750;">
+                <img src="./images/movie-06.jpg" width="500" height="750" alt="" class="img-cover">
+              </div>
+            </div>
+          </div>
+    
+          <button class="btn-icon slider-control prev" data-slider-prev>
+            <ion-icon name="arrow-back-sharp"></ion-icon>
+          </button>
+          <button class="btn-icon slider-control next" data-slider-next>
+            <ion-icon name="arrow-forward-sharp"></ion-icon>
+          </button>
+        </div>
+    
+        <div class="slider card-slider" data-slider>
+          <div class="slider-container" data-slider-container>
+            <div class="slider-item">
+              <div class="card img-holder" style="--width: 500; --height: 750;">
+                <img src="./images/movie-07.jpg" width="500" height="750" alt="" class="img-cover">
+              </div>
+            </div>
+            <div class="slider-item">
+              <div class="card img-holder" style="--width: 500; --height: 750;">
+                <img src="./images/movie-08.jpg" width="500" height="750" alt="" class="img-cover">
+              </div>
+            </div>
+            <div class="slider-item">
+              <div class="card img-holder" style="--width: 500; --height: 750;">
+                <img src="./images/movie-09.jpg" width="500" height="750" alt="" class="img-cover">
+              </div>
+            </div>
+            <div class="slider-item">
+              <div class="card img-holder" style="--width: 500; --height: 750;">
+                <img src="./images/movie-10.jpg" width="500" height="750" alt="" class="img-cover">
+              </div>
+            </div>
+            <div class="slider-item">
+              <div class="card img-holder" style="--width: 500; --height: 750;">
+                <img src="./images/movie-11.jpg" width="500" height="750" alt="" class="img-cover">
+              </div>
+            </div>
+          </div>
+    
+          <button class="btn-icon slider-control prev" data-slider-prev>
+            <ion-icon name="arrow-back-sharp"></ion-icon>
+          </button>
+          <button class="btn-icon slider-control next" data-slider-next>
+            <ion-icon name="arrow-forward-sharp"></ion-icon>
+          </button>
+        </div>
+    
+        <div class="slider card-slider" data-slider>
+          <div class="slider-container" data-slider-container>
+            <div class="slider-item">
+              <div class="card img-holder" style="--width: 500; --height: 750;">
+                <img src="./images/movie-12.jpg" width="500" height="750" alt="" class="img-cover">
+              </div>
+            </div>
+            <div class="slider-item">
+              <div class="card img-holder" style="--width: 500; --height: 750;">
+                <img src="./images/movie-13.jpg" width="500" height="750" alt="" class="img-cover">
+              </div>
+            </div>
+            <div class="slider-item">
+              <div class="card img-holder" style="--width: 500; --height: 750;">
+                <img src="./images/movie-14.jpg" width="500" height="750" alt="" class="img-cover">
+              </div>
+            </div>
+          </div>
+    
+          <button class="btn-icon slider-control prev" data-slider-prev>
+            <ion-icon name="arrow-back-sharp"></ion-icon>
+          </button>
+          <button class="btn-icon slider-control next" data-slider-next>
+            <ion-icon name="arrow-forward-sharp"></ion-icon>
+          </button>
+        </div>
+      </div>
 
     <script>
-        const pokemons = [
-            {
-                name: "bulbasaur",
-                currentLevel: 5,
-                evolutionLevel: 16,
-            },
-            {
-                name: "caterpie",
-                currentLevel: 1,
-                evolutionLevel: 7,
-            },
-            {
-                name: "weedle",
-                currentLevel: 1,
-                evolutionLevel: 7,
-            }
-        ]
+        const sliders = document.querySelectorAll("[data-slider]");
 
-        function substract(n1, n2) {
-            return n1 - n2;
-        }
+const sliderInit = function (currentSlider) {
 
-        const levels = pokemons.map(pokemon => {
-            return substract(pokemon.evolutionLevel, pokemon.currentLevel);
-        })
+  const sliderContainer = currentSlider.querySelector("[data-slider-container]");
+  const sliderPrevBtn = currentSlider.querySelector("[data-slider-prev]");
+  const sliderNextBtn = currentSlider.querySelector("[data-slider-next]");
 
-        console.log(levels);
-        levels.forEach((levels, index) => {
-            console.log(`${pokemons[index].name} needs ${levels} rare candies to evolve.`);
-        })
+  const totalSliderVisibleItems = Number(getComputedStyle(currentSlider).getPropertyValue("--slider-items"));
 
-        const totalCandies = levels.reduce((acc, current) => {
-            return acc += current;
-        }, 0);
+  const totalSliderItems = sliderContainer.childElementCount - totalSliderVisibleItems;
 
-        console.log(`Total amount of rare candies needed: ${totalCandies}`);
+  let currentSlidePos = 0;
 
-        // ==================================================================
-        
-        function convertFahrenheitToCelsius(degrees) {
-            const degreesCelsius = (degrees - 32) * 5 / 9;
-            return degreesCelsius;
-        }
+  /* NEXT SLIDE */
+  const slideNext = function () {
 
-        function canPokemonBattles(degreesFahrenheit) {
-            const degreesCelsius = convertFahrenheitToCelsius(degreesFahrenheit).toFixed();
+    currentSlidePos++;
 
-            if (degreesCelsius > 0) {
-                console.log(`Pokemon can battles at ${degreesCelsius} degrees.`);
-            } else {
-                console.log(`Pokemon can't battles at ${degreesCelsius} degrees.`);
-            }
-        }
+    sliderContainer.style.transform = `translateX(-${sliderContainer.children[currentSlidePos].offsetLeft}px)`;
 
-        canPokemonBattles(54);
-        canPokemonBattles(14);
-        
-        // ==================================================================
-        
-        const numberOfPokemons = pokemons.length;
-        
-        for (let index = 0; index < numberOfPokemons; index++) {
-            console.log("Pikachu I choose you");
-        }
+    if (currentSlidePos >= totalSliderItems) sliderNextBtn.setAttribute("disabled", "");
+    sliderPrevBtn.removeAttribute("disabled");
 
-        // ==================================================================
+  }
 
-        let index = 0;
-        const slides = [];
-        const time = 5000;
+  sliderNextBtn.addEventListener("click", slideNext);
 
-        slides[0] = "120372783_340812587254299_774244032306180550_n";
-        slides[1] = "210603643_1010676219690043_7853467171473160756_n";
-        slides[2] = "212573141_870101006920357_9185461114137501578_n";
-        slides[3] = "212696607_565196161514018_1044941815810703332_n";
+  /* PREVIOUS SLIDE */
+  const slidePrev = function () {
 
-        function changeSlide() {
-            index++;
-            index = index % slides.length;
-            document.slide.src=`./img/parallaxIV/gallery/${slides[index]}.jpg`;
+    currentSlidePos--;
 
-            setTimeout(changeSlide, time);
-        }
+    sliderContainer.style.transform = `translateX(-${sliderContainer.children[currentSlidePos].offsetLeft}px)`;
 
-        changeSlide();
+    if (currentSlidePos <= 0) sliderPrevBtn.setAttribute("disabled", "");
+    sliderNextBtn.removeAttribute("disabled");
 
-        console.log("177>277");
+  }
+
+  sliderPrevBtn.addEventListener("click", slidePrev);
+
+  const dontHaveExtraItem = totalSliderItems <= 0;
+  if (dontHaveExtraItem) sliderNextBtn.setAttribute("disabled", "");
+
+  sliderPrevBtn.setAttribute("disabled", "");
+
+}
+
+for (let i = 0, len = sliders.length; i < len; i++){ 
+    sliderInit(sliders[i]); 
+}
     </script>
 </body>
 </html>
