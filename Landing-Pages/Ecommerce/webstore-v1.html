@@ -6,130 +6,190 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Webstore v.1</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="./css/styles_webstore-v1.css">
+  <!-- <link rel="stylesheet" href="./css/styles_webstore-v1.css"> -->
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    button {
+      border: 1px solid transparent;
+      background-color: transparent;
+      transition: all 0.4s;
+      cursor: pointer;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    header {
+      width: 100%;
+      height: 60px;
+      position: absolute;
+      top: 0;
+      z-index: 2;
+    }
+
+    #logo {
+      display: inline-block;
+      margin-left: 40px;
+      font-size: 30px;
+      font-weight: bold;
+      text-transform: capitalize;
+      line-height: 60px;
+      color: #3498db;
+    }
+    #logo:hover {
+      color: #ecf0f1;
+    }
+    #logo span {
+      display: inline-block;
+      margin-left: 5px;
+      color: #ecf0f1;
+      text-transform: capitalize;
+    }
+    #logo:hover span {
+      color: #3498db;
+    }
+
+    .sign {
+      float: right;
+      margin-right: 40px;
+      line-height: 60px;
+    }
+    .act {
+      padding: 6px 15px;
+      color: #fff;
+      font-weight: bold;
+      text-transform: uppercase;
+      border: 2px solid currentColor;
+      border-radius: 50px;
+    }
+    .act:hover {
+      color: #3498db;
+    }
+
+    .slider {
+      position: relative;
+      /* width: 100%; */
+      background-color: #2c3e50;
+      /* border: 10px solid red; */
+    }
+    .my-slider {
+      position: relative;
+      height: 100vh;
+      min-height: 655px;
+      display: none;
+      overflow: hidden;
+    }
+    .my-slider img {
+      transform: scale(1);
+      animation: zoom 20s;
+    }
+
+    @keyframes zoom {
+      0% { transform: scale(1.5); }
+    }
+
+    .fade {
+      display: block;
+      animation: fade 4s ease;
+    }
+
+    @keyframes fade {
+      from { opacity: 0.6; }
+      to { opacity: 1; }
+    }
+
+    .text {
+      position: absolute;
+      top: 40%;
+      left: 15%;
+      color: #fff;
+      animation: fade-text-left 2s ease;
+      z-index: 1;
+    }
+    .text h1 {
+      margin-bottom: 20px;
+      color: #3498db;
+      text-transform: uppercase;
+    }
+    .text p span {
+      display: block;
+      margin-bottom: 10px;
+      text-transform: capitalize;
+    }
+
+    @keyframes fade-text-left {
+      0% { left: 25%; }
+    }
+    @keyframes fade-text-top {
+      0% { top: 25%; }
+    }
+
+    #prev, #next {
+      position: absolute;
+      top: 47%;
+      padding: 0 0.184em 0.2em;
+      color: #fff;
+      font-size: 5rem;
+      font-family: 'Times New Roman', Times, serif;
+      line-height: 0.5em;
+      z-index: 3;
+    }
+    #next {
+      right: 0;
+    }
+    #prev:hover, 
+    #next:hover {
+      color: #3498db;
+    }
+
+    .dots {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      z-index: 3;
+    }
+    .dot {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      margin: 0 10px;
+      border: 3px solid #fff;
+      border-radius: 50%;
+    }
+    .dot.active, .dot:hover {
+      border: 3px solid #3498db;
+    }
+
+    @media screen and (max-width: 800px) {
+      .my-slider {
+        min-height: 500px;
+      }
+      .text {
+        left: 0;
+        width: 100%;
+        text-align: center;
+        animation: fade-text-top 2s ease;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1 style="position: absolute; z-index: 10; bottom: 0;">Object.entries(person) - convert object to array</h1>
+  <h1 style="position: absolute; z-index: 1; bottom: 0;">Object.entries(person) - convert object to array</h1>
 
   <!-- menu -->
   <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
-
-  <script>
-        const pokemons = ["Pikachu", "Cosmog", "Swablu", "Jigglypuff", "Charmander" , "Sylveon", "Eevee", "Pumpkaboo"];
-
-function reverseArray(array) {
-    console.log(array.reverse());
-}
-
-reverseArray(pokemons);
-
-// =========================================================
-
-const a = [1, 2, 3, 4, 5];
-const b = [1, 2, 3];
-
-const squares = a.reduce((acc, num) => {
-    return acc + num * num;
-}, 0)
-const cubes = b.reduce((acc, num) => {
-    return acc + num * num * num;
-}, 0)
-
-console.log(squares, cubes);
-
-if (squares > cubes) {
-    console.log(true);
-} else {
-    console.log(false);
-}
-
-// =========================================================
-
-function sumValuePowIndex(array) {
-    const result = array.map((num, index) => {
-        return Math.pow(num, index);
-    })
-    return result;
-}
-
-console.log(sumValuePowIndex(a));
-
-const arr = [22, -6, 32, 82, 9, 25];
-const arr2 = [68, -1, 1, -7, 10, 10];
-
-function filterMultiple(array) {
-    return array.filter((num, index) => {
-        return num % index === 0;
-    })
-}
-
-console.log(filterMultiple(arr));
-console.log(filterMultiple(arr2));
-
-// =========================================================
-
-const mixedArray = ["1", 2, "3", 4, "5", 6]; // 21
-
-function sum(array) {
-    return array.reduce((acc, num) => {
-        return acc + Number(num);
-    }, 0)
-}
-
-console.log(sum(mixedArray));
-
-// ==========================================================
-
-let hourlyRate = 250;
-let hours = 160;
-let taxRate = 0.35;
-
-function calcProfit(rate, hours, taxes) {
-    return rate * hours * (1 - taxes);
-}
-
-function holdForTaxes(profitMade) {
-    return hourlyRate * hours - profitMade;
-}
-
-let profit = calcProfit(hourlyRate, hours, taxRate);
-
-let taxesHeld = holdForTaxes(profit);
-
-console.log(profit);
-console.log(taxesHeld);
-
-// ==========================================================
-
-let seriousBusinessPerson = {
-    hourlyRate: 250,
-    hours: 160,
-    taxRate: 0.35,
-    calcProfit: function() {
-        return this.hourlyRate * this.hours * (1 - this.taxRate);
-    },
-    holdForTaxes: function() {
-        return this.hourlyRate * this.hours - this.calcProfit();
-    },
-}
-
-function AgencyContractor(hourlyRate, hours, taxRate) {
-    this.hourlyRate = hourlyRate;
-    this.hours = hours;
-    this.taxRate = taxRate;
-    this.calcProfit = function() {
-        return this.hourlyRate * this.hours * (1 - this.taxRate);
-    };
-    this.invoiceClient = function() {
-        return `Your total invoice is ${this.hourlyRate * this.hours}`;
-    }
-}
-
-let client = new AgencyContractor(250, 160, 0.35);
-
-console.log(client.invoiceClient());
-console.log(client.hourlyRate);
-console.log(client.calcProfit());
-  </script>
 </body>
 </html>
