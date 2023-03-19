@@ -89,6 +89,7 @@
       height: 100vh;
       min-height: 655px;
       display: none;
+      transition: all 0.6s ease;
       overflow: hidden;
     }
     .my-slider img {
@@ -191,5 +192,111 @@
 
   <!-- menu -->
   <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
+
+  <header>
+    <a href="#logo" id="logo">cool<span>logo</span></a>
+    <span class="sign"><a href="#signup" class="act">sign up</a></span>
+    <span class="sign"><a href="#signin" class="act">sign in</a></span>
+  </header>
+  <div class="slider">
+    <div class="my-slider fade">
+      <div class="text">
+        <h1>slide 01</h1>
+        <p><span>web developer</span> Lorem ipsum dolor sit amet.</p>
+      </div>
+      <img src="../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg" alt="">
+    </div>
+    <div class="my-slider">
+      <div class="text">
+        <h1>slide 02</h1>
+        <p><span>web developer</span> Lorem ipsum dolor sit amet.</p>
+      </div>
+      <img src="../../Sliders/img/germany-area-building_1680x1050.jpg" alt="">
+    </div>
+    <div class="my-slider">
+      <div class="text">
+        <h1>slide 03</h1>
+        <p><span>web developer</span> Lorem ipsum dolor sit amet.</p>
+      </div>
+      <img src="../../Sliders/img/mountain-in-meteora-greece_1920x1080.jpg" alt="">
+    </div>
+    <div class="my-slider">
+      <div class="text">
+        <h1>slide 04</h1>
+        <p><span>web developer</span> Lorem ipsum dolor sit amet.</p>
+      </div>
+      <img src="../../Sliders/img/switzerland-river.jpg" alt="">
+    </div>
+    <div class="my-slider">
+      <div class="text">
+        <h1>slide 05</h1>
+        <p><span>web developer</span> Lorem ipsum dolor sit amet.</p>
+      </div>
+      <img src="../../Sliders/img/toscana-italy.jpg" alt="">
+    </div>
+    <button id="prev">&#139;</button>
+    <button id="next">&#155;</button>
+    <div class="dots">
+      <button class="dot active"></button>
+      <button class="dot"></button>
+      <button class="dot"></button>
+      <button class="dot"></button>
+      <button class="dot"></button>
+    </div>
+  </div>
+
+  <script>
+    const slides = document.getElementsByClassName("my-slider");
+    const prevButton = document.getElementById("prev");
+    const nextButton = document.getElementById("next");
+    const dots = document.querySelectorAll(".dot");
+    let counter = 0;
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        counter = index;
+        const activeButton = document.querySelector(".dot.active");
+        activeButton.classList.remove("active");
+        dot.classList.add("active");
+        const activeSlide = document.querySelector(".my-slider.fade");
+        activeSlide.classList.remove("fade");
+        slides[index].classList.add("fade");
+      })
+    })
+
+    prevButton.addEventListener("click", prevSlide);
+    nextButton.addEventListener("click", nextSlide);
+
+    function prevSlide() {
+      counter--;
+      counter = counter + slides.length;
+      counter = counter % slides.length;
+      const activeButton = document.querySelector(".dot.active");
+      activeButton.classList.remove("active");
+      dots[counter].classList.add("active");
+      const activeSlide = document.querySelector(".my-slider.fade");
+      activeSlide.classList.remove("fade");
+      slides[counter].classList.add("fade");
+    }
+
+    function nextSlide() {
+      counter++;
+      counter = counter % slides.length;
+      const activeButton = document.querySelector(".dot.active");
+      activeButton.classList.remove("active");
+      dots[counter].classList.add("active");
+      const activeSlide = document.querySelector(".my-slider.fade");
+      activeSlide.classList.remove("fade");
+      slides[counter].classList.add("fade");
+    }
+
+    let autoslideID = setTimeout(autoslide, 5000);
+
+    function autoslide() {
+      nextSlide();
+      clearInterval(autoslideID);
+      autoslideID = setTimeout(autoslide, 5000);
+    }
+  </script>
 </body>
 </html>
