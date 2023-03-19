@@ -62,6 +62,79 @@ font-family: 'Playfair Display', serif;     //400,700
             padding-left: 30px;
             padding-right: 20px;
         }
+
+        *{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+.container {
+    position: relative;
+    background: #aad5f6;
+}
+.slide-1 {
+    background: url('../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg');
+}
+.slide-2 {
+    background: url('../../Sliders/img/germany-area-building_1680x1050.jpg');
+}
+.slide-3 {
+    background: url('../../Sliders/img/Edinburgh.jpg');
+}
+
+.slide {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow-x: hidden;
+}
+.caption {
+    background: rgba(0, 0, 0, 0.03);
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 40px 0px;
+}
+.caption h3 {
+    color: #fff;
+    text-align: center;
+    font-size: 50px;
+    padding: 18px;
+}
+.caption p {
+    max-width: 600px;
+    width: 90%;
+    margin: 0px auto;
+    color: #ccc;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.5em;
+}
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 100;
+    background: rgba(0, 0, 0, .1);
+    border-radius: 50%;
+    transform: background 500ms;
+}
+.arrow img {
+    width: 50px;
+}
+.arrow:hover {
+    background: rgba(0, 0, 0, .4);
+}
+.l {
+    left: 0;
+}
+.r {
+    right: 0;
+}
     </style>
 </head>
 <body>
@@ -164,203 +237,87 @@ font-family: 'Playfair Display', serif;     //400,700
     </div>
 
     <div class="container">
-        <div class="slider banner-slider" data-slider>
-          <div class="slider-container" data-slider-container>
-            <div class="slider-item">
-              <div class="card img-holder" style="--width: 1000; --height: 560;">
-                <img src="./images/movie-wide-1.jpg" width="1000" height="560" alt="" class="img-cover">
-              </div>
-            </div>
-            <div class="slider-item">
-              <div class="card img-holder" style="--width: 1000; --height: 560;">
-                <img src="./images/movie-wide-2.jpg" width="1000" height="560" alt="" class="img-cover">
-              </div>
-            </div>
-            <div class="slider-item">
-              <div class="card img-holder" style="--width: 1000; --height: 560;">
-                <img src="./images/movie-wide-3.jpg" width="1000" height="560" alt="" class="img-cover">
-              </div>
-            </div>
-            <div class="slider-item">
-              <div class="card img-holder" style="--width: 1000; --height: 560;">
-                <img src="./images/movie-wide-4.jpg" width="1000" height="560" alt="" class="img-cover">
-              </div>
-            </div>
-            <div class="slider-item">
-              <div class="card img-holder" style="--width: 1000; --height: 560;">
-                <img src="./images/movie-wide-5.jpg" width="1000" height="560" alt="" class="img-cover">
-              </div>
-            </div>
-          </div>
-    
-          <button class="btn-icon slider-control prev" data-slider-prev>
-            <ion-icon name="arrow-back-sharp"></ion-icon>
-          </button>
-          <button class="btn-icon slider-control next" data-slider-next>
-            <ion-icon name="arrow-forward-sharp"></ion-icon>
-          </button>
+        <div class="arrow l" onclick="prev()">
+            <img src="img/l.png" alt="l">
         </div>
-    
-        <div class="slider card-slider" data-slider>
-          <div class="slider-container" data-slider-container>
-            <div class="slider-item">
-              <div class="card img-holder" style="--width: 500; --height: 750;">
-                <img src="./images/movie-01.jpg" width="500" height="750" alt="" class="img-cover">
-              </div>
-            </div>
-            <div class="slider-item">
-              <div class="card img-holder" style="--width: 500; --height: 750;">
-                <img src="./images/movie-02.jpg" width="500" height="750" alt="" class="img-cover">
-              </div>
-            </div>
-            <div class="slider-item">
-              <div class="card img-holder" style="--width: 500; --height: 750;">
-                <img src="./images/movie-03.jpg" width="500" height="750" alt="" class="img-cover">
-              </div>
-            </div>
-            <div class="slider-item">
-              <div class="card img-holder" style="--width: 500; --height: 750;">
-                <img src="./images/movie-04.jpg" width="500" height="750" alt="" class="img-cover">
-              </div>
-            </div>
-            <div class="slider-item">
-              <div class="card img-holder" style="--width: 500; --height: 750;">
-                <img src="./images/movie-05.jpg" width="500" height="750" alt="" class="img-cover">
-              </div>
-            </div>
-            <div class="slider-item">
-              <div class="card img-holder" style="--width: 500; --height: 750;">
-                <img src="./images/movie-06.jpg" width="500" height="750" alt="" class="img-cover">
-              </div>
-            </div>
-          </div>
-    
-          <button class="btn-icon slider-control prev" data-slider-prev>
-            <ion-icon name="arrow-back-sharp"></ion-icon>
-          </button>
-          <button class="btn-icon slider-control next" data-slider-next>
-            <ion-icon name="arrow-forward-sharp"></ion-icon>
-          </button>
+        <div class="slide slide-1">
+             <div class="caption">
+                 <h3>New York</h3>
+                 <p>We love the Big Apple!</p>
+             </div>
         </div>
-    
-        <div class="slider card-slider" data-slider>
-          <div class="slider-container" data-slider-container>
-            <div class="slider-item">
-              <div class="card img-holder" style="--width: 500; --height: 750;">
-                <img src="./images/movie-07.jpg" width="500" height="750" alt="" class="img-cover">
-              </div>
+        <div class="slide slide-2">
+            <div class="caption">
+                <h3>Los Angeles</h3>
+                <p>LA is always so much fun!</p>
             </div>
-            <div class="slider-item">
-              <div class="card img-holder" style="--width: 500; --height: 750;">
-                <img src="./images/movie-08.jpg" width="500" height="750" alt="" class="img-cover">
-              </div>
+       </div>
+       <div class="slide slide-3">
+            <div class="caption">
+                <h3>Bahar Dar</h3>
+                <p>Thank you, Bahar Dar!</p>
             </div>
-            <div class="slider-item">
-              <div class="card img-holder" style="--width: 500; --height: 750;">
-                <img src="./images/movie-09.jpg" width="500" height="750" alt="" class="img-cover">
-              </div>
-            </div>
-            <div class="slider-item">
-              <div class="card img-holder" style="--width: 500; --height: 750;">
-                <img src="./images/movie-10.jpg" width="500" height="750" alt="" class="img-cover">
-              </div>
-            </div>
-            <div class="slider-item">
-              <div class="card img-holder" style="--width: 500; --height: 750;">
-                <img src="./images/movie-11.jpg" width="500" height="750" alt="" class="img-cover">
-              </div>
-            </div>
-          </div>
-    
-          <button class="btn-icon slider-control prev" data-slider-prev>
-            <ion-icon name="arrow-back-sharp"></ion-icon>
-          </button>
-          <button class="btn-icon slider-control next" data-slider-next>
-            <ion-icon name="arrow-forward-sharp"></ion-icon>
-          </button>
+       </div>
+       <div class="arrow r" onclick="next()">
+            <img src="img/r.png" alt="r">
         </div>
-    
-        <div class="slider card-slider" data-slider>
-          <div class="slider-container" data-slider-container>
-            <div class="slider-item">
-              <div class="card img-holder" style="--width: 500; --height: 750;">
-                <img src="./images/movie-12.jpg" width="500" height="750" alt="" class="img-cover">
-              </div>
-            </div>
-            <div class="slider-item">
-              <div class="card img-holder" style="--width: 500; --height: 750;">
-                <img src="./images/movie-13.jpg" width="500" height="750" alt="" class="img-cover">
-              </div>
-            </div>
-            <div class="slider-item">
-              <div class="card img-holder" style="--width: 500; --height: 750;">
-                <img src="./images/movie-14.jpg" width="500" height="750" alt="" class="img-cover">
-              </div>
-            </div>
-          </div>
-    
-          <button class="btn-icon slider-control prev" data-slider-prev>
-            <ion-icon name="arrow-back-sharp"></ion-icon>
-          </button>
-          <button class="btn-icon slider-control next" data-slider-next>
-            <ion-icon name="arrow-forward-sharp"></ion-icon>
-          </button>
-        </div>
-      </div>
+    </div>
 
     <script>
-        const sliders = document.querySelectorAll("[data-slider]");
+        let slide = document.querySelectorAll('.slide');
+        var current = 0;
 
-const sliderInit = function (currentSlider) {
+        function cls(){
+            for(let i = 0; i < slide.length; i++){
+                  slide[i].style.display = 'none';
+            }
+        }
 
-  const sliderContainer = currentSlider.querySelector("[data-slider-container]");
-  const sliderPrevBtn = currentSlider.querySelector("[data-slider-prev]");
-  const sliderNextBtn = currentSlider.querySelector("[data-slider-next]");
+        function next(){
+            cls();
+            if(current === slide.length-1) current = -1;
+            current++;
 
-  const totalSliderVisibleItems = Number(getComputedStyle(currentSlider).getPropertyValue("--slider-items"));
+            slide[current].style.display = 'block';
+            slide[current].style.opacity = 0.4;
 
-  const totalSliderItems = sliderContainer.childElementCount - totalSliderVisibleItems;
+            var x = 0.4;
+            var intX = setInterval(function(){
+                x+=0.1;
+                slide[current].style.opacity = x;
+                if(x >= 1) {
+                    clearInterval(intX);
+                    x = 0.4;
+                }
+            }, 100);
 
-  let currentSlidePos = 0;
+        }
 
-  /* NEXT SLIDE */
-  const slideNext = function () {
+        function prev(){
+            cls();
+            if(current === 0) current = slide.length;
+            current--;
 
-    currentSlidePos++;
+            slide[current].style.display = 'block';
+            slide[current].style.opacity = 0.4;
 
-    sliderContainer.style.transform = `translateX(-${sliderContainer.children[currentSlidePos].offsetLeft}px)`;
+            var x = 0.4;
+            var intX = setInterval(function(){
+                x+=0.1;
+                slide[current].style.opacity = x;
+                if(x >= 1) {
+                    clearInterval(intX);
+                    x = 0.4;
+                }
+            }, 100);
 
-    if (currentSlidePos >= totalSliderItems) sliderNextBtn.setAttribute("disabled", "");
-    sliderPrevBtn.removeAttribute("disabled");
+        }
 
-  }
-
-  sliderNextBtn.addEventListener("click", slideNext);
-
-  /* PREVIOUS SLIDE */
-  const slidePrev = function () {
-
-    currentSlidePos--;
-
-    sliderContainer.style.transform = `translateX(-${sliderContainer.children[currentSlidePos].offsetLeft}px)`;
-
-    if (currentSlidePos <= 0) sliderPrevBtn.setAttribute("disabled", "");
-    sliderNextBtn.removeAttribute("disabled");
-
-  }
-
-  sliderPrevBtn.addEventListener("click", slidePrev);
-
-  const dontHaveExtraItem = totalSliderItems <= 0;
-  if (dontHaveExtraItem) sliderNextBtn.setAttribute("disabled", "");
-
-  sliderPrevBtn.setAttribute("disabled", "");
-
-}
-
-for (let i = 0, len = sliders.length; i < len; i++){ 
-    sliderInit(sliders[i]); 
-}
+        function start(){
+            cls();
+            slide[current].style.display = 'block';
+        }
+        start();
     </script>
 </body>
 </html>
