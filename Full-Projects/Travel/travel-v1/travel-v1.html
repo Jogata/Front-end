@@ -8,19 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/styles_travel-v1.css">
     <style>
-        canvas {
-            display: block;
-            margin-top: 5rem;
-            margin-bottom: 1rem;
-            margin-right: auto;
-            margin-left: auto;
-        }
-        #download {
-            display: block;
-            margin: 0 auto 5rem;
-            text-align: center;
-        }
-
         .pin-login {
             display: inline-block;
             padding: 10px;
@@ -32,7 +19,6 @@
             -ms-user-select: none;
             -moz-user-select: none;
             -webkit-user-select: none;
-            /* width: 500px; */
         }
 
         #pin-text {
@@ -52,6 +38,24 @@
         #pin-text.error {
             color: #901818;
             background-color: #ffb3b3;
+            animation: error 0.1s linear 2;
+        }
+
+        @keyframes error {
+            25% {
+                transform: translateX(-3px);
+            }
+            75% {
+                transform: translateX(3px);
+            }
+        }
+        @-moz-keyframes error {
+            25% {
+                transform: translateX(-3px);
+            }
+            75% {
+                transform: translateX(3px);
+            }
         }
 
         .numpad {
@@ -488,43 +492,6 @@
         <h1 style="font-size: 5vw; text-align: center;">footer</h1>
     </section>
 
-    <canvas id="canvas"></canvas><br>
-    <a id="download" href="#" download="canvas.png">download</a>
-
-<script>
-    const canvas = document.getElementById("canvas");
-    const ctx = canvas.getContext("2d");
-    const downloadBtn = document.getElementById("download");
-
-    ctx.fillStyle = "#222222";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#009578";
-    ctx.fillRect(25, 25, 100, 100);
-
-    const pngDataURL = canvas.toDataURL("image/png");
-
-    console.log(pngDataURL);
-
-    downloadBtn.href = pngDataURL;
-
-    function BetterAgencyContractor(hourlyRate, hours, taxRate) {
-    this.hours = hours;
-    this.taxRate = taxRate;
-    let rate = hourlyRate;
-    let calcProfit = function() {
-        return rate * this.hours * (1 - this.taxRate);
-    };
-    this.invoiceClient = function() {
-        return `Your total invoice is ${rate * this.hours}`;
-    }
-}
-
-let client2 = new BetterAgencyContractor(250, 160, 0.35);
-console.log(client2.invoiceClient());
-console.log(client2.hourlyRate);
-// console.log(client2.calcProfit());
-</script>
-
     <div class="pin-login">
         <input type="password" name="" id="pin-text" readonly class="error">
         <div class="numpad">
@@ -544,7 +511,68 @@ console.log(client2.hourlyRate);
     </div>
 
     <script>
-        console.log("540");
+        class Animal {
+            constructor(name) {
+                this._name = name;
+            }
+            get name() {
+                return this._name;
+            }
+            speak() {
+                console.log(`${this._name} makes a sound`);
+            }
+        }
+
+        class Dog extends Animal {
+            constructor(name, bread) {
+                super(name);
+                this._bread = bread;
+            }
+            get bread() {
+                return this._bread;
+            }
+            speak() {
+                super.speak();
+                console.log(`${this.name} barks`);
+            }
+        }
+
+        class Cat extends Animal {
+            constructor(name, bread) {
+                super(name);
+                this._bread = bread;
+            }
+            get bread() {
+                return this._bread;
+            }
+            speak() {
+                super.speak();
+                console.log(`${this.name} meows`);
+            }
+        }
+
+        let simba = new Dog("Simba", "Shepard");
+        let machine = new Dog("The Machine", "Pitbull");
+        let salem = new Cat("Salem", "American Shorthair");
+
+        // console.log(simba._name);
+        console.log(simba.name);
+        // simba._name = "Bob";
+        simba.name = "Bob";
+        // console.log(simba._name);
+        console.log(simba.name);
+        simba.speak();
+        salem.speak();
+
+        const farm = [simba, machine, salem];
+
+        for (const animal of farm) {
+            animal.speak();
+        }
+    </script>
+
+    <script>
+        console.log("540>645>595>");
         // Setup the Slider in Home Section
         (function setSliderButtons() {
             const sliders = document.querySelectorAll(".slide");
