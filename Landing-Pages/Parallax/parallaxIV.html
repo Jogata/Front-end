@@ -57,194 +57,72 @@ font-family: 'Playfair Display', serif;     //400,700
             /* border: 1px solid white; */
         }
 
-        .content {
+        /* .content {
             width: 65%;
             padding-left: 30px;
             padding-right: 20px;
-        }
+        } */
 
-        .login {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #23242a;
-        }
-
-        .box {
-            position: relative;
-            width: 380px;
-            height: 420px;
-            border-radius: 8px;
-            background-color: #1c1c1c;
-            overflow: hidden;
-        }
-
-        .box form {
-            position: absolute;
-            inset: 4px;
-            background-color: #222;
-            padding: 50px 40px;
-            border-radius: inherit;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .box h2 {
-            color: #fff;
-            font-size: initial;
-            font-weight: 500;
-            text-align: center;
-            letter-spacing: 0.1em;
-        }
-
-        .input-box {
-            position: relative;
-            width: 300px;
-            margin-top: 35px;
-        }
-        .input-box input {
-            position: relative;
-            width: 100%;
-            padding: 20px 10px 10px;
-            outline: 1px solid transparent;
-            border: 1px solid transparent;
-            background-color: transparent;
-            box-shadow: none;
-            color: #23242a;
-            font-size: 1rem;
-            letter-spacing: 0.05em;
-            transition: all 0.5s;
-            z-index: 10;
-        }
-        .input-box span {
-            position: absolute;
-            left: 0;
-            padding: 20px 0px 10px;
-            color: #8f8f8f;
-            font-size: 1rem;
-            text-transform: capitalize;
-            letter-spacing: 0.05em;
-            transition: all 0.5s;
-            pointer-events: none;
-        }
-
-        .input-box input:valid ~ span, 
-        .input-box input:focus ~ span {
-            color: #fff;
-            font-size: 0.75rem;
-            transform: translateY(-34px);
-        }
-
-        .input-box i {
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 2px;
-            background-color: #fff;
-            border-radius: 4px;
-            overflow: hidden;
-            transition: all 0.5s;
-            pointer-events: none;
-        }
-        .input-box input:valid ~ i, 
-        .input-box input:focus ~ i {
-            height: 44px;
-        }
-
-        .links {
-            display: flex;
-            justify-content: space-between;
-        }
-        .links a {
-            margin: 10px 0px;
-            font-size: 0.75rem;
-            color: #8f8f8f;
-            text-decoration: none;
-            text-transform: capitalize;
-        }
-        .links a:nth-child(2), 
-        .links a:hover {
-            color: #fff;
-        }
-
-        input[type="submit"] {
-            padding: 9px 25px;
-            border: 1px solid transparent;
-            outline: 1px solid transparent;
-            background-color: #fff;
-            align-self: flex-start;
-            font-size: 0.9rem;
-            border-radius: 4px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        input[type="submit"]:active {
-            opacity: 0.8;
-        }
-
-        .box::before {
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            content: "";
-            width: 380px;
-            height: 420px;
-            transform-origin: bottom right;
-            background: linear-gradient(0deg, transparent, transparent, #45f3ff, #45f3ff, #45f3ff);
-            animation: rotate 6s linear infinite;
-        }
-        .box::after {
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            content: "";
-            width: 380px;
-            height: 420px;
-            transform-origin: bottom right;
-            background: linear-gradient(0deg, transparent, transparent, #45f3ff, #45f3ff, #45f3ff);
-            animation: rotate 6s linear infinite;
-            animation-delay: -3s;
-        }
-        .border-line {
-            position: absolute;
-            inset: 0;
-        }
-        .border-line::before {
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            content: "";
-            width: 380px;
-            height: 420px;
-            transform-origin: bottom right;
-            background: linear-gradient(0deg, transparent, transparent, #ff2770, #ff2770, #ff2770);
-            animation: rotate 6s linear infinite;
-            animation-delay: -1.5s;
-        }
-        .border-line::after {
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            content: "";
-            width: 380px;
-            height: 420px;
-            transform-origin: bottom right;
-            background: linear-gradient(0deg, transparent, transparent, #ff2770, #ff2770, #ff2770);
-            animation: rotate 6s linear infinite;
-            animation-delay: -4.5s;
-        }
-        @keyframes rotate {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
+        *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+}
+.content1{
+  height: 400px;
+  width: 750px;
+  position: relative;
+  background-color: black;
+}
+.content1 .images{
+  height: 100%;
+  width: 100%;
+}
+.content1 .images img{
+  height: 100%;
+  width: 100%;
+}
+.btm-slides{
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+.btm-slides span{
+  height: 15px;
+  width: 50px;
+  border: 2px solid white;
+  margin: 0 3px;
+  cursor: pointer;
+}
+.sliders{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  cursor: pointer;
+  border: 2px solid white;
+  background: rgba(255,255,255,0.1);
+}
+.sliders:hover{
+  background: rgba(255,255,255,0.2);
+}
+.right{
+  right: 0;
+}
+.sliders span{
+  line-height: 41px;
+  font-size: 35px;
+  color: white;
+}
     </style>
 </head>
 <body>
@@ -346,28 +224,56 @@ font-family: 'Playfair Display', serif;     //400,700
         </div>
     </div>
 
-    <div class="login">
-        <div class="box">
-            <span class="border-line"></span>
-            <form>
-                <h2>sign in</h2>
-                <div class="input-box">
-                    <input type="text" name="" id="" required>
-                    <span>username</span>
-                    <i></i>
-                </div>
-                <div class="input-box">
-                    <input type="password" name="" id="" required>
-                    <span>password</span>
-                    <i></i>
-                </div>
-                <div class="links">
-                    <a href="#f">forgot password</a>
-                    <a href="#sup">sign up</a>
-                </div>
-                <input type="submit" value="Login">
-            </form>
+    <div class="content1">
+        <div class="images">
+           <img src="../Parallax/img/parallaxIV/gallery/120372783_340812587254299_774244032306180550_n.jpg">
+           <img src="../Parallax/img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg">
+           <img src="../Parallax/img/parallaxIV/gallery/212573141_870101006920357_9185461114137501578_n.jpg">
+           <img src="../Parallax/img/parallaxIV/gallery/212696607_565196161514018_1044941815810703332_n.jpg">
+           <img src="../Parallax/img/parallaxIV/gallery/72614063_433236090677267_2807365040358828412_n.jpg">
         </div>
-    </div>
+        <div class="btm-slides">
+           <span onclick="btm_slide(1)"></span>
+           <span onclick="btm_slide(2)"></span>
+           <span onclick="btm_slide(3)"></span>
+           <span onclick="btm_slide(4)"></span>
+           <span onclick="btm_slide(5)"></span>
+        </div>
+        <div class="sliders left" onclick="side_slide(-1)">
+           <span class="fa fa-angle-left"></span>
+        </div>
+        <div class="sliders right" onclick="side_slide(1)">
+           <span class="fa fa-angle-right"></span>
+        </div>
+     </div>
+     <script>
+        var indexValue = 1;
+        showImg(indexValue);
+        function btm_slide(e){
+            showImg(indexValue = e);
+        }
+        function side_slide(e){
+            showImg(indexValue += e);
+        }
+        function showImg(e){
+          var i;
+          const img = document.querySelectorAll('.images img');
+          const slider = document.querySelectorAll('.btm-slides span');
+          if(e > img.length){
+            indexValue = 1;
+        }
+          if(e < 1){
+            indexValue = img.length;
+        }
+          for(i = 0; i < img.length; i++){
+            img[i].style.display = "none";
+          }
+          for(i = 0; i < slider.length; i++){
+            slider[i].style.background = "rgba(255,255,255,0.1)";
+          }
+          img[indexValue-1].style.display = "block";
+          slider[indexValue-1].style.background = "white";
+        }
+     </script>
 </body>
 </html>
