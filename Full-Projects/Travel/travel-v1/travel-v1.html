@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="./css/styles_travel-v1.css">
     <style>
         .pin-login {
-            display: inline-block;
+            /* display: inline-block; */
+            width: fit-content;
+            margin: auto;
             padding: 10px;
             font-size: 28px;
             border-radius: 10px;
@@ -60,6 +62,71 @@
 
         .numpad {
             display: flex;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            /* flex-wrap: wrap; */
+        }
+
+        .key {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            margin: 10px;
+            color: #363b5e;
+            font-weight: bold;
+            border-radius: 50%;
+            background-color: rgba(0,0,0,0.15);
+            cursor: pointer;
+        }
+        .key:active {
+            background-color: rgba(0,0,0,0.25);
+        }
+
+        .container {
+            width: 100%;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            width: 100%;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .todo-container {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            border-top: 5px solid #009578;
+            border-bottom: 5px solid #009578;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .todo {
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .todo-value {
+            flex-grow: 1;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            outline: none;
+            background-color: transparent;
+        }
+
+        .todo:has(.todo-checkbox:checked) {
+            color: #555;
+            background: #eee;
+            text-decoration: line-through;
+            order: 1;
         }
     </style>
 </head>
@@ -492,10 +559,10 @@
         <h1 style="font-size: 5vw; text-align: center;">footer</h1>
     </section>
 
-    <div class="pin-login">
+    <div class="pin-login" id="main-pin">
         <input type="password" name="" id="pin-text" readonly class="error">
         <div class="numpad">
-            <div class="key">0</div>
+            <!-- <div class="key">0</div>
             <div class="key">1</div>
             <div class="key">2</div>
             <div class="key">3</div>
@@ -506,73 +573,64 @@
             <div class="key">8</div>
             <div class="key">b</div>
             <div class="key">9</div>
-            <div class="key">e</div>
+            <div class="key">e</div> -->
+        </div>
+    </div>
+
+    <h1>TODO list - CSS only</h1>
+    <div class="container">
+        <div class="todo-container">
+            <div class="todo">
+                <input type="text" class="todo-value" placeholder="(empty)" value="Take the bins out">
+                <input type="checkbox" class="todo-checkbox">
+            </div>
+            <div class="todo">
+                <input type="text" class="todo-value" placeholder="(empty)">
+                <input type="checkbox" class="todo-checkbox">
+            </div>
+            <div class="todo">
+                <input type="text" class="todo-value" placeholder="(empty)">
+                <input type="checkbox" class="todo-checkbox">
+            </div>
         </div>
     </div>
 
     <script>
-        class Animal {
-            constructor(name) {
-                this._name = name;
+        class PinLogin {
+            constructor({el, loginEndpoint, redirectTo, maxNumbers = Infinity}) {
+                this.el = {
+                    main: el,
+                    numPad: el.querySelector(".numpad"),
+                    textDisplay: el.querySelector("#pin-text"),
+                };
+                this.loginEndpoint = loginEndpoint;
+                this.redirectTo = redirectTo;
+                this.maxNumbers = maxNumbers;
+                this.value = "";
+
+                this._generatePad();
             }
-            get name() {
-                return this._name;
-            }
-            speak() {
-                console.log(`${this._name} makes a sound`);
+
+            _generatePad() {
+                const padLayout = [
+                    "1", "2", "3",
+                    "4", "5", "6",
+                    "7", "8", "9",
+                    "b", "0", "e",
+                ]
             }
         }
 
-        class Dog extends Animal {
-            constructor(name, bread) {
-                super(name);
-                this._bread = bread;
-            }
-            get bread() {
-                return this._bread;
-            }
-            speak() {
-                super.speak();
-                console.log(`${this.name} barks`);
-            }
-        }
-
-        class Cat extends Animal {
-            constructor(name, bread) {
-                super(name);
-                this._bread = bread;
-            }
-            get bread() {
-                return this._bread;
-            }
-            speak() {
-                super.speak();
-                console.log(`${this.name} meows`);
-            }
-        }
-
-        let simba = new Dog("Simba", "Shepard");
-        let machine = new Dog("The Machine", "Pitbull");
-        let salem = new Cat("Salem", "American Shorthair");
-
-        // console.log(simba._name);
-        console.log(simba.name);
-        // simba._name = "Bob";
-        simba.name = "Bob";
-        // console.log(simba._name);
-        console.log(simba.name);
-        simba.speak();
-        salem.speak();
-
-        const farm = [simba, machine, salem];
-
-        for (const animal of farm) {
-            animal.speak();
-        }
+        new PinLogin({
+            el: document.getElementById("main-pin"),
+            loginEndpoint: "login.html",
+            redirectTo: "dashboard.html",
+            maxNumbers: 4,
+        })
     </script>
 
     <script>
-        console.log("540>645>595>");
+        console.log("540>645>595>674>613");
         // Setup the Slider in Home Section
         (function setSliderButtons() {
             const sliders = document.querySelectorAll(".slide");
