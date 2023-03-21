@@ -6,186 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Webstore v.1</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="./css/styles_webstore-v1.css"> -->
-  <style>
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    button {
-      border: 1px solid transparent;
-      background-color: transparent;
-      transition: all 0.4s;
-      cursor: pointer;
-    }
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    header {
-      width: 100%;
-      height: 60px;
-      position: absolute;
-      top: 0;
-      z-index: 2;
-    }
-
-    #logo {
-      display: inline-block;
-      margin-left: 40px;
-      font-size: 30px;
-      font-weight: bold;
-      text-transform: capitalize;
-      line-height: 60px;
-      color: #3498db;
-    }
-    #logo:hover {
-      color: #ecf0f1;
-    }
-    #logo span {
-      display: inline-block;
-      margin-left: 5px;
-      color: #ecf0f1;
-      text-transform: capitalize;
-    }
-    #logo:hover span {
-      color: #3498db;
-    }
-
-    .sign {
-      float: right;
-      margin-right: 40px;
-      line-height: 60px;
-    }
-    .act {
-      padding: 6px 15px;
-      color: #fff;
-      font-weight: bold;
-      text-transform: uppercase;
-      border: 2px solid currentColor;
-      border-radius: 50px;
-    }
-    .act:hover {
-      color: #3498db;
-    }
-
-    .slider {
-      position: relative;
-      /* width: 100%; */
-      background-color: #2c3e50;
-      /* border: 10px solid red; */
-    }
-    .my-slider {
-      position: relative;
-      height: 100vh;
-      min-height: 655px;
-      display: none;
-      transition: all 0.6s ease;
-      overflow: hidden;
-    }
-    .my-slider img {
-      transform: scale(1);
-      animation: zoom 20s;
-    }
-
-    @keyframes zoom {
-      0% { transform: scale(1.5); }
-    }
-
-    .fade {
-      display: block;
-      animation: fade 4s ease;
-    }
-
-    @keyframes fade {
-      from { opacity: 0.6; }
-      to { opacity: 1; }
-    }
-
-    .text {
-      position: absolute;
-      top: 40%;
-      left: 15%;
-      color: #fff;
-      animation: fade-text-left 2s ease;
-      z-index: 1;
-    }
-    .text h1 {
-      margin-bottom: 20px;
-      color: #3498db;
-      text-transform: uppercase;
-    }
-    .text p span {
-      display: block;
-      margin-bottom: 10px;
-      text-transform: capitalize;
-    }
-
-    @keyframes fade-text-left {
-      0% { left: 25%; }
-    }
-    @keyframes fade-text-top {
-      0% { top: 25%; }
-    }
-
-    #prev, #next {
-      position: absolute;
-      top: 47%;
-      padding: 0 0.184em 0.2em;
-      color: #fff;
-      font-size: 5rem;
-      font-family: 'Times New Roman', Times, serif;
-      line-height: 0.5em;
-      z-index: 3;
-    }
-    #next {
-      right: 0;
-    }
-    #prev:hover, 
-    #next:hover {
-      color: #3498db;
-    }
-
-    .dots {
-      position: absolute;
-      bottom: 20px;
-      width: 100%;
-      text-align: center;
-      z-index: 3;
-    }
-    .dot {
-      display: inline-block;
-      width: 15px;
-      height: 15px;
-      margin: 0 10px;
-      border: 3px solid #fff;
-      border-radius: 50%;
-    }
-    .dot.active, .dot:hover {
-      border: 3px solid #3498db;
-    }
-
-    @media screen and (max-width: 800px) {
-      .my-slider {
-        min-height: 500px;
-      }
-      .text {
-        left: 0;
-        width: 100%;
-        text-align: center;
-        animation: fade-text-top 2s ease;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="./css/styles_webstore-v1.css">
 </head>
 <body>
   <h1 style="position: absolute; z-index: 1; bottom: 0;">Object.entries(person) - convert object to array</h1>
@@ -193,110 +14,89 @@
   <!-- menu -->
   <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
 
-  <header>
-    <a href="#logo" id="logo">cool<span>logo</span></a>
-    <span class="sign"><a href="#signup" class="act">sign up</a></span>
-    <span class="sign"><a href="#signin" class="act">sign in</a></span>
-  </header>
-  <div class="slider">
-    <div class="my-slider fade">
-      <div class="text">
-        <h1>slide 01</h1>
-        <p><span>web developer</span> Lorem ipsum dolor sit amet.</p>
+  <div class="wrapper">
+    <nav>
+      <div class="items">
+        <span class="item active" data-name="all">All</span>
+        <span class="item" data-name="bag">Bag</span>
+        <span class="item" data-name="shoe">Shoe</span>
+        <span class="item" data-name="watch">Watch</span>
+        <span class="item" data-name="camera">Camera</span>
+        <span class="item" data-name="headphone">Headphone</span>
       </div>
-      <img src="../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg" alt="">
-    </div>
-    <div class="my-slider">
-      <div class="text">
-        <h1>slide 02</h1>
-        <p><span>web developer</span> Lorem ipsum dolor sit amet.</p>
-      </div>
-      <img src="../../Sliders/img/germany-area-building_1680x1050.jpg" alt="">
-    </div>
-    <div class="my-slider">
-      <div class="text">
-        <h1>slide 03</h1>
-        <p><span>web developer</span> Lorem ipsum dolor sit amet.</p>
-      </div>
-      <img src="../../Sliders/img/mountain-in-meteora-greece_1920x1080.jpg" alt="">
-    </div>
-    <div class="my-slider">
-      <div class="text">
-        <h1>slide 04</h1>
-        <p><span>web developer</span> Lorem ipsum dolor sit amet.</p>
-      </div>
-      <img src="../../Sliders/img/switzerland-river.jpg" alt="">
-    </div>
-    <div class="my-slider">
-      <div class="text">
-        <h1>slide 05</h1>
-        <p><span>web developer</span> Lorem ipsum dolor sit amet.</p>
-      </div>
-      <img src="../../Sliders/img/toscana-italy.jpg" alt="">
-    </div>
-    <button id="prev">&#139;</button>
-    <button id="next">&#155;</button>
-    <div class="dots">
-      <button class="dot active"></button>
-      <button class="dot"></button>
-      <button class="dot"></button>
-      <button class="dot"></button>
-      <button class="dot"></button>
+    </nav>
+
+    <div class="gallery">
+      <div class="image" data-name="bag"><span><img src="../Parallax/img/parallaxIV/gallery/120372783_340812587254299_774244032306180550_n.jpg" alt=""></span></div>
+      <div class="image" data-name="headphone"><span><img src="../Parallax/img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg" alt=""></span></div>
+      <div class="image" data-name="camera"><span><img src="../Parallax/img/parallaxIV/gallery/212573141_870101006920357_9185461114137501578_n.jpg" alt=""></span></div>
+      <div class="image" data-name="shoe"><span><img src="../Parallax/img/parallaxIV/gallery/212696607_565196161514018_1044941815810703332_n.jpg" alt=""></span></div>
+      <div class="image" data-name="headphone"><span><img src="../Parallax/img/parallaxIV/gallery/310312823_1063165841035871_7233886241606775336_n.jpg" alt=""></span></div>
+      <div class="image" data-name="watch"><span><img src="../Parallax/img/parallaxIV/gallery/72614063_433236090677267_2807365040358828412_n.jpg" alt=""></span></div>
+      <div class="image" data-name="shoe"><span><img src="../Parallax/img/parallaxIV/gallery/314989870_440856418203915_8112806341494003649_n.jpg" alt=""></span></div>
+      <div class="image" data-name="camera"><span><img src="../Parallax/img/parallaxIV/gallery/320075870_672693277833663_8152859641160213840_n.jpg" alt=""></span></div>
     </div>
   </div>
+    <!-- fullscreen img preview box -->
+    <div class="preview-box">
+      <div class="details">
+        <span class="title">Image Category: <p></p></span>
+        <span class="icon fas fa-times"></span>
+      </div>
+      <div class="image-box"><img src="" alt=""></div>
+    </div>
+    <div class="shadow"></div>
 
-  <script>
-    const slides = document.getElementsByClassName("my-slider");
-    const prevButton = document.getElementById("prev");
-    const nextButton = document.getElementById("next");
-    const dots = document.querySelectorAll(".dot");
-    let counter = 0;
-
-    dots.forEach((dot, index) => {
-      dot.addEventListener("click", () => {
-        counter = index;
-        const activeButton = document.querySelector(".dot.active");
-        activeButton.classList.remove("active");
-        dot.classList.add("active");
-        const activeSlide = document.querySelector(".my-slider.fade");
-        activeSlide.classList.remove("fade");
-        slides[index].classList.add("fade");
-      })
-    })
-
-    prevButton.addEventListener("click", prevSlide);
-    nextButton.addEventListener("click", nextSlide);
-
-    function prevSlide() {
-      counter--;
-      counter = counter + slides.length;
-      counter = counter % slides.length;
-      const activeButton = document.querySelector(".dot.active");
-      activeButton.classList.remove("active");
-      dots[counter].classList.add("active");
-      const activeSlide = document.querySelector(".my-slider.fade");
-      activeSlide.classList.remove("fade");
-      slides[counter].classList.add("fade");
+    <script>
+      //selecting all required elements
+const filterItem = document.querySelector(".items");
+const filterImg = document.querySelectorAll(".gallery .image");
+window.onload = ()=>{ //after window loaded
+  filterItem.onclick = (selectedItem)=>{ //if user click on filterItem div
+    if(selectedItem.target.classList.contains("item")){ //if user selected item has .item class
+      filterItem.querySelector(".active").classList.remove("active"); //remove the active class which is in first item
+      selectedItem.target.classList.add("active"); //add that active class on user selected item
+      let filterName = selectedItem.target.getAttribute("data-name"); //getting data-name value of user selected item and store in a filtername variable
+      filterImg.forEach((image) => {
+        let filterImges = image.getAttribute("data-name"); //getting image data-name value
+        //if user selected item data-name value is equal to images data-name value
+        //or user selected item data-name value is equal to "all"
+        if((filterImges == filterName) || (filterName == "all")){
+          image.classList.remove("hide"); //first remove the hide class from the image
+          image.classList.add("show"); //add show class in image
+        }else{
+          image.classList.add("hide"); //add hide class in image
+          image.classList.remove("show"); //remove show class from the image
+        }
+      });
     }
-
-    function nextSlide() {
-      counter++;
-      counter = counter % slides.length;
-      const activeButton = document.querySelector(".dot.active");
-      activeButton.classList.remove("active");
-      dots[counter].classList.add("active");
-      const activeSlide = document.querySelector(".my-slider.fade");
-      activeSlide.classList.remove("fade");
-      slides[counter].classList.add("fade");
-    }
-
-    let autoslideID = setTimeout(autoslide, 5000);
-
-    function autoslide() {
-      nextSlide();
-      clearInterval(autoslideID);
-      autoslideID = setTimeout(autoslide, 5000);
-    }
-  </script>
+  }
+  for (let i = 0; i < filterImg.length; i++) {
+    filterImg[i].setAttribute("onclick", "preview(this)"); //adding onclick attribute in all available images
+  }
+}
+//fullscreen image preview function
+//selecting all required elements
+const previewBox = document.querySelector(".preview-box"),
+categoryName = previewBox.querySelector(".title p"),
+previewImg = previewBox.querySelector("img"),
+closeIcon = previewBox.querySelector(".icon"),
+shadow = document.querySelector(".shadow");
+function preview(element){
+  //once user click on any image then remove the scroll bar of the body, so user cant scroll up or down
+  document.querySelector("body").style.overflow = "hidden";
+  let selectedPrevImg = element.querySelector("img").src; //getting user clicked image source link and stored in a variable
+  let selectedImgCategory = element.getAttribute("data-name"); //getting user clicked image data-name value
+  previewImg.src = selectedPrevImg; //passing the user clicked image source in preview image source
+  categoryName.textContent = selectedImgCategory; //passing user clicked data-name value in category name
+  previewBox.classList.add("show"); //show the preview image box
+  shadow.classList.add("show"); //show the light grey background
+  closeIcon.onclick = ()=>{ //if user click on close icon of preview box
+    previewBox.classList.remove("show"); //hide the preview box
+    shadow.classList.remove("show"); //hide the light grey background
+    document.querySelector("body").style.overflow = "auto"; //show the scroll bar on body
+  }
+}
+    </script>
 </body>
 </html>
