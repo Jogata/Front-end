@@ -14,6 +14,10 @@
       box-sizing: border-box;
     }
 
+    ul {
+      list-style: none;
+    }
+
     button {
       border: 1px solid transparent;
       outline: 1px solid transparent;
@@ -37,7 +41,13 @@
     .track-container {
       position: relative;
       height: 100%;
-      background-color: lightgreen;
+      /* background-color: lightgreen; */
+      overflow: hidden;
+    }
+
+    .track {
+      height: 100%;
+      transition: transform 1s ease-in;
     }
 
     .slide {
@@ -56,6 +66,7 @@
       line-height: 0.7;
       border: 1px solid;
       border-radius: 50%;
+      z-index: 1;
     }
     #prev {
       left: 0;
@@ -96,7 +107,7 @@
     <button id="prev">&#139;</button>
     <div class="track-container">
       <ul class="track">
-        <li class="slide">
+        <li class="slide current">
           <img src="../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg" alt="">
         </li>
         <li class="slide">
@@ -114,5 +125,84 @@
       <button class="indicator dot"></button>
     </div>
   </div>
+
+  <script>
+    console.log("test");
+
+    const track = document.querySelector(".track");
+    const slides = Array.from(track.children);
+    const nextButton = document.querySelector("#next");
+    const prevButton = document.querySelector("#prev");
+    const nav = document.querySelector(".dots");
+    const dots = Array.from(nav.children);
+
+    let slideWidth = slides[0].getBoundingClientRect().width;
+
+    // slides[0].style.left = slideWidth * 0 + "px";
+    // slides[1].style.left = slideWidth * 1 + "px";
+    // slides[2].style.left = slideWidth * 2 + "px";
+    slides.forEach((slide, index) => {
+      slide.style.left = slideWidth * index + "px";
+    })
+
+    // move slides to the right
+    nextButton.addEventListener("click", () => {
+      const currentSlide = track.querySelector(".slide.current");
+      const nextSlide = currentSlide.nextElementSibling;
+      const x = nextSlide.style.left;
+      track.style.transform = "translateX(-" + x + ")";
+      currentSlide.classList.remove("current");
+      nextSlide.classList.add("current");
+      if (nextSlide >= slides.length) {
+        nextButton.style.display = "none";
+      }
+    })
+
+    // move slides to the left
+    prevButton.addEventListener("click", () => {
+      const currentSlide = track.querySelector(".slide.current");
+      const prevSlide = currentSlide.previousElementSibling;
+      const x = prevSlide.style.left;
+      track.style.transform = "translateX(" + x + ")";
+      currentSlide.classList.remove("current");
+      prevSlide.classList.add("current");
+    })
+
+    // move to specific slide
+    const fastglob = require("fast-glob");
+const fs = require("fs");
+
+(async () => {
+  // Create a "glob" of all styles json files
+  const styleFiles = await fastglob("./src/_data/styles/*.json", {
+    caseSensitiveMatch: false,
+  });
+
+  // Loop through those files and add their content to our `styles` Set
+  let styles = new Set();
+  for (let style of styleFiles) {
+    // Get file created date
+    const { birthtime } = fs.statSync(style);
+
+    const styleData = JSON.parse(fs.readFileSync(style));
+    // Add file created date
+    styleData.date = birthtime;
+    // Add to `styles` Set
+    styles.add(styleData);
+  }
+
+  // Create as array and sort by date
+  let stylesArr = [...styles];
+  stylesArr = stylesArr.sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
+
+  // Write to a .json file in `_data` for 11ty to find
+  fs.writeFile("./src/_data/styles.json", JSON.stringify(stylesArr), function (err) {
+    if (err) throw err;
+    console.log("Saved styles data");
+  });
+
+  return;
+})();
+  </script>
 </body>
 </html>
