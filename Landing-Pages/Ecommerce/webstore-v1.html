@@ -6,98 +6,102 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Webstore v.1</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="./css/styles_webstore-v1.css"> -->
+  <link rel="stylesheet" href="./css/styles_webstore-v1.css">
   <style>
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Kaushan+Script&family=Playfair+Display&display=swap');
+/* 
+font-family: 'Abril Fatface', cursive;
+font-family: 'Courgette', cursive;
+font-family: 'Dancing Script', cursive;
+font-family: 'Great Vibes', cursive;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Limelight', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Oleo Script Swash Caps', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Kaushan Script', cursive;
+font-family: 'Fraunces', serif;
+font-family: 'Playfair Display', serif;
+*/
+    .cont2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      min-height: 100vh;
+      color: #260119;
+      text-align: center;
     }
 
-    ul {
-      list-style: none;
+    .cont2 h1 {
+      font-size: 2.2rem;
+      text-transform: uppercase;
+      font-family: 'Abril Fatface', cursive;
+font-family: 'Courgette', cursive;
+font-family: 'Dancing Script', cursive;
+font-family: 'Great Vibes', cursive;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Limelight', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Oleo Script Swash Caps', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Kaushan Script', cursive;
+font-family: 'Fraunces', serif;
+font-family: 'Playfair Display', serif;
     }
 
-    button {
-      border: 1px solid transparent;
-      outline: 1px solid transparent;
-      background-color: transparent;
-      cursor: pointer;
-    }
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .carousel {
-      position: relative;
-      width: 80%;
-      height: 600px;
-      margin: 0 auto;
-    }
-
-    .track-container {
-      position: relative;
-      height: 100%;
-      /* background-color: lightgreen; */
+    .flip {
+      height: 50px;
       overflow: hidden;
     }
-
-    .track {
-      height: 100%;
-      transition: transform 1s ease-in;
+    .flip h1 {
+      display: inline-block;
+      height: 45px;
+      margin-bottom: 45px;
+      padding: 4px 12px;
+      color: #fff;
+      background-color: #f29118;
+    }
+    .flip div:first-child {
+      animation: show 5s linear infinite;
+    }
+    .flip div:first-child h1 {
+      background-color: #8c1864;
+    }
+    .flip div:last-child h1 {
+      background-color: #bf4904;
     }
 
-    .slide {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 100%;
-    }
-
-    #prev, #next {
-      position: absolute;
-      top: 47%;
-      /* color: #fff; */
-      font-size: 3rem;
-      font-family: initial;
-      line-height: 0.7;
-      border: 1px solid;
-      border-radius: 50%;
-      z-index: 1;
-    }
-    #prev {
-      left: 0;
-      padding: 0 0.302em 0.2em 0.265em;
-      transform: translateX(-100%);
-    }
-    #next {
-      right: 0;
-      padding: 0 0.265em 0.2em 0.302em;
-      transform: translateX(100%);
-    }
-
-    .nav {
-      padding: 10px 0;
-      display: flex;
-      justify-content: center;
-      /* background-color: pink; */
-    }
-    .indicator {
-      width: 15px;
-      height: 15px;
-      margin: 0 10px;
-      border-radius: 50%;
-      background-color: rgba(0, 0, 0, 0.3);
-    }
-    .indicator.current {
-      background-color: rgba(0, 0, 0, 0.75);
-    }
-
-    .hidden {
-      display: none;
+    @keyframes show {
+      0% {
+        margin-top: -270px;
+      }
+      5% {
+        margin-top: -180px;
+      }
+      33% {
+        margin-top: -180px;
+      }
+      38% {
+        margin-top: -90px;
+      }
+      66% {
+        margin-top: -90px;
+      }
+      71% {
+        margin-top: 0px;
+      }
+      99.99% {
+        margin-top: 0px;
+      }
+      100% {
+        margin-top: -270px;
+      }
     }
   </style>
 </head>
@@ -106,129 +110,20 @@
 
   <!-- menu -->
   <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
-
-  <div class="carousel">
-    <button id="prev" class="hidden">&#139;</button>
-    <div class="track-container">
-      <ul class="track">
-        <li class="slide current">
-          <img src="../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg" alt="">
-        </li>
-        <li class="slide">
-          <img src="../../Sliders/img/mountain-in-meteora-greece_1920x1080.jpg" alt="">
-        </li>
-        <li class="slide">
-          <img src="../../Sliders/img/toscana-italy.jpg" alt="">
-        </li>
-      </ul>
+  <div class="cont2">
+    <h1>learn</h1>
+    <div class="flip">
+      <div>
+        <h1>html</h1>
+      </div>
+      <div>
+        <h1>css</h1>
+      </div>
+      <div>
+        <h1>java script</h1>
+      </div>
     </div>
-    <button id="next">&#155;</button>
-    <div class="nav dots">
-      <button class="indicator dot current"></button>
-      <button class="indicator dot"></button>
-      <button class="indicator dot"></button>
-    </div>
+    <h1>today</h1>
   </div>
-
-  <script>
-    console.log("test");
-
-    const track = document.querySelector(".track");
-    const slides = Array.from(track.children);
-    const nextButton = document.querySelector("#next");
-    const prevButton = document.querySelector("#prev");
-    const nav = document.querySelector(".dots");
-    const dots = Array.from(nav.children);
-
-    let slideWidth = slides[0].getBoundingClientRect().width;
-
-    // slides[0].style.left = slideWidth * 0 + "px";
-    // slides[1].style.left = slideWidth * 1 + "px";
-    // slides[2].style.left = slideWidth * 2 + "px";
-    slides.forEach((slide, index) => {
-      slide.style.left = slideWidth * index + "px";
-    })
-
-    // move slides to the right
-    nextButton.addEventListener("click", () => {
-      const currentSlide = track.querySelector(".slide.current");
-      const nextSlide = currentSlide.nextElementSibling;
-      const x = nextSlide.style.left;
-      track.style.transform = "translateX(-" + x + ")";
-      currentSlide.classList.remove("current");
-      nextSlide.classList.add("current");
-      const currentDot = nav.querySelector(".dot.current");
-      currentDot.classList.remove("current");
-      const nextDot = currentDot.nextElementSibling;
-      nextDot.classList.add("current");
-      const targetIndex = slides.indexOf(nextSlide);
-      if (targetIndex === 0) {
-        prevButton.classList.add("hidden");
-        nextButton.classList.remove("hidden");
-      } else if (targetIndex === slides.length - 1) {
-        prevButton.classList.remove("hidden");
-        nextButton.classList.add("hidden");
-      } else {
-        prevButton.classList.remove("hidden");
-        nextButton.classList.remove("hidden");
-      }
-    })
-
-    // move slides to the left
-    prevButton.addEventListener("click", () => {
-      const currentSlide = track.querySelector(".slide.current");
-      const prevSlide = currentSlide.previousElementSibling;
-      const x = prevSlide.style.left;
-      track.style.transform = "translateX(" + x + ")";
-      currentSlide.classList.remove("current");
-      prevSlide.classList.add("current");
-      const currentDot = nav.querySelector(".dot.current");
-      currentDot.classList.remove("current");
-      const prevDot = currentDot.previousElementSibling;
-      prevDot.classList.add("current");
-      const targetIndex = slides.indexOf(prevSlide);
-      if (targetIndex === 0) {
-        prevButton.classList.add("hidden");
-        nextButton.classList.remove("hidden");
-      } else if (targetIndex === slides.length - 1) {
-        prevButton.classList.remove("hidden");
-        nextButton.classList.add("hidden");
-      } else {
-        prevButton.classList.remove("hidden");
-        nextButton.classList.remove("hidden");
-      }
-    })
-
-    // move to specific slide
-    nav.addEventListener("click", (e) => {
-      const targetDot = e.target.closest("button");
-
-      if (!targetDot) {
-        return;
-      }
-
-      const currentSlide = track.querySelector(".slide.current");
-      const currentDot = nav.querySelector(".dot.current");
-      const targetIndex = dots.findIndex(dot => dot === targetDot);
-      const targetSlide = slides[targetIndex];
-      const x = targetSlide.style.left;
-      track.style.transform = "translateX(" + x + ")";
-      currentSlide.classList.remove("current");
-      targetSlide.classList.add("current");
-      currentDot.classList.remove("current");
-      targetDot.classList.add("current");
-
-      if (targetIndex === 0) {
-        prevButton.classList.add("hidden");
-        nextButton.classList.remove("hidden");
-      } else if (targetIndex === slides.length - 1) {
-        prevButton.classList.remove("hidden");
-        nextButton.classList.add("hidden");
-      } else {
-        prevButton.classList.remove("hidden");
-        nextButton.classList.remove("hidden");
-      }
-    })
-  </script>
 </body>
 </html>
