@@ -1,9 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 
+@font-face {
+    font-family: "Against";
+    src:url("../../../assets/fonts/against-regular.ttf");
+}
+/* font-family: "Against"; */
+
 *, *::before, *::after {
     margin: 0;
     padding: 0;
-    font-family: montserrat, sans-serif;
     box-sizing: border-box;
 }
 
@@ -30,55 +35,51 @@ body {
 }
 
 .navigation-container {
-    position: absolute;
     width: 100%;
-    padding: 10px;
-    /* border: 1px solid #fff; */
+    padding: 1em 3em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .logo {
-    float: left;
-    height: 60px;
-    padding: 0px 20px;
-}
-.logo img {
-    height: 100%;
+    width: 10%;
+    min-width: 5rem;
 }
 
-.menu {}
-.menu-left {
-    float: left;
-    margin: 10px 50px;
-}
-.menu-right {
-    float: right;
+.menu {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .menu ul {
-    margin: 0px 20px;
+    flex: 1;
+    margin: 0px 1rem;
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
-
-.menu a {
-    display: block;
-    margin: 10px 25px;
-    font-weight: 200;
+.menu ul li {
+    margin: 0 1rem;
+}
+.menu ul a {
+    display: inline-block;
+    padding: 1em;
     color: #fff;
-    font-size: 12px;
-    padding: 10px 25px;
+    font-size: 1rem;
     text-transform: capitalize;
 }
 
 #search-bar {
-    height: 18px;
-    padding: 10px;
-    margin: 10px 50px;
-    background-color: transparent;
-    width: 170px;
+    padding: 0.6rem;
+    color: #fff;
+    text-align: center;
     border: 1px solid transparent;
     border-bottom: 1px solid #fff;
     outline: 1px solid transparent;
-    text-align: center;
+    background-color: transparent;
 }
 #search-bar::placeholder {
     color: #fff;
@@ -88,57 +89,58 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
 }
 
 .slide-box {
-    margin: 80px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .slider-text {
-    flex-basis: 400px;
+    flex-basis: 30rem;
+    margin: 3rem auto 0;
     color: #fff;
 }
 .slider-text p {
-    color: rgb(110, 105, 105);
-    line-height: 20px;
+    color: #6e6969;
 }
 h6 {
-    font-size: 15px;
-    word-spacing: 5px;
-    line-height: 20px;
     color: #dc721f;
-    flex-wrap: wrap;
+    font-size: 1rem;
+    word-spacing: 0.5em;
+    letter-spacing: 0.6em;
     text-transform: uppercase;
 }
 h2 {
-    font-size: 50px;
-    word-spacing: -2px;
+    margin: 0.4em 0;
+    padding: 0.4em 0;
+    font-size: 3rem;
     text-transform: uppercase;
+    font-family: "Against";
+}
+h2 span {
+    display: block;
 }
 
 .slider-img {
-    height: 450px;
-}
-.slider-img img {
-    max-height: 100%;
+    flex-basis: 45rem;
+    margin: auto;
 }
 
 .categories {
     display: flex;
+    margin-top: 1rem;
 }
 .categories select {
-    width: 90px;
-    height: 40px;
+    margin-right: 20px;
+    padding: 0 1em;
+    color: #fff;
+    text-transform: uppercase;
+    outline: 1px solid transparent;
     border: 2px solid #828282;
     background-color: transparent;
-    color: #fff;
-    outline: none;
-    margin-right: 20px;
-    margin-left: 0px;
-    text-transform: uppercase;
 }
 .categories option {
     color: #000;
@@ -146,13 +148,12 @@ h2 {
     text-transform: uppercase;
 }
 .categories a {
-    font-size: 20px;
+    padding: 0.4em 1.4em;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #dc721f;
+    font-size: 1.1rem;
     font-weight: 500;
     border: 2px solid #dc721f;
-    color: #dc721f;
-    height: 40px;
-    width: 90px;
 }
