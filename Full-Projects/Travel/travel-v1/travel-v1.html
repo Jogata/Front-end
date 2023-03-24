@@ -83,51 +83,6 @@
         .key:active {
             background-color: rgba(0,0,0,0.25);
         }
-
-        .container {
-            width: 100%;
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        h1 {
-            width: 100%;
-            margin-top: 3rem;
-            text-align: center;
-        }
-
-        .todo-container {
-            display: flex;
-            flex-direction: column;
-            width: 300px;
-            border-top: 5px solid #009578;
-            border-bottom: 5px solid #009578;
-            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .todo {
-            padding: 1em;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .todo-value {
-            flex-grow: 1;
-            font-size: 1rem;
-            font-weight: bold;
-            border: none;
-            outline: none;
-            background-color: transparent;
-        }
-
-        .todo:has(.todo-checkbox:checked) {
-            color: #555;
-            background: #eee;
-            text-decoration: line-through;
-            order: 1;
-        }
     </style>
 </head>
 <body>
@@ -560,7 +515,7 @@
     </section>
 
     <div class="pin-login" id="main-pin">
-        <input type="password" name="" id="pin-text" readonly class="error">
+        <input type="password" name="" id="pin-text" readonly class="">
         <div class="numpad">
             <!-- <div class="key">0</div>
             <div class="key">1</div>
@@ -574,24 +529,6 @@
             <div class="key">b</div>
             <div class="key">9</div>
             <div class="key">e</div> -->
-        </div>
-    </div>
-
-    <h1>TODO list - CSS only</h1>
-    <div class="container">
-        <div class="todo-container">
-            <div class="todo">
-                <input type="text" class="todo-value" placeholder="(empty)" value="Take the bins out">
-                <input type="checkbox" class="todo-checkbox">
-            </div>
-            <div class="todo">
-                <input type="text" class="todo-value" placeholder="(empty)">
-                <input type="checkbox" class="todo-checkbox">
-            </div>
-            <div class="todo">
-                <input type="text" class="todo-value" placeholder="(empty)">
-                <input type="checkbox" class="todo-checkbox">
-            </div>
         </div>
     </div>
 
@@ -618,6 +555,64 @@
                     "7", "8", "9",
                     "b", "0", "e",
                 ]
+
+                padLayout.forEach(key => {
+                    // console.log(this);
+                    const insertBR = key.search(/[369]/) !== -1;
+                    const keyEl = document.createElement("div");
+                    keyEl.classList.add("key");
+                    keyEl.textContent = key;
+                    keyEl.addEventListener("click", () => {
+                        this._handleKeyPress(key);
+                    })
+                    this.el.numPad.appendChild(keyEl);
+                })
+            }
+
+            _handleKeyPress(key) {
+                switch (key) {
+                    case "b":
+                        this.value = this.value.substring(0, this.value.length - 1);
+                        break;
+                    case "e":
+                        this._attemptLogin();
+                        break;
+                    default:
+                        if (this.value.length < this.maxNumbers && !isNaN(key)) {
+                            this.value += key;
+                        }
+                        break;
+                }
+
+                this._updateValueText();
+            }
+
+            _updateValueText() {
+                console.log(this.value);
+                // this.el.textDisplay.value = this.value;
+                this.el.textDisplay.value = "_".repeat(this.value.length);
+                this.el.textDisplay.classList.remove("error");
+            }
+
+            _attemptLogin() {
+                if (this.value.length) {
+                    fetch(this.loginEndpoint, {
+                        method: "post",
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded",
+                        },
+                        body: `pincode=${this.value}`,
+                    }).then(res => {
+                        // console.log(res.status);
+                        if (res.status === 200) {
+                            window.location.href = this.redirectTo;
+                        } else {
+                            this.el.textDisplay.classList.add("error");
+                        }
+                    }).catch(err => {
+                        this.el.textDisplay.classList.add("error");
+                    })
+                }
             }
         }
 
@@ -630,7 +625,7 @@
     </script>
 
     <script>
-        console.log("540>645>595>674>613");
+        console.log("540>645>595>674>613>732>669");
         // Setup the Slider in Home Section
         (function setSliderButtons() {
             const sliders = document.querySelectorAll(".slide");
