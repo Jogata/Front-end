@@ -8,101 +8,62 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./css/styles_webstore-v1.css">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Kaushan+Script&family=Playfair+Display&display=swap');
-/* 
-font-family: 'Abril Fatface', cursive;
-font-family: 'Courgette', cursive;
-font-family: 'Dancing Script', cursive;
-font-family: 'Great Vibes', cursive;
-font-family: 'Josefin Sans', sans-serif;
-font-family: 'Limelight', cursive;
-font-family: 'Lobster', cursive;
-font-family: 'Montserrat', sans-serif;
-font-family: 'Oleo Script Swash Caps', cursive;
-font-family: 'Poppins', sans-serif;
-font-family: 'Raleway', sans-serif;
-font-family: 'Kaushan Script', cursive;
-font-family: 'Fraunces', serif;
-font-family: 'Playfair Display', serif;
-*/
-    .cont2 {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      min-height: 100vh;
-      color: #260119;
-      text-align: center;
-    }
+    .loader {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-    .cont2 h1 {
-      font-size: 2.2rem;
-      text-transform: uppercase;
-      font-family: 'Abril Fatface', cursive;
-font-family: 'Courgette', cursive;
-font-family: 'Dancing Script', cursive;
-font-family: 'Great Vibes', cursive;
-font-family: 'Josefin Sans', sans-serif;
-font-family: 'Limelight', cursive;
-font-family: 'Lobster', cursive;
-font-family: 'Montserrat', sans-serif;
-font-family: 'Oleo Script Swash Caps', cursive;
-font-family: 'Poppins', sans-serif;
-font-family: 'Raleway', sans-serif;
-font-family: 'Kaushan Script', cursive;
-font-family: 'Fraunces', serif;
-font-family: 'Playfair Display', serif;
-    }
+.loader > img {
+    width: 100px;
+}
 
-    .flip {
-      height: 50px;
-      overflow: hidden;
-    }
-    .flip h1 {
-      display: inline-block;
-      height: 45px;
-      margin-bottom: 45px;
-      padding: 4px 12px;
-      color: #fff;
-      background-color: #f29118;
-    }
-    .flip div:first-child {
-      animation: show 5s linear infinite;
-    }
-    .flip div:first-child h1 {
-      background-color: #8c1864;
-    }
-    .flip div:last-child h1 {
-      background-color: #bf4904;
-    }
+.loader.hidden {
+    animation: fadeOut 1s;
+    animation-fill-mode: forwards;
+}
 
-    @keyframes show {
-      0% {
-        margin-top: -270px;
-      }
-      5% {
-        margin-top: -180px;
-      }
-      33% {
-        margin-top: -180px;
-      }
-      38% {
-        margin-top: -90px;
-      }
-      66% {
-        margin-top: -90px;
-      }
-      71% {
-        margin-top: 0px;
-      }
-      99.99% {
-        margin-top: 0px;
-      }
-      100% {
-        margin-top: -270px;
-      }
+@keyframes fadeOut {
+    100% {
+        opacity: 0;
+        visibility: hidden;
     }
+}
+
+.thumb {
+    height: 100px;
+    border: 1px solid #000;
+    margin: 10px;
+}
+
+.loader2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: lightgrey;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.disppear {
+  animation: vanish 1s forwards;
+}
+@keyframes vanish {
+  100%{
+    opacity: 0;
+    visibility: hidden;
+  }
+}
   </style>
 </head>
 <body>
@@ -110,20 +71,35 @@ font-family: 'Playfair Display', serif;
 
   <!-- menu -->
   <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
-  <div class="cont2">
-    <h1>learn</h1>
-    <div class="flip">
-      <div>
-        <h1>html</h1>
-      </div>
-      <div>
-        <h1>css</h1>
-      </div>
-      <div>
-        <h1>java script</h1>
-      </div>
-    </div>
-    <h1>today</h1>
-  </div>
+
+  <!-- <div class="loader">
+    <img src="loading.gif" alt="Loading..." />
+</div>
+<h2 id="title">Custom Loader - dcode</h2>
+<img src="image1.jpg" class="thumb" />
+<img src="image2.jpg" class="thumb" />
+<img src="image3.jpg" class="thumb" /> -->
+
+<div class="loader2">
+  <img src="load-gif.gif" alt="">
+</div>
+<div class="img">
+  <img src="https://source.unsplash.com/200x200" alt="">
+</div>
+
+<script>
+//   window.addEventListener("load", function () {
+//     const loader = document.querySelector(".loader");
+//     loader.className += " hidden"; // class "loader hidden"
+// });
+
+const loader2 = document.querySelector(".loader2");
+
+window.addEventListener("load", vanish);
+
+function vanish() {
+  loader2.classList.add("disppear");
+}
+</script>
 </body>
 </html>
