@@ -57,72 +57,11 @@ font-family: 'Playfair Display', serif;     //400,700
             /* border: 1px solid white; */
         }
 
-        /* .content {
+        .content {
             width: 65%;
             padding-left: 30px;
             padding-right: 20px;
-        } */
-
-        *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body{
-  /* display: flex; */
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  min-height: 100vh;
-}
-.content1{
-  height: 400px;
-  width: 750px;
-  position: relative;
-  background-color: black;
-}
-.content1 .images{
-  height: 100%;
-  width: 100%;
-}
-.content1 .images img{
-  height: 100%;
-  width: 100%;
-}
-.btm-slides{
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-}
-.btm-slides span{
-  height: 15px;
-  width: 50px;
-  border: 2px solid white;
-  margin: 0 3px;
-  cursor: pointer;
-}
-.sliders{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 45px;
-  cursor: pointer;
-  border: 2px solid white;
-  background: rgba(255,255,255,0.1);
-}
-.sliders:hover{
-  background: rgba(255,255,255,0.2);
-}
-.right{
-  right: 0;
-}
-.sliders span{
-  line-height: 41px;
-  font-size: 35px;
-  color: white;
-}
+        }
     </style>
 </head>
 <body>
@@ -224,56 +163,157 @@ body{
         </div>
     </div>
 
-    <div class="content1">
-        <div class="images">
-           <img src="../Parallax/img/parallaxIV/gallery/120372783_340812587254299_774244032306180550_n.jpg">
-           <img src="../Parallax/img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg">
-           <img src="../Parallax/img/parallaxIV/gallery/212573141_870101006920357_9185461114137501578_n.jpg">
-           <img src="../Parallax/img/parallaxIV/gallery/212696607_565196161514018_1044941815810703332_n.jpg">
-           <img src="../Parallax/img/parallaxIV/gallery/72614063_433236090677267_2807365040358828412_n.jpg">
+    <section class="product"> 
+        <h2 class="product-category">best selling</h2>
+        <button class="pre-btn"><img src="images/arrow.png" alt=""></button>
+        <button class="nxt-btn"><img src="images/arrow.png" alt=""></button>
+        <div class="product-container">
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="images/card1.jpg" class="product-thumb" alt="">
+                    <button class="card-btn">add to wishlist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">a short line about the cloth..</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="images/card2.jpg" class="product-thumb" alt="">
+                    <button class="card-btn">add to wishlist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">a short line about the cloth..</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="images/card3.jpg" class="product-thumb" alt="">
+                    <button class="card-btn">add to wishlist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">a short line about the cloth..</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="images/card4.jpg" class="product-thumb" alt="">
+                    <button class="card-btn">add to wishlist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">a short line about the cloth..</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="images/card5.jpg" class="product-thumb" alt="">
+                    <button class="card-btn">add to wishlist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">a short line about the cloth..</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="images/card6.jpg" class="product-thumb" alt="">
+                    <button class="card-btn">add to wishlist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">a short line about the cloth..</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="images/card7.jpg" class="product-thumb" alt="">
+                    <button class="card-btn">add to wishlist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">a short line about the cloth..</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="images/card8.jpg" class="product-thumb" alt="">
+                    <button class="card-btn">add to wishlist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">a short line about the cloth..</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="images/card9.jpg" class="product-thumb" alt="">
+                    <button class="card-btn">add to wishlist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">a short line about the cloth..</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="discount-tag">50% off</span>
+                    <img src="images/card10.jpg" class="product-thumb" alt="">
+                    <button class="card-btn">add to wishlist</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">brand</h2>
+                    <p class="product-short-description">a short line about the cloth..</p>
+                    <span class="price">$20</span><span class="actual-price">$40</span>
+                </div>
+            </div>
         </div>
-        <div class="btm-slides">
-           <span onclick="btm_slide(1)"></span>
-           <span onclick="btm_slide(2)"></span>
-           <span onclick="btm_slide(3)"></span>
-           <span onclick="btm_slide(4)"></span>
-           <span onclick="btm_slide(5)"></span>
-        </div>
-        <div class="sliders left" onclick="side_slide(-1)">
-           <span class="fa fa-angle-left"></span>
-        </div>
-        <div class="sliders right" onclick="side_slide(1)">
-           <span class="fa fa-angle-right"></span>
-        </div>
-     </div>
-     <script>
-        var indexValue = 1;
-        showImg(indexValue);
-        function btm_slide(e){
-            showImg(indexValue = e);
-        }
-        function side_slide(e){
-            showImg(indexValue += e);
-        }
-        function showImg(e){
-          var i;
-          const img = document.querySelectorAll('.images img');
-          const slider = document.querySelectorAll('.btm-slides span');
-          if(e > img.length){
-            indexValue = 1;
-        }
-          if(e < 1){
-            indexValue = img.length;
-        }
-          for(i = 0; i < img.length; i++){
-            img[i].style.display = "none";
-          }
-          for(i = 0; i < slider.length; i++){
-            slider[i].style.background = "rgba(255,255,255,0.1)";
-          }
-          img[indexValue-1].style.display = "block";
-          slider[indexValue-1].style.background = "white";
-        }
-     </script>
+    </section>
+    
+    <script>
+      const productContainers = [...document.querySelectorAll('.product-container')];
+    const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
+    const preBtn = [...document.querySelectorAll('.pre-btn')];
+    
+    productContainers.forEach((item, i) => {
+        // let containerDimensions = item.getBoundingClientRect();
+        // let containerWidth = containerDimensions.width;
+    
+        nxtBtn[i].addEventListener('click', () => {
+          let containerDimensions = item.getBoundingClientRect();
+        let containerWidth = containerDimensions.width;
+        console.log(containerWidth);
+            item.scrollLeft += containerWidth;
+        })
+    
+        preBtn[i].addEventListener('click', () => {
+          let containerDimensions = item.getBoundingClientRect();
+        let containerWidth = containerDimensions.width;
+        console.log(containerWidth);
+            item.scrollLeft -= containerWidth;
+        })
+    })
+    </script>
 </body>
 </html>
