@@ -8,62 +8,123 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./css/styles_webstore-v1.css">
   <style>
-    .loader {
-    position: fixed;
-    z-index: 99;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.loader > img {
-    width: 100px;
-}
-
-.loader.hidden {
-    animation: fadeOut 1s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes fadeOut {
-    100% {
-        opacity: 0;
-        visibility: hidden;
+    .test {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #333;
+      background-image: url("../../Sliders/img/toscana-italy.jpg");
+      background-size: cover;
+      background-position: center;
     }
-}
 
-.thumb {
-    height: 100px;
-    border: 1px solid #000;
-    margin: 10px;
-}
+    .box {
+      position: relative;
+      border-radius: 20px;
+      transform-style: preserve-3d;
+    }
 
-.loader2 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: lightgrey;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    .card {
+      position: relative;
+      width: 300px;
+      min-height: 400px;
+      color: #fff;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-top: 1px solid rgba(255, 255, 255, 0.75);
+      border-left: 1px solid rgba(255, 255, 255, 0.75);
+      background-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0px 25px 45px rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(10px);
+      transform-style: preserve-3d;
+    }
 
-.disppear {
-  animation: vanish 1s forwards;
-}
-@keyframes vanish {
-  100%{
-    opacity: 0;
-    visibility: hidden;
-  }
-}
+    .element {
+      position: absolute;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-top: 1px solid rgba(255, 255, 255, 0.75);
+      border-left: 1px solid rgba(255, 255, 255, 0.75);
+      background-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0px 25px 45px rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(10px);
+      opacity: 0;
+      transition: all 0.5s;
+    }
+    .box:hover .element {
+      transform: translateZ(80px);
+      opacity: 1;
+    }
+    .quotes {
+      top: 50px;
+      left: -30px;
+      width: 100px;
+      height: 100px;
+    }
+    .quotes::before {
+      content: open-quote;
+      position: absolute;
+      inset: 0;
+      font-size: 160px;
+      -webkit-text-stroke: 1px #fff;
+      color: transparent;
+      text-align: center;
+      font-weight: bold;
+      line-height: 160px;
+    }
+
+    .img-box {
+      top: -20px;
+      right: 60px;
+      width: 120px;
+      height: 120px;
+      padding: 1%;
+      transform: translateZ(120px);
+    }
+    .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-top: 1px solid rgba(255, 255, 255, 0.75);
+      border-left: 1px solid rgba(255, 255, 255, 0.75);
+      box-shadow: 0px 25px 45px rgba(0, 0, 0, 0.05);
+    }
+
+    .name {
+      position: absolute;
+      top: 235px;
+      right: 0;
+      width: 90%;
+      padding: 10px;
+      font-size: 2rem;
+      text-align: right;
+      text-transform: capitalize;
+      transform: translateZ(100px);
+      transition: all 0.7s;
+      transition-delay: 0.25s;
+    }
+    .card:hover .name {
+      top: 135px;
+      transform: translateZ(100px);
+      opacity: 1;
+    }
+
+    .content {
+      position: absolute;
+      right: -20px;
+      top: 235px;
+      width: 85%;
+      padding: 10px;
+      text-align: center;
+      transform: translateZ(180px);
+      transition-delay: 0s;
+    }
+    .card:hover .element.content {
+      transition-delay: 0.5s;
+    }
   </style>
 </head>
 <body>
@@ -72,34 +133,21 @@
   <!-- menu -->
   <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
 
-  <!-- <div class="loader">
-    <img src="loading.gif" alt="Loading..." />
-</div>
-<h2 id="title">Custom Loader - dcode</h2>
-<img src="image1.jpg" class="thumb" />
-<img src="image2.jpg" class="thumb" />
-<img src="image3.jpg" class="thumb" /> -->
-
-<div class="loader2">
-  <img src="load-gif.gif" alt="">
-</div>
-<div class="img">
-  <img src="https://source.unsplash.com/200x200" alt="">
-</div>
-
-<script>
-//   window.addEventListener("load", function () {
-//     const loader = document.querySelector(".loader");
-//     loader.className += " hidden"; // class "loader hidden"
-// });
-
-const loader2 = document.querySelector(".loader2");
-
-window.addEventListener("load", vanish);
-
-function vanish() {
-  loader2.classList.add("disppear");
-}
-</script>
+  <div class="test">
+    <div class="box">
+      <div class="card">
+        <div class="element quotes"></div>
+        <div class="element img-box">
+          <img src="../../../CSS/assets/img/profile-copy.jpg" alt="">
+        </div>
+        <div class="name">
+          <h2>some name</h2>
+        </div>
+        <div class="element content">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero explicabo corrupti est odit id, atque quam quod magnam corporis architecto.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
