@@ -62,6 +62,87 @@ font-family: 'Playfair Display', serif;     //400,700
             padding-left: 30px;
             padding-right: 20px;
         }
+
+        .polaroid {
+            background-color: #e9ecef;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .grid {
+            width: 100%;
+            max-width: 1220px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            /* flex-direction: column; */
+        }
+
+        .polaroid h2 {
+            color: #282828;
+            padding: 90px 0 40px;
+            font-size: 80px;
+            font-weight: 700;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .grid {
+            position: relative;
+            width: 100%;
+            margin: 0 auto;
+            padding-bottom: 60px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .grid-item {
+            width: 33%;
+            padding: 10px;
+        }
+
+        .grid-link {
+            display: block;
+            padding: 13px 13px 0 13px;
+            background-color: white;
+            text-decoration: none;
+        }
+
+        .grid-img {
+            display: block;
+            width: 100%;
+        }
+
+        .grid-item h3 {
+            position: relative;
+            margin: 0;
+            padding: 22px 10px;
+            color: #707070;
+            background-color: white;
+            font-size: 20px;
+            line-height: 1;
+            text-transform: capitalize;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        @media screen and (max-width: 900px) {
+            .grid-item {
+                width: 50%;
+            }
+
+            .grid-item h3 {
+                font-size: 60px;
+            }
+        }
+        @media screen and (max-width: 480px) {
+            .grid-item {
+                width: 100%;
+            }
+
+            .grid-item h3 {
+                font-size: 40px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -163,157 +244,72 @@ font-family: 'Playfair Display', serif;     //400,700
         </div>
     </div>
 
-    <section class="product"> 
-        <h2 class="product-category">best selling</h2>
-        <button class="pre-btn"><img src="images/arrow.png" alt=""></button>
-        <button class="nxt-btn"><img src="images/arrow.png" alt=""></button>
-        <div class="product-container">
-            <div class="product-card">
-                <div class="product-image">
-                    <span class="discount-tag">50% off</span>
-                    <img src="images/card1.jpg" class="product-thumb" alt="">
-                    <button class="card-btn">add to wishlist</button>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-brand">brand</h2>
-                    <p class="product-short-description">a short line about the cloth..</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
-                </div>
+    <div class="polaroid">
+        <h2>polaroid grid</h2>
+        <div class="grid">
+
+            <div class="grid-item">
+                <a class="grid-link">
+                    <img src="./img/parallaxIV/gallery/120372783_340812587254299_774244032306180550_n.jpg" class="grid-img"/>
+                    <h3 class="title">title 1</h3>
+                </a>
             </div>
-            <div class="product-card">
-                <div class="product-image">
-                    <span class="discount-tag">50% off</span>
-                    <img src="images/card2.jpg" class="product-thumb" alt="">
-                    <button class="card-btn">add to wishlist</button>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-brand">brand</h2>
-                    <p class="product-short-description">a short line about the cloth..</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
-                </div>
+            <div class="grid-item">
+                <a class="grid-link">
+                    <img src="./img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg" class="grid-img"/>
+                    <h3 class="title">title 2</h3>
+                </a>
             </div>
-            <div class="product-card">
-                <div class="product-image">
-                    <span class="discount-tag">50% off</span>
-                    <img src="images/card3.jpg" class="product-thumb" alt="">
-                    <button class="card-btn">add to wishlist</button>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-brand">brand</h2>
-                    <p class="product-short-description">a short line about the cloth..</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
-                </div>
+            <div class="grid-item">
+                <a class="grid-link">
+                    <img src="./img/parallaxIV/gallery/212573141_870101006920357_9185461114137501578_n.jpg" class="grid-img"/>
+                    <h3 class="title">title 3</h3>
+                </a>
             </div>
-            <div class="product-card">
-                <div class="product-image">
-                    <span class="discount-tag">50% off</span>
-                    <img src="images/card4.jpg" class="product-thumb" alt="">
-                    <button class="card-btn">add to wishlist</button>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-brand">brand</h2>
-                    <p class="product-short-description">a short line about the cloth..</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
-                </div>
+            <div class="grid-item">
+                <a class="grid-link">
+                    <img src="./img/parallaxIV/gallery/310312823_1063165841035871_7233886241606775336_n.jpg" class="grid-img"/>
+                    <h3 class="title">title 4</h3>
+                </a>
             </div>
-            <div class="product-card">
-                <div class="product-image">
-                    <span class="discount-tag">50% off</span>
-                    <img src="images/card5.jpg" class="product-thumb" alt="">
-                    <button class="card-btn">add to wishlist</button>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-brand">brand</h2>
-                    <p class="product-short-description">a short line about the cloth..</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
-                </div>
+            <div class="grid-item">
+                <a class="grid-link">
+                    <img src="./img/parallaxIV/gallery/314989870_440856418203915_8112806341494003649_n.jpg" class="grid-img"/>
+                    <h3 class="title">title 5</h3>
+                </a>
             </div>
-            <div class="product-card">
-                <div class="product-image">
-                    <span class="discount-tag">50% off</span>
-                    <img src="images/card6.jpg" class="product-thumb" alt="">
-                    <button class="card-btn">add to wishlist</button>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-brand">brand</h2>
-                    <p class="product-short-description">a short line about the cloth..</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
-                </div>
+            <div class="grid-item">
+                <a class="grid-link">
+                    <img src="./img/parallaxIV/gallery/320075870_672693277833663_8152859641160213840_n.jpg" class="grid-img"/>
+                    <h3 class="title">title 6</h3>
+                </a>
             </div>
-            <div class="product-card">
-                <div class="product-image">
-                    <span class="discount-tag">50% off</span>
-                    <img src="images/card7.jpg" class="product-thumb" alt="">
-                    <button class="card-btn">add to wishlist</button>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-brand">brand</h2>
-                    <p class="product-short-description">a short line about the cloth..</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
-                </div>
+            <div class="grid-item">
+                <a class="grid-link">
+                    <img src="./img/parallaxIV/gallery/320815532_716429662995872_7462497255081682829_n.jpg" class="grid-img"/>
+                    <h3 class="title">title 7</h3>
+                </a>
             </div>
-            <div class="product-card">
-                <div class="product-image">
-                    <span class="discount-tag">50% off</span>
-                    <img src="images/card8.jpg" class="product-thumb" alt="">
-                    <button class="card-btn">add to wishlist</button>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-brand">brand</h2>
-                    <p class="product-short-description">a short line about the cloth..</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
-                </div>
+            <div class="grid-item">
+                <a class="grid-link">
+                    <img src="./img/parallaxIV/gallery/320907932_870320980825676_7214722970886057296_n.jpg" class="grid-img"/>
+                    <h3 class="title">title 8</h3>
+                </a>
             </div>
-            <div class="product-card">
-                <div class="product-image">
-                    <span class="discount-tag">50% off</span>
-                    <img src="images/card9.jpg" class="product-thumb" alt="">
-                    <button class="card-btn">add to wishlist</button>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-brand">brand</h2>
-                    <p class="product-short-description">a short line about the cloth..</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
-                </div>
+            <div class="grid-item">
+                <a class="grid-link">
+                    <img src="./img/parallaxIV/gallery/321930869_1351698535640550_1096427312314771662_n.jpg" class="grid-img"/>
+                    <h3 class="title">title 9</h3>
+                </a>
             </div>
-            <div class="product-card">
-                <div class="product-image">
-                    <span class="discount-tag">50% off</span>
-                    <img src="images/card10.jpg" class="product-thumb" alt="">
-                    <button class="card-btn">add to wishlist</button>
-                </div>
-                <div class="product-info">
-                    <h2 class="product-brand">brand</h2>
-                    <p class="product-short-description">a short line about the cloth..</p>
-                    <span class="price">$20</span><span class="actual-price">$40</span>
-                </div>
+            <div class="grid-item">
+                <a class="grid-link">
+                    <img src="./img/parallaxIV/gallery/72614063_433236090677267_2807365040358828412_n.jpg" class="grid-img"/>
+                    <h3 class="title">title 10</h3>
+                </a>
             </div>
         </div>
-    </section>
-    
-    <script>
-      const productContainers = [...document.querySelectorAll('.product-container')];
-    const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
-    const preBtn = [...document.querySelectorAll('.pre-btn')];
-    
-    productContainers.forEach((item, i) => {
-        // let containerDimensions = item.getBoundingClientRect();
-        // let containerWidth = containerDimensions.width;
-    
-        nxtBtn[i].addEventListener('click', () => {
-          let containerDimensions = item.getBoundingClientRect();
-        let containerWidth = containerDimensions.width;
-        console.log(containerWidth);
-            item.scrollLeft += containerWidth;
-        })
-    
-        preBtn[i].addEventListener('click', () => {
-          let containerDimensions = item.getBoundingClientRect();
-        let containerWidth = containerDimensions.width;
-        console.log(containerWidth);
-            item.scrollLeft -= containerWidth;
-        })
-    })
-    </script>
+    </div>
+
 </body>
 </html>
