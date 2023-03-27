@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel v.2</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/styles-travel-v2.css">
+    <!-- <link rel="stylesheet" href="./css/styles-travel-v2.css"> -->
     <style>
         #speech-synthesis {
             min-height: 100vh;
@@ -36,62 +36,25 @@
             border-radius: 1em;
         }
 
-        #delete3 {
-            padding: 30vh 0;
-            text-align: center;
-        }
-        .test {
-            padding: 0.4em 1.2em;
-            text-transform: uppercase;
-            border-radius: 2em;
-            border: 1px solid grey;
-            background-color: transparent;
-            transition: all 0.4s;
-            cursor: pointer;
-        }
-        .test:hover {
-            font-size: 1.1em;
-            box-shadow: 2px 2px 2px #0004;
-        }
+        .page-wrapper {}
+        .slider {}
+        .slider-list {}
+        .slider-list-item {}
+        .back-element {}
+        .main-element {}
+        .front-element {}
+        .title-element {}
+        .title {}
+        .more-element {}
+        .content {}
+        .headline {}
+        .excerpt {}
+        .fill {}
     </style>
 </head>
 <body>
     <!-- factory pattern -->
-    <script>
-        function Developer(name) {
-            this.name = name;
-            this.type = "Developer";
-        }
-        function Tester(name) {
-            this.name = name;
-            this.type = "Tester";
-        }
-        function EmployeeFactory() {
-            this.whatami = "factory";
-            this.create = (name, type) => {
-                console.log(54, this);
-                switch (type) {
-                    case 1:
-                        return new Developer(name)
-                        break;
-                        
-                        case 2:
-                            return new Tester(name)
-                            break;
-                        }
-                    }
-                    console.log(52, this);
-        }
-
-        console.log(68);
-        const employeeFactory = new EmployeeFactory();
-        const employees = [];
-
-        console.log(72);
-        employees.push(employeeFactory.create("Bob", 1));
-
-        console.log(employees[0].whatami);
-    </script>
+    <script src="./js/script_travel_v2.js"></script>
 
     <!-- observer pattern -->
     <script>
@@ -294,95 +257,99 @@
         </script>
     </section>
 
-    <section id="delete3" class="js">
-        <button id="test1" class="test">normal f</button>
-        <button id="test2" class="test">arrow f</button>
-        <button id="test3" class="test">factory f</button>
-    </section>
+    <section id="delete3" class="js"></section>
     <section id="delete4"></section>
 
-    <script>
-        // Detect Mobile browser with JS
-        // v.1 - regular expression
-        function isMobileRegex() {
-            return /Android|iPhone/i.test(navigator.userAgent);
-        }
+    <section class="page-wrapper">
+        <div class="slider">
+            <ul class="slider-list">
+                <li class="slider-list-item">
+                    <span class="back-element">
+                        <img src="./00/circular-i-slid/back_apple_002.png" alt="">
+                    </span>
+                    <span class="main-element">
+                        <img src="./00/circular-i-slid/bottle_apple_002.png" alt="">
+                    </span>
+                    <span class="front-element">
+                        <img src="./00/circular-i-slid/front_apple_002.png" alt="">
+                    </span>
+                    <span class="title-element">
+                        <span class="title">apple</span>
+                    </span>
+                    <span class="more-element">
+                        <span class="content">
+                            <span class="headline">apple</span>
+                            <span class="excerpt">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque optio eligendi totam quae voluptatum, a incidunt aliquam reprehenderit dignissimos ullam.</span>
+                            <span class="link">
+                                <span class="fill"></span>
+                                <a href="#apple">open catalog</a>
+                            </span>
+                        </span>
+                    </span>
+                </li>
+                <li class="slider-list-item">
+                    <span class="back-element">
+                        <img src="./00/circular-i-slid/back_grapes_001.png" alt="">
+                    </span>
+                    <span class="main-element">
+                        <img src="./00/circular-i-slid/back_grapes_001.png" alt="">
+                    </span>
+                    <span class="front-element">
+                        <img src="./00/circular-i-slid/front_grapes_001.png" alt="">
+                    </span>
+                    <span class="title-element">
+                        <span class="title">grapes</span>
+                    </span>
+                    <span class="more-element">
+                        <span class="content">
+                            <span class="headline">grapes</span>
+                            <span class="excerpt">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique debitis rerum quis nisi neque voluptatem fuga nobis consequatur quia amet.</span>
+                            <span class="link">
+                                <span class="fill fill-dark"></span>
+                                <a href="#grapes">open catalog</a>
+                            </span>
+                        </span>
+                    </span>
+                </li>
+                <li class="slider-list-item">
+                    <span class="back-element">
+                        <img src="./00/circular-i-slid/back_strawberry_003.png" alt="">
+                    </span>
+                    <span class="main-element">
+                        <img src="./00/circular-i-slid/back_strawberry_003.png" alt="">
+                    </span>
+                    <span class="front-element">
+                        <img src="./00/circular-i-slid/front_strawberry_003.png" alt="">
+                    </span>
+                    <span class="title-element">
+                        <span class="title">strawberry</span>
+                    </span>
+                    <span class="more-element">
+                        <span class="content">
+                            <span class="headline">strawberry</span>
+                            <span class="excerpt">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus enim repudiandae iusto explicabo illum soluta unde, atque vitae error consectetur.</span>
+                            <span class="link">
+                                <span class="fill"></span>
+                                <a href="#strawberry">open catalog</a>
+                            </span>
+                        </span>
+                    </span>
+                </li>
+            </ul>
+            <div class="slidebar-nav-bar">
+                <a href="#" class="nav-control"></a>
+                <a href="#" class="nav-control"></a>
+                <a href="#" class="nav-control"></a>
+            </div>
+            <div class="slider-controls">
+                <a href="#prev" class="slider-arrow slider-arrow-prev"></a>
+                <a href="#next" class="slider-arrow slider-arrow-next"></a>
+            </div>
+        </div>
+    </section>
 
-        console.log(isMobileRegex());
-
-        // v.2 - check for Touch Screen support
-        function isMobileTouchScreen() {
-            return navigator.maxTouchPoints > 0;
-        }
-
-        console.log(isMobileTouchScreen());
-
-        // v.3 - both
-        function isMobile() {
-            return /Android|iPhone/i.test(navigator.userAgent) && navigator.maxTouchPoints > 0;
-        }
-
-        console.log(isMobile());
-        
-        const factoryFunc = function (num2) {
-            const num = 100;
-            return {
-                sum () {
-                    return num * num2;
-                }
-            }
-        }
-
-        class Greeting1 {
-            constructor(greet) {
-                this.greeting = greet;
-            }
-            greet() {
-                console.log(this.greeting);
-            }
-        }
-
-        const ffunc = factoryFunc(5);
-
-        console.log(ffunc.sum());
-
-        const Greeting2 = function (greet) {
-            this.greeting = greet;
-            this.greet = () => {
-                console.log(this.greeting);
-            }
-        }
-
-        const greet1 = new Greeting1('Hi');
-        const greet2 = new Greeting2('Hello');
-
-        function greetingFF(greeting) {
-            return {
-                greet () {
-                    console.log(greeting);
-                }
-            }
-        }
-
-        const greet3 = greetingFF("ff");
-
-        greet1.greet();
-        greet2.greet();
-
-        var greet = "i am global";
-
-        const testButton1 = document.querySelector("#test1");
-        const testButton2 = document.querySelector("#test2");
-        const testButton3 = document.querySelector("#test3");
-
-        // testButton1.greeting = "i am a button";
-
-        testButton1.addEventListener("click", greet1.greet);
-        testButton2.addEventListener("click", greet2.greet);
-        testButton3.addEventListener("click", greet3.greet);
-    </script>
     <script src="./js/script_travel_v2.js">
-        console.log(386>246>266);
+        console.log(388>252);
     </script>
 </body>
 </html>
