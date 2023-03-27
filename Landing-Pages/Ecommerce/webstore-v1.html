@@ -7,6 +7,30 @@
   <title>Webstore v.1</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./css/styles_webstore-v1.css">
+  <style>
+    .box {
+      width: 300px;
+      text-align: center;
+      margin: 32px;
+      padding: 16px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .box input {
+      display: block;
+      width: 100%;
+      margin: 8px 0;
+    }
+
+    #color {
+      width: 50%;
+      margin: auto;
+    }
+
+    label {
+      text-transform: capitalize;
+    }
+  </style>
 </head>
 <body>
   <h1 style="position: absolute; z-index: 1; bottom: 0;">Object.entries(person) - convert object to array</h1>
@@ -14,97 +38,44 @@
   <!-- menu -->
   <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
 
-  <div class="wrapper">
-    <div class="gallery">
-      <div class="image"><span><img src="./../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg" alt=""></span></div>
-      <div class="image"><span><img src="./../../Sliders/img/Edinburgh.jpg" alt=""></span></div>
-      <div class="image"><span><img src="./../../Sliders/img/germany-area-building_1680x1050.jpg" alt=""></span></div>
-      <div class="image"><span><img src="./../../Sliders/img//mountain-in-meteora-greece_1920x1080.jpg" alt=""></span></div>
-      <div class="image"><span><img src="./../../Sliders/img/switzerland-river.jpg" alt=""></span></div>
-      <div class="image"><span><img src="./../../Sliders/img/toscana-italy.jpg" alt=""></span></div>
-    </div>
+  <div class="box">
+    <label>offset x</label>
+    <input type="range" name="" id="offset-x" min="0" max="100" value="2">
+    <label>offset y</label>
+    <input type="range" name="" id="offset-y" min="0" max="100" value="2">
+    <label>blur radius</label>
+    <input type="range" name="" id="blur-radius" min="0" max="100" value="2">
+    <label>blur spread</label>
+    <input type="range" name="" id="blur-spread" min="0" max="100" value="2">
+    <label>color</label>
+    <input type="color" name="" id="color" value="#000000">
+    <input type="text" name="" id="css-value" readonly onclick="this.select()">
   </div>
-  <div class="preview-box">
-    <div class="details">
-      <span class="title">Image <p class="current-img"></p> of <p class="total-img"></p></span>
-      <span class="icon fas fa-times"></span>
-    </div>
-    <div class="image-box">
-      <div class="slide prev"><i class="fas fa-angle-left"></i></div>
-      <div class="slide next"><i class="fas fa-angle-right"></i></div>
-      <img src="" alt="">
-    </div>
-  </div>
-  <div class="shadow"></div>
 
   <script>
-    //getting all required elements
-const gallery  = document.querySelectorAll(".image"),
-previewBox = document.querySelector(".preview-box"),
-previewImg = previewBox.querySelector("img"),
-closeIcon = previewBox.querySelector(".icon"),
-currentImg = previewBox.querySelector(".current-img"),
-totalImg = previewBox.querySelector(".total-img"),
-shadow = document.querySelector(".shadow");
+    const box = document.querySelector(".box");
+    const x = document.querySelector("#offset-x");
+    const y = document.querySelector("#offset-y");
+    const radius = document.querySelector("#blur-radius");
+    const spread = document.querySelector("#blur-spread");
+    const color = document.querySelector("#color");
+    const cssValue = document.querySelector("#css-value");
 
-window.onload = ()=>{
-    for (let i = 0; i < gallery.length; i++) {
-        totalImg.textContent = gallery.length; //passing total img length to totalImg variable
-        let newIndex = i; //passing i value to newIndex variable
-        let clickedImgIndex; //creating new variable
-        
-        gallery[i].onclick = () =>{
-            clickedImgIndex = i; //passing clicked image index to created variable (clickedImgIndex)
-            function preview(){
-                currentImg.textContent = newIndex + 1; //passing current img index to currentImg varible with adding +1
-                let imageURL = gallery[newIndex].querySelector("img").src; //getting user clicked img url
-                previewImg.src = imageURL; //passing user clicked img url in previewImg src
-            }
-            preview(); //calling above function
-    
-            const prevBtn = document.querySelector(".prev");
-            const nextBtn = document.querySelector(".next");
-            if(newIndex == 0){ //if index value is equal to 0 then hide prevBtn
-                prevBtn.style.display = "none"; 
-            }
-            if(newIndex >= gallery.length - 1){ //if index value is greater and equal to gallery length by -1 then hide nextBtn
-                nextBtn.style.display = "none"; 
-            }
-            prevBtn.onclick = ()=>{ 
-                newIndex--; //decrement index
-                if(newIndex == 0){
-                    preview(); 
-                    prevBtn.style.display = "none"; 
-                }else{
-                    preview();
-                    nextBtn.style.display = "block";
-                } 
-            }
-            nextBtn.onclick = ()=>{ 
-                newIndex++; //increment index
-                if(newIndex >= gallery.length - 1){
-                    preview(); 
-                    nextBtn.style.display = "none";
-                }else{
-                    preview(); 
-                    prevBtn.style.display = "block";
-                }
-            }
-            document.querySelector("body").style.overflow = "hidden";
-            previewBox.classList.add("show"); 
-            shadow.style.display = "block"; 
-            closeIcon.onclick = ()=>{
-                newIndex = clickedImgIndex; //assigning user first clicked img index to newIndex
-                prevBtn.style.display = "block"; 
-                nextBtn.style.display = "block";
-                previewBox.classList.remove("show");
-                shadow.style.display = "none";
-                document.querySelector("body").style.overflow = "scroll";
-            }
-        }
-        
-    } 
-}
+    window.addEventListener("load", updateBoxShadow);
+
+    function updateBoxShadow() {
+      console.log("test");
+      const result = `${x.value}px ${y.value}px ${radius.value}px ${spread.value}px ${color.value}`;
+
+      cssValue.value = result;
+      box.style.boxShadow = result;
+    }
+
+    [x, y, radius, spread].forEach(input => {
+      input.onchange = updateBoxShadow;
+    })
+
+    color.addEventListener("input", updateBoxShadow);
   </script>
 </body>
 </html>
