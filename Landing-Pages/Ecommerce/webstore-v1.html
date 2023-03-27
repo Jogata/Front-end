@@ -7,125 +7,6 @@
   <title>Webstore v.1</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./css/styles_webstore-v1.css">
-  <style>
-    .test {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      background-color: #333;
-      background-image: url("../../Sliders/img/toscana-italy.jpg");
-      background-size: cover;
-      background-position: center;
-    }
-
-    .box {
-      position: relative;
-      border-radius: 20px;
-      transform-style: preserve-3d;
-    }
-
-    .card {
-      position: relative;
-      width: 300px;
-      min-height: 400px;
-      color: #fff;
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      border-top: 1px solid rgba(255, 255, 255, 0.75);
-      border-left: 1px solid rgba(255, 255, 255, 0.75);
-      background-color: rgba(255, 255, 255, 0.2);
-      box-shadow: 0px 25px 45px rgba(0, 0, 0, 0.05);
-      backdrop-filter: blur(10px);
-      transform-style: preserve-3d;
-    }
-
-    .element {
-      position: absolute;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      border-top: 1px solid rgba(255, 255, 255, 0.75);
-      border-left: 1px solid rgba(255, 255, 255, 0.75);
-      background-color: rgba(255, 255, 255, 0.1);
-      box-shadow: 0px 25px 45px rgba(0, 0, 0, 0.05);
-      backdrop-filter: blur(10px);
-      opacity: 0;
-      transition: all 0.5s;
-    }
-    .box:hover .element {
-      transform: translateZ(80px);
-      opacity: 1;
-    }
-    .quotes {
-      top: 50px;
-      left: -30px;
-      width: 100px;
-      height: 100px;
-    }
-    .quotes::before {
-      content: open-quote;
-      position: absolute;
-      inset: 0;
-      font-size: 160px;
-      -webkit-text-stroke: 1px #fff;
-      color: transparent;
-      text-align: center;
-      font-weight: bold;
-      line-height: 160px;
-    }
-
-    .img-box {
-      top: -20px;
-      right: 60px;
-      width: 120px;
-      height: 120px;
-      padding: 1%;
-      transform: translateZ(120px);
-    }
-    .img-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      border-top: 1px solid rgba(255, 255, 255, 0.75);
-      border-left: 1px solid rgba(255, 255, 255, 0.75);
-      box-shadow: 0px 25px 45px rgba(0, 0, 0, 0.05);
-    }
-
-    .name {
-      position: absolute;
-      top: 235px;
-      right: 0;
-      width: 90%;
-      padding: 10px;
-      font-size: 2rem;
-      text-align: right;
-      text-transform: capitalize;
-      transform: translateZ(100px);
-      transition: all 0.7s;
-      transition-delay: 0.25s;
-    }
-    .card:hover .name {
-      top: 135px;
-      transform: translateZ(100px);
-      opacity: 1;
-    }
-
-    .content {
-      position: absolute;
-      right: -20px;
-      top: 235px;
-      width: 85%;
-      padding: 10px;
-      text-align: center;
-      transform: translateZ(180px);
-      transition-delay: 0s;
-    }
-    .card:hover .element.content {
-      transition-delay: 0.5s;
-    }
-  </style>
 </head>
 <body>
   <h1 style="position: absolute; z-index: 1; bottom: 0;">Object.entries(person) - convert object to array</h1>
@@ -133,21 +14,97 @@
   <!-- menu -->
   <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
 
-  <div class="test">
-    <div class="box">
-      <div class="card">
-        <div class="element quotes"></div>
-        <div class="element img-box">
-          <img src="../../../CSS/assets/img/profile-copy.jpg" alt="">
-        </div>
-        <div class="name">
-          <h2>some name</h2>
-        </div>
-        <div class="element content">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero explicabo corrupti est odit id, atque quam quod magnam corporis architecto.</p>
-        </div>
-      </div>
+  <div class="wrapper">
+    <div class="gallery">
+      <div class="image"><span><img src="./../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg" alt=""></span></div>
+      <div class="image"><span><img src="./../../Sliders/img/Edinburgh.jpg" alt=""></span></div>
+      <div class="image"><span><img src="./../../Sliders/img/germany-area-building_1680x1050.jpg" alt=""></span></div>
+      <div class="image"><span><img src="./../../Sliders/img//mountain-in-meteora-greece_1920x1080.jpg" alt=""></span></div>
+      <div class="image"><span><img src="./../../Sliders/img/switzerland-river.jpg" alt=""></span></div>
+      <div class="image"><span><img src="./../../Sliders/img/toscana-italy.jpg" alt=""></span></div>
     </div>
   </div>
+  <div class="preview-box">
+    <div class="details">
+      <span class="title">Image <p class="current-img"></p> of <p class="total-img"></p></span>
+      <span class="icon fas fa-times"></span>
+    </div>
+    <div class="image-box">
+      <div class="slide prev"><i class="fas fa-angle-left"></i></div>
+      <div class="slide next"><i class="fas fa-angle-right"></i></div>
+      <img src="" alt="">
+    </div>
+  </div>
+  <div class="shadow"></div>
+
+  <script>
+    //getting all required elements
+const gallery  = document.querySelectorAll(".image"),
+previewBox = document.querySelector(".preview-box"),
+previewImg = previewBox.querySelector("img"),
+closeIcon = previewBox.querySelector(".icon"),
+currentImg = previewBox.querySelector(".current-img"),
+totalImg = previewBox.querySelector(".total-img"),
+shadow = document.querySelector(".shadow");
+
+window.onload = ()=>{
+    for (let i = 0; i < gallery.length; i++) {
+        totalImg.textContent = gallery.length; //passing total img length to totalImg variable
+        let newIndex = i; //passing i value to newIndex variable
+        let clickedImgIndex; //creating new variable
+        
+        gallery[i].onclick = () =>{
+            clickedImgIndex = i; //passing clicked image index to created variable (clickedImgIndex)
+            function preview(){
+                currentImg.textContent = newIndex + 1; //passing current img index to currentImg varible with adding +1
+                let imageURL = gallery[newIndex].querySelector("img").src; //getting user clicked img url
+                previewImg.src = imageURL; //passing user clicked img url in previewImg src
+            }
+            preview(); //calling above function
+    
+            const prevBtn = document.querySelector(".prev");
+            const nextBtn = document.querySelector(".next");
+            if(newIndex == 0){ //if index value is equal to 0 then hide prevBtn
+                prevBtn.style.display = "none"; 
+            }
+            if(newIndex >= gallery.length - 1){ //if index value is greater and equal to gallery length by -1 then hide nextBtn
+                nextBtn.style.display = "none"; 
+            }
+            prevBtn.onclick = ()=>{ 
+                newIndex--; //decrement index
+                if(newIndex == 0){
+                    preview(); 
+                    prevBtn.style.display = "none"; 
+                }else{
+                    preview();
+                    nextBtn.style.display = "block";
+                } 
+            }
+            nextBtn.onclick = ()=>{ 
+                newIndex++; //increment index
+                if(newIndex >= gallery.length - 1){
+                    preview(); 
+                    nextBtn.style.display = "none";
+                }else{
+                    preview(); 
+                    prevBtn.style.display = "block";
+                }
+            }
+            document.querySelector("body").style.overflow = "hidden";
+            previewBox.classList.add("show"); 
+            shadow.style.display = "block"; 
+            closeIcon.onclick = ()=>{
+                newIndex = clickedImgIndex; //assigning user first clicked img index to newIndex
+                prevBtn.style.display = "block"; 
+                nextBtn.style.display = "block";
+                previewBox.classList.remove("show");
+                shadow.style.display = "none";
+                document.querySelector("body").style.overflow = "scroll";
+            }
+        }
+        
+    } 
+}
+  </script>
 </body>
 </html>
