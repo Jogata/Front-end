@@ -6,29 +6,115 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Webstore v.1</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="./css/styles_webstore-v1.css">
+  <!-- <link rel="stylesheet" href="./css/styles_webstore-v1.css"> -->
   <style>
-    .box {
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    #one {
+      color: #009688;
+    }
+    #two {
+      color: #ff3e7f;
+    }
+    #three {
+      color: #03a9f4;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: linear-gradient(45deg, #00bcd4, #ffeb3b);
+    }
+
+    .container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 100px 50px;
+      padding: 100px 50px;
+    }
+
+    .card {
+      position: relative;
+      width: 350px;
+      height: 300px;
+      background-color: #fff;
+      border-radius: 20px;
+      box-shadow: 0px 35px 80px rgba(0, 0, 0, 0.15);
+      transition: 0.5s;
+    }
+    .card:hover {
+      height: 400px;
+    }
+
+    .img-box {
+      position: absolute;
+      top: 20px;
       width: 300px;
-      text-align: center;
-      margin: 32px;
-      padding: 16px;
-      font-family: Arial, Helvetica, sans-serif;
+      height: 220px;
+      background-color: #333;
+      border-radius: 12px;
+      transition: all 0.5s;
+      overflow: hidden;
     }
-
-    .box input {
-      display: block;
+    .img-box img {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      margin: 8px 0;
+      height: 100%;
+      object-fit: cover;
+    }
+    .card:hover .img-box {
+      top: -100px;
+      scale: 0.75;
+      box-shadow: 0px 15px 45px rgba(0, 0, 0, 0.2);
     }
 
-    #color {
-      width: 50%;
-      margin: auto;
+    .content {
+      position: absolute;
+      top: 252px;
+      width: 100%;
+      height: 35px;
+      padding: 0px 30px;
+      text-align: center;
+      transition: all 0.5s;
+      overflow: hidden;
     }
 
-    label {
+    .card:hover .content {
+      top: 150px;
+      height: 250px;
+    }
+
+    .content h2 {
+      font-size: 1.5em;
+      font-weight: 700;
       text-transform: capitalize;
+    }
+    .content p {
+      color: #333;
+      font-size: 1.05em;
+    }
+    .content a {
+      position: relative;
+      top: 15px;
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: currentColor;
+      color: #fff;
+      font-weight: 500;
+      text-decoration: none;
+      text-transform: capitalize;
+      border-radius: 8px;
     }
   </style>
 </head>
@@ -38,44 +124,37 @@
   <!-- menu -->
   <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
 
-  <div class="box">
-    <label>offset x</label>
-    <input type="range" name="" id="offset-x" min="0" max="100" value="2">
-    <label>offset y</label>
-    <input type="range" name="" id="offset-y" min="0" max="100" value="2">
-    <label>blur radius</label>
-    <input type="range" name="" id="blur-radius" min="0" max="100" value="2">
-    <label>blur spread</label>
-    <input type="range" name="" id="blur-spread" min="0" max="100" value="2">
-    <label>color</label>
-    <input type="color" name="" id="color" value="#000000">
-    <input type="text" name="" id="css-value" readonly onclick="this.select()">
+  <div class="container">
+    <div class="card" id="one">
+      <div class="img-box">
+        <img src="../Parallax/img/parallaxIV/gallery/72614063_433236090677267_2807365040358828412_n.jpg" alt="">
+      </div>
+      <div class="content">
+        <h2>title</h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione impedit blanditiis doloremque cum ipsum! Ipsa velit nulla tenetur corrupti tempora, consectetur id nobis voluptas. Harum dicta neque debitis explicabo repellendus.</p>
+        <a href="#a">read more</a>
+      </div>
+    </div>
+    <div class="card" id="two">
+      <div class="img-box">
+        <img src="../Parallax/img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg" alt="">
+      </div>
+      <div class="content">
+        <h2>title</h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione impedit blanditiis doloremque cum ipsum! Ipsa velit nulla tenetur corrupti tempora, consectetur id nobis voluptas. Harum dicta neque debitis explicabo repellendus.</p>
+        <a href="#a">read more</a>
+      </div>
+    </div>
+    <div class="card" id="three">
+      <div class="img-box">
+        <img src="../Parallax/img/parallaxIV/gallery/120372783_340812587254299_774244032306180550_n.jpg" alt="">
+      </div>
+      <div class="content">
+        <h2>title</h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione impedit blanditiis doloremque cum ipsum! Ipsa velit nulla tenetur corrupti tempora, consectetur id nobis voluptas. Harum dicta neque debitis explicabo repellendus.</p>
+        <a href="#a">read more</a>
+      </div>
+    </div>
   </div>
-
-  <script>
-    const box = document.querySelector(".box");
-    const x = document.querySelector("#offset-x");
-    const y = document.querySelector("#offset-y");
-    const radius = document.querySelector("#blur-radius");
-    const spread = document.querySelector("#blur-spread");
-    const color = document.querySelector("#color");
-    const cssValue = document.querySelector("#css-value");
-
-    window.addEventListener("load", updateBoxShadow);
-
-    function updateBoxShadow() {
-      console.log("test");
-      const result = `${x.value}px ${y.value}px ${radius.value}px ${spread.value}px ${color.value}`;
-
-      cssValue.value = result;
-      box.style.boxShadow = result;
-    }
-
-    [x, y, radius, spread].forEach(input => {
-      input.onchange = updateBoxShadow;
-    })
-
-    color.addEventListener("input", updateBoxShadow);
-  </script>
 </body>
 </html>
