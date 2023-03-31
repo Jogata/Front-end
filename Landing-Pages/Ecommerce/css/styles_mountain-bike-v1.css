@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+a {
+    text-decoration: none;
+    outline: none;
+}
+i, button {
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+html, 
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: sans-serif;
+  color: #fff;
+}
+
+.bottom, 
+.top {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+}
+
+.top {
+  background-color: #1aa6a7;
+}
+
+.bottom {
+  top: 50%;
+  background-color: #d3d9dd;
+}
+
+.nav-bar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-bar ul li {
+  list-style: none;
+  line-height: 46px;
+  padding: 16px 32px;
+  margin: 0 16px;
+}
+
+.account {
+  position: fixed;
+  left: 40px;
+}
+.account span {
+  margin-left: 8px;
+  text-transform: capitalize;
+}
+
+.logo {
+  position: fixed;
+  left: 870px;
+  font-weight: bolder;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.search {
+  position: fixed;
+  right: 160px;
+}
+
+.menu-btn {
+  position: fixed;
+  right: 20px;
+  padding: 16px 0 0 0;
+  width: 40px;
+  height: 40px;
+}
+.one, 
+.two {
+  position: absolute;
+  background-color: #fff;
+  width: 30px;
+  height: 2px;
+}
+.two {
+  margin-top: 12px;
+}
+
+.product-img {
+  width: 950px;
+  position: absolute;
+  top: 40%;
+  left: 25%;
+  transform: translate(-50%, -40%);
+}
+
+.product-text {
+  position: absolute;
+  top: 52%;
+  line-height: 1;
+  left: 61%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
