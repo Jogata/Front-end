@@ -36,278 +36,139 @@
             border-radius: 1em;
         }
 
-@import url('https://fonts.googleapis.com/css2?family=Babylonica&family=Fraunces:opsz@9..144&family=Herr+Von+Muellerhoff&family=Kaushan+Script&family=Molle&family=Playfair+Display:wght@400;700&display=swap');
-/* 
-    font-family: 'Babylonica', cursive;
-    font-family: 'Fraunces', serif;
-    font-family: 'Herr Von Muellerhoff', cursive;
-    font-family: 'Kaushan Script', cursive;
-    font-family: 'Molle', cursive;
-    font-family: 'Playfair Display', serif;
-*/
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: #8e9eab;
-    background: linear-gradient(to right, #dde3e7, #8e9eab);
-    /* position: relative; */
-    /* display: block; */
-    /* width: 100%; */
-    /* height: auto; */
-    /* min-height: 100%; */
-    /* min-height: 100vh; */
-    /* overflow: hidden; */
-}
-
-        .page-wrapper {
-            /* position: relative; */
-            /* min-height: 100vh; */
-            /* overflow: hidden; */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Open Sans", sans-serif;
         }
 
-        .slider {
+        .container {
             position: relative;
-            /* width: 100vw; */
-            /* width: 100%; */
-            /* display: block; */
-            /* height: 100%; */
-            min-height: 100vh;
-            /* overflow: hidden; */
-        }
-
-        .slider-list {
-            position: relative;
-            overflow: hidden;
             width: 100%;
             height: 100%;
-            
+            min-height: 100vh;
+            background-color: #000;
+            overflow: hidden;
         }
-        .slider-list-item {
-            position: absolute;
-top: 0;
-left: 0;
--webkit-transform: translateX(100%);
-transform: translateX(100%);
-width: 100%;
-height: 100%;
-background-repeat: no-repeat;
-background-position: 50% 50%;
-background-size: cover;
-display: flex;
-justify-content: center;
-align-items: center;
-font-size: 16vw;
-color: #000;
-will-change: transform;
-z-index: 1;
-border: 10px solid red;
-box-sizing: border-box;
+        
+        .tabs input {
+            visibility: hidden;
+            display: none;
         }
-        .back-element {
-            position: absolute;
-display: block;
-width: 100%;
-height: 100%;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-z-index: 1;
-        }
-        .back-element img {
-            position: relative;
-display: block;
-width: 100%;
-max-width: 640px;
-height: auto;
-top: 50%;
-left: 50%;
-transform: translate( -50%, -50% );
-        }
-        .main-element {
-            position: absolute;
-display: block;
-width: 100%;
-height: 100%;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-z-index: 3;
-        }
-        .main-element img {
-            position: relative;
-display: block;
-width: 100%;
-max-width: 320px;
-height: auto;
-top: 50%;
-left: 50%;
-transform: translate( -50%, -50% );
-        }
-        .front-element {
-            position: absolute;
-display: block;
-width: 100%;
-height: 100%;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-z-index: 4;
-transform: scale(0);
-        }
-        .front-element img {
-            position: relative;
-display: block;
-width: 100%;
-max-width: 640px;
-height: auto;
-top: 50%;
-left: 50%;
-transform: translate( -50%, -50% );
-        }
-        .title-element {
-            position: absolute;
-display: block;
-width: 100%;
-height: 100%;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-z-index: 2;
-        }
-        .title {
-            position: relative;
-display: block;
-width: 100%;
-height: auto;
-top: 50%;
-left: 50%;
-transform: rotate(-15deg) translate( -45%, -125% );
-font-family: 'Molle', cursive;
-color: #eef2f3;
-text-align: center;
-            font-size: 16vw;
-            font-family: 'Babylonica', cursive;
-    font-family: 'Fraunces', serif;
-    font-family: 'Herr Von Muellerhoff', cursive;
-    font-family: 'Kaushan Script', cursive;
-    font-family: 'Molle', cursive;
-    font-family: 'Playfair Display', serif;
-        }
-        .more-element {}
-        .content {
-            position: relative;
-display: block;
-width: 100%;
-max-width: 768px;
-height: auto;
-margin: 64px auto;
-padding: 0 32px;
-            color: #2e3131;
-/* text-align: left; */
-        }
-        .headline {
-            /* position: relative; */
-display: block;
-/* max-width: 240px; */
-font-family: 'Molle', cursive;
-font-size: 38px;
-line-height: 46px;
-            font-family: 'Babylonica', cursive;
-    font-family: 'Fraunces', serif;
-    font-family: 'Herr Von Muellerhoff', cursive;
-    font-family: 'Kaushan Script', cursive;
-    font-family: 'Molle', cursive;
-    font-family: 'Playfair Display', serif;
-        }
-        .excerpt {
-            position: relative;
-display: block;
-max-width: 240px;
-font-family: 'Babylonica', cursive;
-    font-family: 'Fraunces', serif;
-    font-family: 'Herr Von Muellerhoff', cursive;
-    font-family: 'Kaushan Script', cursive;
-    font-family: 'Molle', cursive;
-    font-family: 'Playfair Display', serif;
-font-size: 16px;
-line-height: 24px;
-padding: 8px 0 16px;
-        }
-        .fill {}
 
-        .slidebar-nav-bar {
+        .buttons {
             position: absolute;
-            width: 180px;
-            height: 180px;
-            bottom: -90px;
+            bottom: 50px;
             left: 50%;
             transform: translateX(-50%);
-            border-radius: 90px;
-            text-align: center;
-            background-color: #dde3e7;
-            z-index: 2;
-            border: 1px solid red;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
         }
-        .nav-control {
-            /* position: relative; */
-            display: inline-block;
-            width: 32px;
-            height: 32px;
-            margin-top: 32px;
-            /* vertical-align: middle; */
-            background-image: url("./00/circular-i-slid/dot-black.png");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 26px 26px;
+        .buttons label {
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
             opacity: 0.5;
-            transition: all 0.2s ease-in-out;
+            border-radius: 20px;
             cursor: pointer;
-            z-index: 2;
+            transition: all 0.5s;
         }
-        .nav-control:hover {
-            opacity: 0.8;
-        }
-        .slider-controls {}
-        .slider-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 64px;
-            height: 64px;
-            transition: all 0.2s ease-in-out;
-            opacity: 0.8;
-            cursor: pointer;
-            z-index: 2;
-            border: 1px solid red;
-        }
-        .slider-arrow:hover {
+
+        .tabs input:nth-child(1):checked ~ .buttons label:nth-child(1), 
+        .tabs input:nth-child(2):checked ~ .buttons label:nth-child(2), 
+        .tabs input:nth-child(3):checked ~ .buttons label:nth-child(3) {
+            width: 50px;
             opacity: 1;
         }
-        .slider-arrow-prev {
-            left: 16px;
-            width: 64px;
-            height: 64px;
-            background-image: url("./00/circular-i-slid/arrow__left-white.png");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: auto 64px;
+
+        .content {
+            position: relative;
+            width: 300vw;
+            display: flex;
+            transition: all 0.5s;
         }
-        .slider-arrow-next {
-            right: 16px;
-            width: 64px;
-            height: 64px;
-            background-image: url("./00/circular-i-slid/arrow__right-white.png");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: auto 64px;
+
+        .content .box {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            user-select: none;
+        }
+
+        .content .box:nth-child(1) {
+            background: linear-gradient(90deg, #43cea2, #185a9d);
+        }
+        .content .box:nth-child(2) {
+            background: linear-gradient(90deg, #ff4e50, #f9d423);
+        }
+        .content .box:nth-child(3) {
+            background: linear-gradient(90deg, #9d50bb, #6e48aa);
+        }
+
+        .tabs input:nth-child(1):checked ~ .content {
+            left: 0;
+        }
+        .tabs input:nth-child(2):checked ~ .content {
+            left: -100vw;
+        }
+        .tabs input:nth-child(3):checked ~ .content {
+            left: -200vw;
+        }
+
+        .content-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .content-box i {
+            color: transparent;
+            font-size: 12rem;
+            -webkit-text-stroke: 2px #fff;
+        }
+
+        .content-box .fa-globe {
+            color: #fff;
+            -webkit-text-stroke: 2px transparent;
+        }
+
+        .content-box h2 {
+            color: #fff;
+            font-size: 3rem;
+            text-transform: capitalize;
+            text-align: center;
+        }
+
+        .content-box p {
+            max-width: 45rem;
+            color: #fff;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .content-box button {
+            margin-top: 10px;
+            padding: 15px 35px;
+            color: #333;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            border: 1px solid transparent;
+            border-radius: 40px;
+            background-color: #fff;
+            transition: all 0.5s;
+        }
+        .content-box button:hover {
+            letter-spacing: 0.1em;
         }
     </style>
 </head>
@@ -516,96 +377,47 @@ padding: 8px 0 16px;
         </script>
     </section>
 
-    <section id="delete3" class="js"></section>
-    <section id="delete4"></section>
-
-    <section class="page-wrapper">
-        <div class="slider">
-            <ul class="slider-list">
-                <li class="slider-list-item">
-                    <span class="back-element">
-                        <img src="./00/circular-i-slid/back_apple_002.png" alt="">
-                    </span>
-                    <span class="main-element">
-                        <img src="./00/circular-i-slid/bottle_apple_002.png" alt="">
-                    </span>
-                    <span class="front-element">
-                        <img src="./00/circular-i-slid/front_apple_002.png" alt="">
-                    </span>
-                    <span class="title-element">
-                        <span class="title">apple</span>
-                    </span>
-                    <span class="more-element">
-                        <span class="content">
-                            <span class="headline">apple</span>
-                            <span class="excerpt">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque optio eligendi totam quae voluptatum, a incidunt aliquam reprehenderit dignissimos ullam.</span>
-                            <span class="link">
-                                <span class="fill"></span>
-                                <a href="#apple">open catalog</a>
-                            </span>
-                        </span>
-                    </span>
-                </li>
-                <li class="slider-list-item">
-                    <span class="back-element">
-                        <img src="./00/circular-i-slid/back_grapes_001.png" alt="">
-                    </span>
-                    <span class="main-element">
-                        <img src="./00/circular-i-slid/back_grapes_001.png" alt="">
-                    </span>
-                    <span class="front-element">
-                        <img src="./00/circular-i-slid/front_grapes_001.png" alt="">
-                    </span>
-                    <span class="title-element">
-                        <span class="title">grapes</span>
-                    </span>
-                    <span class="more-element">
-                        <span class="content">
-                            <span class="headline">grapes</span>
-                            <span class="excerpt">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique debitis rerum quis nisi neque voluptatem fuga nobis consequatur quia amet.</span>
-                            <span class="link">
-                                <span class="fill fill-dark"></span>
-                                <a href="#grapes">open catalog</a>
-                            </span>
-                        </span>
-                    </span>
-                </li>
-                <li class="slider-list-item">
-                    <span class="back-element">
-                        <img src="./00/circular-i-slid/back_strawberry_003.png" alt="">
-                    </span>
-                    <span class="main-element">
-                        <img src="./00/circular-i-slid/back_strawberry_003.png" alt="">
-                    </span>
-                    <span class="front-element">
-                        <img src="./00/circular-i-slid/front_strawberry_003.png" alt="">
-                    </span>
-                    <span class="title-element">
-                        <span class="title">strawberry</span>
-                    </span>
-                    <span class="more-element">
-                        <span class="content">
-                            <span class="headline">strawberry</span>
-                            <span class="excerpt">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus enim repudiandae iusto explicabo illum soluta unde, atque vitae error consectetur.</span>
-                            <span class="link">
-                                <span class="fill"></span>
-                                <a href="#strawberry">open catalog</a>
-                            </span>
-                        </span>
-                    </span>
-                </li>
-            </ul>
-            <div class="slidebar-nav-bar">
-                <a href="#" class="nav-control"></a>
-                <a href="#" class="nav-control"></a>
-                <a href="#" class="nav-control"></a>
-            </div>
-            <div class="slider-controls">
-                <a href="#prev" class="slider-arrow slider-arrow-prev"></a>
-                <a href="#next" class="slider-arrow slider-arrow-next"></a>
+    <section id="delete3" class="js">
+        <div class="container fullscreen-slider">
+            <div class="tabs">
+                <input type="radio" name="slider" id="web" checked>
+                <input type="radio" name="slider" id="gra">
+                <input type="radio" name="slider" id="pho">
+                <div class="buttons">
+                    <label for="web"></label>
+                    <label for="gra"></label>
+                    <label for="pho"></label>
+                </div>
+                <div class="content">
+                    <div class="box web">
+                        <div class="content-box">
+                            <i class="fa fa-globe" aria-hidden="true"></i>
+                            <h2>web development</h2>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi dicta optio asperiores voluptates repellendus necessitatibus nihil quos, in laudantium, consequatur exercitationem tempora assumenda sequi blanditiis omnis quae maiores doloribus impedit.</p>
+                            <button>learn more</button>
+                        </div>
+                    </div>
+                    <div class="box gra">
+                        <div class="content-box">
+                            <i class="fa fa-picture-o" aria-hidden="true"></i>
+                        <h2>graphics design</h2>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi dicta optio asperiores voluptates repellendus necessitatibus nihil quos, in laudantium, consequatur exercitationem tempora assumenda sequi blanditiis omnis quae maiores doloribus impedit.</p>
+                        <button>learn more</button>
+                        </div>
+                    </div>
+                    <div class="box pho">
+                        <div class="content-box">
+                            <i class="fa fa-camera-retro" aria-hidden="true"></i>
+                        <h2>photography</h2>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi dicta optio asperiores voluptates repellendus necessitatibus nihil quos, in laudantium, consequatur exercitationem tempora assumenda sequi blanditiis omnis quae maiores doloribus impedit.</p>
+                        <button>learn more</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+    <section id="delete4"></section>
 
     <script src="./js/script_travel_v2.js">
         console.log(388>252);
