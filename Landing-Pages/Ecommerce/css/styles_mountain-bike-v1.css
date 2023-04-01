@@ -1,4 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Babylonica&family=Fraunces:opsz@9..144&family=Herr+Von+Muellerhoff&family=Kaushan+Script&family=Playfair+Display:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Molle:400i|Open+Sans+Condensed:300,700');
+/* 
+font-family: 'Abril Fatface', cursive;
+font-family: 'Courgette', cursive;
+font-family: 'Dancing Script', cursive;
+font-family: 'Great Vibes', cursive;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Limelight', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Oleo Script Swash Caps', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Kaushan Script', cursive;
+font-family: 'Fraunces', serif;
+font-family: 'Herr Von Muellerhoff', cursive;
+font-family: 'Playfair Display', serif;    //400,700
+font-family: 'Molle', cursive;
+font-family: 'Babylonica', cursive;
+*/
 
 *, *::before, *::after {
     margin: 0;
@@ -27,8 +49,24 @@ html,
 body {
   width: 100%;
   height: 100vh;
-  font-family: sans-serif;
   color: #fff;
+  font-family: 'Abril Fatface', cursive;
+font-family: 'Courgette', cursive;
+font-family: 'Dancing Script', cursive;
+font-family: 'Great Vibes', cursive;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Limelight', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Oleo Script Swash Caps', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Kaushan Script', cursive;
+font-family: 'Fraunces', serif;
+font-family: 'Herr Von Muellerhoff', cursive;
+font-family: 'Playfair Display', serif;
+font-family: 'Molle', cursive;
+font-family: 'Babylonica', cursive;
 }
 
 .bottom, 
@@ -118,3 +156,145 @@ body {
   text-align: center;
 }
 
+.title {
+  font-size: 100px;
+  color: #d3d9dd;
+  font-family: 'Molle', cursive;
+}
+.title::first-letter {
+  text-transform: uppercase;
+}
+.title span {
+  left: 155px;
+  color: #1aa6a7;
+}
+
+.subtitle {
+  position: relative;
+  bottom: -23px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #555;
+  letter-spacing: 5px;
+  text-transform: capitalize;
+  font-family: 'Babylonica', cursive;
+}
+
+.tag-line {
+  position: fixed;
+  top: 195px;
+  left: 40px;
+  padding: 10px 30px;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.arrows {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.arrows ul {
+  list-style: none;
+}
+.arrows ul li {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 20px 20px 20px 0;
+  font-size: 20px;
+  color: #fff;
+  background-color: #555;
+  border-radius: 50%;
+}
+
+button {
+  font-size: 5rem;
+  font-family: 'Abril Fatface', cursive;
+  font-family: 'Courgette', cursive;
+  font-family: 'Dancing Script', cursive;
+  font-family: 'Great Vibes', cursive;
+  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Limelight', cursive;
+  font-family: 'Lobster', cursive;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Oleo Script Swash Caps', cursive;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Raleway', sans-serif;
+  font-family: 'Kaushan Script', cursive;
+  font-family: 'Fraunces', serif;
+  font-family: 'Herr Von Muellerhoff', cursive;
+  font-family: 'Playfair Display', serif;
+  font-family: 'Molle', cursive;
+  font-family: 'Babylonica', cursive;
+}
+.sci {
+  position: absolute;
+  bottom: 27px;
+  left: 130px;
+}
+.sci ul li {
+  color: #000;
+  display: inline-block;
+  padding: 0 20px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+@media(max-width: 750px){
+  .top, 
+  .bottom {
+    display: none;
+  }
+  html, 
+  body {
+    width: 100%;
+    height: 100vh;
+    background-color: #d3d9dd;
+    color: #000;
+    overflow: hidden;
+  }
+  .one, 
+  .two {
+    left: 118px;
+    background-color: #000;
+  }
+  .logo {
+    left: 223px;
+  }
+  .search {
+    right: 219px;
+  }
+  .product-img {
+    width: 836px;
+    top: 34%;
+    left: 50%;
+  }
+  .product-text {
+    top: 66%;
+    left: 36%;
+  }
+  .title {
+    font-size: 70px;
+    color: #000;
+  }
+  .title span {
+    left: 386px;
+    top: 0;
+    color: #1aa6a7;
+  }
+  .subtitle {
+    bottom: -15px;
+    right: 74px;
+  }
+  .tag-line {
+    display: none;
+  }
+  .sci {
+    bottom: 147px;
+    left: 149px;
+  }
+  .arrows {
+    display: none;
+  }
+}
