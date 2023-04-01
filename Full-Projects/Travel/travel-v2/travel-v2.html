@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel v.2</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="./css/styles-travel-v2.css"> -->
+    <link rel="stylesheet" href="./css/styles-travel-v2.css">
     <style>
         #speech-synthesis {
             min-height: 100vh;
@@ -36,139 +36,46 @@
             border-radius: 1em;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Open Sans", sans-serif;
-        }
-
-        .container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            min-height: 100vh;
-            background-color: #000;
+        body {
+            background-color: #333;
+            font-weight: 300;
             overflow: hidden;
         }
-        
-        .tabs input {
-            visibility: hidden;
-            display: none;
-        }
 
-        .buttons {
-            position: absolute;
-            bottom: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-            z-index: 1000;
-        }
-        .buttons label {
-            width: 20px;
-            height: 20px;
-            background-color: #fff;
-            opacity: 0.5;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.5s;
-        }
-
-        .tabs input:nth-child(1):checked ~ .buttons label:nth-child(1), 
-        .tabs input:nth-child(2):checked ~ .buttons label:nth-child(2), 
-        .tabs input:nth-child(3):checked ~ .buttons label:nth-child(3) {
-            width: 50px;
-            opacity: 1;
-        }
-
-        .content {
-            position: relative;
-            width: 300vw;
-            display: flex;
-            transition: all 0.5s;
-        }
-
-        .content .box {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px;
-            user-select: none;
-        }
-
-        .content .box:nth-child(1) {
-            background: linear-gradient(90deg, #43cea2, #185a9d);
-        }
-        .content .box:nth-child(2) {
-            background: linear-gradient(90deg, #ff4e50, #f9d423);
-        }
-        .content .box:nth-child(3) {
-            background: linear-gradient(90deg, #9d50bb, #6e48aa);
-        }
-
-        .tabs input:nth-child(1):checked ~ .content {
-            left: 0;
-        }
-        .tabs input:nth-child(2):checked ~ .content {
-            left: -100vw;
-        }
-        .tabs input:nth-child(3):checked ~ .content {
-            left: -200vw;
-        }
-
-        .content-box {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .content-box i {
-            color: transparent;
-            font-size: 12rem;
-            -webkit-text-stroke: 2px #fff;
-        }
-
-        .content-box .fa-globe {
+        .slides li {
             color: #fff;
-            -webkit-text-stroke: 2px transparent;
         }
-
-        .content-box h2 {
-            color: #fff;
-            font-size: 3rem;
-            text-transform: capitalize;
-            text-align: center;
+        .slides li:nth-child(1) {
+            background-color: #3498db;
         }
-
-        .content-box p {
-            max-width: 45rem;
-            color: #fff;
-            font-size: 1.2rem;
-            text-align: center;
+        .slides li:nth-child(2) {
+            background-image: url("../../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
         }
-
-        .content-box button {
-            margin-top: 10px;
-            padding: 15px 35px;
-            color: #333;
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-decoration: none;
-            text-transform: uppercase;
-            border: 1px solid transparent;
-            border-radius: 40px;
-            background-color: #fff;
-            transition: all 0.5s;
+        .slides li:nth-child(3) {
+            background-color: #e74c3c;
         }
-        .content-box button:hover {
-            letter-spacing: 0.1em;
+        .slides li:nth-child(1) {
+            background-image: url("../../../Sliders/img/switzerland-river.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+        .slides li:nth-child(5) {
+            background-color: #f1c40f;
+        }
+        .slides li:nth-child(6) {
+            background-image: url("../../../Sliders/img/toscana-italy.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+        .inner {
+            padding: 2em;
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
@@ -378,45 +285,114 @@
     </section>
 
     <section id="delete3" class="js">
-        <div class="container fullscreen-slider">
-            <div class="tabs">
-                <input type="radio" name="slider" id="web" checked>
-                <input type="radio" name="slider" id="gra">
-                <input type="radio" name="slider" id="pho">
-                <div class="buttons">
-                    <label for="web"></label>
-                    <label for="gra"></label>
-                    <label for="pho"></label>
-                </div>
-                <div class="content">
-                    <div class="box web">
-                        <div class="content-box">
-                            <i class="fa fa-globe" aria-hidden="true"></i>
-                            <h2>web development</h2>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi dicta optio asperiores voluptates repellendus necessitatibus nihil quos, in laudantium, consequatur exercitationem tempora assumenda sequi blanditiis omnis quae maiores doloribus impedit.</p>
-                            <button>learn more</button>
-                        </div>
+        <div class="rotating-slider">
+            <ul class="slides">
+                <li>
+                    <div class="inner">
+                        <h2>most pubpoler hacker</h2>
+                        <p>cleaver hacker</p>
                     </div>
-                    <div class="box gra">
-                        <div class="content-box">
-                            <i class="fa fa-picture-o" aria-hidden="true"></i>
-                        <h2>graphics design</h2>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi dicta optio asperiores voluptates repellendus necessitatibus nihil quos, in laudantium, consequatur exercitationem tempora assumenda sequi blanditiis omnis quae maiores doloribus impedit.</p>
-                        <button>learn more</button>
-                        </div>
+                </li>
+                <li>
+                    <div class="inner"></div>
+                </li>
+                <li>
+                    <div class="inner">
+                        <h2>most pubpoler hacker</h2>
+                        <p>cleaver hacker</p>
                     </div>
-                    <div class="box pho">
-                        <div class="content-box">
-                            <i class="fa fa-camera-retro" aria-hidden="true"></i>
-                        <h2>photography</h2>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nisi dicta optio asperiores voluptates repellendus necessitatibus nihil quos, in laudantium, consequatur exercitationem tempora assumenda sequi blanditiis omnis quae maiores doloribus impedit.</p>
-                        <button>learn more</button>
-                        </div>
+                </li>
+                <li>
+                    <div class="inner">
+                        <h2>most pubpoler hacker</h2>
+                        <p>cleaver hacker</p>
                     </div>
-                </div>
-            </div>
+                </li>
+                <li>
+                    <div class="inner">
+                        <h2>most pubpoler hacker</h2>
+                        <p>cleaver hacker</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="inner">
+                        <h2>most pubpoler hacker</h2>
+                        <p>cleaver hacker</p>
+                    </div>
+                </li>
+            </ul>
         </div>
     </section>
+
+    <script>
+        const slider = document.querySelector(".rotating-slider");
+        const w = Math.min(480, window.innerWidth - 80);
+        const h = Math.min(360, window.innerHeight - 80);
+
+        const craftingCompleteWait = 2000;
+const combiningMaterialsWait = 1000;
+const smeltingIronBarsWait = 500;
+const shapingIronWait = 1500;
+
+// Don't touch below this line
+
+setTimeout(() => console.log('Iron Longsword Complete!'), craftingCompleteWait);
+setTimeout(() => console.log('Combining Materials...'), combiningMaterialsWait);
+setTimeout(() => console.log('Smelting Iron Bars...'), smeltingIronBarsWait);
+setTimeout(() => console.log('Shaping Iron...'), shapingIronWait);
+
+console.log('Firing up the forge...');
+
+// async function start() {
+//     await sleep(2500);
+// }
+
+// start();
+
+// function sleep(ms) {
+//     console.log("sleep");
+//   return new Promise((resolve) => setTimeout(resolve, ms));
+// }
+
+const applyDamage = (damage, currentHP) => {
+  const newHP = currentHP - damage;
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (newHP <= 0) {
+        reject(`The player suffers ${damage} points of damage and has fallen unconscious.`);
+      } else {
+        resolve(`The player suffers ${damage} points of damage and has ${newHP} hit points remaining.`);
+      }
+    }, 1000)
+  })
+}
+
+// Don't touch below this line
+
+function runApplyDamageTest(damage, currentHP) {
+  console.log(`Applying ${damage} damage to player with ${currentHP} HP...`);
+  applyDamage(damage, currentHP).then((message) => {
+    console.log(`...applyDamage resolved with: ${message}`);
+  }).catch((message) => {
+    console.log(`...applyDamage rejected with: ${message}`);
+  })
+}
+
+async function start() {
+    runApplyDamageTest(27, 50);
+await sleep(1100);
+runApplyDamageTest(50, 50);
+await sleep(1100);
+runApplyDamageTest(110, 100);
+await sleep(1100);
+}
+
+start();
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+    </script>
     <section id="delete4"></section>
 
     <script src="./js/script_travel_v2.js">
