@@ -8,153 +8,105 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- <link rel="stylesheet" href="./css/styles_webstore-v1.css"> -->
   <style>
-    * {
+     @import url('https://fonts.googleapis.com/css?family=Molle:400i|Open+Sans+Condensed:300,700');
+
+     h1 {
+      font-family: 'Molle', cursive;
+     }
+
+     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
+      border: none;
+      font-family: sans-serif;
+     }
 
-    #one {
-      color: #009688;
-    }
-    #two {
-      color: #ff3e7f;
-    }
-    #three {
-      color: #03a9f4;
-    }
+     li {
+      list-style: none;
+     }
 
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+     :root {
+      --dark-blue: #04021f;
+      --sky-blue: #00abf1;
+      --slider-height: 50rem;
+      --half-slider-height: calc(var(--slider-height)/2);
+     }
+
+     body {
       min-height: 100vh;
-      background: linear-gradient(45deg, #00bcd4, #ffeb3b);
-    }
+      background-color: var(--dark-blue);
+     }
 
-    .container {
-      position: relative;
+     .flex-center {
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-wrap: wrap;
-      gap: 100px 50px;
-      padding: 100px 50px;
-    }
+     }
 
-    .card {
+     .cir-slider {
       position: relative;
-      width: 350px;
-      height: 300px;
-      background-color: #fff;
-      border-radius: 20px;
-      box-shadow: 0px 35px 80px rgba(0, 0, 0, 0.15);
-      transition: 0.5s;
-    }
-    .card:hover {
-      height: 400px;
-    }
+      top: calc(var(--slider-height)/3);
+      width: var(--slider-height);
+      height: var(--slider-height);
+      color: #fff;
+      text-align: center;
+      flex-shrink: 0;
+     }
 
-    .img-box {
+     .slides {
       position: absolute;
-      top: 20px;
-      width: 300px;
-      height: 220px;
-      background-color: #333;
-      border-radius: 12px;
-      transition: all 0.5s;
-      overflow: hidden;
-    }
-    .img-box img {
-      position: absolute;
-      top: 0;
       left: 0;
+      transform: rotateZ(calc(360deg / 5 * var(--i))) translateY(var(--half-slider-height));
+      transform-origin: var(--half-slider-height);
+      width: 25%;
+      height: 25%;
+      cursor: pointer;
+     }
+
+     .slides img {
       width: 100%;
       height: 100%;
+      border-radius: 50%;
       object-fit: cover;
-    }
-    .card:hover .img-box {
-      top: -100px;
-      scale: 0.75;
-      box-shadow: 0px 15px 45px rgba(0, 0, 0, 0.2);
-    }
+      transform: rotateZ(calc(360deg / -5 * var(--i)));
+     }
 
-    .content {
+     .wrapper {
       position: absolute;
-      top: 252px;
       width: 100%;
-      height: 35px;
-      padding: 0px 30px;
-      text-align: center;
-      transition: all 0.5s;
-      overflow: hidden;
-    }
-
-    .card:hover .content {
-      top: 150px;
-      height: 250px;
-    }
-
-    .content h2 {
-      font-size: 1.5em;
-      font-weight: 700;
-      text-transform: capitalize;
-    }
-    .content p {
-      color: #333;
-      font-size: 1.05em;
-    }
-    .content a {
-      position: relative;
-      top: 15px;
-      display: inline-block;
-      padding: 12px 25px;
-      background-color: currentColor;
-      color: #fff;
-      font-weight: 500;
-      text-decoration: none;
-      text-transform: capitalize;
-      border-radius: 8px;
-    }
+      height: 100%;
+      border: 1px solid crimson;
+      border-radius: 50%;
+      transform: rotateZ(0deg);
+      transition: 1s ease-in-out;
+     }
   </style>
 </head>
-<body>
-  <h1 style="position: absolute; z-index: 1; bottom: 0;">Object.entries(person) - convert object to array</h1>
+<body class="flex-center">
+  <!-- <h1 style="position: absolute; z-index: 1; bottom: 0;">Object.entries(person) - convert object to array</h1> -->
+
+  <div class="cir-slider">
+    <ul class="wrapper flex-center">
+      <li class="slides" style="--i:1;">
+        <img src="../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg" alt="">
+      </li>
+      <li class="slides" style="--i:2;">
+        <img src="../../Sliders/img/Edinburgh.jpg" alt="">
+      </li>
+      <li class="slides" style="--i:3;">
+        <img src="../../Sliders/img/mountain-in-meteora-greece_1920x1080.jpg" alt="">
+      </li>
+      <li class="slides" style="--i:4;">
+        <img src="../../Sliders/img/switzerland-river.jpg" alt="">
+      </li>
+      <li class="slides" style="--i:5;">
+        <img src="../../Sliders/img/neuschwanstein-castle-hd_2047x1364.jpg" alt="">
+      </li>
+    </ul>
+  </div>
 
   <!-- menu -->
   <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
-
-  <div class="container">
-    <div class="card" id="one">
-      <div class="img-box">
-        <img src="../Parallax/img/parallaxIV/gallery/72614063_433236090677267_2807365040358828412_n.jpg" alt="">
-      </div>
-      <div class="content">
-        <h2>title</h2>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione impedit blanditiis doloremque cum ipsum! Ipsa velit nulla tenetur corrupti tempora, consectetur id nobis voluptas. Harum dicta neque debitis explicabo repellendus.</p>
-        <a href="#a">read more</a>
-      </div>
-    </div>
-    <div class="card" id="two">
-      <div class="img-box">
-        <img src="../Parallax/img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg" alt="">
-      </div>
-      <div class="content">
-        <h2>title</h2>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione impedit blanditiis doloremque cum ipsum! Ipsa velit nulla tenetur corrupti tempora, consectetur id nobis voluptas. Harum dicta neque debitis explicabo repellendus.</p>
-        <a href="#a">read more</a>
-      </div>
-    </div>
-    <div class="card" id="three">
-      <div class="img-box">
-        <img src="../Parallax/img/parallaxIV/gallery/120372783_340812587254299_774244032306180550_n.jpg" alt="">
-      </div>
-      <div class="content">
-        <h2>title</h2>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione impedit blanditiis doloremque cum ipsum! Ipsa velit nulla tenetur corrupti tempora, consectetur id nobis voluptas. Harum dicta neque debitis explicabo repellendus.</p>
-        <a href="#a">read more</a>
-      </div>
-    </div>
-  </div>
 </body>
 </html>
