@@ -36,46 +36,89 @@
             border-radius: 1em;
         }
 
-        body {
-            background-color: #333;
-            font-weight: 300;
-            overflow: hidden;
+        .test54 {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .slides li {
+        .wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: #fafafa;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 25px 0;
+            text-align: center;
+            text-transform: capitalize;
+        }
+
+        .content-box {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 1000px;
+            margin-top: 30px;
+        }
+
+        .card {
+            min-height: 220px;
+            width: 320px;
+            padding: 30px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: #fff;
+            margin: 10px 4px;
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card i {
+            margin: 20px;
+            color: #ff5724;
+        }
+
+        h2 {
+            margin-bottom: 12px;
+            text-align: center;
+            text-transform: capitalize;
+        }
+
+        p {
+            color: #6c757d;
+            text-align: center;
+        }
+
+        .card:hover {
+            background: linear-gradient(45deg, rgba(255, 28, 8, 0.7) 0%, rgba(255, 8, 82, 0.7) 100%);
+        }
+        .card:hover i, .card:hover p {
             color: #fff;
         }
-        .slides li:nth-child(1) {
-            background-color: #3498db;
-        }
-        .slides li:nth-child(2) {
-            background-image: url("../../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-        }
-        .slides li:nth-child(3) {
-            background-color: #e74c3c;
-        }
-        .slides li:nth-child(1) {
-            background-image: url("../../../Sliders/img/switzerland-river.jpg");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-        }
-        .slides li:nth-child(5) {
-            background-color: #f1c40f;
-        }
-        .slides li:nth-child(6) {
-            background-image: url("../../../Sliders/img/toscana-italy.jpg");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-        }
-        .inner {
-            padding: 2em;
-            width: 100%;
-            height: 100%;
+
+        @media screen and (max-width: 991px) {
+            .wrapper {
+                padding: 25px;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            .content-box {
+                flex-direction: column;
+                width: 100%;
+            }
+            .card {
+                min-width: 300px;
+                margin: 10px auto;
+            }
         }
     </style>
 </head>
@@ -284,119 +327,49 @@
         </script>
     </section>
 
-    <section id="delete3" class="js">
-        <div class="rotating-slider">
-            <ul class="slides">
-                <li>
-                    <div class="inner">
-                        <h2>most pubpoler hacker</h2>
-                        <p>cleaver hacker</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="inner"></div>
-                </li>
-                <li>
-                    <div class="inner">
-                        <h2>most pubpoler hacker</h2>
-                        <p>cleaver hacker</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="inner">
-                        <h2>most pubpoler hacker</h2>
-                        <p>cleaver hacker</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="inner">
-                        <h2>most pubpoler hacker</h2>
-                        <p>cleaver hacker</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="inner">
-                        <h2>most pubpoler hacker</h2>
-                        <p>cleaver hacker</p>
-                    </div>
-                </li>
-            </ul>
+    <section id="delete3" class="test54">
+        <div class="wrapper">
+            <h1>our services</h1>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, recusandae libero ipsam illo totam animi aperiam! Vero ratione error, blanditiis architecto vel tempora nam maxime odit, aperiam, officiis quos sint.</p>
+
+            <div class="content-box">
+                <div class="card">
+                    <i>chart</i>
+                    <h2>marketing services</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur, obcaecati ducimus rem ipsa earum nesciunt a blanditiis maxime veniam ipsam saepe fugiat doloremque incidunt provident quas minus consequuntur nihil.</p>
+                </div>
+                <div class="card">
+                    <i>laptop</i>
+                    <h2>web app development</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur, obcaecati ducimus rem ipsa earum nesciunt a blanditiis maxime veniam ipsam saepe fugiat doloremque incidunt provident quas minus consequuntur nihil.</p>
+                </div>
+                <div class="card">
+                    <i>chart</i>
+                    <h2>24/7 call center services</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur, obcaecati ducimus rem ipsa earum nesciunt a blanditiis maxime veniam ipsam saepe fugiat doloremque incidunt provident quas minus consequuntur nihil.</p>
+                </div>
+                <div class="card">
+                    <i>mail</i>
+                    <h2>social media marketing</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur, obcaecati ducimus rem ipsa earum nesciunt a blanditiis maxime veniam ipsam saepe fugiat doloremque incidunt provident quas minus consequuntur nihil.</p>
+                </div>
+                <div class="card">
+                    <i>chart</i>
+                    <h2>corporate business</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur, obcaecati ducimus rem ipsa earum nesciunt a blanditiis maxime veniam ipsam saepe fugiat doloremque incidunt provident quas minus consequuntur nihil.</p>
+                </div>
+                <div class="card">
+                    <i>paint</i>
+                    <h2>creative consultancy</h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur, obcaecati ducimus rem ipsa earum nesciunt a blanditiis maxime veniam ipsam saepe fugiat doloremque incidunt provident quas minus consequuntur nihil.</p>
+                </div>
+            </div>
         </div>
     </section>
-
-    <script>
-        const slider = document.querySelector(".rotating-slider");
-        const w = Math.min(480, window.innerWidth - 80);
-        const h = Math.min(360, window.innerHeight - 80);
-
-        const craftingCompleteWait = 2000;
-const combiningMaterialsWait = 1000;
-const smeltingIronBarsWait = 500;
-const shapingIronWait = 1500;
-
-// Don't touch below this line
-
-setTimeout(() => console.log('Iron Longsword Complete!'), craftingCompleteWait);
-setTimeout(() => console.log('Combining Materials...'), combiningMaterialsWait);
-setTimeout(() => console.log('Smelting Iron Bars...'), smeltingIronBarsWait);
-setTimeout(() => console.log('Shaping Iron...'), shapingIronWait);
-
-console.log('Firing up the forge...');
-
-// async function start() {
-//     await sleep(2500);
-// }
-
-// start();
-
-// function sleep(ms) {
-//     console.log("sleep");
-//   return new Promise((resolve) => setTimeout(resolve, ms));
-// }
-
-const applyDamage = (damage, currentHP) => {
-  const newHP = currentHP - damage;
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (newHP <= 0) {
-        reject(`The player suffers ${damage} points of damage and has fallen unconscious.`);
-      } else {
-        resolve(`The player suffers ${damage} points of damage and has ${newHP} hit points remaining.`);
-      }
-    }, 1000)
-  })
-}
-
-// Don't touch below this line
-
-function runApplyDamageTest(damage, currentHP) {
-  console.log(`Applying ${damage} damage to player with ${currentHP} HP...`);
-  applyDamage(damage, currentHP).then((message) => {
-    console.log(`...applyDamage resolved with: ${message}`);
-  }).catch((message) => {
-    console.log(`...applyDamage rejected with: ${message}`);
-  })
-}
-
-async function start() {
-    runApplyDamageTest(27, 50);
-await sleep(1100);
-runApplyDamageTest(50, 50);
-await sleep(1100);
-runApplyDamageTest(110, 100);
-await sleep(1100);
-}
-
-start();
-
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-    </script>
     <section id="delete4"></section>
 
     <script src="./js/script_travel_v2.js">
-        console.log(388>252);
+        console.log(402>252);
     </script>
 </body>
 </html>
