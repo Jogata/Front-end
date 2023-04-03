@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parallax Scrolling Effect</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/styles_parallaxIV.css">
+    <!-- <link rel="stylesheet" href="./css/styles_parallaxIV.css"> -->
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
@@ -63,84 +63,112 @@ font-family: 'Playfair Display', serif;     //400,700
             padding-right: 20px;
         }
 
-        .polaroid {
-            background-color: #e9ecef;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .grid {
+        .space {
+            min-height: 100vh;
+        }
+
+        .about-test {
             width: 100%;
-            max-width: 1220px;
+            height: 100vh;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+        }
+
+        .main {
+            width: 96%;
+            max-width: 1290px;
             margin: 0 auto;
             display: flex;
             align-items: center;
-            /* flex-direction: column; */
-        }
-
-        .polaroid h2 {
-            color: #282828;
-            padding: 90px 0 40px;
-            font-size: 80px;
-            font-weight: 700;
-            font-family: "Poppins", sans-serif;
-        }
-
-        .grid {
-            position: relative;
-            width: 100%;
-            margin: 0 auto;
-            padding-bottom: 60px;
-            display: flex;
-            justify-content: center;
+            justify-content: space-around;
             flex-wrap: wrap;
         }
 
-        .grid-item {
-            width: 33%;
-            padding: 10px;
-        }
-
-        .grid-link {
-            display: block;
-            padding: 13px 13px 0 13px;
-            background-color: white;
-            text-decoration: none;
-        }
-
-        .grid-img {
-            display: block;
+        .main img {
             width: 100%;
+            max-width: 580px;
+            height: auto;
+            padding: 0 10px;
         }
 
-        .grid-item h3 {
-            position: relative;
-            margin: 0;
-            padding: 22px 10px;
-            color: #707070;
-            background-color: white;
-            font-size: 20px;
-            line-height: 1;
+        .all-text {
+            width: 100%;
+            max-width: 600px;
+            padding: 0 10px;
             text-transform: capitalize;
-            white-space: nowrap;
-            overflow: hidden;
+        }
+        .all-text h4 {
+            font-size: 18px;
+            color: #777;
+            letter-spacing: 1px;
+            font-weight: 400;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif; 
+        }
+        .all-text h1 {
+            font-size: 60px;
+            color: #111;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif; 
+        }
+        .all-text p {
+            font-size: 1rem;
+            color: #777;
+            line-height: 30px;
+            margin-bottom: 35px;
         }
 
-        @media screen and (max-width: 900px) {
-            .grid-item {
-                width: 50%;
-            }
-
-            .grid-item h3 {
-                font-size: 60px;
-            }
+        .btns button {
+            margin-right: 20px;
+            padding: 20px 32px;
+            color: #111;
+            font-size: 1rem;
+            font-weight: bold;
+            background-color: #fff;
+            border: none;
+            outline: none;
+            box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s;
+            cursor: pointer;
         }
-        @media screen and (max-width: 480px) {
-            .grid-item {
+        .btns button:hover {
+            color: #fff;
+            background-color: #1d44f9;
+        }
+
+        .btns .btn:hover {
+            background-color: #111;
+        }
+
+        @media screen and (max-width: 1250px) {
+            .about-test {
                 width: 100%;
+                height: auto;
+                padding: 60px 0;
             }
+            .all-text {
+                margin-top: 40px;
+                text-align: center;
+            }
+        }
 
-            .grid-item h3 {
-                font-size: 40px;
+        @media screen and (max-width: 1250px) {
+            .about-test .main img {
+                margin-bottom: 35px;
+            }
+            .all-text h1 {
+                font-size: 45px;
+                margin-bottom: 20px;
             }
         }
     </style>
@@ -244,69 +272,18 @@ font-family: 'Playfair Display', serif;     //400,700
         </div>
     </div>
 
-    <div class="polaroid">
-        <h2>polaroid grid</h2>
-        <div class="grid">
-
-            <div class="grid-item">
-                <a class="grid-link">
-                    <img src="./img/parallaxIV/gallery/120372783_340812587254299_774244032306180550_n.jpg" class="grid-img"/>
-                    <h3 class="title">title 1</h3>
-                </a>
-            </div>
-            <div class="grid-item">
-                <a class="grid-link">
-                    <img src="./img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg" class="grid-img"/>
-                    <h3 class="title">title 2</h3>
-                </a>
-            </div>
-            <div class="grid-item">
-                <a class="grid-link">
-                    <img src="./img/parallaxIV/gallery/212573141_870101006920357_9185461114137501578_n.jpg" class="grid-img"/>
-                    <h3 class="title">title 3</h3>
-                </a>
-            </div>
-            <div class="grid-item">
-                <a class="grid-link">
-                    <img src="./img/parallaxIV/gallery/310312823_1063165841035871_7233886241606775336_n.jpg" class="grid-img"/>
-                    <h3 class="title">title 4</h3>
-                </a>
-            </div>
-            <div class="grid-item">
-                <a class="grid-link">
-                    <img src="./img/parallaxIV/gallery/314989870_440856418203915_8112806341494003649_n.jpg" class="grid-img"/>
-                    <h3 class="title">title 5</h3>
-                </a>
-            </div>
-            <div class="grid-item">
-                <a class="grid-link">
-                    <img src="./img/parallaxIV/gallery/320075870_672693277833663_8152859641160213840_n.jpg" class="grid-img"/>
-                    <h3 class="title">title 6</h3>
-                </a>
-            </div>
-            <div class="grid-item">
-                <a class="grid-link">
-                    <img src="./img/parallaxIV/gallery/320815532_716429662995872_7462497255081682829_n.jpg" class="grid-img"/>
-                    <h3 class="title">title 7</h3>
-                </a>
-            </div>
-            <div class="grid-item">
-                <a class="grid-link">
-                    <img src="./img/parallaxIV/gallery/320907932_870320980825676_7214722970886057296_n.jpg" class="grid-img"/>
-                    <h3 class="title">title 8</h3>
-                </a>
-            </div>
-            <div class="grid-item">
-                <a class="grid-link">
-                    <img src="./img/parallaxIV/gallery/321930869_1351698535640550_1096427312314771662_n.jpg" class="grid-img"/>
-                    <h3 class="title">title 9</h3>
-                </a>
-            </div>
-            <div class="grid-item">
-                <a class="grid-link">
-                    <img src="./img/parallaxIV/gallery/72614063_433236090677267_2807365040358828412_n.jpg" class="grid-img"/>
-                    <h3 class="title">title 10</h3>
-                </a>
+    <div class="space"></div>
+    <div class="about-test">
+        <div class="main">
+            <img src="./img/parallaxIV/gallery/212573141_870101006920357_9185461114137501578_n.jpg" alt="">
+            <div class="all-text">
+                <h4>about us</h4>
+                <h1>a house of creative & intelligent</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis impedit nam nisi velit expedita facere accusamus officiis vitae reprehenderit possimus id provident natus magni ea unde debitis, maxime error repellendus.</p>
+                <div class="btns">
+                    <button>our team</button>
+                    <button class="btn">learn more</button>
+                </div>
             </div>
         </div>
     </div>
