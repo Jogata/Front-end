@@ -69,107 +69,58 @@ font-family: 'Playfair Display', serif;     //400,700
             box-sizing: border-box;
         }
 
-        .space {
-            min-height: 100vh;
+        body {
+            padding: 2.5em;
+            text-align: center;
+            background-color: #222;
+            color: #fff;
         }
-
-        .about-test {
+        .area {
             width: 100%;
-            height: 100vh;
+            margin: 0 auto;
+            max-width: 600px;
+            border-radius: 10px;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #fff;
+            flex-direction: column;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
         }
 
-        .main {
-            width: 96%;
-            max-width: 1290px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-
-        .main img {
-            width: 100%;
-            max-width: 580px;
-            height: auto;
-            padding: 0 10px;
-        }
-
-        .all-text {
-            width: 100%;
-            max-width: 600px;
-            padding: 0 10px;
-            text-transform: capitalize;
-        }
-        .all-text h4 {
-            font-size: 18px;
-            color: #777;
-            letter-spacing: 1px;
-            font-weight: 400;
-            margin-bottom: 10px;
-            font-family: 'Playfair Display', serif; 
-        }
-        .all-text h1 {
-            font-size: 60px;
-            color: #111;
-            font-weight: 700;
-            margin-bottom: 20px;
-            font-family: 'Playfair Display', serif; 
-        }
-        .all-text p {
-            font-size: 1rem;
-            color: #777;
-            line-height: 30px;
-            margin-bottom: 35px;
-        }
-
-        .btns button {
-            margin-right: 20px;
-            padding: 20px 32px;
-            color: #111;
-            font-size: 1rem;
-            font-weight: bold;
-            background-color: #fff;
+        input {
+            width: 90%;
+            height: 100%;
+            padding: 15px;
+            color: #fff;
             border: none;
             outline: none;
-            box-shadow: 0px 16px 32px 0px rgba(0, 0, 0, 0.2);
-            transition: all 0.4s;
-            cursor: pointer;
+            font-size: 18px;
+            background-color: transparent;
+            transition: all 0.3s;
         }
-        .btns button:hover {
-            color: #fff;
-            background-color: #1d44f9;
+        ::placeholder {
+            color: #999;
         }
-
-        .btns .btn:hover {
-            background-color: #111;
+        i {
+            padding: 15px;
         }
 
-        @media screen and (max-width: 1250px) {
-            .about-test {
-                width: 100%;
-                height: auto;
-                padding: 60px 0;
-            }
-            .all-text {
-                margin-top: 40px;
-                text-align: center;
-            }
+        .area p {
+            font-size: 1.2rem;
+            line-height: 33px;
+            color: #909090;
+        }
+        .area h1, .area p {
+            margin: 1.5rem 0;
+        }
+        .area h1 {
+            text-transform: capitalize;
         }
 
-        @media screen and (max-width: 1250px) {
-            .about-test .main img {
-                margin-bottom: 35px;
-            }
-            .all-text h1 {
-                font-size: 45px;
-                margin-bottom: 20px;
-            }
+        .highlight {
+            color: #000;
+            background-color: rgba(243, 255, 92, 0.8);
         }
     </style>
 </head>
@@ -272,21 +223,45 @@ font-family: 'Playfair Display', serif;     //400,700
         </div>
     </div>
 
-    <div class="space"></div>
-    <div class="about-test">
-        <div class="main">
-            <img src="./img/parallaxIV/gallery/212573141_870101006920357_9185461114137501578_n.jpg" alt="">
-            <div class="all-text">
-                <h4>about us</h4>
-                <h1>a house of creative & intelligent</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis impedit nam nisi velit expedita facere accusamus officiis vitae reprehenderit possimus id provident natus magni ea unde debitis, maxime error repellendus.</p>
-                <div class="btns">
-                    <button>our team</button>
-                    <button class="btn">learn more</button>
-                </div>
-            </div>
+    <section class="area">
+        <div class="input-wrap">
+            <input type="text" id="search" placeholder="Search...">
+            <i>s</i>
         </div>
-    </div>
+        <h1>dune: an epic science fiction movie</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae labore eum minima rerum omnis dolore ducimus velit asperiores praesentium, numquam distinctio iste, debitis, animi reprehenderit id voluptas. Ipsa eaque officia magnam beatae alias necessitatibus perferendis fugiat reprehenderit ullam quis, asperiores quod voluptas commodi in autem vel quaerat delectus sed dolores!</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus aliquid, numquam deleniti molestias voluptatibus repellendus quis sapiente fuga eum placeat ad fugit hic voluptatum praesentium architecto, aspernatur modi blanditiis? Tempore, suscipit unde molestias fugiat atque quibusdam hic earum maxime voluptates quos nemo cumque ullam deleniti, minima nisi obcaecati vitae culpa mollitia fuga qui? Dolor, maiores quia ut amet aperiam commodi inventore odio sapiente voluptatibus eum est velit, labore, similique culpa quo? Ipsum ab soluta quas accusamus qui esse hic nostrum!</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto ullam autem dignissimos. Eum deserunt provident, optio facilis magni quo architecto autem quis. Molestiae nemo ipsam praesentium, quae earum dolore, incidunt dolorem sequi odio, magnam id magni voluptas minus illo in natus eveniet eos possimus eaque error sint optio facere obcaecati illum! Suscipit assumenda corrupti, in velit doloremque nisi recusandae provident. Omnis maiores eius ipsum? Deleniti?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum veritatis aliquam eligendi vel! Aliquid suscipit eaque ipsum nesciunt, quia accusantium itaque exercitationem aliquam laudantium? Alias laboriosam tenetur optio id accusantium pariatur fugiat culpa, soluta expedita? At quos, distinctio ex voluptate molestiae quaerat repellat!</p>
+    </section>
 
+    <script>
+        const input = document.querySelector("#search");
+        input.addEventListener("keyup", () => {
+            const filter = input.value.toUpperCase();
+            console.log(filter);
+            const ps = document.querySelectorAll(".area p");
+
+            if (filter === "") {
+                ps.forEach(p => {
+                    p.innerHTML = p.textContent;
+                })
+                return;
+            }
+
+            ps.forEach(p => {
+                let textValue = p.textContent;
+                if (textValue.toUpperCase().indexOf(filter) > -1) {
+                    textValue = textValue.replace(
+                        new RegExp(filter, "gi"),
+                        '<span class="highlight">$&</span>'
+                    )
+                    p.innerHTML = textValue;
+                } else {
+                    p.innerHTML = textValue;
+                }
+            })
+        })
+    </script>
 </body>
 </html>
