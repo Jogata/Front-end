@@ -36,88 +36,95 @@
             border-radius: 1em;
         }
 
-        .test54 {
-            width: 100%;
+        #delete3 {
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        .wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            background-color: #fafafa;
+        .container {
+            max-width: 1200px;
+            margin: 25px auto;
         }
 
-        h1 {
-            font-size: 3rem;
-            margin: 25px 0;
+        .main {
+            padding: 25px;
+        }
+        .main::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .timeline {
+            width: 50%;
+            padding: 32px 18px 0 0;
+            margin: 0 5px 0 0;
+            float: left;
+        }
+
+        .t-content {
+            color: #01c2a3;
             text-align: center;
+            min-height: 140px;
+            padding: 40px 20px 20px;
+            border: 4px dotted #01c2a3;
+            border-radius: 20px;
+            display: block;
+            position: relative;
+        }
+        .t-content:hover {
+            text-decoration: none;
+        }
+        .icon i {
+            color: #01c2a3;
+            font-size: 70px;
+            text-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            left: 20px;
+            top: -51px;
+            z-index: 1;
+        }
+
+        .year {
+            color: #01c2a3;
+            font-size: 30px;
+            font-weight: 700;
+            transform: translateY(-50%) rotate(90deg);
+            position: absolute;
+            right: -57px;
+            top: 50%;
+        }
+
+        .title {
+            font-size: 22px;
+            font-weight: 700;
             text-transform: capitalize;
+            margin: 0 0 5px;
         }
 
-        .content-box {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            width: 1000px;
-            margin-top: 30px;
+        .desc {
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 22px;
+            margin: 0;
         }
 
-        .card {
-            min-height: 220px;
-            width: 320px;
-            padding: 30px;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            background-color: #fff;
-            margin: 10px 4px;
-            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+        .timeline:nth-child(even) {
+            float: right;
+            padding: 32px 0 0 18px;
+            margin: 0 0 0 5px;
+        }
+        .timeline:nth-child(even) .year {
+            right: auto;
+            left: -61px;
+        }
+        .timeline:nth-child(even) .icon i {
+            right: 20px;
+            left: auto;
         }
 
-        .card i {
-            margin: 20px;
-            color: #ff5724;
-        }
-
-        h2 {
-            margin-bottom: 12px;
-            text-align: center;
-            text-transform: capitalize;
-        }
-
-        p {
-            color: #6c757d;
-            text-align: center;
-        }
-
-        .card:hover {
-            background: linear-gradient(45deg, rgba(255, 28, 8, 0.7) 0%, rgba(255, 8, 82, 0.7) 100%);
-        }
-        .card:hover i, .card:hover p {
-            color: #fff;
-        }
-
-        @media screen and (max-width: 991px) {
-            .wrapper {
-                padding: 25px;
-            }
-            h1 {
-                font-size: 2.5rem;
-            }
-            .content-box {
-                flex-direction: column;
+        @media screen and (max-width: 576px) {
+            .timeline {
                 width: 100%;
-            }
-            .card {
-                min-width: 300px;
-                margin: 10px auto;
             }
         }
     </style>
@@ -327,41 +334,40 @@
         </script>
     </section>
 
-    <section id="delete3" class="test54">
-        <div class="wrapper">
-            <h1>our services</h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id, recusandae libero ipsam illo totam animi aperiam! Vero ratione error, blanditiis architecto vel tempora nam maxime odit, aperiam, officiis quos sint.</p>
-
-            <div class="content-box">
-                <div class="card">
-                    <i>chart</i>
-                    <h2>marketing services</h2>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur, obcaecati ducimus rem ipsa earum nesciunt a blanditiis maxime veniam ipsam saepe fugiat doloremque incidunt provident quas minus consequuntur nihil.</p>
+    <section id="delete3">
+        <div class="container">
+            <div class="main">
+                <div class="timeline">
+                    <a href="#" class="t-content">
+                        <div class="year">2021</div>
+                        <div class="icon"><i>globe</i></div>
+                        <h3 class="title">title 1</h3>
+                        <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem suscipit quas optio expedita. Alias unde delectus repudiandae, ducimus rem voluptate libero, earum nisi facere consectetur voluptatibus, laborum nobis. Laudantium, dolores.</p>
+                    </a>
                 </div>
-                <div class="card">
-                    <i>laptop</i>
-                    <h2>web app development</h2>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur, obcaecati ducimus rem ipsa earum nesciunt a blanditiis maxime veniam ipsam saepe fugiat doloremque incidunt provident quas minus consequuntur nihil.</p>
+                <div class="timeline">
+                    <a href="#" class="t-content">
+                        <div class="year">2020</div>
+                        <div class="icon"><i>user</i></div>
+                        <h3 class="title">title 3</h3>
+                        <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem suscipit quas optio expedita. Alias unde delectus repudiandae, ducimus rem voluptate libero, earum nisi facere consectetur voluptatibus, laborum nobis. Laudantium, dolores.</p>
+                    </a>
                 </div>
-                <div class="card">
-                    <i>chart</i>
-                    <h2>24/7 call center services</h2>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur, obcaecati ducimus rem ipsa earum nesciunt a blanditiis maxime veniam ipsam saepe fugiat doloremque incidunt provident quas minus consequuntur nihil.</p>
+                <div class="timeline">
+                    <a href="#" class="t-content">
+                        <div class="year">2019</div>
+                        <div class="icon"><i>globe</i></div>
+                        <h3 class="title">title 1</h3>
+                        <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem suscipit quas optio expedita. Alias unde delectus repudiandae, ducimus rem voluptate libero, earum nisi facere consectetur voluptatibus, laborum nobis. Laudantium, dolores.</p>
+                    </a>
                 </div>
-                <div class="card">
-                    <i>mail</i>
-                    <h2>social media marketing</h2>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur, obcaecati ducimus rem ipsa earum nesciunt a blanditiis maxime veniam ipsam saepe fugiat doloremque incidunt provident quas minus consequuntur nihil.</p>
-                </div>
-                <div class="card">
-                    <i>chart</i>
-                    <h2>corporate business</h2>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur, obcaecati ducimus rem ipsa earum nesciunt a blanditiis maxime veniam ipsam saepe fugiat doloremque incidunt provident quas minus consequuntur nihil.</p>
-                </div>
-                <div class="card">
-                    <i>paint</i>
-                    <h2>creative consultancy</h2>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur, obcaecati ducimus rem ipsa earum nesciunt a blanditiis maxime veniam ipsam saepe fugiat doloremque incidunt provident quas minus consequuntur nihil.</p>
+                <div class="timeline">
+                    <a href="#" class="t-content">
+                        <div class="year">2018</div>
+                        <div class="icon"><i>case</i></div>
+                        <h3 class="title">title 4</h3>
+                        <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem suscipit quas optio expedita. Alias unde delectus repudiandae, ducimus rem voluptate libero, earum nisi facere consectetur voluptatibus, laborum nobis. Laudantium, dolores.</p>
+                    </a>
                 </div>
             </div>
         </div>
