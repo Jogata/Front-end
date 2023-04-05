@@ -6,185 +6,218 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Webstore v.1</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="./css/styles_webstore-v1.css"> -->
+  <link rel="stylesheet" href="./css/styles_webstore-v1.css">
   <style>
-    * {
+            * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-*::before, *::after {
+::before, ::after {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 100px;
-  width: 100%;
-  background-color: #f79f1f;
-  color: #2c3a47;
-  z-index: 10;
+p::first-letter {
+    text-transform: uppercase;
 }
 
-.logo {
-  position: relative;
-  font-size: 1.2rem;
-  color: #2c3a47;
-  text-decoration: none;
-  font-weight: 600;
-  text-transform: capitalize;
+h3 {
+    text-transform: capitalize;
 }
 
-.nav {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 12px 0;
-}
-.nav li {
-  list-style: none;
-  margin: 0 15px;
-}
-.nav li a {
-  text-decoration: none;
-  color: #2c3a47;
-  font-size: 16px;
-  letter-spacing: 1px;
-  text-transform: capitalize;
-}
-.nav li a:hover {
-  color: #fff;
-  font-weight: 500;
+.test33 {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.search {
-  width: 300px;
-  height: 40px;
-  position: relative;
+.btn {
+    margin: 1.5rem;
+    align-self: flex-start;
+    padding: 0.5em 1.5em;
+    font-size: 1.2rem;
+    background-color: #218afa;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
 }
-.search input {
-  width: 100%;
-  height: 100%;
-  color: #444;
-  background-color: transparent;
-  outline: none;
-  border: 1px solid #2c3a47;
-  border-radius: 4px;
-  padding-left: 40px;
+.btn2 {
+    background-color: #15b555;
 }
-::placeholder {
-  color: #2c3a47;
-  margin-left: 30px;
+.btn3 {
+    background-color: #ff2e2a;
 }
-.search i {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #2c3a47;
-  padding-right: 8px;
-  margin-left: 10px;
-  border-right: 1px solid #2c3a47;
+.btn1:hover {
+    background-color: #1f7adc;
+}
+.btn2:hover {
+    background-color: #139948;
+}
+.btn3:hover {
+    background-color: #df2724;
 }
 
-.banner {
-  padding: 100px 120px;
-  background-color: #222f3e;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.close-btn {
+    cursor: pointer;
 }
 
-.text {
-  max-width: 750px;
-}
-
-h1 {
-  color: #fff;
-  font-size: 3rem;
-  text-transform: capitalize;
-}
-h1 span {
-  text-transform: uppercase;
-}
-
-.text p {
-  font-size: 1rem;
-  color: #888;
-  margin-top: 20px;
-}
-
-.text a {
-  font-size: 1rem;
-  text-transform: capitalize;
-  background-color: #2c3a47;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 3px;
-  padding: 20px 35px;
-  display: inline-block;
-  margin-top: 25px;
-  letter-spacing: 1px;
-}
-
-.image {
-  max-width: 300px;
-  max-height: 300px;
-}
-
-@media screen and (max-width: 768px) {
-  header {
-    padding: 10px 20px;
+.nots {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     flex-direction: column;
-  }
-  .search {
+    row-gap: 1rem;
+    padding: 2rem;
+    position: fixed;
+    bottom: 0;left: 50%;
+    transform: translateX(-50%);
+    width: 470px;
+}
+.not {
+    padding: 20px;
+    background: linear-gradient(90deg, #02244b 0%, #232631 40%);
+    border-radius: 10px;
+    color: #898c97;
     width: 100%;
-  }
-  .banner {
-    padding: 100px 20px 50px;
-    flex-direction: column-reverse;
-  }
-  .image {
-    max-width: 80%;
-    margin-left: 0;
-  }
-  h1 {
-    font-size: 2rem;
-    margin-top: 20px;
-  }
+    animation: fade-out 0.4s ease-out 3s;
+}
+
+.not, .not > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    row-gap: 1rem;
+    width: 100%;
+}
+
+.not span {
+    font-size: 1.7rem;
+}
+
+.not h3 {
+    color: #fff;
+    margin-bottom: 0.2em;
+}
+
+.icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #218afa;
+    background-color: #042c5c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.success {
+    background: linear-gradient(90deg, #084431 0%, #232631 40%);
+}
+.success .icon {
+    color: #26f2b1;
+    background-color: #0a4f3a;
+}
+
+.danger {
+    background: linear-gradient(90deg, #480607 0%, #232631 40%);
+}
+.danger .icon {
+    color: #ff5c5a;
+    background-color: #590e0e;
+}
+
+@keyframes fade-out {
+    100% {
+        opacity: 0;
+    }
 }
   </style>
 </head>
 <body>
+
+  <section class="test33">
+    <button class="btn btn1" data-alert="0">massage</button>
+    <button class="btn btn2" data-alert="1">complete</button>
+    <button class="btn btn3" data-alert="2">delete</button>
+    <div class="nots"></div>
+</section>
+
+<script>
+    const btns = document.querySelectorAll(".btn");
+    const output = document.querySelector(".nots");
+    const closeButton = document.querySelector(".close-btn");
+
+    const message = document.createElement("div");
+    const success = document.createElement("div");
+    const danger = document.createElement("div");
+
+    const nots = [message, success, danger];
+
+    nots.forEach(n => {
+        n.classList.add("not");
+    })
+
+    message.classList.add("info");
+    success.classList.add("success");
+    danger.classList.add("danger");
+
+    message.innerHTML = `
+    <div>
+        <span>chat</span>
+        <div>
+            <h3>john doe</h3>
+            <p>great, thanks a lot for the quck reply!</p>
+        </div>
+        <span class="close-btn">close x</span>
+    </div>`;
+
+    success.innerHTML = `
+    <div>
+        <span>done</span>
+        <div>
+            <h3>changes saved</h3>
+            <p>Contract date changed successfully</p>
+        </div>
+        <span class="close-btn">close x</span>
+    </div>`;
+
+    danger.innerHTML = `
+    <div>
+        <span>delete</span>
+        <div>
+            <h3>Document deleted</h3>
+            <p>Document deleted successfully</p>
+        </div>
+        <span class="close-btn">close x</span>
+    </div>`;
+
+    btns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const id = btn.dataset.alert;
+            const n = nots[id].cloneNode(true);
+            output.appendChild(n);
+        })
+    })
+
+    window.addEventListener("animationend", e => {
+        if (e.target.classList.contains("not")) {
+            e.target.remove();
+        }
+    })
+
+    window.addEventListener("click", e => {
+        if (e.target.classList.contains("close-btn")) {
+            e.target.parentElement.parentElement.remove();
+        }
+    })
+</script>
   <!-- <h1 style="position: absolute; z-index: 1; bottom: 0;">Object.entries(person) - convert object to array</h1> -->
 
-  <header>
-    <a href="#" class="logo">logo</a>
-    <ul class="nav">
-      <li><a href="#">home</a></li>
-      <li><a href="#">about</a></li>
-      <li><a href="#">work</a></li>
-      <li><a href="#">blog</a></li>
-      <li><a href="#">contact</a></li>
-    </ul>
-    <div class="search">
-      <i>search</i>
-      <input type="text" name="" id="" placeholder="Search...">
-    </div>
-  </header>
-  <div class="banner">
-    <div class="text">
-      <h1>mobile friendly header with <br><span>HTML & CSS</span></h1>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. In, expedita ipsam quis quasi corrupti unde sapiente fugiat sed esse dolores veniam tempore perferendis provident ullam illo dolorum iste, vero modi ut! Eaque dolorem doloribus dolor quis, iste harum fugiat accusantium inventore iure repellat similique laboriosam quo magni dicta molestiae illo.</p>
-      <a href="#">read more</a>
-    </div>
-    <img class="image" src="../Parallax/img/parallaxIV/gallery/212696607_565196161514018_1044941815810703332_n.jpg" alt="">
-  </div>
-
   <!-- menu -->
-  <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
+  <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M318h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
 </body>
 </html>
