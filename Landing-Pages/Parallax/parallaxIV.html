@@ -63,64 +63,96 @@ font-family: 'Playfair Display', serif;     //400,700
             padding-right: 20px;
         }
 
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            padding: 2.5em;
-            text-align: center;
-            background-color: #222;
-            color: #fff;
-        }
-        .area {
-            width: 100%;
-            margin: 0 auto;
-            max-width: 600px;
-            border-radius: 10px;
+        .menu-test {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #e91e63, #673ab7);
         }
 
-        input {
-            width: 90%;
-            height: 100%;
-            padding: 15px;
-            color: #fff;
-            border: none;
-            outline: none;
-            font-size: 18px;
-            background-color: transparent;
-            transition: all 0.3s;
-        }
-        ::placeholder {
-            color: #999;
-        }
-        i {
-            padding: 15px;
+        .nav {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            background-color: #fff;
+            border-radius: 50%;
+            border-radius: 60px;
+            transition: all 0.5s;
+            transition-delay: 0.5s;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0, 0.15);
         }
 
-        .area p {
-            font-size: 1.2rem;
-            line-height: 33px;
-            color: #909090;
+        .toggle {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            border-radius: 50%;
+            transition: all 0.5s;
+            transition-delay: 0.5s;
+            cursor: pointer;
         }
-        .area h1, .area p {
-            margin: 1.5rem 0;
+        .toggle::before {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 3px;
+            border-radius: 3px;
+            background-color: #333;
+            transform: translateY(-5px);
+            transition: all 0.5s;
+            transition-delay: 0.5s;
         }
-        .area h1 {
-            text-transform: capitalize;
+        .toggle::after {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 3px;
+            border-radius: 3px;
+            background-color: #333;
+            transform: translateY(5px);
+            transition: all 0.5s;
+            transition-delay: 0.5s;
         }
 
-        .highlight {
-            color: #000;
-            background-color: rgba(243, 255, 92, 0.8);
+        .nav.active {
+            width: 600px;
+        }
+        .nav.active .toggle {
+            background-color: #ff4181;
+            transition-delay: 0s;
+            transform: translateY(60px);
+            width: 30px;
+            height: 30px;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0, 0.15);
+        }
+        .nav.active .toggle::before {
+            background-color: #fff;
+            transform: translateY(0) rotate(45deg) scale(0.6);
+            transition-delay: 0s;
+        }
+        .nav.active .toggle::after {
+            background-color: #fff;
+            transform: translateY(0) rotate(-45deg) scale(0.6);
+            transition-delay: 0s;
         }
     </style>
 </head>
@@ -223,44 +255,18 @@ font-family: 'Playfair Display', serif;     //400,700
         </div>
     </div>
 
-    <section class="area">
-        <div class="input-wrap">
-            <input type="text" id="search" placeholder="Search...">
-            <i>s</i>
-        </div>
-        <h1>dune: an epic science fiction movie</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae labore eum minima rerum omnis dolore ducimus velit asperiores praesentium, numquam distinctio iste, debitis, animi reprehenderit id voluptas. Ipsa eaque officia magnam beatae alias necessitatibus perferendis fugiat reprehenderit ullam quis, asperiores quod voluptas commodi in autem vel quaerat delectus sed dolores!</p>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus aliquid, numquam deleniti molestias voluptatibus repellendus quis sapiente fuga eum placeat ad fugit hic voluptatum praesentium architecto, aspernatur modi blanditiis? Tempore, suscipit unde molestias fugiat atque quibusdam hic earum maxime voluptates quos nemo cumque ullam deleniti, minima nisi obcaecati vitae culpa mollitia fuga qui? Dolor, maiores quia ut amet aperiam commodi inventore odio sapiente voluptatibus eum est velit, labore, similique culpa quo? Ipsum ab soluta quas accusamus qui esse hic nostrum!</p>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto ullam autem dignissimos. Eum deserunt provident, optio facilis magni quo architecto autem quis. Molestiae nemo ipsam praesentium, quae earum dolore, incidunt dolorem sequi odio, magnam id magni voluptas minus illo in natus eveniet eos possimus eaque error sint optio facere obcaecati illum! Suscipit assumenda corrupti, in velit doloremque nisi recusandae provident. Omnis maiores eius ipsum? Deleniti?</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum veritatis aliquam eligendi vel! Aliquid suscipit eaque ipsum nesciunt, quia accusantium itaque exercitationem aliquam laudantium? Alias laboriosam tenetur optio id accusantium pariatur fugiat culpa, soluta expedita? At quos, distinctio ex voluptate molestiae quaerat repellat!</p>
-    </section>
+    <div class="menu-test">
+        <ul class="nav">
+            <span class="toggle"></span>
+        </ul>
+    </div>
 
     <script>
-        const input = document.querySelector("#search");
-        input.addEventListener("keyup", () => {
-            const filter = input.value.toUpperCase();
-            console.log(filter);
-            const ps = document.querySelectorAll(".area p");
+        let toggle = document.querySelector(".toggle");
+        let nav = document.querySelector(".nav");
 
-            if (filter === "") {
-                ps.forEach(p => {
-                    p.innerHTML = p.textContent;
-                })
-                return;
-            }
-
-            ps.forEach(p => {
-                let textValue = p.textContent;
-                if (textValue.toUpperCase().indexOf(filter) > -1) {
-                    textValue = textValue.replace(
-                        new RegExp(filter, "gi"),
-                        '<span class="highlight">$&</span>'
-                    )
-                    p.innerHTML = textValue;
-                } else {
-                    p.innerHTML = textValue;
-                }
-            })
+        toggle.addEventListener("click", () => {
+            nav.classList.toggle("active");
         })
     </script>
 </body>
