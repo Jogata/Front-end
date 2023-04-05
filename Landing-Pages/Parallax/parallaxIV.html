@@ -154,6 +154,33 @@ font-family: 'Playfair Display', serif;     //400,700
             transform: translateY(0) rotate(-45deg) scale(0.6);
             transition-delay: 0s;
         }
+
+        .nav li {
+            list-style: none;
+            transition: all 0.5s;
+            transform: scale(0);
+        }
+
+        .nav.active li {
+            transition-delay: 0.75s;
+            display: flex;
+            transform: scale(1);
+        }
+
+        .nav li a {
+            color: #333;
+            font-size: 1.2rem;
+            text-transform: capitalize;
+            text-decoration: none;
+            letter-spacing: 1px;
+            padding: 5px 15px;
+            border-radius: 20px;
+            transition: all 0.5s;
+        }
+        .nav li a:hover {
+            color: #fff;
+            background-color: #ff4181;
+        }
     </style>
 </head>
 <body>
@@ -257,6 +284,11 @@ font-family: 'Playfair Display', serif;     //400,700
 
     <div class="menu-test">
         <ul class="nav">
+            <li><a href="#">home</a></li>
+            <li><a href="#">about</a></li>
+            <li><a href="#">services</a></li>
+            <li><a href="#">team</a></li>
+            <li><a href="#">contact</a></li>
             <span class="toggle"></span>
         </ul>
     </div>
