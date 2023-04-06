@@ -36,100 +36,134 @@
             border-radius: 1em;
         }
 
-        #delete3 {
-            min-height: 100vh;
-        }
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .container {
-            max-width: 1200px;
-            margin: 25px auto;
-        }
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e3dbf6, #a99bf9);
+    padding: 10px;
+}
 
-        .main {
-            padding: 25px;
-        }
-        .main::after {
-            content: "";
-            display: block;
-            clear: both;
-        }
+.card {
+    width: 350px;
+    height: 515px;
+    margin: 100px auto 0;
+    border-radius: 15px;
+    background-color: #fff;
+    overflow: hidden;
+}
 
-        .timeline {
-            width: 50%;
-            padding: 32px 18px 0 0;
-            margin: 0 5px 0 0;
-            float: left;
-        }
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
 
-        .t-content {
-            color: #01c2a3;
-            text-align: center;
-            min-height: 140px;
-            padding: 40px 20px 20px;
-            border: 4px dotted #01c2a3;
-            border-radius: 20px;
-            display: block;
-            position: relative;
-        }
-        .t-content:hover {
-            text-decoration: none;
-        }
-        .icon i {
-            color: #01c2a3;
-            font-size: 70px;
-            text-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2);
-            position: absolute;
-            left: 20px;
-            top: -51px;
-            z-index: 1;
-        }
+.front, .back {
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
 
-        .year {
-            color: #01c2a3;
-            font-size: 30px;
-            font-weight: 700;
-            transform: translateY(-50%) rotate(90deg);
-            position: absolute;
-            right: -57px;
-            top: 50%;
-        }
+.front {
+    background-image: url("../../../Landing-Pages/Parallax/img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 60px 40px;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    color: #fff;
+}
 
-        .title {
-            font-size: 22px;
-            font-weight: 700;
-            text-transform: capitalize;
-            margin: 0 0 5px;
-        }
+h2 {
+    font-weight: 500;
+    text-transform: capitalize;
+    z-index: 2;
+}
+.front p {
+    color: #ccc;
+    font-size: 13px;
+    z-index: 2;
+}
+.front p::first-letter {
+    text-transform: uppercase;
+}
+.front button {
+    width: 120px;
+    margin-top: 20px;
+    padding: 8px 20px;
+    color: #fff;
+    font-size: 1,2rem;
+    text-transform: capitalize;
+    border: 1px solid;
+    border-radius: 50px;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 2;
+}
+.front::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
+    z-index: 1;
+}
 
-        .desc {
-            font-size: 13px;
-            font-weight: 500;
-            line-height: 22px;
-            margin: 0;
-        }
+.back {
+    position: absolute;
+    /* top: 0; */
+    /* left: 0; */
+    padding: 20px 40px;
+    color: #333;
+    background-color: #fff;
+    /* z-index: -1; */
+    /* transform: rotateY(180deg); */
+}
 
-        .timeline:nth-child(even) {
-            float: right;
-            padding: 32px 0 0 18px;
-            margin: 0 0 0 5px;
-        }
-        .timeline:nth-child(even) .year {
-            right: auto;
-            left: -61px;
-        }
-        .timeline:nth-child(even) .icon i {
-            right: 20px;
-            left: auto;
-        }
+h1 {
+    font-size: 50px;
+    line-height: 55px;
+    margin-bottom: 10px;
+}
+h1 span {
+    font-weight: bold;
+}
+.back p {
+    font-size: 14px;
+}
 
-        @media screen and (max-width: 576px) {
-            .timeline {
-                width: 100%;
-            }
-        }
+.card:hover {
+    transform: rotateY(180deg);
+    transition: 1s;
+}
     </style>
 </head>
 <body>
+    <div class="container">
+        <div class="card">
+            <div class="card-inner">
+                <div class="front">
+                    <h2>user name</h2>
+                    <p>profession, USA</p>
+                    <button>hover me</button>
+                </div>
+                <div class="back">
+                    <h1>user <span>name</span></h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, tempore.</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- factory pattern -->
     <script src="./js/script_travel_v2.js"></script>
 
@@ -334,44 +368,7 @@
         </script>
     </section>
 
-    <section id="delete3">
-        <div class="container">
-            <div class="main">
-                <div class="timeline">
-                    <a href="#" class="t-content">
-                        <div class="year">2021</div>
-                        <div class="icon"><i>globe</i></div>
-                        <h3 class="title">title 1</h3>
-                        <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem suscipit quas optio expedita. Alias unde delectus repudiandae, ducimus rem voluptate libero, earum nisi facere consectetur voluptatibus, laborum nobis. Laudantium, dolores.</p>
-                    </a>
-                </div>
-                <div class="timeline">
-                    <a href="#" class="t-content">
-                        <div class="year">2020</div>
-                        <div class="icon"><i>user</i></div>
-                        <h3 class="title">title 3</h3>
-                        <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem suscipit quas optio expedita. Alias unde delectus repudiandae, ducimus rem voluptate libero, earum nisi facere consectetur voluptatibus, laborum nobis. Laudantium, dolores.</p>
-                    </a>
-                </div>
-                <div class="timeline">
-                    <a href="#" class="t-content">
-                        <div class="year">2019</div>
-                        <div class="icon"><i>globe</i></div>
-                        <h3 class="title">title 1</h3>
-                        <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem suscipit quas optio expedita. Alias unde delectus repudiandae, ducimus rem voluptate libero, earum nisi facere consectetur voluptatibus, laborum nobis. Laudantium, dolores.</p>
-                    </a>
-                </div>
-                <div class="timeline">
-                    <a href="#" class="t-content">
-                        <div class="year">2018</div>
-                        <div class="icon"><i>case</i></div>
-                        <h3 class="title">title 4</h3>
-                        <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem suscipit quas optio expedita. Alias unde delectus repudiandae, ducimus rem voluptate libero, earum nisi facere consectetur voluptatibus, laborum nobis. Laudantium, dolores.</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <section id="delete3"></section>
     <section id="delete4"></section>
 
     <script src="./js/script_travel_v2.js">
