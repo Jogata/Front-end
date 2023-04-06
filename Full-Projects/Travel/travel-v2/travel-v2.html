@@ -54,20 +54,22 @@
     height: 515px;
     margin: 100px auto 0;
     border-radius: 15px;
-    background-color: #fff;
+    /* background-color: #fff; */
     overflow: hidden;
+    perspective: 1000px;
 }
 
 .card-inner {
     position: relative;
     width: 100%;
     height: 100%;
+    transition: all 1s;
+    transform-style: preserve-3d;
 }
 
 .front, .back {
     width: 100%;
     height: 100%;
-    backface-visibility: hidden;
 }
 
 .front {
@@ -107,6 +109,7 @@ h2 {
     background-color: transparent;
     cursor: pointer;
     z-index: 2;
+    backface-visibility: hidden;
 }
 .front::after {
     position: absolute;
@@ -121,19 +124,20 @@ h2 {
 
 .back {
     position: absolute;
-    /* top: 0; */
-    /* left: 0; */
+    top: 0;
+    left: 0;
     padding: 20px 40px;
     color: #333;
     background-color: #fff;
     /* z-index: -1; */
-    /* transform: rotateY(180deg); */
+    transform: rotateY(180deg);
 }
 
 h1 {
     font-size: 50px;
     line-height: 55px;
     margin-bottom: 10px;
+    text-transform: capitalize;
 }
 h1 span {
     font-weight: bold;
@@ -142,9 +146,70 @@ h1 span {
     font-size: 14px;
 }
 
-.card:hover {
+.row {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.col {
+    flex: 1;
+    text-align: center;
+    color: #555;
+    font-size: 12px;
+    position: relative;
+}
+.col::after {
+    content: "";
+    width: 1.5px;
+    height: 20px;
+    background-color: #7800ad;
+    position: absolute;
+    top: 5px;
+    right: 0;
+}
+.col:last-child::after {
+    content: none;
+}
+.col h2 {
+    color: #333;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.col p {
+    margin-top: 5px;
+    text-transform: capitalize;
+}
+
+.row button {
+    background-color: #7800ad;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 8px 25px;
+    border-radius: 30px;
+    font-size: 14px;
+    margin-right: 15px;
+    box-shadow: 0px 8px 10px rgba(120, 0, 173, 0.3);
+    text-transform: capitalize;
+}
+
+.row a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+.row i {
+    color: #333;
+    font-size: 1.2rem;
+}
+.card:hover .card-inner {
     transform: rotateY(180deg);
-    transition: 1s;
 }
     </style>
 </head>
@@ -160,6 +225,29 @@ h1 span {
                 <div class="back">
                     <h1>user <span>name</span></h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, tempore.</p>
+                    <div class="row">
+                        <div class="col">
+                            <h2>12k</h2>
+                            <p>followers</p>
+                        </div>
+                        <div class="col">
+                            <h2>250</h2>
+                            <p>following</p>
+                        </div>
+                        <div class="col">
+                            <h2>5k</h2>
+                            <p>likes</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <button>follow</button>
+                        <a href="#i">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                        <a href="#p">
+                            <i class="fa fa-pinterest"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
