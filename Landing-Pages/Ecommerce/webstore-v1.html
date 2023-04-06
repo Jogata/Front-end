@@ -8,214 +8,179 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./css/styles_webstore-v1.css">
   <style>
-            * {
+    @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-::before, ::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-p::first-letter {
-    text-transform: uppercase;
+img {
+    max-width: 100%;
 }
-
-h3 {
-    text-transform: capitalize;
-}
-
-.test33 {
-    min-height: 100vh;
+ul {
+    list-style: none;
     display: flex;
-    align-items: center;
     justify-content: center;
 }
-
-.btn {
-    margin: 1.5rem;
-    align-self: flex-start;
-    padding: 0.5em 1.5em;
-    font-size: 1.2rem;
-    background-color: #218afa;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
+a {
+    text-decoration: none;
+    outline: none;
+}
+i, button, li {
     cursor: pointer;
 }
-.btn2 {
-    background-color: #15b555;
-}
-.btn3 {
-    background-color: #ff2e2a;
-}
-.btn1:hover {
-    background-color: #1f7adc;
-}
-.btn2:hover {
-    background-color: #139948;
-}
-.btn3:hover {
-    background-color: #df2724;
+i {
+    transition: all 0.3s ease-in-out;
 }
 
-.close-btn {
-    cursor: pointer;
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 10px 8%;
+  color: #fff;
+  background: linear-gradient(to right, #094282, #6d00ff 70%, #6d00ff 70%);
 }
 
-.nots {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex-direction: column;
-    row-gap: 1rem;
-    padding: 2rem;
-    position: fixed;
-    bottom: 0;left: 50%;
-    transform: translateX(-50%);
-    width: 470px;
-}
-.not {
-    padding: 20px;
-    background: linear-gradient(90deg, #02244b 0%, #232631 40%);
-    border-radius: 10px;
-    color: #898c97;
-    width: 100%;
-    animation: fade-out 0.4s ease-out 3s;
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 8%;
+  display: flex;
+  align-items: center;
+  z-index: 10;
 }
 
-.not, .not > div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    row-gap: 1rem;
-    width: 100%;
+.logo {
+  font-size: 3rem;
+  text-transform: uppercase;
+  font-weight: lighter;
+  color: #fff;
 }
 
-.not span {
-    font-size: 1.7rem;
+nav ul {
+  flex: 1;
+  text-align: center;
+}
+nav ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 5px 15px;
+}
+nav a {
+  color: #fff;
+  text-transform: capitalize;
+  text-decoration: none;
 }
 
-.not h3 {
-    color: #fff;
-    margin-bottom: 0.2em;
+.text-box {
+  margin-top: 18%;
+  max-width: 600px;
 }
 
-.icon {
-    width: 1.5rem;
-    height: 1.5rem;
-    color: #218afa;
-    background-color: #042c5c;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
+h1 {
+  font-size: 70px;
+  line-height: 90px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+h1 span {
+  display: block;
 }
 
-.success {
-    background: linear-gradient(90deg, #084431 0%, #232631 40%);
-}
-.success .icon {
-    color: #26f2b1;
-    background-color: #0a4f3a;
+.text-box p {
+  line-height: 28px;
 }
 
-.danger {
-    background: linear-gradient(90deg, #480607 0%, #232631 40%);
+.text-box button {
+  padding: 20px 40px;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  margin-top: 40px;
+  margin-right: 10px;
+  border-radius: 50px;
+  font-weight: 500;
+  text-transform: capitalize;
+  cursor: pointer;
 }
-.danger .icon {
-    color: #ff5c5a;
-    background-color: #590e0e;
+.text-box button:last-child {
+  color: #fff;
+  background-color: #5957cf;
 }
 
-@keyframes fade-out {
-    100% {
-        opacity: 0;
-    }
+.image {
+  width: 400px;
+  position: absolute;
+  right: 15%;
+  top: 18%;
+  border-top-right-radius: 200px;
+  border-top-left-radius: 200px;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  z-index: 2;
+}
+
+.sidebar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 32%;
+  height: 100%;
+  background: linear-gradient(#8569ff, #006786);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  transform: rotate(90deg);
+}
+.sidebar a::first-letter {
+  text-transform: uppercase;
+}
+.sidebar span {
+  padding: 10px 10px 15px;
+  font-size: 2rem;
 }
   </style>
 </head>
 <body>
-
-  <section class="test33">
-    <button class="btn btn1" data-alert="0">massage</button>
-    <button class="btn btn2" data-alert="1">complete</button>
-    <button class="btn btn3" data-alert="2">delete</button>
-    <div class="nots"></div>
-</section>
-
-<script>
-    const btns = document.querySelectorAll(".btn");
-    const output = document.querySelector(".nots");
-    const closeButton = document.querySelector(".close-btn");
-
-    const message = document.createElement("div");
-    const success = document.createElement("div");
-    const danger = document.createElement("div");
-
-    const nots = [message, success, danger];
-
-    nots.forEach(n => {
-        n.classList.add("not");
-    })
-
-    message.classList.add("info");
-    success.classList.add("success");
-    danger.classList.add("danger");
-
-    message.innerHTML = `
-    <div>
-        <span>chat</span>
-        <div>
-            <h3>john doe</h3>
-            <p>great, thanks a lot for the quck reply!</p>
-        </div>
-        <span class="close-btn">close x</span>
-    </div>`;
-
-    success.innerHTML = `
-    <div>
-        <span>done</span>
-        <div>
-            <h3>changes saved</h3>
-            <p>Contract date changed successfully</p>
-        </div>
-        <span class="close-btn">close x</span>
-    </div>`;
-
-    danger.innerHTML = `
-    <div>
-        <span>delete</span>
-        <div>
-            <h3>Document deleted</h3>
-            <p>Document deleted successfully</p>
-        </div>
-        <span class="close-btn">close x</span>
-    </div>`;
-
-    btns.forEach(btn => {
-        btn.addEventListener("click", () => {
-            const id = btn.dataset.alert;
-            const n = nots[id].cloneNode(true);
-            output.appendChild(n);
-        })
-    })
-
-    window.addEventListener("animationend", e => {
-        if (e.target.classList.contains("not")) {
-            e.target.remove();
-        }
-    })
-
-    window.addEventListener("click", e => {
-        if (e.target.classList.contains("close-btn")) {
-            e.target.parentElement.parentElement.remove();
-        }
-    })
-</script>
   <!-- <h1 style="position: absolute; z-index: 1; bottom: 0;">Object.entries(person) - convert object to array</h1> -->
+
+  <div class="hero">
+    <nav>
+      <span class="logo">studio</span>
+      <ul>
+        <li>
+          <a href="#top">services</a>
+          <a href="#top">products</a>
+          <a href="#top">contact us</a>
+        </li>
+      </ul>
+      <a href="partner">partnership programm</a>
+    </nav>
+    <div class="text-box">
+      <h1><span>creative</span> design studio</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, provident alias velit dolorem repudiandae saepe modi, ipsam animi illo veniam aspernatur ut officiis at repellat excepturi placeat, consequatur ea corrupti.</p>
+      <button>explore now</button>
+      <button>see the plans</button>
+    </div>
+    <img src="../Parallax/img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg" alt="" class="image">
+    <div class="sidebar">
+      <a href="#projects">Our recent projects <span>&#155</span></a>
+    </div>
+  </div>
 
   <!-- menu -->
   <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M318h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
