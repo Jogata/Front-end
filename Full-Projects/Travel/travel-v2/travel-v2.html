@@ -36,222 +36,159 @@
             border-radius: 1em;
         }
 
-        * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.container {
-    width: 100%;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #e3dbf6, #a99bf9);
-    padding: 10px;
-}
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
 
-.card {
-    width: 350px;
-    height: 515px;
-    margin: 100px auto 0;
-    border-radius: 15px;
-    /* background-color: #fff; */
-    overflow: hidden;
-    perspective: 1000px;
-}
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            text-transform: capitalize;
+            margin-bottom: 30px;
+            margin-top: 40px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
 
-.card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: all 1s;
-    transform-style: preserve-3d;
-}
+        .services {
+            width: 1000px;
+            margin: 0px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
-.front, .back {
-    width: 100%;
-    height: 100%;
-}
+        .box {
+            height: 300px;
+            width: 300px;
+            padding: 15px;
+            background-color: #12141c;
+            overflow: hidden;
+            transition: all 0.3 ease;
+        }
 
-.front {
-    background-image: url("../../../Landing-Pages/Parallax/img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    padding: 60px 40px;
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    color: #fff;
-}
+        .box i {
+            color: #ffc312;
+            margin-top: 15px;
+            transition: inherit;
+            transition-delay: 0s;
+        }
 
-h2 {
-    font-weight: 500;
-    text-transform: capitalize;
-    z-index: 2;
-}
-.front p {
-    color: #ccc;
-    font-size: 13px;
-    z-index: 2;
-}
-.front p::first-letter {
-    text-transform: uppercase;
-}
-.front button {
-    width: 120px;
-    margin-top: 20px;
-    padding: 8px 20px;
-    color: #fff;
-    font-size: 1,2rem;
-    text-transform: capitalize;
-    border: 1px solid;
-    border-radius: 50px;
-    background-color: transparent;
-    cursor: pointer;
-    z-index: 2;
-    backface-visibility: hidden;
-}
-.front::after {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
-    z-index: 1;
-}
+        h4 {
+            color: #fff;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            transition: inherit;
+            transition-delay: 0.5s;
+            font-weight: 400;
+            text-transform: capitalize;
+        }
 
-.back {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 20px 40px;
-    color: #333;
-    background-color: #fff;
-    /* z-index: -1; */
-    transform: rotateY(180deg);
-}
+        .services p {
+            color: #dfdfdf;
+            transition: inherit;
+            transition-delay: 0.1s;
+        }
 
-h1 {
-    font-size: 50px;
-    line-height: 55px;
-    margin-bottom: 10px;
-    text-transform: capitalize;
-}
-h1 span {
-    font-weight: bold;
-}
-.back p {
-    font-size: 14px;
-}
+        .read {
+            color: #fff;
+            overflow: hidden;
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            font-weight: 500;
+            position: relative;
+            padding-right: 2rem;
+        }
 
-.row {
-    display: flex;
-    align-items: center;
-    margin-top: 30px;
-}
+        .read::before {
+            bottom: 0;
+            height: 0.125rem;
+            margin: auto;
+            background-color: #ffc312;
+            left: 0;
+            content: "";
+            position: absolute;
+            width: 100%;
+            transform: scale(0.2);
+            transform-origin: left center;
+            z-index: 0;
+            animation: link-out 0.4s cubic-bezier(0.6, 0.01, 0, 1) forwards;
+        }
+        .read span {
+            position: relative;
+            transform: translateX(-200%);
+            display: inline-block;
+            transition: 0.6Ss cubic-bezier(0.6, 0.01, 0, 1);
+        }
 
-.col {
-    flex: 1;
-    text-align: center;
-    color: #555;
-    font-size: 12px;
-    position: relative;
-}
-.col::after {
-    content: "";
-    width: 1.5px;
-    height: 20px;
-    background-color: #7800ad;
-    position: absolute;
-    top: 5px;
-    right: 0;
-}
-.col:last-child::after {
-    content: none;
-}
-.col h2 {
-    color: #333;
-    font-size: 20px;
-    text-transform: uppercase;
-}
-.col p {
-    margin-top: 5px;
-    text-transform: capitalize;
-}
+        .box:hover .read span {
+            transform: translateX(0%);
+        }
+        .box:hover .read::before {
+            animation: link-in 0.4s cubic-bezier(0.6, 0.01, 0, 1) forwards;
+        }
 
-.row button {
-    background-color: #7800ad;
-    color: #fff;
-    border: none;
-    outline: none;
-    padding: 8px 25px;
-    border-radius: 30px;
-    font-size: 14px;
-    margin-right: 15px;
-    box-shadow: 0px 8px 10px rgba(120, 0, 173, 0.3);
-    text-transform: capitalize;
-}
+        .box:hover i, 
+        .box:hover h4, 
+        .box:hover p  {
+            transform: translateY(-0.625rem);
+        }
 
-.row a {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin: 0 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-}
-.row i {
-    color: #333;
-    font-size: 1.2rem;
-}
-.card:hover .card-inner {
-    transform: rotateY(180deg);
-}
+        @keyframes link-out {
+            0% {
+                transform-origin: right center;
+                transform: scaleX(0.2);
+            }
+            70% {
+                transform-origin: right center;
+            }
+            71% {
+                transform-origin: left center;
+                transform: scaleX(1);
+            }
+            100% {
+                transform-origin: left center;
+                transform: scaleX(0.2);
+            }
+        }
+        @keyframes link-in {
+            0% {
+                transform-origin: left center;
+                transform: scaleX(0.2);
+            }
+            70% {
+                transform-origin: left center;
+                transform: scaleX(1);
+            }
+            71% {
+                transform-origin: right center;
+            }
+            100% {
+                transform-origin: right center;
+                transform: scaleX(0.2);
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .services {
+                max-width: 100%;
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <div class="card-inner">
-                <div class="front">
-                    <h2>user name</h2>
-                    <p>profession, USA</p>
-                    <button>hover me</button>
-                </div>
-                <div class="back">
-                    <h1>user <span>name</span></h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, tempore.</p>
-                    <div class="row">
-                        <div class="col">
-                            <h2>12k</h2>
-                            <p>followers</p>
-                        </div>
-                        <div class="col">
-                            <h2>250</h2>
-                            <p>following</p>
-                        </div>
-                        <div class="col">
-                            <h2>5k</h2>
-                            <p>likes</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <button>follow</button>
-                        <a href="#i">
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                        <a href="#p">
-                            <i class="fa fa-pinterest"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- factory pattern -->
     <script src="./js/script_travel_v2.js"></script>
 
@@ -456,11 +393,51 @@ h1 span {
         </script>
     </section>
 
-    <section id="delete3"></section>
+    <section id="delete3">
+        <h1>our services</h1>
+        <div class="services">
+        <div class="box">
+            <i class="fa fa-home fa-3x"></i>
+            <h4>web design</h4>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, eius.</p>
+            <a href="#" class="read"><span>read more</span></a>
+        </div>
+        <div class="box">
+            <i class="fa fa-camera-retro fa-3x"></i>
+            <h4>photography</h4>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, eius.</p>
+            <a href="#" class="read"><span>read more</span></a>
+        </div>
+        <div class="box">
+            <i class="fa fa-youtube fa-3x"></i>
+            <h4>video editing</h4>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, eius.</p>
+            <a href="#" class="read"><span>read more</span></a>
+        </div>
+        <div class="box">
+            <i class="fa fa-home fa-3x"></i>
+            <h4>web design</h4>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, eius.</p>
+            <a href="#" class="read"><span>read more</span></a>
+        </div>
+        <div class="box">
+            <i class="fa fa-home fa-3x"></i>
+            <h4>web design</h4>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, eius.</p>
+            <a href="#" class="read"><span>read more</span></a>
+        </div>
+        <div class="box">
+            <i class="fa fa-home fa-3x"></i>
+            <h4>web design</h4>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, eius.</p>
+            <a href="#" class="read"><span>read more</span></a>
+        </div>
+        </div>
+    </section>
     <section id="delete4"></section>
 
     <script src="./js/script_travel_v2.js">
-        console.log(402>252);
+        console.log(466>252);
     </script>
 </body>
 </html>
