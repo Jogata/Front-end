@@ -63,123 +63,167 @@ font-family: 'Playfair Display', serif;     //400,700
             padding-right: 20px;
         }
 
-        * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-::before, ::after {
+        *, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-        .menu-test {
+        .login-sec {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #e91e63, #673ab7);
         }
 
-        .nav {
+        .login-form {
+            width: 100%;
             position: relative;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly;
-            background-color: #fff;
-            border-radius: 50%;
-            border-radius: 60px;
-            transition: all 0.5s;
-            transition-delay: 0.5s;
-            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0, 0.15);
-        }
-
-        .toggle {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            display: flex;
+            min-height: 100vh;
+            z-index: 0;
+            background-color: #0568c1;
+            padding: 40px;
+            display: grid;
             align-items: center;
             justify-content: center;
-            background-color: #fff;
-            border-radius: 50%;
-            transition: all 0.5s;
-            transition-delay: 0.5s;
-            cursor: pointer;
-        }
-        .toggle::before {
-            content: "";
-            position: absolute;
-            width: 30px;
-            height: 3px;
-            border-radius: 3px;
-            background-color: #333;
-            transform: translateY(-5px);
-            transition: all 0.5s;
-            transition-delay: 0.5s;
-        }
-        .toggle::after {
-            content: "";
-            position: absolute;
-            width: 30px;
-            height: 3px;
-            border-radius: 3px;
-            background-color: #333;
-            transform: translateY(5px);
-            transition: all 0.5s;
-            transition-delay: 0.5s;
+            grid-template-rows: 1fe auto 1fr;
         }
 
-        .nav.active {
-            width: 600px;
-        }
-        .nav.active .toggle {
-            background-color: #ff4181;
-            transition-delay: 0s;
-            transform: translateY(60px);
-            width: 30px;
-            height: 30px;
-            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0, 0.15);
-        }
-        .nav.active .toggle::before {
-            background-color: #fff;
-            transform: translateY(0) rotate(45deg) scale(0.6);
-            transition-delay: 0s;
-        }
-        .nav.active .toggle::after {
-            background-color: #fff;
-            transform: translateY(0) rotate(-45deg) scale(0.6);
-            transition-delay: 0s;
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .nav li {
-            list-style: none;
-            transition: all 0.5s;
-            transform: scale(0);
-        }
-
-        .nav.active li {
-            transition-delay: 0.75s;
-            display: flex;
-            transform: scale(1);
-        }
-
-        .nav li a {
-            color: #333;
-            font-size: 1.2rem;
+        .login-form h1 {
             text-transform: capitalize;
-            text-decoration: none;
-            letter-spacing: 1px;
-            padding: 5px 15px;
-            border-radius: 20px;
-            transition: all 0.5s;
-        }
-        .nav li a:hover {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 400;
             color: #fff;
-            background-color: #ff4181;
+        }
+
+        .login-form h2 {
+            font-size: 30px;
+            line-height: 40px;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #272346;
+            text-align: center;
+            text-transform: capitalize;
+        }
+
+        .main {
+            position: relative;
+            display: flex;
+            margin: 30px 0px;
+        }
+
+        .content {
+            flex-basis: 50%;
+            padding: 3rem;
+            background-color: #fff;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+            box-shadow: 2px 9px 49px -17px rgba(0,0,0,0.1);
+        }
+
+        .form-img {
+            flex-basis: 50%;
+            background-color: #f4f9fd;
+            background-size: cover;
+            padding: 40px;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+            display: grid;
+            align-items: center;
+        }
+
+        .form p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 25px;
+            opacity: 0.6;
+            text-align: center;
+        }
+
+        button, input {
+            border-radius: 35px;
+        }
+
+        button:hover {
+            transition: all 0.5s ease;
+        }
+
+        .login-form form {
+            margin: 30px 0;
+        }
+
+        .login-form input {
+            outline: none;
+            margin-bottom: 15px;
+            font-size: 16px;
+            /* font-stretch: condensed; */
+            color: #999;
+            text-align: left;
+            padding: 14px 20px;
+            width: 100%;
+            display: inline-block;
+            border: 1px solid #e5e5e5;
+            background-color: #f7fafc;
+            transition: 0.3s ease;
+        }
+
+        .login-form input:focus-visible {
+            background-color: transparent;
+            border: 1px solid #0568c1;
+        }
+
+        .login-form button {
+            font-size: 18px;
+            color: #fff;
+            width: 100%;
+            background-color: #0568c1;
+            border: none;
+            padding: 14px 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .login-form button:hover {
+            background-color: #fdc500;
+        }
+
+        .account, .account a {
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 0px;
+            font-size: 16px;
+            color: #333;
+        }
+        .account a {
+            text-transform: capitalize;
+            color: #0568c1;
+            text-decoration: none;
+        }
+        .account a:hover {
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 736px) {
+            .main {
+                flex-direction: column;
+            }
+            .form {
+                margin-top: 30px;
+                margin-bottom: 10px;
+            }
+            .form-img {
+                border-radius: 0;
+                order: 2;
+            }
+            .content {
+                order: 1;
+                border-radius: 0;
+            }
         }
     </style>
 </head>
@@ -282,24 +326,28 @@ font-family: 'Playfair Display', serif;     //400,700
         </div>
     </div>
 
-    <div class="menu-test">
-        <ul class="nav">
-            <li><a href="#">home</a></li>
-            <li><a href="#">about</a></li>
-            <li><a href="#">services</a></li>
-            <li><a href="#">team</a></li>
-            <li><a href="#">contact</a></li>
-            <span class="toggle"></span>
-        </ul>
+    <div class="login-sec">
+        <div class="login-form">
+            <h1>log in</h1>
+            <div class="container">
+                <div class="main">
+                    <div class="content">
+                        <h2>log in</h2>
+                        <form action="">
+                            <input type="text" name="user" id="name" placeholder="Username" required autofocus>
+                            <input type="password" name="pass" id="pass" placeholder="Password" required autofocus>
+                            <button type="submit">log in</button>
+                        </form>
+                        <p class="account">Don't have an account? 
+                            <a href="#">register</a>
+                        </p>
+                    </div>
+                    <div class="form-img">
+                        <img src="./img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <script>
-        let toggle = document.querySelector(".toggle");
-        let nav = document.querySelector(".nav");
-
-        toggle.addEventListener("click", () => {
-            nav.classList.toggle("active");
-        })
-    </script>
 </body>
 </html>
