@@ -63,167 +63,123 @@ font-family: 'Playfair Display', serif;     //400,700
             padding-right: 20px;
         }
 
-        *, *::before, *::after {
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+::before, ::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-        .login-sec {
+        .log-test {
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .login-form {
-            width: 100%;
-            position: relative;
-            min-height: 100vh;
-            z-index: 0;
-            background-color: #0568c1;
-            padding: 40px;
-            display: grid;
-            align-items: center;
-            justify-content: center;
-            grid-template-rows: 1fe auto 1fr;
         }
 
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .login-form h1 {
-            text-transform: capitalize;
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 400;
-            color: #fff;
-        }
-
-        .login-form h2 {
-            font-size: 30px;
-            line-height: 40px;
-            margin-bottom: 5px;
-            font-weight: 500;
-            color: #272346;
-            text-align: center;
-            text-transform: capitalize;
-        }
-
-        .main {
-            position: relative;
+            background-color: #f2f2f2;
             display: flex;
-            margin: 30px 0px;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .login {
+            width: 800px;
+            min-height: 400px;
+            overflow: hidden;
+            border-radius: 5px;
+            background-color: #222;
+            display: flex;
+            box-shadow: 15px 5px 30px rgba(0,0,0,0.3);
         }
 
         .content {
             flex-basis: 50%;
-            padding: 3rem;
-            background-color: #fff;
-            border-top-left-radius: 8px;
-            border-bottom-left-radius: 8px;
-            box-shadow: 2px 9px 49px -17px rgba(0,0,0,0.1);
-        }
-
-        .form-img {
-            flex-basis: 50%;
-            background-color: #f4f9fd;
-            background-size: cover;
-            padding: 40px;
-            border-top-right-radius: 8px;
-            border-bottom-right-radius: 8px;
-            display: grid;
+            display: flex;
             align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: #00b894;
+            padding: 0;
+            transition: all 0.5s ;
+        }
+        .content img {
+            width: 100%;
+            max-width: 100%;
+            object-fit: cover;
+        }
+        .content:hover img {
+            transform: scale(1.2);
+        }
+        .login-form {
+            flex-basis: 50%;
+            background-color: #333;
+            padding: 25px;
         }
 
-        .form p {
-            color: #666;
-            font-size: 1rem;
-            line-height: 25px;
-            opacity: 0.6;
+        .login-form h1 {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #fff;
+        }
+
+        .tbox {
+            border-radius: 3px;
+            background-color: transparent;
+            outline: none;
+            border: 1px solid #55efc4;
+            width: 100%;
+            min-height: 35px;
+            margin: 30px 0px;
+        }
+        .tbox input {
+            background-color: transparent;
+            width: 90%;
+            outline: none;
+            border: none;
+            padding-left: 5px;
+        }
+        ::placeholder {
+            color: #777;
+        }
+
+        .lbtn {
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            background-color: #00b894;
+            color: #fff;
+            padding: 12px;
+            font-size: 18px;
+        }
+
+        .tbox i {
+            color: #55efc4;
+            font-size: 15px;
+            padding: 7px;
+        }
+
+        .login ul {
+            margin-top: 25px;
+            list-style: none;
             text-align: center;
         }
-
-        button, input {
-            border-radius: 35px;
-        }
-
-        button:hover {
-            transition: all 0.5s ease;
-        }
-
-        .login-form form {
-            margin: 30px 0;
-        }
-
-        .login-form input {
-            outline: none;
-            margin-bottom: 15px;
-            font-size: 16px;
-            /* font-stretch: condensed; */
-            color: #999;
-            text-align: left;
-            padding: 14px 20px;
-            width: 100%;
+        .login ul li {
             display: inline-block;
-            border: 1px solid #e5e5e5;
-            background-color: #f7fafc;
-            transition: 0.3s ease;
         }
-
-        .login-form input:focus-visible {
-            background-color: transparent;
-            border: 1px solid #0568c1;
-        }
-
-        .login-form button {
+        .login ul li i {
+            height: 35px;
+            width: 35px;
+            line-height: 35px;
+            border: 1px solid #55efc4;
+            border-radius: 50%;
             font-size: 18px;
             color: #fff;
-            width: 100%;
-            background-color: #0568c1;
-            border: none;
-            padding: 14px 15px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        .login-form button:hover {
-            background-color: #fdc500;
-        }
-
-        .account, .account a {
-            text-align: center;
-            padding-top: 20px;
-            padding-bottom: 0px;
-            font-size: 16px;
-            color: #333;
-        }
-        .account a {
-            text-transform: capitalize;
-            color: #0568c1;
-            text-decoration: none;
-        }
-        .account a:hover {
-            text-decoration: underline;
-        }
-
-        @media screen and (max-width: 736px) {
-            .main {
-                flex-direction: column;
-            }
-            .form {
-                margin-top: 30px;
-                margin-bottom: 10px;
-            }
-            .form-img {
-                border-radius: 0;
-                order: 2;
-            }
-            .content {
-                order: 1;
-                border-radius: 0;
-            }
         }
     </style>
 </head>
@@ -326,28 +282,33 @@ font-family: 'Playfair Display', serif;     //400,700
         </div>
     </div>
 
-    <div class="login-sec">
-        <div class="login-form">
-            <h1>log in</h1>
-            <div class="container">
-                <div class="main">
-                    <div class="content">
-                        <h2>log in</h2>
-                        <form action="">
-                            <input type="text" name="user" id="name" placeholder="Username" required autofocus>
-                            <input type="password" name="pass" id="pass" placeholder="Password" required autofocus>
-                            <button type="submit">log in</button>
-                        </form>
-                        <p class="account">Don't have an account? 
-                            <a href="#">register</a>
-                        </p>
-                    </div>
-                    <div class="form-img">
-                        <img src="./img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg" alt="">
-                    </div>
+    <section class="log-test">
+        <div class="container">
+            <div class="login">
+                <div class="content">
+                    <img src="./img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg" alt="">
+                </div>
+                <div class="login-form">
+                    <h1>login</h1>
+                    <form action="">
+                        <div class="tbox">
+                            <i class="fa fa-user"></i>
+                            <input type="text" name="" id="user" placeholder="Email">
+                        </div>
+                        <div class="tbox">
+                            <i class="fa fa-key"></i>
+                            <input type="password" name="" id="user" placeholder="Password">
+                        </div>
+                        <button class="lbtn">login</button>
+                    </form>
+                    <ul>
+                        <li><i class="fa fa-facebook"></i></li>
+                        <li><i class="fa fa-instagram"></i></li>
+                        <li><i class="fa fa-twitter"></i></li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </body>
 </html>
