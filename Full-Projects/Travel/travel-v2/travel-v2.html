@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel v.2</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/styles-travel-v2.css">
+    <!-- <link rel="stylesheet" href="./css/styles-travel-v2.css"> -->
     <style>
         #speech-synthesis {
             min-height: 100vh;
@@ -36,159 +36,171 @@
             border-radius: 1em;
         }
 
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*::before, *::after {
+    margin: 0;
+    padding: 0;
+}
 
         body {
-            min-height: 100vh;
+            background-color: #e0e0e0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lista {
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
+            padding: 20px;
+            border-radius: 56px;
+            background-color: #e0e0e0;
+            box-shadow: -21px -21px 40px #fff, 
+            21px 21px 40px #b3b3b3;
         }
 
-        h1 {
-            font-size: 3rem;
-            text-align: center;
-            text-transform: capitalize;
-            margin-bottom: 30px;
-            margin-top: 40px;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
-
-        .services {
-            width: 1000px;
-            margin: 0px auto;
+        .item-lista {
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
+            width: 300px;
+            height: 80px;
+            margin: 15px;
+            border-radius: inherit;
+            background: linear-gradient(145deg, #cacaca, #f0f0f0);
+            box-shadow: -21px -21px 40px #fff, 21px 21px 40px #b3b3b3;
         }
 
         .box {
-            height: 300px;
-            width: 300px;
-            padding: 15px;
-            background-color: #12141c;
-            overflow: hidden;
-            transition: all 0.3 ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-right: auto;
         }
 
-        .box i {
-            color: #ffc312;
-            margin-top: 15px;
-            transition: inherit;
-            transition-delay: 0s;
-        }
-
-        h4 {
-            color: #fff;
-            margin-top: 20px;
-            margin-bottom: 15px;
-            transition: inherit;
-            transition-delay: 0.5s;
-            font-weight: 400;
-            text-transform: capitalize;
-        }
-
-        .services p {
-            color: #dfdfdf;
-            transition: inherit;
-            transition-delay: 0.1s;
-        }
-
-        .read {
-            color: #fff;
-            overflow: hidden;
-            display: inline-block;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            font-weight: 500;
+        .img-box {
             position: relative;
-            padding-right: 2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-left: 10px;
         }
-
-        .read::before {
-            bottom: 0;
-            height: 0.125rem;
-            margin: auto;
-            background-color: #ffc312;
-            left: 0;
-            content: "";
+        .img-box img {
             position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            transform: scale(0.2);
-            transform-origin: left center;
-            z-index: 0;
-            animation: link-out 0.4s cubic-bezier(0.6, 0.01, 0, 1) forwards;
-        }
-        .read span {
-            position: relative;
-            transform: translateX(-200%);
-            display: inline-block;
-            transition: 0.6Ss cubic-bezier(0.6, 0.01, 0, 1);
+            height: 100%;
+            object-fit: cover;
         }
 
-        .box:hover .read span {
-            transform: translateX(0%);
-        }
-        .box:hover .read::before {
-            animation: link-in 0.4s cubic-bezier(0.6, 0.01, 0, 1) forwards;
-        }
-
-        .box:hover i, 
-        .box:hover h4, 
-        .box:hover p  {
-            transform: translateY(-0.625rem);
+        .texto {
+            font-weight: 600;
+            color: #2a2a2a;
+            margin-left: 20px;
         }
 
-        @keyframes link-out {
-            0% {
-                transform-origin: right center;
-                transform: scaleX(0.2);
-            }
-            70% {
-                transform-origin: right center;
-            }
-            71% {
-                transform-origin: left center;
-                transform: scaleX(1);
-            }
-            100% {
-                transform-origin: left center;
-                transform: scaleX(0.2);
-            }
+        .icono {
+            margin: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-        @keyframes link-in {
-            0% {
-                transform-origin: left center;
-                transform: scaleX(0.2);
-            }
-            70% {
-                transform-origin: left center;
-                transform: scaleX(1);
-            }
-            71% {
-                transform-origin: right center;
-            }
-            100% {
-                transform-origin: right center;
-                transform: scaleX(0.2);
-            }
-        }
-
-        @media screen and (max-width: 768px) {
-            .services {
-                max-width: 100%;
-                flex-direction: column;
-            }
+        .icono i {
+            font-size: 1.5rem;
         }
     </style>
 </head>
 <body>
+    <div class="lista" id="lista">
+        <div class="item-lista">
+            <div class="box">
+                <div class="img-box">
+                    <img src="../travel-v1/img/testimonial/pic-1.png" alt="">
+                </div>
+                <div class="texto">
+                    <p>camisa</p>
+                </div>
+            </div>
+            <div class="icono">
+                <i class="fa fa-arrows" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="item-lista">
+            <div class="box">
+                <div class="img-box">
+                    <img src="../travel-v1/img/testimonial/pic-2.png" alt="">
+                </div>
+                <div class="texto">
+                    <p>camisa</p>
+                </div>
+            </div>
+            <div class="icono">
+                <i class="fa fa-arrows" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="item-lista">
+            <div class="box">
+                <div class="img-box">
+                    <img src="../travel-v1/img/testimonial/pic-3.png" alt="">
+                </div>
+                <div class="texto">
+                    <p>camisa</p>
+                </div>
+            </div>
+            <div class="icono">
+                <i class="fa fa-arrows" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="item-lista">
+            <div class="box">
+                <div class="img-box">
+                    <img src="../travel-v1/img/testimonial/pic-4.png" alt="">
+                </div>
+                <div class="texto">
+                    <p>camisa</p>
+                </div>
+            </div>
+            <div class="icono">
+                <i class="fa fa-arrows" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="item-lista">
+            <div class="box">
+                <div class="img-box">
+                    <img src="../travel-v1/img/testimonial/pic-5.png" alt="">
+                </div>
+                <div class="texto">
+                    <p>camisa</p>
+                </div>
+            </div>
+            <div class="icono">
+                <i class="fa fa-arrows" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="item-lista">
+            <div class="box">
+                <div class="img-box">
+                    <img src="../travel-v1/img/testimonial/pic-6.png" alt="">
+                </div>
+                <div class="texto">
+                    <p>camisa</p>
+                </div>
+            </div>
+            <div class="icono">
+                <i class="fa fa-arrows" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
     <!-- factory pattern -->
     <script src="./js/script_travel_v2.js"></script>
 
@@ -393,51 +405,11 @@
         </script>
     </section>
 
-    <section id="delete3">
-        <h1>our services</h1>
-        <div class="services">
-        <div class="box">
-            <i class="fa fa-home fa-3x"></i>
-            <h4>web design</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, eius.</p>
-            <a href="#" class="read"><span>read more</span></a>
-        </div>
-        <div class="box">
-            <i class="fa fa-camera-retro fa-3x"></i>
-            <h4>photography</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, eius.</p>
-            <a href="#" class="read"><span>read more</span></a>
-        </div>
-        <div class="box">
-            <i class="fa fa-youtube fa-3x"></i>
-            <h4>video editing</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, eius.</p>
-            <a href="#" class="read"><span>read more</span></a>
-        </div>
-        <div class="box">
-            <i class="fa fa-home fa-3x"></i>
-            <h4>web design</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, eius.</p>
-            <a href="#" class="read"><span>read more</span></a>
-        </div>
-        <div class="box">
-            <i class="fa fa-home fa-3x"></i>
-            <h4>web design</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, eius.</p>
-            <a href="#" class="read"><span>read more</span></a>
-        </div>
-        <div class="box">
-            <i class="fa fa-home fa-3x"></i>
-            <h4>web design</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error, eius.</p>
-            <a href="#" class="read"><span>read more</span></a>
-        </div>
-        </div>
-    </section>
+    <section id="delete3"></section>
     <section id="delete4"></section>
 
     <script src="./js/script_travel_v2.js">
-        console.log(466>252);
+        console.log(443>252);
     </script>
 </body>
 </html>
