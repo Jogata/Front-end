@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parallax Scrolling Effect</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="./css/styles_parallaxIV.css"> -->
+    <link rel="stylesheet" href="./css/styles_parallaxIV.css">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
@@ -63,123 +63,104 @@ font-family: 'Playfair Display', serif;     //400,700
             padding-right: 20px;
         }
 
-        * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-::before, ::after {
+        *, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-        .log-test {
+        .test78 {
+            width: 100%;
             min-height: 100vh;
-        }
-
-        .container {
-            background-color: #f2f2f2;
+            background-color: gray;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
         }
 
-        .login {
-            width: 800px;
-            min-height: 400px;
-            overflow: hidden;
-            border-radius: 5px;
-            background-color: #222;
+        .container {
             display: flex;
-            box-shadow: 15px 5px 30px rgba(0,0,0,0.3);
+            align-items: center;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            min-height: 100vh;
+            width: 100%;
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .box {
+            position: relative;
+            width: 40vh;
+            height: 50vh;
+            text-align: center;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-direction: column;
+            border-radius: 20px;
+            box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .icon {
+            width: 100%;
+            height: 30%;
+            position: relative;
+            z-index: 2;
+        }
+        .icon i {
+            font-size: 55px;
+            position: absolute;
+            left: 40%;
+            bottom: -50px;
+            opacity: 0.1;
+        }
+        .box:hover .icon i {
+            opacity: 1;
+            bottom: 20px;
+            transition: all 0.8s ease;
         }
 
         .content {
-            flex-basis: 50%;
+            height: 70%;
+            width: 100%;
+            padding: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            background-color: #00b894;
-            padding: 0;
-            transition: all 0.5s ;
+            z-index: 2;
         }
-        .content img {
+
+        .content p {
+            text-align: justify;
+        }
+
+        .animated-box {
             width: 100%;
-            max-width: 100%;
-            object-fit: cover;
+            height: 0%;
+            position: absolute;
+            bottom: 0;
+            transform: translateY(50%);
+            border-radius: inherit;
+            background-color: red;
+            z-index: 1;
         }
-        .content:hover img {
-            transform: scale(1.2);
-        }
-        .login-form {
-            flex-basis: 50%;
-            background-color: #333;
-            padding: 25px;
-        }
-
-        .login-form h1 {
-            text-align: center;
-            margin-top: 25px;
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            color: #fff;
+        .box:hover .animated-box {
+            height: 100%;
+            transform: translateY(0);
+            transition: all 0.8s ease;
         }
 
-        .tbox {
-            border-radius: 3px;
-            background-color: transparent;
-            outline: none;
-            border: 1px solid #55efc4;
-            width: 100%;
-            min-height: 35px;
-            margin: 30px 0px;
+        .box:nth-child(3) .animated-box {
+            background-color: #56cbf9;
         }
-        .tbox input {
-            background-color: transparent;
-            width: 90%;
-            outline: none;
-            border: none;
-            padding-left: 5px;
+        .box:nth-child(2) .animated-box {
+            background-color: #66ffe5;
         }
-        ::placeholder {
-            color: #777;
-        }
-
-        .lbtn {
-            width: 100%;
-            border: none;
-            border-radius: 5px;
-            background-color: #00b894;
-            color: #fff;
-            padding: 12px;
-            font-size: 18px;
-        }
-
-        .tbox i {
-            color: #55efc4;
-            font-size: 15px;
-            padding: 7px;
-        }
-
-        .login ul {
-            margin-top: 25px;
-            list-style: none;
-            text-align: center;
-        }
-        .login ul li {
-            display: inline-block;
-        }
-        .login ul li i {
-            height: 35px;
-            width: 35px;
-            line-height: 35px;
-            border: 1px solid #55efc4;
-            border-radius: 50%;
-            font-size: 18px;
-            color: #fff;
+        .box:nth-child(1) .animated-box {
+            background-color: #ff7377;
         }
     </style>
 </head>
@@ -246,6 +227,41 @@ font-family: 'Playfair Display', serif;     //400,700
         <hr>
     </section>
 
+    <div class="test78">
+        <div class="container">
+            <div class="box">
+                <div class="icon">
+                    <i class="fa fa-apple"></i>
+                </div>
+                <div class="content">
+                    <h2>title</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, dolorem.</p>
+                </div>
+                <div class="animated-box"></div>
+            </div>
+            <div class="box">
+                <div class="icon">
+                    <i class="fa fa-windows"></i>
+                </div>
+                <div class="content">
+                    <h2>title</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, dolorem.</p>
+                </div>
+                <div class="animated-box"></div>
+            </div>
+            <div class="box">
+                <div class="icon">
+                    <i class="fa fa-google"></i>
+                </div>
+                <div class="content">
+                    <h2>title</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, dolorem.</p>
+                </div>
+                <div class="animated-box"></div>
+            </div>
+        </div>
+    </div>
+
     <div class="clothes-pics" id="clothes-gallery">
         <div class="row image-row">
             <figure class="columns four">
@@ -281,34 +297,5 @@ font-family: 'Playfair Display', serif;     //400,700
             </figure>
         </div>
     </div>
-
-    <section class="log-test">
-        <div class="container">
-            <div class="login">
-                <div class="content">
-                    <img src="./img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg" alt="">
-                </div>
-                <div class="login-form">
-                    <h1>login</h1>
-                    <form action="">
-                        <div class="tbox">
-                            <i class="fa fa-user"></i>
-                            <input type="text" name="" id="user" placeholder="Email">
-                        </div>
-                        <div class="tbox">
-                            <i class="fa fa-key"></i>
-                            <input type="password" name="" id="user" placeholder="Password">
-                        </div>
-                        <button class="lbtn">login</button>
-                    </form>
-                    <ul>
-                        <li><i class="fa fa-facebook"></i></li>
-                        <li><i class="fa fa-instagram"></i></li>
-                        <li><i class="fa fa-twitter"></i></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
 </body>
 </html>
