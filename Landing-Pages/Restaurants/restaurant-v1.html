@@ -6,65 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant v.1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="./css/style_restaurant-v1.css"> -->
-    <style>
-        h1 {
-            text-align: center;
-            text-transform: uppercase;
-        }
-        em {
-            display: block;
-            font-size: 12px;
-            opacity: 0.6;
-        }
-        em:last-of-type {
-            margin-bottom: 20px;
-        }
-
-        button {
-            text-transform: uppercase;
-        }
-        #isbn::placeholder {
-            text-transform: uppercase;
-        }
-
-        div {
-            text-align: center;
-            padding-bottom: 2em;
-        }
-
-        fieldset {
-            margin: auto;
-            padding: 1em;
-            border-radius: 1em;
-            width: fit-content;
-            max-width: 60rem;
-        }
-
-        legend {
-            margin: auto;
-            padding: 0 0.4em;
-            font-size: 3rem;
-            text-align: center;
-            text-transform: capitalize;
-        }
-
-        ol {
-            margin: 0 3rem;
-            /* padding: 0 1em; */
-        }
-
-        li {
-            margin-bottom: 1rem;
-            font-size: 3.6rem;
-        }
-
-        p {
-            padding: 0.4em 1em;
-            font-size: 3.6rem;
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/style_restaurant-v1.css">
 </head>
 <body>
     <!-- <div class="landing-page">
@@ -87,99 +29,182 @@
         </nav>
     </div> -->
 <!-- https://openlibrary.org/dev/docs/api/books -->
-<h1>booktracker</h1>
-<em>example: 9780140328721</em>
-<em>example: 0201558025</em>
-<div>
-    <input type="text" name="" id="isbn" placeholder="isbn">
-    <button>get a book</button>
-</div>
-
-<fieldset>
-    <legend>books</legend>
-    <p>Your list is empty</p>
-    <ol id="books"></ol>
-</fieldset>
+<section>
+    <div class="container">
+        <header>
+            <a href="#top" class="logo">healthy<span>food</span></a>
+            <ul class="navbar">
+                <li><a href="#top">home</a></li>
+                <li><a href="#top">menu</a></li>
+                <li><a href="#top">specials</a></li>
+                <li><a href="#top">contacts</a></li>
+            </ul>
+        </header>
+        <div class="content">
+            <div class="text">
+                <h2>healthy<span>food</span></h2>
+                <p>the best of healthy and quality haute cuisine</p>
+                <a href="#">menu</a>
+            </div>
+        </div>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="../Food/img/healthy-food/imagesHealthyFood/1.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../Food/img/healthy-food/imagesHealthyFood/2.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../Food/img/healthy-food/imagesHealthyFood/3.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../Food/img/healthy-food/imagesHealthyFood/4.png" alt="">
+                </div>
+                <div class="swiper-slide">
+                    <img src="../Food/img/healthy-food/imagesHealthyFood/5.png" alt="">
+                </div>
+            </div>
+            <button id="prev">&#139;</button>
+            <button id="next">&#155;</button>
+            <div class="dots">
+                <button class="dot active"></button>
+                <button class="dot"></button>
+                <button class="dot"></button>
+                <button class="dot"></button>
+                <button class="dot"></button>
+              </div>
+        </div>
+        <div class="sci">
+            <ul>
+                <li><a href="#">
+                    <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                </a></li>
+                <li><a href="#">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a></li>
+                <li><a href="#">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+</section>
 
 <script>
-    class MyLocalStorage {
-        constructor() {
-            this.storage = [];
-        }
+    const slider = document.querySelector(".swiper-wrapper");
+      const prev = document.querySelector("#prev");
+      const next = document.querySelector("#next");
+      const images = document.querySelectorAll(".swiper-slide");
+      const dots = document.querySelectorAll(".dot");
 
-        setItem(item) {
-            this.storage.push(item);
-        }
-        getItem(i) {
-            console.log(this);
-            return this.storage[i];
-        }
-        getAllItems() {
-            return this.storage;
-        }
-        deleteItem(item) {
-            this.storage.pop(item);
-        }
-    }
+      let currentSlide = 0;
 
-    const myLocalStorage = new MyLocalStorage();
+      function changeSlide() {
+        slider.style.transform = `translateX(-${currentSlide * slider.offsetWidth}px)`;
+      }
 
-    // myLocalStorage.storage[0] = "9780140328721";
-    // myLocalStorage.storage[1] = "0201558025";
+      function changeDot() {
+        const currentDot = document.querySelector(".dot.active");
+        currentDot.classList.remove("active");
+        dots[currentSlide].classList.add("active");
+      }
 
-    console.log(myLocalStorage.getAllItems());
+      next.addEventListener("click", () => {
+        currentSlide++;
+        currentSlide = currentSlide % images.length;
+        changeSlide();
+        changeDot();
+      })
 
-    if (myLocalStorage.storage[0]) {
-        const parentEl = document.querySelector("fieldset");
-        parentEl.removeChild(document.querySelector("p"));
-        myLocalStorage.storage.forEach((isbn, index) => {
-        // console.log(myLocalStorage.getItem(index));
-        const url = `https://openlibrary.org/isbn/${myLocalStorage.getItem(index)}.json`;
-        fetch(url)
-        .then(data => data.json())
-        .then(data => {
-            console.log(data);
-            const title = data.title;
-            console.log(title);
-            // myLocalStorage.setItem(isbn);
-            // console.log(myLocalStorage);
-            const liEl = document.createElement("li");
-            liEl.textContent = title;
-            const parentEl = document.querySelector("#books");
-            parentEl.appendChild(liEl);
-        })
-        .catch(err => {
-            console.log(err);
-        });
-    })
-    } else {
-        
-    }
-
-    
-    const btn = document.querySelector("button");
-    
-    btn.addEventListener("click", () => {
-        const isbn = document.querySelector("#isbn").value;
-        const url = `https://openlibrary.org/isbn/${isbn}.json`;
-        fetch(url)
-        .then(data => data.json())
-        .then(data => {
-            console.log(data);
-            const title = data.title;
-            console.log(title);
-            myLocalStorage.setItem(isbn);
-            console.log(myLocalStorage);
-            const liEl = document.createElement("li");
-            liEl.textContent = title;
-            const parentEl = document.querySelector("#books");
-            // parentEl.removeChild(document.querySelector("p"));
-            parentEl.appendChild(liEl);
-        })
-        .catch(err => {
-            console.log(err);
-        });
-    })
+      prev.addEventListener("click", () => {
+        currentSlide--;
+        currentSlide = currentSlide + images.length;
+        currentSlide = currentSlide % images.length;
+        changeSlide();
+        changeDot();
+      })
 </script>
+
+<!-- <script>
+    const slides = document.getElementsByClassName("my-slider");
+    const prevButton = document.getElementById("prev");
+    const nextButton = document.getElementById("next");
+    const dots = document.querySelectorAll(".dot");
+    let counter = 0;
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        console.log(index);
+        counter = index;
+        const activeButton = document.querySelector(".dot.active");
+        activeButton.classList.remove("active");
+        dot.classList.add("active");
+        const activeSlide = document.querySelector(".my-slider.fade");
+        activeSlide.classList.remove("fade");
+        slides[index].classList.add("fade");
+      })
+    })
+
+    prevButton.addEventListener("click", prevSlide);
+    nextButton.addEventListener("click", nextSlide);
+
+    function prevSlide() {
+      counter--;
+      counter = counter + slides.length;
+      counter = counter % slides.length;
+      const activeButton = document.querySelector(".dot.active");
+      activeButton.classList.remove("active");
+      dots[counter].classList.add("active");
+      const activeSlide = document.querySelector(".my-slider.fade");
+      activeSlide.classList.remove("fade");
+      slides[counter].classList.add("fade");
+    }
+
+    function nextSlide() {
+      counter++;
+      counter = counter % slides.length;
+      const activeButton = document.querySelector(".dot.active");
+      activeButton.classList.remove("active");
+      dots[counter].classList.add("active");
+      const activeSlide = document.querySelector(".my-slider.fade");
+      activeSlide.classList.remove("fade");
+      slides[counter].classList.add("fade");
+    }
+
+    let autoslideID = setTimeout(autoslide, 5000);
+
+    function autoslide() {
+      nextSlide();
+      clearInterval(autoslideID);
+      autoslideID = setTimeout(autoslide, 5000);
+    }
+  </script> -->
+
+<!-- <script>
+     const slides = document.querySelectorAll(".slide");
+    let indexCurrentSlide = 0;
+    function nextSlide() {
+      indexCurrentSlide++;
+      indexCurrentSlide = indexCurrentSlide % slides.length;
+      const activeSlide = document.querySelector(".slide.active");
+      activeSlide.classList.remove("active");
+      slides[indexCurrentSlide].classList.add("active");
+    }
+    function prevSlide() {
+      indexCurrentSlide--;
+      indexCurrentSlide = slides.length + indexCurrentSlide;
+      indexCurrentSlide = indexCurrentSlide % slides.length;
+      const activeSlide = document.querySelector(".slide.active");
+      activeSlide.classList.remove("active");
+      slides[indexCurrentSlide].classList.add("active");
+    }
+
+    const buttonPrev = document.querySelector("#prev");
+    const buttonNext = document.querySelector("#next");
+
+    buttonPrev.addEventListener("click", prevSlide);
+    buttonNext.addEventListener("click", nextSlide);
+</script> -->
 </body>
 </html>
