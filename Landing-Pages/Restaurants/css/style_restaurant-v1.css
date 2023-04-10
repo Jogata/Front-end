@@ -38,6 +38,64 @@ img {
     max-width: 100%;
 }
 
+section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Raleway', sans-serif;
+    background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), 
+    url("../../Food/img/healthy-food/imagesHealthyFood/pexels-ella-olsson-1640770.jpg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+}
+
+.container {
+    position: relative;
+    width: 95%;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    box-shadow: 0px 25px 45px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #bd3b1b;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: capitalize;
+    text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+}
+.logo span {
+    color: #d8a800;
+}
+
 /* .logo-ring {
     position: absolute;
     width: 60px;
@@ -78,134 +136,155 @@ img {
     100% { transform: rotateX(50deg) rotateY(150deg) rotateZ(360deg);}
 } */
 
-body {
-    background-color: #111222;
+.navbar {
+    display: flex;
 }
 
-section {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 80px 100px;
+.navbar li {
+    margin: 20px;
+}
+
+.navbar li a {
     color: #fff;
-}
-
-.container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-h2 {
-    font-size: 4rem;
-    margin-bottom: 50px;
+    font-weight: 600;
     text-transform: capitalize;
+    transition: 0.4s;
+}
+.navbar li a:hover {
+    color: #bd3b1b;
 }
 
 .content {
     position: relative;
-    width: 1150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    max-width: 500px;
+    margin-left: 100px;
+}
+.content h2 {
+    color: #bd3b1b;
+    margin-bottom: 5px;
+    font-size: 4rem;
+    text-transform: capitalize;
+    text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+}
+.content h2 span {
+    display: inline-block;
+    color: #d8a800;
+    text-transform: capitalize;
 }
 
-.image {
-    position: relative;
-    width: 800px;
-    height: 400px;
+.content p {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+p::first-letter {
+    text-transform: uppercase;
+}
+
+.content a {
+    padding: 10px 25px;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 20px;
+    text-transform: capitalize;
+    background: linear-gradient(to right, #bd3b1b, #d8a800);
+    transition: all 0.2s;
+}
+.content a:hover {
+    letter-spacing: 1px;
+}
+
+.swiper {
+    position: absolute;
+    top: 15%;
+    right: 10%;
+    width: 500px;
+    height: 500px;
     overflow: hidden;
 }
-
-.image img {
+.swiper-wrapper {
+    position: relative;
+    display: flex;
+}
+.swiper-slide {
+    position: relative;
+    width: 500px;
+    min-width: 100%;
+    height: 500px;
+    cursor: pointer;
+}
+.swiper-slide img {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 10px;
-    z-index: 111;
-}
-
-.text-box {
-    max-width: 400px;
-    padding: 40px;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: translate(-80px, 50px);
-    backdrop-filter: blur(20px);
-    z-index: 222;
-}
-
-h3{
-    font-size: 2rem;
-    margin-bottom: 10px;
-    text-transform: capitalize;
+} 
+.swiper-pagination-bullet {
+    width: 40px;
+    height: 5px;
+    border-radius: 0px;
+    background-color: #fff;
 }
 
 .sci {
-    margin-top: 100px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 80%;
+    padding-bottom: 15px;
+    margin-left: 60px;
 }
-.sci a {
-    margin: 60px;
-    padding: 10px 20px;
-    color: #fff;
+
+.sci ul {
+    display: flex;
+}
+.sci ul a {
     font-size: 2rem;
-    border: 1px solid currentColor;
-}
-
-.section-title {
-    font-size: 2rem;
-    margin-bottom: 80px;
-}
-
-h4 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    text-transform: capitalize;
-}
-
-.info {
-    width: 700px;
-    margin-left: 50px;
-}
-
-.s-3 {
-    margin-bottom: 100px;
-}
-
-.sci-2 {
-    width: 400px;
-    margin-left: 50px;
-}
-.sci-2 a {
-    display: block;
+    margin: 15px;
     color: #fff;
-    font-size: 1.4em;
-    text-transform: capitalize;
+    transition: all 0.4s;
 }
-.sci-2 a:not(:last-child) {
-    margin-bottom: 50px;
-}
-.sci-2 a:first-child, 
-.sci-2 a:last-child {
-    padding-left: 100px;
-}
-.sci-2 a:nth-child(2), 
-.sci-2 a:nth-child(4) {
-    padding-left: 50px;
+.sci ul a:hover {
+    color: #bd3b1b;
 }
 
-.sci-2 i {
-    padding: 0 10px;
+
+#prev, #next {
+    position: absolute;
+    top: 47%;
+    padding: 0 0.184em 0.2em;
+    color: #fff;
+    font-size: 5rem;
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 0.5em;
+    z-index: 3;
+    cursor: pointer;
+  }
+  #next {
+    right: 0;
+  }
+  #prev:hover, 
+  #next:hover {
+    color: #3498db;
+  }
+
+  .dots {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    z-index: 3;
+  }
+  .dot {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin: 0 10px;
+    border: 3px solid #fff;
     border-radius: 50%;
-    border: 1px solid currentColor;
-}
-.sci-2 a:nth-child(2) i {
-    padding: 0 14px;
-}
+  }
+  .dot.active, .dot:hover {
+    border: 3px solid #3498db;
+  }
