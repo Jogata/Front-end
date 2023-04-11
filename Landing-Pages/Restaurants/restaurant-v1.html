@@ -7,204 +7,194 @@
     <title>Restaurant v.1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/style_restaurant-v1.css">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
+
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Montserrat, sans-serif;
+}
+
+:root {
+  --light-blue: #1c9eff;
+  --dark-blue: #007ad6;
+  --btn-yellow: #ffd01a;
+  --btn-hover-yellow: #efb10a;
+  --btn-active-yellow: #e8a200;
+  --light-grey: #f2f2f2;
+  --grey: #a0a0a0;
+  --pink: #ff9eaa;
+}
+
+body {
+    background: linear-gradient(to bottom right, #fff, var(--pink));
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.card {
+    background-color: #fff;
+    max-width: 360px;
+    overflow: hidden;
+    border-radius: 2rem;
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.5);
+}
+
+.banner {
+    background-image: url("../../../CSS/assets/img/girl-winter-copy.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.img-box {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    transform: translateY(50%);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    z-index: 1;
+}
+.img-box:hover {
+    transform: translateY(50%) scale(1.2);
+}
+.img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-body {
+    position: relative;
+    padding: 100px 30px 40px;
+}
+
+.menu {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.menu:hover {
+    background-color: var(--light-grey);
+}
+
+h2.name {
+    padding-bottom: 10px;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.title {
+    text-transform: capitalize;
+    color: var(--grey);
+    font-size: 14px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
+.follow-info {
+    padding-bottom: 20px;
+    display: flex;
+}
+.follow-info h2 {
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    color: var(--light-blue);
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+.follow-info h2 span {
+    color: var(--grey);
+    font-size: 14px;
+    font-weight: normal;
+}
+.follow-info h2:hover {
+    color: var(--dark-blue);
+    background-color: var(--light-grey);
+}
+
+.actions button {
+    width: 100%;
+    padding: 1rem;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 1.5rem;
+    background-color: var(--btn-yellow);
+    text-transform: uppercase;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+button:hover {
+    background-color: var(--btn-hover-yellow);
+    transform: scale(1.1);
+}
+button:active {
+    background-color: var(--btn-active-yellow);
+    transform: scale(1);
+}
+
+.desc {
+    text-align: justify;
+    color: var(--grey);
+}
+    </style>
 </head>
 <body>
-    <!-- <div class="landing-page">
-        <nav>
-            <div class="logo">
-                <a href="#top">
-                    <div class="logo-ring"></div>
-                    <div class="logo-ring"></div>
-                    <div class="logo-ring"></div>
-                    <div class="logo-ring"></div>
-                </a>
-            </div>
-            <ul role="list">
-                <li><a href="#top">home</a></li>
-                <li><a href="#top">about</a></li>
-                <li><a href="#top">contact</a></li>
-                <li><a href="#top">info</a></li>
-            </ul>
-            <a href="#" class="btn">add to cart</a>
-        </nav>
-    </div> -->
-<!-- https://openlibrary.org/dev/docs/api/books -->
-<section>
-    <div class="container">
-        <header>
-            <a href="#top" class="logo">healthy<span>food</span></a>
-            <ul class="navbar">
-                <li><a href="#top">home</a></li>
-                <li><a href="#top">menu</a></li>
-                <li><a href="#top">specials</a></li>
-                <li><a href="#top">contacts</a></li>
-            </ul>
-        </header>
-        <div class="content">
-            <div class="text">
-                <h2>healthy<span>food</span></h2>
-                <p>the best of healthy and quality haute cuisine</p>
-                <a href="#">menu</a>
+    <div class="card">
+        <div class="banner">
+            <div class="img-box">
+                <img src="../../../CSS/assets/img/profile-copy.jpg" alt="">
             </div>
         </div>
-        <div class="swiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="../Food/img/healthy-food/imagesHealthyFood/1.png" alt="">
-                </div>
-                <div class="swiper-slide">
-                    <img src="../Food/img/healthy-food/imagesHealthyFood/2.png" alt="">
-                </div>
-                <div class="swiper-slide">
-                    <img src="../Food/img/healthy-food/imagesHealthyFood/3.png" alt="">
-                </div>
-                <div class="swiper-slide">
-                    <img src="../Food/img/healthy-food/imagesHealthyFood/4.png" alt="">
-                </div>
-                <div class="swiper-slide">
-                    <img src="../Food/img/healthy-food/imagesHealthyFood/5.png" alt="">
-                </div>
+        <div class="card-body">
+            <div class="menu">
+                <i class="fa fa-bars"></i>
             </div>
-            <button id="prev">&#139;</button>
-            <button id="next">&#155;</button>
-            <div class="dots">
-                <button class="dot active"></button>
-                <button class="dot"></button>
-                <button class="dot"></button>
-                <button class="dot"></button>
-                <button class="dot"></button>
-              </div>
-        </div>
-        <div class="sci">
-            <ul>
-                <li><a href="#">
-                    <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                </a></li>
-                <li><a href="#">
-                    <i class="fa fa-twitter" aria-hidden="true"></i>
-                </a></li>
-                <li><a href="#">
-                    <i class="fa fa-instagram" aria-hidden="true"></i>
-                </a></li>
-            </ul>
+            <h2 class="name">julie smith</h2>
+            <h3 class="title">web developer</h3>
+            <div class="actions">
+                <div class="follow-info">
+                    <h2>6589<span>followers</span></h2>
+                    <h2>721<span>following</span></h2>
+                </div>
+                <button>follow</button>
+            </div>
+            <div class="desc">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis illum similique pariatur omnis atque consectetur delectus, eveniet sint rerum necessitatibus.</p>
+            </div>
         </div>
     </div>
-</section>
-
-<script>
-    const slider = document.querySelector(".swiper-wrapper");
-      const prev = document.querySelector("#prev");
-      const next = document.querySelector("#next");
-      const images = document.querySelectorAll(".swiper-slide");
-      const dots = document.querySelectorAll(".dot");
-
-      let currentSlide = 0;
-
-      function changeSlide() {
-        slider.style.transform = `translateX(-${currentSlide * slider.offsetWidth}px)`;
-      }
-
-      function changeDot() {
-        const currentDot = document.querySelector(".dot.active");
-        currentDot.classList.remove("active");
-        dots[currentSlide].classList.add("active");
-      }
-
-      next.addEventListener("click", () => {
-        currentSlide++;
-        currentSlide = currentSlide % images.length;
-        changeSlide();
-        changeDot();
-      })
-
-      prev.addEventListener("click", () => {
-        currentSlide--;
-        currentSlide = currentSlide + images.length;
-        currentSlide = currentSlide % images.length;
-        changeSlide();
-        changeDot();
-      })
-</script>
-
-<!-- <script>
-    const slides = document.getElementsByClassName("my-slider");
-    const prevButton = document.getElementById("prev");
-    const nextButton = document.getElementById("next");
-    const dots = document.querySelectorAll(".dot");
-    let counter = 0;
-
-    dots.forEach((dot, index) => {
-      dot.addEventListener("click", () => {
-        console.log(index);
-        counter = index;
-        const activeButton = document.querySelector(".dot.active");
-        activeButton.classList.remove("active");
-        dot.classList.add("active");
-        const activeSlide = document.querySelector(".my-slider.fade");
-        activeSlide.classList.remove("fade");
-        slides[index].classList.add("fade");
-      })
-    })
-
-    prevButton.addEventListener("click", prevSlide);
-    nextButton.addEventListener("click", nextSlide);
-
-    function prevSlide() {
-      counter--;
-      counter = counter + slides.length;
-      counter = counter % slides.length;
-      const activeButton = document.querySelector(".dot.active");
-      activeButton.classList.remove("active");
-      dots[counter].classList.add("active");
-      const activeSlide = document.querySelector(".my-slider.fade");
-      activeSlide.classList.remove("fade");
-      slides[counter].classList.add("fade");
-    }
-
-    function nextSlide() {
-      counter++;
-      counter = counter % slides.length;
-      const activeButton = document.querySelector(".dot.active");
-      activeButton.classList.remove("active");
-      dots[counter].classList.add("active");
-      const activeSlide = document.querySelector(".my-slider.fade");
-      activeSlide.classList.remove("fade");
-      slides[counter].classList.add("fade");
-    }
-
-    let autoslideID = setTimeout(autoslide, 5000);
-
-    function autoslide() {
-      nextSlide();
-      clearInterval(autoslideID);
-      autoslideID = setTimeout(autoslide, 5000);
-    }
-  </script> -->
-
-<!-- <script>
-     const slides = document.querySelectorAll(".slide");
-    let indexCurrentSlide = 0;
-    function nextSlide() {
-      indexCurrentSlide++;
-      indexCurrentSlide = indexCurrentSlide % slides.length;
-      const activeSlide = document.querySelector(".slide.active");
-      activeSlide.classList.remove("active");
-      slides[indexCurrentSlide].classList.add("active");
-    }
-    function prevSlide() {
-      indexCurrentSlide--;
-      indexCurrentSlide = slides.length + indexCurrentSlide;
-      indexCurrentSlide = indexCurrentSlide % slides.length;
-      const activeSlide = document.querySelector(".slide.active");
-      activeSlide.classList.remove("active");
-      slides[indexCurrentSlide].classList.add("active");
-    }
-
-    const buttonPrev = document.querySelector("#prev");
-    const buttonNext = document.querySelector("#next");
-
-    buttonPrev.addEventListener("click", prevSlide);
-    buttonNext.addEventListener("click", nextSlide);
-</script> -->
 </body>
 </html>
