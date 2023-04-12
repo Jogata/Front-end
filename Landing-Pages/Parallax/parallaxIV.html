@@ -63,105 +63,67 @@ font-family: 'Playfair Display', serif;     //400,700
             padding-right: 20px;
         }
 
-        *, *::before, *::after {
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+::before, ::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-        .test78 {
-            width: 100%;
-            min-height: 100vh;
-            background-color: gray;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.test {
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly;
-            flex-wrap: wrap;
-            min-height: 100vh;
-            width: 100%;
-            gap: 2rem;
-            padding: 2rem;
-        }
+.img-cont {
+    position: relative;
+    width: 200px;
+    aspect-ratio: 1 / 1.2;
+    background-color: red;
+    display: flex;
+    align-items: flex-end;
+    margin: auto;
+    border-radius: 0 0 50% 50%;
+    overflow: hidden;
+    transition: transform 0.25s ease-in;
+}
+.img-cont:hover {
+    transform: scale(1.1);
+}
 
-        .box {
-            position: relative;
-            width: 40vh;
-            height: 50vh;
-            text-align: center;
-            background-color: white;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            flex-direction: column;
-            border-radius: 20px;
-            box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.2);
-        }
+.circle {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+}
 
-        .icon {
-            width: 100%;
-            height: 30%;
-            position: relative;
-            z-index: 2;
-        }
-        .icon i {
-            font-size: 55px;
-            position: absolute;
-            left: 40%;
-            bottom: -50px;
-            opacity: 0.1;
-        }
-        .box:hover .icon i {
-            opacity: 1;
-            bottom: 20px;
-            transition: all 0.8s ease;
-        }
-
-        .content {
-            height: 70%;
-            width: 100%;
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            z-index: 2;
-        }
-
-        .content p {
-            text-align: justify;
-        }
-
-        .animated-box {
-            width: 100%;
-            height: 0%;
-            position: absolute;
-            bottom: 0;
-            transform: translateY(50%);
-            border-radius: inherit;
-            background-color: red;
-            z-index: 1;
-        }
-        .box:hover .animated-box {
-            height: 100%;
-            transform: translateY(0);
-            transition: all 0.8s ease;
-        }
-
-        .box:nth-child(3) .animated-box {
-            background-color: #56cbf9;
-        }
-        .box:nth-child(2) .animated-box {
-            background-color: #66ffe5;
-        }
-        .box:nth-child(1) .animated-box {
-            background-color: #ff7377;
-        }
+.person {
+    position: absolute;
+    width: 100%;
+    transform: scale(1.2);
+    transition: transform 0.4s ease-in;
+}
+.img-cont:hover .person {
+    transform: scale(1.3) translateY(-15px);
+}
+.info {
+    text-align: center;
+    margin-top: 20px;
+}
+.info h1 {
+    text-transform: capitalize;
+}
+.info span {
+    text-transform: capitalize;
+}
     </style>
 </head>
 <body>
@@ -227,41 +189,6 @@ font-family: 'Playfair Display', serif;     //400,700
         <hr>
     </section>
 
-    <div class="test78">
-        <div class="container">
-            <div class="box">
-                <div class="icon">
-                    <i class="fa fa-apple"></i>
-                </div>
-                <div class="content">
-                    <h2>title</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, dolorem.</p>
-                </div>
-                <div class="animated-box"></div>
-            </div>
-            <div class="box">
-                <div class="icon">
-                    <i class="fa fa-windows"></i>
-                </div>
-                <div class="content">
-                    <h2>title</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, dolorem.</p>
-                </div>
-                <div class="animated-box"></div>
-            </div>
-            <div class="box">
-                <div class="icon">
-                    <i class="fa fa-google"></i>
-                </div>
-                <div class="content">
-                    <h2>title</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, dolorem.</p>
-                </div>
-                <div class="animated-box"></div>
-            </div>
-        </div>
-    </div>
-
     <div class="clothes-pics" id="clothes-gallery">
         <div class="row image-row">
             <figure class="columns four">
@@ -297,5 +224,71 @@ font-family: 'Playfair Display', serif;     //400,700
             </figure>
         </div>
     </div>
+
+    <section class="test">
+        <div class="card">
+            <div class="img-cont">
+                <div class="circle"></div>
+                <img src="./img/parallaxIV/gallery/72614063_433236090677267_2807365040358828412_n.jpg" alt="" class="person">
+            </div>
+            <div class="info">
+                <h1>julia smith</h1>
+                <span>web developer</span>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        try {
+//   const leaderboard = await fetchLeaderBoard()
+//   console.log(leaderboard);
+} catch (err) {
+  console.log('Our servers are down, but we will be up and running soon');
+}
+
+// don't touch below this line
+async function fetchLeaderBoard() {
+  const response = await fetch('https://fantasyquest.servers');
+  return response.json();
+}
+
+// =========================================================================================
+function logContentType(resp) {
+  console.log(resp.headers.get('content-type'));
+}
+
+// don't touch below this line
+const apiKey = generateKey();
+const bootdevAPIDomain = 'api.boot.dev';
+
+async function execute() {
+    const items = await getItemData(bootdevAPIDomain);
+    logContentType(items);
+
+}
+
+execute();
+
+async function getItemData(domain) {
+  const response = await fetch(`https://${domain}/v1/courses_rest_api/learn-http/items/0194fdc2-fa2f-4cc0-81d3-ff12045b73c8`, {
+    method: 'GET',
+    mode: 'cors',
+    headers: {
+      'X-API-Key': apiKey,
+      'Content-Type': 'application/json'
+    }
+  })
+  return response;
+}
+
+function generateKey() {
+  const characters = 'ABCDEF0123456789';
+  let result = '';
+  for (let i = 0; i < 16; i++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return result;
+}
+    </script>
 </body>
 </html>
