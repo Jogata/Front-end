@@ -18,12 +18,10 @@ ul {
 a {
     text-decoration: none;
     outline: none;
+    transition: all 0.4s ease-in-out;
 }
-i, button, li {
+button {
     cursor: pointer;
-}
-i, button {
-    transition: all 0.3s ease-in-out;
 }
 
 img {
@@ -32,6 +30,11 @@ img {
 
 body {
     background-color: #161821;
+}
+
+.max-width {
+    max-width: 100rem;
+    margin: auto;
 }
 
 .navigation-container {
@@ -71,6 +74,9 @@ body {
     font-size: 1rem;
     text-transform: capitalize;
 }
+.menu ul a:hover {
+    color: #dc721f;
+}
 
 #search-bar {
     padding: 0.6rem;
@@ -88,10 +94,19 @@ body {
 .slider-container {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.slider {
+    width: 100%;
+    display: flex;
+    will-change: transform;
+    transition: transform 1s ease-in;
 }
 
 .slide-box {
+    min-width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -120,13 +135,16 @@ h2 {
     text-transform: uppercase;
     font-family: "Against";
 }
+h2.pre {
+    text-transform: initial;
+}
 h2 span {
     display: block;
 }
 
 .slider-img {
     flex-basis: 45rem;
-    margin: auto;
+    margin: 5% auto auto;
 }
 
 .categories {
@@ -156,4 +174,68 @@ h2 span {
     font-size: 1.1rem;
     font-weight: 500;
     border: 2px solid #dc721f;
+}
+
+.colors {
+    margin-left: auto;
+    align-self: center;
+}
+.colors button {
+    font-size: 0px;
+    margin: 0.2rem;
+    padding: 1rem;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    outline: 1px solid transparent;
+    opacity: 0.6;
+    transition: opacity 0.4s ease;
+}
+.colors button:hover {
+    opacity: 1;
+}
+.colors.academy button:nth-child(1) {
+background-color: #c0f200;
+}
+.colors.academy button:nth-child(2) {
+    background-color: #ffdf36;
+}
+.colors.academy button:nth-child(3) {
+    background-color: #c71526;
+}
+
+.colors.techknit button {
+    border: 1px solid #fff;
+}
+.colors.techknit button:nth-child(1) {
+    background-color: #292a2c;
+}
+.colors.techknit button:nth-child(2) {
+    background-color: #20263f;
+}
+
+.control {
+    left: 1%;
+    bottom: 1%;
+    width: 98%;
+    position: fixed;
+}
+.control .max-width {
+    display: flex;
+    justify-content: space-between;
+}
+.control button {
+    color: #fff;
+    font-size: 3rem;
+    padding: 0em 0.52em 0.2em;
+    font-family: inherit;
+    border: 1px solid;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+.control button:hover {
+    background-color: #dc721f;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.4), 
+    inset -2px -2px 2px rgba(255, 255, 255, 0.2);
 }
