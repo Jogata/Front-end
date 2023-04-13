@@ -64,65 +64,111 @@ font-family: 'Playfair Display', serif;     //400,700
         }
 
         * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-::before, ::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
 }
 
-.test {
-    height: 100vh;
-    background-color: #fff;
+:root {
+  --blue-color: #4158d0;
+  --pink-color: #c850c0;
+  --yellow-color: #ffcc70;
+  --fb-color: #4267b2;
+  --insta-color: #d62976;
+  --twitter-color: #1da1f2;
+  --linkedin-color: #0077b7;
+  --google-color: #f4b400;
+  --youtube-color: #ff0000;
+}
+
+.test38 {
+    min-height: 100vh;
+    background-color: var(--blue-color);
+    background-image: linear-gradient(45deg, var(--blue-color), var(--pink-color), var(--yellow-color));
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.img-cont {
+.menu {
     position: relative;
-    width: 200px;
-    aspect-ratio: 1 / 1.2;
-    background-color: red;
+    width: 300px;
+    height: 300px;
     display: flex;
-    align-items: flex-end;
-    margin: auto;
-    border-radius: 0 0 50% 50%;
-    overflow: hidden;
-    transition: transform 0.25s ease-in;
-}
-.img-cont:hover {
-    transform: scale(1.1);
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
 }
 
-.circle {
-    width: 100%;
-    aspect-ratio: 1;
-    object-fit: cover;
+.action-btn {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    outline: none;
+    border: none;
     border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    z-index: 1;
+}
+.action-btn:hover {
+    transform: scale(1.05);
+}
+.action-btn:active {
+    transform: scale(0.95);
+}
+.menu.opened .action-btn {
+    transform: rotate(360deg);
+    box-shadow: 0px 0px 0px 2px var(--pink-color), 0px 0px 0px 10px #fff;
 }
 
-.person {
+.menu ul {
+    list-style: none;
+}
+
+.menu li {
     position: absolute;
-    width: 100%;
-    transform: scale(1.2);
-    transition: transform 0.4s ease-in;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s;
+    transition-delay: calc(0.15s * (6 - var(--i)));
+    overflow: hidden;
 }
-.img-cont:hover .person {
-    transform: scale(1.3) translateY(-15px);
+.menu.opened li {
+    transform: translate(calc(-50% + 1px * var(--x)), calc(-50% + 1px * var(--y)));
+    transition-delay: calc(0.15s * var(--i));
 }
-.info {
-    text-align: center;
-    margin-top: 20px;
+.menu li a {
+    width: 10px;
+    height: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+    font-size: 1.5rem;
+    text-decoration: none;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    transition-delay: calc(0.2s * (6 - var(--i)));
 }
-.info h1 {
-    text-transform: capitalize;
+.menu.opened li a {
+    width: 64px;
+    height: 64px;
+    transition-delay: calc(0.25s * var(--i));
 }
-.info span {
-    text-transform: capitalize;
+
+.menu li:hover a {
+    font-size: 2.2rem;
+    transition: all 0.2s ease;
 }
     </style>
 </head>
@@ -225,70 +271,53 @@ font-family: 'Playfair Display', serif;     //400,700
         </div>
     </div>
 
-    <section class="test">
-        <div class="card">
-            <div class="img-cont">
-                <div class="circle"></div>
-                <img src="./img/parallaxIV/gallery/72614063_433236090677267_2807365040358828412_n.jpg" alt="" class="person">
-            </div>
-            <div class="info">
-                <h1>julia smith</h1>
-                <span>web developer</span>
-            </div>
+    <div class="test38">
+        <div class="menu">
+            <button class="action-btn">
+                <i class="fa fa-share-alt"></i>
+            </button>
+            <ul>
+                <li style="--i: 1; color: var(--fb-color);">
+                    <a href="#a">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                </li>
+                <li style="--i: 2; color: var(--insta-color);">
+                    <a href="#a">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                </li>
+                <li style="--i: 3; color: var(--google-color);">
+                    <a href="#a">
+                        <i class="fa fa-google"></i>
+                    </a>
+                </li>
+                <li style="--i: 4; color: var(--linkedin-color);">
+                    <a href="#a">
+                        <i class="fa fa-linkedin"></i>
+                    </a>
+                </li>
+                <li style="--i: 5; color: var(--youtube-color);">
+                    <a href="#a">
+                        <i class="fa fa-youtube"></i>
+                    </a>
+                </li>
+                <li style="--i: 6; color: var(--twitter-color);">
+                    <a href="#a">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </li>
+            </ul>
         </div>
-    </section>
 
-    <script>
-        try {
-//   const leaderboard = await fetchLeaderBoard()
-//   console.log(leaderboard);
-} catch (err) {
-  console.log('Our servers are down, but we will be up and running soon');
-}
+        <script>
+            const button = document.querySelector(".action-btn");
 
-// don't touch below this line
-async function fetchLeaderBoard() {
-  const response = await fetch('https://fantasyquest.servers');
-  return response.json();
-}
-
-// =========================================================================================
-function logContentType(resp) {
-  console.log(resp.headers.get('content-type'));
-}
-
-// don't touch below this line
-const apiKey = generateKey();
-const bootdevAPIDomain = 'api.boot.dev';
-
-async function execute() {
-    const items = await getItemData(bootdevAPIDomain);
-    logContentType(items);
-
-}
-
-execute();
-
-async function getItemData(domain) {
-  const response = await fetch(`https://${domain}/v1/courses_rest_api/learn-http/items/0194fdc2-fa2f-4cc0-81d3-ff12045b73c8`, {
-    method: 'GET',
-    mode: 'cors',
-    headers: {
-      'X-API-Key': apiKey,
-      'Content-Type': 'application/json'
-    }
-  })
-  return response;
-}
-
-function generateKey() {
-  const characters = 'ABCDEF0123456789';
-  let result = '';
-  for (let i = 0; i < 16; i++) {
-    result += characters.charAt(Math.floor(Math.random() * characters.length));
-  }
-  return result;
-}
-    </script>
+            button.addEventListener("click", () => {
+                const menu = document.querySelector(".menu");
+                menu.classList.toggle("opened");
+            })
+        </script>
+    </div>
 </body>
 </html>
