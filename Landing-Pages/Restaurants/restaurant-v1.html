@@ -6,104 +6,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant v.1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/style_restaurant-v1.css">
+    <!-- <link rel="stylesheet" href="./css/style_restaurant-v1.css"> -->
+    <style>
+        *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 3rem;
+    text-transform: capitalize;
+}
+
+p {
+    margin: 2rem auto;
+    font-size: 1.2rem;
+}
+
+.parallax-bg {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.hero {
+    min-height: 100vh;
+    background-image: url("../../../CSS/assets/img/girl-winter-copy.jpg");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero .info {
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+}
+.hero h1 {
+    font-size: 4rem;
+}
+.hero p {
+    max-width: 70%;
+    font-size: 1.5rem;
+}
+
+.bg1 {
+    background-image: url("../../../CSS/assets/img/winter-painting-copy.jpg");
+}
+
+section {
+    width: 100%;
+    height: 400px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.info {
+    text-align: center;
+}
+
+footer {
+    padding: 1rem;
+    color: #fff;
+    text-align: center;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    background-color: #333;
+}
+footer span {
+    vertical-align: super;
+    font-size: 0.5em;
+}
+    </style>
 </head>
 <body>
-    <div class="post">
-        <div class="post-header">
-            <div class="profile-info">
-                <div class="profile-img">
-                    <img src="../../../CSS/assets/img/profile-copy.jpg" alt="">
-                </div>
-                <span>janedoe</span>
-            </div>
-            <div class="options">
-                <i class="fa fa-bars"></i>
-            </div>
-        </div>
-        <div class="post-img">
-            <img src="../../assets/img/headphones/324064873_1192683554696328_4848221003213450933_n-copy.jpg" alt="">
-        </div>
-        <div class="post-body">
-            <div class="post-actions">
-                <span>
-                    <i class="fa fa-heart-o"></i>
-                </span>
-                <span>
-                    <i class="fa fa-comment-o"></i>
-                </span>
-                <span>
-                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                </span>
-                <span>
-                    <i class="fa fa-bookmark-o" aria-hidden="true"></i>
-                </span>
-            </div>
-            <div class="post-info">
-                <span>175,701 likes</span>
-            </div>
-            <div class="post-title">
-                <span class="username">janedoe</span>
-                <div class="title">Maldives</div>
-            </div>
-            <div class="comments">
-                <span>View all 734 comments</span>
-                <div class="comment">
-                    <span class="comment-username">johndoe</span>
-                    <span class="comment-text">Lorem ipsum dolor sit amet.</span>
-                    <span><i class="fa fa-heart-o"></i></span>
-                </div>
-            </div>
-            <span class="timestamp">22 minutes ago</span>
-        </div>
-        <div class="input-box">
-            <div class="emoji">
-                <i class="fa fa-smile-o" aria-hidden="true"></i>
-            </div>
-            <input type="text" name="comment" id="comment" placeholder="Add a comment...">
-            <button>post</button>
+    <div class="parallax-bg hero">
+        <div class="info">
+            <h1>basic parallax effect</h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex, asperiores velit! Eveniet porro rem veniam numquam error facilis voluptatem deserunt.</p>
         </div>
     </div>
 
-    <script>
-        const likeButtons = document.querySelectorAll(".fa-heart-o");
+    <section>
+        <div class="info">
+            <h1>section</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis placeat nobis odit reiciendis id amet perspiciatis error optio sed nemo. Recusandae unde numquam in perspiciatis.</p>
+        </div>
+    </section>
 
-        likeButtons.forEach(likeButton => {
-            likeButton.addEventListener("click", () => {
-                likeButton.classList.replace("fa-heart-o", "fa-heart");
-                likeButton.addEventListener("click", () => {
-                    likeButton.classList.replace("fa-heart", "fa-heart-o");
-                }, {once: true})
-            }, {once: true})
-        })
-    </script>
+    <div class="parallax-bg bg1"></div>
 
-    <script>
-        function declaration() {
-            console.log(this);
+    <section>
+        <div class="info">
+            <h1>section</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis placeat nobis odit reiciendis id amet perspiciatis error optio sed nemo. Recusandae unde numquam in perspiciatis.</p>
+        </div>
+    </section>
 
-            const innerarrowf = () => {
-                console.log(86);
-                console.log(this);
-
-                const innerinnerarrowf = () => {
-                    console.log(90);
-                    console.log(this);
-                }
-
-                innerinnerarrowf();
-            }
-
-            innerarrowf();
-        }
-
-        declaration();
-
-        const obj = {
-            test: declaration,
-        }
-
-        obj.test();
-    </script>
+    <footer>footer 2023<span>&reg;</span></footer>
 </body>
 </html>
