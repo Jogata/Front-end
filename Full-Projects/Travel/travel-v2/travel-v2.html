@@ -35,9 +35,145 @@
             border: 1px solid;
             border-radius: 1em;
         }
+
+        .top {
+            position: relative;
+            height: 77px;
+            margin-top: -77px;
+            transition: all 1s ease;
+        }
+        .top.opened {
+            margin-top: 0;
+        }
+
+        .rounded.maintop {
+            display: block;
+            width: 685px;
+            margin: 0 auto;
+        }
+
+        .rounded .menu {
+            position: relative;
+            display: inline-block;
+            margin: 0 40px;
+            padding: 0.625rem 2rem;
+            background-color: #1b1b1b;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            cursor: pointer;
+        }
+        .rounded .menu::before, 
+        .rounded .menu::after {
+            position: absolute;
+            top: 0;
+            right: -20px;
+            content: "";
+            width: 20px;
+            height: 20px;
+            background-color: #1b1b1b;
+            z-index: 1;
+        }
+        .rounded .menu::before {
+            right: auto;
+            left: -20px;
+        }
+
+        .inner::before, 
+        .inner::after {
+            content: "";
+            height: 40px;
+            width: 40px;
+            background-color: #fff;
+            position: absolute;
+            top: 0;
+            right: -40px;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .inner::before {
+            right: auto;
+            left: -40px;
+        }
+
+        .items {
+            padding: 19px 0px;
+        }
+
+        ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        li {
+            list-style: none;
+            margin: 0px 34px;
+        }
+
+        .bottom {
+            text-align: center;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        p {
+            color: #fff;
+            text-transform: capitalize;
+        }
+        .closebtn {
+            display: none;
+        }
+        .openbtn {
+            text-align: center;
+        }
+
+        .rounded.bottom {
+            width: 202px;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
+    <div class="top">
+        <div class="rounded maintop">
+            <div class="menu">
+                <div class="inner">
+                    <div class="items">
+                        <ul>
+                            <li><a href="#">home</a></li>
+                            <li><a href="#">about</a></li>
+                            <li><a href="#">blog</a></li>
+                            <li><a href="#">contact</a></li>
+                            <li><a href="#">help</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rounded bottom">
+            <div class="menu">
+                <div class="inner">
+                    <div class="menu-bottom">
+                        <p class="closebtn">menu</p>
+                        <p class="openbtn">menu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const open = document.querySelector(".openbtn");
+            const close = document.querySelector(".closebtn");
+
+            open.addEventListener("click", () => {
+                document.querySelector(".top").classList.toggle("opened");
+            })
+        </script>
+    </div>
     <!-- factory pattern -->
     <script src="./js/script_travel_v2.js"></script>
 
@@ -245,111 +381,8 @@
     <section id="delete3"></section>
     <section id="delete4"></section>
 
-    <div class="home">
-        <header>
-            <div class="header-logo">
-                <h1>logo</h1>
-            </div>
-            <div class="header-nav">
-                <ul class="nav">
-                    <li><a href="#" class="active">Home</a></li>
-                    <li><a href="#">Projects</a></li>
-                    <li><a href="#">Skills</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="header-btn">
-                <button class="btn">Hire me!</button>
-                <div class="mode-change">
-                    <i class="fa fa-moon-o" id="mode-change"></i>
-                </div>
-            </div>
-        </header>
-
-        <!-- hero section  -->
-        <div class="hero-section">
-            <div class="social-icons">
-                <ul class="nav social-icon-list">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                </ul>
-            </div>
-            
-            <!-- hero content  -->
-            <div class="hero-content">
-                <div class="content-text">
-                    <h1>Hi,</h1>
-                    <h1>I'm <span>Lorem, ipsum.</span></h1>
-                    <h1>Web <span>Designer</span></h1>
-                </div>
-                <div class="hero-btn">
-                    <button class="btn">Contact</button>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="../../../../CSS/assets/img/profile-copy.jpg" alt="">
-            </div>
-        </div>
-
-    </div>
-
-
-    <!-- JavaScript code  -->
-    <script>
-        var icon =document.getElementById("mode-change");
-
-        icon.onclick = function(){
-            document.body.classList.toggle("dark-theme");
-            if(icon.className=="fa fa-moon-o"){
-                icon.className="fa fa-sun-o"; 
-            }else{
-                icon.className="fa fa-moon-o"; 
-            }
-        }
-    </script>
-
-    <script>
-        function add(a, ...nums) {
-            console.log(a);
-            console.log(nums);
-            let sum = 0;
-
-            for (const n of nums) {
-                sum += n;
-            }
-
-            return sum;
-        }
-
-        const result = add(5, 10, 20);
-
-        console.log(result);
-    </script>
-
-    <script>
-        const fetchUsers = fetch("data/users.json");
-        const fetchColors = fetch("data/colors.json");
-
-        Promise.all([fetchUsers, fetchColors])
-        .then(values => {
-            console.log(values);
-            return Promise.all(values.map(r => r.json()));
-        })
-        .then(([users, colors]) => {
-            console.log(users);
-            console.log(colors);
-        })
-        .catch(e => {
-            console.log(e);
-        })
-    </script>
-
     <script src="./js/script_travel_v2.js">
-        console.log("365>252");
+        console.log("388>252");
     </script>
 </body>
 </html>
