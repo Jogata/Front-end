@@ -6,109 +6,127 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant v.1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="./css/style_restaurant-v1.css"> -->
+    <link rel="stylesheet" href="./css/style_restaurant-v1.css">
     <style>
-        *, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+            overflow: hidden;
+        }
 
-h1 {
-    font-size: 3rem;
-    text-transform: capitalize;
-}
+        nav {
+            position: relative;
+            width: 360px;
+            height: 80px;
+            margin: 99px auto;
+            padding: 0px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50px;
+            background-color: #fff;
+            box-shadow: 0px 60px 40px -7px rgba(0, 0, 0, 0.2);
+        }
 
-p {
-    margin: 2rem auto;
-    font-size: 1.2rem;
-}
+        ul {
+            list-style: none;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
 
-.parallax-bg {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
+        .nav-link {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            text-align: center;
+            z-index: 1;
+        }
 
-.hero {
-    min-height: 100vh;
-    background-image: url("../../../CSS/assets/img/girl-winter-copy.jpg");
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.hero .info {
-    color: #fff;
-    text-shadow: 2px 2px 2px #000;
-}
-.hero h1 {
-    font-size: 4rem;
-}
-.hero p {
-    max-width: 70%;
-    font-size: 1.5rem;
-}
+        .nav-link a {
+            position: relative;
+            width: 100%;
+            /* display: flex; */
+            /* align-items: center; */
+            /* justify-content: center; */
+            /* flex-direction: column; */
+            font-size: 0px;
+            text-align: center;
+            text-decoration: none;
+        }
+        .nav-link a i {
+            position: relative;
+            display: block;
+            color: #000;
+            font-size: 40px;
+            line-height: 65px;
+            transition: all 0.5s;
+        }
+        .nav-link a:hover {
+            text-decoration: none;
+        }
 
-.bg1 {
-    background-image: url("../../../CSS/assets/img/winter-painting-copy.jpg");
-}
+        .nav-link span {
+            /* display: none; */
+            position: absolute;
+            top: 19px;
+            left: 0;
+            width: 100%;
+            font-size: 13px;
+            transform: translateY(20px);
+            transition: all 0.5s;
+            opacity: 0;
+            z-index: 1;
+        }
 
-section {
-    width: 100%;
-    height: 400px;
-    color: #333;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #fff;
-}
-
-.info {
-    text-align: center;
-}
-
-footer {
-    padding: 1rem;
-    color: #fff;
-    text-align: center;
-    font-size: 1.2rem;
-    text-transform: capitalize;
-    background-color: #333;
-}
-footer span {
-    vertical-align: super;
-    font-size: 0.5em;
-}
+        .nav-link.active i {
+            top: -10px;
+            transform: rotate(45deg);
+            opacity: 0;
+        }
+        .nav-link.active span {
+            top: 9px;
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
-    <div class="parallax-bg hero">
-        <div class="info">
-            <h1>basic parallax effect</h1>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex, asperiores velit! Eveniet porro rem veniam numquam error facilis voluptatem deserunt.</p>
-        </div>
-    </div>
-
     <section>
-        <div class="info">
-            <h1>section</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis placeat nobis odit reiciendis id amet perspiciatis error optio sed nemo. Recusandae unde numquam in perspiciatis.</p>
-        </div>
+        <nav>
+            <ul>
+                <li class="nav-link active">
+                    <a href="#"><i class="fa fa-home"></i>home</a>
+                    <span>home</span>
+                </li>
+                <li class="nav-link">
+                    <a href="#"><i class="fa fa-file-text-o"></i>about</a>
+                    <span>about</span>
+                </li>
+                <li class="nav-link">
+                    <a href="#"><i class="fa fa-gear"></i>settings</a>
+                    <span>settings</span>
+                </li>
+                <li class="nav-link">
+                    <a href="#"><i class="fa fa-bell-o"></i>profile</a>
+                    <span>profile</span>
+                </li>
+            </ul>
+        </nav>
     </section>
 
-    <div class="parallax-bg bg1"></div>
+    <script>
+        const links = document.querySelectorAll(".nav-link");
 
-    <section>
-        <div class="info">
-            <h1>section</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis placeat nobis odit reiciendis id amet perspiciatis error optio sed nemo. Recusandae unde numquam in perspiciatis.</p>
-        </div>
-    </section>
-
-    <footer>footer 2023<span>&reg;</span></footer>
+        links.forEach(link => {
+            link.addEventListener("click", () => {
+                const activeLink = document.querySelector(".nav-link.active");
+                activeLink.classList.remove("active");
+                link.classList.add("active");
+            })
+        })
+    </script>
 </body>
 </html>
