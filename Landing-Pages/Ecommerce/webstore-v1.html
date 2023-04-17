@@ -8,139 +8,151 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- <link rel="stylesheet" href="./css/styles_webstore-v1.css"> -->
   <style>
-    body {
-      color: #fff;
-      background-color: #333;
-      overflow-y: scroll;
-    }
-
-    .faq {
-      margin-top: 3rem;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-    }
-
+    *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
     h1 {
-      font-size: 3rem;
       text-transform: capitalize;
     }
-
-    ul {
-      margin: 3rem auto;
-      width: 75%;
-      max-width: 900px;
+    h1 span {
+      text-transform: uppercase;
     }
-
-    li {
-      list-style: none;
-      margin-bottom: 8px;
-    }
-
-    .question {
-      margin-bottom: 1px;
-      padding: 20px;
+    .abs {
+      position: absolute;
       width: 100%;
-      font-size: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background-color: #303030;
-      font-weight: 400;
-      cursor: pointer;
+      text-align: center;
+      opacity: 0.1;
     }
 
-    .fa-plus {
-      margin-left: 1rem;
-      font-size: 3rem;
+    body {
+      font-family: Helvetica, sans-serif;
+    }
+
+    section {
+      position: relative;
+      height: 100vh;
+      min-height: 30rem;
+      background-image: url("https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      transition: all 0.3s ease;
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 4em 1em 2em 1em;
+      text-align: center;
+      background-image: linear-gradient(rgba(0, 0, 0, 0), #000);
+    }
+    .caption h1 {
+      color: #fff;
+    }
+    p {
+      color: #8a8a8a;
+    }
+
+    .arrow-right, 
+    .arrow-left {
+      position: absolute;
+      top: 40%;
+      width: 3rem;
+      height: 3rem;
       display: flex;
       align-items: center;
       justify-content: center;
+      border-radius: 50%;
+      color: #222;
+      background-color: #fff;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .arrow-right {
+      right: 1rem;
+    }
+    .arrow-left {
+      left: 1rem;
+    }
+    .arrow-right:hover, 
+    .arrow-left:hover {
+      color: #fff;
+      background-color: #222;
     }
 
-    .response {
-      height: 0;
-      /* max-height: 0; */
-      background-color: #303030;
-      overflow: hidden;
-      font-size: 20px;
-      transition: all 1.25s cubic-bezier(0.5, 0, 0.1, 1);
-    }
-    .response span {
-      display: inline-block;
-      padding: 1.2rem;
+    .fade-in {
+      animation: fade-in 0.5s ease-in-out;
     }
 
-    .question.opened ~ .response {
-      height: 1200px;
-      max-height: min-content;
-    }
-    .question.opened .fa-plus {
-      transform: rotate(45deg);
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
     }
   </style>
 </head>
 <body>
-  <section class="faq">
-    <h1>frequently asked questions</h1>
-    <ul>
-      <li>
-        <div class="question">
-          <span>What does a web developer do</span>
-          <i class="fa fa-plus"></i>
-        </div>
-        <div class="response">
-          <span>Web developers create and maintain websites. They are also responsible for the site's technical aspects, such as its performance and capacity, which are measures of a website's speed and how much traffic the site can handle. In addition, web developers may create content for the site.</span>
-        </div>
-      </li>
-      <li>
-        <div class="question">
-          <span>What skills do I need to become a web developer</span>
-          <i class="fa fa-plus"></i>
-        </div>
-        <div class="response">
-          <span>To become a Web Developer, you should have an understanding of HTML, CSS, and JavaScript. It's also recommended to learn about CSS and CSS frameworks. Developing these fundamental web development skills will give you the foundation and logic for communicating with programming languages.</span>
-        </div>
-      </li>
-      <li>
-        <div class="question">
-          <span>What education or training is required to become a web developer</span>
-          <i class="fa fa-plus"></i>
-        </div>
-        <div class="response">
-          <span>A bachelor's degree in computer science or web development is the traditional path for aspiring web developers. While those with associate degrees can snag entry-level web developer positions, some employers prefer candidates with bachelor's degrees.</span>
-        </div>
-      </li>
-      <li>
-        <div class="question">
-          <span>What are the most popular web development s and tools</span>
-          <i class="fa fa-plus"></i>
-        </div>
-        <div class="response">
-          <span>Common frameworks include AppMaster, Ruby on Rails, Express. js, Flask, Laravel, ASP.NET Core, Spring, Django, and many others. Common frameworks include Solid, BootStrap, React, Ember, Vue. js, Svelte, and Angular.</span>
-        </div>
-      </li>
-      <li>
-        <div class="question">
-          <span>What is the job outlook for web developers</span>
-          <i class="fa fa-plus"></i>
-        </div>
-        <div class="response">
-          <span>Front-end developers focus more on the user interface and need an eye for design. Full-stack developers have some proficiency in both front- and back-end web development.</span>
-        </div>
-      </li>
-    </ul>
+  <h1 class="abs">simple <span>js</span> image slider</h1>
+
+  <section>
+    <div class="arrow-left">
+      <i class="fa fa-arrow-left"></i>
+    </div>
+    <div class="arrow-right">
+      <i class="fa fa-arrow-right"></i>
+    </div>
+    <div class="caption">
+      <h1>new york, <span>usa</span></h1>
+      <p>The city that never sleeps.</p>
+    </div>
   </section>
 
   <script>
-    const questions = document.querySelectorAll(".question");
+    const slider = document.querySelector("section");
+    const leftBtn = document.querySelector(".arrow-left");
+    const rightBtn = document.querySelector(".arrow-right");
+    const h1 = document.querySelector(".caption h1");
+    const para = document.querySelector(".caption p");
+    const images = [
+      "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80", 
+      "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1494&q=80", 
+      "https://images.unsplash.com/photo-1462007895615-c8c073bebcd8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+    ];
+    const headings = ["New York, USA", "Tokyo, Japan", "Dubai, UAE"];
+    const descriptions = ["The city that never sleeps", "The city of lights", "Home to the tallest skyscraper"];
+    let id = 0;
 
-    questions.forEach(question => {
-      question.addEventListener("click", () => {
-        question.classList.toggle("opened");
-      })
+    function slide(id) {
+      slider.style.backgroundImage = `url(${images[id]})`;
+      slider.classList.add("fade-in");
+      setTimeout(() => {
+        slider.classList.remove("fade-in");
+      }, 550);
+      h1.textContent = headings[id];
+      para.textContent = descriptions[id];
+    }
+
+    leftBtn.addEventListener("click", () => {
+      id--;
+      id = id + images.length;
+      id = id % images.length;
+      slide(id);
+    })
+
+    rightBtn.addEventListener("click", () => {
+      id++;
+      id = id % images.length;
+      slide(id);
     })
   </script>
+
   <!-- <h1 style="position: absolute; z-index: 1; left: 10%; bottom: 10%; font-size: 3rem;">Object.entries(person) - convert object to array</h1> -->
 
   <!-- menu -->
