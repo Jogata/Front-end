@@ -36,141 +36,174 @@
             border-radius: 1em;
         }
 
-        .top {
-            position: relative;
-            height: 77px;
-            margin-top: -77px;
-            transition: all 1s ease;
-        }
-        .top.opened {
-            margin-top: 0;
+        .hero {
+            width: 100%;
+            min-height: 100vh;
+            color: #525252;
+            background-color: #eceaff;
         }
 
-        .rounded.maintop {
-            display: block;
-            width: 685px;
-            margin: 0 auto;
+        .logo {
+            width: 120px;
         }
 
-        .rounded .menu {
-            position: relative;
-            display: inline-block;
-            margin: 0 40px;
-            padding: 0.625rem 2rem;
-            background-color: #1b1b1b;
-            border-bottom-left-radius: 25px;
-            border-bottom-right-radius: 25px;
-            cursor: pointer;
-        }
-        .rounded .menu::before, 
-        .rounded .menu::after {
-            position: absolute;
-            top: 0;
-            right: -20px;
-            content: "";
-            width: 20px;
-            height: 20px;
-            background-color: #1b1b1b;
-            z-index: 1;
-        }
-        .rounded .menu::before {
-            right: auto;
-            left: -20px;
-        }
-
-        .inner::before, 
-        .inner::after {
-            content: "";
-            height: 40px;
-            width: 40px;
-            background-color: #fff;
-            position: absolute;
-            top: 0;
-            right: -40px;
-            border-radius: 50%;
-            z-index: 2;
-        }
-
-        .inner::before {
-            right: auto;
-            left: -40px;
-        }
-
-        .items {
-            padding: 19px 0px;
-        }
-
-        ul {
+        nav {
+            background-color: #1a1a1a;
+            width: 100%;
+            padding: 10px 10%;
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
         }
+
+        .user {
+            width: 40px;
+            margin-left: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        ul {
+            width: 100%;
+            text-align: right;
+        }
+
         li {
+            display: inline-block;
             list-style: none;
-            margin: 0px 34px;
+            margin: 10px 20px;
         }
 
-        .bottom {
-            text-align: center;
-        }
-
-        a {
-            color: #fff;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        p {
+        nav a {
             color: #fff;
             text-transform: capitalize;
-        }
-        .closebtn {
-            display: none;
-        }
-        .openbtn {
-            text-align: center;
+            text-decoration: none;
         }
 
-        .rounded.bottom {
-            width: 202px;
-            margin: 0 auto;
+        .sub-menu-wrap {
+            position: absolute;
+            top: 100%;
+            right: 10%;
+            width: 320px;
+            max-height: 0px;
+            transition: max-height 0.5s ease;
+            overflow: hidden;
+        }
+        .open {
+            max-height: 400px;
+        }
+
+        .sub-menu {
+            margin: 10px;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        h2 {
+            text-transform: capitalize;
+        }
+        
+        h3 {
+            font-weight: 500;
+            text-transform: capitalize;
+        }
+
+        .user-info img {
+            width: 60px;
+            margin-right: 15px;
+            border-radius: 50%;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            width: 100%;
+            background-color: #ccc;
+        }
+
+        .link {
+            display: flex;
+            align-items: center;
+            margin: 12px 0;
+            color: #525252;
+            text-transform: capitalize;
+        }
+        .link p {
+            width: 100%;
+        }
+        .link i {
+            color: #1a1a1a;
+            background-color: #e5e5e5;
+            border-radius: 50%;
+            padding: 8px;
+            margin-right: 15px;
+        }
+        .link span {
+            font-size: 22px;
+            transition: transform 0.5s ease;
+        }
+        .link:hover span {
+            transform: translateX(5px);
+        }
+        .link:hover p {
+            font-weight: 600;
         }
     </style>
 </head>
 <body>
-    <div class="top">
-        <div class="rounded maintop">
-            <div class="menu">
-                <div class="inner">
-                    <div class="items">
-                        <ul>
-                            <li><a href="#">home</a></li>
-                            <li><a href="#">about</a></li>
-                            <li><a href="#">blog</a></li>
-                            <li><a href="#">contact</a></li>
-                            <li><a href="#">help</a></li>
-                        </ul>
+    <div class="hero">
+        <nav>
+            <img src="../travel-v1/img/logos/client-logo-1.png" alt="" class="logo">
+            <ul>
+                <li><a href="#">home</a></li>
+                <li><a href="#">features</a></li>
+                <li><a href="#">about</a></li>
+                <li><a href="#">contact</a></li>
+            </ul>
+            <img src="../travel-v1/img/testimonial/pic-1.png" alt="" class="user">
+            <div class="sub-menu-wrap">
+                <div class="sub-menu">
+                    <div class="user-info">
+                        <img src="../travel-v1/img/testimonial/pic-1.png" alt="">
+                        <h2>john doe</h2>
                     </div>
+                    <hr>
+                    <a href="#" class="link">
+                        <i class="fa fa-user-o"></i>
+                        <p>edit profile</p>
+                        <span>></span>
+                    </a>
+                    <a href="#" class="link">
+                        <i class="fa fa-gear"></i>
+                        <p>settings</p>
+                        <span>></span>
+                    </a>
+                    <a href="#" class="link">
+                        <i class="fa fa-question-circle"></i>
+                        <p>help & support</p>
+                        <span>></span>
+                    </a>
+                    <a href="#" class="link">
+                        <i class="fa fa-sign-out"></i>
+                        <p>logout</p>
+                        <span>></span>
+                    </a>
                 </div>
             </div>
-        </div>
-        <div class="rounded bottom">
-            <div class="menu">
-                <div class="inner">
-                    <div class="menu-bottom">
-                        <p class="closebtn">menu</p>
-                        <p class="openbtn">menu</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </nav>
 
         <script>
-            const open = document.querySelector(".openbtn");
-            const close = document.querySelector(".closebtn");
+            const userBtn = document.querySelector(".user");
 
-            open.addEventListener("click", () => {
-                document.querySelector(".top").classList.toggle("opened");
+            userBtn.addEventListener("click", () => {
+                const menu = document.querySelector(".sub-menu-wrap");
+                menu.classList.toggle("open");
             })
         </script>
     </div>
