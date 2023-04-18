@@ -35,176 +35,140 @@
             border: 1px solid;
             border-radius: 1em;
         }
+    </style>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+*::before, *::after {
+    margin: 0;
+    padding: 0;
+}
 
-        .hero {
-            width: 100%;
-            min-height: 100vh;
-            color: #525252;
-            background-color: #eceaff;
-        }
-
-        .logo {
-            width: 120px;
-        }
-
-        nav {
-            background-color: #1a1a1a;
-            width: 100%;
-            padding: 10px 10%;
+        body {
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
+            min-height: 100vh;
+            background-color: #2f363e;
         }
 
-        .user {
-            width: 40px;
-            margin-left: 30px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-
-        ul {
-            width: 100%;
-            text-align: right;
-        }
-
-        li {
-            display: inline-block;
-            list-style: none;
-            margin: 10px 20px;
-        }
-
-        nav a {
+        .time {
+            display: flex;
+            gap: 40px;
             color: #fff;
-            text-transform: capitalize;
-            text-decoration: none;
         }
 
-        .sub-menu-wrap {
+        .time .circle {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .time .circle svg {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            transform: rotate(270deg);
+        }
+        svg circle {
+            width: 100%;
+            height: 100%;
+            fill: transparent;
+            stroke: #191919;
+            stroke-width: 4px;
+            transform: translate(5px, 5px);
+        }
+
+        .time .circle svg circle:nth-child(2) {
+            stroke: var(--clr);
+            stroke-dasharray: 440;
+        }
+
+        .time div {
             position: absolute;
-            top: 100%;
-            right: 10%;
-            width: 320px;
-            max-height: 0px;
-            transition: max-height 0.5s ease;
-            overflow: hidden;
-        }
-        .open {
-            max-height: 400px;
-        }
-
-        .sub-menu {
-            margin: 10px;
-            padding: 20px;
-            background-color: #fff;
-        }
-
-        .user-info {
-            display: flex;
-            align-items: center;
-        }
-
-        h2 {
-            text-transform: capitalize;
-        }
-        
-        h3 {
+            text-align: center;
             font-weight: 500;
-            text-transform: capitalize;
+            font-size: 1.5rem;
+        }
+        .time div span {
+            display: block;
+            font-size: 2.5rem;
+            line-height: 1;
         }
 
-        .user-info img {
-            width: 60px;
-            margin-right: 15px;
-            border-radius: 50%;
+        .time .ap {
+            position: relative;
+            font-size: 1rem;
+            transform: translateX(-20px);
         }
 
-        hr {
-            border: 0;
-            height: 1px;
-            width: 100%;
-            background-color: #ccc;
-        }
-
-        .link {
-            display: flex;
-            align-items: center;
-            margin: 12px 0;
-            color: #525252;
-            text-transform: capitalize;
-        }
-        .link p {
-            width: 100%;
-        }
-        .link i {
-            color: #1a1a1a;
-            background-color: #e5e5e5;
-            border-radius: 50%;
-            padding: 8px;
-            margin-right: 15px;
-        }
-        .link span {
-            font-size: 22px;
-            transition: transform 0.5s ease;
-        }
-        .link:hover span {
-            transform: translateX(5px);
-        }
-        .link:hover p {
-            font-weight: 600;
+        .ampm {
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <nav>
-            <img src="../travel-v1/img/logos/client-logo-1.png" alt="" class="logo">
-            <ul>
-                <li><a href="#">home</a></li>
-                <li><a href="#">features</a></li>
-                <li><a href="#">about</a></li>
-                <li><a href="#">contact</a></li>
-            </ul>
-            <img src="../travel-v1/img/testimonial/pic-1.png" alt="" class="user">
-            <div class="sub-menu-wrap">
-                <div class="sub-menu">
-                    <div class="user-info">
-                        <img src="../travel-v1/img/testimonial/pic-1.png" alt="">
-                        <h2>john doe</h2>
-                    </div>
-                    <hr>
-                    <a href="#" class="link">
-                        <i class="fa fa-user-o"></i>
-                        <p>edit profile</p>
-                        <span>></span>
-                    </a>
-                    <a href="#" class="link">
-                        <i class="fa fa-gear"></i>
-                        <p>settings</p>
-                        <span>></span>
-                    </a>
-                    <a href="#" class="link">
-                        <i class="fa fa-question-circle"></i>
-                        <p>help & support</p>
-                        <span>></span>
-                    </a>
-                    <a href="#" class="link">
-                        <i class="fa fa-sign-out"></i>
-                        <p>logout</p>
-                        <span>></span>
-                    </a>
-                </div>
-            </div>
-        </nav>
+    <div class="time">
+        <div class="circle" style="--clr: #ff2972">
+            <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70" id="hh"></circle>
+            </svg>
+            <div class="hours"><span>00</span>hours</div>
+        </div>
+        <div class="circle" style="--clr: #fee800">
+            <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70" id="mm"></circle>
+            </svg>
+            <div class="minutes"><span>00</span>minutes</div>
+        </div>
+        <div class="circle" style="--clr: #04fc43">
+            <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70" id="ss"></circle>
+            </svg>
+            <div class="seconds"><span>00</span>seconds</div>
+        </div>
+        <div class="ap">
+            <div class="ampm">am</div>
+        </div>
 
         <script>
-            const userBtn = document.querySelector(".user");
+            setInterval(() => {
+                let he = document.querySelector(".hours span");
+                let me = document.querySelector(".minutes span");
+                let se = document.querySelector(".seconds span");
+                let ampm = document.querySelector(".ampm");
 
-            userBtn.addEventListener("click", () => {
-                const menu = document.querySelector(".sub-menu-wrap");
-                menu.classList.toggle("open");
-            })
+                let hh = document.querySelector("#hh");
+                let mm = document.querySelector("#mm");
+                let ss = document.querySelector("#ss");
+                
+                let h = new Date().getHours();
+                let m = new Date().getMinutes();
+                let s = new Date().getSeconds();
+                let am = h >= 12 ? "pm" : "am";
+                h = h % 12;
+                h = (h < 10) ? `0${h}` : h;
+                m = (m < 10) ? `0${m}` : m;
+                s = (s < 10) ? `0${s}` : s;
+                
+                he.textContent = h;
+                me.textContent = m;
+                se.textContent = s;
+                ampm.textContent = am;
+
+                hh.style.strokeDasharray = 440 - (440 * h) / 12;
+                mm.style.strokeDasharray = 440 - (440 * m) / 60;
+                ss.style.strokeDasharray = 440 - (440 * s) / 60;
+            }, 1000);
         </script>
     </div>
     <!-- factory pattern -->
@@ -415,7 +379,7 @@
     <section id="delete4"></section>
 
     <script src="./js/script_travel_v2.js">
-        console.log("388>252");
+        console.log("421>252");
     </script>
 </body>
 </html>
