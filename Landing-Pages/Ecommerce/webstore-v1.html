@@ -8,151 +8,190 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- <link rel="stylesheet" href="./css/styles_webstore-v1.css"> -->
   <style>
-    *, *::before, *::after {
+    * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-    h1 {
-      text-transform: capitalize;
-    }
-    h1 span {
-      text-transform: uppercase;
-    }
-    .abs {
-      position: absolute;
-      width: 100%;
-      text-align: center;
-      opacity: 0.1;
-    }
+*::before, *::after {
+    margin: 0;
+    padding: 0;
+}
 
-    body {
-      font-family: Helvetica, sans-serif;
-    }
+.banner-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  color: #045e67;
+  text-align: center;
+  background-image: url("../../../CSS/assets/img/girl-winter-copy.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: 1;
+}
 
-    section {
-      position: relative;
-      height: 100vh;
-      min-height: 30rem;
-      background-image: url("https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-      transition: all 0.3s ease;
-    }
+h1 {
+  margin-bottom: 15px;
+  font-size: 55px;
+  font-family: russo one;
+  font-weight: 300;
+  text-transform: capitalize;
+}
 
-    .caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      padding: 4em 1em 2em 1em;
-      text-align: center;
-      background-image: linear-gradient(rgba(0, 0, 0, 0), #000);
-    }
-    .caption h1 {
-      color: #fff;
-    }
-    p {
-      color: #8a8a8a;
-    }
+p {
+  color: #000;
+  font-size: 25px;
+  font-family: montserrat;
+}
 
-    .arrow-right, 
-    .arrow-left {
-      position: absolute;
-      top: 40%;
-      width: 3rem;
-      height: 3rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      color: #222;
-      background-color: #fff;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-    .arrow-right {
-      right: 1rem;
-    }
-    .arrow-left {
-      left: 1rem;
-    }
-    .arrow-right:hover, 
-    .arrow-left:hover {
-      color: #fff;
-      background-color: #222;
-    }
+.nav-area {
+  position: relative;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 2;
+}
 
-    .fade-in {
-      animation: fade-in 0.5s ease-in-out;
-    }
+.items {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-100%);
+  transition: transform 0.5s ease;
+  transition-delay: 0.5s;
+  visibility: hidden;
+  z-index: 3;
+}
 
-    @keyframes fade-in {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
+.items ul {
+  width: 100%;
+}
+.items ul li {
+  font-size: 30px;
+  min-height: 40px;
+  text-align: center;
+  list-style: none;
+}
+.items ul li a {
+  display: block;
+  padding: 15px 0;
+  color: #fff;
+  font-family: russo one;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+.items ul li a:hover {
+  color: #045e67;
+  background-color: #fff;
+}
+
+.box-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: flex 0.45s;
+}
+.box-area:nth-child(2) {
+  flex: 1 0 100%;
+  background-color: transparent;
+}
+.box-area:nth-child(odd) {
+  background-color: #045e67;
+}
+
+.menu {
+  position: absolute;
+  top: 20px;
+  right: 80px;
+  padding: 0 15px;
+  background-color: #045e67;
+  z-index: 5;
+}
+
+.single-menu {
+  position: relative;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+}
+.single-menu div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  grid-template: 3px;
+  background-color: blueviolet;
+  transition: transform 0.3s ease;
+  transition-delay: 0.5s;
+}
+
+body.animate .box-area:nth-child(2) {
+  flex: 0;
+}
+body.animate .items {
+  transform: translateY(0%);
+  visibility: visible;
+  pointer-events: all;
+}
   </style>
 </head>
 <body>
-  <h1 class="abs">simple <span>js</span> image slider</h1>
+  <div class="menu">
+    <div class="single-menu">
+      &#9776;
+    </div>
+  </div>
 
-  <section>
-    <div class="arrow-left">
-      <i class="fa fa-arrow-left"></i>
+  <div class="banner-area">
+    <div>
+      <h1>jonathon doe</h1>
+      <p>Front-End Developer & <span>Graphics Designer</span></p>
     </div>
-    <div class="arrow-right">
-      <i class="fa fa-arrow-right"></i>
+  </div>
+
+  <div class="nav-area">
+    <div class="box-area"></div>
+    <div class="box-area"></div>
+    <div class="box-area"></div>
+    <div class="items">
+      <ul>
+        <li>
+          <a href="#">home</a>
+        </li>
+        <li>
+          <a href="#">about me</a>
+        </li>
+        <li>
+          <a href="#">my works</a>
+        </li>
+        <li>
+          <a href="#">offers</a>
+        </li>
+        <li>
+          <a href="#">get in touch</a>
+        </li>
+      </ul>
     </div>
-    <div class="caption">
-      <h1>new york, <span>usa</span></h1>
-      <p>The city that never sleeps.</p>
-    </div>
-  </section>
+  </div>
 
   <script>
-    const slider = document.querySelector("section");
-    const leftBtn = document.querySelector(".arrow-left");
-    const rightBtn = document.querySelector(".arrow-right");
-    const h1 = document.querySelector(".caption h1");
-    const para = document.querySelector(".caption p");
-    const images = [
-      "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80", 
-      "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1494&q=80", 
-      "https://images.unsplash.com/photo-1462007895615-c8c073bebcd8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-    ];
-    const headings = ["New York, USA", "Tokyo, Japan", "Dubai, UAE"];
-    const descriptions = ["The city that never sleeps", "The city of lights", "Home to the tallest skyscraper"];
-    let id = 0;
-
-    function slide(id) {
-      slider.style.backgroundImage = `url(${images[id]})`;
-      slider.classList.add("fade-in");
-      setTimeout(() => {
-        slider.classList.remove("fade-in");
-      }, 550);
-      h1.textContent = headings[id];
-      para.textContent = descriptions[id];
-    }
-
-    leftBtn.addEventListener("click", () => {
-      id--;
-      id = id + images.length;
-      id = id % images.length;
-      slide(id);
-    })
-
-    rightBtn.addEventListener("click", () => {
-      id++;
-      id = id % images.length;
-      slide(id);
+    document.querySelector(".single-menu").addEventListener("click", () => {
+      document.body.classList.toggle("animate");
     })
   </script>
-
   <!-- <h1 style="position: absolute; z-index: 1; left: 10%; bottom: 10%; font-size: 3rem;">Object.entries(person) - convert object to array</h1> -->
 
   <!-- menu -->
