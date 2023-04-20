@@ -6,191 +6,107 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Webstore v.1</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="./css/styles_webstore-v1.css"> -->
+  <link rel="stylesheet" href="./css/styles_webstore-v1.css">
   <style>
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-*::before, *::after {
-    margin: 0;
-    padding: 0;
-}
-
-.banner-area {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  color: #045e67;
-  text-align: center;
-  background-image: url("../../../CSS/assets/img/girl-winter-copy.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  z-index: 1;
-}
-
-h1 {
-  margin-bottom: 15px;
-  font-size: 55px;
-  font-family: russo one;
-  font-weight: 300;
-  text-transform: capitalize;
-}
-
-p {
-  color: #000;
-  font-size: 25px;
-  font-family: montserrat;
-}
-
-.nav-area {
-  position: relative;
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  z-index: 2;
-}
-
-.items {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform: translateY(-100%);
-  transition: transform 0.5s ease;
-  transition-delay: 0.5s;
-  visibility: hidden;
-  z-index: 3;
-}
-
-.items ul {
-  width: 100%;
-}
-.items ul li {
-  font-size: 30px;
-  min-height: 40px;
-  text-align: center;
-  list-style: none;
-}
-.items ul li a {
-  display: block;
-  padding: 15px 0;
-  color: #fff;
-  font-family: russo one;
-  text-transform: capitalize;
-  text-decoration: none;
-}
-.items ul li a:hover {
-  color: #045e67;
-  background-color: #fff;
-}
-
-.box-area {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: flex 0.45s;
-}
-.box-area:nth-child(2) {
-  flex: 1 0 100%;
-  background-color: transparent;
-}
-.box-area:nth-child(odd) {
-  background-color: #045e67;
-}
-
-.menu {
-  position: absolute;
-  top: 20px;
-  right: 80px;
-  padding: 0 15px;
-  background-color: #045e67;
-  z-index: 5;
-}
-
-.single-menu {
-  position: relative;
-  color: #fff;
-  font-size: 30px;
-  cursor: pointer;
-}
-.single-menu div {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 16px;
-  grid-template: 3px;
-  background-color: blueviolet;
-  transition: transform 0.3s ease;
-  transition-delay: 0.5s;
-}
-
-body.animate .box-area:nth-child(2) {
-  flex: 0;
-}
-body.animate .items {
-  transform: translateY(0%);
-  visibility: visible;
-  pointer-events: all;
-}
+    .profile-dropdown-list {
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.5s;
+    }
+    .active {
+      max-height: 500px;
+    }
   </style>
 </head>
 <body>
-  <div class="menu">
-    <div class="single-menu">
-      &#9776;
-    </div>
-  </div>
+  <nav>
+    <a href="#logo" class="logo">logo</a>
+    <ul class="nav-list">
+      <li><a href="#">home</a></li>
+      <li><a href="#">videos</a></li>
+      <li><a href="#">playlists</a></li>
+      <li><a href="#">community</a></li>
+      <li><a href="#">about</a></li>
+    </ul>
 
-  <div class="banner-area">
-    <div>
-      <h1>jonathon doe</h1>
-      <p>Front-End Developer & <span>Graphics Designer</span></p>
-    </div>
-  </div>
-
-  <div class="nav-area">
-    <div class="box-area"></div>
-    <div class="box-area"></div>
-    <div class="box-area"></div>
-    <div class="items">
-      <ul>
-        <li>
-          <a href="#">home</a>
-        </li>
-        <li>
-          <a href="#">about me</a>
-        </li>
-        <li>
-          <a href="#">my works</a>
-        </li>
-        <li>
-          <a href="#">offers</a>
-        </li>
-        <li>
-          <a href="#">get in touch</a>
-        </li>
+    <div class="profile-dropdown">
+      <div class="profile-dropdown-btn">
+        <div class="profile-img">
+          <i class="fa fa-circle"></i>
+        </div>
+        <span>victoria 
+          <i class="fa fa-angle-down"></i>
+        </span>
+      </div>
+      <ul class="profile-dropdown-list">
+        <li><a href="#">
+          <i class="fa fa-user"></i>
+          edit profile
+        </a></li>
+        <li><a href="#">
+          <i class="fa fa-envelope"></i>
+          inbox
+        </a></li>
+        <li><a href="#">
+          <i class="fa fa-line-chart"></i>
+          analytics
+        </a></li>
+        <li><a href="#">
+          <i class="fa fa-gear"></i>
+          settings
+        </a></li>
+        <li><a href="#">
+          <i class="fa fa-question-circle"></i>
+          help
+        </a></li>
+        <hr>
+        <li><a href="#">
+          <i class="fa fa-sign-out"></i>
+          logout
+        </a></li>
       </ul>
     </div>
-  </div>
+  </nav>
 
   <script>
-    document.querySelector(".single-menu").addEventListener("click", () => {
-      document.body.classList.toggle("animate");
+    let list = document.querySelector(".profile-dropdown-list");
+    let btn = document.querySelector(".profile-dropdown-btn");
+
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      list.classList.toggle("active");
+      window.addEventListener("click", () => {
+        list.classList.remove("active");
+      }, {once: true})
     })
+  </script>
+
+  <script>
+    let a = 5;
+
+    const iaa = () => {
+      a++;
+      console.log(a);
+    }
+
+    function test() {
+      a++;
+      console.log(a);
+    }
+
+    function ia(a) {
+      a++;
+      console.log(a);
+      iaa();
+    }
+
+    test();
+
+    ia(0);
+
+    console.log(a);
+    console.dir(iaa);
+    console.dir(test);
   </script>
   <!-- <h1 style="position: absolute; z-index: 1; left: 10%; bottom: 10%; font-size: 3rem;">Object.entries(person) - convert object to array</h1> -->
 
