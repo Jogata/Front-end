@@ -1,23 +1,6 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap'); */
-/* @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz@9..144&family=Herr+Von+Muellerhoff&family=Kaushan+Script&family=Playfair+Display:wght@400;700&display=swap');
 /* 
-font-family: 'Abril Fatface', cursive;
-font-family: 'Lemon', cursive;
 font-family: 'Playfair Display', serif;    //400,700
-font-family: 'Courgette', cursive;
-font-family: 'Dancing Script', cursive;
-font-family: 'Great Vibes', cursive;
-font-family: 'Josefin Sans', sans-serif;
-font-family: 'Limelight', cursive;
-font-family: 'Lobster', cursive;
-font-family: 'Montserrat', sans-serif;
-font-family: 'Oleo Script Swash Caps', cursive;
-font-family: 'Poppins', sans-serif;
-font-family: 'Raleway', sans-serif;
-font-family: 'Kaushan Script', cursive;
-font-family: 'Fraunces', serif;
-font-family: 'Herr Von Muellerhoff', cursive;
 */
 
 *, *::before, *::after {
@@ -27,9 +10,8 @@ font-family: 'Herr Von Muellerhoff', cursive;
 }
 
 :root{
-    --main-font: 'Source Sans Pro', sans-serif;
+    --main-font: 'Playfair Display', serif;
     --secondary-font: 'Herr Von Muellerhoff', cursive;
-    --body-font: 'Cabin', sans-serif;
     --main-font-color-dark: #252525;
     --secondary-font-color: #c59d5f;
     --body-font-color: #515151;
@@ -51,13 +33,11 @@ img {
 
 html {
     color: var(--body-font-color);
-    font-size: 10px;
-    font-family: var(--body-font);
     scroll-behavior: smooth;
 }
 
 section {
-    padding: 3.9rem 0;
+    padding: 16rem 0;
 }
 
 p {
@@ -67,7 +47,7 @@ p {
 .container {
     width: 100%;
     max-width: 122.5rem;
-    margin: 0 auto;
+    margin: auto;
     padding: 0 2.4rem;
 }
 
@@ -83,7 +63,6 @@ header {
 nav {
     height: 7.2rem;
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 nav::before {
@@ -101,10 +80,8 @@ nav::before {
 }
 
 .menu-toggle {
-    position: absolute;
-    top: 50%;
-    right: 2.5rem;
-    transform: translateY(-50%);
+    display: none;
+    order: 2;
     color: #fff;
     font-size: 2.2rem;
     cursor: pointer;
@@ -116,26 +93,28 @@ nav::before {
 }
 
 .logo {
+    order: 1;
+    padding: 1.4rem;
+    text-align: center;
+}
+.logo a {
     color: #fff;
     font-size: 3rem;
-    text-transform: uppercase;
+    font-family: var(--main-font);
     font-weight: 900;
+    text-transform: uppercase;
     letter-spacing: 2px;
     border-bottom: 2px solid #fff;
 }
 
 .nav-list {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 80%;
-    height: 100vh;
-    padding: 4.4rem;
+    order: 2;
+    margin-left: auto;
+    padding: 1.4rem;
     display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    background-color: var(--main-font-color-dark);
-    transform: translateX(-100%);
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 1rem;
     transition: transform 0.5s ease;
     z-index: 2;
 }
@@ -156,7 +135,7 @@ nav::before {
 }
 
 .nav-item {
-    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 0.4em 0.8em;
 }
 
 .nav-link {
@@ -167,6 +146,11 @@ nav::before {
     letter-spacing: 2px;
     margin-right: -2px;
     transition: color 0.5s ease;
+    border-bottom: 1px solid transparent;
+}
+.nav-link.active {
+    color: #c59d5f;
+    border-bottom: 1px solid currentColor;
 }
 .nav-link:hover {
     color: var(--secondary-font-color);
@@ -174,9 +158,8 @@ nav::before {
 
 .hero {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
     text-align: center;
     background-image: url("../img/the-rosa/the-rosa-hero.jpg");
@@ -187,27 +170,35 @@ nav::before {
 
 .headline {
     color: #fff;
-    font-size: 3.7rem;
+    font-size: min(12vw, 4.7rem);
     font-family: var(--main-font);
     text-transform: uppercase;
     font-weight: 900;
-    letter-spacing: 0.5rem;
+    letter-spacing: 0.3rem;
     margin-right: -0.5rem;
 }
 .sub-headline {
     color: var(--secondary-font-color);
-    font-size: 8.5rem;
+    font-size: min(30vw, 12.5rem);
     font-weight: 100;
     font-family: var(--secondary-font);
-    letter-spacing: 2px;
-    line-height: 0.4;
+    letter-spacing: 0.3rem;
+    line-height: 0.6;
 }
 .sub-headline::first-letter {
-    font-size: 10.3rem;
+    font-size: min(33vw, 14.3rem);
     text-transform: uppercase;
 }
 
-.headline-description {}
+.headline-description h5 {
+    margin: 1.2rem 0;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-right: -3px;
+}
 .separator {
     display: flex;
     align-items: center;
@@ -217,10 +208,76 @@ nav::before {
 .line {
     position: relative;
     width: 100%;
-    max-width: 8.4rem;
+    max-width: 11.4rem;
     height: 0.25rem;
     background-color: #fff;
 }
-.line-left {}
-.line-right {}
-.asterisk {}
+.line-right::before, 
+.line-left::before {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    content: "";
+    border: 0.6rem solid transparent;
+}
+.line-left::before {
+    left: 0;
+    border-left-color: #fff;
+}
+.line-right::before {
+    right: 0;
+    border-right-color: #fff;
+}
+
+.asterisk {
+    color: var(--secondary-font-color);
+    margin: 0 1.6rem;
+    font-size: 1.2rem;
+}
+
+.btn {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: -2px;
+}
+
+.cta-btn {
+    padding: 0.9rem 1.8rem;
+    font-size: 1.1rem;
+    color: var(--body-font-color);
+    background-color: #fff;
+    border-radius: 0.4rem;
+    transition: all 0.5s ease
+}
+.cta-btn:focus-visible, 
+.cta-btn:hover {
+    color: #fff;
+    background-color: var(--secondary-font-color);
+}
+
+@media screen and (max-width: 56rem) {
+    .nav-list {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 80%;
+        min-height: 100vh;
+        transform: translateX(-100%);
+        background-color: var(--main-font-color-dark);
+        flex-direction: column;
+    }
+    .nav-item {
+        border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    }
+    .nav-link.active {
+        border-bottom: none;
+    }
+    .logo {
+        flex: 1;
+    }
+    .menu-toggle {
+        display: inline-block;
+        align-self: center;
+    }
+}
