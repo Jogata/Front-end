@@ -36,141 +36,136 @@
             border-radius: 1em;
         }
     </style>
-    <style>
-        * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-*::before, *::after {
-    margin: 0;
-    padding: 0;
-}
-
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            background-color: #2f363e;
-        }
-
-        .time {
-            display: flex;
-            gap: 40px;
-            color: #fff;
-        }
-
-        .time .circle {
-            position: relative;
-            width: 150px;
-            height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .time .circle svg {
-            position: relative;
-            width: 150px;
-            height: 150px;
-            transform: rotate(270deg);
-        }
-        svg circle {
-            width: 100%;
-            height: 100%;
-            fill: transparent;
-            stroke: #191919;
-            stroke-width: 4px;
-            transform: translate(5px, 5px);
-        }
-
-        .time .circle svg circle:nth-child(2) {
-            stroke: var(--clr);
-            stroke-dasharray: 440;
-        }
-
-        .time div {
-            position: absolute;
-            text-align: center;
-            font-weight: 500;
-            font-size: 1.5rem;
-        }
-        .time div span {
-            display: block;
-            font-size: 2.5rem;
-            line-height: 1;
-        }
-
-        .time .ap {
-            position: relative;
-            font-size: 1rem;
-            transform: translateX(-20px);
-        }
-
-        .ampm {
-            text-transform: uppercase;
-        }
-    </style>
 </head>
 <body>
-    <div class="time">
-        <div class="circle" style="--clr: #ff2972">
-            <svg>
-                <circle cx="70" cy="70" r="70"></circle>
-                <circle cx="70" cy="70" r="70" id="hh"></circle>
-            </svg>
-            <div class="hours"><span>00</span>hours</div>
+    <section>
+        <div class="price-card">
+            <div class="header">
+                <div class="price">$10</div>
+                <div class="info">
+                    <h1>basic</h1>
+                    <p>Lorem ipsum dolor sit amet</p>
+                </div>
+            </div>
+            <div class="desc">
+                <li>
+                    <span class="icon check">
+                        <i class="fa fa-check"></i>
+                    </span>
+                    Lorem ipsum dolor sit amet.
+                </li>
+                <li>
+                    <span class="icon check">
+                        <i class="fa fa-check"></i>
+                    </span>
+                    Lorem ipsum dolor sit amet.
+                </li>
+                <li>
+                    <span class="icon check">
+                        <i class="fa fa-check"></i>
+                    </span>
+                    Lorem ipsum dolor sit amet.
+                </li>
+                <li>
+                    <span class="icon">
+                        <i class="fa fa-times"></i>
+                    </span>
+                    Lorem ipsum dolor sit amet.
+                </li>
+                <li>
+                    <span class="icon">
+                        <i class="fa fa-times"></i>
+                    </span>
+                    Lorem ipsum dolor sit amet.
+                </li>
+            </div>
+            <button>order now</button>
         </div>
-        <div class="circle" style="--clr: #fee800">
-            <svg>
-                <circle cx="70" cy="70" r="70"></circle>
-                <circle cx="70" cy="70" r="70" id="mm"></circle>
-            </svg>
-            <div class="minutes"><span>00</span>minutes</div>
+        <div class="price-card">
+            <div class="header">
+                <div class="price">$49</div>
+                <div class="info">
+                    <h1>standard</h1>
+                    <p>Lorem ipsum dolor sit amet</p>
+                </div>
+            </div>
+            <div class="desc">
+                <li>
+                    <span class="icon check">
+                        <i class="fa fa-check"></i>
+                    </span>
+                    Lorem ipsum dolor sit amet.
+                </li>
+                <li>
+                    <span class="icon check">
+                        <i class="fa fa-check"></i>
+                    </span>
+                    Lorem ipsum dolor sit amet.
+                </li>
+                <li>
+                    <span class="icon check">
+                        <i class="fa fa-check"></i>
+                    </span>
+                    Lorem ipsum dolor sit amet.
+                </li>
+                <li>
+                    <span class="icon check">
+                        <i class="fa fa-check"></i>
+                    </span>
+                    Lorem ipsum dolor sit amet.
+                </li>
+                <li>
+                    <span class="icon">
+                        <i class="fa fa-times"></i>
+                    </span>
+                    Lorem ipsum dolor sit amet.
+                </li>
+            </div>
+            <button>order now</button>
         </div>
-        <div class="circle" style="--clr: #04fc43">
-            <svg>
-                <circle cx="70" cy="70" r="70"></circle>
-                <circle cx="70" cy="70" r="70" id="ss"></circle>
-            </svg>
-            <div class="seconds"><span>00</span>seconds</div>
+        <div class="price-card">
+            <div class="header">
+                <div class="price">$99</div>
+                <div class="info">
+                    <h1>premium</h1>
+                    <p>Lorem ipsum dolor sit amet</p>
+                </div>
+            </div>
+            <div class="desc">
+                <li>
+                    <span class="icon check">
+                        <i class="fa fa-check"></i>
+                    </span>
+                    Lorem ipsum dolor sit amet.
+                </li>
+                <li>
+                    <span class="icon check">
+                        <i class="fa fa-check"></i>
+                    </span>
+                    Lorem ipsum dolor sit amet.
+                </li>
+                <li>
+                    <span class="icon check">
+                        <i class="fa fa-check"></i>
+                    </span>
+                    Lorem ipsum dolor sit amet.
+                </li>
+                <li>
+                    <span class="icon check">
+                        <i class="fa fa-check"></i>
+                    </span>
+                    Lorem ipsum dolor sit amet.
+                </li>
+                <li>
+                    <span class="icon check">
+                        <i class="fa fa-check"></i>
+                    </span>
+                    Lorem ipsum dolor sit amet.
+                </li>
+            </div>
+            <button>order now</button>
         </div>
-        <div class="ap">
-            <div class="ampm">am</div>
-        </div>
-
-        <script>
-            setInterval(() => {
-                let he = document.querySelector(".hours span");
-                let me = document.querySelector(".minutes span");
-                let se = document.querySelector(".seconds span");
-                let ampm = document.querySelector(".ampm");
-
-                let hh = document.querySelector("#hh");
-                let mm = document.querySelector("#mm");
-                let ss = document.querySelector("#ss");
-                
-                let h = new Date().getHours();
-                let m = new Date().getMinutes();
-                let s = new Date().getSeconds();
-                let am = h >= 12 ? "pm" : "am";
-                h = h % 12;
-                h = (h < 10) ? `0${h}` : h;
-                m = (m < 10) ? `0${m}` : m;
-                s = (s < 10) ? `0${s}` : s;
-                
-                he.textContent = h;
-                me.textContent = m;
-                se.textContent = s;
-                ampm.textContent = am;
-
-                hh.style.strokeDasharray = 440 - (440 * h) / 12;
-                mm.style.strokeDasharray = 440 - (440 * m) / 60;
-                ss.style.strokeDasharray = 440 - (440 * s) / 60;
-            }, 1000);
-        </script>
-    </div>
+    </section>
     <!-- factory pattern -->
     <script src="./js/script_travel_v2.js"></script>
 
