@@ -24,6 +24,10 @@ ul {
 a {
     display: inline-block;
     text-decoration: none;
+    transition: all 0.5s ease;
+}
+a:focus-visible {
+    outline: 1px solid var(--secondary-font-color);
 }
 
 img {
@@ -104,7 +108,10 @@ nav::before {
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 2px;
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid currentColor;
+}
+.logo:hover a {
+    color: var(--secondary-font-color);
 }
 
 .nav-list {
@@ -145,11 +152,10 @@ nav::before {
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-right: -2px;
-    transition: color 0.5s ease;
     border-bottom: 1px solid transparent;
 }
 .nav-link.active {
-    color: #c59d5f;
+    color: var(--secondary-font-color);
     border-bottom: 1px solid currentColor;
 }
 .nav-link:hover {
@@ -166,6 +172,7 @@ nav::before {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    overflow: hidden;
 }
 
 .headline {
@@ -176,6 +183,7 @@ nav::before {
     font-weight: 900;
     letter-spacing: 0.3rem;
     margin-right: -0.5rem;
+    animation: scale 1s ease backwards;
 }
 .sub-headline {
     color: var(--secondary-font-color);
@@ -184,12 +192,18 @@ nav::before {
     font-family: var(--secondary-font);
     letter-spacing: 0.3rem;
     line-height: 0.6;
+    animation: fadeup 1s ease backwards;
+    animation-delay: 1s;
 }
 .sub-headline::first-letter {
     font-size: min(33vw, 14.3rem);
     text-transform: uppercase;
 }
 
+.headline-description {
+    animation: fadedown 1s ease backwards;
+    animation-delay: 1.6s;
+}
 .headline-description h5 {
     margin: 1.2rem 0;
     color: #fff;
@@ -211,6 +225,8 @@ nav::before {
     max-width: 11.4rem;
     height: 0.25rem;
     background-color: #fff;
+    animation: grow 11s ease backwards;
+    animation-delay: 2s;
 }
 .line-right::before, 
 .line-left::before {
@@ -233,13 +249,14 @@ nav::before {
     color: var(--secondary-font-color);
     margin: 0 1.6rem;
     font-size: 1.2rem;
+    animation: spin 2s ease backwards;
+    animation-delay: 1.2s;
 }
 
 .btn {
     display: inline-block;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-right: -2px;
 }
 
 .cta-btn {
@@ -279,5 +296,58 @@ nav::before {
     .menu-toggle {
         display: inline-block;
         align-self: center;
+    }
+}
+
+/* ========= Animations ========= */
+@keyframes fadeup {
+    0% {
+        opacity: 0;
+        transform: translateY(4rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadedown {
+    0% {
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scale {
+    0% {
+        opacity: 0;
+        transform: scale(2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes grow {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
