@@ -8,159 +8,127 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./css/styles_webstore-v1.css">
   <style>
-    @font-face {
-      font-family: "against";
-      src:url("../../Full-Projects/Skyrim/assets/fonts/against-regular.ttf");
-    }
-    
-    h1 {
-      margin-top: 3rem;
-      font-size: 3rem;
-      font-family: "against";
-      text-align: center;
-      text-transform: uppercase;
+    body {
+      color: #fff;
+      background-color: #002339;
     }
 
-    .dice-container {
-      margin-block: 3rem;
+    .container {
+      width: 90%;
+      max-width: 700px;
+      margin: 12%;
+    }
+
+    .display {
+      width: 100%;
+      margin-top: 50px;
+      margin-bottom: 30px;
+      padding: 26px 20px;
       display: flex;
-      justify-content: center;
+      align-items: center;
+      justify-content: space-between;
+      color: #333;
+      background-color: #fff;
+      border-radius: 5px;
     }
-    
-    .dice {
-      width: 80px;
-      height: 80px;
-      position: relative;
-      margin: 5px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-    }
-    
-    .dice-dot {
-      --top: 20%;
-      --left: 80%;
-      
-      width: 15px;
-      height: 15px;
-      background-color: #000000;
-      border-radius: 50%;
 
-      /* Dot Positioning */
-      position: absolute;
-      top: var(--top);
-      left: var(--left);
-      /* transform: translateX(calc(var(--left) * -1)) translateY(calc(var(--top) * -1)); */
-      transform: translateX(-50%) translateY(-50%);
+    h1 {
+      font-size: 45px;
+      font-weight: 500;
     }
-    
-    .btn-roll-dice {
+
+    h1 span {
       display: block;
-      margin: auto;
-      padding: 0.4em 1em;
-      font-size: 1.4rem;
+      color: #019f55;
+      padding-bottom: 7px;
+      border-bottom: 4px solid #019f55;
+    }
+
+    input {
       font-family: initial;
-      border: 1px solid transparent;
-      border-radius: 1em;
-      background-color: transparent;
-      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6), 
-                -2px -2px 2px rgba(0, 0, 0, 0.1);
-      transition: all 0.4s ease;
+      font-size: 24px;
+      border: none;
+      outline: none;
     }
-    .btn-roll-dice:hover {
-      box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3), 
-                -2px -2px 2px rgba(0, 0, 0, 0.1);
+
+    i.fa {
+      color: #019f55;
+      font-size: 30px;
     }
-    .btn-roll-dice:active {
-      box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.4), 
-              inset -2px -2px 2px rgba(0, 0, 0, 0.1);
+
+    button {
+      font-family: initial;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 26px;
+      border-radius: 5px;
+      font-size: 22px;
+      font-weight: 300;
+      border: none;
+      outline: none;
+      color: #fff;
+      background-color: #019f55;
+      text-transform: capitalize;
     }
   </style>
 </head>
 <body>
-  <h1>dice roll game</h1>
-  <div class="dice-container"></div>
-	<button type="button" class="btn-roll-dice">Roll Dice</button>
-
-  <script>
-    function createDice(number) {
-      const dotPositionMatrix = {
-        1: [
-          [50, 50]
-        ],
-		    2: [
-          [20, 20],
-          [80, 80]
-        ],
-        3: [
-          [20, 20],
-          [50, 50],
-          [80, 80]
-        ],
-        4: [
-          [20, 20],
-          [20, 80],
-          [80, 20],
-          [80, 80]
-        ],
-        5: [
-          [20, 20],
-          [20, 80],
-          [50, 50],
-          [80, 20],
-          [80, 80]
-        ],
-        6: [
-          [20, 20],
-          [20, 80],
-          [50, 20],
-          [50, 80],
-          [80, 20],
-          [80, 80]
-        ]
-      };
-
-      const dice = document.createElement("div");
-      dice.classList.add("dice");
-      
-      for (const dotPosition of dotPositionMatrix[number]) {
-        const dot = document.createElement("div");
-        dot.classList.add("dice-dot");
-        dot.style.setProperty("--top", dotPosition[0] + "%");
-        dot.style.setProperty("--left", dotPosition[1] + "%");
-        dice.appendChild(dot);
-      }
-      
-      return dice;
-    }
-
-    function randomizeDice(diceContainer, numberOfDice) {
-	diceContainer.innerHTML = "";
-
-	for (let i = 0; i < numberOfDice; i++) {
-		const random = Math.floor((Math.random() * 6) + 1);
-		const dice = createDice(random);
-
-		diceContainer.appendChild(dice);
-	}
-}
-
-    const NUMBER_OF_DICE = 5;
-const diceContainer = document.querySelector(".dice-container");
-const btnRollDice = document.querySelector(".btn-roll-dice");
-
-randomizeDice(diceContainer, NUMBER_OF_DICE);
-
-btnRollDice.addEventListener("click", () => {
-	const interval = setInterval(() => {
-		randomizeDice(diceContainer, NUMBER_OF_DICE);
-	}, 50);
-
-	setTimeout(() => clearInterval(interval), 1000);
-});
-  </script>
   <!-- <h1 style="position: absolute; z-index: 1; left: 10%; bottom: 10%; font-size: 3rem;">Object.entries(person) - convert object to array</h1> -->
 
-  <!-- menu -->
+  <div class="container">
+    <h1>Generate a <span>Random Password</span></h1>
+    <div class="display">
+      <input type="text" name="" id="password" placeholder="Password">
+      <i class="fa fa-files-o"></i>
+    </div>
+    <button>Generate Password</button>
+  </div>
+
+  <script>
+    const passwordBox = document.getElementById("password");
+    const lenght = 12;
+
+    const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const lowerCase = "abcdefghijklmnopqrstuvwxyz";
+    const number = "0123456789";
+    const symbol = "#_";
+
+    function createPassword(lenght) {
+      let password = "";
+
+      // console.log("go");
+
+      function createFourSymbols() {
+        password += upperCase[Math.floor(Math.random() * upperCase.length)];
+        password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
+        password += number[Math.floor(Math.random() * number.length)];
+        password += symbol[Math.floor(Math.random() * symbol.length)];
+        // console.log(password);
+      }
+
+      while (lenght > password.length) {
+        createFourSymbols();
+      }
+
+      document.querySelector("input").value = password;
+    }
+
+    const btn = document.getElementsByTagName("button");
+
+    btn[0].addEventListener("click", () => {
+      createPassword(lenght);
+    });
+
+    function copy() {
+      passwordBox.select();
+      document.execCommand("copy");
+    }
+
+    const copyBtn = document.querySelector(".fa");
+
+    copyBtn.addEventListener("click", copy);
+  </script>
   <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M318h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
 </body>
 </html>
