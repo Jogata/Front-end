@@ -6,129 +6,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Webstore v.1</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="./css/styles_webstore-v1.css">
+  <!-- <link rel="stylesheet" href="./css/styles_webstore-v1.css"> -->
   <style>
-    body {
-      color: #fff;
-      background-color: #002339;
-    }
+    *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    .container {
-      width: 90%;
-      max-width: 700px;
-      margin: 12%;
-    }
-
-    .display {
-      width: 100%;
-      margin-top: 50px;
-      margin-bottom: 30px;
-      padding: 26px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: #333;
-      background-color: #fff;
-      border-radius: 5px;
-    }
-
+body {
+  background-color: #262626;
+}
     h1 {
-      font-size: 45px;
-      font-weight: 500;
-    }
-
-    h1 span {
-      display: block;
-      color: #019f55;
-      padding-bottom: 7px;
-      border-bottom: 4px solid #019f55;
-    }
-
-    input {
-      font-family: initial;
-      font-size: 24px;
-      border: none;
-      outline: none;
-    }
-
-    i.fa {
-      color: #019f55;
-      font-size: 30px;
-    }
-
-    button {
-      font-family: initial;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px 26px;
-      border-radius: 5px;
-      font-size: 22px;
-      font-weight: 300;
-      border: none;
-      outline: none;
+      margin: 2% 0 0;
       color: #fff;
-      background-color: #019f55;
+      font-family: Audiowide;
+      text-align: center;
       text-transform: capitalize;
+      text-shadow: 0px 2px 20px #fff;
+    }
+
+    .wrapper {
+      width: 80%;
+      max-width: 1170px;
+      display: flex;
+      /* align-items: center; */
+      /* justify-content: center; */
+      margin: 3% auto;
+    }
+    
+    .single-img {
+      flex: 1;
+      min-height: 100vh;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      box-shadow: inset 3px 0px 6px #000;
+      transition: all 0.4s ease-in-out;
+    }
+    .single-img:hover {
+      flex: 4;
+    }
+
+    .single-img:nth-child(1) {
+      background-image: url("../Parallax/img/parallaxIV/gallery/120372783_340812587254299_774244032306180550_n.jpg");
+    }
+    .single-img:nth-child(2) {
+      background-image: url("../Parallax/img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg");
+    }
+    .single-img:nth-child(3) {
+      background-image: url("../Parallax/img/parallaxIV/gallery/212573141_870101006920357_9185461114137501578_n.jpg");
+    }
+    .single-img:nth-child(4) {
+      background-image: url("../Parallax/img/parallaxIV/gallery/212696607_565196161514018_1044941815810703332_n.jpg");
+    }
+    .single-img:nth-child(5) {
+      background-image: url("../Parallax/img/parallaxIV/gallery/72614063_433236090677267_2807365040358828412_n.jpg");
+    }
+    .single-img:nth-child(6) {
+      background-image: url("../Parallax/img/parallaxIV/gallery/322318175_701328178064960_1602812384467330909_n.jpg");
+    }
+
+    @media screen and (max-width: 65rem) {
+      .wrapper {
+        flex-direction: column;
+      }
+      .single-img {
+        min-height: 10vh;
+      }
+      .single-img:hover {
+        min-height: 80vh;
+      }
     }
   </style>
 </head>
 <body>
+  <h1>our image gallery</h1>
+  <div class="wrapper">
+    <div class="single-img"></div>
+    <div class="single-img"></div>
+    <div class="single-img"></div>
+    <div class="single-img"></div>
+    <div class="single-img"></div>
+    <div class="single-img"></div>
+  </div>
   <!-- <h1 style="position: absolute; z-index: 1; left: 10%; bottom: 10%; font-size: 3rem;">Object.entries(person) - convert object to array</h1> -->
 
-  <div class="container">
-    <h1>Generate a <span>Random Password</span></h1>
-    <div class="display">
-      <input type="text" name="" id="password" placeholder="Password">
-      <i class="fa fa-files-o"></i>
-    </div>
-    <button>Generate Password</button>
-  </div>
-
   <script>
-    const passwordBox = document.getElementById("password");
-    const lenght = 12;
+    // 07. Food Delivery
 
-    const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const lowerCase = "abcdefghijklmnopqrstuvwxyz";
-    const number = "0123456789";
-    const symbol = "#_";
+    // ⦁	Пилешко меню –  10.35 лв. 
+    // ⦁	Меню с риба – 12.40 лв. 
+    // ⦁	Вегетарианско меню  – 8.15 лв. 
 
-    function createPassword(lenght) {
-      let password = "";
+    // ⦁	Брой пилешки менюта – цяло число в интервала [0 … 99]
+    // ⦁	Брой менюта с риба – цяло число в интервала [0 … 99]
+    // ⦁	Брой вегетариански менюта – цяло число в интервала [0 … 99]
 
-      // console.log("go");
+    function calcOrderPrice(input) {
+      const chickenOrders = Number(input[0]);
+      const fishOrders = Number(input[1]);
+      const vegetarianOrders = Number(input[2]);
+      const deliveryPrice = 2.5;
 
-      function createFourSymbols() {
-        password += upperCase[Math.floor(Math.random() * upperCase.length)];
-        password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
-        password += number[Math.floor(Math.random() * number.length)];
-        password += symbol[Math.floor(Math.random() * symbol.length)];
-        // console.log(password);
-      }
+      const totalChikenValue = chickenOrders * 10.35;
+      const totalFishValue = fishOrders * 12.4;
+      const totalVegetarianValue = vegetarianOrders * 8.15;
+      const totalFoodValue = totalChikenValue + totalFishValue + totalVegetarianValue;
+      const dessertValue = totalFoodValue * 0.2;
 
-      while (lenght > password.length) {
-        createFourSymbols();
-      }
+      const totalPrice = totalFoodValue + dessertValue + deliveryPrice;
 
-      document.querySelector("input").value = password;
+      console.log(totalPrice);
     }
 
-    const btn = document.getElementsByTagName("button");
-
-    btn[0].addEventListener("click", () => {
-      createPassword(lenght);
-    });
-
-    function copy() {
-      passwordBox.select();
-      document.execCommand("copy");
-    }
-
-    const copyBtn = document.querySelector(".fa");
-
-    copyBtn.addEventListener("click", copy);
+    calcOrderPrice(["2", "4", "3"]);
+    calcOrderPrice(["9", "2", "6"]);
   </script>
+
   <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M318h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
 </body>
 </html>
