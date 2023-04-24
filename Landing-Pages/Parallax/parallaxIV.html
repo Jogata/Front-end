@@ -65,6 +65,125 @@ font-family: 'Playfair Display', serif;     //400,700
     </style>
 </head>
 <body>
+    <script>
+        // 08. Basketball Equipment
+
+        // ⦁	Баскетболни кецове – цената им е 40% по-малка от таксата за една година
+        // ⦁	Баскетболен екип – цената му е 20% по-евтина от тази на кецовете
+        // ⦁	Баскетболна топка – цената ѝ е 1 / 4 от цената на баскетболния екип
+        // ⦁	Баскетболни аксесоари – цената им е 1 / 5 от цената на баскетболната топка
+
+        // ⦁	Годишната такса за тренировки по баскетбол – цяло число в интервала [0… 9999]
+
+        function  calcBasketballTrainingValue(input) {
+            const annualFee = Number(input[0]);
+
+            const sneakersPrice = annualFee * 0.6;
+            const equipmentPrice = sneakersPrice * 0.8;
+            const ballPrice = equipmentPrice * 0.25;
+            const acsessoriesPrice = ballPrice * 0.2;
+
+            const total = annualFee + sneakersPrice + equipmentPrice + ballPrice + acsessoriesPrice;
+
+            console.log(total);
+        }
+
+        calcBasketballTrainingValue(["365"]);
+        calcBasketballTrainingValue(["550"]);
+
+        // 09. Fish Tank
+
+        // ⦁	Дължина в см – цяло число в интервала [10 … 500]
+        // ⦁	Широчина в см – цяло число в интервала [10 … 300]
+        // ⦁	Височина в см – цяло число в интервала [10… 200]
+        // ⦁	Процент  – реално число в интервала [0.000 … 100.000]
+
+        function calcTankVolume(input) {
+            const l = Number(input[0]);
+            const w = Number(input[1]);
+            const h = Number(input[2]);
+            const p = Number(input[3]);
+
+            const vol = l * w * h;
+
+            const water = vol * (100 - p) * 0.01 / 1000;
+            console.log(water);
+        }
+
+        calcTankVolume(["85", "75", "47", "17"]);
+        calcTankVolume(["105", "77", "89", "18.5"]);
+
+        // 01. Hello SoftUni
+
+        function hello() {
+            console.log("Hello SoftUni");
+        }
+
+        hello();
+
+        // 02. Nums 1...10
+
+        function displayRangeOfNumbers() {
+            console.log(1);
+            console.log(2);
+            console.log(3);
+            console.log(4);
+            console.log(5);
+            console.log(6);
+            console.log(7);
+            console.log(8);
+            console.log(9);
+            console.log(10);
+        }
+
+        displayRangeOfNumbers();
+
+        // 03. Square Area
+
+        function calcSquareArea(input) {
+            const squareSide = Number(input[0]);
+            const area = squareSide * squareSide;
+
+            console.log(area);
+        }
+
+        calcSquareArea(["5"]);
+
+        // 04. Inches to Centimeters
+
+        function convertInchesToCentimeters(input) {
+            const inches = Number(input[0]);
+            const centimeters = inches * 2.54;
+
+            console.log(centimeters);
+        }
+
+        convertInchesToCentimeters(["5"]);
+        convertInchesToCentimeters(["7"]);
+
+        // 05. Greeting by Name
+
+        function greetings(input) {
+            const name = input[0];
+
+            console.log(`Hello, ${name}!`);
+        }
+
+        greetings(["Niki"]);
+
+        // 06. Concatenate Data
+
+        function displayInfo(input) {
+            const firstName = input[0];
+            const lastName = input[1];
+            const age = Number(input[2]);
+            const town = input[3];
+
+            console.log(`You are ${firstName} ${lastName}, a ${age}-years old person from ${town}.`);
+        }
+
+        displayInfo(["Maria", "Ivanova", 20, "Sofia"]);
+    </script>
     <header class="header">
         <div class="back-bird left">
             <img src="./img/parallaxIV/white-doves.png" alt="">
@@ -162,130 +281,5 @@ font-family: 'Playfair Display', serif;     //400,700
             </figure>
         </div>
     </div>
-
-    <script>
-        // 01. USD to BGN
-        // 1 USD = 1.79549 BGN
-
-        function convertUSDtoBGN(input) {
-            const USD = Number(input[0]);
-            const exchangeRate = 1.79549;
-            const BGN = USD * exchangeRate;
-
-            console.log(BGN);
-        }
-
-        convertUSDtoBGN(["22"]);
-        convertUSDtoBGN(["100"]);
-        convertUSDtoBGN(["12.5"]);
-
-        // 02. Radians to Degrees
-        // градус = радиан * 180 / π.
-
-        function convertDegreesToRad(input) {
-            const radians = Number(input[0]);
-            const degrees = radians * 180 / Math.PI;
-
-            console.log(degrees);
-        }
-
-        convertDegreesToRad(["3.1416"]);
-        convertDegreesToRad(["6.2832"]);
-
-        // 03. Deposit Calculator
-        // сума = депозирана сума  + срок на депозита * ((депозирана сума * годишен лихвен процент ) / 12)
-
-        function calculateInterest(input) {
-            const depositedAmount = Number(input[0]);
-            const depositTerm = Number(input[1]);
-            const annualInterestRate = Number(input[2]) / 100;
-            const months = 12;
-
-            const interest = depositedAmount + depositTerm * ((depositedAmount * annualInterestRate) / months);
-
-            console.log(interest);
-        }
-
-        calculateInterest(["200", "3", "5.7"]);
-        calculateInterest(["2350", "6", "7"]);
-
-        // 04. Vacation Books List
-        // ⦁	Брой страници в текущата книга – цяло число в интервала [1…1000]
-        // ⦁	Страници, които прочита за 1 час – цяло число в интервала [1…1000]
-        // ⦁	Броят на дните, за които трябва да прочете книгата – цяло число в интервала [1…1000]
-
-        function calcHoursPerDay(input) {
-            const pages = Number(input[0]);
-            const pagesPerHour = Number(input[1]);
-            const days = Number(input[2]);
-
-            const totalHours = pages / pagesPerHour;
-
-            const hoursPerDay = totalHours / days;
-
-            console.log(hoursPerDay);
-        }
-
-        calcHoursPerDay(["212", "20", "2"]);
-        calcHoursPerDay(["432", "15", "4"]);
-
-        // 05. Supplies for School
-
-            // ⦁	Пакет химикали - 5.80 лв. 
-            // ⦁	Пакет маркери - 7.20 лв. 
-            // ⦁	Препарат - 1.20 лв (за литър)
-
-            // ⦁   	Брой пакети химикали - цяло число в интервала [0...100]
-            // ⦁	Брой пакети маркери - цяло число в интервала [0...100]
-            // ⦁	Литри препарат за почистване на дъска - цяло число в интервала [0…50]
-            // ⦁	Процент намаление - цяло число в интервала [0...100]
-
-        function calcNeededMoney(input) {
-            const numberPens = Number([input[0]]);
-            const numberMarkers = Number([input[1]]);
-            const litersCleaningDetergent = Number([input[2]]);
-            const discountPercentage = Number([input[3]]);
-
-            const totalSum = numberPens * 5.8 + numberMarkers * 7.2 + litersCleaningDetergent * 1.2;
-            const discount = totalSum * (discountPercentage / 100);
-            const discountedSum = totalSum - discount;
-
-            console.log(discountedSum);
-        }
-
-        calcNeededMoney(["2", "3", "4", "25"]);
-        calcNeededMoney(["4", "2", "5", "13"]);
-
-        // 06. Repainting
-        // ⦁	Предпазен найлон - 1.50 лв. за кв. метър
-        // ⦁	Боя - 14.50 лв. за литър
-        // ⦁	Разредител за боя - 5.00 лв. за литър
-
-        // ⦁	Необходимо количество найлон (в кв.м.) - цяло число в интервала [1... 100]
-        // ⦁	Необходимо количество боя (в литри) - цяло число в интервала [1…100]
-        // ⦁	Количество разредител (в литри) - цяло число в интервала [1…30]
-        // ⦁	Часовете, за които майсторите ще свършат работата - цяло число в интервала [1…9]
-
-        function calculatePaintingCosts(input) {
-            const safetyNylon = Number(input[0]);
-            const paint= Number(input[1]);
-            const paintThinner = Number(input[2]);
-            const hoursofWork = Number(input[3]);
-
-            const sumForSafetyNylon = (safetyNylon + 2) * 1.5;
-            const sumForPaint = (paint + paint * 0.1) * 14.5;
-            const sumForPaintThinner = paintThinner * 5;
-            const sunForBags = 0.4;
-
-            const totalSumForMaterials = sumForSafetyNylon + sumForPaint + sumForPaintThinner + sunForBags;
-            const workersWages = totalSumForMaterials * 0.3 * hoursofWork;
-            const totalSumOfExpenses = totalSumForMaterials + workersWages;
-
-            console.log(totalSumOfExpenses);
-        }
-
-        calculatePaintingCosts(["10", "11", "4", "8"]);
-        calculatePaintingCosts(["5", "10", "10", "1"]);
-    </script>
 </body>
 </html>
