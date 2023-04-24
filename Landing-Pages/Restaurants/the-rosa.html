@@ -8,32 +8,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/style_the-rosa.css">
     <style>
-        .headline-dark {
+        /*  {
             color: var(--main-font-color-dark);
-        }
+        } */
 
-        .our-menu {
+        .dark-section {
             min-height: 100vh;
-            background-image: url("./img/the-rosa/test/tasteful-recipes.jpg");
+            padding: 5rem 0;
+            display: flex;
             background-attachment: fixed;
             background-position: center;
             background-size: cover;
         }
+        .recipes {
+            background-image: url("./img/the-rosa/test/tasteful-recipes.jpg");
+        }
+        .blend {
+            background-image: url("./img/the-rosa/test/perfect-blend.jpg");
+        }
 
-        .image-group {
+        /* .image-group {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
-        }
+        } */
 
+        .light-section {
+            background-color: #090a0c;
+            outline: 2px solid var(--secondary-font-color);
+            outline-offset: -1rem;
+        }
         .restaurant-description {
-            padding-top: 3rem;
-            margin-bottom: 3rem;
+            padding: 5rem 2rem;
+            text-align: center;
+            /* margin-bottom: 3rem; */
         }
 
-        .restaurant-info {
+        /* .restaurant-info {
             text-align: center;
-        }
+        } */
         .animate-left {}
         .animate-right {}
         .padding-right {}
@@ -133,29 +146,69 @@
         </div>
     </section>
 
-    <section class="our-menu">
-        <div class="container">
-            <div class="restaurant-info">
-                <!-- <div class="image-group animate-left padding-right"> -->
-                    <!-- <img src="./img/the-rosa/test/menu-group-1.jpg" alt=""> -->
-                    <!-- <img src="./img/the-rosa/test/menu-group-2.jpg" alt=""> -->
-                    <!-- <img src="./img/the-rosa/test/menu-group-3.jpg" alt=""> -->
-                    <!-- <img src="./img/the-rosa/test/menu-group-4.jpg" alt=""> -->
-                <!-- </div> -->
-                <div class="restaurant-description animate-right">
-                    <div class="global-headline">
-                        <h2 class="sub-headline">discover</h2>
-                        <h1 class="headline headline-dark">our menu</h1>
-                        <div class="asterisk">
-                            <i class="fa fa-empire"></i>
-                        </div>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas expedita illum, optio ab vel cum labore perspiciatis voluptate, fuga delectus atque minima. Voluptatibus exercitationem eveniet nobis provident, quibusdam pariatur unde.</p>
-                    <a href="#menu" class="btn body-btn">view the full menu</a>
+    <div class="light-section">
+       <div class="container restaurant-description animate-right">
+            <div class="global-headline">
+                <h2 class="sub-headline">discover</h2>
+                <h1 class="headline">our menu</h1>
+                <div class="asterisk">
+                    <i class="fa fa-empire"></i>
                 </div>
             </div>
-        </div>
-    </section>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas expedita illum, optio ab vel cum labore perspiciatis voluptate, fuga delectus atque minima. Voluptatibus exercitationem eveniet nobis provident, quibusdam pariatur unde.</p>
+            <a href="#menu" class="btn body-btn">view the full menu</a>
+        </div> 
+    </div>
+
+    <div class="recipes dark-section">
+        <div class="container">
+             <div class="global-headline">
+                 <h2 class="sub-headline">testful</h2>
+                 <h1 class="headline">recipes</h1>
+             </div>
+         </div> 
+     </div>
+
+     <div class="light-section">
+        <div class="container restaurant-description animate-right">
+             <div class="global-headline">
+                 <h2 class="sub-headline">culinary</h2>
+                 <h1 class="headline">delight</h1>
+                 <div class="asterisk">
+                     <i class="fa fa-empire"></i>
+                 </div>
+             </div>
+             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas expedita illum, optio ab vel cum labore perspiciatis voluptate, fuga delectus atque minima. Voluptatibus exercitationem eveniet nobis provident, quibusdam pariatur unde.</p>
+             <a href="#menu" class="btn body-btn">make a reservation</a>
+         </div> 
+     </div>
+
+    <div class="blend dark-section">
+        <div class="container">
+             <div class="global-headline">
+                 <h2 class="sub-headline">the perfect</h2>
+                 <h1 class="headline">blend</h1>
+             </div>
+         </div> 
+     </div>
+
+     <div class="light-section">
+        <div class="container restaurant-description animate-right">
+             <div class="global-headline">
+                 <h2 class="sub-headline">discover</h2>
+                 <h1 class="headline">our story</h1>
+                 <div class="asterisk">
+                     <i class="fa fa-empire"></i>
+                 </div>
+             </div>
+             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas expedita illum, optio ab vel cum labore perspiciatis voluptate, fuga delectus atque minima. Voluptatibus exercitationem eveniet nobis provident, quibusdam pariatur unde.</p>
+             <a href="#menu" class="btn body-btn">about us</a>
+         </div> 
+     </div>
+
+    <!-- <section class="our-menu-2">
+        <div class="container"></div>
+    </section> -->
 
     <script>
         const selectElement = function (element) {
