@@ -65,125 +65,6 @@ font-family: 'Playfair Display', serif;     //400,700
     </style>
 </head>
 <body>
-    <script>
-        // 08. Basketball Equipment
-
-        // ⦁	Баскетболни кецове – цената им е 40% по-малка от таксата за една година
-        // ⦁	Баскетболен екип – цената му е 20% по-евтина от тази на кецовете
-        // ⦁	Баскетболна топка – цената ѝ е 1 / 4 от цената на баскетболния екип
-        // ⦁	Баскетболни аксесоари – цената им е 1 / 5 от цената на баскетболната топка
-
-        // ⦁	Годишната такса за тренировки по баскетбол – цяло число в интервала [0… 9999]
-
-        function  calcBasketballTrainingValue(input) {
-            const annualFee = Number(input[0]);
-
-            const sneakersPrice = annualFee * 0.6;
-            const equipmentPrice = sneakersPrice * 0.8;
-            const ballPrice = equipmentPrice * 0.25;
-            const acsessoriesPrice = ballPrice * 0.2;
-
-            const total = annualFee + sneakersPrice + equipmentPrice + ballPrice + acsessoriesPrice;
-
-            console.log(total);
-        }
-
-        calcBasketballTrainingValue(["365"]);
-        calcBasketballTrainingValue(["550"]);
-
-        // 09. Fish Tank
-
-        // ⦁	Дължина в см – цяло число в интервала [10 … 500]
-        // ⦁	Широчина в см – цяло число в интервала [10 … 300]
-        // ⦁	Височина в см – цяло число в интервала [10… 200]
-        // ⦁	Процент  – реално число в интервала [0.000 … 100.000]
-
-        function calcTankVolume(input) {
-            const l = Number(input[0]);
-            const w = Number(input[1]);
-            const h = Number(input[2]);
-            const p = Number(input[3]);
-
-            const vol = l * w * h;
-
-            const water = vol * (100 - p) * 0.01 / 1000;
-            console.log(water);
-        }
-
-        calcTankVolume(["85", "75", "47", "17"]);
-        calcTankVolume(["105", "77", "89", "18.5"]);
-
-        // 01. Hello SoftUni
-
-        function hello() {
-            console.log("Hello SoftUni");
-        }
-
-        hello();
-
-        // 02. Nums 1...10
-
-        function displayRangeOfNumbers() {
-            console.log(1);
-            console.log(2);
-            console.log(3);
-            console.log(4);
-            console.log(5);
-            console.log(6);
-            console.log(7);
-            console.log(8);
-            console.log(9);
-            console.log(10);
-        }
-
-        displayRangeOfNumbers();
-
-        // 03. Square Area
-
-        function calcSquareArea(input) {
-            const squareSide = Number(input[0]);
-            const area = squareSide * squareSide;
-
-            console.log(area);
-        }
-
-        calcSquareArea(["5"]);
-
-        // 04. Inches to Centimeters
-
-        function convertInchesToCentimeters(input) {
-            const inches = Number(input[0]);
-            const centimeters = inches * 2.54;
-
-            console.log(centimeters);
-        }
-
-        convertInchesToCentimeters(["5"]);
-        convertInchesToCentimeters(["7"]);
-
-        // 05. Greeting by Name
-
-        function greetings(input) {
-            const name = input[0];
-
-            console.log(`Hello, ${name}!`);
-        }
-
-        greetings(["Niki"]);
-
-        // 06. Concatenate Data
-
-        function displayInfo(input) {
-            const firstName = input[0];
-            const lastName = input[1];
-            const age = Number(input[2]);
-            const town = input[3];
-
-            console.log(`You are ${firstName} ${lastName}, a ${age}-years old person from ${town}.`);
-        }
-
-        displayInfo(["Maria", "Ivanova", 20, "Sofia"]);
-    </script>
     <header class="header">
         <div class="back-bird left">
             <img src="./img/parallaxIV/white-doves.png" alt="">
@@ -281,5 +162,125 @@ font-family: 'Playfair Display', serif;     //400,700
             </figure>
         </div>
     </div>
+
+    <div class="titles">
+        <h1>title 1</h1>
+        <h1>title 2</h1>
+    </div>
+
+    <script>
+        const parent = document.querySelector(".titles");
+        const titles = document.getElementsByTagName("h1");
+        const titlesQ = document.querySelectorAll("h1");
+
+        console.log(titles);
+        console.log(titlesQ);
+
+        const h1 = document.createElement("h1");
+        h1.innerText = "title 3";
+
+        parent.appendChild(h1);
+
+        console.log(titles);
+        console.log(titlesQ);
+    </script>
+
+    <script>
+        // 01. Trapeziod Area
+
+        function calcTrapeziodArea(input) {
+            const a = Number(input[0]);
+            const b = Number(input[1]);
+            const h = Number(input[2]);
+
+            const area = (a + b) * h / 2;
+
+            console.log(area.toFixed(2));
+        }
+
+        calcTrapeziodArea(["8", "13", "7"]);
+
+        // 02. Triangle Area
+
+        function calcTriangleArea(input) {
+            const a = Number(input[0]);
+            const h = Number(input[1]);
+
+            const area = a * h / 2;
+
+            console.log(area.toFixed(2));
+        }
+
+        calcTriangleArea(["20", "30"]);
+        calcTriangleArea(["15", "35"]);
+        calcTriangleArea(["7.75", "8.45"]);
+        calcTriangleArea(["1.23456", "4.56789"]);
+
+        // 03. Celsius to Fahrenheit
+
+        function convertCelsiusToFahrenheit(input) {
+            const celsius = Number(input[0]);
+
+            const fahrenheit = (celsius * 1.8) + 32;
+
+            console.log(fahrenheit.toFixed(2));
+        }
+
+        convertCelsiusToFahrenheit(["25"]);
+        convertCelsiusToFahrenheit(["0"]);
+        convertCelsiusToFahrenheit(["-5.5"]);
+        convertCelsiusToFahrenheit(["32.3"]);
+
+        // 04. Vegetable Market
+
+        // ⦁	Първи ред – Цена за килограм зеленчуци – реално число[0.00… 1000.00]
+        // ⦁	Втори ред – Цена за килограм плодове – реално число[0.00… 1000.00]
+        // ⦁	Трети ред – Общо килограми на зеленчуците – цяло число[0… 1000]
+        // ⦁	Четвърти ред – Общо килограми на плодовете – цяло число[0… 1000]
+        
+        function calcIncome(input) {
+            const priceKiloVegs = Number(input[0]);
+            const priceKiloFruits = Number(input[1]);
+            const qVegs = Number(input[2]);
+            const qFruits = Number(input[3]);
+            const euro = 1.94;
+
+            const totalFr = (priceKiloFruits * qFruits);
+            const totalVeg = (qVegs * priceKiloVegs);
+
+            // console.log(totalFr);
+            // console.log(totalVeg);
+
+            const total = (Number(totalFr) + Number(totalVeg)) / euro;
+            // console.log(total);
+
+            console.log(total.toFixed(2));
+        }
+
+        calcIncome(["0.194", "19.4", "10", "10"]);
+        calcIncome(["1.5", "2.5", "10", "10"]);
+        calcIncome(["0", "2.5", "10", "10"]);
+
+        // 05. Training Lab
+
+        function calcTrainingLab(input) {
+            const h = Number(input[0]) * 100;
+            const wi = Number(input[1]) * 100;
+            const koridor = 100;
+            const mesta = 3;
+
+            const w = wi - koridor;
+
+            const mestaW = Math.floor(w / 70);
+            const mestaH = Math.floor(h / 120);
+            // console.log(mestaW, mestaH);
+            const mestaTotal = mestaH * mestaW - 3;
+
+            console.log(mestaTotal);
+        }
+
+        calcTrainingLab(["15", "8.9"]);
+        calcTrainingLab(["8.4", "5.2"]);
+    </script>
 </body>
 </html>
