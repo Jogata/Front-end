@@ -35,137 +35,82 @@
             border: 1px solid;
             border-radius: 1em;
         }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #222;
+        }
+
+        .container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .progress {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            color: #fff;
+            border-radius: 50%;
+            background: #444 linear-gradient(to right, transparent 50%, var(--clr) 0);
+        }
+
+        h3 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            font-size: 2.5rem;
+            z-index: 1;
+            font-weight: 500;
+        }
+        h3 span {
+            font-size: 0.65em;
+            font-weight: 400;
+        }
+        
+        h4 {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-transform: uppercase;
+            color: var(--clr);
+        }
+
+        .progress::before {
+            position: absolute;
+            display: block;
+            content: "";
+            width: 50%;
+            height: 100%;
+            margin-left: 50%;
+            transform-origin: left;
+            border-radius: 0 100% 100% 0/50%;
+            background: var(--clr);
+            transform: rotate(calc(((var(--i) - 50) * 0.01turn)));
+        }
+        .progress.less::before {
+            background: #444;
+            transform: rotate(calc(((var(--i) - 0) * 0.01turn)));
+        }
+        .progress::after {
+            position: absolute;
+            inset: 10px;
+            content: "";
+            border-radius: 50%;
+            background: #222;
+        }
     </style>
 </head>
 <body>
-    <section>
-        <div class="price-card">
-            <div class="header">
-                <div class="price">$10</div>
-                <div class="info">
-                    <h1>basic</h1>
-                    <p>Lorem ipsum dolor sit amet</p>
-                </div>
-            </div>
-            <div class="desc">
-                <li>
-                    <span class="icon check">
-                        <i class="fa fa-check"></i>
-                    </span>
-                    Lorem ipsum dolor sit amet.
-                </li>
-                <li>
-                    <span class="icon check">
-                        <i class="fa fa-check"></i>
-                    </span>
-                    Lorem ipsum dolor sit amet.
-                </li>
-                <li>
-                    <span class="icon check">
-                        <i class="fa fa-check"></i>
-                    </span>
-                    Lorem ipsum dolor sit amet.
-                </li>
-                <li>
-                    <span class="icon">
-                        <i class="fa fa-times"></i>
-                    </span>
-                    Lorem ipsum dolor sit amet.
-                </li>
-                <li>
-                    <span class="icon">
-                        <i class="fa fa-times"></i>
-                    </span>
-                    Lorem ipsum dolor sit amet.
-                </li>
-            </div>
-            <button>order now</button>
-        </div>
-        <div class="price-card">
-            <div class="header">
-                <div class="price">$49</div>
-                <div class="info">
-                    <h1>standard</h1>
-                    <p>Lorem ipsum dolor sit amet</p>
-                </div>
-            </div>
-            <div class="desc">
-                <li>
-                    <span class="icon check">
-                        <i class="fa fa-check"></i>
-                    </span>
-                    Lorem ipsum dolor sit amet.
-                </li>
-                <li>
-                    <span class="icon check">
-                        <i class="fa fa-check"></i>
-                    </span>
-                    Lorem ipsum dolor sit amet.
-                </li>
-                <li>
-                    <span class="icon check">
-                        <i class="fa fa-check"></i>
-                    </span>
-                    Lorem ipsum dolor sit amet.
-                </li>
-                <li>
-                    <span class="icon check">
-                        <i class="fa fa-check"></i>
-                    </span>
-                    Lorem ipsum dolor sit amet.
-                </li>
-                <li>
-                    <span class="icon">
-                        <i class="fa fa-times"></i>
-                    </span>
-                    Lorem ipsum dolor sit amet.
-                </li>
-            </div>
-            <button>order now</button>
-        </div>
-        <div class="price-card">
-            <div class="header">
-                <div class="price">$99</div>
-                <div class="info">
-                    <h1>premium</h1>
-                    <p>Lorem ipsum dolor sit amet</p>
-                </div>
-            </div>
-            <div class="desc">
-                <li>
-                    <span class="icon check">
-                        <i class="fa fa-check"></i>
-                    </span>
-                    Lorem ipsum dolor sit amet.
-                </li>
-                <li>
-                    <span class="icon check">
-                        <i class="fa fa-check"></i>
-                    </span>
-                    Lorem ipsum dolor sit amet.
-                </li>
-                <li>
-                    <span class="icon check">
-                        <i class="fa fa-check"></i>
-                    </span>
-                    Lorem ipsum dolor sit amet.
-                </li>
-                <li>
-                    <span class="icon check">
-                        <i class="fa fa-check"></i>
-                    </span>
-                    Lorem ipsum dolor sit amet.
-                </li>
-                <li>
-                    <span class="icon check">
-                        <i class="fa fa-check"></i>
-                    </span>
-                    Lorem ipsum dolor sit amet.
-                </li>
-            </div>
-            <button>order now</button>
-        </div>
-    </section>
     <!-- factory pattern -->
     <script src="./js/script_travel_v2.js"></script>
 
@@ -370,11 +315,28 @@
         </script>
     </section>
 
-    <section id="delete3"></section>
+    <section id="delete3" class="container">
+        <div class="progress" style="--i: 85; --clr: #43f94a;">
+            <h3>85<span>%</span></h3>
+            <h4>html</h4>
+        </div>
+        <div class="progress" style="--i: 62; --clr: #2ccde9;">
+            <h3>62<span>%</span></h3>
+            <h4>css</h4>
+        </div>
+        <div class="progress less" style="--i: 35; --clr: #fb297b;">
+            <h3>35<span>%</span></h3>
+            <h4>javascript</h4>
+        </div>
+        <div class="progress" style="--i: 78; --clr: #ffe047;">
+            <h3>78<span>%</span></h3>
+            <h4>photoshop</h4>
+        </div>
+    </section>
     <section id="delete4"></section>
 
     <script src="./js/script_travel_v2.js">
-        console.log("421>252");
+        console.log("380>252");
     </script>
 </body>
 </html>
