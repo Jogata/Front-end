@@ -8,116 +8,163 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./css/styles_webstore-v1.css">
   <style>
-    .container {
-      min-height: 100vh;
-      background-color: #333;
-    }
-
-    h1 {
-      margin-bottom: max(10vh, 5rem);
-      color: #fff;
-      font-size: 4rem;
-      text-align: center;
-      text-transform: uppercase;
-    }
-
-    .img-area {
+    body {
       display: flex;
       align-items: center;
-      justify-content: flex-start;
-      /* flex-direction: row; */
-      flex-wrap: wrap;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #0e1538;
     }
 
-    .image {
-      /* width: 100%; */
-      flex: 0 1 40rem;
-      padding: 0px 20px 20px;
-      transition: all 0.5s ease;
+    .container {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 50px;
     }
-    .image:hover {
-      opacity: 0.5;
-      transform: scale(1.05);
+
+    .box {
+      position: relative;
+      width: 400px;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+    }
+    .box::before, 
+    .box::after {
+      position: absolute;
+      inset: -80px 100px;
+      content: "";
+      background: linear-gradient(315deg, #00ccff, #d400d4);
+      filter: hue-rotate(calc(var(--i) * 120deg));
+      animation: rotate 8s linear infinite;
+      transition: all 0.5s;
+    }
+    .box::after {
+      background: linear-gradient((315deg, #ffeb3b, #e91e63));
+      filter: hue-rotate(calc(var(--i) * 120deg));
+      animation-delay: 2s;
+    }
+    .box:hover::before, 
+    .box:hover::after {
+      inset: -80px 80px;
+      animation-play-state: paused;
+    }
+
+    .box i {
+      position: absolute;
+      inset: 3px;
+      background: #0e1538;
+      z-index: 1;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .content {
+      position: absolute;
+      inset: 20px;
+      border: 3px solid #070c23;
+      background-color: #0d122c;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 3;
+    }
+
+    .content img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.5s;
+      pointer-events: none;
+      z-index: 3;
+    }
+    .box:hover .content img {
+      opacity: 0;
+    }
+
+    h2 {
+      position: relative;
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 600;
+      text-align: center;
+      text-transform: capitalize;
+      letter-spacing: 0.05em;
+      line-height: 1.25em;
+      z-index: 2;
+    }
+
+    h2 span {
+      display: block;
+      font-size: 0.75em;
+      font-weight: 300;
+    }
+
+    .content a {
+      position: relative;
+      margin-top: 10px;
+      padding: 10px 20px;
+      color: #070a1c;
+      font-weight: 500;
+      text-transform: capitalize;
+      letter-spacing: 0.05em;
+      border-radius: 25px;
+      background-color: #fff;
+      transition: all 0.5s;
+    }
+    .content a:hover {
+      color: #fff;
+      background-color: #070a1c;
+      letter-spacing: 0.1em;
     }
   </style>
 </head>
 <body>
+  <!-- <h1 style="position: absolute; z-index: 1; left: 10%; bottom: 10%; font-size: 3rem;">Object.entries(person) - convert object to array</h1> -->
+
   <div class="container">
-    <h1>flexbox image gallery</h1>
-    <div class="img-area">
-      <div class="image">
-        <img src="../../assets/img/headphones/324064873_1192683554696328_4848221003213450933_n-copy.jpg" alt="">
+    <div class="box" style="--i: 1">
+      <i></i>
+      <div class="content">
+        <img src="../Parallax/img/parallaxIV/gallery/120372783_340812587254299_774244032306180550_n.jpg" alt="">
+        <h2>some name<span>some profession</span></h2>
+        <a href="#">hire me</a>
       </div>
-      <div class="image">
-        <img src="../../assets/img/headphones/324164179_827407771655703_9026419471420137624_n-copy.jpg" alt="">
+    </div>
+    <div class="box" style="--i: 2">
+      <i></i>
+      <div class="content">
+        <img src="../Parallax/img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg" alt="">
+        <h2>some name<span>some profession</span></h2>
+        <a href="#">hire me</a>
       </div>
-      <div class="image">
-        <img src="../../assets/img/headphones/324217899_201872359040954_8690786021021935279_n-copy.jpg" alt="">
-      </div>
-      <div class="image">
-        <img src="../../assets/img/headphones/324556480_699225431719202_1342017043134176827_n-copy.jpg" alt="">
+    </div>
+    <div class="box" style="--i: 3">
+      <i></i>
+      <div class="content">
+        <img src="../Parallax/img/parallaxIV/gallery/72614063_433236090677267_2807365040358828412_n.jpg" alt="">
+        <h2>some name<span>some profession</span></h2>
+        <a href="#">hire me</a>
       </div>
     </div>
   </div>
-
-  <script>
-        // 07. Projects Creation
-
-        // ⦁	Името на архитекта - текст
-        // ⦁	Брой на проектите, които трябва да изготви - цяло число в интервала [0 … 100]
-        
-        function calcHours(input) {
-            const name = input[0];
-            const projects = Number(input[1]);
-            const hoursPerProject = 3;
-            const totalHours = projects * hoursPerProject;
-
-            console.log(`The architect ${name} will need ${totalHours} hours to complete ${projects} project/s.`);
-        }
-
-        calcHours(["George", "4"]);
-        calcHours(["Sanya", "9"]);
-
-        // 08. Pet Shop
-
-        // ⦁	Броят на опаковките храна за кучета – цяло число в интервала [0… 100]
-        // ⦁	Броят на опаковките храна за котки –  цяло число в интервала [0… 100]
-
-        function calcFoodExpenses(input) {
-            const dogFood = Number(input[0]);
-            const catFood = Number(input[1]);
-            const dogFoodPrice = 2.5;
-            const catFoodPrice = 4;
-
-            const totalSum = dogFood * dogFoodPrice + catFood * catFoodPrice;
-
-            console.log(`${totalSum} lv.`);
-        }
-
-        calcFoodExpenses(["5", "4"]);
-        calcFoodExpenses(["13", "9"]);
-
-        // 09. Yard Greening
-
-        // ⦁	Кв. метри, които ще бъдат озеленени – реално число в интервала [0.00 … 10000.00]
-
-        function calcLandscapingExpenses(input) {
-            const squareMeters = Number(input[0]);
-            const pricePerSquareMeter = 7.61;
-            const discount = 18 / 100;
-
-            const totalSum = (squareMeters * pricePerSquareMeter);
-            const discountSum = totalSum * discount;
-            const finalSum = totalSum - discountSum;
-
-            console.log(`The final price is: ${finalSum} lv.`);
-            console.log(`The discount is: ${discountSum} lv.`);
-        }
-
-        calcLandscapingExpenses(["550"]);
-        calcLandscapingExpenses(["150"]);
-  </script>
-  <!-- <h1 style="position: absolute; z-index: 1; left: 10%; bottom: 10%; font-size: 3rem;">Object.entries(person) - convert object to array</h1> -->
 
   <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M318h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
 </body>
