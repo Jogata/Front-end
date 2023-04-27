@@ -8,125 +8,123 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/style_restaurant-v1.css">
     <style>
-        section {
+        body {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-transform: uppercase;
-            overflow: hidden;
-        }
-
-        nav {
-            position: relative;
-            width: 360px;
-            height: 80px;
-            margin: 99px auto;
-            padding: 0px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50px;
-            background-color: #fff;
-            box-shadow: 0px 60px 40px -7px rgba(0, 0, 0, 0.2);
+            background-image: linear-gradient(45deg, #03a9f4, #ff53a0);
         }
 
         ul {
-            list-style: none;
-            width: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 500px;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            gap: 0;
+            transition: all 0.5s ease;
         }
 
-        .nav-link {
+        li {
             position: relative;
-            width: 70px;
-            height: 70px;
-            text-align: center;
-            z-index: 1;
-        }
-
-        .nav-link a {
-            position: relative;
-            width: 100%;
-            /* display: flex; */
-            /* align-items: center; */
-            /* justify-content: center; */
-            /* flex-direction: column; */
-            font-size: 0px;
-            text-align: center;
-            text-decoration: none;
-        }
-        .nav-link a i {
-            position: relative;
-            display: block;
-            color: #000;
-            font-size: 40px;
-            line-height: 65px;
+            width: 450px;
+            height: 100px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 20px;
+            border-radius: 6px;
+            background-color: #dbdbdb;
+            box-shadow: 0px -15px 25px rgba(0, 0, 0, 0.25);
             transition: all 0.5s;
+            transition-delay: calc(var(--i) * 0.05s);
         }
-        .nav-link a:hover {
-            text-decoration: none;
+        li:nth-child(1) {
+            transform: translateZ(-75px) translateY(20px);
+            opacity: 0.3;
         }
-
-        .nav-link span {
-            /* display: none; */
-            position: absolute;
-            top: 19px;
-            left: 0;
-            width: 100%;
-            font-size: 13px;
-            transform: translateY(20px);
-            transition: all 0.5s;
-            opacity: 0;
-            z-index: 1;
+        li:nth-child(3) {
+            transform: translateZ(75px) translateY(-30px);
+            background-color: #eee;
+        }
+        li:nth-child(4) {
+            transform: translateZ(150px) translateY(-75px);
+            background-color: #fff;
         }
 
-        .nav-link.active i {
-            top: -10px;
-            transform: rotate(45deg);
-            opacity: 0;
+        ul:hover {
+            gap: 30px;
         }
-        .nav-link.active span {
-            top: 9px;
+        ul:hover li {
+            background-color: #fff;
+            transform: translateZ(0px) translateY(0px);
             opacity: 1;
+        }
+
+        li img {
+            max-width: 70px;
+            border-radius: 4px;
+        }
+
+        .content {
+            width: 100%;
+            cursor: pointer;
+        }
+
+        h4 {
+            color: #333;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+
+        p {
+            position: relative;
+            width: 100%;
+            color: #333;
+            line-height: 1em;
+        }
+        p span {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: block;
+            color: #888;
+            font-size: 0.75em;
         }
     </style>
 </head>
 <body>
-    <section>
-        <nav>
-            <ul>
-                <li class="nav-link active">
-                    <a href="#"><i class="fa fa-home"></i>home</a>
-                    <span>home</span>
-                </li>
-                <li class="nav-link">
-                    <a href="#"><i class="fa fa-file-text-o"></i>about</a>
-                    <span>about</span>
-                </li>
-                <li class="nav-link">
-                    <a href="#"><i class="fa fa-gear"></i>settings</a>
-                    <span>settings</span>
-                </li>
-                <li class="nav-link">
-                    <a href="#"><i class="fa fa-bell-o"></i>profile</a>
-                    <span>profile</span>
-                </li>
-            </ul>
-        </nav>
-    </section>
-
-    <script>
-        const links = document.querySelectorAll(".nav-link");
-
-        links.forEach(link => {
-            link.addEventListener("click", () => {
-                const activeLink = document.querySelector(".nav-link.active");
-                activeLink.classList.remove("active");
-                link.classList.add("active");
-            })
-        })
-    </script>
+    <ul>
+        <li style="--i: 1">
+            <img src="../../Full-Projects/Travel/travel-v1/img/testimonial/pic-1.png" alt="">
+            <div class="content">
+                <h4>alina smith</h4>
+                <p>liked your photo <span>20 Apr at 05:04</span></p>
+            </div>
+        </li>
+        <li style="--i: 2">
+            <img src="../../Full-Projects/Travel/travel-v1/img/testimonial/pic-2.png" alt="">
+            <div class="content">
+                <h4>hamidah</h4>
+                <p>reacted to your photo <span>2 days ago</span></p>
+            </div>
+        </li>
+        <li style="--i: 3">
+            <img src="../../Full-Projects/Travel/travel-v1/img/testimonial/pic-3.png" alt="">
+            <div class="content">
+                <h4>jaun paul</h4>
+                <p>commented your photo <span>6 mins ago</span></p>
+            </div>
+        </li>
+        <li style="--i: 4">
+            <img src="../../Full-Projects/Travel/travel-v1/img/testimonial/pic-4.png" alt="">
+            <div class="content">
+                <h4>lucia sultan</h4>
+                <p>shared your post <span>32 seconds ago</span></p>
+            </div>
+        </li>
+    </ul>
 </body>
 </html>
