@@ -35,79 +35,6 @@
             border: 1px solid;
             border-radius: 1em;
         }
-
-        body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            background-color: #222;
-        }
-
-        .container {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 40px;
-        }
-
-        .progress {
-            position: relative;
-            width: 150px;
-            height: 150px;
-            color: #fff;
-            border-radius: 50%;
-            background: #444 linear-gradient(to right, transparent 50%, var(--clr) 0);
-        }
-
-        h3 {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -60%);
-            font-size: 2.5rem;
-            z-index: 1;
-            font-weight: 500;
-        }
-        h3 span {
-            font-size: 0.65em;
-            font-weight: 400;
-        }
-        
-        h4 {
-            position: absolute;
-            top: 60%;
-            left: 50%;
-            transform: translateX(-50%);
-            text-transform: uppercase;
-            color: var(--clr);
-        }
-
-        .progress::before {
-            position: absolute;
-            display: block;
-            content: "";
-            width: 50%;
-            height: 100%;
-            margin-left: 50%;
-            transform-origin: left;
-            border-radius: 0 100% 100% 0/50%;
-            background: var(--clr);
-            transform: rotate(calc(((var(--i) - 50) * 0.01turn)));
-        }
-        .progress.less::before {
-            background: #444;
-            transform: rotate(calc(((var(--i) - 0) * 0.01turn)));
-        }
-        .progress::after {
-            position: absolute;
-            inset: 10px;
-            content: "";
-            border-radius: 50%;
-            background: #222;
-        }
     </style>
 </head>
 <body>
@@ -315,28 +242,85 @@
         </script>
     </section>
 
-    <section id="delete3" class="container">
-        <div class="progress" style="--i: 85; --clr: #43f94a;">
-            <h3>85<span>%</span></h3>
-            <h4>html</h4>
-        </div>
-        <div class="progress" style="--i: 62; --clr: #2ccde9;">
-            <h3>62<span>%</span></h3>
-            <h4>css</h4>
-        </div>
-        <div class="progress less" style="--i: 35; --clr: #fb297b;">
-            <h3>35<span>%</span></h3>
-            <h4>javascript</h4>
-        </div>
-        <div class="progress" style="--i: 78; --clr: #ffe047;">
-            <h3>78<span>%</span></h3>
-            <h4>photoshop</h4>
-        </div>
+    <section id="delete3"></section>
+    <section id="delete4">
+        <nav class="navbar">
+            <div class="container">
+                <a href="./travel-v2.html" class="brand">SkillUp</a>
+                <div class="menu">
+                    <a href="./travel-v2.html" class="brand">SkillUp</a>
+                    <div>
+                        <a href="#">home</a>
+                        <a href="#">about</a>
+                        <a href="#">projects</a>
+                        <a href="#">blog</a>
+                    </div>
+                    <a href="#" class="btn">sign up</a>
+                </div>
+                <button class="menu-btn">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+        <main>
+            <header>
+                <img src="../../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg" alt="">
+                <div class="text">
+                    <h1>SkillUp: Learn the Skills You Need to Succeed</h1>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis dolorum quis, sint delectus eveniet et repellendus, expedita, aliquam itaque eos facilis doloribus minus sapiente error! Sint quasi ea quam ratione!</p>
+                    <a href="#" class="btn">start free trial</a>
+                </div>
+            </header>
+            <div class="card">
+                <img src="../../../Sliders/img/Edinburgh.jpg" alt="">
+                <div class="text">
+                    <h1>SkillShare: Learn from the Best in the Business</h1>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium, ab suscipit! Dolor, porro quas recusandae, tempore earum laboriosam ipsa nobis error, quisquam quae neque quaerat! Officiis eum maiores vel sed.</p>
+                    <a href="#" class="btn btn-secondary">Try it for free</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../../../Sliders/img/mountain-in-meteora-greece_1920x1080.jpg" alt="">
+                <div class="text">
+                    <h1>Master Your Craft: Become an Expert in Your Field</h1>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste, eveniet suscipit, voluptates provident nemo incidunt quae culpa repellendus similique quidem omnis enim, a sequi corporis quis quasi ratione perferendis tempora.</p>
+                    <a href="#" class="btn">Join the community</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../../../Sliders/img/neuschwanstein-castle-hd_2047x1364.jpg" alt="">
+                <div class="text">
+                    <h1>SkillStack: Build a Diverse Set of Skills for Success</h1>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio, doloremque ducimus dolor veniam vitae omnis hic cum accusamus. Eum eaque repellat error totam, aperiam maiores corporis in porro, est voluptatibus, facilis reiciendis exercitationem laboriosam laborum adipisci reprehenderit assumenda dolore libero soluta amet. Provident consequuntur corrupti ipsum quisquam omnis, adipisci illo. Delectus dicta perspiciatis dolore excepturi dolor.</p>
+                    <a href="#" class="btn btn-secondary">Explore features</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../../../Sliders/img/toscana-italy.jpg" alt="">
+                <div class="text">
+                    <h1>Skills365: Learn Anutyme, Anywhere</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non autem ipsam fugiat eaque eos, libero ducimus. Omnis minima aliquid voluptate ratione quasi expedita distinctio, ad perferendis culpa officiis quis quas sapiente magni architecto vero.</p>
+                    <a href="#" class="btn">Learn more</a>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>All rights reserved. 2023</p>
+        </footer>
+
+        <script>
+            const menu = document.querySelector(".menu");
+            const menuBtn = document.querySelector(".menu-btn");
+
+            menuBtn.addEventListener("click", () => {
+                menuBtn.firstElementChild.classList.toggle("fa-times");
+                menu.classList.toggle("menu-open");
+            })
+        </script>
     </section>
-    <section id="delete4"></section>
 
     <script src="./js/script_travel_v2.js">
-        console.log("380>252");
+        console.log("342>252");
     </script>
 </body>
 </html>
