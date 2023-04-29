@@ -119,6 +119,74 @@
       </table>
     </div>
   </div>
+
+  <script>
+    const prevBtn = document.querySelector("#prev");
+    const nextBtn = document.querySelector("#next");
+    const currentMonthEl = document.querySelector("#current-month");
+    const calendarDatesEl = document.querySelector("#calendar-dates");
+    const calendarBody = document.querySelector(".calendar-body");
+
+    let currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth();
+    
+    function updateCalendar() {
+      const year = currentDate.getFullYear();
+      const month = currentDate.getMonth();
+      let firstDayOfMonth = new Date(year, month, 1).getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+      const today = new Date().getDate();
+      
+      if (firstDayOfMonth === 0) {
+        firstDayOfMonth = 7;
+      }
+
+      currentMonthEl.textContent = currentDate.toLocaleDateString("en-US", {
+        month: "long",
+        year: "numeric",
+      })
+
+      let calendarDatesHTML = "";
+
+      for (let i = 1; i < firstDayOfMonth; i++) {
+        calendarDatesHTML += '<td class="empty></td>';
+      }
+
+      for (let i = 1; i <= daysInMonth; i++) {
+        if (i === today && month=== currentMonth && year === currentYear) {
+          calendarDatesHTML += `<td class="today">${i}</td>`;
+        } else {
+          calendarDatesHTML += `<td>${i}</td>`;
+        }
+        
+        if ((firstDayOfMonth + i) % 7 === 1) {
+          calendarDatesHTML += "</tr><tr>"
+        }
+
+        calendarDatesEl.innerHTML = `<tr>${calendarDatesHTML}</tr>`;
+
+        calendarBody.style.transition = "none";
+        calendarBody.style.opacity = "0";
+
+        setTimeout(() => {
+          calendarBody.style.transition = "150ms";
+          calendarBody.style.opacity = "1";
+        }, 160);
+      }
+    }
+
+    updateCalendar();
+
+    prevBtn.addEventListener("click", () => {
+      currentDate.setMonth(currentDate.getMonth() - 1);
+      updateCalendar();
+    });
+    nextBtn.addEventListener("click", () => {
+      currentDate.setMonth(currentDate.getMonth() + 1);
+      updateCalendar();
+    });
+  </script>
   <!-- <h1 style="position: absolute; z-index: 1; left: 10%; bottom: 10%; font-size: 3rem;">Object.entries(person) - convert object to array</h1> -->
 
   <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M318h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
