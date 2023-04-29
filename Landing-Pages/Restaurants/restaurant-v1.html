@@ -8,123 +8,123 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/style_restaurant-v1.css">
     <style>
-        body {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-image: linear-gradient(45deg, #03a9f4, #ff53a0);
-        }
-
-        ul {
-            position: relative;
-            transform-style: preserve-3d;
-            perspective: 500px;
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            transition: all 0.5s ease;
-        }
-
-        li {
-            position: relative;
-            width: 450px;
-            height: 100px;
-            padding: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 20px;
-            border-radius: 6px;
-            background-color: #dbdbdb;
-            box-shadow: 0px -15px 25px rgba(0, 0, 0, 0.25);
-            transition: all 0.5s;
-            transition-delay: calc(var(--i) * 0.05s);
-        }
-        li:nth-child(1) {
-            transform: translateZ(-75px) translateY(20px);
-            opacity: 0.3;
-        }
-        li:nth-child(3) {
-            transform: translateZ(75px) translateY(-30px);
-            background-color: #eee;
-        }
-        li:nth-child(4) {
-            transform: translateZ(150px) translateY(-75px);
-            background-color: #fff;
-        }
-
-        ul:hover {
-            gap: 30px;
-        }
-        ul:hover li {
-            background-color: #fff;
-            transform: translateZ(0px) translateY(0px);
-            opacity: 1;
-        }
-
-        li img {
-            max-width: 70px;
-            border-radius: 4px;
-        }
-
-        .content {
+        .container {
             width: 100%;
+            min-height: 100vh;
+            background-image: linear-gradient(45deg, #4f639b, #fff);
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        #model-box {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 400px;
+            border-radius: 5px;
+            background-color: #fff;
+            overflow: hidden;
+        }
+
+        img {
+            width: 100%;
+            aspect-ratio: 2 / 1;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .offer-text {
+            padding: 20px 40px 40px 40px;
+            font-size: 14px;
+            line-height: 22px;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            font-size: 38px;
+            font-weight: 600;
+        }
+        span {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #ff2b4e;
+            font-weight: 600;
+        }
+
+        form {
+            margin-top: 30px;
+            display: flex;
+            border-radius: 4px;
+            background-color: #efefef;
+        }
+
+        input {
+            flex: 1;
+            padding: 12px 10px;
+            border: none;
+            outline: none;
+            background-color: transparent;
+        }
+
+        form button {
+            padding: 0 15px;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-transform: capitalize;
+            border-radius: 4px;
+            background-color: #ff2b4e;
             cursor: pointer;
         }
 
-        h4 {
-            color: #333;
-            font-weight: 600;
-            text-transform: capitalize;
-        }
-
-        p {
-            position: relative;
-            width: 100%;
-            color: #333;
-            line-height: 1em;
-        }
-        p span {
+        .close {
             position: absolute;
-            top: 0;
-            right: 0;
-            display: block;
-            color: #888;
-            font-size: 0.75em;
+            top: 15px;
+            right: 15px;
+            font-size: 20px;
+            padding: 0.2em 0.53em 0.4em 0.53em;
+            border: 1px solid;
+            border-radius: 50%;
+            background-color: #fff;
+            transform: rotate(45deg);
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <ul>
-        <li style="--i: 1">
-            <img src="../../Full-Projects/Travel/travel-v1/img/testimonial/pic-1.png" alt="">
-            <div class="content">
-                <h4>alina smith</h4>
-                <p>liked your photo <span>20 Apr at 05:04</span></p>
-            </div>
-        </li>
-        <li style="--i: 2">
-            <img src="../../Full-Projects/Travel/travel-v1/img/testimonial/pic-2.png" alt="">
-            <div class="content">
-                <h4>hamidah</h4>
-                <p>reacted to your photo <span>2 days ago</span></p>
-            </div>
-        </li>
-        <li style="--i: 3">
-            <img src="../../Full-Projects/Travel/travel-v1/img/testimonial/pic-3.png" alt="">
-            <div class="content">
-                <h4>jaun paul</h4>
-                <p>commented your photo <span>6 mins ago</span></p>
-            </div>
-        </li>
-        <li style="--i: 4">
-            <img src="../../Full-Projects/Travel/travel-v1/img/testimonial/pic-4.png" alt="">
-            <div class="content">
-                <h4>lucia sultan</h4>
-                <p>shared your post <span>32 seconds ago</span></p>
-            </div>
-        </li>
-    </ul>
+    <div class="container">
+        <h1></h1>
+    </div>
+    <div id="model-box">
+        <img src="../../../CSS/assets/img/girl-winter-copy.jpg" alt="">
+        <div class="offer-text">
+            <h2>Get 15% OFF</h2>
+            <span>on all beauty products</span>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui quis itaque placeat unde debitis harum labore! Explicabo, exercitationem eos, inventore, totam voluptate similique earum nihil ut quod blanditiis cum ea.</p>
+            <form action="">
+                <input type="email" name="" id="" placeholder="Email">
+                <button type="submit">subscribe</button>
+            </form>
+        </div>
+        <button class="close">+</button>
+    </div>
+
+    <script>
+        let modelBox = document.getElementById("model-box");
+
+        document.body.addEventListener("mouseleave", function () {
+            modelBox.style.display = "block";
+        })
+
+        document.querySelector(".close").addEventListener("click", () => {
+            modelBox.style.display = "none";
+        })
+    </script>
 </body>
 </html>
