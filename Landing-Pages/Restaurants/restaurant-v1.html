@@ -7,124 +7,116 @@
     <title>Restaurant v.1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/style_restaurant-v1.css">
-    <style>
-        .container {
-            width: 100%;
-            min-height: 100vh;
-            background-image: linear-gradient(45deg, #4f639b, #fff);
-        }
-
-        body {
-            font-family: Georgia, 'Times New Roman', Times, serif;
-        }
-
-        #model-box {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            max-width: 400px;
-            border-radius: 5px;
-            background-color: #fff;
-            overflow: hidden;
-        }
-
-        img {
-            width: 100%;
-            aspect-ratio: 2 / 1;
-            object-fit: cover;
-            object-position: center;
-        }
-
-        .offer-text {
-            padding: 20px 40px 40px 40px;
-            font-size: 14px;
-            line-height: 22px;
-        }
-
-        h2 {
-            margin-bottom: 10px;
-            font-size: 38px;
-            font-weight: 600;
-        }
-        span {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #ff2b4e;
-            font-weight: 600;
-        }
-
-        form {
-            margin-top: 30px;
-            display: flex;
-            border-radius: 4px;
-            background-color: #efefef;
-        }
-
-        input {
-            flex: 1;
-            padding: 12px 10px;
-            border: none;
-            outline: none;
-            background-color: transparent;
-        }
-
-        form button {
-            padding: 0 15px;
-            border: none;
-            outline: none;
-            color: #fff;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            text-transform: capitalize;
-            border-radius: 4px;
-            background-color: #ff2b4e;
-            cursor: pointer;
-        }
-
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 20px;
-            padding: 0.2em 0.53em 0.4em 0.53em;
-            border: 1px solid;
-            border-radius: 50%;
-            background-color: #fff;
-            transform: rotate(45deg);
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <h1></h1>
-    </div>
-    <div id="model-box">
-        <img src="../../../CSS/assets/img/girl-winter-copy.jpg" alt="">
-        <div class="offer-text">
-            <h2>Get 15% OFF</h2>
-            <span>on all beauty products</span>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui quis itaque placeat unde debitis harum labore! Explicabo, exercitationem eos, inventore, totam voluptate similique earum nihil ut quod blanditiis cum ea.</p>
-            <form action="">
-                <input type="email" name="" id="" placeholder="Email">
-                <button type="submit">subscribe</button>
-            </form>
-        </div>
-        <button class="close">+</button>
-    </div>
-
     <script>
-        let modelBox = document.getElementById("model-box");
+        // 05. Godzilla vs. Kong
 
-        document.body.addEventListener("mouseleave", function () {
-            modelBox.style.display = "block";
-        })
+        // ⦁	Декорът за филма е на стойност 10% от бюджета. 
+        // ⦁	При повече от 150 статиста,  има отстъпка за облеклото на стойност 10%.
 
-        document.querySelector(".close").addEventListener("click", () => {
-            modelBox.style.display = "none";
-        })
+        // ⦁	Бюджет за филма – реално число в интервала [1.00 … 1000000.00]
+        // ⦁	Брой на статистите – цяло число в интервала [1 … 500]
+        // ⦁	Цена за облекло на един статист – реално число в интервала [1.00 … 1000.00]
+
+        function calcBudget(input) {
+            const budget = Number(input[0]);
+            const actors = Number(input[1]);
+            const priceClothingPerActor = Number(input[2]);
+
+            const decor = budget * 0.1;
+            let clothesExpenses = actors * priceClothingPerActor;
+
+            if (actors > 150) {
+                clothesExpenses = clothesExpenses * 0.9;
+            }
+
+            const totalExpenses = decor + clothesExpenses;
+
+            if (totalExpenses > budget) {
+                const moneyNeeded = totalExpenses - budget;
+                console.log("Not enough money!");
+                console.log(`Wingard needs ${moneyNeeded.toFixed(2)} leva more.`);
+            } else {
+                const moneyRemaining = budget - totalExpenses;
+                console.log("Action!");
+                console.log(`Wingard starts filming with ${moneyRemaining.toFixed(2)} leva left.`);
+            }
+        }
+
+        calcBudget(["20000", "120", "55.5"]);
+        calcBudget(["15437.62", "186", "57.99"]);
+        calcBudget(["9587.88", "222", "55.68"]);
+
+        // 06. World Swimming Record
+
+        // ⦁	Рекордът в секунди – реално число в интервала [0.00 … 100000.00]
+        // ⦁	Разстоянието в метри – реално число в интервала [0.00 … 100000.00]
+        // ⦁	Времето в секунди, за което плува разстояние от 1 м. - реално число в интервала [0.00 … 1000.00]
+
+        function calcSwimmingTime(input) {
+            const recordTime = Number(input[0]);
+            const distance = Number(input[1]);
+            const timePerMeter = Number(input[2]);
+
+            let timeAchieved = distance * timePerMeter;
+            const delays = Math.floor(distance / 15);
+            const delayTime = delays * 12.5;
+            timeAchieved += delayTime;
+
+            if (timeAchieved < recordTime) {
+                console.log(`Yes, he succeeded! The new world record is ${timeAchieved.toFixed(2)} seconds.`);
+            } else {
+                const secondsNeeded = timeAchieved - recordTime;
+                console.log(`No, he failed! He was ${secondsNeeded.toFixed(2)} seconds slower.`);
+            }
+        }
+
+        calcSwimmingTime(["10464", "1500", "20"]);
+        calcSwimmingTime(["55555.67", "3017", "5.03"]);
+
+        // 07. Shopping
+
+        // ⦁	Видеокарта – 250 лв./бр.
+        // ⦁	Процесор – 35% от цената на закупените видеокарти/бр.
+        // ⦁	Рам памет – 10% от цената на закупените видеокарти/бр.
+
+        // ⦁	Бюджетът на Петър - реално число в интервала [0.0…100000.0]
+        // ⦁	Броят видеокарти - цяло число в интервала [0…100]
+        // ⦁	Броят процесори - цяло число в интервала [0…100]
+        // ⦁	Броят рам памет - цяло число в интервала [0…100]
+
+        function calcPCExpenses(input) {
+            const budget = Number(input[0]);
+            const cards = Number(input[1]);
+            const intels = Number(input[2]);
+            const rams = Number(input[3]);
+
+            const priceCard = 250;
+            const priceIntel = (cards * priceCard) * 0.35;
+            const priceRam = (cards * priceCard) * 0.1;
+
+            const cardsSum = cards * priceCard;
+            const intelsSum = intels * priceIntel;
+            const ramsSum = rams * priceRam;
+
+            let totalSum = cardsSum + intelsSum + ramsSum;
+
+            if (cards > intels) {
+                totalSum = totalSum * 0.85;
+            }
+
+            if (budget >= totalSum) {
+                const remainingMoney = budget - totalSum;
+                console.log(`You have ${remainingMoney.toFixed(2)} leva left!`);
+            } else {
+                const moneyNeeded = totalSum - budget;
+                console.log(`Not enough money! You need ${moneyNeeded.toFixed(2)} leva more!`);
+            }
+        }
+
+        calcPCExpenses(["900", "2", "1", "3"]);
+        calcPCExpenses(["920.45", "3", "1", "1"]);
     </script>
 </body>
 </html>
