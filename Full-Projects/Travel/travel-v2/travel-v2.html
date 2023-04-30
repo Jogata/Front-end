@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel v.2</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/styles-travel-v2.css">
+    <!-- <link rel="stylesheet" href="./css/styles-travel-v2.css"> -->
     <style>
         #speech-synthesis {
             min-height: 100vh;
@@ -34,6 +34,104 @@
             text-transform: uppercase;
             border: 1px solid;
             border-radius: 1em;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: #3e8da8;
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar {
+            max-width: 1250px;
+            height: 100%;
+            margin: auto;
+            padding: 0 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo a {
+            color: #fff;
+            font-size: 30px;
+            font-weight: 600;
+            text-transform: capitalize;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            height: 100%;
+            line-height: 70px;
+        }
+
+        .links {
+            display: flex;
+        }
+        .links li {
+            list-style: none;
+            position: relative;
+            padding: 0 14px;
+            display: flex;
+            align-items: center;
+        }
+        .links li a {
+            height: 100%;
+            color: #fff;
+            text-transform: uppercase;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .arrow {
+            width: 22px;
+            height: 100%;
+            color: #fff;
+            text-align: center;
+            line-height: 70px;
+            transition: all 0.4s ease;
+        }
+        
+        .links li:hover .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
+        .sub-menu {
+            display: none;
+            position: absolute;
+            top: 70px;
+            left: 0;
+            line-height: 40px;
+            border-radius: 0 0 4px 4px;
+            background-color: #3e8da8;
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        .sub-menu li {
+            padding: 0 22px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .sub-menu li a {
+            font-size: 15px;
+            font-weight: 500;
+            text-transform: capitalize;
+        }
+
+        .links li:hover .sub-menu {
+            display: block;
         }
     </style>
 </head>
@@ -242,85 +340,49 @@
         </script>
     </section>
 
-    <section id="delete3"></section>
-    <section id="delete4">
-        <nav class="navbar">
-            <div class="container">
-                <a href="./travel-v2.html" class="brand">SkillUp</a>
-                <div class="menu">
-                    <a href="./travel-v2.html" class="brand">SkillUp</a>
-                    <div>
-                        <a href="#">home</a>
-                        <a href="#">about</a>
-                        <a href="#">projects</a>
-                        <a href="#">blog</a>
-                    </div>
-                    <a href="#" class="btn">sign up</a>
+    <section id="delete3">
+        <nav>
+            <div class="navbar">
+                <div class="logo">
+                    <a href="#logo">logo</a>
                 </div>
-                <button class="menu-btn">
-                    <i class="fa fa-bars"></i>
-                </button>
+                <div class="nav-links">
+                    <ul class="links">
+                        <li><a href="#mome">home</a></li>
+                        <li>
+                            <a href="#">html & css</a>
+                            <i class="fa fa-chevron-down arrow"></i>
+                            <ul class="sub-menu">
+                                <li><a href="#">web design</a></li>
+                                <li><a href="#">login form</a></li>
+                                <li><a href="#">card design</a></li>
+                                <li>
+                                    <a href="#">more</a>
+                                    <i class="fa fa-chevron-right arrow"></i>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">javascript</a>
+                            <i class="fa fa-chevron-down arrow"></i>
+                            <ul class="sub-menu">
+                                <li><a href="#">dynamic calculator</a></li>
+                                <li><a href="#">form validation</a></li>
+                                <li><a href="#">calendar</a></li>
+                                <li><a href="#">digital clock</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">about us</a></li>
+                        <li><a href="#">contact us</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
-        <main>
-            <header>
-                <img src="../../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg" alt="">
-                <div class="text">
-                    <h1>SkillUp: Learn the Skills You Need to Succeed</h1>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis dolorum quis, sint delectus eveniet et repellendus, expedita, aliquam itaque eos facilis doloribus minus sapiente error! Sint quasi ea quam ratione!</p>
-                    <a href="#" class="btn">start free trial</a>
-                </div>
-            </header>
-            <div class="card">
-                <img src="../../../Sliders/img/Edinburgh.jpg" alt="">
-                <div class="text">
-                    <h1>SkillShare: Learn from the Best in the Business</h1>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium, ab suscipit! Dolor, porro quas recusandae, tempore earum laboriosam ipsa nobis error, quisquam quae neque quaerat! Officiis eum maiores vel sed.</p>
-                    <a href="#" class="btn btn-secondary">Try it for free</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="../../../Sliders/img/mountain-in-meteora-greece_1920x1080.jpg" alt="">
-                <div class="text">
-                    <h1>Master Your Craft: Become an Expert in Your Field</h1>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste, eveniet suscipit, voluptates provident nemo incidunt quae culpa repellendus similique quidem omnis enim, a sequi corporis quis quasi ratione perferendis tempora.</p>
-                    <a href="#" class="btn">Join the community</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="../../../Sliders/img/neuschwanstein-castle-hd_2047x1364.jpg" alt="">
-                <div class="text">
-                    <h1>SkillStack: Build a Diverse Set of Skills for Success</h1>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio, doloremque ducimus dolor veniam vitae omnis hic cum accusamus. Eum eaque repellat error totam, aperiam maiores corporis in porro, est voluptatibus, facilis reiciendis exercitationem laboriosam laborum adipisci reprehenderit assumenda dolore libero soluta amet. Provident consequuntur corrupti ipsum quisquam omnis, adipisci illo. Delectus dicta perspiciatis dolore excepturi dolor.</p>
-                    <a href="#" class="btn btn-secondary">Explore features</a>
-                </div>
-            </div>
-            <div class="card">
-                <img src="../../../Sliders/img/toscana-italy.jpg" alt="">
-                <div class="text">
-                    <h1>Skills365: Learn Anutyme, Anywhere</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non autem ipsam fugiat eaque eos, libero ducimus. Omnis minima aliquid voluptate ratione quasi expedita distinctio, ad perferendis culpa officiis quis quas sapiente magni architecto vero.</p>
-                    <a href="#" class="btn">Learn more</a>
-                </div>
-            </div>
-        </main>
-        <footer>
-            <p>All rights reserved. 2023</p>
-        </footer>
-
-        <script>
-            const menu = document.querySelector(".menu");
-            const menuBtn = document.querySelector(".menu-btn");
-
-            menuBtn.addEventListener("click", () => {
-                menuBtn.firstElementChild.classList.toggle("fa-times");
-                menu.classList.toggle("menu-open");
-            })
-        </script>
     </section>
+    <section id="delete4"></section>
 
     <script src="./js/script_travel_v2.js">
-        console.log("342>252");
+        console.log("326>252");
     </script>
 </body>
 </html>
