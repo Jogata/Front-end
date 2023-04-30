@@ -6,188 +6,140 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Webstore v.1</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="./css/styles_webstore-v1.css"> -->
-  <style>
-    body {
-      padding: 0.5rem;
-    }
-
-    .calendar {
-      width: 100%;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .calendar-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.8rem 0;
-    }
-
-    #current-month {
-      font-size: 18px;
-    }
-
-    .calendar table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .calendar th {
-      padding: 0.5rem;
-      color: #fff;
-      text-align: center;
-      text-transform: uppercase;
-      border: 1px solid #484848;
-      background-color: #333;
-    }
-
-    .calendar td {
-      padding: 0.5rem;
-      text-align: center;
-      border: 1px solid #ddd;
-      transition: all 0.2s;
-    }
-
-    .calendar td:not(.empty):hover {
-      background-color: #f1f1f1;
-      cursor: pointer;
-    }
-
-    button {
-      width: 4rem;
-      height: 4rem;
-      font-size: 3rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: none;
-      border-radius: 5px;
-      outline: none;
-      background-color: transparent;
-      transition: all 0.2s;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #efefef;
-    }
-
-    #calendar-dates {
-      font-size: 0.9rem;
-    }
-
-    .today {
-      color: #2a5bff;
-      background-color: #b6dfff;
-    }
-
-    @media screen and (min-width: 800px) {
-      #calendar-dates {
-        font-size: 1.3rem;
-      }
-      th, td {
-        padding: 1.1em 2em;
-      }
-      #current-month {
-        font-size: 2rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="./css/styles_webstore-v1.css">
 </head>
 <body>
-  <div class="calendar">
-    <div class="calendar-header">
-      <button id="prev"><</button>
-      <h1 id="current-month"></h1>
-      <button id="next">></button>
-    </div>
-    <div class="calendar-body">
-      <table>
-        <thead>
-          <tr>
-            <th>Mon</th>
-            <th>Tue</th>
-            <th>Wed</th>
-            <th>Thu</th>
-            <th>Fri</th>
-            <th>Sat</th>
-            <th>Sun</th>
-          </tr>
-        </thead>
-        <tbody id="calendar-dates"></tbody>
-      </table>
-    </div>
-  </div>
+  <!-- <h1 style="position: absolute; z-index: 1; left: 10%; bottom: 10%; font-size: 3rem;">Object.entries(person) - convert object to array</h1> -->
 
   <script>
-    const prevBtn = document.querySelector("#prev");
-    const nextBtn = document.querySelector("#next");
-    const currentMonthEl = document.querySelector("#current-month");
-    const calendarDatesEl = document.querySelector("#calendar-dates");
-    const calendarBody = document.querySelector(".calendar-body");
+    // 01. Sum Seconds
 
-    let currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth();
-    
-    function updateCalendar() {
-      const year = currentDate.getFullYear();
-      const month = currentDate.getMonth();
-      let firstDayOfMonth = new Date(year, month, 1).getDay();
-      const daysInMonth = new Date(year, month + 1, 0).getDate();
-      const today = new Date().getDate();
-      
-      if (firstDayOfMonth === 0) {
-        firstDayOfMonth = 7;
-      }
+    function calcTotalTime(input) {
+      const firstTime = Number(input[0]);
+      const secondTime = Number(input[1]);
+      const thirdTime = Number(input[2]);
 
-      currentMonthEl.textContent = currentDate.toLocaleDateString("en-US", {
-        month: "long",
-        year: "numeric",
-      })
+      const totalTimeInSeconds = firstTime + secondTime + thirdTime;
+      const totalTimeInHours = Math.floor(totalTimeInSeconds / 60);
+      const remainingSeconds = totalTimeInSeconds % 60;
 
-      let calendarDatesHTML = "";
-
-      for (let i = 1; i < firstDayOfMonth; i++) {
-        calendarDatesHTML += '<td class="empty></td>';
-      }
-
-      for (let i = 1; i <= daysInMonth; i++) {
-        if (i === today && month=== currentMonth && year === currentYear) {
-          calendarDatesHTML += `<td class="today">${i}</td>`;
-        } else {
-          calendarDatesHTML += `<td>${i}</td>`;
-        }
-        
-        if ((firstDayOfMonth + i) % 7 === 1) {
-          calendarDatesHTML += "</tr><tr>"
-        }
-
-        calendarDatesEl.innerHTML = `<tr>${calendarDatesHTML}</tr>`;
-
-        calendarBody.style.transition = "none";
-        calendarBody.style.opacity = "0";
-
-        setTimeout(() => {
-          calendarBody.style.transition = "150ms";
-          calendarBody.style.opacity = "1";
-        }, 160);
+      if (remainingSeconds < 10) {
+        console.log(`${totalTimeInHours}:0${remainingSeconds}`);
+      } else {
+        console.log(`${totalTimeInHours}:${remainingSeconds}`);
       }
     }
 
-    updateCalendar();
+    calcTotalTime(["35", "45", "44"]);
+    calcTotalTime(["22", "7", "34"]);
+    calcTotalTime(["50", "50", "49"]);
 
-    prevBtn.addEventListener("click", () => {
-      currentDate.setMonth(currentDate.getMonth() - 1);
-      updateCalendar();
-    });
-    nextBtn.addEventListener("click", () => {
-      currentDate.setMonth(currentDate.getMonth() + 1);
-      updateCalendar();
-    });
+    // 02. Bonus Score
+
+    function calcBonusPoints(input) {
+      const initialPoints = Number(input[0]);
+      let bonusPoints = 0;
+
+      if (initialPoints <= 100) {
+        bonusPoints = 5;
+      } else if (initialPoints <= 1000) {
+        bonusPoints = initialPoints * 0.2;
+      } else {
+        bonusPoints = initialPoints * 0.1;
+      }
+
+      if (initialPoints % 2 === 0) {
+        bonusPoints += 1;
+      }
+
+      if (initialPoints % 10 === 5) {
+        bonusPoints += 2;
+      }
+
+      const totalPoints = initialPoints + bonusPoints;
+
+      console.log(bonusPoints);
+      console.log(totalPoints);
+    }
+
+    calcBonusPoints(["20"]);
+    calcBonusPoints(["175"]);
+    calcBonusPoints(["2703"]);
+
+    // 03. Time + 15 Minutes
+
+    function add15Minutes(input) {
+     let hours = Number(input[0]);
+      let minutes = Number(input[1]);
+
+      let totalMinutes = hours * 60 + minutes;
+      totalMinutes += 15;
+      hours = Math.floor(totalMinutes / 60);
+      minutes = totalMinutes % 60;
+
+      if (hours > 23) {
+        hours = 0;
+      }
+
+      if (minutes < 10) {
+        console.log(`${hours}:0${minutes}`);
+      } else {
+        console.log(`${hours}:${minutes}`);
+      }
+    } 
+
+    add15Minutes(["1", "46"]);
+    add15Minutes(["0", "01"]);
+    add15Minutes(["23", "59"]);
+    add15Minutes(["11", "08"]);
+
+    // 04. Toy Shop
+
+    // ⦁	Пъзел - 2.60 лв.
+    // ⦁	Говореща кукла - 3 лв.
+    // ⦁	Плюшено мече - 4.10 лв.
+    // ⦁	Миньон - 8.20 лв.
+    // ⦁	Камионче - 2 лв.
+
+    // ⦁	Цена на екскурзията - реално число в интервала [1.00 … 10000.00]
+    // ⦁	Брой пъзели - цяло число в интервала [0… 1000]
+    // ⦁	Брой говорещи кукли - цяло число в интервала [0 … 1000]
+    // ⦁	Брой плюшени мечета - цяло число в интервала [0 … 1000]
+    // ⦁	Брой миньони - цяло число в интервала [0 … 1000]
+    // ⦁	Брой камиончета - цяло число в интервала [0 … 1000]
+
+    function calcProfit(input) {
+      const vacation = Number(input[0]);
+      const puzzels = Number(input[1]);
+      const dolls = Number(input[2]);
+      const teddies = Number(input[3]);
+      const minions = Number(input[4]);
+      const trucks = Number(input[5]);
+
+      let income = puzzels * 2.6 + dolls * 3 + teddies * 4.1 + minions * 8.2 + trucks * 2;
+
+      const toysNumber = puzzels + dolls + teddies + minions + trucks;
+
+      if (toysNumber >= 50) {
+        income = income * 0.75;
+      }
+
+      const rent = income * 0.1;
+
+      income -= rent;
+
+      if (income >= vacation) {
+        const moneyRemaining = income - vacation;
+        console.log(`Yes! ${moneyRemaining.toFixed(2)} lv left.`);
+      } else {
+        const moneyNeeded = vacation - income;
+        console.log(`Not enough money! ${moneyNeeded.toFixed(2)} lv needed.`);
+      }
+    }
+
+    calcProfit(["40.8", "20", "25", "30", "50", "10"]);
+    calcProfit(["320", "8", "2", "5", "5", "1"]);
   </script>
-  <!-- <h1 style="position: absolute; z-index: 1; left: 10%; bottom: 10%; font-size: 3rem;">Object.entries(person) - convert object to array</h1> -->
 
   <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M318h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
 </body>
