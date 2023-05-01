@@ -9,137 +9,118 @@
   <link rel="stylesheet" href="./css/styles_webstore-v1.css">
 </head>
 <body>
-  <!-- <h1 style="position: absolute; z-index: 1; left: 10%; bottom: 10%; font-size: 3rem;">Object.entries(person) - convert object to array</h1> -->
-
   <script>
-    // 01. Sum Seconds
+    // 08. Lunch Break
 
-    function calcTotalTime(input) {
-      const firstTime = Number(input[0]);
-      const secondTime = Number(input[1]);
-      const thirdTime = Number(input[2]);
+    // ⦁	Име на сериал – текст
+    // ⦁	Продължителност на епизод  – цяло число в диапазона [10… 90]
+    // ⦁	Продължителност на почивката  – цяло число в диапазона [10… 120]
 
-      const totalTimeInSeconds = firstTime + secondTime + thirdTime;
-      const totalTimeInHours = Math.floor(totalTimeInSeconds / 60);
-      const remainingSeconds = totalTimeInSeconds % 60;
+    function calcBreakTime(input) {
+      const movieTitle = input[0];
+      const episodDuration = Number(input[1]);
+      const breakDuration = Number(input[2]);
 
-      if (remainingSeconds < 10) {
-        console.log(`${totalTimeInHours}:0${remainingSeconds}`);
+      const lunchTime = breakDuration * 0.125;
+      const relaxTime = breakDuration * 0.25;
+      const remainingBreakTime = breakDuration - lunchTime - relaxTime;
+
+      if (remainingBreakTime >= episodDuration) {
+        const remaining = Math.ceil(remainingBreakTime - episodDuration);
+        console.log(`You have enough time to watch ${movieTitle} and left with ${remaining} minutes free time.`);
       } else {
-        console.log(`${totalTimeInHours}:${remainingSeconds}`);
+        const needed = Math.ceil(episodDuration - remainingBreakTime);
+        console.log(`You don't have enough time to watch ${movieTitle}, you need ${needed} more minutes.`);
       }
     }
 
-    calcTotalTime(["35", "45", "44"]);
-    calcTotalTime(["22", "7", "34"]);
-    calcTotalTime(["50", "50", "49"]);
+    calcBreakTime(["Game of Thrones", "60", "96"]);
+    calcBreakTime(["Teen Wolf", "48", "60"]);
 
-    // 02. Bonus Score
+    // 01. Excellent Result
 
-    function calcBonusPoints(input) {
-      const initialPoints = Number(input[0]);
-      let bonusPoints = 0;
+    function printGrades(input) {
+      const grade = Number(input[0]);
 
-      if (initialPoints <= 100) {
-        bonusPoints = 5;
-      } else if (initialPoints <= 1000) {
-        bonusPoints = initialPoints * 0.2;
-      } else {
-        bonusPoints = initialPoints * 0.1;
-      }
-
-      if (initialPoints % 2 === 0) {
-        bonusPoints += 1;
-      }
-
-      if (initialPoints % 10 === 5) {
-        bonusPoints += 2;
-      }
-
-      const totalPoints = initialPoints + bonusPoints;
-
-      console.log(bonusPoints);
-      console.log(totalPoints);
-    }
-
-    calcBonusPoints(["20"]);
-    calcBonusPoints(["175"]);
-    calcBonusPoints(["2703"]);
-
-    // 03. Time + 15 Minutes
-
-    function add15Minutes(input) {
-     let hours = Number(input[0]);
-      let minutes = Number(input[1]);
-
-      let totalMinutes = hours * 60 + minutes;
-      totalMinutes += 15;
-      hours = Math.floor(totalMinutes / 60);
-      minutes = totalMinutes % 60;
-
-      if (hours > 23) {
-        hours = 0;
-      }
-
-      if (minutes < 10) {
-        console.log(`${hours}:0${minutes}`);
-      } else {
-        console.log(`${hours}:${minutes}`);
-      }
-    } 
-
-    add15Minutes(["1", "46"]);
-    add15Minutes(["0", "01"]);
-    add15Minutes(["23", "59"]);
-    add15Minutes(["11", "08"]);
-
-    // 04. Toy Shop
-
-    // ⦁	Пъзел - 2.60 лв.
-    // ⦁	Говореща кукла - 3 лв.
-    // ⦁	Плюшено мече - 4.10 лв.
-    // ⦁	Миньон - 8.20 лв.
-    // ⦁	Камионче - 2 лв.
-
-    // ⦁	Цена на екскурзията - реално число в интервала [1.00 … 10000.00]
-    // ⦁	Брой пъзели - цяло число в интервала [0… 1000]
-    // ⦁	Брой говорещи кукли - цяло число в интервала [0 … 1000]
-    // ⦁	Брой плюшени мечета - цяло число в интервала [0 … 1000]
-    // ⦁	Брой миньони - цяло число в интервала [0 … 1000]
-    // ⦁	Брой камиончета - цяло число в интервала [0 … 1000]
-
-    function calcProfit(input) {
-      const vacation = Number(input[0]);
-      const puzzels = Number(input[1]);
-      const dolls = Number(input[2]);
-      const teddies = Number(input[3]);
-      const minions = Number(input[4]);
-      const trucks = Number(input[5]);
-
-      let income = puzzels * 2.6 + dolls * 3 + teddies * 4.1 + minions * 8.2 + trucks * 2;
-
-      const toysNumber = puzzels + dolls + teddies + minions + trucks;
-
-      if (toysNumber >= 50) {
-        income = income * 0.75;
-      }
-
-      const rent = income * 0.1;
-
-      income -= rent;
-
-      if (income >= vacation) {
-        const moneyRemaining = income - vacation;
-        console.log(`Yes! ${moneyRemaining.toFixed(2)} lv left.`);
-      } else {
-        const moneyNeeded = vacation - income;
-        console.log(`Not enough money! ${moneyNeeded.toFixed(2)} lv needed.`);
+      if (grade >= 5.5) {
+        console.log('Excellent!');
       }
     }
 
-    calcProfit(["40.8", "20", "25", "30", "50", "10"]);
-    calcProfit(["320", "8", "2", "5", "5", "1"]);
+    printGrades(["5"]);
+    printGrades(["5.5"]);
+    printGrades(["6"]);
+
+    // 02. Greater Number
+
+    function displayGreaterNumber(input) {
+      const num1 = Number(input[0]);
+      const num2 = Number(input[1]);
+
+      if (num1 > num2) {
+        console.log(num1);
+      } else {
+        console.log(num2);
+      }
+    }
+
+    displayGreaterNumber(["5", "3"]);
+    displayGreaterNumber(["10", "10"]);
+    displayGreaterNumber(["3", "5"]);
+    displayGreaterNumber(["-5", "5"]);
+
+    // 03. Even or Odd
+
+    function displayEvenOdd (input) {
+      const num = Number(input[0]);
+
+      if (num % 2 === 0) {
+        console.log("even");
+      } else {
+        console.log("odd");
+      }
+    }
+
+    displayEvenOdd(["2"]);
+    displayEvenOdd(["3"]);
+    displayEvenOdd(["25"]);
+    displayEvenOdd(["1024"]);
+
+    // 04. Password Guess
+
+    function checkPassword(input) {
+      const password = input[0];
+
+      if (password === "s3cr3t!P@ssw0rd") {
+        console.log("Welcome");
+      } else {
+        console.log("Wrong password!");
+      }
+    }
+
+    checkPassword(["qwerty"]);
+    checkPassword(["s3cr3t!P@ssw0rd"]);
+    checkPassword(["s3cr3t!p@ss"]);
+
+    // 05. Number 100...200
+
+    function checkNumber(input) {
+      const num = Number(input[0]);
+
+      if (num <= 100) {
+        console.log("Less than 100");
+      } else if (num <= 200) {
+        console.log("Between 100 and 200");
+      } else {
+        console.log("Greater than 200");
+      }
+    }
+
+    checkNumber(["95"]);
+    checkNumber(["120"]);
+    checkNumber(["210"]);
   </script>
+  <!-- <h1 style="position: absolute; z-index: 1; left: 10%; bottom: 10%; font-size: 3rem;">Object.entries(person) - convert object to array</h1> -->
 
   <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M318h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
 </body>
