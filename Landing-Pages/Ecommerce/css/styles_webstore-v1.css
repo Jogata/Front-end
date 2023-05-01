@@ -26,140 +26,98 @@ i {
     transition: all 0.3s ease-in-out;
 }
 
-:root {
-    --primary: #eeeeee;
-    --secondary: #227c70;
-    --green: #82cd47;
-    --secondary-light: rgb(34, 124, 112, 0.2);
-    --secondary-light-2: rgb(127, 183, 126, 0.1);
-    --white: #fff;
-    --black: #393e46;
-  
-    --shadow: 0px 2px 8px 0px var(--secondary-light);
-  }
+h2, p {
+  margin: revert;
+}
 
-  body {
+body {
     width: 100%;
-    height: 100vh;
-    background-color: var(--primary);
-  }
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #333;
+}
 
-  nav {
-      height: 70px;
-      padding: 0 8%;
-      display: flex;
-      align-items: center;
-      background-color: var(--white);
-  }
+.rating {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0.5em 2em 2em 2em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 1rem;
+  color: #fff;
+  border-radius: 1em;
+  background-color: #222;
+  box-shadow: 0px 0px 1em rgba(0, 0, 0, 0.2);
+}
 
-  .logo {
-    font-size: 2rem;
-    text-transform: capitalize;
-    cursor: pointer;
-  }
+.big-star {
+  position: relative;
+  padding: 0 0 2em 0;
+  font-size: 5rem;
+}
 
-  .nav-list {
-    width: 100%;
-    padding-right: 2rem;
-    text-align: right;
-  }
-  .nav-list li {
-    display: inline-block;
-    margin: 0 1rem;
-  }
-  .nav-list li a {
-      color: var(--black);
-      font-size: 1rem;
-      font-weight: 500;
-      text-transform: capitalize;
-  }
+.big-star i, 
+.selected-rating {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
-  .profile-dropdown {
-    position: relative;
-    width: fit-content;
-  }
+.big-star i {
+  color: #076eff;
+  transition: all 0.4s ease;
+}
 
-  .profile-dropdown-btn {
-    width: 150px;
-    padding-right: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 0.9rem;
-    font-weight: 500;
-    border: 1px solid var(--secondary);
-    border-radius: 50px;
-    transition: all 0.2s;
-    cursor: pointer;
-  }
-  .profile-dropdown-btn:hover {
-    background-color: var(--secondary-light-2);
-    box-shadow: var(--shadow);
-  }
+.selected-rating {
+  margin: 0;
+  font-size: 0.5em;
+  font-family: initial;
+}
 
-  .profile-dropdown-btn span {
-    margin: 0 0.5rem;
-    margin-right: 0;
-    text-transform: capitalize;
-  }
+.stars {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
 
-  .profile-img {
-    position: relative;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    background-image: url("../../../../CSS/assets/img/profile-copy.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-  .profile-img i {
-    position: absolute;
-    right: 0;
-    bottom: 0.3rem;
-    color: var(--green);
-    font-size: 0.6rem;
-  }
+.star {
+  padding: 0px 10px;
+  color: #ccc;
+  font-size: 24px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.star:hover, 
+.selected {
+  color: #ffc107;
+  transform: scale(1.1);
+}
 
-  .profile-dropdown-list {
-    display: block;
-    position: absolute;
-    top: 68px;
-    right: 0;
-    width: 220px;
-    border-radius: 10px;
-    background-color: var(--white);
-    box-shadow: var(--shadow);
-  }
-  .profile-dropdown-list li {
-    padding: 0.5rem 0 0.5rem 1rem;
-    transition: all 0.2s ease;
-  }
-  .profile-dropdown-list li:hover {
-    padding-left: 1.5rem;
-    background-color: var(--secondary-light);
-  }
-  .profile-dropdown-list li a {
-    display: flex;
-    align-items: center;
-    color: var(--black);
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-transform: capitalize;
-  }
-  .profile-dropdown-list li a i {
-      width: 2.3rem;
-      height: 2.3rem;
-      margin-right: 0.8rem;
-      color: var(--white);
-      font-size: 1.1rem;
-      line-height: 2.3rem;
-      text-align: center;
-      border-radius: 50%;
-      background-color: var(--secondary);
-  }
+.feedback-message {
+  margin-top: 10px;
+  color: #ccc;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
 
-  hr {
-    color: transparent;
-    border-bottom: 1px solid var(--secondary);
-  }
+button {
+  display: none;
+  width: 50%;
+  padding: 0.8em;
+  font-weight: 600;
+  text-transform: capitalize;
+  border-radius: 8px;
+  background-color: #ffc107;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #dfa906;
+}
