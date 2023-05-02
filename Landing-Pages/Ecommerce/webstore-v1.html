@@ -9,118 +9,127 @@
   <link rel="stylesheet" href="./css/styles_webstore-v1.css">
 </head>
 <body>
+  <div class="rating">
+    <div class="big-star">
+      <i class="fa fa-star"></i>
+      <p class="selected-rating"></p>
+    </div>
+    <h3>Rate your experience with us</h3>
+    <ul class="stars">
+      <li class="star" data-value="1">
+        <i class="fa fa-star"></i>
+      </li>
+      <li class="star" data-value="2">
+        <i class="fa fa-star"></i>
+      </li>
+      <li class="star" data-value="3">
+        <i class="fa fa-star"></i>
+      </li>
+      <li class="star" data-value="4">
+        <i class="fa fa-star"></i>
+      </li>
+      <li class="star" data-value="5">
+        <i class="fa fa-star"></i>
+      </li>
+    </ul>
+    <p class="feedback-message"></p>
+    <button type="button">submit rating</button>
+  </div>
+
   <script>
-    // 08. Lunch Break
+    const bigStar = document.querySelector(".big-star i");
+    const stars = document.querySelectorAll(".star");
+    const ratingText = document.querySelector(".selected-rating");
+    const feedbackMessage = document.querySelector(".feedback-message");
+    const btn = document.querySelector("button");
 
-    // ⦁	Име на сериал – текст
-    // ⦁	Продължителност на епизод  – цяло число в диапазона [10… 90]
-    // ⦁	Продължителност на почивката  – цяло число в диапазона [10… 120]
+    stars.forEach(star => {
+      star.addEventListener("mouseenter", handleHover);
+      star.addEventListener("mouseleave", HandleLeave);
+      star.addEventListener("click", handleClick);
+    })
 
-    function calcBreakTime(input) {
-      const movieTitle = input[0];
-      const episodDuration = Number(input[1]);
-      const breakDuration = Number(input[2]);
+    let rating = "";
 
-      const lunchTime = breakDuration * 0.125;
-      const relaxTime = breakDuration * 0.25;
-      const remainingBreakTime = breakDuration - lunchTime - relaxTime;
+    function highlightStars(rating) {
+      stars.forEach((star, index) => {
+        if (index < rating) {
+          star.classList.add("selected");
+        } else {
+          console.log(rating);
+          star.classList.remove("selected");
+        }
+      })
+    }
 
-      if (remainingBreakTime >= episodDuration) {
-        const remaining = Math.ceil(remainingBreakTime - episodDuration);
-        console.log(`You have enough time to watch ${movieTitle} and left with ${remaining} minutes free time.`);
-      } else {
-        const needed = Math.ceil(episodDuration - remainingBreakTime);
-        console.log(`You don't have enough time to watch ${movieTitle}, you need ${needed} more minutes.`);
+    function geFeedbackMessage(rating) {
+      switch (rating) {
+        case '1': 
+          return `<h2>Terrible</h2>
+                  <p>We're sorry to hear that you had a bad experience.</p>`;
+        case '2': 
+          return `<h2>Not good.</h2>
+                  <p>We'll do better next time to meet your expectations.</p>`;
+        case '3': 
+          return `<h2>It's okay.</h2>
+                  <p>We appreciate your feedback and will use it to improve.</p>`;
+        case '4': 
+          return `<h2>Good!</h2>
+                  <p>We're glad to hear that you enjoyed your experience.</p>`;
+        case '5': 
+          return `<h2>Excellent!</h2>
+                  <p>We're thrilled to hear that you had a great experience with us.</p>`;
+        default: 
+        return '';
       }
     }
 
-    calcBreakTime(["Game of Thrones", "60", "96"]);
-    calcBreakTime(["Teen Wolf", "48", "60"]);
-
-    // 01. Excellent Result
-
-    function printGrades(input) {
-      const grade = Number(input[0]);
-
-      if (grade >= 5.5) {
-        console.log('Excellent!');
-      }
+    function handleHover(e) {
+      const rating = e.target.getAttribute("data-value");
+      highlightStars(rating);
     }
 
-    printGrades(["5"]);
-    printGrades(["5.5"]);
-    printGrades(["6"]);
-
-    // 02. Greater Number
-
-    function displayGreaterNumber(input) {
-      const num1 = Number(input[0]);
-      const num2 = Number(input[1]);
-
-      if (num1 > num2) {
-        console.log(num1);
-      } else {
-        console.log(num2);
-      }
+    function HandleLeave() {
+      highlightStars(rating);
     }
 
-    displayGreaterNumber(["5", "3"]);
-    displayGreaterNumber(["10", "10"]);
-    displayGreaterNumber(["3", "5"]);
-    displayGreaterNumber(["-5", "5"]);
-
-    // 03. Even or Odd
-
-    function displayEvenOdd (input) {
-      const num = Number(input[0]);
-
-      if (num % 2 === 0) {
-        console.log("even");
-      } else {
-        console.log("odd");
-      }
+    function handleClick(e) {
+      btn.style.display = "block";
+      rating = e.currentTarget.getAttribute("data-value");
+      bigStar.style.fontSize = `${1 + rating * 0.1}em`;
+      ratingText.textContent = rating;
+      feedbackMessage.innerHTML = geFeedbackMessage(rating);
+      feedbackMessage.style.visibility = "visible";
+      feedbackMessage.style.opacity = "1";
     }
-
-    displayEvenOdd(["2"]);
-    displayEvenOdd(["3"]);
-    displayEvenOdd(["25"]);
-    displayEvenOdd(["1024"]);
-
-    // 04. Password Guess
-
-    function checkPassword(input) {
-      const password = input[0];
-
-      if (password === "s3cr3t!P@ssw0rd") {
-        console.log("Welcome");
-      } else {
-        console.log("Wrong password!");
-      }
-    }
-
-    checkPassword(["qwerty"]);
-    checkPassword(["s3cr3t!P@ssw0rd"]);
-    checkPassword(["s3cr3t!p@ss"]);
-
-    // 05. Number 100...200
-
-    function checkNumber(input) {
-      const num = Number(input[0]);
-
-      if (num <= 100) {
-        console.log("Less than 100");
-      } else if (num <= 200) {
-        console.log("Between 100 and 200");
-      } else {
-        console.log("Greater than 200");
-      }
-    }
-
-    checkNumber(["95"]);
-    checkNumber(["120"]);
-    checkNumber(["210"]);
   </script>
   <!-- <h1 style="position: absolute; z-index: 1; left: 10%; bottom: 10%; font-size: 3rem;">Object.entries(person) - convert object to array</h1> -->
+
+  <script>
+        // 06. Speed Info
+
+        function displaySpeedInfo(input) {
+      const speed = Number(input[0]);
+
+      if (speed <= 10) {
+        console.log("slow");
+      } else if (speed <= 50) {
+        console.log("average");
+      } else if (speed <= 150) {
+        console.log("fast");
+      } else if (speed <= 1000) {
+        console.log("ultra fast");
+      } else {
+        console.log("extremely fast");
+      }
+    }
+
+    displaySpeedInfo(["8"]);
+    displaySpeedInfo(["49.5"]);
+    displaySpeedInfo(["126"]);
+    displaySpeedInfo(["160"]);
+    displaySpeedInfo(["3500"]);
+  </script>
 
   <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M318h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
 </body>
