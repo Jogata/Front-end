@@ -9,114 +9,111 @@
     <link rel="stylesheet" href="./css/style_restaurant-v1.css">
 </head>
 <body>
+    <div class="wrapper">
+        <h1>accordion</h1>
+        <div class="accordion">
+            <div class="accordion-panel expanded">
+                <h2 id="panel1-heading">
+                    <button class="accordion-trigger" aria-controls="panel1-content" aria-expanded="true">
+                        <span id="panel1-title">boating</span>
+                        <i class="fa fa-ship accordion-icon" aria-hidden="true"></i>
+                    </button>
+                </h2>
+                <div class="accordion-content" id="panel1-content" aria-labelledby="panel1-heading" aria-hidden="false" role="region">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur accusantium, ratione aut omnis culpa doloribus laudantium impedit eaque perferendis, est voluptate laboriosam non molestias fugit commodi delectus suscipit nostrum veniam.</p>
+                    <img src="../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg" alt="Civita di Bagnoregio, Italy" class="accordion-image">
+                </div>
+            </div>
+            <div class="accordion-panel">
+                <h2 id="panel1-heading">
+                    <button class="accordion-trigger" aria-controls="panel1-content" aria-expanded="true">
+                        <span id="panel1-title">boating</span>
+                        <i class="fa fa-ship accordion-icon" aria-hidden="true"></i>
+                    </button>
+                </h2>
+                <div class="accordion-content" id="panel1-content" aria-labelledby="panel1-heading" aria-hidden="false" role="region">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur accusantium, ratione aut omnis culpa doloribus laudantium impedit eaque perferendis, est voluptate laboriosam non molestias fugit commodi delectus suscipit nostrum veniam.</p>
+                    <img src="../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg" alt="Civita di Bagnoregio, Italy" class="accordion-image">
+                </div>
+            </div>
+            <div class="accordion-panel">
+                <h2 id="panel1-heading">
+                    <button class="accordion-trigger" aria-controls="panel1-content" aria-expanded="true">
+                        <span id="panel1-title">lighthouses</span>
+                        <i class="fa fa-ship accordion-icon" aria-hidden="true"></i>
+                    </button>
+                </h2>
+                <div class="accordion-content" id="panel1-content" aria-labelledby="panel1-heading" aria-hidden="false" role="region">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur accusantium, ratione aut omnis culpa doloribus laudantium impedit eaque perferendis, est voluptate laboriosam non molestias fugit commodi delectus suscipit nostrum veniam.</p>
+                    <img src="../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg" alt="Civita di Bagnoregio, Italy" class="accordion-image">
+                </div>
+            </div>
+            <div class="accordion-panel">
+                <h2 id="panel1-heading">
+                    <button class="accordion-trigger" aria-controls="panel1-content" aria-expanded="true">
+                        <span id="panel1-title">boating</span>
+                        <i class="fa fa-ship accordion-icon" aria-hidden="true"></i>
+                    </button>
+                </h2>
+                <div class="accordion-content" id="panel1-content" aria-labelledby="panel1-heading" aria-hidden="false" role="region">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur accusantium, ratione aut omnis culpa doloribus laudantium impedit eaque perferendis, est voluptate laboriosam non molestias fugit commodi delectus suscipit nostrum veniam.</p>
+                    <img src="../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg" alt="Civita di Bagnoregio, Italy" class="accordion-image">
+                </div>
+            </div>
+            <div class="accordion-panel">
+                <h2 id="panel1-heading">
+                    <button class="accordion-trigger" aria-controls="panel1-content" aria-expanded="true">
+                        <span id="panel1-title">boating</span>
+                        <i class="fa fa-ship accordion-icon" aria-hidden="true"></i>
+                    </button>
+                </h2>
+                <div class="accordion-content" id="panel1-content" aria-labelledby="panel1-heading" aria-hidden="false" role="region">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur accusantium, ratione aut omnis culpa doloribus laudantium impedit eaque perferendis, est voluptate laboriosam non molestias fugit commodi delectus suscipit nostrum veniam.</p>
+                    <img src="../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg" alt="Civita di Bagnoregio, Italy" class="accordion-image">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // 05. Godzilla vs. Kong
+        const accordion = document.querySelector(".accordion");
 
-        // ⦁	Декорът за филма е на стойност 10% от бюджета. 
-        // ⦁	При повече от 150 статиста,  има отстъпка за облеклото на стойност 10%.
+        accordion.addEventListener("click", (e) => {
+            const activePanel = e.target.closest(".accordion-panel");
+            if (!activePanel) return;
+            toggleAccordion(activePanel);
+        })
 
-        // ⦁	Бюджет за филма – реално число в интервала [1.00 … 1000000.00]
-        // ⦁	Брой на статистите – цяло число в интервала [1 … 500]
-        // ⦁	Цена за облекло на един статист – реално число в интервала [1.00 … 1000.00]
+        function toggleAccordion(panelToActivate) {
+            const buttons = panelToActivate.parentElement.querySelectorAll("button");
+            const contents = panelToActivate.parentElement.querySelectorAll(".accordion-content");
 
-        function calcBudget(input) {
-            const budget = Number(input[0]);
-            const actors = Number(input[1]);
-            const priceClothingPerActor = Number(input[2]);
+            buttons.forEach(button => {
+                button.setAttribute("aria-expanded", false);
+            });
 
-            const decor = budget * 0.1;
-            let clothesExpenses = actors * priceClothingPerActor;
+            contents.forEach(content => {
+                content.setAttribute("aria-hidden", true);
+            });
 
-            if (actors > 150) {
-                clothesExpenses = clothesExpenses * 0.9;
-            }
-
-            const totalExpenses = decor + clothesExpenses;
-
-            if (totalExpenses > budget) {
-                const moneyNeeded = totalExpenses - budget;
-                console.log("Not enough money!");
-                console.log(`Wingard needs ${moneyNeeded.toFixed(2)} leva more.`);
-            } else {
-                const moneyRemaining = budget - totalExpenses;
-                console.log("Action!");
-                console.log(`Wingard starts filming with ${moneyRemaining.toFixed(2)} leva left.`);
-            }
+            document.querySelector(".expanded").classList.remove("expanded");
+            panelToActivate.classList.add("expanded");
+            panelToActivate.querySelector("button").setAttribute("aria-expanded", true);
+            panelToActivate.querySelector(".accordion-content").setAttribute("aria-hidden", false);
         }
+    </script>
 
-        calcBudget(["20000", "120", "55.5"]);
-        calcBudget(["15437.62", "186", "57.99"]);
-        calcBudget(["9587.88", "222", "55.68"]);
+    <script>
+        function getDomainNameFromURL(url) {
+  const urlObj = new URL(url);
+  return urlObj.hostname;
+}
 
-        // 06. World Swimming Record
+// don't touch below this line
 
-        // ⦁	Рекордът в секунди – реално число в интервала [0.00 … 100000.00]
-        // ⦁	Разстоянието в метри – реално число в интервала [0.00 … 100000.00]
-        // ⦁	Времето в секунди, за което плува разстояние от 1 м. - реално число в интервала [0.00 … 1000.00]
-
-        function calcSwimmingTime(input) {
-            const recordTime = Number(input[0]);
-            const distance = Number(input[1]);
-            const timePerMeter = Number(input[2]);
-
-            let timeAchieved = distance * timePerMeter;
-            const delays = Math.floor(distance / 15);
-            const delayTime = delays * 12.5;
-            timeAchieved += delayTime;
-
-            if (timeAchieved < recordTime) {
-                console.log(`Yes, he succeeded! The new world record is ${timeAchieved.toFixed(2)} seconds.`);
-            } else {
-                const secondsNeeded = timeAchieved - recordTime;
-                console.log(`No, he failed! He was ${secondsNeeded.toFixed(2)} seconds slower.`);
-            }
-        }
-
-        calcSwimmingTime(["10464", "1500", "20"]);
-        calcSwimmingTime(["55555.67", "3017", "5.03"]);
-
-        // 07. Shopping
-
-        // ⦁	Видеокарта – 250 лв./бр.
-        // ⦁	Процесор – 35% от цената на закупените видеокарти/бр.
-        // ⦁	Рам памет – 10% от цената на закупените видеокарти/бр.
-
-        // ⦁	Бюджетът на Петър - реално число в интервала [0.0…100000.0]
-        // ⦁	Броят видеокарти - цяло число в интервала [0…100]
-        // ⦁	Броят процесори - цяло число в интервала [0…100]
-        // ⦁	Броят рам памет - цяло число в интервала [0…100]
-
-        function calcPCExpenses(input) {
-            const budget = Number(input[0]);
-            const cards = Number(input[1]);
-            const intels = Number(input[2]);
-            const rams = Number(input[3]);
-
-            const priceCard = 250;
-            const priceIntel = (cards * priceCard) * 0.35;
-            const priceRam = (cards * priceCard) * 0.1;
-
-            const cardsSum = cards * priceCard;
-            const intelsSum = intels * priceIntel;
-            const ramsSum = rams * priceRam;
-
-            let totalSum = cardsSum + intelsSum + ramsSum;
-
-            if (cards > intels) {
-                totalSum = totalSum * 0.85;
-            }
-
-            if (budget >= totalSum) {
-                const remainingMoney = budget - totalSum;
-                console.log(`You have ${remainingMoney.toFixed(2)} leva left!`);
-            } else {
-                const moneyNeeded = totalSum - budget;
-                console.log(`Not enough money! You need ${moneyNeeded.toFixed(2)} leva more!`);
-            }
-        }
-
-        calcPCExpenses(["900", "2", "1", "3"]);
-        calcPCExpenses(["920.45", "3", "1", "1"]);
+const bootdevURL = 'https://boot.dev/learn/learn-python';
+const domainName = getDomainNameFromURL(bootdevURL);
+console.log(`The domain name for ${bootdevURL} is ${domainName}`);
     </script>
 </body>
 </html>
