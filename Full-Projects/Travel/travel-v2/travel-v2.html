@@ -35,104 +35,6 @@
             border: 1px solid;
             border-radius: 1em;
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Georgia, 'Times New Roman', Times, serif;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 70px;
-            background-color: #3e8da8;
-            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
-        }
-
-        .navbar {
-            max-width: 1250px;
-            height: 100%;
-            margin: auto;
-            padding: 0 50px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo a {
-            color: #fff;
-            font-size: 30px;
-            font-weight: 600;
-            text-transform: capitalize;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            height: 100%;
-            line-height: 70px;
-        }
-
-        .links {
-            display: flex;
-        }
-        .links li {
-            list-style: none;
-            position: relative;
-            padding: 0 14px;
-            display: flex;
-            align-items: center;
-        }
-        .links li a {
-            height: 100%;
-            color: #fff;
-            text-transform: uppercase;
-            text-decoration: none;
-            white-space: nowrap;
-        }
-
-        .arrow {
-            width: 22px;
-            height: 100%;
-            color: #fff;
-            text-align: center;
-            line-height: 70px;
-            transition: all 0.4s ease;
-        }
-        
-        .links li:hover .fa-chevron-down {
-            transform: rotate(180deg);
-        }
-
-        .sub-menu {
-            display: none;
-            position: absolute;
-            top: 70px;
-            left: 0;
-            line-height: 40px;
-            border-radius: 0 0 4px 4px;
-            background-color: #3e8da8;
-            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
-        }
-        .sub-menu li {
-            padding: 0 22px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .sub-menu li a {
-            font-size: 15px;
-            font-weight: 500;
-            text-transform: capitalize;
-        }
-
-        .links li:hover .sub-menu {
-            display: block;
-        }
     </style>
 </head>
 <body>
@@ -343,10 +245,15 @@
     <section id="delete3">
         <nav>
             <div class="navbar">
+                <i class="fa fa-bars"></i>
                 <div class="logo">
                     <a href="#logo">logo</a>
                 </div>
                 <div class="nav-links">
+                    <div class="sidebar-logo">
+                        <span class="logo-name">logo</span>
+                        <i class="fa fa-times"></i>
+                    </div>
                     <ul class="links">
                         <li><a href="#mome">home</a></li>
                         <li>
@@ -359,6 +266,12 @@
                                 <li>
                                     <a href="#">more</a>
                                     <i class="fa fa-chevron-right arrow"></i>
+                                    <ul class="sub-menu">
+                                        <li><a href="#">web design</a></li>
+                                        <li><a href="#">login form</a></li>
+                                        <li><a href="#">card design</a></li>
+                                        <li><a href="#">more</a></li>
+                                    </ul>        
                                 </li>
                             </ul>
                         </li>
@@ -376,13 +289,90 @@
                         <li><a href="#">contact us</a></li>
                     </ul>
                 </div>
+                <div class="search-box">
+                    <i class="fa fa-search"></i>
+                    <div class="input-box">
+                        <input type="text" name="" id="" placeholder="Search...">
+                    </div>
+                </div>
             </div>
         </nav>
+
+        <script>
+            const navbar = document.querySelector(".navbar");
+            const searchBox = document.querySelector(".fa-search");
+
+            searchBox.addEventListener("click", () => {
+                navbar.classList.toggle("show-input");
+                searchBox.classList.toggle("fa-times");
+            })
+
+            const menuOpen = document.querySelector(".fa-bars");
+            const menuClose = document.querySelector(".sidebar-logo .fa-times");
+            const navLinks = document.querySelector(".nav-links");
+
+            menuOpen.addEventListener("click", () => {
+                navLinks.style.left = "0";
+            })
+
+            menuClose.addEventListener("click", () => {
+                navLinks.style.left = "-100%";
+            })
+
+            const downs = document.querySelectorAll(".fa-chevron-down");
+
+            downs.forEach(button => {
+                button.addEventListener("click", () => {
+                    button.parentElement.classList.toggle("active");
+                })
+            })
+
+            const rights = document.querySelectorAll(".fa-chevron-right");
+
+            rights.forEach(button => {
+                button.addEventListener("click", () => {
+                    button.parentElement.classList.toggle("active");
+                })
+            })
+        </script>
     </section>
-    <section id="delete4"></section>
+    <section id="delete4">
+        <script>
+            // 07. Area of Figures
+
+        function calcArea(input) {
+          const type = input[0];
+    
+          if (type === "square") {
+            const side = Number(input[1]);
+            const area = side * side;
+            console.log(area.toFixed(3));
+          } else if (type === "rectangle") {
+            const l = Number(input[1]);
+            const w = Number(input[2]);
+            const area = l * w;
+            console.log(area.toFixed(3));
+          } else if (type === "circle") {
+            const r = Number(input[1]);
+            const area = Math.PI * r * r;
+            console.log(area.toFixed(3));
+          } else if (type === "triangle") {
+            const side = Number(input[1]);
+            const h = Number(input[2]);
+            const area = (side * h) / 2;
+            console.log(area.toFixed(3));
+          }
+        }
+    
+        calcArea(["square", "5"]);
+        calcArea(["rectangle", "7", "2.5"]);
+        calcArea(["circle", "6"]);
+        calcArea(["triangle", "4.5", "20"]);
+        </script>
+    </section>
 
     <script src="./js/script_travel_v2.js">
-        console.log("326>252");
+        console.log("388>252");
     </script>
 </body>
 </html>
