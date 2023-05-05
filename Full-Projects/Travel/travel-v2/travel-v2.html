@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel v.2</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="./css/styles-travel-v2.css"> -->
+    <link rel="stylesheet" href="./css/styles-travel-v2.css">
     <style>
         #speech-synthesis {
             min-height: 100vh;
@@ -242,137 +242,114 @@
         </script>
     </section>
 
-    <section id="delete3">
-        <nav>
-            <div class="navbar">
-                <i class="fa fa-bars"></i>
-                <div class="logo">
-                    <a href="#logo">logo</a>
-                </div>
-                <div class="nav-links">
-                    <div class="sidebar-logo">
-                        <span class="logo-name">logo</span>
-                        <i class="fa fa-times"></i>
-                    </div>
-                    <ul class="links">
-                        <li><a href="#mome">home</a></li>
-                        <li>
-                            <a href="#">html & css</a>
-                            <i class="fa fa-chevron-down arrow"></i>
-                            <ul class="sub-menu">
-                                <li><a href="#">web design</a></li>
-                                <li><a href="#">login form</a></li>
-                                <li><a href="#">card design</a></li>
-                                <li>
-                                    <a href="#">more</a>
-                                    <i class="fa fa-chevron-right arrow"></i>
-                                    <ul class="sub-menu">
-                                        <li><a href="#">web design</a></li>
-                                        <li><a href="#">login form</a></li>
-                                        <li><a href="#">card design</a></li>
-                                        <li><a href="#">more</a></li>
-                                    </ul>        
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">javascript</a>
-                            <i class="fa fa-chevron-down arrow"></i>
-                            <ul class="sub-menu">
-                                <li><a href="#">dynamic calculator</a></li>
-                                <li><a href="#">form validation</a></li>
-                                <li><a href="#">calendar</a></li>
-                                <li><a href="#">digital clock</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">about us</a></li>
-                        <li><a href="#">contact us</a></li>
-                    </ul>
-                </div>
-                <div class="search-box">
-                    <i class="fa fa-search"></i>
-                    <div class="input-box">
-                        <input type="text" name="" id="" placeholder="Search...">
-                    </div>
-                </div>
+    <section id="w-app">
+        <div class="card">
+            <div class="search">
+                <input type="search" name="" id="search-bar" placeholder="Search">
+                <button>
+                    <!-- <i class="fa fa-search"></i> -->
+                    <svg aria-hidden="true" class="pre-nav-design-icon" focusable="false" viewBox="0 0 24 24" role="img" width="24px" height="24px" fill="none">
+                        <path stroke="currentColor" stroke-width="1.5" d="M13.962 16.296a6.716 6.716 0 01-3.462.954 6.728 6.728 0 01-4.773-1.977A6.728 6.728 0 013.75 10.5c0-1.864.755-3.551 1.977-4.773A6.728 6.728 0 0110.5 3.75c1.864 0 3.551.755 4.773 1.977A6.728 6.728 0 0117.25 10.5a6.726 6.726 0 01-.921 3.407c-.517.882-.434 1.988.289 2.711l3.853 3.853"></path>
+                    </svg>
+                </button>
             </div>
-        </nav>
+            <div class="weather loading">
+                <h2 class="city">weather in <span>London</span></h2>
+                <div class="temp"><span>51</span>&#8451;</div>
+                <div class="flex">
+                    <img src="" class="icon">
+                    <div class="description">cloudy</div>
+                </div>
+                <div class="humidity">humidity: <span>60</span>%</div>
+                <div class="wind">wind speed: <span>6.2</span> km/h</div>
+            </div>
+        </div>
+        <footer>https://openweathermap.org/</footer>
 
         <script>
-            const navbar = document.querySelector(".navbar");
-            const searchBox = document.querySelector(".fa-search");
+            let weather = {
+                APIkey: "425b08a97eb74e54a1c4ba43be699f30",
+                fetchWeather: function (city = "London") {
+                    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${this.APIkey}`;
+                    fetch(url)
+                    .then(req => req.json())
+                    // .then(data => console.log(data));
+                    .then(data => this.displayWeatherInfo(data));
+                },
+                displayWeatherInfo: function (data) {
+                    // console.log(data);
+                    const { name } = data;
+                    const { icon, description } = data.weather[0];
+                    const { temp, humidity } = data.main;
+                    const { speed } = data.wind;
+                    document.querySelector(".city span").textContent = name;
+                    document.querySelector(".icon").src = `https://openweathermap.org/img/wn/${icon}.png`;
+                    document.querySelector(".description").textContent = description;
+                    document.querySelector(".temp span").textContent = temp;
+                    document.querySelector(".humidity span").textContent = humidity;
+                    document.querySelector(".wind span").textContent = speed;
+                    document.querySelector(".weather").classList.remove("loading");
+                    document.body.style.backgroundImage = `url("https://source.unsplash.com/1600x900/?${name}")`;
+                }
+            }
 
-            searchBox.addEventListener("click", () => {
-                navbar.classList.toggle("show-input");
-                searchBox.classList.toggle("fa-times");
+            weather.fetchWeather();
+
+            document.querySelector(".search button").addEventListener("click", () => {
+                const searchBar = document.querySelector("#search-bar");
+                const city = searchBar.value;
+                searchBar.value = "";
+                weather.fetchWeather(city);
             })
 
-            const menuOpen = document.querySelector(".fa-bars");
-            const menuClose = document.querySelector(".sidebar-logo .fa-times");
-            const navLinks = document.querySelector(".nav-links");
-
-            menuOpen.addEventListener("click", () => {
-                navLinks.style.left = "0";
-            })
-
-            menuClose.addEventListener("click", () => {
-                navLinks.style.left = "-100%";
-            })
-
-            const downs = document.querySelectorAll(".fa-chevron-down");
-
-            downs.forEach(button => {
-                button.addEventListener("click", () => {
-                    button.parentElement.classList.toggle("active");
-                })
-            })
-
-            const rights = document.querySelectorAll(".fa-chevron-right");
-
-            rights.forEach(button => {
-                button.addEventListener("click", () => {
-                    button.parentElement.classList.toggle("active");
-                })
+            document.querySelector("#search-bar").addEventListener("keyup", function (e) {
+                if (e.key == "Enter") {
+                    // const searchBar = document.querySelector("#search-bar");
+                    const city = this.value;
+                    this.value = "";
+                    weather.fetchWeather(city);
+                }
             })
         </script>
     </section>
-    <section id="delete4">
-        <script>
-            // 07. Area of Figures
-
-        function calcArea(input) {
-          const type = input[0];
-    
-          if (type === "square") {
-            const side = Number(input[1]);
-            const area = side * side;
-            console.log(area.toFixed(3));
-          } else if (type === "rectangle") {
-            const l = Number(input[1]);
-            const w = Number(input[2]);
-            const area = l * w;
-            console.log(area.toFixed(3));
-          } else if (type === "circle") {
-            const r = Number(input[1]);
-            const area = Math.PI * r * r;
-            console.log(area.toFixed(3));
-          } else if (type === "triangle") {
-            const side = Number(input[1]);
-            const h = Number(input[2]);
-            const area = (side * h) / 2;
-            console.log(area.toFixed(3));
-          }
-        }
-    
-        calcArea(["square", "5"]);
-        calcArea(["rectangle", "7", "2.5"]);
-        calcArea(["circle", "6"]);
-        calcArea(["triangle", "4.5", "20"]);
-        </script>
-    </section>
-
     <script src="./js/script_travel_v2.js">
-        console.log("388>252");
+        console.log("378>252");
+    </script>
+    <script>
+        const url = 'https://api.boot.dev/v1/courses_rest_api/learn-http/users';
+
+// don't touch below this line
+const apiKey = generateKey();
+async function start() {
+    const response = await fetch(url, {
+  method: 'GET',
+  mode: 'cors',
+  headers: {
+    'X-API-Key': apiKey,
+    'Content-Type': 'application/json'
+  }
+})
+const responseData = await response.json();
+logLocations(responseData);
+}
+
+start();
+
+
+function generateKey() {
+  const characters = 'ABCDEF0123456789';
+  let result = '';
+  for (let i = 0; i < 16; i++){
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return result;
+}
+
+function logLocations(locations) {
+  for (const location of locations) {
+    console.log(`Location: ${location.name}, Recommended Character Level: ${location.recommendedLevel}`);
+  } 
+}
     </script>
 </body>
 </html>
