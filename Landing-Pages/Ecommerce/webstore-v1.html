@@ -6,130 +6,125 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Webstore v.1</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="./css/styles_webstore-v1.css"> -->
-  <style>
-    body {
-      min-height: 200vh;
-    }
-
-    .overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 2;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      padding: 0.5rem;
-      top: 50%;
-      left: 50%;
-      translate: -50%, -50%;
-      border-radius: 0.25rem;
-      background-color: white;
-      z-index: 3;
-    }
-
-    .overlay.open, 
-    .modal.open {
-      display: block;
-    }
-
-    dialog {
-      padding: 1rem;
-      border-radius: 0.5rem;
-      background-color: blueviolet;
-    }
-    dialog::backdrop {
-      background-color: hsl(200, 100%, 50%, 0.5);
-      /* pointer-events: none; */
-    }
-
-    h2 {
-      padding-bottom: 1em;
-      text-transform: capitalize;
-    }
-
-    button {
-      text-transform: capitalize;
-      cursor: pointer;
-    }
-  </style>
+  <link rel="stylesheet" href="./css/styles_webstore-v1.css">
 </head>
 <body>
-  <button id="open">open</button>
+  <h1 style="position: absolute; z-index: 1; left: 10%; bottom: 10%; font-size: 3rem;">Object.entries(person) - convert object to array</h1>
 
-  <!-- <div class="overlay"></div> -->
-
-  <dialog class="new-modal">
-    <h2>this is a modal</h2>
-    <form>
-      <input type="text" name="" id="">
-      <button type="submit" formmethod="dialog">cancel</button>
-      <button type="submit">submit</button>
-    </form>
-    <button id="close">close</button>
-  </dialog>
-
-  <script>
-    const openbtn = document.querySelector("#open");
-    const closebtn = document.querySelector("#close");
-    const modal = document.querySelector(".new-modal");
-    const overlay = document.querySelector(".overlay");
-
-    openbtn.addEventListener("click", () => {
-      modal.showModal();
-      // modal.classList.add("open");
-      // overlay.classList.add("open");
-      // modal.addEventListener("click", () => {
-      //   console.log("modal was clicked");
-      // })
-    })
-
-    closebtn.addEventListener("click", () => {
-      modal.close();
-      // modal.classList.remove("open");
-      // overlay.classList.remove("open");
-    })
-
-    modal.addEventListener("click", e => {
-  const dialogDimensions = modal.getBoundingClientRect()
-  console.log(dialogDimensions);
-  if (
-    e.clientX < dialogDimensions.left ||
-    e.clientX > dialogDimensions.right ||
-    e.clientY < dialogDimensions.top ||
-    e.clientY > dialogDimensions.bottom
-  ) {
-    modal.close()
-  }
-})
-  </script>
-  <!-- <h1 style="position: absolute; z-index: 1; left: 10%; bottom: 10%; font-size: 3rem;">Object.entries(person) - convert object to array</h1> -->
+  <div class="card">
+    <div class="search">
+      <input type="text" name="" id="" placeholder="enter city name" spellcheck="false">
+      <button>
+        <img src="./test/weather-app-img/images/search.png">
+      </button>
+    </div>
+    <div class="error">
+      <p>Invalid city name</p>
+    </div>
+    <div class="weather">
+      <img src="./test/weather-app-img/images/rain.png" class="weather-icon">
+      <h1 class="temp">22&#176;c</h1>
+      <h2 class="city">Bengaluru</h2>
+      <div class="details">
+        <div class="col">
+          <img src="./test/weather-app-img/images/humidity.png">
+          <div>
+            <p class="humidity">50%</p>
+            <p>humidity</p>
+          </div>
+        </div>
+        <div class="col">
+          <img src="./test/weather-app-img/images/wind.png">
+          <div>
+            <p class="wind">15 km/h</p>
+            <p>wind speed</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script>
-    // 02. Sleepy Tom Cat
+    
+    async function checkWeather(city) {
+      const APIkey = "425b08a97eb74e54a1c4ba43be699f30";
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIkey}`;
+      const response = await fetch(url);
 
-    function calcSleepTime(input) {
-      const days = Number(input[0]);
-
-      const sleepTime = days * 127 + (365 - days) * 63;
-      const hours = Math.floor(Math.abs(30000 - sleepTime) / 60);
-      const minutes = Math.abs((30000 - sleepTime) % 60);
-
-      if (sleepTime < 30000) {
-        console.log(`Tom sleeps well`);
-        console.log(`${hours} hours and ${minutes} minutes less for play`);
+      if (response.status == 404) {
+        document.querySelector(".error").style.display = "block";
+        document.querySelector(".weather").style.display = "none";
       } else {
-        console.log(`Tom will run away`);
-        console.log(`${hours} hours and ${minutes} minutes more for play`);
+        const data = await response.json();
+
+// console.log(data);
+document.querySelector(".city").textContent = data.name;
+document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "&#176;c";
+document.querySelector(".humidity").textContent = data.main.humidity + "%";
+document.querySelector(".wind").textContent = data.wind.speed + " km/h";
+
+const weatherCondition = data.weather[0].main;
+const weatherImage = document.querySelector(".weather-icon");
+
+if (weatherCondition == "Clouds") {
+  weatherImage.src = `./test/weather-app-img/images/clouds.png`;
+} else if (weatherCondition == "Clear") {
+  weatherImage.src = `./test/weather-app-img/images/clear.png`;
+} else if (weatherCondition == "Rain") {
+  weatherImage.src = `./test/weather-app-img/images/rain.png`;
+} else if (weatherCondition == "Drizzle") {
+  weatherImage.src = `./test/weather-app-img/images/drizzle.png`;
+} else if (weatherCondition == "Mist") {
+  weatherImage.src = `./test/weather-app-img/images/mist.png`;
+}
+
+document.querySelector(".weather").style.display = "block";
+document.querySelector(".error").style.display = "none";
       }
     }
 
-    calcSleepTime(["20"]);
-    calcSleepTime(["113"]);
+    const searchBox = document.querySelector(".search input");
+    const searchBtn = document.querySelector(".search button");
+
+    searchBtn.addEventListener("click", () => {
+      checkWeather(searchBox.value);
+    })
+
+    // checkWeather("Bengaluru");
+  </script>
+
+  <script>
+    async function fetchIPAddress(domain) {
+  const resp = await fetch(`https://cloudflare-dns.com/dns-query?name=${domain}&type=A`, {
+    headers: {
+      'accept': 'application/dns-json'
+    }
+  });
+  const respObject = await resp.json();
+
+  for (const record of respObject.Answer) {
+    return record.data;
+  }
+
+  return null;
+}
+
+// don't touch below this line
+
+const domain = 'api.boot.dev';
+
+async function start() {
+  const ipAddress = await fetchIPAddress(domain);
+  
+  if (!ipAddress) {
+    console.log('something went wrong in fetchIPAddress');
+  } else {
+    console.log(`found IP address for domain ${domain}: ${ipAddress}`);
+  }
+}
+
+start();
+
   </script>
   <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M318h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
 </body>
