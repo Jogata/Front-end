@@ -6,114 +6,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant v.1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/style_restaurant-v1.css">
+    <!-- <link rel="stylesheet" href="./css/style_restaurant-v1.css"> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --pink: #c850c0;
+            --blue: #4158d0;
+            --yellow: #ffcc70;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Georgia, serif;
+            background-color: #fafafa;
+            background-image: linear-gradient(45deg, var(--blue), var(--pink), var(--yellow));
+        }
+
+        a {
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .menu {
+            position: relative;
+            display: flex;
+        }
+        .menu a {
+            width: 100px;
+            color: #fafafa;
+            font-size: 20px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: all 0.4s ease;
+        }
+        .menu a:hover {
+            opacity: 0.8;
+        }
+
+        a i.fa {
+            margin-bottom: 5px;
+            font-size: 30px;
+            color: transparent;
+            -webkit-text-stroke: 1px #fafafa;
+        }
+
+        .indicator {
+            position: absolute;
+            bottom: -5px;
+            width: 100px;
+            height: 2px;
+            background-color: #fafafa;
+            transform: translateX(0);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .menu a:hover ~ .indicator {
+            opacity: 0.8;
+        }
+        .menu a:nth-child(2):hover ~ .indicator {
+            transform: translateX(100px);
+        }
+        .menu a:nth-child(3):hover ~ .indicator {
+            transform: translateX(200px);
+        }
+        .menu a:nth-child(4):hover ~ .indicator {
+            transform: translateX(300px);
+        }
+    </style>
 </head>
 <body>
-    <div class="wrapper">
-        <h1>accordion</h1>
-        <div class="accordion">
-            <div class="accordion-panel expanded">
-                <h2 id="panel1-heading">
-                    <button class="accordion-trigger" aria-controls="panel1-content" aria-expanded="true">
-                        <span id="panel1-title">boating</span>
-                        <i class="fa fa-ship accordion-icon" aria-hidden="true"></i>
-                    </button>
-                </h2>
-                <div class="accordion-content" id="panel1-content" aria-labelledby="panel1-heading" aria-hidden="false" role="region">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur accusantium, ratione aut omnis culpa doloribus laudantium impedit eaque perferendis, est voluptate laboriosam non molestias fugit commodi delectus suscipit nostrum veniam.</p>
-                    <img src="../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg" alt="Civita di Bagnoregio, Italy" class="accordion-image">
-                </div>
-            </div>
-            <div class="accordion-panel">
-                <h2 id="panel1-heading">
-                    <button class="accordion-trigger" aria-controls="panel1-content" aria-expanded="true">
-                        <span id="panel1-title">boating</span>
-                        <i class="fa fa-ship accordion-icon" aria-hidden="true"></i>
-                    </button>
-                </h2>
-                <div class="accordion-content" id="panel1-content" aria-labelledby="panel1-heading" aria-hidden="false" role="region">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur accusantium, ratione aut omnis culpa doloribus laudantium impedit eaque perferendis, est voluptate laboriosam non molestias fugit commodi delectus suscipit nostrum veniam.</p>
-                    <img src="../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg" alt="Civita di Bagnoregio, Italy" class="accordion-image">
-                </div>
-            </div>
-            <div class="accordion-panel">
-                <h2 id="panel1-heading">
-                    <button class="accordion-trigger" aria-controls="panel1-content" aria-expanded="true">
-                        <span id="panel1-title">lighthouses</span>
-                        <i class="fa fa-ship accordion-icon" aria-hidden="true"></i>
-                    </button>
-                </h2>
-                <div class="accordion-content" id="panel1-content" aria-labelledby="panel1-heading" aria-hidden="false" role="region">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur accusantium, ratione aut omnis culpa doloribus laudantium impedit eaque perferendis, est voluptate laboriosam non molestias fugit commodi delectus suscipit nostrum veniam.</p>
-                    <img src="../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg" alt="Civita di Bagnoregio, Italy" class="accordion-image">
-                </div>
-            </div>
-            <div class="accordion-panel">
-                <h2 id="panel1-heading">
-                    <button class="accordion-trigger" aria-controls="panel1-content" aria-expanded="true">
-                        <span id="panel1-title">boating</span>
-                        <i class="fa fa-ship accordion-icon" aria-hidden="true"></i>
-                    </button>
-                </h2>
-                <div class="accordion-content" id="panel1-content" aria-labelledby="panel1-heading" aria-hidden="false" role="region">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur accusantium, ratione aut omnis culpa doloribus laudantium impedit eaque perferendis, est voluptate laboriosam non molestias fugit commodi delectus suscipit nostrum veniam.</p>
-                    <img src="../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg" alt="Civita di Bagnoregio, Italy" class="accordion-image">
-                </div>
-            </div>
-            <div class="accordion-panel">
-                <h2 id="panel1-heading">
-                    <button class="accordion-trigger" aria-controls="panel1-content" aria-expanded="true">
-                        <span id="panel1-title">boating</span>
-                        <i class="fa fa-ship accordion-icon" aria-hidden="true"></i>
-                    </button>
-                </h2>
-                <div class="accordion-content" id="panel1-content" aria-labelledby="panel1-heading" aria-hidden="false" role="region">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur accusantium, ratione aut omnis culpa doloribus laudantium impedit eaque perferendis, est voluptate laboriosam non molestias fugit commodi delectus suscipit nostrum veniam.</p>
-                    <img src="../../Sliders/img/civita-di-bagnoregio-town_2500x1623.jpg" alt="Civita di Bagnoregio, Italy" class="accordion-image">
-                </div>
-            </div>
-        </div>
+    <div class="menu">
+        <a href="#">
+            <i class="fa fa-home"></i>
+            home</a>
+        <a href="#">
+            <i class="fa fa-info"></i>
+            about</a>
+        <a href="#">
+            <i class="fa fa-users"></i>
+            users</a>
+        <a href="#">
+            <i class="fa fa-comments-o"></i>
+            chat</a>
+        <span class="indicator"></span>
     </div>
 
     <script>
-        const accordion = document.querySelector(".accordion");
-
-        accordion.addEventListener("click", (e) => {
-            const activePanel = e.target.closest(".accordion-panel");
-            if (!activePanel) return;
-            toggleAccordion(activePanel);
-        })
-
-        function toggleAccordion(panelToActivate) {
-            const buttons = panelToActivate.parentElement.querySelectorAll("button");
-            const contents = panelToActivate.parentElement.querySelectorAll(".accordion-content");
-
-            buttons.forEach(button => {
-                button.setAttribute("aria-expanded", false);
-            });
-
-            contents.forEach(content => {
-                content.setAttribute("aria-hidden", true);
-            });
-
-            document.querySelector(".expanded").classList.remove("expanded");
-            panelToActivate.classList.add("expanded");
-            panelToActivate.querySelector("button").setAttribute("aria-expanded", true);
-            panelToActivate.querySelector(".accordion-content").setAttribute("aria-hidden", false);
-        }
-    </script>
-
-    <script>
-        function getDomainNameFromURL(url) {
-  const urlObj = new URL(url);
-  return urlObj.hostname;
+        try {
+  printCharacterStats(4)
+  printCharacterStats('ten')
+  printCharacterStats(10)
+} catch (err) {
+  console.log(err)
 }
 
 // don't touch below this line
 
-const bootdevURL = 'https://boot.dev/learn/learn-python';
-const domainName = getDomainNameFromURL(bootdevURL);
-console.log(`The domain name for ${bootdevURL} is ${domainName}`);
+function printCharacterStats(level) {
+  if (isNaN(level)) {
+    throw 'Parameter is not a number!'
+  }
+  console.log(`Your character is level ${level}!`)
+}
     </script>
 </body>
 </html>
