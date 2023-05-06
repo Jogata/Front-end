@@ -11,121 +11,119 @@
 <body>
   <h1 style="position: absolute; z-index: 1; left: 10%; bottom: 10%; font-size: 3rem;">Object.entries(person) - convert object to array</h1>
 
-  <div class="card">
-    <div class="search">
-      <input type="text" name="" id="" placeholder="enter city name" spellcheck="false">
-      <button>
-        <img src="./test/weather-app-img/images/search.png">
-      </button>
-    </div>
-    <div class="error">
-      <p>Invalid city name</p>
-    </div>
-    <div class="weather">
-      <img src="./test/weather-app-img/images/rain.png" class="weather-icon">
-      <h1 class="temp">22&#176;c</h1>
-      <h2 class="city">Bengaluru</h2>
-      <div class="details">
-        <div class="col">
-          <img src="./test/weather-app-img/images/humidity.png">
-          <div>
-            <p class="humidity">50%</p>
-            <p>humidity</p>
-          </div>
-        </div>
-        <div class="col">
-          <img src="./test/weather-app-img/images/wind.png">
-          <div>
-            <p class="wind">15 km/h</p>
-            <p>wind speed</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <script>
-    
-    async function checkWeather(city) {
-      const APIkey = "425b08a97eb74e54a1c4ba43be699f30";
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIkey}`;
-      const response = await fetch(url);
+    // 01. Pipes In Pool
 
-      if (response.status == 404) {
-        document.querySelector(".error").style.display = "block";
-        document.querySelector(".weather").style.display = "none";
+    // Първият ред съдържа числото V – Обем на басейна в литри – цяло число в интервала [1…10000]
+    // Вторият ред съдържа числото P1 – дебит на първата тръба за час – цяло число в интервала [1…5000]
+    // Третият ред съдържа числото P2 – дебит на втората тръба за час– цяло число в интервала [1…5000]
+    // Четвъртият ред съдържа числото H – часовете които работникът отсъства – реално число в интервала [1.0…24.00]
+
+    function calcPoolV(input) {
+      const v = Number(input[0]);
+      const p1 = Number(input[1]);
+      const p2 = Number(input[2]);
+      const h = Number(input[3]);
+
+      const p1V = p1 * h;
+      const p2V = p2 * h;
+      const vTotal = p1V + p2V;
+
+      if (vTotal <= v) {
+        const p = (vTotal / v) * 100;
+        const p1P = ((p1V / vTotal) * 100);
+        const p2P = ((p2V / vTotal) * 100);
+        console.log(`The pool is ${p.toFixed(2)}% full. Pipe 1: ${p1P.toFixed(2)}%. Pipe 2: ${p2P.toFixed(2)}%.`);
       } else {
-        const data = await response.json();
-
-// console.log(data);
-document.querySelector(".city").textContent = data.name;
-document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "&#176;c";
-document.querySelector(".humidity").textContent = data.main.humidity + "%";
-document.querySelector(".wind").textContent = data.wind.speed + " km/h";
-
-const weatherCondition = data.weather[0].main;
-const weatherImage = document.querySelector(".weather-icon");
-
-if (weatherCondition == "Clouds") {
-  weatherImage.src = `./test/weather-app-img/images/clouds.png`;
-} else if (weatherCondition == "Clear") {
-  weatherImage.src = `./test/weather-app-img/images/clear.png`;
-} else if (weatherCondition == "Rain") {
-  weatherImage.src = `./test/weather-app-img/images/rain.png`;
-} else if (weatherCondition == "Drizzle") {
-  weatherImage.src = `./test/weather-app-img/images/drizzle.png`;
-} else if (weatherCondition == "Mist") {
-  weatherImage.src = `./test/weather-app-img/images/mist.png`;
-}
-
-document.querySelector(".weather").style.display = "block";
-document.querySelector(".error").style.display = "none";
+        const diff = vTotal - v;
+        console.log(`For ${h} hours the pool overflows with ${diff.toFixed(2)} liters.`);
       }
     }
 
-    const searchBox = document.querySelector(".search input");
-    const searchBtn = document.querySelector(".search button");
+    calcPoolV(["1000", "100", "120", "3"]);
+    calcPoolV(["100", "100", "100", "2.5"]);
 
-    searchBtn.addEventListener("click", () => {
-      checkWeather(searchBox.value);
-    })
+    // 03. Harvest
 
-    // checkWeather("Bengaluru");
-  </script>
+    // 1ви ред: X кв.м е лозето – цяло число в интервала [10 … 5000]
+    // 2ри ред: Y грозде за един кв.м – реално число в интервала [0.00 … 10.00]
+    // 3ти ред: Z нужни литри вино – цяло число в интервала [10 … 600]
+    // 4ти ред: брой работници – цяло число в интервала [1 … 20]
 
-  <script>
-    async function fetchIPAddress(domain) {
-  const resp = await fetch(`https://cloudflare-dns.com/dns-query?name=${domain}&type=A`, {
-    headers: {
-      'accept': 'application/dns-json'
+    function calcHarvest(input) {
+      const x = Number(input[0]);
+      const y = Number(input[1]);
+      const z = Number(input[2]);
+      const n = Number(input[3]);
+
+      const harvestKG = x * y;
+      const p40 = harvestKG * 0.4;
+      const max = p40 / 2.5;
+
+      if (max < z) {
+        console.log(`It will be a tough winter! More ${Math.floor(z - max)} liters wine needed.`);
+      } else {
+        const more = Math.ceil(max - z);
+        console.log(`Good harvest this year! Total wine: ${Math.floor(max)} liters.`);
+        console.log(`${more} liters left -> ${Math.ceil(more / n)} liters per person.`);
+      }
     }
-  });
-  const respObject = await resp.json();
 
-  for (const record of respObject.Answer) {
-    return record.data;
-  }
+    calcHarvest(["650", "2", "175", "3"]);
+    calcHarvest(["1020", "1.5", "425", "4"]);
 
-  return null;
+    // 04. Transport Price
+
+    // Първият ред съдържа числото n – брой километри – цяло число в интервала [1…5000]
+    // Вторият ред съдържа дума “day” или “night” – пътуване през деня или през нощта
+
+    function calcTransportPrice(input) {
+      const km = Number(input[0]);
+      const partOfDay = input[1];
+
+      let taxi = 0.7;
+      let bus = km * 0.09;
+      let train = km * 0.06;
+
+      if (partOfDay == "day") {
+        taxi = taxi + km * 0.79;
+      } else if (partOfDay == "night") {
+        taxi = taxi + km * 0.9;
+      } else {
+        console.log(`There is no part of the day, called ${partOfDay}.`);
+      }
+
+      if (km < 20) {
+        console.log(taxi.toFixed(2));
+      } else if (km < 100) {
+        if (taxi < bus) {
+          console.log(taxi.toFixed(2));
+        } else {
+          console.log(bus.toFixed(2));
+        }
+        // console.log(Math.min(taxi, bus).toFixed(2));
+      } else {
+        console.log(Math.min(taxi, bus, train).toFixed(2));
+      }
+    }
+
+    calcTransportPrice(["5", "day"]);
+    calcTransportPrice(["7", "night"]);
+    calcTransportPrice(["25", "day"]);
+    calcTransportPrice(["180", "night"]);
+
+    function getDomainNameFromURL(url) {
+  const urlObj = new URL(url);
+  return urlObj.hostname;
 }
 
 // don't touch below this line
 
-const domain = 'api.boot.dev';
+const bootdevURL = 'https://boot.dev/learn/learn-python';
+const domainName = getDomainNameFromURL(bootdevURL);
+console.log(`The domain name for ${bootdevURL} is ${domainName}`);
+    </script>
 
-async function start() {
-  const ipAddress = await fetchIPAddress(domain);
-  
-  if (!ipAddress) {
-    console.log('something went wrong in fetchIPAddress');
-  } else {
-    console.log(`found IP address for domain ${domain}: ${ipAddress}`);
-  }
-}
-
-start();
-
-  </script>
   <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M318h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
 </body>
 </html>
