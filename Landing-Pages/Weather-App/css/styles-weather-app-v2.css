@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Babylonica&family=Fraunces:opsz@9..144&family=Herr+Von+Muellerhoff&family=Kaushan+Script&family=Playfair+Display:wght@400;700&display=swap');
+
+/* 
+font-family: 'Abril Fatface', cursive;
+font-family: 'Courgette', cursive;
+font-family: 'Dancing Script', cursive;
+font-family: 'Great Vibes', cursive;
+font-family: 'Josefin Sans', sans-serif;
+font-family: 'Limelight', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Oleo Script Swash Caps', cursive;
+font-family: 'Poppins', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Kaushan Script', cursive;
+font-family: 'Fraunces', serif;
+font-family: 'Playfair Display', serif;
+font-family: 'Babylonica', cursive;
+*/
+
+/* 1. Use a more-intuitive box-sizing model. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 2. Remove default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: whitesmoke;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+i {
+    color: whitesmoke;
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1;
+}
+
+
+
+
+
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.card {
+    width: 100%;
+    max-width: 420px;
+    margin: 1em;
+    padding: 2em;
+    color: #fff;
+    border-radius: 30px;
+    /* background-color: rgba(0, 0, 0, 0.1); */
+    box-shadow: 1px 1px 1px #000, -1px -1px 1px #aaa;
+    backdrop-filter: blur(5px);
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search button {
+    margin: 0.5em;
+    color: #fff;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    background: #7c7c7c2b;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+.search button:hover {
+    background: #7c7c7c6b;
+}
+.search button svg {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.5rem;
+}
+
+#search-bar {
+    width: calc(100% - 3rem);
+    padding: 0.5em 1em;
+    color: #fff;
+    font-size: 120%;
+    font-family: inherit;
+    outline: none;
+    border: none;
+    border-radius: 2em;
+    background: #7c7c7c2b;
+}
+
+.weather.loading {
+    position: relative;
+    visibility: hidden;
+}
+.weather.loading::after {
+    position: absolute;
+    top: 0;
+    content: "Loading...";
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+}
+
+.city {
+    margin: 1rem 0;
+}
+.city::first-letter {
+    text-transform: uppercase;
+}
+
+.temp {
+    margin: 1rem;
+    font-size: 3rem;
+}
+
+.description, 
+.humidity {
+    margin: 0.6rem 0;
+    text-transform: capitalize;
+}
+.wind::first-letter {
+    margin: 0.6rem 0;
+    text-transform: capitalize;
+}
+.humidity span, 
+.wind span {
+    font-size: 1.2em;
+}
+
+footer {
+    color: #7c7c7c6b;
+    font-size: 3rem;
+    text-align: center;
+}
