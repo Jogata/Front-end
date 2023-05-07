@@ -11,119 +11,111 @@
 <body>
   <h1 style="position: absolute; z-index: 1; left: 10%; bottom: 10%; font-size: 3rem;">Object.entries(person) - convert object to array</h1>
 
-  <script>
-    // 01. Pipes In Pool
-
-    // Първият ред съдържа числото V – Обем на басейна в литри – цяло число в интервала [1…10000]
-    // Вторият ред съдържа числото P1 – дебит на първата тръба за час – цяло число в интервала [1…5000]
-    // Третият ред съдържа числото P2 – дебит на втората тръба за час– цяло число в интервала [1…5000]
-    // Четвъртият ред съдържа числото H – часовете които работникът отсъства – реално число в интервала [1.0…24.00]
-
-    function calcPoolV(input) {
-      const v = Number(input[0]);
-      const p1 = Number(input[1]);
-      const p2 = Number(input[2]);
-      const h = Number(input[3]);
-
-      const p1V = p1 * h;
-      const p2V = p2 * h;
-      const vTotal = p1V + p2V;
-
-      if (vTotal <= v) {
-        const p = (vTotal / v) * 100;
-        const p1P = ((p1V / vTotal) * 100);
-        const p2P = ((p2V / vTotal) * 100);
-        console.log(`The pool is ${p.toFixed(2)}% full. Pipe 1: ${p1P.toFixed(2)}%. Pipe 2: ${p2P.toFixed(2)}%.`);
-      } else {
-        const diff = vTotal - v;
-        console.log(`For ${h} hours the pool overflows with ${diff.toFixed(2)} liters.`);
-      }
-    }
-
-    calcPoolV(["1000", "100", "120", "3"]);
-    calcPoolV(["100", "100", "100", "2.5"]);
-
-    // 03. Harvest
-
-    // 1ви ред: X кв.м е лозето – цяло число в интервала [10 … 5000]
-    // 2ри ред: Y грозде за един кв.м – реално число в интервала [0.00 … 10.00]
-    // 3ти ред: Z нужни литри вино – цяло число в интервала [10 … 600]
-    // 4ти ред: брой работници – цяло число в интервала [1 … 20]
-
-    function calcHarvest(input) {
-      const x = Number(input[0]);
-      const y = Number(input[1]);
-      const z = Number(input[2]);
-      const n = Number(input[3]);
-
-      const harvestKG = x * y;
-      const p40 = harvestKG * 0.4;
-      const max = p40 / 2.5;
-
-      if (max < z) {
-        console.log(`It will be a tough winter! More ${Math.floor(z - max)} liters wine needed.`);
-      } else {
-        const more = Math.ceil(max - z);
-        console.log(`Good harvest this year! Total wine: ${Math.floor(max)} liters.`);
-        console.log(`${more} liters left -> ${Math.ceil(more / n)} liters per person.`);
-      }
-    }
-
-    calcHarvest(["650", "2", "175", "3"]);
-    calcHarvest(["1020", "1.5", "425", "4"]);
-
-    // 04. Transport Price
-
-    // Първият ред съдържа числото n – брой километри – цяло число в интервала [1…5000]
-    // Вторият ред съдържа дума “day” или “night” – пътуване през деня или през нощта
-
-    function calcTransportPrice(input) {
-      const km = Number(input[0]);
-      const partOfDay = input[1];
-
-      let taxi = 0.7;
-      let bus = km * 0.09;
-      let train = km * 0.06;
-
-      if (partOfDay == "day") {
-        taxi = taxi + km * 0.79;
-      } else if (partOfDay == "night") {
-        taxi = taxi + km * 0.9;
-      } else {
-        console.log(`There is no part of the day, called ${partOfDay}.`);
-      }
-
-      if (km < 20) {
-        console.log(taxi.toFixed(2));
-      } else if (km < 100) {
-        if (taxi < bus) {
-          console.log(taxi.toFixed(2));
-        } else {
-          console.log(bus.toFixed(2));
-        }
-        // console.log(Math.min(taxi, bus).toFixed(2));
-      } else {
-        console.log(Math.min(taxi, bus, train).toFixed(2));
-      }
-    }
-
-    calcTransportPrice(["5", "day"]);
-    calcTransportPrice(["7", "night"]);
-    calcTransportPrice(["25", "day"]);
-    calcTransportPrice(["180", "night"]);
-
-    function getDomainNameFromURL(url) {
-  const urlObj = new URL(url);
-  return urlObj.hostname;
-}
-
-// don't touch below this line
-
-const bootdevURL = 'https://boot.dev/learn/learn-python';
-const domainName = getDomainNameFromURL(bootdevURL);
-console.log(`The domain name for ${bootdevURL} is ${domainName}`);
-    </script>
-
   <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M318h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
+
+  <script>
+    // 05. Pets
+
+    // Първи ред – брой дни – цяло число в интервал [1…5000]
+    // Втори ред – оставена храна в килограми – цяло число в интервал [0…100000]
+    // Трети ред – храна на ден за кучето в килограми – реално число в интервал [0.00…100.00]
+    // Четвърти ред – храна на ден за котката в килограми– реално число в интервал [0.00…100.00]
+    // Пети ред – храна на ден за костенурката в грамове – реално число в интервал [0.00…10000.00]
+
+    function calcPetsFood(input) {
+      const days = Number(input[0]);
+      const foodKG = Number(input[1]);
+      const dogFood = Number(input[2]);
+      const catFood = Number(input[3]);
+      const turtleFoodGramm = Number(input[4]);
+
+      const dogFoodNeeded = dogFood * days;
+      const catFoodNeeded = catFood * days;
+      const turtleFoodNeededKG = (turtleFoodGramm * days) / 1000;
+      const totalFoodNeeded = dogFoodNeeded + catFoodNeeded + turtleFoodNeededKG;
+
+      if (totalFoodNeeded < foodKG) {
+        const diff = foodKG - totalFoodNeeded;
+        console.log(`${Math.floor(diff)} kilos of food left.`);
+      } else {
+        const diff = Math.ceil(totalFoodNeeded - foodKG);
+        console.log(`${diff} more kilos of food are needed.`);
+      }
+    }
+
+    calcPetsFood(["2", "10", "1", "1", "1200"]);
+    calcPetsFood(["5", "10", "2.1", "0.8", "321"]);
+
+    // 06. Flower Shop
+
+    // Брой магнолии – цяло число в интервала [0 … 50]
+    // Брой зюмбюли – цяло число в интервала [0 … 50]
+    // Брой рози – цяло число в интервала [0 … 50]
+    // Брой кактуси – цяло число в интервала [0 … 50]
+    // Цена на подаръка – реално число в интервала [0.00 … 500.00]
+    
+    function calcGiftPrice(input) {
+      const magCount = Number(input[0]);
+      const zumCount = Number(input[1]);
+      const roseCount = Number(input[2]);
+      const cactusCount = Number(input[3]);
+      const giftPrice = Number(input[4]);
+
+      const magPrice = 3.25;
+      const zumPrice = 4;
+      const rosePrice = 3.5;
+      const cactusPrice = 8;
+
+      const taxes = 0.05;
+
+      const totalSales = magCount * magPrice + zumCount * zumPrice + roseCount * rosePrice + cactusCount * cactusPrice;
+      const finalSales = totalSales * (1 - taxes);
+
+      if (finalSales >= giftPrice) {
+        const diff = Math.floor(finalSales - giftPrice);
+        console.log(`She is left with ${diff} leva.`);
+      } else {
+        const diff = Math.ceil(giftPrice - finalSales);
+        console.log(`She will have to borrow ${diff} leva.`);
+      }
+    }
+
+    calcGiftPrice(["2", "3", "5", "1", "50"]);
+    calcGiftPrice(["15", "7", "5", "10", "100"]);
+
+    // 07. Fuel Tank
+
+    function calcFuel(input) {
+      const typeFuel = input[0];
+      const l = Number(input[1]);
+
+      if (typeFuel == "Diesel") {
+        if (l < 25) {
+        console.log(`Fill your tank with ${typeFuel.toLowerCase()}!`);
+      } else if (l >= 25) {
+        console.log(`You have enough ${typeFuel.toLowerCase()}.`);
+      }
+      } else if (typeFuel == "Gasoline") {
+        if (l < 25) {
+        console.log(`Fill your tank with ${typeFuel.toLowerCase()}!`);
+      } else if (l >= 25) {
+        console.log(`You have enough ${typeFuel.toLowerCase()}.`);
+      }
+      } else if (typeFuel == "Gas") {
+        if (l < 25) {
+        console.log(`Fill your tank with ${typeFuel.toLowerCase()}!`);
+      } else if (l >= 25) {
+        console.log(`You have enough ${typeFuel.toLowerCase()}.`);
+      }
+      } else {
+        console.log("Invalid fuel!");
+      }
+    }
+
+    calcFuel(["Diesel", "10"]);
+    calcFuel(["Gasoline", "40"]);
+    calcFuel(["Gas", "25"]);
+    calcFuel(["Kerosene", "200"]);
+  </script>
 </body>
 </html>
