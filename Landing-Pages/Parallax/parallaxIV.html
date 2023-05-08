@@ -62,143 +62,167 @@ font-family: 'Playfair Display', serif;     //400,700
             padding-left: 30px;
             padding-right: 20px;
         }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .body-test {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: Georgia, serif;
+            background-color: #000;
+        }
+
+        a {
+            position: relative;
+            text-decoration: none;
+            padding: 14px 25px;
+            color: #fff;
+            font-size: 1.25em;
+            font-family: inherit;
+            border-radius: 10px;
+            background-image: linear-gradient(45deg, #0ce39a, #69007f, #fc0987);
+        }
+        a span {
+            position: relative;
+            display: inline-block;
+            text-transform: uppercase;
+            font-family: inherit;
+            z-index: 1;
+        }
+        a::before {
+            position: absolute;
+            inset: 1px;
+            content: "";
+            border-radius: 9px;
+            background: #272727;
+            transition: all 0.5s ease;
+        }
+        a:hover::before {
+            opacity: 0.7;
+        }
+
+        /* Glowing effect */
+        a::after {
+            position: absolute;
+            inset: 0;
+            content: "";
+            border-radius: 9px;
+            background-image: linear-gradient(45deg, #0ce39a, #69007f, #fc0987);
+            filter: blur(20px);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+        a:hover::after {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
+    <div class="body-test">
+        <a href="#"><span>new to you</span></a>
+    </div>
+
     <script>
-        // 06. Fishland
+        // 01. Match Tickets
 
-        // ⦁	Паламуд – 60% по-скъп от скумрията
-        // ⦁	Сафрид – 80% по-скъп от цацата
-        // ⦁	Миди – 7.50 лв. за килограм
+        // ⦁	На първия ред е бюджетът – реално число в интервала [1 000.00 ... 1 000 000.00]
+        // ⦁	На втория ред е категорията – "VIP" или "Normal"
+        // ⦁	На третия ред е броят на хората в групата – цяло число в интервала [1 ... 200]
 
-        // ⦁	Първи ред – цена на скумрията на килограм. Реално число в интервала [0.00…40.00]
-        // ⦁	Втори ред – цена на цацата на килограм. Реално число в интервала [0.00…30.00]
-        // ⦁	Трети ред – килограма паламуд. Реално число в интервала [0.00…50.00]
-        // ⦁	Четвърти ред – килограма сафрид. Реално число в интервала [0.00… 70.00]
-        // ⦁	Пети ред – килограма миди. Цяло число в интервала [0 ... 100]
+        function calcTicketsExpences(input) {
+            const budget = Number(input[0]);
+            const cat = input[1];
+            const fens = Number(input[2]);
 
-        function calcExpenses(input) {
-            const priceSkumriq = Number(input[0]);
-            const priceCaca = Number(input[1]);
-            const qPalamud = Number(input[2]);
-            const qSafrid = Number(input[3]);
-            const qMidi = Number(input[4]);
+            const priceVIP = 499.99;
+            const pricenormal = 249.99;
 
-            const pricePalamud = priceSkumriq * 1.6;
-            const priceSafrid = priceCaca * 1.8;
-            const priceMidi = 7.5;
+            let transport = 0;
 
-            const palamud = qPalamud * pricePalamud;
-            const safrid = qSafrid * priceSafrid;
-            const midi = qMidi * priceMidi;
+            if (fens <= 4) {
+                transport = budget * 0.75;
+            } else if (fens <= 9) {
+                transport = budget * 0.6;
+            } else if (fens <= 24) {
+                transport = budget * 0.5;
+            } else if (fens <= 49) {
+                transport = budget * 0.4;
+            } else {
+                transport = budget * 0.25;
+            }
 
-            const total = palamud + safrid + midi;
+            let total = 0;
+
+            if (cat == "VIP") {
+                total = transport + fens * priceVIP;
+            } else if (cat == "Normal") {
+                total = transport + fens * pricenormal;
+            }
+
+            if (budget >= total) {
+                const diff = budget - total;
+                console.log(`Yes! You have ${diff.toFixed(2)} leva left.`);
+            } else {
+                const diff = total - budget;
+                console.log(`Not enough money! You need ${diff.toFixed(2)} leva.`);
+            }
+        }
+
+        calcTicketsExpences(["1000", "Normal", "1"]);
+        calcTicketsExpences(["30000", "VIP", "49"]);
+
+        // 02. Bike Race
+
+        // ⦁	Първият ред – броят младши велосипедисти. Цяло число в интервала [1…100]
+        // ⦁	Вторият ред – броят старши велосипедисти. Цяло число в интервала [1… 100]
+        // ⦁	Третият ред – вид трасе – "trail", "cross-country", "downhill" или "road"
+
+        function calcDonation(input) {
+            const juniors = Number(input[0]);
+            const seniors = Number(input[1]);
+            const trackType = input[2];
+
+            let taxJuniors = 0;
+            let taxSeniors = 0;
+            let discount = 0;
+            const expenses = 0.05;
+
+            if (trackType == "trail") {
+                taxJuniors = 5.5;
+                taxSeniors = 7;
+            } else if (trackType == "cross-country") {
+                taxJuniors = 8;
+                taxSeniors = 9.5;
+                if (juniors + seniors >= 50) {
+                    discount = 0.25;
+                }
+            } else if (trackType == "downhill") {
+                taxJuniors = 12.25;
+                taxSeniors = 13.75;
+            } else if (trackType == "road") {
+                taxJuniors = 20;
+                taxSeniors = 21.5;
+            }
+
+            let total = (juniors * taxJuniors + seniors * taxSeniors) * (1 - discount);
+            total = total * (1 - expenses);
 
             console.log(total.toFixed(2));
         }
 
-        calcExpenses(["6.9", "4.2", "1.5", "2.5", "1"]);
-        calcExpenses(["5.55", "3.57", "4.3", "3.6", "7"]);
-        calcExpenses(["7.79", "5.35", "9.3", "0", "0"]);
-
-        // 07. House Painting
-
-        function calcLitriBoq(input) {
-            const h = Number(input[0]);
-            const w = Number(input[1]);
-            const x = Number(input[2]);
-
-            const razhodZelena = 3.4;
-            const razhodRed = 4.3;
-
-            const back = h * h;
-            const door = 1.2 * 2;
-            const front = back - door;
-            const windows = 1.5 * 1.5;
-            const side = w * h - windows;
-
-            const areaZelena = front + back + side + side;
-            const zelena = areaZelena / razhodZelena;
-
-            console.log(zelena.toFixed(2));
-
-            const roofFront = (h * x) / 2;
-            const roofSide = w * h;
-
-            const areaRed = roofFront * 2 + roofSide * 2;
-            const red = areaRed / 4.3;
-
-            console.log(red.toFixed(2));
-        }
-
-        calcLitriBoq(["6", "10", "5.2"]);
-
-        // 08. Circle Area and Perimeter
-
-        function circle(input) {
-            const r = Number(input[0]);
-
-            const a = r * r * Math.PI;
-            const p = 2 * r * Math.PI;
-
-            console.log(a.toFixed(2));
-            console.log(p.toFixed(2));
-        }
-
-        circle(["3"]);
-        circle(["4.5"]);
-
-        // 09. Weather Forecast
-
-        function displayWeather(input) {
-            const condition = input[0];
-
-            const sunny = {
-                sunny: "sunny",
-            }
-
-            const weather = {
-                sunny: "It's warm outside!",
-                undefined: "It's cold outside!",
-            }
-
-            const isItSunny = sunny[condition];
-            const outside = weather[isItSunny];
-
-            console.log(outside);
-        }
-
-        displayWeather(['sunny']);
-        displayWeather(['cloudy']);
-        displayWeather(['snowy']);
-
-        // 10. Weather Forecast - Part 2
-
-        function displayWeather2(input) {
-            const degrees = Number(input[0]);
-
-            if (degrees >= 5 && degrees <= 11.9) {
-                console.log("Cold");
-            } else if (degrees >= 12 && degrees <= 14.9) {
-                console.log("Cool");
-            } else if (degrees >= 15 && degrees <= 20) {
-                console.log("Mild");
-            } else if (degrees >= 20.1 && degrees <= 25.9) {
-                console.log("Warm");
-            } else if (degrees >= 26 && degrees <= 35) {
-                console.log("Hot");
-            } else {
-                console.log("unknown");
-            }
-        }
-
-        displayWeather2(["16.5"]);
-        displayWeather2(["8"]);
-        displayWeather2(["22.4"]);
-        displayWeather2(["26"]);
-        displayWeather2(["0"]);
+        calcDonation(["10", "20", "trail"]);
+        calcDonation(["21", "26", "cross-country"]);
+        calcDonation(["30", "25", "cross-country"]);
+        calcDonation(["10", "10", "downhill"]);
+        calcDonation(["3", "40", "road"]);
     </script>
+
     <header class="header">
         <div class="back-bird left">
             <img src="./img/parallaxIV/white-doves.png" alt="">
