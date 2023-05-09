@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parallax Scrolling Effect</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/styles_parallaxIV.css">
+    <!-- <link rel="stylesheet" href="./css/styles_parallaxIV.css"> -->
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
@@ -63,166 +63,159 @@ font-family: 'Playfair Display', serif;     //400,700
             padding-right: 20px;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .body-test {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            font-family: Georgia, serif;
-            background-color: #000;
-        }
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Georgia, serif;
+    background-color: #222;
+}
 
-        a {
-            position: relative;
-            text-decoration: none;
-            padding: 14px 25px;
-            color: #fff;
-            font-size: 1.25em;
-            font-family: inherit;
-            border-radius: 10px;
-            background-image: linear-gradient(45deg, #0ce39a, #69007f, #fc0987);
-        }
-        a span {
-            position: relative;
-            display: inline-block;
-            text-transform: uppercase;
-            font-family: inherit;
-            z-index: 1;
-        }
-        a::before {
-            position: absolute;
-            inset: 1px;
-            content: "";
-            border-radius: 9px;
-            background: #272727;
-            transition: all 0.5s ease;
-        }
-        a:hover::before {
-            opacity: 0.7;
-        }
+section, div, header {
+    display: none;
+}
 
-        /* Glowing effect */
-        a::after {
-            position: absolute;
-            inset: 0;
-            content: "";
-            border-radius: 9px;
-            background-image: linear-gradient(45deg, #0ce39a, #69007f, #fc0987);
-            filter: blur(20px);
-            transition: all 0.5s ease;
-            opacity: 0;
-        }
-        a:hover::after {
-            opacity: 1;
-        }
+h2 {
+    display: inline-flex;
+    color: #fff;
+    font-size: 8rem;
+    font-weight: 600;
+    font-family: 'Great Vibes', cursive;
+    pointer-events: none;
+}
+
+h2 span {
+    text-shadow: 0px 0px 2px #fff, 
+    1px 1px 4px rgba(0, 0, 0, 0.7);
+    animation: smoke 0.9s linear backwards;
+    animation-delay: calc(0.1s * var(--i));
+}
+
+@keyframes smoke {
+    0% {
+        color: transparent;
+        opacity: 0;
+        text-shadow: 0px 0px 100px #fff;
+    }
+    90% {
+        color: transparent;
+        opacity: 0.9;
+        text-shadow: 0px 0px 10px #fff;
+    }
+    100% {
+        color: #fff;
+        opacity: 1;
+        text-shadow: 0px 0px 2px #fff, 
+        1px 1px 4px rgba(0, 0, 0, 0.7);
+    }
+}
     </style>
 </head>
 <body>
-    <div class="body-test">
-        <a href="#"><span>new to you</span></a>
-    </div>
+    <h2>
+        <span style="--i:0">S</span>
+        <span style="--i:1">m</span>
+        <span style="--i:2">o</span>
+        <span style="--i:3">k</span>
+        <span style="--i:4">e</span>
+        <span style="--i:5">.</span>
+        <span style="--i:6">.</span>
+        <span style="--i:7">.</span>
+    </h2>
 
     <script>
-        // 01. Match Tickets
+        // 03. Flowers
 
-        // ⦁	На първия ред е бюджетът – реално число в интервала [1 000.00 ... 1 000 000.00]
-        // ⦁	На втория ред е категорията – "VIP" или "Normal"
-        // ⦁	На третия ред е броят на хората в групата – цяло число в интервала [1 ... 200]
+        // ⦁	За закупени повече от 7 лалета през пролетта – 5% от цената на целият букет.
+        // ⦁	За закупени 10 или повече рози през зимата – 10% от цената на целият букет.
+        // ⦁	За закупени повече от 20 цветя общо през всички сезони – 20% от цената на целият букет.
+        
+        // ⦁	На първия ред е броят на закупените хризантеми – цяло число в интервала [0 ... 200]
+        // ⦁	На втория ред е броят на закупените рози – цяло число в интервала [0 ... 200]
+        // ⦁	На третия ред е броят на закупените лалета – цяло число в интервала [0 ... 200]
+        // ⦁	На четвъртия ред е посочен сезона – [Spring, Summer, Аutumn, Winter]
+        // ⦁	На петия ред е посочено дали денят е празник – [Y – да / N - не]
 
-        function calcTicketsExpences(input) {
-            const budget = Number(input[0]);
-            const cat = input[1];
-            const fens = Number(input[2]);
+        function caclFlowersPrice (input) {
+            const hris = Number(input[0]);
+            const roses = Number(input[1]);
+            const lale = Number(input[2]);
+            const seson = input[3];
+            const isHoliday = input[4];
 
-            const priceVIP = 499.99;
-            const pricenormal = 249.99;
+            let priceHris = 0;
+            let priceRose = 0;
+            let priceLale = 0;
 
-            let transport = 0;
-
-            if (fens <= 4) {
-                transport = budget * 0.75;
-            } else if (fens <= 9) {
-                transport = budget * 0.6;
-            } else if (fens <= 24) {
-                transport = budget * 0.5;
-            } else if (fens <= 49) {
-                transport = budget * 0.4;
-            } else {
-                transport = budget * 0.25;
+            if (seson == "Spring" || seson == "Summer") {
+                priceHris = 2;
+                priceRose = 4.1;
+                priceLale = 2.5;
+            } else if (seson == "Autumn" || seson == "Winter") {
+                priceHris = 3.75;
+                priceRose = 4.5;
+                priceLale = 4.15;
             }
 
-            let total = 0;
+            let totalHris = hris * priceHris;
+            let totalRose = roses * priceRose;
+            let totalLale = lale * priceLale;
 
-            if (cat == "VIP") {
-                total = transport + fens * priceVIP;
-            } else if (cat == "Normal") {
-                total = transport + fens * pricenormal;
+            let total = totalHris + totalRose + totalLale;
+
+            // console.log(total);
+
+            if (isHoliday == "Y") {
+                total = total * 1.15;
+                // console.log(total);
             }
 
-            if (budget >= total) {
-                const diff = budget - total;
-                console.log(`Yes! You have ${diff.toFixed(2)} leva left.`);
-            } else {
-                const diff = total - budget;
-                console.log(`Not enough money! You need ${diff.toFixed(2)} leva.`);
-            }
-        }
-
-        calcTicketsExpences(["1000", "Normal", "1"]);
-        calcTicketsExpences(["30000", "VIP", "49"]);
-
-        // 02. Bike Race
-
-        // ⦁	Първият ред – броят младши велосипедисти. Цяло число в интервала [1…100]
-        // ⦁	Вторият ред – броят старши велосипедисти. Цяло число в интервала [1… 100]
-        // ⦁	Третият ред – вид трасе – "trail", "cross-country", "downhill" или "road"
-
-        function calcDonation(input) {
-            const juniors = Number(input[0]);
-            const seniors = Number(input[1]);
-            const trackType = input[2];
-
-            let taxJuniors = 0;
-            let taxSeniors = 0;
-            let discount = 0;
-            const expenses = 0.05;
-
-            if (trackType == "trail") {
-                taxJuniors = 5.5;
-                taxSeniors = 7;
-            } else if (trackType == "cross-country") {
-                taxJuniors = 8;
-                taxSeniors = 9.5;
-                if (juniors + seniors >= 50) {
-                    discount = 0.25;
-                }
-            } else if (trackType == "downhill") {
-                taxJuniors = 12.25;
-                taxSeniors = 13.75;
-            } else if (trackType == "road") {
-                taxJuniors = 20;
-                taxSeniors = 21.5;
+            if (lale > 7 && seson == "Spring") {
+                total = total * 0.95;
+                // console.log(total);
             }
 
-            let total = (juniors * taxJuniors + seniors * taxSeniors) * (1 - discount);
-            total = total * (1 - expenses);
+            if (roses >= 10 && seson == "Winter") {
+                total = total * 0.9;
+            }
+
+            if ((hris + lale + roses) > 20) {
+                total = total * 0.8;
+            }
+
+            total = total + 2;
 
             console.log(total.toFixed(2));
         }
 
-        calcDonation(["10", "20", "trail"]);
-        calcDonation(["21", "26", "cross-country"]);
-        calcDonation(["30", "25", "cross-country"]);
-        calcDonation(["10", "10", "downhill"]);
-        calcDonation(["3", "40", "road"]);
-    </script>
+        caclFlowersPrice(["2", "4", "8", "Spring", "Y"]);
+        caclFlowersPrice(["3", "10", "9", "Winter", "N"]);
+        caclFlowersPrice(["10", "10", "10", "Autumn", "N"]);
 
+        try {
+  printCharacterStats(4);
+  printCharacterStats('ten');
+  printCharacterStats(10);
+} catch (err) {
+  console.log(err);
+}
+
+// don't touch below this line
+
+function printCharacterStats(level) {
+  if (isNaN(level)) {
+    throw 'Parameter is not a number!';
+  }
+  console.log(`Your character is level ${level}!`);
+}
+    </script>
     <header class="header">
         <div class="back-bird left">
             <img src="./img/parallaxIV/white-doves.png" alt="">
