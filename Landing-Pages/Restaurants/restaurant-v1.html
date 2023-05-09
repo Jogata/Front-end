@@ -6,119 +6,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant v.1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="./css/style_restaurant-v1.css"> -->
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        :root {
-            --pink: #c850c0;
-            --blue: #4158d0;
-            --yellow: #ffcc70;
-        }
-
-        body {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: Georgia, serif;
-            background-color: #fafafa;
-            background-image: linear-gradient(45deg, var(--blue), var(--pink), var(--yellow));
-        }
-
-        a {
-            text-transform: uppercase;
-            text-decoration: none;
-        }
-
-        .menu {
-            position: relative;
-            display: flex;
-        }
-        .menu a {
-            width: 100px;
-            color: #fafafa;
-            font-size: 20px;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            transition: all 0.4s ease;
-        }
-        .menu a:hover {
-            opacity: 0.8;
-        }
-
-        a i.fa {
-            margin-bottom: 5px;
-            font-size: 30px;
-            color: transparent;
-            -webkit-text-stroke: 1px #fafafa;
-        }
-
-        .indicator {
-            position: absolute;
-            bottom: -5px;
-            width: 100px;
-            height: 2px;
-            background-color: #fafafa;
-            transform: translateX(0);
-            opacity: 0;
-            transition: all 0.4s ease;
-        }
-
-        .menu a:hover ~ .indicator {
-            opacity: 0.8;
-        }
-        .menu a:nth-child(2):hover ~ .indicator {
-            transform: translateX(100px);
-        }
-        .menu a:nth-child(3):hover ~ .indicator {
-            transform: translateX(200px);
-        }
-        .menu a:nth-child(4):hover ~ .indicator {
-            transform: translateX(300px);
-        }
-    </style>
+    <link rel="stylesheet" href="./css/style_restaurant-v1.css">
 </head>
 <body>
-    <div class="menu">
-        <a href="#">
-            <i class="fa fa-home"></i>
-            home</a>
-        <a href="#">
-            <i class="fa fa-info"></i>
-            about</a>
-        <a href="#">
-            <i class="fa fa-users"></i>
-            users</a>
-        <a href="#">
-            <i class="fa fa-comments-o"></i>
-            chat</a>
-        <span class="indicator"></span>
+    <h1>masonry grid</h1>
+    <div class="grid">
+        <div class="grid-item">
+            <div class="card">
+                <img src="https://picsum.photos/id/82/400/400" alt="random image">
+                <div class="card-content">
+                    <h2>introduction:</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quas neque maiores dignissimos et, iure earum rerum laudantium quia cum, perferendis, voluptatum similique.</p>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <div class="card">
+                <img src="https://picsum.photos/id/972/400/600" alt="random image">
+                <div class="card-content">
+                    <h2>blog</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quas neque maiores dignissimos et, iure earum rerum laudantium quia cum, perferendis, voluptatum similique.</p>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <div class="card">
+                <img src="https://picsum.photos/id/23/500/400" alt="random image">
+                <div class="card-content">
+                    <h2>portfolio</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quas neque maiores dignissimos et, iure earum rerum laudantium quia cum, perferendis, voluptatum similique.</p>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <div class="card-v2">
+                <img src="https://picsum.photos/id/722/400/800" alt="random image">
+                <div class="card-content">
+                    <h2>services</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quas neque maiores dignissimos et, iure earum rerum laudantium quia cum, perferendis, voluptatum similique.</p>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <div class="card">
+                <img src="https://picsum.photos/id/425/500/400" alt="random image">
+                <div class="card-content">
+                    <h2>services</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quas neque maiores dignissimos et, iure earum rerum laudantium quia cum, perferendis, voluptatum similique.</p>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <div class="card-v2">
+                <img src="https://picsum.photos/id/352/400/800" alt="random image">
+                <div class="card-content">
+                    <h2>portfolio</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quas neque maiores dignissimos et, iure earum rerum laudantium quia cum, perferendis, voluptatum similique.</p>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <div class="card">
+                <div class="card-content">
+                    <h2>about me</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quas neque maiores dignissimos et, iure earum rerum laudantium quia cum, perferendis, voluptatum similique. Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore obcaecati repellat nihil autem.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit animi laborum incidunt non aliquam nisi atque quo quaerat, commodi sapiente consectetur? Repellendus placeat velit distinctio nostrum esse.</p>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <div class="card">
+                <img src="https://picsum.photos/id/322/500/400" alt="random image">
+                <div class="card-content">
+                    <h2>new photos</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quas neque maiores dignissimos et, iure earum rerum laudantium quia cum, perferendis, voluptatum similique.</p>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <div class="card">
+                <img src="https://picsum.photos/id/532/500/400" alt="random image">
+                <div class="card-content">
+                    <h2>about me</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quas neque maiores dignissimos et, iure earum rerum laudantium quia cum, perferendis, voluptatum similique.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor quidem quos minus placeat. Rem assumenda magni facilis ipsam quia doloremque quibusdam, debitis voluptatum. Dolores eos labore sapiente odio porro quos dolore ut vel.</p>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <div class="card-v2">
+                <img src="https://picsum.photos/id/821/400/800" alt="random image">
+                <div class="card-content">
+                    <h2>blog</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor quidem quos minus placeat. Rem assumenda magni facilis ipsam quia doloremque quibusdam, debitis voluptatum. Dolores eos labore sapiente odio porro quos dolore ut vel.</p>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <div class="card">
+                <img src="https://picsum.photos/id/53/500/400" alt="random image">
+                <div class="card-content">
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat odio accusamus fugiat consequatur quaerat tenetur id, itaque nulla quam perspiciatis numquam velit in maiores voluptas, suscipit iusto reiciendis quis dolorum accusantium. Exercitationem autem quidem cumque velit nisi fugiat voluptatum, rem quasi sint enim atque commodi.</p>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item">
+            <div class="card">
+                <img src="https://picsum.photos/id/235/500/400" alt="random image">
+                <div class="card-content">
+                    <h2>contact</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor quidem quos minus placeat. Rem assumenda magni facilis ipsam quia doloremque quibusdam, debitis voluptatum. Dolores eos labore sapiente odio porro quos dolore ut vel. Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum id modi facilis delectus, necessitatibus est, assumenda sapiente inventore reiciendis, nam vero.</p>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <script>
-        try {
-  printCharacterStats(4)
-  printCharacterStats('ten')
-  printCharacterStats(10)
-} catch (err) {
-  console.log(err)
-}
-
-// don't touch below this line
-
-function printCharacterStats(level) {
-  if (isNaN(level)) {
-    throw 'Parameter is not a number!'
-  }
-  console.log(`Your character is level ${level}!`)
-}
-    </script>
 </body>
 </html>
