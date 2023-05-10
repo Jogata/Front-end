@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
+    <title>Weather App v.1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/styles_weather-app-v1.css">
 </head>
 <body>
     <div class="weather-app">
         <div class="container">
-            <a class="brand">w</a>
+            <a class="logo">w</a>
             <div>
                 <h1 class="temp">16&#176;</h1>
                 <div class="city-time">
@@ -23,7 +24,7 @@
                 </div>
                 <div class="weather">
                     <i class="icon">
-                        <img src="">
+                        <img src="http://cdn.weatherapi.com/weather/64x64/day/374.png">
                     </i>
                     <span class="condition">Cloudy</span>
                 </div>
@@ -54,12 +55,11 @@
                 </li>
                 <li>
                     <span>Wind</span>
-                    <span class="wind">8km/h</span>
+                    <span class="wind">8 km/h</span>
                 </li>
             </ul>
         </div>
     </div>
-
     <footer>
         <h1>https://www.weatherapi.com/</h1>
     </footer>
@@ -77,15 +77,85 @@
         const wind = document.querySelector(".wind");
         const form = document.querySelector("#locationInput");
         const search = document.querySelector(".search");
-        const btn = document.querySelector("#locationInput button");
+        const searchButton = document.querySelector("#locationInput button");
         const cities = document.querySelectorAll(".city");
 
         // Default city on page load
-        let cityInput = "London";
+        let cityInput = "Sofia";
+        fetchWeatherData();
+
+        const codes = new Map([
+            [1000, "clear"],
+            [1003, "cloudy"],
+            [1006, "cloudy"],
+            [1009, "cloudy"],
+            [1030, "cloudy"],
+            [1069, "cloudy"],
+            // [1069, "rainy"],
+            [1087, "cloudy"],
+            [1135, "cloudy"],
+            [1273, "cloudy"],
+            [1276, "cloudy"],
+            [1279, "cloudy"],
+            [1282, "cloudy"],
+            [1063, "rainy"],
+            [1072, "rainy"],
+            [1150, "rainy"],
+            [1153, "rainy"],
+            [1180, "rainy"],
+            [1183, "rainy"],
+            [1186, "rainy"],
+            [1189, "rainy"],
+            [1192, "rainy"],
+            [1195, "rainy"],
+            [1204, "rainy"],
+            [1207, "rainy"],
+            [1240, "rainy"],
+            [1243, "rainy"],
+            [1246, "rainy"],
+            [1249, "rainy"],
+            [1252, "rainy"],
+            [1066, "snowy"],
+            [1114, "snowy"],
+            [1117, "snowy"],
+            [1147, "snowy"],
+            [1168, "snowy"],
+            [1171, "snowy"],
+            [1198, "snowy"],
+            [1201, "snowy"],
+            [1210, "snowy"],
+            [1213, "snowy"],
+            [1216, "snowy"],
+            [1219, "snowy"],
+            [1222, "snowy"],
+            [1225, "snowy"],
+            [1237, "snowy"],
+            [1255, "snowy"],
+            [1258, "snowy"],
+            [1261, "snowy"],
+            [1264, "snowy"]
+        ])
+
+        const timesOfDay = ["night", "day"];
+
+        const colors = {
+            day: {
+                clear: "#50bafc",
+                cloudy: "#e98941",
+                rainy: "#364c49",
+                snowy: "#1b3047",
+            },
+            night: {
+                clear: "#2f3569",
+                cloudy: "#33495a",
+                rainy: "#0d0e11",
+                snowy: "#1d1d1d",
+            },
+        }
 
         cities.forEach(city => {
             city.addEventListener("click", (e) => {
-                cityInput = e.target.innerHTML;
+                cityInput = e.target.textContent;
                 // Fetch the data from the Weather API
                 fetchWeatherData();
                 // Hide the content
@@ -98,8 +168,10 @@
                 alert("Please, type in a city name");
             } else {
                 cityInput = search.value;
+                // Fetch the data from the Weather API
                 fetchWeatherData();
                 search.value = "";
+                // Hide the content
                 app.style.opacity = "0";
             }
             e.preventDefault();
@@ -115,103 +187,43 @@
             fetch(`http://api.weatherapi.com/v1/current.json?key=19e7f8df964b4bb3b57142431232904&q=${cityInput}`)
             .then(data => data.json())
             .then(data => {
-                temp.innerHTML = data.current.temp_c + "&#176;";
-                condition.innerHTML = data.current.condition.text;
+                temp.innerHTML = `${data.current.temp_c}&#176;`;
+                condition.textContent = data.current.condition.text;
 
+                // Create a new date format: 17:53 - Friday 9, 10 2023
                 const date = data.location.localtime;
                 const y = parseInt(date.substr(0, 4));
                 const m = parseInt(date.substr(5, 2));
                 const d = parseInt(date.substr(8, 2));
                 const time = date.substr(11);
-                // Create a new date format: 17:53 - Friday 9, 10 2023
-                dateOutput.innerHTML = `${getDayOfTheWeek(d, m, y)} ${d}, ${m} ${y}`;
-                timeOutput.innerHTML = time;
-                name.innerHTML = data.location.name;
+                dateOutput.textContent = `${getDayOfTheWeek(d, m, y)} ${d}, ${m} ${y}`;
+                timeOutput.textContent = time;
+
+                name.textContent = data.location.name;
                 const iconImgURL = data.current.condition.icon;
                 icon.src = `http://${iconImgURL}`;
-                console.log(y);
-                console.log(m);
-                console.log(d);
+
                 // Add weather details
-                cloud.innerHTML = data.current.cloud + "%";
-                humidity.innerHTML = data.current.humidity + "%";
-                wind.innerHTML = data.current.wind_kph + "km/h";
+                cloud.textContent = data.current.cloud + "%";
+                humidity.textContent = data.current.humidity + "%";
+                wind.textContent = data.current.wind_kph + " km/h";
                 
-                let timeOfDay = "day";
-
+                // Change the background depending on the current weather conditions
+                let timeOfDay = timesOfDay[data.current.is_day];
                 const code = data.current.condition.code;
+                const bg = `url("./img/weather-app/${timeOfDay}/${codes.get(code)}.jpg")`;
+                app.style.backgroundImage = bg;
+                searchButton.style.background = colors[timeOfDay][codes.get(code)];
 
-                if (!data.current.is_day) {
-                    timeOfDay = "night";
-                }
-                
-                if (code == 1000) {
-                    app.style.backgroundImage = `url("./assets/img/weather-app/test/beach.jpg")`;
-                    btn.style.background = "#e5ba92";
-                    if (timeOfDay == "night") {
-                        btn.style.background = "#181e27";
-                    }
-                } else if (
-                    code == 1003 || 
-                    code == 1006 || 
-                    code == 1009 || 
-                    code == 1030 || 
-                    code == 1069 || 
-                    code == 1087 || 
-                    code == 1135 || 
-                    code == 1273 || 
-                    code == 1276 || 
-                    code == 1279 || 
-                    code == 1282
-                ) {
-                    app.style.backgroundImage = `url("./assets/img/weather-app/test/cloudy.jpg")`;
-                    btn.style.background = "#fa6db1";
-                    if (timeOfDay == "night") {
-                        btn.style.background = "#181e27";
-                    }
-                } else if (
-                    code == 1063 || 
-                    code == 1069 || 
-                    code == 1072 || 
-                    code == 1150 || 
-                    code == 1153 || 
-                    code == 1180 || 
-                    code == 1183 || 
-                    code == 1186 || 
-                    code == 1189 || 
-                    code == 1192 || 
-                    code == 1195 || 
-                    code == 1204 || 
-                    code == 1207 || 
-                    code == 1240 || 
-                    code == 1243 || 
-                    code == 1246 || 
-                    code == 1249 || 
-                    code == 1252
-                ) {
-                    app.style.backgroundImage = `url("./assets/img/weather-app/test/rainy.jpg")`;
-                    btn.style.background = "#647d75";
-                    if (timeOfDay == "night") {
-                        btn.style.background = "#325c80";
-                    }
-                } else {
-                    app.style.backgroundImage = `url("./assets/img/weather-app/test/snowy.jpg")`;
-                    btn.style.background = "#4d72aa";
-                    if (timeOfDay == "night") {
-                        btn.style.background = "#1b1b1b";
-                    }
-                }
-
+                // Show the content
                 app.style.opacity = "1";
             })
             .catch(() => {
                 alert("City not found, please try again");
+                // Show the content
                 app.style.opacity = "1";
             })
-            // .then(data => console.log(data.current.condition.icon));
         }
-
-        fetchWeatherData();
     </script>
 </body>
 </html>
