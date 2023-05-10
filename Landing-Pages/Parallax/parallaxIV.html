@@ -62,158 +62,153 @@ font-family: 'Playfair Display', serif;     //400,700
             padding-left: 30px;
             padding-right: 20px;
         }
-
-        *, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: Georgia, serif;
-    background-color: #222;
-}
-
-section, div, header {
-    display: none;
-}
-
-h2 {
-    display: inline-flex;
-    color: #fff;
-    font-size: 8rem;
-    font-weight: 600;
-    font-family: 'Great Vibes', cursive;
-    pointer-events: none;
-}
-
-h2 span {
-    text-shadow: 0px 0px 2px #fff, 
-    1px 1px 4px rgba(0, 0, 0, 0.7);
-    animation: smoke 0.9s linear backwards;
-    animation-delay: calc(0.1s * var(--i));
-}
-
-@keyframes smoke {
-    0% {
-        color: transparent;
-        opacity: 0;
-        text-shadow: 0px 0px 100px #fff;
-    }
-    90% {
-        color: transparent;
-        opacity: 0.9;
-        text-shadow: 0px 0px 10px #fff;
-    }
-    100% {
-        color: #fff;
-        opacity: 1;
-        text-shadow: 0px 0px 2px #fff, 
-        1px 1px 4px rgba(0, 0, 0, 0.7);
-    }
-}
     </style>
 </head>
 <body>
-    <h2>
-        <span style="--i:0">S</span>
-        <span style="--i:1">m</span>
-        <span style="--i:2">o</span>
-        <span style="--i:3">k</span>
-        <span style="--i:4">e</span>
-        <span style="--i:5">.</span>
-        <span style="--i:6">.</span>
-        <span style="--i:7">.</span>
-    </h2>
-
     <script>
-        // 03. Flowers
+        // 04. Car To Go
 
-        // ⦁	За закупени повече от 7 лалета през пролетта – 5% от цената на целият букет.
-        // ⦁	За закупени 10 или повече рози през зимата – 10% от цената на целият букет.
-        // ⦁	За закупени повече от 20 цветя общо през всички сезони – 20% от цената на целият букет.
-        
-        // ⦁	На първия ред е броят на закупените хризантеми – цяло число в интервала [0 ... 200]
-        // ⦁	На втория ред е броят на закупените рози – цяло число в интервала [0 ... 200]
-        // ⦁	На третия ред е броят на закупените лалета – цяло число в интервала [0 ... 200]
-        // ⦁	На четвъртия ред е посочен сезона – [Spring, Summer, Аutumn, Winter]
-        // ⦁	На петия ред е посочено дали денят е празник – [Y – да / N - не]
+        function rentCar(input) {
+            const budjet = Number(input[0]);
+            const season = input[1];
 
-        function caclFlowersPrice (input) {
-            const hris = Number(input[0]);
-            const roses = Number(input[1]);
-            const lale = Number(input[2]);
-            const seson = input[3];
-            const isHoliday = input[4];
-
-            let priceHris = 0;
-            let priceRose = 0;
-            let priceLale = 0;
-
-            if (seson == "Spring" || seson == "Summer") {
-                priceHris = 2;
-                priceRose = 4.1;
-                priceLale = 2.5;
-            } else if (seson == "Autumn" || seson == "Winter") {
-                priceHris = 3.75;
-                priceRose = 4.5;
-                priceLale = 4.15;
+            if (budjet <= 100) {
+                console.log("Economy class");
+                if (season == "Summer") {
+                    const price = budjet * 0.35;
+                    console.log(`Cabrio - ${price.toFixed(2)}`);
+                } else if (season == "Winter") {
+                    const price = budjet * 0.65;
+                    console.log(`Jeep - ${price.toFixed(2)}`);
+                }
+            } else if (budjet <= 500) {
+                console.log("Compact class");
+                if (season == "Summer") {
+                    const price = budjet * 0.45;
+                    console.log(`Cabrio - ${price.toFixed(2)}`);
+                } else if (season == "Winter") {
+                    const price = budjet * 0.8;
+                    console.log(`Jeep - ${price.toFixed(2)}`);
+                }
+            } else if (budjet > 500) {
+                console.log("Luxury class");
+                const price = budjet * 0.9;
+                console.log(`Jeep - ${price.toFixed(2)}`);
             }
-
-            let totalHris = hris * priceHris;
-            let totalRose = roses * priceRose;
-            let totalLale = lale * priceLale;
-
-            let total = totalHris + totalRose + totalLale;
-
-            // console.log(total);
-
-            if (isHoliday == "Y") {
-                total = total * 1.15;
-                // console.log(total);
-            }
-
-            if (lale > 7 && seson == "Spring") {
-                total = total * 0.95;
-                // console.log(total);
-            }
-
-            if (roses >= 10 && seson == "Winter") {
-                total = total * 0.9;
-            }
-
-            if ((hris + lale + roses) > 20) {
-                total = total * 0.8;
-            }
-
-            total = total + 2;
-
-            console.log(total.toFixed(2));
         }
 
-        caclFlowersPrice(["2", "4", "8", "Spring", "Y"]);
-        caclFlowersPrice(["3", "10", "9", "Winter", "N"]);
-        caclFlowersPrice(["10", "10", "10", "Autumn", "N"]);
+        rentCar(["450", "Summer"]);
+        rentCar(["450", "Winter"]);
+        rentCar(["1010", "Summer"]);
+        rentCar(["99.99", "Summer"]);
+        rentCar(["1010", "Winter"]);
+        rentCar(["70.50", "Winter"]);
 
-        try {
-  printCharacterStats(4);
-  printCharacterStats('ten');
-  printCharacterStats(10);
-} catch (err) {
-  console.log(err);
+            // 05. Vacation
+
+    function calcVacatin(input) {
+      const budjet = Number(input[0]);
+      const season = input[1];
+
+      if (budjet <= 1000) {
+        const type = "Camp";
+        if (season == "Summer") {
+          const location = "Alaska";
+          const price = budjet * 0.65;
+          console.log(`${location} - ${type} - ${price.toFixed(2)}`);
+        } else if (season == "Winter") {
+          const location = "Morocco";
+          const price = budjet * 0.45;
+          console.log(`${location} - ${type} - ${price.toFixed(2)}`);
+        }
+      } else if (budjet <= 3000) {
+        const type = "Hut";
+        if (season == "Summer") {
+          const location = "Alaska";
+          const price = budjet * 0.8;
+          console.log(`${location} - ${type} - ${price.toFixed(2)}`);
+        } else if (season == "Winter") {
+          const location = "Morocco";
+          const price = budjet * 0.6;
+          console.log(`${location} - ${type} - ${price.toFixed(2)}`);
+        }
+      } else if (budjet > 3000) {
+        const type = "Hotel";
+        const price = budjet * 0.9;
+        if (season == "Summer") {
+          const location = "Alaska";
+          console.log(`${location} - ${type} - ${price.toFixed(2)}`);
+        } else if (season == "Winter") {
+          const location = "Morocco";
+          console.log(`${location} - ${type} - ${price.toFixed(2)}`);
+        }
+      }
+    }
+
+    calcVacatin(["800", "Summer"]);
+    calcVacatin(["799.50", "Winter"]);
+    calcVacatin(["3460", "Summer"]);
+    calcVacatin(["1100", "Summer"]);
+    calcVacatin(["5000", "Winter"]);
+    calcVacatin(["2543.99", "Winter"]);
+
+    // 06. Truck Driver
+    </script>
+    <script>
+        // This in arrow function - test
+        function createThis () {
+            return () => {
+                console.log(this);
+            }
+        }
+
+        const obj = {
+            name: "obj",
+            logThis: createThis,
+        }
+        const obj2 = {
+            name: "obj2", 
+            logThis: createThis,
+        }
+
+        const objThis = obj.logThis();
+        const obj2This = obj2.logThis();
+
+        objThis();
+        obj2This();
+    </script>
+
+    <script>
+        function logContentType(resp) {
+  console.log(resp.headers.get('content-type'));
 }
 
-// don't touch below this line
+const apiKey = generateKey();
+const bootdevAPIDomain = 'api.boot.dev';
 
-function printCharacterStats(level) {
-  if (isNaN(level)) {
-    throw 'Parameter is not a number!';
+const items = await getItemData(bootdevAPIDomain);
+
+logContentType(items)
+
+async function getItemData(domain) {
+  const response = await fetch(`https://${domain}/v1/courses_rest_api/learn-http/items/0194fdc2-fa2f-4cc0-81d3-ff12045b73c8`, {
+    method: 'GET',
+    mode: 'cors',
+    headers: {
+      'X-API-Key': apiKey,
+      'Content-Type': 'application/json'
+    }
+  })
+  return response;
+}
+
+function generateKey() {
+  const characters = 'ABCDEF0123456789';
+  let result = '';
+  for (let i = 0; i < 16; i++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
   }
-  console.log(`Your character is level ${level}!`);
+  return result;
 }
     </script>
     <header class="header">
