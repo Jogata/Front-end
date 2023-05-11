@@ -6,120 +6,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant v.1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/style_restaurant-v1.css">
+    <!-- <link rel="stylesheet" href="./css/style_restaurant-v1.css"> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .notes-container {
+            width: 100%;
+            min-height: 100vh;
+            background-image: linear-gradient(135deg, #cf9aff, #95c0ff);
+            color: #fff;
+            padding-top: 4%;
+            padding-left: 10%;
+        }
+
+        h1 {
+            display: flex;
+            align-items: center;
+            column-gap: 0.8rem;
+            font-size: 35px;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+
+        h1 i {
+            color: crimson;
+        }
+
+        button {
+            margin: 2rem 0 1.2rem;
+            padding: 0.4em 1em;
+            display: flex;
+            align-items: center;
+            column-gap: 0.8rem;
+            color: #fff;
+            font-size: 1.4rem;
+            font-family: inherit;
+            text-transform: capitalize;
+            border: 1px solid transparent;
+            border-radius: 1em;
+            background-image: linear-gradient(#9418fd, #571094);
+            box-shadow: -2px -2px 2px #fff5, 2px 2px 2px #0005;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        button:active {
+            box-shadow: 0px 0px 0px #fff, 0px 0px 0px #000;
+            transform: scale(0.98);
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        .input-box {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            min-height: 150px;
+            margin: 1.2rem 0;
+            padding: 1.2rem;
+            color: #333;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        .fa-trash {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            font-size: 1.2rem;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        .fa-trash:hover {
+            color: crimson;
+        }
+    </style>
 </head>
 <body>
-    <h1>masonry grid</h1>
-    <div class="grid">
-        <div class="grid-item">
-            <div class="card">
-                <img src="https://picsum.photos/id/82/400/400" alt="random image">
-                <div class="card-content">
-                    <h2>introduction:</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quas neque maiores dignissimos et, iure earum rerum laudantium quia cum, perferendis, voluptatum similique.</p>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item">
-            <div class="card">
-                <img src="https://picsum.photos/id/972/400/600" alt="random image">
-                <div class="card-content">
-                    <h2>blog</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quas neque maiores dignissimos et, iure earum rerum laudantium quia cum, perferendis, voluptatum similique.</p>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item">
-            <div class="card">
-                <img src="https://picsum.photos/id/23/500/400" alt="random image">
-                <div class="card-content">
-                    <h2>portfolio</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quas neque maiores dignissimos et, iure earum rerum laudantium quia cum, perferendis, voluptatum similique.</p>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item">
-            <div class="card-v2">
-                <img src="https://picsum.photos/id/722/400/800" alt="random image">
-                <div class="card-content">
-                    <h2>services</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quas neque maiores dignissimos et, iure earum rerum laudantium quia cum, perferendis, voluptatum similique.</p>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item">
-            <div class="card">
-                <img src="https://picsum.photos/id/425/500/400" alt="random image">
-                <div class="card-content">
-                    <h2>services</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quas neque maiores dignissimos et, iure earum rerum laudantium quia cum, perferendis, voluptatum similique.</p>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item">
-            <div class="card-v2">
-                <img src="https://picsum.photos/id/352/400/800" alt="random image">
-                <div class="card-content">
-                    <h2>portfolio</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quas neque maiores dignissimos et, iure earum rerum laudantium quia cum, perferendis, voluptatum similique.</p>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item">
-            <div class="card">
-                <div class="card-content">
-                    <h2>about me</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quas neque maiores dignissimos et, iure earum rerum laudantium quia cum, perferendis, voluptatum similique. Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore obcaecati repellat nihil autem.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit animi laborum incidunt non aliquam nisi atque quo quaerat, commodi sapiente consectetur? Repellendus placeat velit distinctio nostrum esse.</p>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item">
-            <div class="card">
-                <img src="https://picsum.photos/id/322/500/400" alt="random image">
-                <div class="card-content">
-                    <h2>new photos</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quas neque maiores dignissimos et, iure earum rerum laudantium quia cum, perferendis, voluptatum similique.</p>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item">
-            <div class="card">
-                <img src="https://picsum.photos/id/532/500/400" alt="random image">
-                <div class="card-content">
-                    <h2>about me</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quas neque maiores dignissimos et, iure earum rerum laudantium quia cum, perferendis, voluptatum similique.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor quidem quos minus placeat. Rem assumenda magni facilis ipsam quia doloremque quibusdam, debitis voluptatum. Dolores eos labore sapiente odio porro quos dolore ut vel.</p>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item">
-            <div class="card-v2">
-                <img src="https://picsum.photos/id/821/400/800" alt="random image">
-                <div class="card-content">
-                    <h2>blog</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor quidem quos minus placeat. Rem assumenda magni facilis ipsam quia doloremque quibusdam, debitis voluptatum. Dolores eos labore sapiente odio porro quos dolore ut vel.</p>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item">
-            <div class="card">
-                <img src="https://picsum.photos/id/53/500/400" alt="random image">
-                <div class="card-content">
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat odio accusamus fugiat consequatur quaerat tenetur id, itaque nulla quam perspiciatis numquam velit in maiores voluptas, suscipit iusto reiciendis quis dolorum accusantium. Exercitationem autem quidem cumque velit nisi fugiat voluptatum, rem quasi sint enim atque commodi.</p>
-                </div>
-            </div>
-        </div>
-        <div class="grid-item">
-            <div class="card">
-                <img src="https://picsum.photos/id/235/500/400" alt="random image">
-                <div class="card-content">
-                    <h2>contact</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor quidem quos minus placeat. Rem assumenda magni facilis ipsam quia doloremque quibusdam, debitis voluptatum. Dolores eos labore sapiente odio porro quos dolore ut vel. Lorem ipsum dolor sit amet consectetur adipisicing.</p>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum id modi facilis delectus, necessitatibus est, assumenda sapiente inventore reiciendis, nam vero.</p>
-                </div>
-            </div>
+    <div class="notes-container">
+        <h1><i class="fa fa-book"></i> notes</h1>
+        <button><i class="fa fa-edit"></i> create note</button>
+        <div class="notes">
+            <!-- <p contenteditable="true" class="input-box">
+                <i class="fa fa-trash"></i>
+            </p> -->
         </div>
     </div>
+
+    <script>
+        const notesParent = document.querySelector(".notes");
+        const createButton = document.querySelector("button");
+        let notes = document.querySelectorAll(".input-box");
+        const localStorageFake = "";
+
+        function showNoteS() {
+            notesParent.innerHTML = localStorageFake;
+        }
+
+        showNoteS();
+
+        createButton.addEventListener("click", () => {
+            let inputBox = document.createElement("p");
+            let icon = document.createElement("i");
+            icon.classList.add("fa", "fa-trash");
+            inputBox.appendChild(icon);
+            inputBox.className = "input-box";
+            inputBox.setAttribute("contenteditable", "true");
+            notesParent.appendChild(inputBox);
+        })
+
+        notesParent.addEventListener("click", (e) => {
+            if (e.target.tagName === "I") {
+                e.target.parentElement.remove();
+                updateStorage();
+            } else if (e.target.tagName === "P") {
+                notes = document.querySelectorAll(".input-box");
+                notes.forEach(note => {
+                    note.onkyeup = function () {
+                        updateStorage();
+                    }
+                })
+            }
+        })
+
+        function updateStorage() {
+            localStorageFake = notesParent.innerHTML;
+        }
+    </script>
 </body>
 </html>
