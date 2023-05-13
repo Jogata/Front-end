@@ -65,166 +65,6 @@ font-family: 'Playfair Display', serif;     //400,700
     </style>
 </head>
 <body>
-    <script>
-    // 07. School Camp
-
-    // ⦁	Сезонът – текст - “Winter”, “Spring” или “Summer”;
-    // ⦁	Видът на групата – текст - “boys”, “girls” или “mixed”;
-    // ⦁	Брой на учениците – цяло число в интервала [1 … 10000];
-    // ⦁	Брой на нощувките – цяло число в интервала [1 … 100].
-
-    function calcScollCamp(input) {
-        const season = input[0];
-        const groupType = input[1];
-        const uchenici = Number(input[2]);
-        const nostuvki = Number(input[3]);
-
-        let sport = "";
-        let total = 0;
-
-        if (season == "Winter") {
-            if (groupType == "boys") {
-                total = uchenici * nostuvki * 9.6;
-                sport = "Judo";
-            } else if (groupType == "girls") {
-                total = uchenici * nostuvki * 9.6;
-                sport = "Gymnastics";
-            } else if (groupType == "mixed") {
-                total = uchenici * nostuvki * 10;
-                sport = "Ski";
-            }
-        } else if (season == "Spring") {
-            if (groupType == "boys") {
-                total = uchenici * nostuvki * 7.2;
-                sport = "Tennis";
-            } else if (groupType == "girls") {
-                total = uchenici * nostuvki * 7.2;
-                sport = "Athletics";
-            } else if (groupType == "mixed") {
-                total = uchenici * nostuvki * 9.5;
-                sport = "Cycling";
-            }
-        } else if (season == "Summer") {
-            if (groupType == "boys") {
-                total = uchenici * nostuvki * 15;
-                sport = "Football";
-            } else if (groupType == "girls") {
-                total = uchenici * nostuvki * 15;
-                sport = "Volleyball";
-            } else if (groupType == "mixed") {
-                total = uchenici * nostuvki * 20;
-                sport = "Swimming";
-            }
-        }
-
-        if (uchenici >= 10 && uchenici < 20) {
-            total = total * 0.95;
-        } else if (uchenici >= 20 && uchenici < 50) {
-            total = total * 0.85;
-        } else if (uchenici >= 50) {
-            total = total * 0.5;
-        }
-
-        console.log(`${sport} ${total.toFixed(2)} lv.`);
-    }
-
-    calcScollCamp(["Spring", "girls", "20", "7"]);
-    calcScollCamp(["Winter", "mixed", "9", "15"]);
-    calcScollCamp(["Summer", "boys", "60", "7"]);
-    calcScollCamp(["Spring", "mixed", "17", "14"]);
-
-    // 08. Point on Rectangle Border
-
-    function checkBorder(input) {
-        const x1 = Number(input[0]);
-        const y1 = Number(input[1]);
-        const x2 = Number(input[2]);
-        const y2 = Number(input[3]);
-        const x = Number(input[4]);
-        const y = Number(input[5]);
-
-        if (x === x1 || x === x2) {
-            if (y >= y1 && y <= y2) {
-                console.log("Border");
-            } else {
-                console.log("Inside / Outside");
-            }
-        } else if (y === y1 || y === y2) {
-            if (x >= x1 && x <= x2) {
-                console.log("Border");
-            } else {
-                console.log("Inside / Outside");
-            }
-        } else {
-            console.log("Inside / Outside");
-        }
-    }
-
-    checkBorder(["2", "-3", "12", "3", "8", "-1"]);
-    checkBorder(["2", "-3", "12", "3", "12", "-1"]);
-    </script>
-
-    <script>
-        async function updateLocationById(id, locationObj) {
-  const path = `https://api.boot.dev/v1/courses_rest_api/learn-http/locations/${id}`;
-  const response = await fetch(path, {
-    method: 'PUT',
-    mode: 'cors',
-    headers: getHeaders(),
-    body: JSON.stringify(locationObj)
-  })
-  return response.json();
-}
-
-// Don't touch below this line
-
-const apiKey = generateKey();
-const locationID = '0194fdc2-fa2f-4cc0-81d3-ff12045b73c8';
-
-async function start() {
-    const location = await getLocationById(locationID);
-    console.log(`Location '${location.name}' fetched. Data: ${JSON.stringify(location)}`);
-
-    location.discovered = true;
-    await updateLocationById(locationID, location);
-    console.log(`Location '${location.name}' was discovered!`);
-
-    const updatedLocation = await getLocationById(locationID);
-    console.log(`Location '${updatedLocation.name}' fetched. Data: ${JSON.stringify(updatedLocation)}`);
-}
-
-start();
-
-function generateKey() {
-  const characters = 'ABCDEF0123456789';
-  let result = '';
-  for (let i = 0; i < 16; i++) {
-    result += characters.charAt(Math.floor(Math.random() * characters.length));
-  }
-  return result;
-}
-
-async function getLocationById(id) {
-  const path = `https://api.boot.dev/v1/courses_rest_api/learn-http/locations/${id}`;
-  const response = await fetch(path, {
-    method: 'GET',
-    mode: 'cors',
-    headers: {
-      'X-API-Key': apiKey,
-      'Content-Type': 'application/json'
-    }
-  })
-  return response.json();
-}
-
-function getHeaders() {
-  return {
-    'X-API-Key': apiKey,
-    'Content-Type': 'application/json'
-  }
-}
-    </script>
-
     <header class="header">
         <div class="back-bird left">
             <img src="./img/parallaxIV/white-doves.png" alt="">
@@ -322,5 +162,166 @@ function getHeaders() {
             </figure>
         </div>
     </div>
+
+    <script>
+        // 09. Numbers from 1 to 10
+
+        function logNumberRange() {
+            const range = 10;
+
+            for (let index = 1; index <= range; index++) {
+                console.log(index);
+            }
+        }
+
+        logNumberRange();
+
+        // 10. Multiply by 2
+
+        function multiplyBy2 (input) {
+            for (let index = 0; index < input.length; index++) {
+                if (input[index] >= 0) {                    
+                    const result = Number(input[index]) * 2;
+                    console.log(`Result: ${result.toFixed(2)}`);
+                } else {
+                    console.log("Negative number!");
+                    return;
+                }
+            }
+        }
+
+        multiplyBy2(["12", "43.2144", "12.3", "543.23", "-20"]);
+        multiplyBy2(["23.43", "12.3245", "0", "65.23432", "23", "65", "-12", "34"]);
+        multiplyBy2(["-123"]);
+    </script>
+
+    <script>
+        // 01. Day of Week 
+
+        function displayWeekDay(input) {
+            const index = Number(input[0]);
+            const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+            // if (days[index - 1]) {
+                // console.log(days[index - 1]);
+            // } else {
+                // console.log("Error");
+            // }
+
+            switch (index) {
+                case 1:
+                    console.log(days[0]);
+                    break;
+                case 2:
+                    console.log(days[1]);
+                    break;
+                case 3:
+                    console.log(days[2]);
+                    break;
+                case 4:
+                    console.log(days[3]);
+                    break;
+                case 5:
+                    console.log(days[4]);
+                    break;
+                case 6:
+                    console.log(days[5]);
+                    break;
+                case 7:
+                    console.log(days[6]);
+                    break;
+            
+                default:
+                    console.log("Error");
+                    break;
+            }
+        }
+
+        displayWeekDay(["1"]);
+        displayWeekDay(["2"]);
+        displayWeekDay(["3"]);
+        displayWeekDay(["4"]);
+        displayWeekDay(["5"]);
+        displayWeekDay(["6"]);
+        displayWeekDay(["7"]);
+        displayWeekDay(["-1"]);
+
+        // 02.Weekend or Working Day
+
+        function checkDayOfTheWeek(input) {
+            const dayOfTheWeek = input[0];
+
+            switch (dayOfTheWeek) {
+                case "Monday":
+                case "Tuesday":
+                case "Wednesday":
+                case "Thursday":
+                case "Friday":
+                    console.log("Working day");
+                    break;
+                case "Saturday":
+                case "Sunday":
+                    console.log("Weekend");
+                    break;
+                default:
+                    console.log("Error");
+                    break;
+            }
+        }
+
+        checkDayOfTheWeek(["Monday"]);
+        checkDayOfTheWeek(["Sunday"]);
+        checkDayOfTheWeek(["April"]);
+
+        // 03. Animal Type
+
+        function checkAnimalType(input) {
+            const animal = input[0];
+
+            switch (animal) {
+                case "dog":
+                    console.log("mammal");
+                    break;
+                case "crocodile":
+                case "tortoise":
+                case "snake":
+                    console.log("reptile");
+                    break;
+                default:
+                    console.log("unknown");
+                    break;
+            }
+        }
+
+        checkAnimalType(["dog"]);
+        checkAnimalType(["snake"]);
+        checkAnimalType(["cat"]);
+
+        // 04. Personal Titles
+
+        function createTitle(input) {
+            const age = Number(input[0]);
+            const gender = input[1];
+
+            if (age < 16) {
+                if (gender == "m") {
+                    console.log("Master");
+                } else if (gender == "f") {
+                    console.log("Miss");
+                }
+            } else if (age >= 16) {
+                if (gender == "m") {
+                    console.log("Mr.");
+                } else if (gender == "f") {
+                    console.log("Ms.");
+                }                
+            }
+        }
+
+        createTitle(["12", "f"]);
+        createTitle(["17", "m"]);
+        createTitle(["25", "f"]);
+        createTitle(["13.5", "m"]);
+    </script>
 </body>
 </html>
