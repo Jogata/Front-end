@@ -135,3 +135,158 @@ body {
     left: 90%;
 }
 
+.nav-list {
+    margin-top: 20px;
+}
+.nav-list li {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 0 5px;
+    line-height: 50px;
+}
+.nav-list li a {
+    color: #fff;
+    display: flex;
+    /* align-items: center; */
+    text-transform: capitalize;
+    border-radius: 12px;
+    white-space: nowrap;
+    transition: all 0.4s ease;
+}
+.nav-list li a:hover {
+    color: #11101d;
+    background-color: #fff;
+}
+
+.links-name{
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+.sidebar.active .links-name {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.tooltip {
+    position: absolute;
+    top: 0;
+    left: 122px;
+    width: 122px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    text-transform: capitalize;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transform: translate(-50%, -50%);
+    transition: 0s;
+    opacity: 0;
+    pointer-events: none;
+    display: block;
+}
+li:hover .tooltip {
+    top: 50%;
+    opacity: 1;
+    transition: all 0.5s ease;
+}
+.sidebar.active .tooltip {
+    display: none;
+}
+
+.nav-list i {
+    min-width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 12px;
+}
+
+.profile-content {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+}
+.profile {
+    position: relative;
+    height: 60px;
+    padding: 10px 6px;
+    background-color: #1d1b31;
+    transition: all 0.5s ease;
+}
+.profile-details {
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+}
+.profile-details img {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+.name-job {
+    margin-left: 10px;
+    text-transform: capitalize;
+}
+.name {
+    padding-bottom: 5px;
+    font-size: 15px;
+    font-weight: 400;
+}
+.job {
+    font-size: 12px;
+}
+
+.sidebar.active .profile-details {
+    opacity: 1;
+    pointer-events: all;
+}
+.sidebar.active .profile {
+    background-color: transparent;
+}
+
+.fa-sign-out {
+    position: absolute;
+    left: 50%;
+    bottom: 5px;
+    min-width: 50px;
+    font-size: 20px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 12px;
+    transform: translateX(-50%);
+    transition: all 0.5s ease;
+}
+
+.sidebar.active .fa-sign-out {
+    left: 88%;
+    background-color: #1d1b31;
+}
+
+.home {
+    position: absolute;
+    left: 78px;
+    width: calc(100% - 78px);
+    height: 100%;
+    transition: all 0.5s ease;
+}
+
+.text {
+    margin: 12px;
+    color: #1d1b31;
+    font-size: 25px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.sidebar.active ~ .home {
+    left: 240px;
+    width: calc(100% - 240px);
+}
