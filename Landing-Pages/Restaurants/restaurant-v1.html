@@ -7,111 +7,120 @@
     <title>Restaurant v.1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/style_restaurant-v1.css">
+    <style>
+        body {
+            text-align: center;
+        }
+
+        h1 {
+            margin-block: 3rem;
+            font-size: 3rem;
+            text-align: center;
+            text-transform: capitalize;
+            font-family: Georgia, serif;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-block: 3rem;
+        }
+
+        button {
+            margin: 1rem;
+            padding: 0.4em 1em;
+            font-size: 1.4rem;
+            text-transform: capitalize;
+            border-radius: 2em;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <div class="sidebar">
-        <div class="logo-content">
-            <div class="logo">
-                <i class="fa fa-drupal" aria-hidden="true"></i>
-                <a href="#">logo</a>
-            </div>
-            <i class="fa fa-bars" aria-hidden="true"></i>
-        </div>
-        <ul class="nav-list">
-            <li>
-                <a href="#">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                    <input type="text" name="" id="" placeholder="Search...">
-                </a>
-                <span class="tooltip">search</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-braille" aria-hidden="true"></i>
-                    <span class="links-name">dashboard</span>
-                </a>
-                <span class="tooltip">dashboard</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-user-o" aria-hidden="true"></i>
-                    <span class="links-name">user</span>
-                </a>
-                <span class="tooltip">user</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-comments" aria-hidden="true"></i>
-                    <span class="links-name">chat</span>
-                </a>
-                <span class="tooltip">chat</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-pie-chart" aria-hidden="true"></i>
-                    <span class="links-name">analytics</span>
-                </a>
-                <span class="tooltip">analytics</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-folder-o" aria-hidden="true"></i>
-                    <span class="links-name">file menager</span>
-                </a>
-                <span class="tooltip">file menager</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                    <span class="links-name">order</span>
-                </a>
-                <span class="tooltip">order</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-heart-o" aria-hidden="true"></i>
-                    <span class="links-name">saved</span>
-                </a>
-                <span class="tooltip">saved</span>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-gear" aria-hidden="true"></i>
-                    <span class="links-name">settings</span>
-                </a>
-                <span class="tooltip">settings</span>
-            </li>
-        </ul>
-        <div class="profile-content">
-            <div class="profile">
-                <div class="profile-details">
-                    <img src="../../../CSS/assets/img/profile-copy.jpg" alt="">
-                    <div class="name-job">
-                        <div class="name">ivet lalova</div>
-                        <div class="job">web developer</div>
-                    </div>
-                </div>
-                <i class="fa fa-sign-out" aria-hidden="true"></i>
-            </div>
-        </div>
-    </div>
-    <div class="home">
-        <div class="text">
-            <h1>home content</h1>
-        </div>
-    </div>
+    <h1>rock paper scissors</h1>
+    <button>rock</button>
+    <button>paper</button>
+    <button>scissors</button>
+    <h2 class="result"></h2>
 
     <script>
-        let btn = document.querySelector(".fa-bars");
-        let sidebar = document.querySelector(".sidebar");
-        let searchBtn = document.querySelector(".fa-search");
+        const buttons = document.querySelectorAll("button");
+        const rockBtn = buttons[0];
+        const paperBtn = buttons[1];
+        const scissorsBtn = buttons[2];
 
-        btn.onclick = function () {
-            sidebar.classList.toggle("active");
+        rockBtn.addEventListener("click", rock);
+        paperBtn.addEventListener("click", paper);
+        scissorsBtn.addEventListener("click", scissors);
+
+        function rock() {
+            const computerChoice = generateComputerChoice();
+            
+            let result = "";
+            
+            if (computerChoice == "rock") {
+                result = "Tie.";
+            } else if (computerChoice == "paper") {
+                result = "You lose.";
+            } else if (computerChoice == "scissors") {
+                result = "You win."
+            }
+            
+            dispalyResult(result);
         }
-        
-        searchBtn.onclick = function () {
-            sidebar.classList.toggle("active");
+
+        function paper() {
+            const computerChoice = generateComputerChoice();
+            
+            let result = "";
+            
+            if (computerChoice == "rock") {
+                result = "You win."
+            } else if (computerChoice == "paper") {
+                result = "Tie.";
+            } else if (computerChoice == "scissors") {
+                result = "You lose.";
+            }
+            
+            dispalyResult(result);
+        }
+
+        function scissors() {
+            const computerChoice = generateComputerChoice();
+            
+            let result = "";
+            
+            if (computerChoice == "rock") {
+                result = "You lose.";
+            } else if (computerChoice == "paper") {
+                result = "You win."
+            } else if (computerChoice == "scissors") {
+                result = "Tie.";
+            }
+            
+            dispalyResult(result);
+        }
+
+        function generateComputerChoice() {
+            const randomNumber = Math.ceil(Math.random() * 3);
+
+            let computerChoice = "";
+            
+            if (randomNumber === 1) {
+                computerChoice = "rock";
+            } else if (randomNumber === 2) {
+                computerChoice = "paper";
+            } else if (randomNumber === 3) {
+                computerChoice = "scissors";
+            } else {
+                console.log(`randomNumber is greater than 3`);
+            }
+
+            return computerChoice;
+        }
+
+        function dispalyResult(result) {
+            const panel = document.querySelector("h2");
+            panel.innerText = result;
         }
     </script>
 </body>
