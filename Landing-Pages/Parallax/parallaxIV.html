@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parallax Scrolling Effect</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="./css/styles_parallaxIV.css"> -->
+    <link rel="stylesheet" href="./css/styles_parallaxIV.css">
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Courgette&family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Limelight&family=Lobster&family=Montserrat:wght@300;400;600&family=Oleo+Script+Swash+Caps:wght@400;700&family=Poppins:wght@300;400;700;800&family=Raleway:ital,wght@0,400;1,300;1,600&display=swap');
@@ -52,8 +52,8 @@ font-family: 'Playfair Display', serif;     //400,700
         
         img {
             width: 100%;
-            /* max-width: 350px; */
-            /* border-radius: 5px; */
+            max-width: 350px;
+            border-radius: 5px;
             /* border: 1px solid white; */
         }
 
@@ -62,164 +62,174 @@ font-family: 'Playfair Display', serif;     //400,700
             padding-left: 30px;
             padding-right: 20px;
         }
-
-        .header, .content, .clothes-pics {
-            display: none;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        img {
-            width: 100%;
-            object-fit: cover;
-        }
-
-        body {
-            font-family: Georgia, serif;
-            background-color: #def0f2;
-        }
-
-        .parallax {
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            min-height: 40rem;
-            overflow: hidden;
-        }
-
-        .images {
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .images img {
-            position: absolute;
-            left: 0;
-            height: 130%;
-        }
-
-        .img1 {
-            filter: drop-shadow(0 0 4em #ea8827);
-            z-index: 4;
-        }
-        .img2 {
-            z-index: 3;
-        }
-        .img3 {
-            z-index: 2;
-        }
-        .img4 {
-            z-index: 1;
-        }
-
-        .title {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
-            color: #fff;
-            font-size: 6rem;
-            text-align: center;
-            text-transform: uppercase;
-            text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.7);
-            z-index: 3;
-        }
-
-        .about {
-            position: sticky;
-            top: 0;
-            margin-top: 10rem;
-            padding: 1.5em;
-            color: #fff;
-            text-align: center;
-            background-color: #000;
-            z-index: 2;
-        }
-
-        .about h2 {
-            margin: 3rem 0;
-            font-size: 3rem;
-            text-transform: capitalize;
-        }
-
-        .about p {
-            max-width: max(80%, 35rem);
-            margin: 1rem auto;
-            font-size: 1.2rem;
-            line-height: 34px;
-        }
-
-        hr {
-            margin: 3rem 0;
-        }
-
-        @media screen and (max-width: 600px) {
-            .title {
-                font-size: 3rem;
-            }
-            .about h2 {
-                font-size: 2rem;
-            }
-        }
     </style>
 </head>
 <body>
-    <header class="parallax">
-        <div class="images">
-            <img src="./00/img/desert/layer1.png" alt="Desert" class="img1">
-            <img src="./00/img/desert/layer2.png" alt="Desert" class="img2">
-            <img src="./00/img/desert/layer3.png" alt="Desert" class="img3">
-            <img src="./00/img/desert/layer4.png" alt="Desert" class="img4">
-        </div>
-        <h1 class="title">hisma desert</h1>
-    </header>
-    <section class="about">
-        <h2>about the hisma desert</h2>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis modi sunt autem saepe obcaecati laboriosam eveniet maiores quam molestias temporibus delectus, voluptatem aut id, aspernatur maxime quis praesentium cumque facilis pariatur excepturi. Sed consequatur voluptatum enim molestias at dolorum, obcaecati magni hic praesentium accusantium officia necessitatibus pariatur! Vel, dolore? Perspiciatis aspernatur, dolores similique totam earum ea eum exercitationem, saepe eveniet iste quia ipsam nostrum nihil voluptate officiis quaerat porro ut! Earum saepe officia est quos fugit nesciunt consequatur, nulla voluptatum deserunt sint dicta, unde corrupti. Ipsum corrupti minima ullam velit repellat consequuntur, corporis, ut repellendus omnis architecto vitae odit sint!</p>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perferendis omnis odio sit quisquam dolor, quibusdam aut repellat alias facere, quasi dolores sed mollitia sint tempora iusto praesentium, distinctio corporis odit quam! Vitae, expedita!</p>
-        <hr>
-        <h2>recent activities</h2>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem, architecto. Ab minima nulla inventore. Officia, cum accusantium. Omnis, labore asperiores quidem optio sapiente perspiciatis! Sapiente voluptatum saepe aut veritatis voluptas doloremque fugit maiores, provident et sed qui nam ipsam deleniti optio reprehenderit perferendis, autem atque at laudantium explicabo incidunt magni omnis quae. Exercitationem soluta qui eaque quibusdam? Magnam dolores alias cupiditate quas eaque in debitis magni nihil sunt rerum beatae delectus ipsum quisquam impedit assumenda, aut accusamus expedita.</p>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam vel itaque officia commodi? Beatae, iure eligendi ab non asperiores debitis molestias incidunt omnis deserunt quibusdam reprehenderit recusandae perspiciatis at, tempora maxime repellendus natus deleniti id architecto iusto. Maxime labore nesciunt aperiam tempore expedita ipsa eum ipsam recusandae officiis distinctio nisi debitis velit deserunt consectetur cupiditate est, quo deleniti ipsum eveniet fuga saepe! Animi, modi dicta?</p>
-    </section>
 
     <script>
-        const images = document.querySelectorAll(".images img");
+        // 05. Small Shop
 
-        window.addEventListener("scroll", () => {
-            images[0].style.top = `-${window.scrollY / 1.2}px`;
-            images[1].style.top = `-${window.scrollY / 3.5}px`;
-            images[2].style.top = `-${window.scrollY / 6}px`;
-            images[3].style.top = `-${window.scrollY / 7}px`;
-        })
-    </script>
+        function calcTotalPrice(input) {
+            const product = input[0];
+            const town = input[1];
+            const q = Number(input[2]);
+            let total = 0;
 
-    <script>
-        // 07. Working Hours
-
-        function printWorkingTime(input) {
-            const hour = Number(input[0]);
-            const dayWeek = input[1];
-
-            if (dayWeek == "Sunday") {
-                console.log("closed");
-            } else {
-                if (hour >= 10 && hour <= 18) {
-                    console.log("open");
-                } else {
-                    console.log("closed");
+            if (town == "Sofia") {
+                switch (product) {
+                    case "coffee":
+                        total = q * 0.5;
+                        break;
+                    case "water":
+                        total = q * 0.8;
+                        break;
+                    case "beer":
+                        total = q * 1.2;
+                        break;
+                    case "sweets":
+                        total = q * 1.45;
+                        break;
+                    case "peanuts":
+                        total = q * 1.6;
+                        break;
                 }
+            } else if (town == "Plovdiv") {
+                switch (product) {
+                    case "coffee":
+                        total = q * 0.4;
+                        break;
+                    case "water":
+                        total = q * 0.7;
+                        break;
+                    case "beer":
+                        total = q * 1.15;
+                        break;
+                    case "sweets":
+                        total = q * 1.3;
+                        break;
+                    case "peanuts":
+                        total = q * 1.5;
+                        break;
+                }
+            } else if (town == "Varna") {
+                switch (product) {
+                    case "coffee":
+                        total = q * 0.45;
+                        break;
+                    case "water":
+                        total = q * 0.7;
+                        break;
+                    case "beer":
+                        total = q * 1.1;
+                        break;
+                    case "sweets":
+                        total = q * 1.35;
+                        break;
+                    case "peanuts":
+                        total = q * 1.55;
+                        break;
+                }
+            }
+
+            console.log(total);
+        }
+
+        // 06. Number in Range
+
+        function checkRange(input) {
+            const num = Number(input[0]);
+
+            if (num >= -100 && num <= 100) {
+                if (num !== 0) {
+                    console.log("Yes");
+                } else {
+                    console.log("No");
+                }
+            } else {
+                console.log("No");
             }
         }
 
-        printWorkingTime(["11", "Monday"]);
-        printWorkingTime(["19", "Friday"]);
-        printWorkingTime(["11", "Sunday"]);
+        // 08. Cinema Ticket
+
+        function printTicketPrice(input) {
+            const day = input[0];
+
+            switch (day) {
+                case "Monday":
+                    console.log(12);
+                    break;
+                case "Tuesday": 
+                console.log(12);
+                break;
+                case "Wednesday":
+                    console.log(14);
+                    break;
+                    case "Thursday": 
+                    console.log(14);
+                    break;
+                case "Friday": 
+                    console.log(12);
+                    break;
+                case "Saturday":
+                    console.log(16);
+                    break;
+                case "Sunday": 
+                    console.log(16);
+                    break;
+            }
+        }
+
+        printTicketPrice(["Monday"]);
+        printTicketPrice(["Friday"]);
+        printTicketPrice(["Sunday"]);
+
+        // 09. Fruit or Vegetable
+
+        function printTypeProduct(input) {
+            const product = input[0];
+
+            switch (product) {
+                case "banana": 
+                    console.log("fruit");
+                    break;
+                case "apple": 
+                    console.log("fruit");
+                    break;
+                case "kiwi": 
+                    console.log("fruit");
+                    break;
+                case "cherry": 
+                    console.log("fruit");
+                    break;
+                case "lemon": 
+                    console.log("fruit");
+                    break;
+                case "grapes": 
+                    console.log("fruit");
+                    break;
+                case "tomato": 
+                    console.log("vegetable");
+                    break;
+                case "cucumber": 
+                    console.log("vegetable");
+                    break;
+                case "pepper": 
+                    console.log("vegetable");
+                    break;
+                case "carrot": 
+                    console.log("vegetable");
+                    break;
+                default:
+                    console.log("unknown");
+                    break;
+            }
+        }
+
+        printTypeProduct(["banana"]);
+        printTypeProduct(["apple"]);
+        printTypeProduct(["tomato"]);
+        printTypeProduct(["water"]);
     </script>
 
     <header class="header">
@@ -238,7 +248,7 @@ font-family: 'Playfair Display', serif;     //400,700
     </header>
 
     <script>
-        // window.addEventListener("scroll", parallax);
+        window.addEventListener("scroll", parallax);
 
         // function parallax() {
         //     const title = document.querySelector(".title");
@@ -258,23 +268,23 @@ font-family: 'Playfair Display', serif;     //400,700
         //     backBirdRight.style.transform = `translateY(${backBirdRightPosition}%)`;
         // }
 
-        // function parallax() {
-        //     const title = document.querySelector(".title");
-        //     let titlePosition = Math.max(0, pageYOffset / 12);
-        //     title.style.transform = `translateY(${titlePosition}%)`;
+        function parallax() {
+            const title = document.querySelector(".title");
+            let titlePosition = Math.max(0, pageYOffset / 12);
+            title.style.transform = `translateY(${titlePosition}%)`;
 
-        //     const frontBird = document.querySelector(".front-bird");
-        //     let frontBirdPosition = Math.max(1, (70 - (pageYOffset / 20)));
-        //     frontBird.style.transform = `translateY(${frontBirdPosition}%)`;
+            const frontBird = document.querySelector(".front-bird");
+            let frontBirdPosition = Math.max(1, (70 - (pageYOffset / 20)));
+            frontBird.style.transform = `translateY(${frontBirdPosition}%)`;
             
-        //     const backBirdLeft = document.querySelector(".back-bird.left");
-        //     let backBirdLeftPosition = Math.max(0, pageYOffset / 5);
-        //     backBirdLeft.style.transform = `translateY(${backBirdLeftPosition}%)`;
+            const backBirdLeft = document.querySelector(".back-bird.left");
+            let backBirdLeftPosition = Math.max(0, pageYOffset / 5);
+            backBirdLeft.style.transform = `translateY(${backBirdLeftPosition}%)`;
 
-        //     const backBirdRight = document.querySelector(".back-bird.right");
-        //     let backBirdRightPosition = Math.max(0, pageYOffset / 10);
-        //     backBirdRight.style.transform = `translateY(${backBirdRightPosition}%)`;
-        // }
+            const backBirdRight = document.querySelector(".back-bird.right");
+            let backBirdRightPosition = Math.max(0, pageYOffset / 10);
+            backBirdRight.style.transform = `translateY(${backBirdRightPosition}%)`;
+        }
     </script>
     
     <section class="content">
