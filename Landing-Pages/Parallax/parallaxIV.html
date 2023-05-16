@@ -67,169 +67,159 @@ font-family: 'Playfair Display', serif;     //400,700
 <body>
 
     <script>
-        // 05. Small Shop
+        // 02. Summer Outfit
 
-        function calcTotalPrice(input) {
-            const product = input[0];
-            const town = input[1];
-            const q = Number(input[2]);
-            let total = 0;
+        function chooseOutfit(input) {
+            const degrees = Number(input[0]);
+            const timeOfDay = input[1];
 
-            if (town == "Sofia") {
-                switch (product) {
-                    case "coffee":
-                        total = q * 0.5;
+            let outfit = "";
+            let shoes = "";
+
+            if (degrees >= 10 && degrees <= 18) {
+                switch (timeOfDay) {
+                    case "Morning":
+                        outfit = "Sweatshirt";
+                        shoes = "Sneakers";
                         break;
-                    case "water":
-                        total = q * 0.8;
-                        break;
-                    case "beer":
-                        total = q * 1.2;
-                        break;
-                    case "sweets":
-                        total = q * 1.45;
-                        break;
-                    case "peanuts":
-                        total = q * 1.6;
+                    case "Afternoon":
+                        // outfit = "Shirt";
+                        // shoes = "Moccasins";
+                        // break;
+                    case "Evening":
+                        outfit = "Shirt";
+                        shoes = "Moccasins";
                         break;
                 }
-            } else if (town == "Plovdiv") {
-                switch (product) {
-                    case "coffee":
-                        total = q * 0.4;
+            } else if (degrees > 18 && degrees <= 24) {
+                switch (timeOfDay) {
+                    case "Morning":
+                        outfit = "Shirt";
+                        shoes = "Moccasins";
                         break;
-                    case "water":
-                        total = q * 0.7;
+                    case "Afternoon":
+                        outfit = "T-Shirt";
+                        shoes = "Sandals";
                         break;
-                    case "beer":
-                        total = q * 1.15;
-                        break;
-                    case "sweets":
-                        total = q * 1.3;
-                        break;
-                    case "peanuts":
-                        total = q * 1.5;
+                    case "Evening":
+                        outfit = "Shirt";
+                        shoes = "Moccasins";
                         break;
                 }
-            } else if (town == "Varna") {
-                switch (product) {
-                    case "coffee":
-                        total = q * 0.45;
+            } else if (degrees >= 25) {
+                switch (timeOfDay) {
+                    case "Morning":
+                        outfit = "T-Shirt";
+                        shoes = "Sandals";
                         break;
-                    case "water":
-                        total = q * 0.7;
+                    case "Afternoon":
+                        outfit = "Swim Suit";
+                        shoes = "Barefoot";
                         break;
-                    case "beer":
-                        total = q * 1.1;
-                        break;
-                    case "sweets":
-                        total = q * 1.35;
-                        break;
-                    case "peanuts":
-                        total = q * 1.55;
+                    case "Evening":
+                        outfit = "Shirt";
+                        shoes = "Moccasins";
                         break;
                 }
             }
 
-            console.log(total);
+            console.log(`It's ${degrees} degrees, get your ${outfit} and ${shoes}.`);
         }
 
-        // 06. Number in Range
+        chooseOutfit(["16", "Morning"]);
+        chooseOutfit(["22", "Afternoon"]);
+        chooseOutfit(["28", "Evening"]);
 
-        function checkRange(input) {
-            const num = Number(input[0]);
+        // 12. Trade Commissions
 
-            if (num >= -100 && num <= 100) {
-                if (num !== 0) {
-                    console.log("Yes");
-                } else {
-                    console.log("No");
+        function calc1Commissions(input) {
+            const town = input[0];
+            const sales = Number(input[1]);
+
+            let commission = 0;
+
+            if (sales >= 0 && sales <= 500) {
+                switch (town) {
+                    case "Sofia":
+                        commission = sales * 0.05;
+                        console.log(commission.toFixed(2));
+                        break;
+                        case "Varna":
+                        commission = sales * 0.045;
+                        console.log(commission.toFixed(2));
+                        break;
+                    case "Plovdiv":
+                        commission = sales * 0.055;
+                        console.log(commission.toFixed(2));
+                        break;
+                    default:
+                        console.log("error");
+                        break;
+                }
+            } else if (sales > 500 && sales <= 1000) {
+                switch (town) {
+                    case "Sofia":
+                        commission = sales * 0.07;
+                        console.log(commission.toFixed(2));
+                        break;
+                    case "Varna":
+                        commission = sales * 0.075;
+                        console.log(commission.toFixed(2));
+                        break;
+                    case "Plovdiv":
+                        commission = sales * 0.08;
+                        console.log(commission.toFixed(2));
+                        break;
+                    default:
+                        console.log("error");
+                        break;
+                }
+            } else if (sales > 1000 && sales <= 10000) {
+                switch (town) {
+                    case "Sofia":
+                        commission = sales * 0.08;
+                        console.log(commission.toFixed(2));
+                        break;
+                    case "Varna":
+                        commission = sales * 0.1;
+                        console.log(commission.toFixed(2));
+                        break;
+                    case "Plovdiv":
+                        commission = sales * 0.12;
+                        console.log(commission.toFixed(2));
+                        break;
+                    default:
+                        console.log("error");
+                        break;
+                }
+            } else if (sales > 10000) {
+                switch (town) {
+                    case "Sofia":
+                        commission = sales * 0.12;
+                        console.log(commission.toFixed(2));
+                        break;
+                    case "Varna":
+                        commission = sales * 0.13;
+                        console.log(commission.toFixed(2));
+                        break;
+                    case "Plovdiv":
+                        commission = sales * 0.145;
+                        console.log(commission.toFixed(2));
+                        break;
+                    default:
+                        console.log("error");
+                        break;
                 }
             } else {
-                console.log("No");
+                console.log("error");
             }
         }
 
-        // 08. Cinema Ticket
+        calc1Commissions(["Sofia", "1500"]);
+        calc1Commissions(["Plovdiv", "499.99"]);
+        calc1Commissions(["Varna", "3874.50"]);
+        calc1Commissions(["Varna", "-50"]);
 
-        function printTicketPrice(input) {
-            const day = input[0];
-
-            switch (day) {
-                case "Monday":
-                    console.log(12);
-                    break;
-                case "Tuesday": 
-                console.log(12);
-                break;
-                case "Wednesday":
-                    console.log(14);
-                    break;
-                    case "Thursday": 
-                    console.log(14);
-                    break;
-                case "Friday": 
-                    console.log(12);
-                    break;
-                case "Saturday":
-                    console.log(16);
-                    break;
-                case "Sunday": 
-                    console.log(16);
-                    break;
-            }
-        }
-
-        printTicketPrice(["Monday"]);
-        printTicketPrice(["Friday"]);
-        printTicketPrice(["Sunday"]);
-
-        // 09. Fruit or Vegetable
-
-        function printTypeProduct(input) {
-            const product = input[0];
-
-            switch (product) {
-                case "banana": 
-                    console.log("fruit");
-                    break;
-                case "apple": 
-                    console.log("fruit");
-                    break;
-                case "kiwi": 
-                    console.log("fruit");
-                    break;
-                case "cherry": 
-                    console.log("fruit");
-                    break;
-                case "lemon": 
-                    console.log("fruit");
-                    break;
-                case "grapes": 
-                    console.log("fruit");
-                    break;
-                case "tomato": 
-                    console.log("vegetable");
-                    break;
-                case "cucumber": 
-                    console.log("vegetable");
-                    break;
-                case "pepper": 
-                    console.log("vegetable");
-                    break;
-                case "carrot": 
-                    console.log("vegetable");
-                    break;
-                default:
-                    console.log("unknown");
-                    break;
-            }
-        }
-
-        printTypeProduct(["banana"]);
-        printTypeProduct(["apple"]);
-        printTypeProduct(["tomato"]);
-        printTypeProduct(["water"]);
     </script>
 
     <header class="header">
