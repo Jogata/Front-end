@@ -6,122 +6,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant v.1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./css/style_restaurant-v1.css">
+    <!-- <link rel="stylesheet" href="./css/style_restaurant-v1.css"> -->
     <style>
-        body {
-            text-align: center;
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+    
+            body {
+                color: #fff;
+                font-family: Georgia, serif;
+                background-color: #010001;
+            }
+    
+        .library.visible .item {
+            opacity: 1;
         }
-
-        h1 {
-            margin-block: 3rem;
-            font-size: 3rem;
-            text-align: center;
-            text-transform: capitalize;
-            font-family: Georgia, serif;
-        }
-
-        h2 {
-            font-size: 2.2rem;
-            margin-block: 3rem;
-        }
-
-        button {
-            margin: 1rem;
-            padding: 0.4em 1em;
-            font-size: 1.4rem;
-            text-transform: capitalize;
-            border-radius: 2em;
-            cursor: pointer;
+        .description.visible {
+            transform: translateY(0);
+            opacity: 1;
         }
     </style>
 </head>
 <body>
-    <h1>rock paper scissors</h1>
-    <button>rock</button>
-    <button>paper</button>
-    <button>scissors</button>
-    <h2 class="result"></h2>
+    <div class="container-fuild">
+        <div class="banner">
+            <div class="bg"></div>
+            <h1 class="content">
+                the last of us
+            </h1>
+        </div>
+        <div class="container">
+            <header>
+                <div class="logo">
+                    <a href="#logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/The_Last_of_Us_Fireflies_Logo.svg">
+                    </a>
+                </div>
+                <div class="sign-in">
+                    <button>sign in</button>
+                </div>
+            </header>
+            <nav>
+                <ul>
+                    <li>youtube</li>
+                    <li>facebook</li>
+                    <li>instagram</li>
+                    <li>website</li>
+                </ul>
+            </nav>
+            <div class="library parallax">
+                <div class="item">item1</div>
+                <div class="item">item2</div>
+                <div class="item">item3</div>
+                <div class="item">item4</div>
+            </div>
+            <div class="description parallax">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus officiis voluptatum unde, porro ad earum sequi velit, soluta accusantium dolor rerum perspiciatis dolorum dolores, aut iure minima distinctio dolore deserunt. Delectus inventore explicabo a exercitationem libero iste at omnis reiciendis. In distinctio vero tempora sequi facilis adipisci, ullam voluptatibus quo laudantium exercitationem. Laudantium eius nesciunt molestiae. Doloremque veniam excepturi ducimus illo quisquam voluptatum, nesciunt, consequatur cumque a beatae ipsa ad nulla, labore dignissimos. Reprehenderit, placeat voluptas quae inventore minus tenetur totam. Maxime consectetur tempore assumenda sint dolorum nulla quae quibusdam odio mollitia nesciunt velit atque eaque, deleniti suscipit aliquam cumque, ipsam tenetur pariatur dolorem natus fugiat accusamus ducimus quos error. Consequuntur, voluptatibus voluptatem dolorum quaerat reprehenderit praesentium aperiam fugiat eaque repudiandae ipsam nulla necessitatibus fugit ratione, a nemo quae aliquam quasi ab numquam esse quibusdam qui. Pariatur eveniet assumenda atque dolores inventore velit? Doloremque in illum quae repellendus eveniet sunt excepturi vero dignissimos provident quisquam natus, suscipit quidem, facere esse delectus adipisci. Obcaecati fuga ab iure perspiciatis debitis odit eius assumenda, corporis sapiente, a, provident voluptatibus illum itaque aspernatur unde aut labore accusantium fugit? Minima deleniti, officiis soluta aut sit pariatur nemo, aspernatur ipsum nulla necessitatibus vitae nesciunt cum quos?
+            </div>
+        </div>
+    </div>
 
     <script>
-        const buttons = document.querySelectorAll("button");
-        const rockBtn = buttons[0];
-        const paperBtn = buttons[1];
-        const scissorsBtn = buttons[2];
+        let containerFuild = document.querySelector(".container-fuild");
+        let parallaxItems = document.querySelectorAll(".parallax");
 
-        rockBtn.addEventListener("click", rock);
-        paperBtn.addEventListener("click", paper);
-        scissorsBtn.addEventListener("click", scissors);
+        containerFuild.addEventListener("scroll", () => {
+            parallaxItems.forEach(item => {
+                if (item.offsetTop - containerFuild.scrollTop < window.innerHeight*0.75) {
+                    // console.log(item.offsetTop);
+                    // console.log(containerFuild.scrollTop);
+                    // console.log(window.innerHeight*0.75);
+                    item.classList.add("visible");
+                } else {
+                    item.classList.remove("visible");
+                }
+            })
+        })
+    </script>
 
-        function rock() {
-            const computerChoice = generateComputerChoice();
-            
-            let result = "";
-            
-            if (computerChoice == "rock") {
-                result = "Tie.";
-            } else if (computerChoice == "paper") {
-                result = "You lose.";
-            } else if (computerChoice == "scissors") {
-                result = "You win."
-            }
-            
-            dispalyResult(result);
-        }
+    <script>
+        function logContentType(resp) {
+  console.log(resp.headers.get('content-type'));
+}
 
-        function paper() {
-            const computerChoice = generateComputerChoice();
-            
-            let result = "";
-            
-            if (computerChoice == "rock") {
-                result = "You win."
-            } else if (computerChoice == "paper") {
-                result = "Tie.";
-            } else if (computerChoice == "scissors") {
-                result = "You lose.";
-            }
-            
-            dispalyResult(result);
-        }
+// don't touch below this line
 
-        function scissors() {
-            const computerChoice = generateComputerChoice();
-            
-            let result = "";
-            
-            if (computerChoice == "rock") {
-                result = "You lose.";
-            } else if (computerChoice == "paper") {
-                result = "You win."
-            } else if (computerChoice == "scissors") {
-                result = "Tie.";
-            }
-            
-            dispalyResult(result);
-        }
+const apiKey = generateKey();
+const bootdevAPIDomain = 'api.boot.dev';
 
-        function generateComputerChoice() {
-            const randomNumber = Math.ceil(Math.random() * 3);
+start();
 
-            let computerChoice = "";
-            
-            if (randomNumber === 1) {
-                computerChoice = "rock";
-            } else if (randomNumber === 2) {
-                computerChoice = "paper";
-            } else if (randomNumber === 3) {
-                computerChoice = "scissors";
-            } else {
-                console.log(`randomNumber is greater than 3`);
-            }
+async function start() {
+    const items = await getItemData(bootdevAPIDomain);
+    logContentType(items);
+}
 
-            return computerChoice;
-        }
+async function getItemData(domain) {
+  const response = await fetch(`https://${domain}/v1/courses_rest_api/learn-http/items/0194fdc2-fa2f-4cc0-81d3-ff12045b73c8`, {
+    method: 'GET',
+    mode: 'cors',
+    headers: {
+      'X-API-Key': apiKey,
+      'Content-Type': 'application/json'
+    }
+  })
+  return response;
+}
 
-        function dispalyResult(result) {
-            const panel = document.querySelector("h2");
-            panel.innerText = result;
-        }
+function generateKey() {
+  const characters = 'ABCDEF0123456789';
+  let result = '';
+  for (let i = 0; i < 16; i++) {
+    result += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return result;
+}
     </script>
 </body>
 </html>
