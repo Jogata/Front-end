@@ -6,328 +6,133 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Webstore v.1</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="./css/styles_webstore-v1.css">
+  <!-- <link rel="stylesheet" href="./css/styles_webstore-v1.css"> -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Georgia, serif;
+    }
+
+    .product-reveal {
+      padding: 6em 2em 0 2em;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      background-color: #000;
+      overflow-y: hidden;
+    }
+
+    .product {
+      position: relative;
+    }
+    .product img {
+      width: 80vw;
+      max-width: 600px;
+      animation: fadeup 0.8s ease-out forwards;
+      animation-delay: 0.5s;
+    }
+
+    .spec {
+      position: absolute;
+      width: 1em;
+      height: 1em;
+      border-radius: 50%;
+      background-color: #fff;
+      animation: fadein 0.3s linear forwards;
+      animation-delay: 1.3s;
+    }
+    .spec-text {
+      position: absolute;
+      padding: 0.5em 1em;
+      color: #fff;
+      text-transform: capitalize;
+      border: 1px solid #fff;
+      border-radius: 8px;
+      animation: flicker 0.3s linear forwards;
+      animation-delay: 1.8s;
+    }
+    .spec::before, 
+    .spec::after {
+      position: absolute;
+      top: 50%;
+      content: "";
+      height: 1px;
+      background-color: #fff;
+      animation: flicker 0.3s linear forwards;
+    }
+    .spec::before {
+      animation-delay: 1.5s;
+    }
+    .spec::before {
+      animation-delay: 1.7s;
+    }
+
+    .spec small {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: #fff;
+      animation: pulse 0.7s linear infinite, 
+      fadein 0.3s linear forwards;
+      animation-delay: 0s, 1.3s;
+    }
+
+    .spec1 {
+      top: 13%;
+      right: 25%;
+    }
+    .spec1::before {
+      left: 0;
+      width: 5em;
+    }
+    .spec1::after {
+      left: 5em;
+      width: 3em;
+      transform-origin: 0 0;
+      transform: rotate(-45deg);
+    }
+    .spec1 .spec-text {
+      top: -3.9em;
+      right: -9em;
+    }
+
+  </style>
 </head>
 <body>
-  <div class="product-cards">
-    <div class="product-card card-1">
-      <img src="./test/pngwing.com(5).png" alt="" class="product-img">
-      <div class="card-content">
-        <p class="category">
-          headphones & earbuds
-        </p>
-        <h3 class="product-name">
-          sony ps4 platinum wireless headset
-        </h3>
-        <div class="rating">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-        </div>
+  <section class="product-reveal">
+    <div class="product">
+      <img src="./00/product-spec-reveal-animation/watch.jpg" alt="">
+      <div class="spec spec1">
+        <span class="spec-text">42mm steel case</span>
+        <small></small>
+      </div>
+      <div class="spec spec2">
+        <span class="spec-text">step dial</span>
+        <small></small>
+      </div>
+      <div class="spec spec3">
+        <span class="spec-text">12mm clasp</span>
+        <small></small>
       </div>
     </div>
-    <div class="product-card card-2">
-      <div class="card-content-top">
-        <button class="like">
-          <i class="fa fa-heart"></i>
-        </button>
-        <h3 class="price">
-          644.00$
-        </h3>
-      </div>
-      <img src="./test/Rolex-Watch-PNG-Free-Image.png" alt="" class="product-img">
-      <div class="card-content">
-        <p class="category">
-          accessories
-        </p>
-        <h3 class="product-name">
-          omega planet ocean 600m
-        </h3>
-        <div class="rating">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-        </div>
-        <div class="details">
-          <h3 class="price">
-            1734.00$
-          </h3>
-          <button class="cart">
-            <i class="fa fa-shopping-cart"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="product-card card-3">
-      <div class="ribbon">
-        10% off
-      </div>
-      <img src="./test/vortex-fake.png" alt="" class="product-img">
-      <div class="card-content">
-        <p class="category">
-          laptops & PC's
-        </p>
-        <h3 class="product-name">
-          macbook pro 14
-        </h3>
-        <div class="rating">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-        </div>
-      </div>
-    </div>
-    <div class="product-card card-4">
-      <img src="./test/pngegg(118).png" alt="" class="product-img">
-      <div class="card-content">
-        <h3 class="product-name">
-          vintage coffee pot
-        </h3>
-        <div class="details">
-          <h3 class="price">
-            54.00$
-          </h3>
-          <h3 class="discount">
-            74.00$
-          </h3>
-          <button class="btn">
-            order
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="product-card card-5">
-      <div class="ribbon">new</div>
-      <img src="./test/pngwing.com(13).png" alt="" class="product-img">
-      <div class="card-content">
-        <h3 class="product-name">
-          canon camer 135mm lens
-        </h3>
-        <h3 class="price">
-          554.00$
-        </h3>
-        <button class="btn">
-          order
-        </button>
-      </div>
-    </div>
-    <div class="product-card card-6">
-      <img src="./test/pngwing.com(17).png" alt="" class="product-img">
-      <div class="card-content">
-        <p class="category">
-          mobile devices
-        </p>
-        <h3 class="product-name">
-          apple iPhone 14 black
-        </h3>
-        <div class="rating">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-        </div>
-      </div>
-      <button class="btn">
-        details
-      </button>
-    </div>
-    <div class="product-card card-7">
-      <img src="./test/pngwing.com(23).png" alt="" class="product-img">
-      <div class="card-content">
-        <h3 class="product-name">
-          asba 3 pieces drumset
-        </h3>
-        <div class="rating">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <span class="rating-count">
-            (32)
-          </span>
-        </div>
-        <div class="details">
-          <div>
-            <h2 class="price">
-              532.00$
-            </h2>
-            <p class="shipping">
-              free shipping
-            </p>
-          </div>
-          <div>
-            <button class="cart">
-              <i class="fa fa-shopping-cart"></i>
-            </button>
-            <button class="like">
-              <i class="fa fa-heart"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="product-card card-8">
-      <img src="./test/pngwing.com(33).png" alt="" class="product-img">
-      <div class="card-content">
-        <h3 class="product-name">
-          apple airpods pro
-        </h3>
-        <h2 class="price">
-          349.00$
-          <span>/ piece</span>
-        </h2>
-        <p class="shipping">
-          shipping via fedex
-        </p>
-        <div class="rating">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <span class="rating-count">
-            (32) <span> | orders 87</span>
-          </span>
-        </div>
-      </div>
-    </div>
-    <div class="product-card card-9">
-      <img src="./test/pngegg(115).png" alt="" class="product-img">
-      <div class="card-content">
-        <h3 class="product-name">
-          amd ryzen 7 3700x
-        </h3>
-        <h2 class="price">
-          350.00$
-        </h2>
-        <div class="details">
-          <h3>
-            <span class="discount">
-              450.00$
-            </span>
-            <span class="off">
-              30% off
-            </span>
-          </h3>
-          <p class="stock">
-            27 left
-          </p>
-        </div>
-        <button class="btn btn-block">
-          order
-        </button>
-      </div>
-    </div>
-    <div class="product-card card-10">
-      <div class="ribbon">
-        popular
-      </div>
-      <img src="./test/pngegg(115).png" alt="" class="product-img">
-      <div class="card-content">
-        <p class="category">
-          consoles & games
-        </p>
-        <h3 class="product-name">
-          playstation 5
-        </h3>
-        <div class="details">
-          <h2 class="price">
-            637.00$
-          </h2>
-          <p class="shipping">
-            free shipping
-          </p>
-        </div>
-        <button class="btn btn-block">
-          order
-        </button>
-      </div>
-    </div>
-    <div class="product-card card-11">
-      <div class="ribbon">
-        new
-      </div>
-      <img src="./test/pngegg(115).png" alt="" class="product-img">
-      <div class="card-content">
-        <p class="category">
-          musical instruments
-        </p>
-        <h3 class="product-name">
-          gibson les paul goldtop
-        </h3>
-        <div class="rating">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-        </div>
-        <div class="details">
-          <h2 class="price">
-            1337.00$
-          </h2>
-          <p class="stock">
-            6 left
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="product-card card-12">
-      <img src="./test/pngegg(115).png" alt="" class="product-img">
-      <div class="card-content">
-        <p class="category">
-          clothing & shoes
-        </p>
-        <h3 class="product-name">
-          nike air shoes
-        </h3>
-        <div class="rating">
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <i class="fa fa-star"></i>
-          <span class="rating-count">
-            (14)
-          </span>
-        </div>
-        <div class="details">
-          <h2 class="price">
-            134.00$
-          </h2>
-          <button class="btn">
-            order
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const hearts = document.querySelectorAll(".like");
-
-    hearts.forEach(heart => {
-      heart.addEventListener("click", () => {
-        heart.classList.toggle("liked");
-      })
-    })
-
-    const carts = document.querySelectorAll(".cart");
-
-    carts.forEach(cart => {
-      cart.addEventListener("click", () => {
-        cart.classList.toggle("cart-added");
-      })
-    })
-  </script>
+  </section>
+  <section class="description">
+    <h1>timeless design</h1>
+    <p>The watch features an asymmetrical 42 mm case in stainless steel and is built in the classic 4th generation style that was worn by Apollo 11 astronauts during historys first moon landing. Choose it with hesalite glass with an embossed Seahorse caseback, or the model with sapphire-cristal glass on both sides.</p>
+    <h2>the crew of four</h2>
+    <p>There are four eye-catching models in steel that make up the Speedmaster Moonwatch Master Chronometer collection. The hesalite glass models can be chosen on a nylon fabric strap, or a fully-brushed stainless steel bracelet. The sapphire-cristal models can be selected on a leather strap or a stainless steel bracelet with polished and brushed links.</p>
+    <p>It took 4 years to produce a calibre that could achieve Master Chronometer certification, while also matching the dimensions of the previous Moonwatch movement - the 1861. The new calibre has done exactly that, while improving the power reserve, chronometric performance and magnetic resistance.</p>
+    <p>Taking the levels of luxury into a higher stratosphere, a collection of 18K gold models is also on offer. Whether it's the fiery red of 18K Sedna&trade; Gold. the warmth of 18K Moonshine&trade; Gold or the brilliant white of 18K Canopus&trade; Gold, each model offers the same 4th generation inspiration and Master Chronometer certification.</p>
+  </section>
   <!-- <h1 style="position: absolute; z-index: 1; left: 10%; bottom: 10%; font-size: 3rem;">Object.entries(person) - convert object to array</h1> -->
 
   <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M318h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
