@@ -67,159 +67,157 @@ font-family: 'Playfair Display', serif;     //400,700
 <body>
 
     <script>
-        // 02. Summer Outfit
+        // 11. Fruit Shop
 
-        function chooseOutfit(input) {
-            const degrees = Number(input[0]);
-            const timeOfDay = input[1];
+        function calcPrice(input) {
+            const fruit = input[0];
+            const dayOfWeek = input[1];
+            const q = Number(input[2]);
 
-            let outfit = "";
-            let shoes = "";
+            let total = 0;
 
-            if (degrees >= 10 && degrees <= 18) {
-                switch (timeOfDay) {
-                    case "Morning":
-                        outfit = "Sweatshirt";
-                        shoes = "Sneakers";
+            switch (dayOfWeek) {
+                case "Monday": 
+                case "Tuesday": 
+                case "Wednesday": 
+                case "Thursday": 
+                case "Friday": 
+                switch (fruit) {
+                    case "banana":
+                        total = q * 2.5;
+                        console.log(total.toFixed(2));
                         break;
-                    case "Afternoon":
-                        // outfit = "Shirt";
-                        // shoes = "Moccasins";
-                        // break;
-                    case "Evening":
-                        outfit = "Shirt";
-                        shoes = "Moccasins";
+                    case "apple":
+                        total = q * 1.2;
+                        console.log(total.toFixed(2));
                         break;
-                }
-            } else if (degrees > 18 && degrees <= 24) {
-                switch (timeOfDay) {
-                    case "Morning":
-                        outfit = "Shirt";
-                        shoes = "Moccasins";
+                    case "orange":
+                        total = q * 0.85;
+                        console.log(total.toFixed(2));
                         break;
-                    case "Afternoon":
-                        outfit = "T-Shirt";
-                        shoes = "Sandals";
+                    case "grapefruit":
+                        total = q * 1.45;
+                        console.log(total.toFixed(2));
                         break;
-                    case "Evening":
-                        outfit = "Shirt";
-                        shoes = "Moccasins";
+                    case "kiwi":
+                        total = q * 2.7;
+                        console.log(total.toFixed(2));
                         break;
-                }
-            } else if (degrees >= 25) {
-                switch (timeOfDay) {
-                    case "Morning":
-                        outfit = "T-Shirt";
-                        shoes = "Sandals";
+                    case "pineapple":
+                        total = q * 5.5;
+                        console.log(total.toFixed(2));
                         break;
-                    case "Afternoon":
-                        outfit = "Swim Suit";
-                        shoes = "Barefoot";
-                        break;
-                    case "Evening":
-                        outfit = "Shirt";
-                        shoes = "Moccasins";
-                        break;
-                }
-            }
-
-            console.log(`It's ${degrees} degrees, get your ${outfit} and ${shoes}.`);
-        }
-
-        chooseOutfit(["16", "Morning"]);
-        chooseOutfit(["22", "Afternoon"]);
-        chooseOutfit(["28", "Evening"]);
-
-        // 12. Trade Commissions
-
-        function calc1Commissions(input) {
-            const town = input[0];
-            const sales = Number(input[1]);
-
-            let commission = 0;
-
-            if (sales >= 0 && sales <= 500) {
-                switch (town) {
-                    case "Sofia":
-                        commission = sales * 0.05;
-                        console.log(commission.toFixed(2));
-                        break;
-                        case "Varna":
-                        commission = sales * 0.045;
-                        console.log(commission.toFixed(2));
-                        break;
-                    case "Plovdiv":
-                        commission = sales * 0.055;
-                        console.log(commission.toFixed(2));
+                    case "grapes":
+                        total = q * 3.85;
+                        console.log(total.toFixed(2));
                         break;
                     default:
                         console.log("error");
                         break;
                 }
-            } else if (sales > 500 && sales <= 1000) {
-                switch (town) {
-                    case "Sofia":
-                        commission = sales * 0.07;
-                        console.log(commission.toFixed(2));
+                    break;
+                case "Saturday": 
+                case "Sunday": 
+                switch (fruit) {
+                    case "banana":
+                        total = q * 2.7;
+                        console.log(total.toFixed(2));
                         break;
-                    case "Varna":
-                        commission = sales * 0.075;
-                        console.log(commission.toFixed(2));
+                    case "apple":
+                        total = q * 1.25;
+                        console.log(total.toFixed(2));
                         break;
-                    case "Plovdiv":
-                        commission = sales * 0.08;
-                        console.log(commission.toFixed(2));
+                    case "orange":
+                        total = q * 0.9;
+                        console.log(total.toFixed(2));
                         break;
-                    default:
-                        console.log("error");
+                        case "grapefruit":
+                        total = q * 1.6;
+                        console.log(total.toFixed(2));
                         break;
-                }
-            } else if (sales > 1000 && sales <= 10000) {
-                switch (town) {
-                    case "Sofia":
-                        commission = sales * 0.08;
-                        console.log(commission.toFixed(2));
+                    case "kiwi":
+                        total = q * 3;
+                        console.log(total.toFixed(2));
                         break;
-                    case "Varna":
-                        commission = sales * 0.1;
-                        console.log(commission.toFixed(2));
+                    case "pineapple":
+                        total = q * 5.6;
+                        console.log(total.toFixed(2));
                         break;
-                    case "Plovdiv":
-                        commission = sales * 0.12;
-                        console.log(commission.toFixed(2));
-                        break;
-                    default:
-                        console.log("error");
-                        break;
-                }
-            } else if (sales > 10000) {
-                switch (town) {
-                    case "Sofia":
-                        commission = sales * 0.12;
-                        console.log(commission.toFixed(2));
-                        break;
-                    case "Varna":
-                        commission = sales * 0.13;
-                        console.log(commission.toFixed(2));
-                        break;
-                    case "Plovdiv":
-                        commission = sales * 0.145;
-                        console.log(commission.toFixed(2));
+                    case "grapes":
+                        total = q * 4.2;
+                        console.log(total.toFixed(2));
                         break;
                     default:
                         console.log("error");
                         break;
                 }
-            } else {
-                console.log("error");
+                    break;
+                default:
+                    console.log("error");
+                    break;
             }
         }
 
-        calc1Commissions(["Sofia", "1500"]);
-        calc1Commissions(["Plovdiv", "499.99"]);
-        calc1Commissions(["Varna", "3874.50"]);
-        calc1Commissions(["Varna", "-50"]);
+        calcPrice(["apple", "Tuesday", "2"]);
+        calcPrice(["orange", "Sunday", "3"]);
+        calcPrice(["kiwi", "Monday", "2.5"]);
+        calcPrice(["grapes", "Saturday", "0.5"]);
+        calcPrice(["tomato", "Monday", "0.5"]);
 
+        // 01. Cinema
+
+        // ⦁	Premiere – премиерна прожекция, на цена 12.00 лева.
+        // ⦁	Normal – стандартна прожекция, на цена 7.50 лева.
+        // ⦁	Discount – прожекция за деца, ученици и студенти на намалена цена от 5.00 лева.
+
+        function calcIncome(input) {
+            const type = input[0];
+            const rows = Number(input[1]);
+            const columns = Number(input[2]);
+
+            const totalNumberSeats = rows * columns;
+            let ticketPrice = 0;
+            let income = 0;
+
+            switch (type) {
+                case "Premiere":
+                    ticketPrice = 12;
+                    break;
+                case "Normal":
+                    ticketPrice = 7.5;
+                    break;
+                case "Discount":
+                    ticketPrice = 5;
+                    break;
+            }
+
+            income = totalNumberSeats * ticketPrice;
+
+            console.log(`${income.toFixed(2)} leva`);
+        }
+
+        calcIncome(["Premiere", "10", "12"]);
+        calcIncome(["Normal", "21", "13"]);
+        calcIncome(["Discount", "12", "30"]);
+
+        // 10. Invalid Number
+
+        function printInvalidNumber(input) {
+            const num = Number(input[0]);
+
+            if ((num < 100 || num > 200) && num !== 0) {
+                console.log("invalid");
+            }
+        }
+
+        printInvalidNumber(["75"]);
+        printInvalidNumber(["150"]);
+        printInvalidNumber(["220"]);
+        printInvalidNumber(["199"]);
+        printInvalidNumber(["-1"]);
+        printInvalidNumber(["100"]);
+        printInvalidNumber(["200"]);
+        printInvalidNumber(["0"]);
     </script>
 
     <header class="header">
