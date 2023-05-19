@@ -65,6 +65,169 @@ font-family: 'Playfair Display', serif;     //400,700
     </style>
 </head>
 <body>
+    <script>
+        // 05. Journey
+
+        function calcJourneyExpenses(input) {
+            const budget = Number(input[0]);
+            const season = input[1];
+
+            let destination = "";
+            let place = "";
+            let expenses = 0;
+
+            switch (season) {
+                case "summer":
+                    place = "Camp";
+                    break;
+                case "winter":
+                    place = "Hotel";
+                    break;
+            }
+
+            if (budget <= 100) {
+                destination = "Bulgaria";
+                switch (season) {
+                    case "summer":
+                        expenses = budget * 0.3;
+                        break;
+                    case "winter":
+                        expenses = budget * 0.7;
+                }
+            } else if (budget <= 1000) {
+                destination = "Balkans";
+                switch (season) {
+                    case "summer":
+                        expenses = budget * 0.4;
+                        break;
+                    case "winter":
+                        expenses = budget * 0.8;
+                }
+            } else if (budget > 1000) {
+                destination = "Europe";
+                expenses = budget * 0.9;
+                place = "Hotel";
+            }
+
+            console.log(`Somewhere in ${destination}`);
+            console.log(`${place} - ${expenses.toFixed(2)}`);
+        }
+
+        // calcJourneyExpenses(["50", "summer"]);
+        // calcJourneyExpenses(["75", "winter"]);
+        // calcJourneyExpenses(["312", "summer"]);
+        // calcJourneyExpenses(["678.53", "winter"]);
+        // calcJourneyExpenses(["1500", "summer"]);
+
+        function calcHotelRoomCost(input) {
+            const month = input[0];
+            const rests = Number(input[1]);
+
+            let apPrice = 0;
+            let studioPrice = 0;
+            let apExpenses = 0;
+            let studioExpenses = 0;
+
+            switch (month) {
+                case "May":
+                case "October":
+                    apPrice = 65;
+                    apExpenses = apPrice * rests
+                    studioPrice = 50;
+                    studioExpenses = studioPrice * rests
+                    if (rests > 14) {
+                        studioExpenses *= 0.7;
+                        apExpenses *= 0.9;
+                    } else if (rests > 7) {
+                        studioExpenses *= 0.95;
+                    }
+                    break;
+                case "June":
+                case "September":
+                    apPrice = 68.7;
+                    apExpenses = apPrice * rests
+                    studioPrice = 75.2;
+                    studioExpenses = studioPrice * rests
+                    if (rests > 14) {
+                        studioExpenses *= 0.8;
+                        apExpenses *= 0.9
+                    }
+                    break;
+                case "July":
+                case "August":
+                    apPrice = 77;
+                    apExpenses = apPrice * rests
+                    studioPrice = 76;
+                    studioExpenses = studioPrice * rests
+                    if (rests > 14) {
+                        apExpenses *= 0.9
+                    }
+                    break;
+            }
+
+            console.log(`Apartment: ${apExpenses.toFixed(2)} lv.`);
+            console.log(`Studio: ${studioExpenses.toFixed(2)} lv.`);
+        }
+
+        // calcHotelRoomCost(["May", "15"]);
+        // calcHotelRoomCost(["June", "14"]);
+        // calcHotelRoomCost(["August", "20"]);
+
+        // 08. On Time for the Exam
+
+        function calcArrivalTime(input) {
+            const hE = Number(input[0]);
+            const mE = Number(input[1]);
+            const hA = Number(input[2]);
+            const mA = Number(input[3]);
+
+            const timeExam = hE * 60 + mE;
+            const timeArrival = hA * 60 + mA;
+            
+            if (timeArrival > timeExam) {
+                console.log("Late");
+            } else if (timeExam - timeArrival <= 30) {
+                console.log("On time");
+            } else if (timeExam - timeArrival > 30) {
+                console.log("Early");
+            }
+
+            const timeDifference = timeArrival - timeExam;
+            let hours = Math.floor(Math.abs(timeDifference / 60));
+            let minutes = Math.abs(timeDifference % 60);
+
+            if (hours > 0 && minutes < 10) {
+                minutes = "0" + minutes;
+            }
+
+            // if (hours < 10) {
+            //     hours = "0" + hours;
+            // }
+
+            if (timeDifference >= 1 && timeDifference <= 59) {
+                console.log(`${minutes} minutes after the start`);
+            } else if (timeDifference >= 60) {
+                console.log(`${hours}:${minutes} hours after the start`);
+            } else if (timeDifference >= -59 && timeDifference <= -1) {
+                console.log(`${minutes} minutes before the start`);
+            } else if (timeDifference <= -60) {
+                console.log(`${hours}:${minutes} hours before the start`);
+            }
+        }
+
+        // calcArrivalTime(["9", "30", "9", "50"]);
+        // calcArrivalTime(["9", "00", "8", "30"]);
+        // calcArrivalTime(["16", "00", "15", "00"]);
+        // calcArrivalTime(["9", "00", "10", "30"]);
+        // calcArrivalTime(["14", "00", "13", "55"]);
+        // calcArrivalTime(["11", "30", "8", "12"]);
+        // calcArrivalTime(["10", "00", "10", "00"]);
+        // calcArrivalTime(["11", "30", "10", "55"]);
+        // calcArrivalTime(["11", "30", "12", "29"]);
+
+        // https://github.com/SuperSimpleDev/javascript-course/blob/main/2-copy-of-code/08-rock-paper-scissors.html
+    </script>
+    
     <header class="header">
         <div class="back-bird left">
             <img src="./img/parallaxIV/white-doves.png" alt="">
@@ -162,160 +325,5 @@ font-family: 'Playfair Display', serif;     //400,700
             </figure>
         </div>
     </div>
-
-    <script>
-                // 03. New House
-
-                function calcGardenCost(input) {
-            const flowersType = input[0];
-            const flowersCount = Number(input[1]);
-            const budget = Number(input[2]);
-
-            let total = 0;
-            
-            switch (flowersType) {
-                case "Roses":
-                    total = flowersCount * 5;
-                    if (flowersCount > 80) {
-                        total *= 0.9;
-                    }
-                    break;
-                case "Dahlias":
-                    total = flowersCount * 3.8;
-                    if (flowersCount > 90) {
-                        total *= 0.85;
-                    }
-                    break;
-                case "Tulips":
-                    total = flowersCount * 2.8;
-                    if (flowersCount > 80) {
-                        total *= 0.85;
-                    }
-                    break;
-                case "Narcissus":
-                    total = flowersCount * 3;
-                    if (flowersCount < 120) {
-                        total *= 1.15;
-                    }
-                    break;
-                case "Gladiolus":
-                    total = flowersCount * 2.5;
-                    if (flowersCount < 80) {
-                        total *= 1.2;
-                    }
-                    break;
-            }
-
-            if (total <= budget) {
-                const diff = budget - total;
-                console.log(`Hey, you have a great garden with ${flowersCount} ${flowersType} and ${diff.toFixed(2)} leva left.`);
-            } else {
-                const diff = total - budget;
-                console.log(`Not enough money, you need ${diff.toFixed(2)} leva more.`);
-            }
-        }
-
-        // calcGardenCost(["Roses", "55", "250"]);
-        // calcGardenCost(["Tulips", "88", "260"]);
-        // calcGardenCost(["Narcissus", "119", "360"]);
-
-        // 04. Fishing Boat
-
-        function calcBoatPrice(input) {
-            const budget = Number(input[0]);
-            const season = input[1];
-            const fishermanCount = Number(input[2]);
-
-            let boatRent = 0;
-
-            switch (season) {
-                case "Spring":
-                    boatRent = 3000;
-                    break;
-                case "Summer":
-                case "Autumn":
-                    boatRent = 4200;
-                    break;
-                case "Winter":
-                    boatRent = 2600;
-                    break;
-            }
-
-            if (fishermanCount <= 6) {
-                boatRent *= 0.9;
-            } else if (fishermanCount <= 11) {
-                boatRent *= 0.85;
-            } else if (fishermanCount > 11) {
-                boatRent *= 0.75;
-            }
-
-            if (fishermanCount % 2 === 0) {
-                if (season !== "Autumn") {
-                    boatRent *= 0.95;
-                }
-            }
-
-            if (budget >= boatRent) {
-                const diff = budget - boatRent;
-                console.log(`Yes! You have ${diff.toFixed(2)} leva left.`);
-            } else {
-                const diff = boatRent - budget;
-                console.log(`Not enough money! You need ${diff.toFixed(2)} leva.`);
-            }
-        }
-
-        // calcBoatPrice(["3000", "Summer", "11"]);
-        // calcBoatPrice(["3600", "Autumn", "6"]);
-        // calcBoatPrice(["2000", "Winter", "13"]);
-
-                // 09. Ski Trip
-
-                function calcSkiTrip(input) {
-            const days = Number(input[0]) - 1;
-            const type = input[1];
-            const feedback = input[2];
-
-            let total = 0;
-
-            switch (type) {
-                case "room for one person":
-                    total = days * 18;
-                    break;
-                case "apartment":
-                    total = days * 25;
-                    if (days < 10) {
-                        total *= 0.7; 
-                    } else if (days <= 15) {
-                        total *= 0.65;
-                    } else if (days > 15) {
-                        total *= 0.5;
-                    }
-                    break;
-                case "president apartment":
-                    total = days * 35;
-                    if (days < 10) {
-                        total *= 0.9;
-                    } else if (days <= 15) {
-                        total *= 0.85;
-                    } else if (days > 15) {
-                        total *= 0.8;
-                    }
-                    break;
-            }
-
-            if (feedback == "positive") {
-                total *= 1.25;
-            } else {
-                total *= 0.9;
-            }
-
-            console.log(total.toFixed(2));
-        }
-
-        calcSkiTrip(["14", "apartment", "positive"]);
-        calcSkiTrip(["30", "president apartment", "negative"]);
-        calcSkiTrip(["12", "room for one person", "positive"]);
-        calcSkiTrip(["2", "apartment", "positive"]);
-    </script>
 </body>
 </html>
