@@ -8,123 +8,121 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" href="./css/style_restaurant-v1.css"> -->
     <style>
-      body {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        font-family: Georgia, serif;
-        text-align: center;
-      }
+        body {
+  font-family: Arial;
+}
 
-      h2 {
-        font-size: 2rem;
-      }
-      h2:last-of-type {
-        margin-top: 3rem;
-      }
+.todo-grid,
+.todo-input-grid {
+  display: grid;
+  grid-template-columns: 200px 150px 100px;
+  column-gap: 10px;
+  row-gap: 10px;
+  align-items: center;
+}
 
-      hr {
-        width: 100%;
-        margin: 0.2rem auto;
-        padding: 0;
-        color: #eee;
-      }
+.todo-input-grid {
+  margin-bottom: 10px;
+  align-items: stretch;
+}
 
-      button {
-        padding: 10px 20px;
-        color: #fff;
-        font-size: 1.2rem;
-        font-family: inherit;
-        border: 1px solid #000;
-        border-radius: 2em;
-        background-color: darkcyan;
-        cursor: pointer;
-      }
-      .js-subscribe-button {
-        margin-bottom: 3rem;
-      }
+.name-input,
+.due-date-input {
+  font-size: 15px;
+  padding: 6px;
+}
 
-      div {
-        display: flex;
-        column-gap: 10px;
-      }
+.add-todo-button {
+  background-color: green;
+  color: white;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+}
 
-      input {
-        padding: 13px 17px;
-        border: 1px solid transparent;
-        border-radius: 2em;
-        box-shadow: inset 1px 1px 1px #000;
-      }
-
-      .shipping span {
-        font-size: 2rem;
-        line-height: 0;
-        padding: 0;
-        height: 0;
-        display: inline-block;
-        vertical-align: sub;
-      }
+.delete-todo-button {
+  background-color: darkred;
+  color: white;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
     </style>
 </head>
 <body>
-    <h2>YouTube Subscribe Button</h2>
-    <button onclick="
-      subscribe();
-    " class="js-subscribe-button">
-      Subscribe
-    </button>
+     <h1>Todo List</h1>
 
-    <hr>
-    <hr>
-
-    <h2>Amazon Shipping Calculator</h2>
-    <div>
-      <input placeholder="Cost of order" class="js-cost-input" onkeydown="
-      handleCostKeydown(event);
-    ">
-    <button onclick="
-      calculateTotal();
-    ">Calculate</button>
+    <div class="todo-input-grid">
+      <input placeholder="Todo name"
+        class="js-name-input name-input">
+      <input type="date"
+        class="js-due-date-input due-date-input">
+      <button class="add-todo-button js-add-todo-button">Add</button>
     </div>
-    <p class="shipping"></p>
-    <p class="js-total-cost"></p>
+
+    <div class="js-todo-list todo-grid"></div>
 
     <script>
-      function handleCostKeydown(event) {
-        if (event.key === 'Enter') {
-          calculateTotal();
-        }
-      }
+        const todoList = [{
+  name: 'make dinner',
+  dueDate: '2022-12-22'
+}, {
+  name: 'wash dishes',
+  dueDate: '2022-12-22'
+}];
 
-      function calculateTotal() {
-        const inputElement = document.querySelector('.js-cost-input');
-        let cost = Number(inputElement.value);
+renderTodoList();
 
-        const shipping = document.querySelector(".shipping");
+function renderTodoList() {
+  let todoListHTML = '';
 
-        if (cost < 40) {
-          cost = cost + 10;
-          shipping.innerHTML = "Orders <span>&#155;</span> $40 =<span>&#155;</span> +$10 Shipping";
-        } else {
-          shipping.innerHTML = "Orders <span>&#139;</span> $40 =<span>&#155;</span> $0 Shipping";
-        }
-        
-        document.querySelector('.js-total-cost')
-        .innerHTML = `Total: $${cost}`;
-      }
+  todoList.forEach((todoObject, index) => {
+    const { name, dueDate } = todoObject;
+    const html = `
+      <div>${name}</div>
+      <div>${dueDate}</div>
+      <button class="delete-todo-button js-delete-todo-button">Delete</button> 
+    `;
+    todoListHTML += html;
+  });
 
-      function subscribe() {
-        const buttonElement = document.querySelector('.js-subscribe-button');
+  document.querySelector('.js-todo-list')
+    .innerHTML = todoListHTML;
 
-        if (buttonElement.innerText === 'Subscribe') {
-          buttonElement.innerHTML = 'Subscribed';
-        } else {
-          buttonElement.innerHTML = 'Subscribe';
-        }
-      }
-      
+  document.querySelectorAll('.js-delete-todo-button')
+    .forEach((deleteButton, index) => {
+      deleteButton.addEventListener('click', () => {
+        todoList.splice(index, 1);
+        renderTodoList();
+      });
+    });
+}
+
+document.querySelector('.js-add-todo-button')
+  .addEventListener('click', () => {
+    addTodo();
+  });
+
+function addTodo() {
+  const inputElement = document.querySelector('.js-name-input');
+  const name = inputElement.value;
+
+  const dateInputElement = document.querySelector('.js-due-date-input');
+  const dueDate = dateInputElement.value;
+
+  todoList.push({
+    //name: name,
+    //dueDate: dueDate,
+    name,
+    dueDate
+  });
+
+  inputElement.value = '';
+
+  renderTodoList();
+}
     </script>
 </body>
 </html>
