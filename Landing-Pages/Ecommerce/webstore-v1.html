@@ -8,122 +8,125 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- <link rel="stylesheet" href="./css/styles_webstore-v1.css"> -->
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
-      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-family: Georgia, serif;
-      text-align: center;
-      background-color: rgb(25, 25, 25);
-    }
-    
-    .title {
-      color: black;
-      font-size: 4rem;
-      font-weight: bold;
-      text-shadow: -1px -1px 1px rgba(255,255,255, 0.4);
-    }
-    .title span {
-      font-family: 'Times New Roman', serif;
-    }
-    
-    .move-icon {
-      height: 50px;
-    }
-    .rock {
-      padding-bottom: 10px;
-    }
-    
-    .move-button {
-      border: 3px solid transparent;
-      width: 120px;
-      height: 120px;
-      margin: 10px;
-      border-radius: 50%;
-      background-color: transparent;
-      box-shadow: -2px -2px 2px #fff4, 
-      2px 2px 2px rgba(0, 0, 0, 1);
-      cursor: pointer;
-    }
-    
-    .result {
-      font-size: 25px;
-      font-weight: bold;
-      margin-top: 50px;
+      background-color: #eee;
     }
 
-    .moves {
+    .container {
+      position: relative;
+      width: 60rem;
+      height: 25rem;
+      border: 2px solid #ccc;
+      border-radius: 2rem;
+      background-color: #fff;
+      box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.5);
+    }
+
+    .img-box {
+      position: relative;
+      top: 50%;
+      left: 15%;
+      transform: translate(-15%, -50%);
+      width: 40%;
+      height: 30rem;
+      border: inherit;
+      border-radius: inherit;
+      overflow: hidden;
+    }
+
+    .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .text {
+      position: absolute;
+      top: 0;
+      right: 5%;
+      width: 40%;
+      height: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+    }
+    
+    h1 {
+      color: #1f1f1d;
+      font-size: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+    }
+    span {
+      margin: 0.5rem 0;
+      color: #7c7875;
       font-size: 1.4rem;
+      letter-spacing: 0.1rem;
+      text-transform: uppercase;
     }
-    .moves img {
-      vertical-align: middle;
+    p {
+      color: #7c7875;
+      font-size: 1.2rem;
+      line-height: 1.4;
     }
-    .moves span {
-      padding: 0 20px;
-    }
-    
-    .score {
-      margin-top: 30px;
-    }
-    .score span {
-      padding: 0 10px;
-    }
-    
-    .reset-score-button {
-      color: white;
-      font-size: 15px;
-      padding: 10px 24px;
+
+    button {
+      position: absolute;
+      top: 50%;
+      padding: 0.4em 0.334em 0.6em;
+      color: #000;
+      font-size: 3rem;
+      font-family: initial;
+      line-height: 0;
       border: 1px solid transparent;
-      border-radius: 2em;
-      background-color: transparent;
-      box-shadow: -2px -2px 2px #fff4, 
-      2px 2px 2px rgba(0, 0, 0, 1);
+      border-radius: 50%;
+      background-color: #fff;
+      transition: all 0.4s ease-in-out;
       cursor: pointer;
+    }
+    #prev {
+      left: 0;
+      transform: translate(-50%, -50%);
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+    #next {
+      right: 0;
+      transform: translate(50%, -50%);
+      box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+    #prev:active, 
+    #next:active {
+      scale: 0.98;
+      box-shadow: 0px 0px 0px transparent;
     }
   </style>
 </head>
 <body>
-  <!-- <h1 style="position: absolute; z-index: 1; left: 10%; bottom: 10%; font-size: 3rem;">Object.entries(person) - convert object to array</h1> -->
-
-  <h1 class="title">Rock <span>&#155;</span> Paper <span>&#155;</span> Scissors</h1>
-  <button onclick="
-    playGame('rock');
-  " class="move-button">
-    <img src="./00/rock-paper-scissors/img//rock-emoji.png" class="move-icon">
-  </button>
-
-  <button onclick="
-    playGame('paper');
-  " class="move-button">
-    <img src="./00/rock-paper-scissors/img/paper-emoji.png" class="move-icon">
-  </button>
-
-  <button onclick="
-    playGame('scissors');
-  " class="move-button">
-    <img src="./00/rock-paper-scissors/img//scissors-emoji.png" class="move-icon">
-  </button>
-
-  <p class="js-result result">
-    You win.
-  </p>
-  <p class="js-moves moves">
-    You
-    <img src="./00/rock-paper-scissors/img/rock-emoji.png" alt="" class="move-icon rock">
-    <span>VS.</span>
-    <img src="./00/rock-paper-scissors/img/scissors-emoji.png" alt="" class="move-icon">
-    Computer
-  </p>
-  <p class="js-score score">
-    Wins: 1 <span>/</span> Losses: 0 <span>/</span> Ties: 0
-  </p>
-
-  <button onclick="
-    score.wins = 0;
-    score.losses = 0;
-    score.ties = 0;
-    // localStorage.removeItem('score');
-    // updateScoreElement();
-  " class="reset-score-button">Reset Score</button>
+  <div class="container">
+    <div class="img-box">
+      <img src="../../../CSS/assets/img/profile-copy.jpg" alt="">
+    </div>
+    <div class="text">
+      <h1>Name</h1>
+      <span>profession</span>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur perspiciatis reiciendis atque! Quasi fugit labore provident quaerat dolore autem omnis quo, harum, earum mollitia facere recusandae molestiae optio, facilis velit.</p>
+    </div>
+    <button id="prev">&#139;</button>
+    <button id="next">&#155;</button>
+  </div>
+  <!-- <h1 style="position: absolute; text-align: center; width: 100%; top: 40%; font-size: 3rem;">Object.entries(person) - convert object to array</h1> -->
 
   <!-- <svg class="menu-bars" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="fill: rgb(255, 255, 255);"><path d="M318h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg> -->
 </body>
