@@ -8,121 +8,109 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" href="./css/style_restaurant-v1.css"> -->
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
         body {
-  font-family: Arial;
-}
+            width: 100vw;
+            height: 100vh;
+            background-color: #f24438;
+            display: grid;
+            place-items: center;
+            font-family: Georgia, serif;
+            font-weight: 300;
+            line-height: 1.5;
+        }
 
-.todo-grid,
-.todo-input-grid {
-  display: grid;
-  grid-template-columns: 200px 150px 100px;
-  column-gap: 10px;
-  row-gap: 10px;
-  align-items: center;
-}
+        button {
+            padding: 1rem 3rem;
+            font-size: 1rem;
+            font-weight: normal;
+            font-family: inherit;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border: 1px solid transparent;
+            border-radius: 2em;
+            background-color: transparent;
+            box-shadow: 1px 1px 2px #000, 
+            -1px -1px 2px #fff;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        button:hover {
+            box-shadow: 1px 1px 1px #0006, 
+            -1px -1px 1px #fff6;
+        }
+        button:active {
+            box-shadow: inset 1px 1px 2px #000, 
+            inset -1px -1px 2px #fff;
+        }
 
-.todo-input-grid {
-  margin-bottom: 10px;
-  align-items: stretch;
-}
+        .modal {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            place-items: center;
+            background-color: rgba(0, 0, 0, 0.3);
+            animation: openModal 1s linear forwards;
+        }
+        .close-modal {
+            animation: closeModal 1s linear forwards;
+        }
 
-.name-input,
-.due-date-input {
-  font-size: 15px;
-  padding: 6px;
-}
+        .card {
+            position: relative;
+            width: 50rem;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background-color: #fff;
+        }
 
-.add-todo-button {
-  background-color: green;
-  color: white;
-  border: none;
-  font-size: 15px;
-  cursor: pointer;
-}
+        .fa-times {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            cursor: pointer;
+        }
 
-.delete-todo-button {
-  background-color: darkred;
-  color: white;
-  border: none;
-  font-size: 15px;
-  cursor: pointer;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
+        .brand {
+            width: 30rem;
+        }
+
+        h2 {
+            margin-bottom: 2rem;
+            text-transform: capitalize;
+        }
     </style>
 </head>
 <body>
-     <h1>Todo List</h1>
-
-    <div class="todo-input-grid">
-      <input placeholder="Todo name"
-        class="js-name-input name-input">
-      <input type="date"
-        class="js-due-date-input due-date-input">
-      <button class="add-todo-button js-add-todo-button">Add</button>
+    <button>subscribe</button>
+    <div class="modal">
+        <div class="card">
+            <i class="fa fa-times"></i>
+            <div class="brand">
+                <img src="./../Parallax/img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg" alt="">
+            </div>
+            <div class="info">
+                <h2>subscribe to our newsletters</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus error nihil aperiam quam inventore reiciendis rerum, tempore dolorum voluptas illo.</p>
+                <form action="#">
+                    <input type="email" name="" id="email" placeholder="Email">
+                    <input type="submit" value="subscribe">
+                </form>
+            </div>
+        </div>
     </div>
-
-    <div class="js-todo-list todo-grid"></div>
-
-    <script>
-        const todoList = [{
-  name: 'make dinner',
-  dueDate: '2022-12-22'
-}, {
-  name: 'wash dishes',
-  dueDate: '2022-12-22'
-}];
-
-renderTodoList();
-
-function renderTodoList() {
-  let todoListHTML = '';
-
-  todoList.forEach((todoObject, index) => {
-    const { name, dueDate } = todoObject;
-    const html = `
-      <div>${name}</div>
-      <div>${dueDate}</div>
-      <button class="delete-todo-button js-delete-todo-button">Delete</button> 
-    `;
-    todoListHTML += html;
-  });
-
-  document.querySelector('.js-todo-list')
-    .innerHTML = todoListHTML;
-
-  document.querySelectorAll('.js-delete-todo-button')
-    .forEach((deleteButton, index) => {
-      deleteButton.addEventListener('click', () => {
-        todoList.splice(index, 1);
-        renderTodoList();
-      });
-    });
-}
-
-document.querySelector('.js-add-todo-button')
-  .addEventListener('click', () => {
-    addTodo();
-  });
-
-function addTodo() {
-  const inputElement = document.querySelector('.js-name-input');
-  const name = inputElement.value;
-
-  const dateInputElement = document.querySelector('.js-due-date-input');
-  const dueDate = dateInputElement.value;
-
-  todoList.push({
-    //name: name,
-    //dueDate: dueDate,
-    name,
-    dueDate
-  });
-
-  inputElement.value = '';
-
-  renderTodoList();
-}
-    </script>
 </body>
 </html>
