@@ -92,6 +92,80 @@
             margin-bottom: 2rem;
             text-transform: capitalize;
         }
+
+        form {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        #email {
+            width: 100%;
+            padding: 1rem;
+            outline: 1px solid transparent;
+            border: 1px solid transparent;
+            background-color: #eee;
+        }
+
+        input[type="submit"] {
+            padding: 0 1.6rem;
+            color: #fff;
+            text-transform: capitalize;
+            border: 1px solid transparent;
+            background-color: #f24438;
+        }
+
+        h1 {
+            width: 100%;
+            text-align: center;
+            text-transform: capitalize;
+        }
+
+        @keyframes openModal {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes closeModal {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        @media screen and (max-width: 800px) {
+            .card {
+                width: 80vw;
+                flex-direction: column;
+                text-align: center;
+            }
+            .brand {
+                width: 15rem;
+                height: 15rem;
+                margin-top: 4rem;
+                border-radius: 50%;
+                overflow: hidden;
+            }
+            form {
+                display: block;
+            }
+            input::placeholder {
+                text-align: center;
+            }
+            input[type="submit"] {
+                display: block;
+                width: 100%;
+                margin-top: 0.6rem;
+                padding: 1rem 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -112,5 +186,48 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const openbtn = document.querySelector("button");
+        const closebtn = document.querySelector(".fa-times");
+        const modal = document.querySelector(".modal");
+        const form = document.querySelector("form");
+
+        openbtn.addEventListener("click", openModal);
+
+        function openModal() {
+            modal.style.display = "grid";
+        }
+
+        closebtn.addEventListener("click", closeModal);
+
+        function closeModal() {
+            modal.classList.add("close-modal");
+            setTimeout(() => {
+                modal.style.display = "none";
+                modal.classList.remove("close-modal");
+                // window.location.reload();
+            }, 1000);
+        }
+
+        modal.addEventListener("click", (e) => {
+            if (e.target.classList.contains("modal")) {
+                closeModal();
+            }
+        })
+
+        form.addEventListener("submit", submitForm);
+
+        function submitForm(e) {
+            const card = document.querySelector(".card");
+            card.innerHTML = "<h1>thanks for subscription</h1>";
+            setTimeout(() => {
+                closeModal();
+            }, 1000);
+            setTimeout(() => {
+                window.location.reload();
+            }, 3000);
+        }
+    </script>
 </body>
 </html>
