@@ -8,226 +8,127 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" href="./css/style_restaurant-v1.css"> -->
     <style>
-        * {
+        @import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Babylonica&family=Fraunces:opsz@9..144&family=Herr+Von+Muellerhoff&family=Kaushan+Script&family=Permanent+Marker&family=Playfair+Display:wght@400;700&display=swap');
+        /* 
+        font-family: 'Lemon', cursive;
+        font-family: 'Permanent Marker', cursive;
+        */
+
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        img {
-            display: block;
-            max-width: 100%;
-        }
-
-        body {
-            width: 100vw;
+        .container {
+            /* position: relative; */
+            /* width: 100%; */
             height: 100vh;
-            background-color: #f24438;
-            display: grid;
-            place-items: center;
-            font-family: Georgia, serif;
-            font-weight: 300;
-            line-height: 1.5;
+            background-image: url("../../../CSS/assets/img/lake-17401.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
         }
 
-        button {
-            padding: 1rem 3rem;
-            font-size: 1rem;
-            font-weight: normal;
-            font-family: inherit;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            border: 1px solid transparent;
-            border-radius: 2em;
-            background-color: transparent;
-            box-shadow: 1px 1px 2px #000, 
-            -1px -1px 2px #fff;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        button:hover {
-            box-shadow: 1px 1px 1px #0006, 
-            -1px -1px 1px #fff6;
-        }
-        button:active {
-            box-shadow: inset 1px 1px 2px #000, 
-            inset -1px -1px 2px #fff;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            place-items: center;
-            background-color: rgba(0, 0, 0, 0.3);
-            animation: openModal 1s linear forwards;
-        }
-        .close-modal {
-            animation: closeModal 1s linear forwards;
-        }
-
-        .card {
-            position: relative;
-            width: 50rem;
-            padding: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 2rem;
+        .mask {
+            /* position: relative; */
+            /* width: 100%; */
+            height: 100vh;
             background-color: #fff;
+            background-image: url("../../../CSS/assets/img/paint-mask.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            mix-blend-mode: screen;
         }
 
-        .fa-times {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            cursor: pointer;
-        }
-
-        .brand {
-            width: 30rem;
-        }
-
-        h2 {
-            margin-bottom: 2rem;
-            text-transform: capitalize;
-        }
-
-        form {
-            width: 100%;
+        .text {
             display: flex;
-            justify-content: space-between;
-            margin-top: 2rem;
-        }
-
-        #email {
-            width: 100%;
-            padding: 1rem;
-            outline: 1px solid transparent;
-            border: 1px solid transparent;
-            background-color: #eee;
-        }
-
-        input[type="submit"] {
-            padding: 0 1.6rem;
-            color: #fff;
-            text-transform: capitalize;
-            border: 1px solid transparent;
-            background-color: #f24438;
+            height: 100vh;
+            background-color: #fff;
+            mix-blend-mode: screen;
         }
 
         h1 {
-            width: 100%;
-            text-align: center;
-            text-transform: capitalize;
+            margin: auto;
+            font-size: 12rem;
+            text-transform: uppercase;
+            font-family: 'Lemon', cursive;
+            font-family: 'Permanent Marker', cursive;
         }
 
-        @keyframes openModal {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        .container {
+            display: none;
         }
 
-        @keyframes closeModal {
-            from {
-                opacity: 1;
-            }
-            to {
-                opacity: 0;
-            }
+        body {
+            min-height: 100vh;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        @media screen and (max-width: 800px) {
-            .card {
-                width: 80vw;
-                flex-direction: column;
-                text-align: center;
-            }
-            .brand {
-                width: 15rem;
-                height: 15rem;
-                margin-top: 4rem;
-                border-radius: 50%;
-                overflow: hidden;
-            }
-            form {
-                display: block;
-            }
-            input::placeholder {
-                text-align: center;
-            }
-            input[type="submit"] {
-                display: block;
-                width: 100%;
-                margin-top: 0.6rem;
-                padding: 1rem 0;
+        button {
+            position: relative;
+            padding: 2rem 6rem;
+            color: aquamarine;
+            font-size: 2rem;
+            text-transform: uppercase;
+            font-family: Georgia, serif;
+            border: 1px solid transparent;
+            border-radius: 2em;
+            outline: 1px solid transparent;
+            background-color: transparent;
+            cursor: pointer;
+        }
+        .line {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: inherit;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .line::before {
+            position: absolute;
+            inset: 25% -10%;
+            content: "";
+            background-color: aqua;
+            animation: rotate 3s linear infinite;
+            z-index: -1;
+        }
+        .line::after {
+            position: absolute;
+            inset: 3px;
+            content: "";
+            border-radius: inherit;
+            background-color: #000;
+            z-index: -1;
+        }
+
+        @keyframes rotate {
+            100% {
+                transform: rotate(360deg);
             }
         }
     </style>
 </head>
 <body>
-    <button>subscribe</button>
-    <div class="modal">
-        <div class="card">
-            <i class="fa fa-times"></i>
-            <div class="brand">
-                <img src="./../Parallax/img/parallaxIV/gallery/210603643_1010676219690043_7853467171473160756_n.jpg" alt="">
-            </div>
-            <div class="info">
-                <h2>subscribe to our newsletters</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus error nihil aperiam quam inventore reiciendis rerum, tempore dolorum voluptas illo.</p>
-                <form action="#">
-                    <input type="email" name="" id="email" placeholder="Email">
-                    <input type="submit" value="subscribe">
-                </form>
-            </div>
-        </div>
+    <button>
+        click
+        <div class="line"></div>
+    </button>
+
+    <div class="container">
+        <div class="mask"></div>
     </div>
 
-    <script>
-        const openbtn = document.querySelector("button");
-        const closebtn = document.querySelector(".fa-times");
-        const modal = document.querySelector(".modal");
-        const form = document.querySelector("form");
-
-        openbtn.addEventListener("click", openModal);
-
-        function openModal() {
-            modal.style.display = "grid";
-        }
-
-        closebtn.addEventListener("click", closeModal);
-
-        function closeModal() {
-            modal.classList.add("close-modal");
-            setTimeout(() => {
-                modal.style.display = "none";
-                modal.classList.remove("close-modal");
-                // window.location.reload();
-            }, 1000);
-        }
-
-        modal.addEventListener("click", (e) => {
-            if (e.target.classList.contains("modal")) {
-                closeModal();
-            }
-        })
-
-        form.addEventListener("submit", submitForm);
-
-        function submitForm(e) {
-            const card = document.querySelector(".card");
-            card.innerHTML = "<h1>thanks for subscription</h1>";
-            setTimeout(() => {
-                closeModal();
-            }, 1000);
-            setTimeout(() => {
-                window.location.reload();
-            }, 3000);
-        }
-    </script>
+    <div class="container">
+        <div class="text">
+            <h1>travel</h1>
+        </div>
+    </div>
 </body>
 </html>
